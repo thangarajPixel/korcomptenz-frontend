@@ -1,0 +1,8 @@
+#!/bin/sh
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+COMMIT_MSG=$(cat "$1")
+
+NEW_COMMIT_MSG="$COMMIT_MSG ($BRANCH)"
+
+echo "$NEW_COMMIT_MSG" > "$1"
