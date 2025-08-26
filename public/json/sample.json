@@ -8,5 +8,34 @@
       "cta": ""
     }
   },
-  "footer": {}
+  "footer": {},
+  "slides": [
+    {
+      "title": "Sculpting Electrifying Sound ",
+      "highlightPart1": "as Your OEM Partner.",
+      "description": "As one of India's leading OEMs for electric guitars and stringed instruments, we consistently elevate musical experiences with exceptional craftsmanship.",
+      "cta": "Buy now"
+    },
+    {
+      "title": "Striking the perfect chord",
+      "highlightPart1": "of quality.",
+      "highlightPart2": "Since 1996.",
+      "description": "Echoing Precision & Passion Across the Globe: With nearly three decades of dedication, HMI tunes every detail to craft instruments of excellence.",
+      "cta": "Buy now"
+    },
+    {
+      "title": "Designing Perfection with ",
+      "highlightPart1": "Fine-Tuned",
+      "highlightPart2": "Infrastructure.",
+      "description": "Located in the vibrant port city of Chennai, South India, our advanced infrastructure delivers world-class stringed instruments to customers worldwide.",
+      "cta": "Buy now"
+    },
+    {
+      "title": "Our Legacy Continues - ",
+      "highlightPart1": "Catch Us at",
+      "highlightPart2": "NAMM 2025. ",
+      "description": "Since 2001, we've showcased our craftsmanship at NAMM. Join us in 2025 as we continue our legacy of excellence in musical instruments!",
+      "cta": "Buy now"
+    }
+  ]
 }
