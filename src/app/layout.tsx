@@ -20,9 +20,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en" suppressHydrationWarning>
+      <link rel="icon" href="/assets/logo.png" sizes="any" />
       <body
         className={`${outfitSans.variable} antialiased`}
       >
