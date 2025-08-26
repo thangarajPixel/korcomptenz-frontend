@@ -1,8 +1,8 @@
 "use client"
 
+import KorcomptenzImage from "@/components/korcomptenz-image"
 import { Button } from "@/components/ui/button"
 import { Search, ChevronRight } from "lucide-react"
-import Image from "next/image"
 
 const navigationItems = ["Services", "Industries", "Ecosystems", "Success Stories", "Insights", "About Us", "Careers"]
 
@@ -10,11 +10,11 @@ export function Navbar() {
 
   return (
     <nav className="w-full  sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <div className="flex items-center justify-between h-20 lg:h-25">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Image src="/assets/logo.png" alt="Logo" width={32} height={32} />
+            <KorcomptenzImage src="/assets/logo.png" alt="Logo" width={32} height={32} />
             <span className="text-xl font-semibold text-gray-900">korcomptenz</span>
           </div>
 
