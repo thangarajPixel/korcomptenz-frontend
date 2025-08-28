@@ -1,12 +1,13 @@
 "use client";
 
-import { HeroSection,WeAreKorcomptenzSection } from "./_utils";
+import SlidingSection from "@/components/sliding-section";
+import { WeAreKorcomptenzSection } from "./_utils";
 
 export default function Home() {
   return (
     <div >
-     <HeroSection />
-     <WeAreKorcomptenzSection />
+      <SlidingSection />
+      <WeAreKorcomptenzSection />
     </div>
   );
 }
