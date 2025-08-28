@@ -3,12 +3,87 @@
     "navItems": [],
     "companyDetail": {
       "logo": "",
-      "name": "",
+      "name": "Korcomptenz",
       "description": "",
       "cta": ""
     }
   },
-  "footer": {},
+  "footer": {
+    "address": {
+      "line1": "Korcomptenz Inc,",
+      "line2": "35 Waterview Blv. Ste. 207",
+      "line3": "Parsippany, NJ 07054"
+    },
+    "services": [
+      "AI",
+      "Cloud",
+      "Data & Analytics",
+      "Enterprise Applications",
+      "IoT & Digital Engineering"
+    ],
+    "industries": [
+      "Manufacturing",
+      "Healthcare",
+      "Banking & Financial Services",
+      "Retail & E-Commerce"
+    ],
+    "insights": [
+      "Whitepapers",
+      "Blogs",
+      "eBooks",
+      "Infographics",
+      "Brochures",
+      "Webinars",
+      "Podcasts"
+    ],
+    "aboutUs": [
+      "Our story",
+      "Our journey",
+      "Our mission and vision",
+      "Our leaders"
+    ],
+    "aboutUsNew": [
+      "Korcares (CSR)",
+      "Newsroom",
+      "Events"
+    ],
+    "ecoSystems": {
+      "microsoft": [
+        "Azure",
+        "Dynamics 365",
+        "COPILOT",
+        "Cloud & Application Services",
+        "Modern Workplace",
+        "Managed Services"
+      ],
+      "sap": [
+        "SAP Advisory",
+        "S/4 HANA",
+        "RISE with SAP",
+        "GROW with SAP",
+        "SAP IBP",
+        "BTP Platform"
+      ],
+      "salesforce": [
+        "Salesforce Service Cloud",
+        "Salesforce Sales Cloud",
+        "Salesforce Marketing Cloud",
+        "Salesforce Field Service Cloud",
+        "Salesforce Einstein and Analytics"
+      ],
+      "salesforceNew": [
+        "Salesforce Data Cloud Services",
+        "CRM Rescue and Rapid Response Solutions",
+        "Agentforce Solutions"
+      ]
+    },
+    "copyright": "Copyright © 2025 Korcomptenz.com",
+    "policies": [
+      "Privacy Policy",
+      "Cookie Policy",
+      "Sitemap"
+    ]
+  },
   "slides": [
     {
       "title": "Sculpting Electrifying Sound ",
