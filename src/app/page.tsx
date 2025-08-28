@@ -1,13 +1,16 @@
 "use client";
 
 import SlidingSection from "@/components/sliding-section";
-import { WeAreKorcomptenzSection } from "./_utils";
+
+import {InspireSection,WeAreKorcomptenzSection } from "./_utils";
 
 export default function Home() {
   return (
     <div >
       <SlidingSection />
       <WeAreKorcomptenzSection />
+    
+     <InspireSection />
     </div>
   );
 }
