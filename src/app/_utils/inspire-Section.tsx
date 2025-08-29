@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const InspireSection = () => {
   return (
-    <div className="container mx-auto px-6 pb-16 md:py-36 md:px-40">
+    <div className="container mx-auto px-6  md:px-40">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
         <div className="block xl:hidden text-left md:text-center">
           <h1 className="text-2xl font-bold text-gray-900 text-balance">
