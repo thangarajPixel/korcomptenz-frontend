@@ -1,6 +1,7 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { ChevronRight } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -44,14 +45,14 @@ const InspireSection = () => {
             <h1 className="text-2xl font-bold text-gray-900 mb-6 text-balance">
               Best-in-class solutions for key industry challenges
             </h1>
-            <Button className="Variant:default px-8 py-3  rounded-full">
-              Explore solutions for your industry →
+            <Button className="variant:default px-8 py-3  rounded-full h-12 inline-flex">
+              Explore solutions for your industry <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
             </Button>
           </div>
           <Card className="bg-[#E2EBE4] p-0 h-full">
             <CardContent className="p-6">
               <div className="flex mb-4">
-                <Image
+                <KorcomptenzImage
                   src="/assets/home/Healthcare.png"
                   alt="Healthcare stethoscope"
                   width={300}
@@ -126,8 +127,8 @@ const InspireSection = () => {
         </div>
       </div>
       <div className="flex xl:hidden justify-center w-full mt-8">
-        <Button className="variant:default px-8 py-3 rounded-full">
-          Explore solutions for your industry →
+        <Button className="variant:default px-8 py-3 rounded-full inline-flex">
+          Explore solutions for your industry <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
         </Button>
       </div>
     </div>

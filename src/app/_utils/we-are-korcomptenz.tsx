@@ -14,21 +14,40 @@ const WeAreKorcomptenzSection = () => {
           </h1>
         </div>
 
-        {/* Right Column - Description */}
-        <div className="space-y-5 text-lg leading-relaxed">
-          <p className="text-pretty">
-            We lead with expertise - in technology and domain to deliver solutions that align with your business
-            goals.
-          </p>
-          <p className="text-pretty">
-            We leverage our experience and robust partner ecosystem to elevate your processes, powering your
-            transformation journey toward impactful growth
-          </p>
+          {/* Right Column - Description */}
+          <div className="space-y-5 text-lg leading-relaxed">
+            <p className="text-pretty">
+              We lead with expertise - in technology and domain to deliver solutions that align with your business
+              goals.
+            </p>
+            <p className="text-pretty">
+              We leverage our experience and robust partner ecosystem to elevate your processes, powering your
+              transformation journey toward impactful growth
+            </p>
+          </div>
         </div>
-      </div>
-      <div className='relative'>
-        <KorcomptenzImage src="/assets/home/video-thumb.jpg" className='w-full h-auto rounded-2xl' alt="video-thumb" width={1112} height={607} />
-      </div>
+       <div className="relative">
+ 
+  <KorcomptenzImage
+    src="/assets/home/video-thumb.jpg"
+    className="w-full h-auto rounded-2xl"
+    alt="video-thumb"
+    width={1112}
+    height={607}
+  />
+
+ 
+  <div className="absolute inset-0 flex items-center justify-center">
+    <KorcomptenzImage
+      src="/assets/home/Play button.png"  
+      className="w-12 h-12"
+      alt="play-icon"
+      width={54}
+      height={54}
+    />
+  </div>
+</div>
+
     </div>
   )
 }
