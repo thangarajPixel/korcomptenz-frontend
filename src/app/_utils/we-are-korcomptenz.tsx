@@ -3,16 +3,16 @@ import React from 'react'
 
 const WeAreKorcomptenzSection = () => {
   return (
-    <div className="container mx-auto px-6 md:px-40">
-      <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
-        {/* Left Column - Company Name */}
-        <div>
-          <h1 className="text-2xl lg:text-4xl font-bold leading-tight">
-            We are
-            <br />
-            Korcomptenz
-          </h1>
-        </div>
+    <div className="container mx-auto px-6 py-10 md:py-36 md:px-40">
+       <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+          {/* Left Column - Company Name */}
+          <div>
+            <h1 className="text-2xl lg:text-4xl font-bold leading-tight">
+              We are
+              <br />
+              Korcomptenz
+            </h1>
+          </div>
 
         {/* Right Column - Description */}
         <div className="space-y-5 text-lg leading-relaxed">
