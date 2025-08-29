@@ -10,7 +10,7 @@ import { InsightsSection } from "@/components/insight-section";
 
 export default function Home() {
   return (
-    <div >
+    <div className="flex flex-col gap-16" >
       <SlidingSection />
       <WeAreKorcomptenzSection />
       <InspireSection />

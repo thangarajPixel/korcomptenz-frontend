@@ -36,7 +36,7 @@ const insights: InsightCardType[] = [
 
 export default function InsightsSection() {
   return (
-    <section aria-labelledby="insights-heading" className="mx-auto w-full max-w-6xl px-4 pt-10">
+    <section aria-labelledby="insights-heading" className="mx-auto w-full max-w-6xl px-4 ">
       <div className="flex flex-col items-center gap-6 text-center md:gap-8">
         <motion.h2
           id="insights-heading"
