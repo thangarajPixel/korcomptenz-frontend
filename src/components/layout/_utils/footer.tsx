@@ -49,7 +49,7 @@ export const Footer = () => {
 
 
   return (
-    <footer className="bg-foreground text-white rounded-t-md">
+    <footer className="bg-foreground text-white mt-2">
       <ScheduleCall />
       <div className="container mx-auto max-w-7xl px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
