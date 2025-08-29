@@ -20,8 +20,8 @@ export default function CareersSection() {
                   src="/assets/home/arrow.png"
                   alt="arrow"
                   className="w-full h-auto rounded-lg"
-                  width={1112}
-                  height={607} />
+                  width={500}
+                  height={300} />
               </div>
             </div>
 
