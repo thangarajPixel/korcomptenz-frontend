@@ -1,10 +1,7 @@
 "use client";
 
-import CareersSection from "./_utils/oppurtunities";
+import { CareersSection, InspireSection, ServicesSection, WeAreKorcomptenzSection } from "./_utils";
 import SlidingSection from "@/components/sliding-section";
-
-import { InspireSection } from "./_utils";
-import { WeAreKorcomptenzSection } from "./_utils";
 import StickyCards from "@/components/sticky-cards";
 import { InsightsSection } from "@/components/insight-section";
 
@@ -13,6 +10,7 @@ export default function Home() {
     <div className="flex flex-col gap-16" >
       <SlidingSection />
       <WeAreKorcomptenzSection />
+      <ServicesSection />
       <InspireSection />
       <StickyCards />
       <InsightsSection />

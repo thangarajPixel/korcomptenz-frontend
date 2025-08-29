@@ -7,6 +7,40 @@ import KorcomptenzImage from '@/components/korcomptenz-image';
 import { jsonData } from '@/utils/helper'
 import ScheduleCall from '@/components/layout/_utils/schedule';
 
+type SocialIcons = {
+  id: number;
+  key: string;
+  icon: React.ReactNode;
+  href: string;
+}
+
+export const socialIcons: SocialIcons[] = [
+  {
+    id: 1,
+    key: 'linkedin',
+    icon: <Linkedin />,
+    href: '#',
+  },
+  {
+    id: 2,
+    key: 'youtube',
+    icon: <Youtube />,
+    href: '#',
+  },
+  {
+    id: 3,
+    key: 'facebook',
+    icon: <Facebook />,
+    href: '#',
+  },
+  {
+    id: 4,
+    key: 'instagram',
+    icon: <Instagram />,
+    href: '#',
+  },
+];
+
 export const Footer = () => {
 
   const companyName = jsonData.header.companyDetail.name;
@@ -35,7 +69,7 @@ export const Footer = () => {
             </div>
 
             {/* Social Media Icons */}
-            <div className="flex space-x-4 pt-4">
+            {/* <div className="flex space-x-4 pt-4">
               {[
                 { icon: Linkedin, href: "#" },
                 { icon: Youtube, href: "#" },
@@ -48,6 +82,18 @@ export const Footer = () => {
                   className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-teal-500 hover:scale-110 hover:shadow-lg"
                 >
                   <social.icon className="w-5 h-5" />
+                </Link>
+              ))}
+            </div> */}
+            <div className="flex space-x-4 pt-4">
+              {socialIcons.map((social, index) => (
+                <Link
+                  key={index}
+                  href={social.href}
+                  className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-teal-500 hover:scale-110 hover:shadow-lg"
+                >
+                  {/* <social.icon className="w-5 h-5" /> */}
+                  {social.icon}
                 </Link>
               ))}
             </div>
@@ -148,7 +194,7 @@ export const Footer = () => {
         <div className="pt-8">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {/* About Us */}
-            <section className="space-y-4">
+            <section className="space-y-4" id="About">
               <h4 className="text-teal-400 font-semibold border-b border-teal-400 pb-2">About Us</h4>
               <h4 className="font-semibold">Who we are</h4>
               <ul className="space-y-2">
