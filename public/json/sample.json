@@ -8,7 +8,16 @@
       "cta": ""
     }
   },
+  "careers": {
+    "description": "Then this is the place for you! Work with us to skill yourself in the latest technologies building cutting-edge IT solutions for the world's largest enterprises.",
+    "exploreBtn": "Explore opportunities"
+  },
   "footer": {
+    "scheduleCall": {
+      "title": "Let’s drive",
+      "highlight": "impact-led growth, together.",
+      "cta": "Schedule a Call"
+    },
     "address": {
       "line1": "Korcomptenz Inc,",
       "line2": "35 Waterview Blv. Ste. 207",

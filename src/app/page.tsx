@@ -1,12 +1,14 @@
 "use client";
 
-import { HeroSection,WeAreKorcomptenzSection } from "./_utils";
+import { HeroSection, WeAreKorcomptenzSection } from "./_utils";
+import CareersSection from "./_utils/oppurtunities";
 
 export default function Home() {
   return (
     <div >
-     <HeroSection />
-     <WeAreKorcomptenzSection />
+      <HeroSection />
+      <WeAreKorcomptenzSection />
+      <CareersSection />
     </div>
   );
 }

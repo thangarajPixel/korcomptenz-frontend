@@ -5,6 +5,7 @@ import React from 'react'
 import { Linkedin, Youtube, Facebook, Instagram, ChevronRight } from "lucide-react"
 import KorcomptenzImage from '@/components/korcomptenz-image';
 import { jsonData } from '@/utils/helper'
+import ScheduleCall from '@/components/layout/_utils/schedule';
 
 export const Footer = () => {
 
@@ -14,11 +15,12 @@ export const Footer = () => {
 
 
   return (
-    <footer className="bg-slate-800 text-white">
+    <footer className="bg-foreground text-white rounded-t-md">
+      <ScheduleCall />
       <div className="container mx-auto max-w-7xl px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Company Info */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="flex items-center space-x-2">
                 <KorcomptenzImage src="/assets/logo.png" alt="Logo" width={32} height={32} />
@@ -109,7 +111,7 @@ export const Footer = () => {
           </div>
 
           {/* Additional Links */}
-          <div className="space-y-6">
+          <div className="space-y-4 md:mt-5 lg:mt-0">
             {/* Success Stories */}
             <div>
               <Link href="#" className="flex items-center justify-between space-x-2 group">
@@ -143,8 +145,8 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {/* About Us */}
             <section className="space-y-4">
               <h4 className="text-teal-400 font-semibold border-b border-teal-400 pb-2">About Us</h4>
@@ -177,7 +179,7 @@ export const Footer = () => {
             </section>
 
             {/* Ecosystems - Microsoft */}
-            <section className='lg:col-span-4' >
+            <section className='md:col-span-2 lg:col-span-4' >
               <h4 className="text-teal-400 font-semibold border-b border-teal-400 pb-2">Ecosystems</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-4">
                 <div className="space-y-4">
@@ -231,7 +233,7 @@ export const Footer = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <ul className="space-y-2 sm:mt-10">
+                  <ul className="space-y-2 lg:mt-10">
                     {footer.ecoSystems.salesforceNew.map((item) => (
                       <li key={item}>
                         <Link
