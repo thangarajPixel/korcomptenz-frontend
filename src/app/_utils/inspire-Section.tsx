@@ -12,7 +12,7 @@ const InspireSection = () => {
   return (
     <div className="container mx-auto px-6  md:px-40">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-        <div className="block xl:hidden text-center">
+        <div className="block xl:hidden text-left md:text-center">
           <h1 className="text-2xl font-bold text-gray-900 text-balance">
             Best-in-class solutions for key industry challenges
           </h1>

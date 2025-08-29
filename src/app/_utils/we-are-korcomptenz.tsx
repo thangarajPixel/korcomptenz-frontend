@@ -3,7 +3,7 @@ import React from 'react'
 
 const WeAreKorcomptenzSection = () => {
   return (
-    <div className="container mx-auto px-6 md:px-40">
+    <div className="container mx-auto max-w-5xl px-4 sm:px-6">
       <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
         {/* Left Column - Company Name */}
         <div>

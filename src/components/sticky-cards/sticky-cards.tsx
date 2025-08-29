@@ -38,9 +38,9 @@ const cardData = [
 
 export default function StickyCards({ className }: { className?: string }) {
   return (
-    <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div className="flex justify-between  px-4 xl:mb-[80px] sm:mb-5">
-        <h1 className=" font-semibold text-[42px] leading-[52px] tracking-[0]">
+    <div className="relative container mx-auto max-w-5xl px-4 sm:px-6 space-y-8">
+      <div className="flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-0">
+        <h1 className=" font-semibold text-4xl lg:text-[42px] lg:leading-[52px] tracking-[0]">
           Korcomptenz in action
         </h1>
 
@@ -62,20 +62,20 @@ export default function StickyCards({ className }: { className?: string }) {
           <div className="flex items-center justify-center px-4 md:py-0 py-6">
             <Card
               className={cn(
-                "overflow-hidden bg-gray-50 border-0 w-full  py-0 h-96   shadow-xl",
+                "overflow-hidden bg-gray-50 border-0 w-full py-0 h-auto lg:h-96 shadow-xl",
                 "flex flex-col md:flex-row md:items-stretch rounded-2xl ",
                 className
               )}
             >
               {/* ID */}
-              <div className="hidden md:block text-sm pl-2 pt-8 font-medium text-gray-500 uppercase tracking-wide">
+              <div className="hidden md:block text-sm pl-5 pt-8 font-medium text-gray-500 uppercase tracking-wide">
                 {card.id}
               </div>
 
               {/* Content */}
-              <div className="p-8 flex flex-col justify-between order-2 md:flex-1 md:order-none">
+              <div className="p-2 lg:py-8 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
                 <div className="space-y-4">
-                  <h2 className="text-2xl font-bold text-gray-900 leading-tight">
+                  <h2 className="text-lg lg:text-3xl font-bold text-gray-900 leading-tight">
                     {card.title}
                   </h2>
                   <p className="text-gray-600 leading-relaxed">
@@ -95,11 +95,11 @@ export default function StickyCards({ className }: { className?: string }) {
               {/* Visual Section */}
               <div
                 className={cn(
-                  "relative overflow-hidden h-full order-1 md:h-auto md:w-80 md:flex-shrink-0 md:order-none"
+                  "relative overflow-hidden h-full order-1 md:h-auto md:w-96 md:flex-shrink-0 md:order-none"
                 )}
               >
                 <KorcomptenzImage
-                  className="w-full h-full  object-cover"
+                  className="w-full h-44 md:h-full object-cover"
                   src={card.image}
                   alt={card.title}
                   width={1000}
@@ -110,10 +110,13 @@ export default function StickyCards({ className }: { className?: string }) {
           </div>
         </div>
       ))}
-       <Button className="sm:hidden inline-flex items-center justify-center w-full h-[50px] transition-all duration-300 ease-out hover:bg-white hover:text-primary hover:border-primary border-2 border-transparent">
-  Explore All
-  <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
-</Button>
+
+     <div className="flex items-center justify-center sm:hidden relative top-7">
+      <Button className="inline-flex w-[178px] h-[66px] variant:default">
+          Explore All
+          <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
+        </Button>
+     </div>
 
     </div>
   );
