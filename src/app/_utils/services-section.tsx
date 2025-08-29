@@ -42,14 +42,14 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
   const [value, setValue] = React.useState<TabKey>("microsoft")
 
   return (
-    <section className={cn("w-full my-5 md:my-0", className)}>
+    <section className={cn("container  mx-auto max-w-5xl px-4 sm:px-6 my-5 md:my-0", className)}>
       {/* Top rounded segmented tabs */}
       <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="relative px-2 mx-auto md:mx-0 md:w-full">
         <TabsList
           className={cn(
             "mb-12 relative h-12 sm:h-16 grid max-w-3xl grid-cols-4 overflow-hidden rounded-md",
-            "container mx-auto lg:ml-36 px-4",
-            "bg-[#5b3ff9] p-0 shadow-sm border border-[#5b3ff9]/30"
+            "container mx-auto px-4",
+            "bg-[#5b3ff9] p-0 shadow-sm border border-[#5b3ff9]/30 !ml-0"
           )}
         >
           {TABS.map((t) => (
@@ -76,7 +76,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
       </Tabs>
 
       {/* Two‑column hero; content slides from right into center on tab change */}
-      <div className="relative container mx-auto flex flex-col-reverse max-w-5xl items-center gap-10 px-6 lg:flex-row md:px-24 xl:px-6">
+      <div className="relative container mx-auto flex flex-col-reverse max-w-5xl items-center gap-10 lg:flex-row px-4 sm:px-6">
         {/* Left copy */}
         <AnimatePresence mode="wait">
           <motion.div
