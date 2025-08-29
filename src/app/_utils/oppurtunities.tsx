@@ -8,7 +8,7 @@ import { jsonData } from '@/utils/helper'
 export default function CareersSection() {
   const careers = jsonData.careers
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-white  px-4 sm:px-6 lg:px-8 mb-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
           {/* Left side - Image with geometric elements */}
@@ -84,7 +84,7 @@ export default function CareersSection() {
             </p>
 
             {/* CTA Button */}
-            <Button type="button" size="lg" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <Button type="button" variant="default" size="xl" >
               {careers.exploreBtn}
               <ChevronRight className="ml-2 h-5 w-5 transition-transform" />
             </Button>

@@ -1,0 +1,83 @@
+"use client"
+
+import { useRef, useEffect } from "react"
+import { motion, useMotionValue, useTransform, animate } from "motion/react"
+import Image from "next/image"
+import { cn } from "@/lib/utils"
+
+export type InsightCardType = {
+  id: string
+  title: string
+  imageSrc: string
+  alt: string
+  className?: string
+  category: string
+}
+
+export function InsightCard({ title, imageSrc, alt, className, category }: InsightCardType) {
+  const ref = useRef<HTMLDivElement>(null)
+  const mx = useMotionValue(0)
+  const my = useMotionValue(0)
+  const rotateX = useTransform(my, [-1, 1], [-6, 6])
+  const rotateY = useTransform(mx, [-1, 1], [6, -6])
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const onMove = (e: PointerEvent) => {
+      const r = el.getBoundingClientRect()
+      const px = (e.clientX - r.left) / r.width
+      const py = (e.clientY - r.top) / r.height
+      mx.set((px - 0.5) * 2)
+      my.set((py - 0.5) * 2)
+    }
+    const reset = () => {
+      animate(mx, 0, { duration: 0.25 })
+      animate(my, 0, { duration: 0.25 })
+    }
+    el.addEventListener("pointermove", onMove)
+    el.addEventListener("pointerleave", reset)
+    el.addEventListener("pointerup", reset)
+    return () => {
+      el.removeEventListener("pointermove", onMove)
+      el.removeEventListener("pointerleave", reset)
+      el.removeEventListener("pointerup", reset)
+    }
+  }, [mx, my])
+
+  return (
+    <motion.article
+      ref={ref}
+      className={cn(
+        "group relative bg-card p-3   transition-colors",
+        "hover:ring-black/10",
+        className,
+      )}
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <motion.div
+        className="relative overflow-hidden rounded-2xl"
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      >
+        <span className="pointer-events-none absolute left-3 top-3 z-10 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-gray-700 ring-1 ring-gray-200 backdrop-blur">
+          {category}
+        </span>
+
+        <div className="relative aspect-[4/3] w-full">
+          <Image
+            src={imageSrc || "/placeholder.svg"}
+            alt={alt}
+            fill
+            sizes="(max-width:768px) 100vw, (max-width:1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-300 will-change-transform group-hover:scale-[1.03]"
+            priority={false}
+          />
+        </div>
+      </motion.div>
+
+      <h3 className="mt-4 text-balance text-lg font-semibold leading-6 text-foreground">{title}</h3>
+    </motion.article>
+  )
+}

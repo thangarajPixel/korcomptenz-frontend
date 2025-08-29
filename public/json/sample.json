@@ -98,9 +98,9 @@
       "id": 1,
       "image": "/assets/banner/banner-1.png",
       "alt": "Digital Manufacturing Solutions",
-      "title": "Transform Your Manufacturing",
+      "title": "Delivering",
       "subtitle": "Industry 4.0 Solutions",
-      "description": "Leverage advanced digital technologies to optimize production, reduce downtime, and enhance operational efficiency across your manufacturing processes.",
+      "description": "Expert-led Transformations & Impact-led Growth.",
       "buttonText": "Learn More",
       "buttonAction": "#manufacturing"
     },
@@ -108,9 +108,9 @@
       "id": 2,
       "image": "/assets/banner/banner-2.png",
       "alt": "Innovation Technology",
-      "title": "Future-Ready Innovation",
+      "title": "Inventory gaps. Fulfillment delays.Demand swings.",
       "subtitle": "Next-Gen Technology",
-      "description": "Embrace cutting-edge solutions that drive innovation and position your business at the forefront of technological advancement.",
+      "description": "Respond to market changes with agility by implementing Microsoft Dynamic 365.",
       "buttonText": "Explore Innovation",
       "buttonAction": "#innovation"
     },
@@ -118,9 +118,9 @@
       "id": 3,
       "image": "/assets/banner/banner-3.png",
       "alt": "Supply Chain Management",
-      "title": "Optimize Supply Chain",
+      "title": "A breakdown is an opportunity for a breakthrough",
       "subtitle": "Smart Logistics Solutions",
-      "description": "Streamline your supply chain operations with intelligent systems that provide real-time visibility and predictive analytics.",
+      "description": "Implement SAP Digital Manufacturing solutions to plan better,forecast more accurately and avoid production delays.",
       "buttonText": "Discover Solutions",
       "buttonAction": "#supply-chain"
     },
@@ -128,9 +128,9 @@
       "id": 4,
       "image": "/assets/banner/banner-4.png",
       "alt": "Digital Mobility Solutions",
-      "title": "Enable Digital Mobility",
+      "title": "A million customers isn't scale, it's a million moments to personalize",
       "subtitle": "Anywhere, Anytime Access",
-      "description": "Empower your workforce with mobile-first solutions that enable productivity and collaboration from anywhere in the world.",
+      "description": "Create a unified,360-degree view of each customer to deliver personalized experiences across all touchpoints with Salesforce Customer 360",
       "buttonText": "Get Started",
       "buttonAction": "#mobility"
     }

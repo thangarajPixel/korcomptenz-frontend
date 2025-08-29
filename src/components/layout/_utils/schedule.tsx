@@ -19,7 +19,7 @@ const ScheduleCall = () => {
               <br />
               {footer.scheduleCall.highlight}
             </h2>
-            <Button size="lg" className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-6 cursor-pointer rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg group">
+            <Button size="xl">
               {footer.scheduleCall.cta}
               <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
