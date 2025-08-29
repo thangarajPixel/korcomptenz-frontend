@@ -6,6 +6,7 @@ import SlidingSection from "@/components/sliding-section";
 import { InspireSection } from "./_utils";
 import { WeAreKorcomptenzSection } from "./_utils";
 import StickyCards from "@/components/sticky-cards";
+import { InsightsSection } from "@/components/insight-section";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <WeAreKorcomptenzSection />
       <InspireSection />
       <StickyCards />
+      <InsightsSection />
       <CareersSection />
     </div>
   );
