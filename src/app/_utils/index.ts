@@ -1,4 +1,4 @@
-import {HeroSection} from './hero-section';
 import WeAreKorcomptenzSection from './we-are-korcomptenz'
+import InspireSection from './inspire-Section'
 
-export {HeroSection,WeAreKorcomptenzSection};
+export {WeAreKorcomptenzSection, InspireSection};
