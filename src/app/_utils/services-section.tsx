@@ -49,7 +49,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
           className={cn(
             "mb-12 relative h-12 sm:h-16 grid max-w-3xl grid-cols-4 overflow-hidden rounded-md",
             "container mx-auto lg:ml-36 px-4",
-            "bg-[#5b3ff9] p-1 shadow-sm border border-[#5b3ff9]/30"
+            "bg-[#5b3ff9] p-0 shadow-sm border border-[#5b3ff9]/30"
           )}
         >
           {TABS.map((t) => (
