@@ -1,5 +1,6 @@
 "use client";
 
+import CareersSection from "./_utils/oppurtunities";
 import SlidingSection from "@/components/sliding-section";
 
 import { InspireSection } from "./_utils";
@@ -11,9 +12,9 @@ export default function Home() {
     <div >
       <SlidingSection />
       <WeAreKorcomptenzSection />
-
       <InspireSection />
       <StickyCards />
+      <CareersSection />
     </div>
   );
 }
