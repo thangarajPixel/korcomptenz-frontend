@@ -39,61 +39,61 @@ export function Navbar() {
           : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8  h-[100px] pt-5">
         <div
           className={`flex items-center justify-between transition-all duration-500 ease-out ${isScrolled ? "h-14" : "h-16"}`}
         >
           {/* Logo with enhanced animation */}
           <div className="flex items-center group cursor-pointer">
           <div className="flex items-center space-x-2">
-            <KorcomptenzImage src="/assets/logo.png" alt="Logo" width={32} height={32} />
-            <span className="text-xl font-semibold text-gray-900">korcomptenz</span>
+            <KorcomptenzImage src="/assets/logo.png" alt="Logo" width={36} height={36} />
+            <span className="text-2xl font-semibold text-gray-900">korcomptenz</span>
           </div>
           </div>
 
           {/* Desktop Navigation with Enhanced Mega Menu */}
-          <nav className="hidden lg:flex items-center space-x-8 relative text-[#313941]">
+          <nav className="hidden lg:flex items-center space-x-8 relative text-[#313941] text-md">
 
             {/* Enhanced regular nav items */}
             <a
               href="#Services"
-              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Services
             </a>
             <a
               href="#Industries"
-              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Industries
             </a>
             <a
               href="#Ecosystems"
-              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Ecosystems
             </a>
             <a
               href="#Success"
-              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Success Stories
             </a>
             <a
               href="#Insights"
-              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Insights
             </a>
             <a
               href="#About"
-              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               About Us
             </a>
             <a
               href="#Careers"
-              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Careers
             </a>
@@ -105,7 +105,7 @@ export function Navbar() {
               <Search className="h-5 w-5" />
           </Button>
             <Button
-              className="variant:default inline-flex"
+              className="variant:default inline-flex h-[50px] w-[166px] font-base text-md"
             >
               Contact Us   <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
 

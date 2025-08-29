@@ -49,7 +49,7 @@ export default function SlidingSection() {
           <div className="flex">
             {jsonData.slides.map((slide) => (
               <div key={slide.id} className="flex-[0_0_100%] min-w-0">
-                <div className="relative aspect-[16/9] w-full md:h-auto h-[calc(100vh-65px)] lg:h-[calc(100vh-65px)]">
+                <div className="relative aspect-[16/9] w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]">
                   <KorcomptenzImage
                     src={slide.image || "/placeholder.svg"}
                     alt={slide.alt}
