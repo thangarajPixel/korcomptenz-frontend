@@ -84,7 +84,7 @@ export default function CareersSection() {
             </p>
 
             {/* CTA Button */}
-            <Button type="button" size="lg" className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <Button type="button" variant="default" size="lg" className=" px-8 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg">
               {careers.exploreBtn}
               <ChevronRight className="ml-2 h-5 w-5 transition-transform" />
             </Button>

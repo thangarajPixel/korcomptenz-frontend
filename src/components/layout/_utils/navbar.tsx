@@ -2,8 +2,9 @@
 
 import KorcomptenzImage from "@/components/korcomptenz-image"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Search } from "lucide-react"
+import { Menu, X, Search,ChevronRight } from "lucide-react"
 import React, { useState, useEffect } from "react"
+
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -51,48 +52,48 @@ export function Navbar() {
           </div>
 
           {/* Desktop Navigation with Enhanced Mega Menu */}
-          <nav className="hidden lg:flex items-center space-x-8 relative">
+          <nav className="hidden lg:flex items-center space-x-8 relative text-[#313941]">
 
             {/* Enhanced regular nav items */}
             <a
               href="#Services"
-              className="text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Services
             </a>
             <a
               href="#Industries"
-              className="text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Industries
             </a>
             <a
               href="#Ecosystems"
-              className="text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Ecosystems
             </a>
             <a
               href="#Success"
-              className="text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Success Stories
             </a>
             <a
               href="#Insights"
-              className="text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Insights
             </a>
             <a
               href="#About"
-              className="text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               About Us
             </a>
             <a
               href="#Careers"
-              className="text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
+              className="text-sm font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
             >
               Careers
             </a>
@@ -104,9 +105,10 @@ export function Navbar() {
               <Search className="h-5 w-5" />
           </Button>
             <Button
-              className="transition-all duration-300 ease-out hover:bg-white hover:text-primary"
+              className="variant:default inline-flex"
             >
-              Contact Us
+              Contact Us   <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
+
             </Button>
           </div>
 

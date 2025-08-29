@@ -44,7 +44,7 @@ const InspireSection = () => {
             <h1 className="text-2xl font-bold text-gray-900 mb-6 text-balance">
               Best-in-class solutions for key industry challenges
             </h1>
-            <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3  rounded-full">
+            <Button className="Variant:default px-8 py-3  rounded-full">
               Explore solutions for your industry →
             </Button>
           </div>
@@ -126,7 +126,7 @@ const InspireSection = () => {
         </div>        
       </div>
       <div className="flex xl:hidden justify-center w-full mt-8">
-        <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full">
+        <Button className="variant:default px-8 py-3 rounded-full">
           Explore solutions for your industry →
         </Button>
       </div>
