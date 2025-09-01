@@ -6,13 +6,14 @@ import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 
-type TabKey = "microsoft" | "sap" | "salesforce" | "servicenow"
+type TabKey = "microsoft" | "sap" | "salesforce" | "servicenow" | "aws"
 
 const TABS: { key: TabKey; label: string }[] = [
   { key: "microsoft", label: "Microsoft" },
   { key: "sap", label: "SAP" },
   { key: "salesforce", label: "Salesforce" },
   { key: "servicenow", label: "Service Now" },
+   { key: "aws", label: "AWS" },
 ]
 
 const CONTENT: Record<TabKey, { heading: string; subheading: string, image?: string }> = {
@@ -36,6 +37,11 @@ const CONTENT: Record<TabKey, { heading: string; subheading: string, image?: str
     subheading: "Digitize workflows, automate service delivery, and gain visibility with a secure platform.",
     image: "/assets/home/sap.png",
   },
+  aws: {
+    heading: "Accelerate work on AWS",
+    subheading: "Leverage the power of AWS to drive innovation and efficiency in your organization.",
+    image: "/assets/home/sap.png",
+  }
 }
 
 export function AnimatedTabsHero({ className }: { className?: string }) {
@@ -47,7 +53,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
       <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="relative px-2 mx-auto md:mx-0 md:w-full">
         <TabsList
           className={cn(
-            "mb-12 relative h-12 sm:h-16 grid max-w-3xl grid-cols-4 overflow-hidden rounded-md",
+            "mb-12 relative h-12 sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-md",
             "container mx-auto px-4",
             "bg-[#5b3ff9] p-0 shadow-sm border border-[#5b3ff9]/30 !ml-0"
           )}

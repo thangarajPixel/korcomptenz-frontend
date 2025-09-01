@@ -57,7 +57,7 @@ export default function SlidingSection() {
                     height={1000}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/40 flex items-center">
+                  <div className="absolute inset-0  flex items-center">
                     <div className="container mx-auto px-6 md:px-12">
                       <div className="max-w-2xl text-white">
                         {/* <div className="text-sm font-medium text-green-400 mb-2 tracking-wide uppercase">
@@ -70,7 +70,7 @@ export default function SlidingSection() {
                           {slide.description}
                         </p>
                         <Button
-                          size="lg"
+                          size="xl"
                           variant='white'
                         >
                           {slide.buttonText}

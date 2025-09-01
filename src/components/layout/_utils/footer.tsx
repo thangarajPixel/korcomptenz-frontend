@@ -108,7 +108,7 @@ export const Footer = () => {
                   <li key={service}>
                     <Link
                       href="#"
-                      className="text-slate-300 hover:text-teal-400 hover:translate-x-2 transition-all duration-300 block"
+                      className="text-[#F3F7F4] font-semibold hover:text-teal-400 hover:translate-x-2 transition-all duration-300 block"
                     >
                       {service}
                     </Link>
@@ -127,7 +127,7 @@ export const Footer = () => {
                   <li key={industry}>
                     <Link
                       href="#"
-                      className="text-slate-300 hover:text-teal-400 hover:translate-x-2 transition-all duration-300 block"
+                      className="text-[#F3F7F4] font-semibold hover:text-teal-400 hover:translate-x-2 transition-all duration-300 block"
                     >
                       {industry}
                     </Link>
@@ -146,7 +146,7 @@ export const Footer = () => {
                   <li key={insight}>
                     <Link
                       href="#"
-                      className="text-slate-300 hover:text-teal-400 hover:translate-x-2 transition-all duration-300 block"
+                      className="text-[#F3F7F4] font-semibold hover:text-teal-400 hover:translate-x-2 transition-all duration-300 block"
                     >
                       {insight}
                     </Link>

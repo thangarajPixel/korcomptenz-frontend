@@ -1,11 +1,20 @@
 {
   "header": {
-    "navItems": [],
+    "navItems": [
+       { "label": "Services", "href": "#Services" },
+      { "label": "Industries", "href": "#Industries" },
+      { "label": "Ecosystems", "href": "#Ecosystems" },
+      { "label": "Success Stories", "href": "#Success" },
+      { "label": "Insights", "href": "#Insights" },
+      { "label": "About Us", "href": "#About" },
+      { "label": "Careers", "href": "#Careers" }
+    ],
     "companyDetail": {
-      "logo": "",
       "name": "Korcomptenz",
-      "description": "",
-      "cta": ""
+    "logo": "/assets/logo.png"
+    },"button": {
+      "name": "Contact Us",
+    "href": "/"
     }
   },
   "careers": {
