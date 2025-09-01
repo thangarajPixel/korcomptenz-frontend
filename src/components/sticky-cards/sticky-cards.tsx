@@ -38,86 +38,88 @@ const cardData = [
 
 export default function StickyCards({ className }: { className?: string }) {
   return (
-    <div className="relative container mx-auto max-w-5xl px-4 sm:px-6 space-y-8">
-      <div className="flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-0">
-        <h1 className=" font-semibold text-4xl lg:text-[42px] lg:leading-[52px] tracking-[0]">
-          Korcomptenz in action
-        </h1>
+    <div className="relative">
+      <div className="relative container mx-auto max-w-5xl px-4 sm:px-6 space-y-8">
+        <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-0">
+          <h1 className=" font-semibold text-4xl lg:text-[42px] lg:leading-[52px] tracking-[0]">
+            Korcomptenz in action
+          </h1>
 
-       <Button className="hidden sm:inline-flex  
-                  variant:default" size="xl">
-  Explore All 
-  <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
-</Button>
+          <Button className="hidden sm:inline-flex variant:default" size="xl">
+            Explore All
+            <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
+          </Button>
 
-      </div>
-      {cardData.map((card, index) => (
-        <div
-          key={card.id}
-          className={cn(
-            "sticky top-20",
-            `z-[${index + 10}] sm:mb-12`
-          )}
-        >
-          <div className="flex items-center justify-center px-4 md:py-0 py-6">
-            <Card
-              className={cn(
-                "overflow-hidden bg-gray-50 border-0 w-full py-0 h-auto lg:h-96 shadow-xl",
-                "flex flex-col md:flex-row md:items-stretch rounded-2xl ",
-                className
-              )}
-            >
-              {/* ID */}
-              <div className="hidden md:block text-sm pl-5 pt-8 font-medium text-gray-500 uppercase tracking-wide">
-                {card.id}
-              </div>
-
-              {/* Content */}
-              <div className="p-2 lg:py-8 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
-                <div className="space-y-4">
-                  <h2 className="text-lg lg:text-3xl font-bold text-gray-900 leading-tight">
-                    {card.title}
-                  </h2>
-                  <p className="text-gray-600 leading-relaxed">
-                    {card.description}
-                  </p>
-                </div>
-
-                <Button
-                  size="xl"
-                  className="mt-6 w-fit  variant:default rounded-full px-6"
-                >
-                  {card.buttonText}
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-
-              {/* Visual Section */}
-              <div
+        </div>
+        {cardData.map((card, index) => (
+          <div
+            key={card.id}
+            className={cn(
+              "sticky sm:top-48 top-20",
+              `z-[${index + 10}] sm:mb-12`
+            )}
+          >
+            <div className="flex items-center justify-center px-4 md:py-0 py-6">
+              <Card
                 className={cn(
-                  "relative overflow-hidden h-full order-1 md:h-auto md:w-96 md:flex-shrink-0 md:order-none"
+                  "overflow-hidden bg-gray-50 border-0 w-full py-0 h-auto lg:h-96 shadow-xl",
+                  "flex flex-col md:flex-row md:items-stretch rounded-2xl ",
+                  className
                 )}
               >
-                <KorcomptenzImage
-                  className="w-full h-44 md:h-full object-cover"
-                  src={card.image}
-                  alt={card.title}
-                  width={1000}
-                  height={1000}
-                />
-              </div>
-            </Card>
+                {/* ID */}
+                <div className="hidden md:block text-sm pl-5 pt-8 font-medium text-gray-500 uppercase tracking-wide">
+                  {card.id}
+                </div>
+
+                {/* Content */}
+                <div className="p-2 lg:py-8 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
+                  <div className="space-y-4">
+                    <h2 className="text-lg lg:text-3xl font-bold text-gray-900 leading-tight">
+                      {card.title}
+                    </h2>
+                    <p className="text-gray-600 leading-relaxed">
+                      {card.description}
+                    </p>
+                  </div>
+
+                  <Button
+                    size="xl"
+                    className="mt-6 w-fit  variant:default rounded-full px-6"
+                  >
+                    {card.buttonText}
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+
+                {/* Visual Section */}
+                <div
+                  className={cn(
+                    "relative overflow-hidden h-full order-1 md:h-auto md:w-96 md:flex-shrink-0 md:order-none"
+                  )}
+                >
+                  <KorcomptenzImage
+                    className="w-full h-44 md:h-full object-cover"
+                    src={card.image}
+                    alt={card.title}
+                    width={1000}
+                    height={1000}
+                  />
+                </div>
+              </Card>
+            </div>
           </div>
+        ))}
+
+        <div className="flex items-center justify-center sm:hidden relative top-7">
+          <Button className="inline-flex w-[178px] h-[66px] variant:default">
+            Explore All
+            <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
+          </Button>
         </div>
-      ))}
 
-     <div className="flex items-center justify-center sm:hidden relative top-7">
-      <Button className="inline-flex w-[178px] h-[66px] variant:default">
-          Explore All
-          <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
-        </Button>
-     </div>
-
+      </div>
     </div>
+
   );
 }

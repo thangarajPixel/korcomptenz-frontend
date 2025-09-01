@@ -13,7 +13,7 @@ const TABS: { key: TabKey; label: string }[] = [
   { key: "sap", label: "SAP" },
   { key: "salesforce", label: "Salesforce" },
   { key: "servicenow", label: "Service Now" },
-   { key: "aws", label: "AWS" },
+  { key: "aws", label: "AWS" },
 ]
 
 const CONTENT: Record<TabKey, { heading: string; subheading: string, image?: string }> = {
@@ -48,39 +48,42 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
   const [value, setValue] = React.useState<TabKey>("microsoft")
 
   return (
-    <section className={cn("container  mx-auto max-w-5xl px-4 sm:px-6 my-5 md:my-0", className)}>
+    <section className={cn("my-5 md:my-0", className)}>
       {/* Top rounded segmented tabs */}
-      <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="relative px-2 mx-auto md:mx-0 md:w-full">
-        <TabsList
-          className={cn(
-            "mb-12 relative h-12 sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-md",
-            "container mx-auto px-4",
-            "bg-[#5b3ff9] p-0 shadow-sm border border-[#5b3ff9]/30 !ml-0"
-          )}
-        >
-          {TABS.map((t) => (
-            <TabsTrigger
-              key={t.key}
-              value={t.key}
+      <div className="relative">
+        <div className="container mx-auto flex items-start">
+          <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="container mx-auto max-w-5xl px-4 sm:px-6">
+            <TabsList
               className={cn(
-                "relative z-10 rounded-md px-6 py-2 text-xs sm:text-base font-semibold text-white transition",
-                "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
+                "mb-12 relative  h-12 sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-xl",
+                "container mx-auto px-4",
+                "bg-secondary p-0 shadow-none border-none !ml-0"
               )}
             >
-              <span className="z-50">{t.label}</span>
-              {value === t.key && (
-                <motion.div
-                  layoutId="active-pill"
-                  transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                  className="absolute inset-0 z-0 rounded-md bg-secondary-foreground"
-                />
-              )}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-        <div className="h-0.5 w-2/4 bg-[#5b3ff9] absolute top-1/4 right-0"></div>
-      </Tabs>
-
+              {TABS.map((t) => (
+                <TabsTrigger
+                  key={t.key}
+                  value={t.key}
+                  className={cn(
+                    "relative !cursor-pointer z-10 rounded-none px-6 py-2 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
+                    "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
+                  )}
+                >
+                  <span className="z-50">{t.label}</span>
+                  {value === t.key && (
+                    <motion.div
+                      layoutId="active-pill"
+                      transition={{ type: "spring", stiffness: 120, damping: 20 }}
+                      className="absolute inset-0 z-0 rounded-md bg-secondary-foreground"
+                    />
+                  )}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
+        </div>
+        <div className="h-0.5 w-2/4 bg-secondary absolute top-1/4 right-0" />
+      </div>
       {/* Two‑column hero; content slides from right into center on tab change */}
       <div className="relative container mx-auto flex flex-col-reverse max-w-5xl items-center gap-10 lg:flex-row px-4 sm:px-6">
         {/* Left copy */}
