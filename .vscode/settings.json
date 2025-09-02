@@ -22,6 +22,7 @@
   "editor.codeActionsOnSave": [
     "source.addMissingImports",
     "source.fixAll.eslint",
+    "source.fixAll.tailwindcss",
     "source.fixAll.oxlint"
   ],
   "oxlint.enable": true,

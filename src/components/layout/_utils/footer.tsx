@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import React from 'react'
-import {  ChevronRight } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import KorcomptenzImage from '@/components/korcomptenz-image';
 import { jsonData } from '@/utils/helper'
 import ScheduleCall from '@/components/layout/_utils/schedule';
@@ -40,7 +40,7 @@ export const socialIcons: SocialIcons[] = [
     icon: <InstagramIcon />,
     href: '#',
   },
-    {
+  {
     id: 5,
     key: 'twitter',
     icon: <TwitterIcon />,
@@ -58,7 +58,7 @@ export const Footer = () => {
   return (
     <footer className="bg-foreground text-white mt-2">
       <ScheduleCall />
-      <div className="container mx-auto max-w-7xl px-6 py-12">
+      <div className="container-lg">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="space-y-4">

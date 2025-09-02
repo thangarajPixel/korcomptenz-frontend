@@ -34,17 +34,15 @@ export function Navbar() {
   return (
     <React.Fragment>
       <header
-        className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out ${
-          isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-lg supports-[backdrop-filter]:bg-background/80"
-            : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
-        }`}
+        className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out ${isScrolled
+          ? "bg-background/95 backdrop-blur-md shadow-lg supports-[backdrop-filter]:bg-background/80"
+          : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+          }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8  h-[100px] pt-5">
+        <div className="container-nav h-[100px] pt-5">
           <div
-            className={`flex items-center justify-between transition-all duration-500 ease-out ${
-              isScrolled ? "h-14" : "h-16"
-            }`}
+            className={` flex items-center justify-between transition-all duration-500 ease-out ${isScrolled ? "h-14" : "h-16"
+              }`}
           >
             {/* Logo with enhanced animation */}
             <div className="flex items-center group cursor-pointer">
@@ -62,7 +60,7 @@ export function Navbar() {
             </div>
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
-            <nav className="hidden lg:flex items-center space-x-8 relative text-[#313941] text-md">
+            <nav className="hidden lg:flex items-center space-x-7 relative text-[#313941] text-md">
               {jsonData.header.navItems.map((item, index) => (
                 <a
                   key={index}
@@ -155,18 +153,16 @@ export function Navbar() {
               >
                 <div className="relative w-6 h-6">
                   <Menu
-                    className={`absolute inset-0 h-6 w-6 transition-all duration-500 ease-out ${
-                      isMenuOpen
-                        ? "opacity-0 rotate-180 scale-75"
-                        : "opacity-100 rotate-0 scale-100"
-                    }`}
+                    className={`absolute inset-0 h-6 w-6 transition-all duration-500 ease-out ${isMenuOpen
+                      ? "opacity-0 rotate-180 scale-75"
+                      : "opacity-100 rotate-0 scale-100"
+                      }`}
                   />
                   <X
-                    className={`absolute inset-0 h-6 w-6 transition-all duration-500 ease-out ${
-                      isMenuOpen
-                        ? "opacity-100 rotate-0 scale-100"
-                        : "opacity-0 -rotate-180 scale-75"
-                    }`}
+                    className={`absolute inset-0 h-6 w-6 transition-all duration-500 ease-out ${isMenuOpen
+                      ? "opacity-100 rotate-0 scale-100"
+                      : "opacity-0 -rotate-180 scale-75"
+                      }`}
                   />
                 </div>
               </button>
@@ -177,35 +173,31 @@ export function Navbar() {
 
       {/* Enhanced Mobile Menu with smooth animations */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ease-out ${
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ease-out ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
       >
         {/* Enhanced Backdrop with animation */}
         <div
-          className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-500 ease-out ${
-            isMenuOpen ? "opacity-100" : "opacity-0"
-          }`}
+          className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-500 ease-out ${isMenuOpen ? "opacity-100" : "opacity-0"
+            }`}
           onClick={() => setIsMenuOpen(false)}
         />
 
         {/* Enhanced Mobile Navigation Panel with slide animation */}
         <div
-          className={`fixed top-16 left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl transition-all duration-500 ease-out ${
-            isMenuOpen
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-4 opacity-0"
-          }`}
+          className={`fixed top-16 left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl transition-all duration-500 ease-out ${isMenuOpen
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-4 opacity-0"
+            }`}
         >
           <div className="h-full overflow-y-auto">
             <div className="px-4 py-6 space-y-6">
               {/* Enhanced Regular mobile nav items */}
               <div
-                className={`space-y-2 border-t border-border pt-6 transition-all duration-500 ease-out ${
-                  isMenuOpen
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-4"
-                }`}
+                className={`space-y-2 border-t border-border pt-6 transition-all duration-500 ease-out ${isMenuOpen
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-4"
+                  }`}
                 style={{ transitionDelay: "300ms" }}
               >
                 {jsonData.header.navItems.map((item, index) => (
@@ -266,11 +258,10 @@ export function Navbar() {
 
               {/* Enhanced Mobile CTA buttons */}
               <div
-                className={`border-t border-border pt-6 transition-all duration-500 ease-out ${
-                  isMenuOpen
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
-                }`}
+                className={`border-t border-border pt-6 transition-all duration-500 ease-out ${isMenuOpen
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+                  }`}
                 style={{ transitionDelay: "400ms" }}
               >
                 <div className="flex flex-col space-y-3">

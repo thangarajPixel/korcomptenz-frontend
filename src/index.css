@@ -129,26 +129,32 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-  /*
-  .container-sm {
-    @apply container mx-auto max-w-5xl px-4 sm:px-6;
+}
+@utility container-nav {
+  @apply container mx-auto max-w-full  px-4;
+  @variant sm {
+    @apply px-6;
   }
-  .container {
-    @apply container mx-auto;
+  @variant lg {
+    @apply px-0.5 max-w-full;
   }
-  .container-md {
-    @apply container mx-auto max-w-5xl;
+  @variant xl {
+    @apply max-w-[96rem] px-8;
   }
-  .container-lg {
-    @apply container mx-auto max-w-7xl;
+}
+
+@utility container-md {
+  @apply container mx-auto max-w-5xl px-4;
+  @variant sm {
+    @apply px-6;
   }
-  .container-xl {
-    @apply container mx-auto max-w-9xl;
+  @variant xl {
+    @apply max-w-6xl;
   }
-  .container-2xl {
-    @apply container mx-auto max-w-11xl;
+}
+@utility container-lg {
+  @apply container mx-auto max-w-7xl px-6 py-12;
+  @variant xl {
+    @apply max-w-[96rem] px-8;
   }
-  .container-3xl {
-    @apply container mx-auto max-w-13xl;
-  } */
 }

@@ -39,7 +39,7 @@ const cardData = [
 export default function StickyCards({ className }: { className?: string }) {
   return (
     <div className="relative">
-      <div className="relative container mx-auto max-w-5xl px-4 sm:px-6 space-y-8">
+      <div className="relative container-md space-y-8">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-0">
           <h1 className=" font-semibold text-4xl lg:text-[42px] lg:leading-[52px] tracking-[0]">
             Korcomptenz in action

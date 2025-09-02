@@ -54,11 +54,12 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
       {/* Top rounded segmented tabs */}
       <div className="relative">
         <div className="container mx-auto flex items-start">
-          <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="container mx-auto max-w-5xl px-4 sm:px-6">
+          <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="
+           mx-auto max-w-5xl px-4 sm:px-6">
             <TabsList
               className={cn(
                 "mb-12 relative  h-12 sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-xl",
-                "container mx-auto px-4",
+                "container-md",
                 "bg-secondary p-0 shadow-none border-none !ml-0"
               )}
             >
@@ -87,7 +88,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
         <div className="h-0.5 w-2/4 bg-secondary absolute top-1/4 right-0" />
       </div>
       {/* Two‑column hero; content slides from right into center on tab change */}
-      <div className="relative container mx-auto flex flex-col-reverse max-w-5xl items-center gap-10 lg:flex-row px-4 sm:px-6">
+      <div className="relative container-md flex flex-col-reverse justify-between items-center gap-10 lg:flex-row">
         {/* Left copy */}
         <AnimatePresence mode="wait">
           <motion.div
