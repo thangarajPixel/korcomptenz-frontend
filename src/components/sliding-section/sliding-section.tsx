@@ -58,7 +58,7 @@ export default function SlidingSection() {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0  flex items-center">
-                    <div className="container mx-auto px-6 md:px-12">
+                    <div className="container mx-auto max-w-5xl px-4 sm:px-6">
                       <div className="max-w-2xl text-white">
                         {/* <div className="text-sm font-medium text-green-400 mb-2 tracking-wide uppercase">
                           {slide.subtitle}
