@@ -2,10 +2,11 @@
 
 import Link from 'next/link'
 import React from 'react'
-import { Linkedin, Youtube, Facebook, Instagram, ChevronRight } from "lucide-react"
+import {  ChevronRight } from "lucide-react"
 import KorcomptenzImage from '@/components/korcomptenz-image';
 import { jsonData } from '@/utils/helper'
 import ScheduleCall from '@/components/layout/_utils/schedule';
+import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from '@/components/svg/all-svg';
 
 type SocialIcons = {
   id: number;
@@ -18,25 +19,31 @@ export const socialIcons: SocialIcons[] = [
   {
     id: 1,
     key: 'linkedin',
-    icon: <Linkedin />,
+    icon: <LinkedinIcon />,
     href: '#',
   },
   {
     id: 2,
     key: 'youtube',
-    icon: <Youtube />,
+    icon: <YoutubeIcon />,
     href: '#',
   },
   {
     id: 3,
     key: 'facebook',
-    icon: <Facebook />,
+    icon: <FacebookIcon />,
     href: '#',
   },
   {
     id: 4,
     key: 'instagram',
-    icon: <Instagram />,
+    icon: <InstagramIcon />,
+    href: '#',
+  },
+    {
+    id: 5,
+    key: 'twitter',
+    icon: <TwitterIcon />,
     href: '#',
   },
 ];

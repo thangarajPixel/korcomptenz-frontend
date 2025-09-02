@@ -29,10 +29,10 @@ const WeAreKorcomptenzSection = () => {
       <div className="relative">
         <KorcomptenzImage
           src="/assets/home/video-thumb.jpg"
-          className="w-full h-auto rounded-4xl"
+          className="w-full h-[500px] object-cover rounded-4xl"
           alt="video-thumb"
           width={1112}
-          height={607}
+          height={500}
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <KorcomptenzImage
