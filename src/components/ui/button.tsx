@@ -1,3 +1,4 @@
+'use client'
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion } from 'motion/react';
@@ -10,7 +11,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-        "bg-primary text-primary-foreground shadow-xs border-2 border-transparent hover:bg-white hover:text-primary hover:border-primary  transition-all duration-300 ease-out",
+          "bg-primary text-primary-foreground shadow-xs border-2 border-transparent hover:bg-white hover:text-primary hover:border-primary  transition-all duration-300 ease-out",
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
