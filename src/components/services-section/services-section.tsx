@@ -104,13 +104,13 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             </h1>
             <p className="max-w-xl text-pretty text-gray-600">{jsonData.content[value].subheading}</p>
             <Button
-              size="lg"
-              className="h-12 rounded-full bg-[#16a085] px-6 text-base font-semibold text-white hover:bg-[#129072]"
+              size="xl"
+              arrow={true}
+             
+              className="rounded-full bg-[#16a085] px-6 text-base font-semibold variant:default"
             >
               Know More
-              <span aria-hidden="true" className="ml-2">
-                ›
-              </span>
+              
             </Button>
           </motion.div>
         </AnimatePresence>

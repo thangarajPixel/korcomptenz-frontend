@@ -72,6 +72,7 @@ export default function SlidingSection() {
                         <Button
                           size="xl"
                           variant='white'
+                          arrow={true}
                         >
                           {slide.buttonText}
                         </Button>

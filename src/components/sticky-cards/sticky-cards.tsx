@@ -45,7 +45,7 @@ export default function StickyCards({ className }: { className?: string }) {
             Korcomptenz in action
           </h1>
 
-          <Button className="hidden sm:inline-flex variant:default" size="xl">
+          <Button className="hidden sm:inline-flex variant:default text-lg" size="xl">
             Explore All
             <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
           </Button>
@@ -85,7 +85,7 @@ export default function StickyCards({ className }: { className?: string }) {
 
                   <Button
                     size="xl"
-                    className="mt-6 w-fit  variant:default rounded-full px-6"
+                    className="mt-6 w-fit text-lg  variant:default rounded-full px-6"
                   >
                     {card.buttonText}
                     <ChevronRight className="ml-2 h-4 w-4" />

@@ -34,9 +34,11 @@ export function Navbar() {
   return (
     <React.Fragment>
       <header
-        className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out ${isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg supports-[backdrop-filter]:bg-background/80"
-          : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+        // className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out ${isScrolled
+        //   ? "bg-background/95 backdrop-blur-md shadow-lg supports-[backdrop-filter]:bg-background/80"
+        //   : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+        //   }`}
+         className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white
           }`}
       >
         <div className="container-nav h-[100px] pt-5">

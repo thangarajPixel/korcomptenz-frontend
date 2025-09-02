@@ -1,12 +1,7 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
-import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 
 const InspireSection = () => {
   return (
@@ -45,8 +40,12 @@ const InspireSection = () => {
             <h1 className="text-2xl font-bold text-gray-900 mb-6 text-balance">
               Best-in-class solutions for key industry challenges
             </h1>
-            <Button className="variant:default px-8 py-3  rounded-full h-12 inline-flex">
-              Explore solutions for your industry <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
+            <Button
+              size="xl"
+              arrow={true}
+              className="variant:default px-8 py-2 text-lg rounded-full   inline-flex"
+            >
+              Explore solutions for your industry
             </Button>
           </div>
           <Card className="bg-[#E2EBE4] p-0 h-full">
@@ -66,8 +65,8 @@ const InspireSection = () => {
                 </h3>
                 <p className="text-gray-600 text-sm">
                   We enable healthcare providers to deliver connected,
-                  patient-centric experiences through intuitive design, personalized
-                  journeys, and digital innovation.
+                  patient-centric experiences through intuitive design,
+                  personalized journeys, and digital innovation.
                 </p>
               </div>
             </CardContent>
@@ -107,13 +106,14 @@ const InspireSection = () => {
                     Retail & <br /> E-Commerce
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    We empower retail brands with connected, end-to-end solutions
-                    that streamline operations, improve agility, simplify supply
-                    chain management and elevate customer experiences.
+                    We empower retail brands with connected, end-to-end
+                    solutions that streamline operations, improve agility,
+                    simplify supply chain management and elevate customer
+                    experiences.
                   </p>
                 </div>
                 <div className="flex-shrink-0 absolute right-3 -top-10">
-                  <Image
+                  <KorcomptenzImage
                     src="/assets/home/Reatils.png"
                     alt="Retail shopping bags"
                     width={111}
@@ -127,8 +127,12 @@ const InspireSection = () => {
         </div>
       </div>
       <div className="flex xl:hidden justify-center w-full mt-8">
-        <Button className="variant:default px-8 py-3 rounded-full inline-flex">
-          Explore solutions for your industry <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
+        <Button
+          size="xl"
+          arrow={true}
+          className="variant:default px-8 py-3 rounded-full inline-flex"
+        >
+          Explore solutions for your industry
         </Button>
       </div>
     </div>

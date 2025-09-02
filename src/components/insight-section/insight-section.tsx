@@ -60,9 +60,9 @@ export default function InsightsSection() {
           <Link
             href="#"
           >
-            <Button>
+            <Button size="xl" arrow={true} className="variant:default px-8 py-2 text-lg rounded-full inline-flex">
               Read All
-              <ChevronRight />
+             
             </Button>
           </Link>
         </motion.div>

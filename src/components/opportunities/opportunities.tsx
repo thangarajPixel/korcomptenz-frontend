@@ -1,15 +1,14 @@
-'use client';
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { ChevronRight } from "lucide-react"
-import Image from "next/image"
-import { jsonData } from '@/utils/helper'
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { jsonData } from "@/utils/helper";
 
 export default function Opportunities() {
-  const careers = jsonData.careers
+  const careers = jsonData.careers;
   return (
     <section className="bg-white  px-4 sm:px-6 lg:px-8 mb-6">
-      <div className="container-lg">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
           {/* Left side - Image with geometric elements */}
           <div className="relative">
@@ -21,7 +20,8 @@ export default function Opportunities() {
                   alt="arrow"
                   className="w-full h-auto rounded-lg"
                   width={500}
-                  height={300} />
+                  height={300}
+                />
               </div>
             </div>
 
@@ -32,7 +32,8 @@ export default function Opportunities() {
                 alt="Professional working on laptop"
                 className="w-full h-auto rounded-lg"
                 width={1112}
-                height={607} />
+                height={607}
+              />
             </div>
           </div>
 
@@ -41,7 +42,7 @@ export default function Opportunities() {
             {/* Header text with profile images */}
             <div className="relative group-hover:-translate-x-7 group-hover:scale-110 transition-all duration-1000">
               <div className="text-xl lg:text-5xl font-bold leading-tight w-full">
-                <div className='flex flex-row items-center justify-between mb-6'>
+                <div className="flex flex-row items-center justify-between mb-6">
                   <span className="text-gray-900 lg:-ml-24">Ready to </span>
                   <section className="flex flex-row items-center gap-2">
                     <div>
@@ -62,7 +63,7 @@ export default function Opportunities() {
                   </div>
                 </div>
 
-                <div className='flex flex-row items-center justify-between'>
+                <div className="flex flex-row items-center justify-between">
                   <span className="text-teal-600">exceptional </span>
                   <section className="flex flex-row items-center gap-2">
                     <div className="">
@@ -84,13 +85,18 @@ export default function Opportunities() {
             </p>
 
             {/* CTA Button */}
-            <Button type="button" variant="default" size="xl" >
+            <Button
+              type="button"
+              arrow={true}
+              variant="default"
+              size="xl"
+              className="text-lg"
+            >
               {careers.exploreBtn}
-              <ChevronRight className="ml-2 h-5 w-5 transition-transform" />
             </Button>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

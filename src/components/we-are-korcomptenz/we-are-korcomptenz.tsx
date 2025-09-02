@@ -27,23 +27,30 @@ const WeAreKorcomptenzSection = () => {
         </div>
       </div>
       <div className="relative">
-        <KorcomptenzImage
-          src="/assets/home/video-thumb.jpg"
-          className="w-full h-[500px] object-cover rounded-4xl"
-          alt="video-thumb"
-          width={1112}
-          height={500}
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <KorcomptenzImage
-            src="/assets/home/Play button.png"
-            className="w-12 h-12"
-            alt="play-icon"
-            width={54}
-            height={54}
-          />
-        </div>
-      </div>
+ 
+  <KorcomptenzImage
+    src="/assets/home/video-thumb.jpg"
+    className="w-full h-[500px] object-cover rounded-4xl"
+    alt="video-thumb"
+    width={1112}
+    height={500}
+  />
+
+ 
+  <div className="absolute inset-0 bg-black/40 rounded-4xl" />
+
+ 
+  <div className="absolute inset-0 flex items-center justify-center">
+    <KorcomptenzImage
+      src="/assets/home/Play button.png"
+      className="w-12 h-12"
+      alt="play-icon"
+      width={54}
+      height={54}
+    />
+  </div>
+</div>
+
 
     </div>
   )
