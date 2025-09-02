@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { jsonData } from '@/utils/helper'
 
-export default function CareersSection() {
+export default function Opportunities() {
   const careers = jsonData.careers
   return (
     <section className="bg-white  px-4 sm:px-6 lg:px-8 mb-6">

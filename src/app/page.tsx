@@ -1,9 +1,12 @@
 "use client";
 
-import { CareersSection, InspireSection, ServicesSection, WeAreKorcomptenzSection } from "./_utils";
 import SlidingSection from "@/components/sliding-section";
 import StickyCards from "@/components/sticky-cards";
 import { InsightsSection } from "@/components/insight-section";
+import WeAreKorcomptenzSection from "@/components/we-are-korcomptenz";
+import InspireSection from "@/components/inspire-section";
+import ServicesSection from "@/components/services-section";
+import Opportunities from "@/components/opportunities";
 
 export default function Home() {
   return (
@@ -14,7 +17,7 @@ export default function Home() {
       <InspireSection />
       <StickyCards />
       <InsightsSection />
-      <CareersSection />
+      <Opportunities />
     </div>
   );
 }
