@@ -51,7 +51,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
   const [value, setValue] = React.useState<TabKey>("microsoft")
 
   return (
-    <section className={cn("my-5 md:my-0 lg:mt-[120px]", className)}>
+    <section className={cn("my-5 md:my-0", className)}>
       {/* Top rounded segmented tabs */}
       <div className="relative">
         <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="container-md ">
@@ -86,7 +86,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
         <div className="h-0.5 w-2/4 bg-secondary absolute top-1/4 right-0" />
       </div>
       {/* Two‑column hero; content slides from right into center on tab change */}
-      <div className="relative container-md flex flex-col-reverse justify-between items-center gap-10 lg:flex-row">
+      <div className="relative container-md  flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">
         <AnimatePresence mode="wait">
           <motion.div
             key={`copy-${value}`}
@@ -94,12 +94,12 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -60 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-6"
+            className="space-y-2 "
           >
             <h1 className="text-pretty lg:text-5xl text-2xl font-semibold leading-tight text-custom-gray md:text-4xl">
               {jsonData.content[value].heading}
             </h1>
-            <p className="max-w-xl text-pretty text-custom-gray">{jsonData.content[value].subheading}</p>
+            <p className="max-w-xl text-pretty text-sm text-custom-gray">{jsonData.content[value].subheading}</p>
             <Button
               size="xl"
               arrow={true}
@@ -118,14 +118,14 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -60 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="relative size-full"
+            className="relative h-full w-full lg:w-3/4"
           >
 
             {/* Photo placeholder matching composition */}
             <KorcomptenzImage
               src={jsonData.content[value].image}
               alt="Team collaborating on a laptop"
-              className="h-fit w-full rounded-xl object-contain "
+              className="h-fit w-full  rounded-xl object-contain "
               width={1000}
               height={1000}
             />
