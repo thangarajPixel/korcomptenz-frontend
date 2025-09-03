@@ -79,16 +79,16 @@ export default function StickyCards({ className }: { className?: string }) {
                     <h2 className="text-lg lg:text-2xl font-bold text-black leading-tight">
                       {card.title}
                     </h2>
-                    <p className="text-[#141414]  test-sm leading-relaxed">
+                    <p className="text-[#141414]  text-sm leading-relaxed">
                       {card.description}
                     </p>
                   </div>
 
                   <Button
                     size="xl"
-                    className="mt-6 w-fit text-lg  variant:default rounded-full px-6"
+                    className="lg:mt-6 mb-3 lg:mb-0 mt-3 w-fit lg:text-lg text-[10px] rounded-full px-2 lg:px-6 "
                   >
-                    {card.buttonText}
+                     {card.buttonText}
                     <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
