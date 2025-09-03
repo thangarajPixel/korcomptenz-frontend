@@ -60,10 +60,10 @@ export default function SlidingSection() {
                   <div className="absolute inset-0  flex items-center">
                     <div className="container-md">
                       <div className="max-w-2xl text-white">
-                        <div className="text-2xl md:text-5xl whitespace-pre-wrap font-bold mb-4 leading-tight text-balance">
+                        <div className="text-lg md:text-5xl whitespace-pre-wrap font-bold mb-4 leading-tight text-balance">
                           {slide.subtitle}
                         </div>
-                        <h2 className="text-3xl md:text-5xl whitespace-pre-wrap font-bold mb-4 leading-tight text-balance">
+                        <h2 className="text-xl md:text-5xl whitespace-pre-wrap font-bold mb-4 leading-tight text-balance">
                           {slide.title}
                         </h2>
                         {!slide.description &&

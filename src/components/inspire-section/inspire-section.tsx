@@ -130,7 +130,7 @@ const InspireSection = () => {
         <Button
           size="xl"
           arrow={true}
-          className=" !lg:text-sm !text-[10px] lg:px-8 px-2 py-1 lg:py-3 rounded-full inline-flex"
+          className="variant:default lg:text-sm text-xs lg:px-8 px-2 py-3 rounded-full w-full inline-flex"
         >
           Explore solutions for your industry
         </Button>
