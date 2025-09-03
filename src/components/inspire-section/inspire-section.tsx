@@ -8,14 +8,14 @@ const InspireSection = () => {
     <div className="container-lg">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
         <div className="block xl:hidden text-left md:text-center">
-          <h1 className="text-2xl font-bold text-gray-900 text-balance">
+          <h1 className="text-2xl font-bold text-custom-gray text-balance">
             Best-in-class solutions for key industry challenges
           </h1>
         </div>
         <Card className="border-2 bg-[#E2EBE4] flex-row py-0">
-          <CardContent className="px-0 flex flex-col justify-between text-[#313941]">
+          <CardContent className="px-0 flex flex-col justify-between text-custom-gray">
             <div className="p-6">
-              <h3 className="text-xl font-semibold  mb-4">
+              <h3 className="text-xl font-semibold text-custom-gray  mb-4">
                 Manufacturing
               </h3>
               <p className="  text-sm mb-4">
@@ -37,7 +37,7 @@ const InspireSection = () => {
         </Card>
         <div className="flex flex-col justify-between gap-5">
           <div className="hidden xl:block text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-6 text-balance">
+            <h1 className="text-2xl font-bold text-custom-gray mb-6 text-balance">
               Best-in-class solutions for key industry challenges
             </h1>
             <Button

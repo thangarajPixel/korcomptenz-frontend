@@ -71,7 +71,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                   "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50">{t.label}</span>
+                <span className="z-50 text-xl ">{t.label}</span>
                 {value === t.key && (
                   <motion.div
                     layoutId="active-pill"
@@ -96,15 +96,15 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-6"
           >
-            <h1 className="text-pretty text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">
+            <h1 className="text-pretty text-5xl font-semibold leading-tight text-custom-gray md:text-4xl">
               {jsonData.content[value].heading}
             </h1>
-            <p className="max-w-xl text-pretty text-gray-600">{jsonData.content[value].subheading}</p>
+            <p className="max-w-xl text-pretty text-custom-gray">{jsonData.content[value].subheading}</p>
             <Button
               size="xl"
               arrow={true}
 
-              className="rounded-full bg-[#16a085] px-6 text-base font-semibold variant:default"
+              className="rounded-full bg-[#16a085] px-6  variant:default"
             >
               Know More
 

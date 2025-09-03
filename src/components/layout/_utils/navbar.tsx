@@ -62,7 +62,7 @@ export function Navbar() {
             </div>
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
-            <nav className="hidden lg:flex items-center space-x-7 relative text-[#313941] text-base">
+            <nav className="hidden lg:flex items-center space-x-7 relative text-[#313941] text-sm font-light">
               {jsonData.header.navItems.map((item, index) => (
                 <a
                   key={index}
@@ -124,7 +124,7 @@ export function Navbar() {
             <div className="hidden lg:flex items-center justify-between gap-10">
               <SearchIcon className="w-8 h-8 text-black" />
 
-              <Button className="variant:default  h-[50px] w-[166px] font-base text-md">
+              <Button  size="xl" className="variant:default  font-base ">
                 <Link
                   href={jsonData.header.button.href}
                   className="flex items-center"
@@ -207,7 +207,7 @@ export function Navbar() {
                   <a
                     key={index}
                     href={item.href}
-                    className="block px-3 py-3 text-base font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
+                    className="block px-3 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}

@@ -55,14 +55,14 @@ export default function StickyCards({ className }: { className?: string }) {
           <div
             key={card.id}
             className={cn(
-              "sticky sm:top-48 top-20",
+              "sticky sm:top-48 top-20 ",
               `z-[${index + 10}] sm:mb-12`
             )}
           >
             <div className="flex items-center justify-center px-4 md:py-0 py-6">
               <Card
                 className={cn(
-                  "overflow-hidden bg-gray-50 border-0 w-full py-0 h-auto lg:h-96 ",
+                  "overflow-hidden bg-[#F3F7F4] border-0 w-full py-0 h-auto lg:h-96 shadow-xl",
                   "flex flex-col md:flex-row md:items-stretch rounded-2xl ",
                   index && 'shadow-xl',
                   className

@@ -18,7 +18,7 @@ const WeAreKorcomptenzSection = () => {
 
         {/* Right Column - Description */}
         <div className="space-y-5 text-lg leading-relaxed">
-          <p className="text-pretty text-sm">
+          <p className="text-pretty ">
             We lead with expertise - in technology and domain to deliver solutions that align with your business
             goals.
           </p>
