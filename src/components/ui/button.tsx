@@ -20,7 +20,7 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        white: "bg-white text-primary hover:bg-gray-100 text-base"
+        white: "bg-white text-primary hover:bg-gray-100 text-sm"
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3 ",
@@ -63,20 +63,20 @@ function Button({
       <span className="relative flex items-center justify-center  gap-1">
         {isLoading
           ? (
-            <span className="inline-flex h-6 w-full items-center justify-center gap-2">
+            <span className="inline-flex h-6 w-full items-center  justify-center gap-2">
               {children}
               <Loader2 className="mt-[-4px] size-4 animate-spin" />
-
             </span>
           )
-          : (<>
-            {children}
-            {arrow && <ChevronRight className="size-4 font-bold" />}
-          </>
+          : (
+            <React.Fragment>
+              <span className="relative flex items-center justify-center text-sm  gap-1">
+                {children}
+                {arrow && <ChevronRight className="size-4 font-bold" />}
+              </span>
+            </React.Fragment>
           )}
       </span>
-      {' '}
-
     </motion.button>
   );
 }

@@ -62,7 +62,7 @@ export function Navbar() {
             </div>
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
-            <nav className="hidden lg:flex items-center space-x-7 relative text-[#313941] text-md">
+            <nav className="hidden lg:flex items-center space-x-7 relative text-[#313941] text-base">
               {jsonData.header.navItems.map((item, index) => (
                 <a
                   key={index}
