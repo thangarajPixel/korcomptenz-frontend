@@ -18,12 +18,12 @@ const ScheduleCall = () => {
               <br />
               {footer.scheduleCall.highlight}
             </h2>
-            <Button size="xl"  arrow={true} className="text-lg hover-transparent" >
+            <Button size="xl"  arrow={true} className="text-lg hover:bg-transparent" >
               {footer.scheduleCall.cta}
             </Button>
           </div>
 
-          <div className="flex items-center space-x-2 lg:mr-30">
+          <div className="flex items-center  space-x-2 lg:mr-30">
             <KorcomptenzImage src="/assets/lets-drive.png" alt="drive" className='w-full lg:w-[400px] h-auto rounded-2xl' width={1112} height={607} />
           </div>
         </div>
