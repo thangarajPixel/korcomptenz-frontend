@@ -13,7 +13,7 @@ const ScheduleCall = () => {
         <div className="flex flex-row items-center justify-center gap-8 mx-">
           {/* Left content */}
           <div className="flex-1 text-center lg:text-left lg:ml-20">
-            <h2 className="text-xl text-left sm:text-4xl lg:text-3xl font-bold text-white leading-tight mb-20">
+            <h2 className="text-xl text-left sm:text-4xl lg:text-3xl font-bold text-[#C4D7C9] leading-tight mb-20">
               {footer.scheduleCall.title}
               <br />
               {footer.scheduleCall.highlight}

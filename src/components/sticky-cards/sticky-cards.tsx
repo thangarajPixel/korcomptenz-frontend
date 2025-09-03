@@ -84,13 +84,28 @@ export default function StickyCards({ className }: { className?: string }) {
                     </p>
                   </div>
 
-                  <Button
-                    size="xl"
-                    className="lg:mt-6 mb-3 lg:mb-0 mt-3 w-fit lg:text-lg text-[10px] rounded-full px-2 lg:px-6 "
-                  >
-                     {card.buttonText}
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
+                 {/* Mobile / sm / md */}
+<div className="block lg:hidden">
+  <Button
+    className="mt-3 mb-3 text-[10px] px-2 rounded-full
+               bg-white text-primary border border-primary h-[44px] w-[155px]"
+  >
+    {card.buttonText}
+    <ChevronRight className="ml-2 h-4 w-4" />
+  </Button>
+</div>
+
+{/* LG and above */}
+<div className="hidden lg:block">
+  <Button
+    size="xl"
+    className="mt-3 mb-3 w-fit text-lg px-6 rounded-full"
+  >
+    {card.buttonText}
+    <ChevronRight className="ml-2 h-5 w-5" />
+  </Button>
+</div>
+
                 </div>
 
                 {/* Visual Section */}

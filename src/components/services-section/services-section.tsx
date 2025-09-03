@@ -51,7 +51,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
   const [value, setValue] = React.useState<TabKey>("microsoft")
 
   return (
-    <section className={cn("my-5 md:my-0", className)}>
+    <section className={cn("my-5 md:my-0 lg:mt-[120px]", className)}>
       {/* Top rounded segmented tabs */}
       <div className="relative">
         <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="container-md ">
