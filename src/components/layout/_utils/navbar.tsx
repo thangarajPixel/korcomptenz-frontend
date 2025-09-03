@@ -121,7 +121,7 @@ export function Navbar() {
             </nav>
 
             {/* Enhanced Desktop CTA with animations */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center justify-between gap-10">
               <SearchIcon className="w-8 h-8 text-black" />
 
               <Button className="variant:default  h-[50px] w-[166px] font-base text-md">
