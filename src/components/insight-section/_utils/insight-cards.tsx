@@ -77,7 +77,7 @@ export function InsightCard({ title, imageSrc, alt, className, category }: Insig
         </div>
       </motion.div>
 
-      <h3 className="mt-4 text-start lg:text-3xl text-lg  font-semibold leading-10 text-[#000000]">{title}</h3>
+      <h3 className="mt-4 text-start lg:text-xl text-lg  font-semibold leading-10 text-[#000000]">{title}</h3>
     </motion.article>
   )
 }
