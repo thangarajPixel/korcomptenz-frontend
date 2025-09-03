@@ -76,7 +76,7 @@ export default function StickyCards({ className }: { className?: string }) {
                 {/* Content */}
                 <div className="p-2 lg:py-8 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
                   <div className="space-y-4">
-                    <h2 className="text-lg lg:text-3xl font-bold text-gray-900 leading-tight">
+                    <h2 className="text-lg lg:text-2xl font-bold text-gray-900 leading-tight">
                       {card.title}
                     </h2>
                     <p className="text-gray-600 leading-relaxed">
