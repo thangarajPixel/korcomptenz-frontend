@@ -163,7 +163,7 @@ export const Footer = () => {
           </div>
 
           {/* Additional Links */}
-          <div className="space-y-4 md:mt-5 lg:mt-0">
+        <div className="space-y-4 md:mt-5 lg:mt-0 flex flex-col justify-around">
             {/* Success Stories */}
             <div>
               <Link href="#" className="flex items-center justify-between space-x-2 group">
