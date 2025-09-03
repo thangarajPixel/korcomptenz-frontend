@@ -5,14 +5,14 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const InspireSection = () => {
   return (
-    <div className="container-lg">
+    <div className="container-lg mt-16">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
         <div className="block xl:hidden text-left md:text-center">
           <h1 className="text-2xl font-bold text-custom-gray ">
             Best-in-class solutions for key industry challenges
           </h1>
         </div>
-        <Card className="border-2 bg-[#E2EBE4] flex-row py-0">
+        <Card className="border-2 bg-[#E2EBE4] flex-row py-0 rounded-[40px]">
           <CardContent className="px-0 flex flex-col justify-between text-[#313941] ">
             <div className="p-6">
               <h3 className="text-xl font-semibold   mb-4">
@@ -35,7 +35,7 @@ const InspireSection = () => {
             </div>
           </CardContent>
         </Card>
-        <div className="flex flex-col justify-between gap-5">
+        <div className="flex flex-col justify-between gap-5 ">
           <div className="hidden xl:block text-center">
             <h1 className="text-2xl font-bold text-custom-gray mb-6 text-balance">
               Best-in-class solutions for key industry challenges
@@ -48,7 +48,7 @@ const InspireSection = () => {
               Explore solutions for your industry
             </Button>
           </div>
-          <Card className="bg-[#E2EBE4] p-0 h-full">
+          <Card className="bg-[#E2EBE4] p-0 h-full rounded-[40px]">
             <CardContent className="p-6 text-[#313941]">
               <div className="flex mb-4">
                 <KorcomptenzImage
@@ -73,7 +73,7 @@ const InspireSection = () => {
           </Card>
         </div>
         <div className="flex flex-col gap-8 justify-between">
-          <Card className="bg-[#E2EBE4] relative">
+          <Card className="bg-[#E2EBE4] relative rounded-[40px]">
             <CardContent className="p-6 text-[#313941]">
               <div className="flex items-start gap-4">
                 <div className="flex-1">
@@ -98,7 +98,7 @@ const InspireSection = () => {
               </div>
             </CardContent>
           </Card>
-          <Card className="bg-[#E2EBE4] relative">
+          <Card className="bg-[#E2EBE4] relative rounded-[40px]">
             <CardContent className="p-6 text-[#313941]">
               <div className="flex items-start gap-4">
                 <div className="flex-1">

@@ -58,14 +58,14 @@ export function InsightCard({ title, imageSrc, alt, className, category }: Insig
       viewport={{ once: true, amount: 0.3 }}
     >
       <motion.div
-        className="relative overflow-hidden rounded-2xl"
+        className="relative overflow-hidden rounded-[40px]"
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       >
-        <span className="pointer-events-none absolute left-3 top-3 z-10 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-gray-700 ring-1 ring-gray-200 backdrop-blur">
+        <span className=" mx-3 my-5  pointer-events-none absolute left-3 top-3 z-10 rounded-full bg-white/90 px-5 py-2 text-xs font-medium text-[#000000] ring-1 ring-gray-200 backdrop-blur">
           {category}
         </span>
 
-        <div className="relative aspect-[4/3] w-full">
+        <div className="relative aspect-[4/3] w-full rounded-[40px]">
           <Image
             src={imageSrc || "/placeholder.svg"}
             alt={alt}

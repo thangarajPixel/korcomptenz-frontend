@@ -38,7 +38,7 @@ const cardData = [
 
 export default function StickyCards({ className }: { className?: string }) {
   return (
-    <div className="relative">
+    <div className="relative ">
       <div className="relative container-md space-y-8">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-0">
           <h1 className=" font-semibold lg:text-4xl text-2xl lg:leading-[52px] tracking-[0]">
@@ -63,13 +63,13 @@ export default function StickyCards({ className }: { className?: string }) {
               <Card
                 className={cn(
                   "overflow-hidden bg-[#F3F7F4] border-0 w-full py-0 h-auto lg:h-96 shadow-xl",
-                  "flex flex-col md:flex-row md:items-stretch rounded-2xl ",
+                  "flex flex-col md:flex-row md:items-stretch rounded-[40px] ",
                   index && 'shadow-xl',
                   className
                 )}
               >
                 {/* ID */}
-                <div className="hidden md:block text-sm pl-5 pt-8 font-medium text-[#141414] uppercase tracking-wide">
+                <div className="hidden md:block text-sm pl-5 pt-8 font-medium text-[#141414] ms-8 mt-3  uppercase tracking-wide">
                   {card.id}
                 </div>
 
