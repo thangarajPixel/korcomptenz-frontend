@@ -10,13 +10,15 @@ const WeAreKorcomptenzSection = () => {
           <h1 className="text-2xl lg:text-4xl font-bold leading-tight">
             We are
             <br />
-            Korcomptenz
+            <span className="text-xl lg:text-3xl">
+              Korcomptenz
+            </span>
           </h1>
         </div>
 
         {/* Right Column - Description */}
         <div className="space-y-5 text-lg leading-relaxed">
-          <p className="text-pretty">
+          <p className="text-pretty text-sm">
             We lead with expertise - in technology and domain to deliver solutions that align with your business
             goals.
           </p>
