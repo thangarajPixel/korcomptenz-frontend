@@ -43,44 +43,44 @@ export default function Opportunities() {
             <div className="relative group-hover:-translate-x-7 group-hover:scale-110 transition-all duration-1000">
               <div className="text-xl lg:text-5xl font-bold leading-tight w-full">
                 <div className="flex flex-row items-center justify-between mb-6">
-                  <span className="text-gray-900 lg:-ml-24">Ready to </span>
+                  <span className="text-gray-900 lg:-ml-24 text-lg lg:text-3xl">Ready to </span>
                   <section className="flex flex-row items-center gap-2">
                     <div>
                       <img
                         src="/assets/home/profile-1.png"
                         alt="Team member"
-                        className="w-16 h-16 rounded-full border-4 border-white shadow-lg shrink-0"
+                        className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shadow-lg shrink-0"
                       />
                     </div>
-                    <span className="text-gray-900">build an</span>
+                    <span className="text-gray-900 text-lg lg:text-3xl">build an</span>
                   </section>
                   <div>
                     <img
                       src="/assets/home/profile-3.png"
                       alt="Team member"
-                      className="w-16 h-16 rounded-full border-4 border-white shadow-lg shrink-0"
+                      className="w-16 h-16 lg:w-[67px] lg:h-[67px] rounded-full border-4 border-white shadow-lg shrink-0"
                     />
                   </div>
                 </div>
 
                 <div className="flex flex-row items-center justify-between">
-                  <span className="text-teal-600">exceptional </span>
+                  <span className="text-teal-600 text-lg lg:text-3xl">exceptional </span>
                   <section className="flex flex-row items-center gap-2">
-                    <div className="">
+                    <div >
                       <img
                         src="/assets/home/profile-2.png"
                         alt="Team member"
-                        className="w-16 h-16 rounded-full border-4 border-white shadow-lg shrink-0"
+                        className="lg:w-[100px] lg:h-[100px] w-16 h-16  rounded-full border-4 border-white shadow-lg shrink-0"
                       />
                     </div>
-                    <span className="text-teal-600">career?</span>
+                    <span className="text-teal-600 text-lg lg:text-3xl">career?</span>
                   </section>
                 </div>
               </div>
             </div>
 
             {/* Description text */}
-            <p className="text-lg text-gray-700 leading-relaxed max-w-lg">
+            <p className="text-md text-gray-700 leading-relaxed max-w-lg">
               {careers.description}
             </p>
 
@@ -90,7 +90,7 @@ export default function Opportunities() {
               arrow={true}
               variant="default"
               size="xl"
-              className="text-lg"
+              className="text-sm"
             >
               {careers.exploreBtn}
             </Button>
