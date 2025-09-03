@@ -160,6 +160,15 @@
       "description": "Create a unified,360-degree view of each customer to deliver personalized experiences across all touchpoints with Salesforce Customer 360",
       "buttonText":"Know More",
       "buttonAction": "#mobility"
+    },
+     {
+      "id": 5,
+      "image": "/assets/banner/banner-6.png",
+      "alt": "AI powered Enterprise Transformation",
+      "title": "What happend when AI powers your enterprise-wide transformation?",
+      "description": "Your experience growth like never before",
+      "buttonText":"Ask us how",
+      "buttonAction": "#ai"
     }
   ],
   "insights": [
