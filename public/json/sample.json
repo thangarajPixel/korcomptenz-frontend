@@ -129,9 +129,8 @@
       "id": 1,
       "image": "/assets/banner/banner-1.png",
       "alt": "Digital Manufacturing Solutions",
-      "title": "Delivering",
-      "subtitle": "Industry 4.0 Solutions",
-      "description": "Expert-led Transformations & Impact-led Growth.",
+      "title": "Expert-led Transformations\n& Impact-led Growth",
+      "subtitle": "Delivering",
       "buttonText": "Learn More",
       "buttonAction": "#manufacturing"
     },
@@ -139,8 +138,7 @@
       "id": 2,
       "image": "/assets/banner/banner-2.png",
       "alt": "Innovation Technology",
-      "title": "Inventory gaps. Fulfillment delays.Demand swings.",
-      "subtitle": "Next-Gen Technology",
+      "title": "Inventory gaps.\nFulfillment delays.\nDemand swings.",
       "description": "Respond to market changes with agility by implementing Microsoft Dynamic 365.",
       "buttonText": "Explore Innovation",
       "buttonAction": "#innovation"
@@ -150,7 +148,6 @@
       "image": "/assets/banner/banner-3.png",
       "alt": "Supply Chain Management",
       "title": "A breakdown is an opportunity for a breakthrough",
-      "subtitle": "Smart Logistics Solutions",
       "description": "Implement SAP Digital Manufacturing solutions to plan better,forecast more accurately and avoid production delays.",
       "buttonText": "Discover Solutions",
       "buttonAction": "#supply-chain"
@@ -159,8 +156,7 @@
       "id": 4,
       "image": "/assets/banner/banner-4.png",
       "alt": "Digital Mobility Solutions",
-      "title": "A million customers isn't scale, it's a million moments to personalize",
-      "subtitle": "Anywhere, Anytime Access",
+      "title": "A million customers isn't scale, it's a\nmillion moments\nto personalize",
       "description": "Create a unified,360-degree view of each customer to deliver personalized experiences across all touchpoints with Salesforce Customer 360",
       "buttonText": "Get Started",
       "buttonAction": "#mobility"
