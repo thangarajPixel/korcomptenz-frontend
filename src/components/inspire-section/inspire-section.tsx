@@ -24,13 +24,13 @@ const InspireSection = () => {
                 efficiency, and respond better to customer demands.
               </p>
             </div>
-            <div className="flex justify-end p-6">
+            <div className="flex justify-end p-6 pr-0 h-3/4 w-full">
               <KorcomptenzImage
                 src="/assets/home/Manufacturing.png"
                 alt="Manufacturing robotic arm"
-                width={250}
-                height={200}
-                className="rounded-lg"
+                width={500}
+                height={500}
+                className=""
               />
             </div>
           </CardContent>

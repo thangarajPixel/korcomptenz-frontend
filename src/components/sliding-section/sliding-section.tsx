@@ -72,6 +72,7 @@ export default function SlidingSection() {
                         <Button
                           size="xl"
                           variant='white'
+                          className="hover:bg-transparent hover:text-primary hover:border hover:border-primary"
                           arrow={true}
                         >
                           {slide.buttonText}

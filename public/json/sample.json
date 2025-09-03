@@ -1,20 +1,42 @@
 {
   "header": {
     "navItems": [
-       { "label": "Services", "href": "#Services" },
-      { "label": "Industries", "href": "#Industries" },
-      { "label": "Ecosystems", "href": "#Ecosystems" },
-      { "label": "Success Stories", "href": "#Success" },
-      { "label": "Insights", "href": "#Insights" },
-      { "label": "About Us", "href": "#About" },
-      { "label": "Careers", "href": "#Careers" }
+      {
+        "label": "Services",
+        "href": "#Services"
+      },
+      {
+        "label": "Industries",
+        "href": "#Industries"
+      },
+      {
+        "label": "Ecosystems",
+        "href": "#Ecosystems"
+      },
+      {
+        "label": "Success Stories",
+        "href": "#Success"
+      },
+      {
+        "label": "Insights",
+        "href": "#Insights"
+      },
+      {
+        "label": "About Us",
+        "href": "#About"
+      },
+      {
+        "label": "Careers",
+        "href": "#Careers"
+      }
     ],
     "companyDetail": {
       "name": "Korcomptenz",
-    "logo": "/assets/logo.png"
-    },"button": {
+      "logo": "/assets/full-logo.svg"
+    },
+    "button": {
       "name": "Contact Us",
-    "href": "/"
+      "href": "/"
     }
   },
   "careers": {
@@ -144,30 +166,30 @@
       "buttonAction": "#mobility"
     }
   ],
-   "insights":  [
-  {
-    "id": "1",
-    "title": "Unlocking Agentic AI",
-    "category": "Blog",
-    "imageSrc": "/assets/home/6d93e01234b06061627de2e22e4fdce3e8166833.jpg",
-    "alt": ""
-  },
-  {
-    "id": "2",
-    "title": "Achieving Process Excellence with SAP",
-    "category": "Whitepaper",
-    "imageSrc": "/assets/home/e0dcec7d57469242884ca2941e49dfaa255aa9fd.jpg",
-    "alt": ""
-  },
-  {
-    "id": "3",
-    "title": "Azure stack",
-    "category": "E-Book",
-    "imageSrc": "/assets/home/6dc93a4dd03a487291f22843c0f97b56dc453aed.jpg",
-    "alt": ""
-  }
-],
-"content": {
+  "insights": [
+    {
+      "id": "1",
+      "title": "Unlocking Agentic AI",
+      "category": "Blog",
+      "imageSrc": "/assets/home/6d93e01234b06061627de2e22e4fdce3e8166833.jpg",
+      "alt": ""
+    },
+    {
+      "id": "2",
+      "title": "Achieving Process Excellence with SAP",
+      "category": "Whitepaper",
+      "imageSrc": "/assets/home/e0dcec7d57469242884ca2941e49dfaa255aa9fd.jpg",
+      "alt": ""
+    },
+    {
+      "id": "3",
+      "title": "Azure stack",
+      "category": "E-Book",
+      "imageSrc": "/assets/home/6dc93a4dd03a487291f22843c0f97b56dc453aed.jpg",
+      "alt": ""
+    }
+  ],
+  "content": {
     "microsoft": {
       "heading": "Solutions across Microsoft product suite",
       "subheading": "Microsoft technologies can transform how you operate and the outcomes you achieve. As a trusted Microsoft, we ensure this transformation happens without a hiccup so your business can be more agile, fast, and productive.",
@@ -194,5 +216,4 @@
       "image": "/assets/home/sap.png"
     }
   }
-
 }
