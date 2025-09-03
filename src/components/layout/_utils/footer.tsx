@@ -6,7 +6,7 @@ import { ChevronRight } from "lucide-react"
 import KorcomptenzImage from '@/components/korcomptenz-image';
 import { jsonData } from '@/utils/helper'
 import ScheduleCall from '@/components/layout/_utils/schedule';
-import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from '@/components/svg/all-svg';
+import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from '../../../../public/svg/all-svg';
 
 type SocialIcons = {
   id: number;
@@ -63,12 +63,11 @@ export const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="flex items-center space-x-2">
-                <KorcomptenzImage src="/assets/logo.png" alt="Logo" width={32} height={32} />
+              <div className="flex items-center space-x-2 mb-2">
+                <KorcomptenzImage src="/assets/logo.png" alt="Logo" width={44} height={44} />
               </div>
-              <span className="text-xl font-bold">{companyName}</span>
+              <span className="text-2xl font-bold">{companyName}</span>
             </div>
-
             <div className="text-slate-300 space-y-1">
               <p>{address.line1}</p>
               <p>{address.line2}</p>
@@ -92,12 +91,12 @@ export const Footer = () => {
                 </Link>
               ))}
             </div> */}
-            <div className="flex space-x-4 pt-4">
+            <div className="flex space-x-2 pt-4">
               {socialIcons.map((social, index) => (
                 <Link
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-teal-500 hover:scale-110 hover:shadow-lg"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center cursor-not-allowed"
                 >
                   {/* <social.icon className="w-5 h-5" /> */}
                   {social.icon}
