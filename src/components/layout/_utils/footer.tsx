@@ -107,7 +107,7 @@ export const Footer = () => {
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="text-primary font-semibold text-md border-b  pb-2">Services</h3>
+            <h3 className="text-primary font-semibold text-md  border-b border-primary  pb-2">Services</h3>
             <ul className="space-y-3">
               {footer.services.map(
                 (service) => (
@@ -126,7 +126,7 @@ export const Footer = () => {
 
           {/* Industries */}
           <div className="space-y-4">
-            <h3 className="text-primary font-semibold text-md border-b border-teal-400 pb-2">Industries</h3>
+            <h3 className="text-primary font-semibold text-md border-b border-primary pb-2">Industries</h3>
             <ul className="space-y-3">
               {footer.industries.map(
                 (industry) => (
@@ -145,7 +145,7 @@ export const Footer = () => {
 
           {/* Insights */}
           <div className="space-y-4">
-            <h3 className="text-primary font-semibold text-md border-b border-teal-400 pb-2">Insights</h3>
+            <h3 className="text-primary font-semibold text-md border-b border-primary pb-2">Insights</h3>
             <ul className="space-y-3">
               {footer.insights.map(
                 (insight) => (
@@ -201,7 +201,7 @@ export const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {/* About Us */}
             <section className="space-y-4" id="About">
-              <h4 className="text-primary font-semibold border-b border-teal-400 text-md pb-2">About Us</h4>
+              <h4 className="text-primary font-semibold border-b border-primary text-md pb-2">About Us</h4>
               <h4 className="font-semibold text-sm">Who we are</h4>
               <ul className="space-y-2">
                 {footer.aboutUs.map((item) => (
@@ -232,7 +232,7 @@ export const Footer = () => {
 
             {/* Ecosystems - Microsoft */}
             <section className='md:col-span-2 lg:col-span-4' >
-              <h4 className="text-primary font-semibold border-b border-teal-400 text-md pb-2">Ecosystems</h4>
+              <h4 className="text-primary font-semibold border-b border-primary text-md pb-2">Ecosystems</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-4">
                 <div className="space-y-4">
                   <ul className="space-y-2">

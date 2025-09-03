@@ -8,7 +8,7 @@ import KorcomptenzImage from '@/components/korcomptenz-image'
 const ScheduleCall = () => {
   const footer = jsonData.footer
   return (
-    <section className="bg-accent-foreground/30 py-16 px-4 sm:px-6 lg:px-8 border-b border-border">
+    <section className="bg-accent-foreground/30 py-16 px-4 sm:px-6 lg:px-8 lg:h-[550px] ">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-row items-center justify-center gap-8 mx-">
           {/* Left content */}
