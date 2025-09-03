@@ -41,7 +41,7 @@ export default function StickyCards({ className }: { className?: string }) {
     <div className="relative">
       <div className="relative container-md space-y-8">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-0">
-          <h1 className=" font-semibold text-4xl lg:text-[42px] lg:leading-[52px] tracking-[0]">
+          <h1 className=" font-semibold lg:text-4xl text-2xl lg:leading-[52px] tracking-[0]">
             Korcomptenz in action
           </h1>
 

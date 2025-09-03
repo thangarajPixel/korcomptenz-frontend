@@ -41,7 +41,7 @@ export default function InsightsSection() {
       <div className="flex flex-col items-center gap-6 text-center md:gap-8">
         <motion.h2
           id="insights-heading"
-          className="text-pretty text-2xl font-semibold text-gray-900 md:text-3xl"
+          className="text-pretty lg:text-5xl text-2xl font-semibold text-gray-900 md:text-3xl"
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
