@@ -114,7 +114,7 @@ export const Footer = () => {
                   <li key={service}>
                     <Link
                       href="#"
-                      className="text-[#F3F7F4] font-semibold hover:text-teal-400 hover:translate-x-2 text-base transition-all duration-300 block"
+                      className="text-[#F3F7F4] font-semibold hover:text-teal-400 hover:translate-x-2 text-sm transition-all duration-300 block"
                     >
                       {service}
                     </Link>
@@ -133,7 +133,7 @@ export const Footer = () => {
                   <li key={industry}>
                     <Link
                       href="#"
-                      className="text-[#F3F7F4] font-semibold hover:text-teal-400 text-base hover:translate-x-2 transition-all duration-300 block"
+                      className="text-[#F3F7F4] font-semibold hover:text-teal-400 text-sm hover:translate-x-2 transition-all duration-300 block"
                     >
                       {industry}
                     </Link>
@@ -152,7 +152,7 @@ export const Footer = () => {
                   <li key={insight}>
                     <Link
                       href="#"
-                      className="text-[#F3F7F4] font-semibold text-base hover:text-teal-400 hover:translate-x-2 transition-all duration-300 block"
+                      className="text-[#F3F7F4] font-semibold text-sm hover:text-teal-400 hover:translate-x-2 transition-all duration-300 block"
                     >
                       {insight}
                     </Link>
@@ -202,13 +202,13 @@ export const Footer = () => {
             {/* About Us */}
             <section className="space-y-4" id="About">
               <h4 className="text-teal-400 font-semibold border-b border-teal-400 text-md pb-2">About Us</h4>
-              <h4 className="font-semibold text-base">Who we are</h4>
+              <h4 className="font-semibold text-sm">Who we are</h4>
               <ul className="space-y-2">
                 {footer.aboutUs.map((item) => (
                   <li key={item}>
                     <Link
                       href="#"
-                      className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-base"
+                      className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-sm"
                     >
                       {item}
                     </Link>
@@ -241,7 +241,7 @@ export const Footer = () => {
                       <li key={item}>
                         <Link
                           href="#"
-                          className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-base"
+                          className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-sm"
                         >
                           {item}
                         </Link>
@@ -252,13 +252,13 @@ export const Footer = () => {
 
                 {/* SAP */}
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-base">SAP</h4>
+                  <h4 className="font-semibold text-sm">SAP</h4>
                   <ul className="space-y-2">
                     {footer.ecoSystems.sap.map((item) => (
                       <li key={item}>
                         <Link
                           href="#"
-                          className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-base"
+                          className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-sm"
                         >
                           {item}
                         </Link>
@@ -275,7 +275,7 @@ export const Footer = () => {
                       <li key={item}>
                         <Link
                           href="#"
-                          className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-base"
+                          className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-sm"
                         >
                           {item}
                         </Link>
@@ -290,7 +290,7 @@ export const Footer = () => {
                       <li key={item}>
                         <Link
                           href="#"
-                          className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-base"
+                          className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-sm"
                         >
                           {item}
                         </Link>
@@ -306,13 +306,13 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col gap-3 sm:gap-0 sm:flex-row items-center justify-between">
-          <p className="text-slate-400 text-base ">{footer.copyright}</p>
+          <p className="text-slate-400 text-sm">{footer.copyright}</p>
           <div>
             {footer.policies.map((policy) => (
               <Link
                 key={policy}
                 href="#"
-                className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-base mx-2"
+                className="text-slate-400 hover:text-teal-400 transition-colors duration-300 text-sm mx-2"
               >
                 {policy}
               </Link>
