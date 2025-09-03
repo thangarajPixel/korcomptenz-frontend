@@ -131,7 +131,7 @@
       "alt": "Digital Manufacturing Solutions",
       "title": "Expert-led Transformations\n& Impact-led Growth",
       "subtitle": "Delivering",
-      "buttonText": "Learn More",
+      "buttonText": "Know More",
       "buttonAction": "#manufacturing"
     },
     {
@@ -140,7 +140,7 @@
       "alt": "Innovation Technology",
       "title": "Inventory gaps.\nFulfillment delays.\nDemand swings.",
       "description": "Respond to market changes with agility by implementing Microsoft Dynamic 365.",
-      "buttonText": "Explore Innovation",
+      "buttonText": "Know More",
       "buttonAction": "#innovation"
     },
     {
@@ -149,7 +149,7 @@
       "alt": "Supply Chain Management",
       "title": "A breakdown is an opportunity for a breakthrough",
       "description": "Implement SAP Digital Manufacturing solutions to plan better,forecast more accurately and avoid production delays.",
-      "buttonText": "Discover Solutions",
+      "buttonText": "Know More",
       "buttonAction": "#supply-chain"
     },
     {
@@ -158,7 +158,7 @@
       "alt": "Digital Mobility Solutions",
       "title": "A million customers isn't scale, it's a\nmillion moments\nto personalize",
       "description": "Create a unified,360-degree view of each customer to deliver personalized experiences across all touchpoints with Salesforce Customer 360",
-      "buttonText": "Get Started",
+      "buttonText":"Know More",
       "buttonAction": "#mobility"
     }
   ],
