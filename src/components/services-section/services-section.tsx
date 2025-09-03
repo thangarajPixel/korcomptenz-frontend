@@ -96,7 +96,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-6"
           >
-            <h1 className="text-pretty text-5xl font-semibold leading-tight text-custom-gray md:text-4xl">
+            <h1 className="text-pretty lg:text-5xl text-2xl font-semibold leading-tight text-custom-gray md:text-4xl">
               {jsonData.content[value].heading}
             </h1>
             <p className="max-w-xl text-pretty text-custom-gray">{jsonData.content[value].subheading}</p>
