@@ -221,7 +221,7 @@ export const Footer = () => {
                   <li key={item}>
                     <Link
                       href="#"
-                      className="font-semibold hover:text-teal-400 transition-colors duration-300 "
+                      className="font-semibold hover:text-teal-400 text transition-colors duration-300 "
                     >
                       {item}
                     </Link>
@@ -252,7 +252,7 @@ export const Footer = () => {
 
                 {/* SAP */}
                 <div className="space-y-4">
-                  <h4 className="font-semibold">SAP</h4>
+                  <h4 className="font-semibold text-base">SAP</h4>
                   <ul className="space-y-2">
                     {footer.ecoSystems.sap.map((item) => (
                       <li key={item}>

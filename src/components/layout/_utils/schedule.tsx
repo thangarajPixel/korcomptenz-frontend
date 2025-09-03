@@ -18,7 +18,7 @@ const ScheduleCall = () => {
               <br />
               {footer.scheduleCall.highlight}
             </h2>
-            <Button size="xl"  arrow={true} className="text-lg hover:bg-transparent" >
+            <Button size="xl"  arrow={true} className="text-xs hover:bg-transparent" >
               {footer.scheduleCall.cta}
             </Button>
           </div>
