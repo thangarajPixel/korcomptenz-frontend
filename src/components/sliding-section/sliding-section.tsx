@@ -63,7 +63,7 @@ export default function SlidingSection() {
                         <div className="text-lg md:text-5xl whitespace-pre-wrap font-bold mb-4 leading-tight text-balance">
                           {slide.subtitle}
                         </div>
-                        <h2 className="text-xl md:text-5xl whitespace-pre-wrap font-bold mb-4 leading-tight text-balance">
+                        <h2 className="text-xl md:text-4xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
                           {slide.title}
                         </h2>
                         {!slide.description &&
