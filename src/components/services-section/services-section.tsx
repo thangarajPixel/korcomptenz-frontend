@@ -53,7 +53,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
   return (
     <section className={cn("my-5 md:my-0", className)}>
       {/* Top rounded segmented tabs */}
-      <div className="relative">
+      <div className="relative lg:pt-[130px] pt-[80px]">
         <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="container-md ">
           <TabsList
             className={cn(
@@ -83,7 +83,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             ))}
           </TabsList>
         </Tabs>
-        <div className="h-0.5 w-2/4 bg-secondary absolute top-1/4 right-0" />
+        <div className="h-0.5 w-2/4 bg-secondary absolute top-42 right-0" />
       </div>
       {/* Two‑column hero; content slides from right into center on tab change */}
       <div className="relative container-md  flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">

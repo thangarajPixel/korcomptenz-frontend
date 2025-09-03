@@ -43,37 +43,37 @@ export default function Opportunities() {
             <div className="relative group-hover:-translate-x-5 group-hover:scale-102 transition-all ">
               <div className="text-xl lg:text-5xl font-bold leading-tight w-full">
                 <div className="flex flex-row items-center justify-between">
-                  <span className="text-[#22282E] lg:-ml-56 text-lg lg:text-3xl lg:me-20">Ready to </span>
+                  <span className="text-[#22282E] lg:-ml-56 text-lg lg:text-3xl font-semibold lg:me-20">Ready to </span>
                   <section className="flex flex-row items-center gap-2">
                     <div>
                       <img
                         src="/assets/home/profile-1.png"
                         alt="Team member"
-                        className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shadow-lg shrink-0"
+                        className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
                       />
                     </div>
-                    <span className="text-[#22282E] text-lg lg:text-3xl">build an</span>
+                    <span className="text-[#22282E] text-lg lg:text-3xl  font-semibold">build an</span>
                   </section>
-                  <div>
+                  <div className="ps-10">
                     <img
                       src="/assets/home/profile-3.png"
                       alt="Team member"
-                      className="w-16 h-16 lg:w-[67px] lg:h-[67px] rounded-full border-4 border-white shadow-lg shrink-0"
+                      className="w-16 h-16 lg:w-[100px] lg:h-[100px] rounded-full border-4 border-white shrink-0"
                     />
                   </div>
                 </div>
 
                 <div className="flex flex-row items-center  mt:[40px]">
-                  <span className="text-primary text-lg lg:-ml-36 lg:text-3xl lg:me-48">exceptional </span>
+                  <span className="text-primary text-lg lg:-ml-42 lg:text-3xl lg:me-48 font-semibold">exceptional </span>
                   <section className="flex flex-row items-center gap-2 lg:-ml-12">
                     <div >
                       <img
                         src="/assets/home/profile-2.png"
                         alt="Team member"
-                        className="lg:w-[100px] lg:h-[100px] w-16 h-16  rounded-full border-4 border-white shadow-lg shrink-0"
+                        className="lg:w-[100px] lg:h-[100px] w-16 h-16  rounded-full border-4 border-white shrink-0"
                       />
                     </div>
-                    <span className="text-primary text-lg lg:text-3xl">career?</span>
+                    <span className="text-primary text-lg lg:text-3xl font-semibold">career?</span>
                   </section>
                 </div>
               </div>

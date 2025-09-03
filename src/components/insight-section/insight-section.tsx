@@ -74,7 +74,7 @@ export default function InsightsSection() {
           transition={{ duration: 0.5 }}
         >
           {jsonData.insights.map((item, index) => (
-            <InsightCard key={item.id} {...item} className={cn('relative', (index + 1) % 2 === 0 ? "top-0" : "top-[-25px] ")} />
+            <InsightCard key={item.id} {...item} className={cn('relative', (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] ")} />
           ))}
         </motion.div>
         <motion.div
