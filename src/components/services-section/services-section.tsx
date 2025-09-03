@@ -57,8 +57,8 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
         <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="container-md ">
           <TabsList
             className={cn(
-              "mb-12 relative  h-12 sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-2xl",
-              // "container-md",
+              "mb-12 relative lg:h-[80px]   sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-2xl",
+
               "bg-secondary p-0 shadow-none border-none !ml-0"
             )}
           >
@@ -67,7 +67,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                 key={t.key}
                 value={t.key}
                 className={cn(
-                  "relative !cursor-pointer h-full z-10 rounded-none lg:px-6 px-2 py-2 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
+                  "relative !cursor-pointer h-[80px] z-10 rounded-none lg:px-6 px-2 py-2 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
                   "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
@@ -76,7 +76,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                   <motion.div
                     layoutId="active-pill"
                     transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                    className="absolute inset-0 z-0 rounded-md bg-secondary-foreground"
+                    className="absolute inset-0 z-0  rounded-md bg-secondary-foreground"
                   />
                 )}
               </TabsTrigger>
