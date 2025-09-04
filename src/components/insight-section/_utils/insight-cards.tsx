@@ -46,7 +46,7 @@ export function InsightCard({ title, imageSrc, alt, className, category }: Insig
           />
         </div>
       </motion.div>
-      <p className="mt-4 text-start lg:text-xl text-lg font-semibold leading-10 ">{title}</p>
+      <p className="mt-4 text-start lg:text-xl text-md font-semibold leading-10 ">{title}</p>
     </motion.article>
   )
 }
