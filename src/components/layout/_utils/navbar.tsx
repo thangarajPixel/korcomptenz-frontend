@@ -44,9 +44,8 @@ export function Navbar() {
       >
         <div className="container-nav h-[100px] pt-5">
           <div
-            className={` flex items-center justify-between transition-all duration-500 ease-out ${
-              isScrolled ? "h-14" : "h-16"
-            }`}
+            className={` flex items-center justify-between transition-all duration-500 ease-out ${isScrolled ? "h-14" : "h-16"
+              }`}
           >
             {/* Logo with enhanced animation */}
             <div className="flex items-center group cursor-pointer">
@@ -67,64 +66,20 @@ export function Navbar() {
                 <a
                   key={index}
                   href={item.href}
-                  className="font-medium transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav 
+                  className="font-medium transition-all duration-300 ease-out hover:text-primary  relative group/nav 
       after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all 
       after:duration-300 after:ease-out hover:after:w-full"
                 >
                   {item.label}
                 </a>
               ))}
-
-              {/* Enhanced regular nav items */}
-              {/* <a
-              href="#Services"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Services
-            </a>
-            <a
-              href="#Industries"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Industries
-            </a>
-            <a
-              href="#Ecosystems"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Ecosystems
-            </a>
-            <a
-              href="#Success"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Success Stories
-            </a>
-            <a
-              href="#Insights"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Insights
-            </a>
-            <a
-              href="#About"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              About Us
-            </a>
-            <a
-              href="#Careers"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Careers
-            </a> */}
             </nav>
 
             {/* Enhanced Desktop CTA with animations */}
             <div className="hidden lg:flex items-center justify-between gap-10">
               <SearchIcon className="w-8 h-8 text-black" />
 
-              <Button  size="xl" className="variant:default  font-base ">
+              <Button size="xl" className="variant:default  font-base ">
                 <Link
                   href={jsonData.header.button.href}
                   className="flex items-center"
@@ -150,18 +105,16 @@ export function Navbar() {
               >
                 <div className="relative w-6 h-6">
                   <Menu
-                    className={`absolute inset-0 h-6 w-6 transition-all duration-500 ease-out ${
-                      isMenuOpen
-                        ? "opacity-0 rotate-180 scale-75"
-                        : "opacity-100 rotate-0 scale-100"
-                    }`}
+                    className={`absolute inset-0 h-6 w-6 transition-all duration-500 ease-out ${isMenuOpen
+                      ? "opacity-0 rotate-180 scale-75"
+                      : "opacity-100 rotate-0 scale-100"
+                      }`}
                   />
                   <X
-                    className={`absolute inset-0 h-6 w-6 transition-all duration-500 ease-out ${
-                      isMenuOpen
-                        ? "opacity-100 rotate-0 scale-100"
-                        : "opacity-0 -rotate-180 scale-75"
-                    }`}
+                    className={`absolute inset-0 h-6 w-6 transition-all duration-500 ease-out ${isMenuOpen
+                      ? "opacity-100 rotate-0 scale-100"
+                      : "opacity-0 -rotate-180 scale-75"
+                      }`}
                   />
                 </div>
               </button>
@@ -172,35 +125,31 @@ export function Navbar() {
 
       {/* Enhanced Mobile Menu with smooth animations */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ease-out ${
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ease-out ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
       >
         {/* Enhanced Backdrop with animation */}
         <div
-          className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-500 ease-out ${
-            isMenuOpen ? "opacity-100" : "opacity-0"
-          }`}
+          className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-500 ease-out ${isMenuOpen ? "opacity-100" : "opacity-0"
+            }`}
           onClick={() => setIsMenuOpen(false)}
         />
 
         {/* Enhanced Mobile Navigation Panel with slide animation */}
         <div
-          className={`fixed top-16 left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl transition-all duration-500 ease-out ${
-            isMenuOpen
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-4 opacity-0"
-          }`}
+          className={`fixed top-16 left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl transition-all duration-500 ease-out ${isMenuOpen
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-4 opacity-0"
+            }`}
         >
           <div className="h-full overflow-y-auto">
             <div className="px-4 py-6 space-y-6">
               {/* Enhanced Regular mobile nav items */}
               <div
-                className={`space-y-2 border-t border-border pt-6 transition-all duration-500 ease-out ${
-                  isMenuOpen
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-4"
-                }`}
+                className={`space-y-2 border-t border-border pt-6 transition-all duration-500 ease-out ${isMenuOpen
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-4"
+                  }`}
                 style={{ transitionDelay: "300ms" }}
               >
                 {jsonData.header.navItems.map((item, index) => (
@@ -217,11 +166,10 @@ export function Navbar() {
 
               {/* Enhanced Mobile CTA buttons */}
               <div
-                className={`border-t border-border pt-6 transition-all duration-500 ease-out ${
-                  isMenuOpen
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
-                }`}
+                className={`border-t border-border pt-6 transition-all duration-500 ease-out ${isMenuOpen
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+                  }`}
                 style={{ transitionDelay: "400ms" }}
               >
                 <div className="flex flex-col space-y-3">

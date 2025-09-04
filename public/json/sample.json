@@ -127,16 +127,17 @@
   "slides": [
     {
       "id": 1,
-      "image": "/assets/banner/banner-1.png",
+      "image": "/assets/banner/KC Banner1.svg",
       "alt": "Digital Manufacturing Solutions",
-      "title": "Expert-led Transformations\n& Impact-led Growth",  "subtitle": "",
+      "title": "Expert-led Transformations\n& Impact-led Growth",
+      "subtitle": "",
       "subtitle2": "Delivering",
       "buttonText": "Know More",
       "buttonAction": "#manufacturing"
     },
     {
       "id": 2,
-      "image": "/assets/banner/banner-2.png",
+      "image": "/assets/banner/KC Banner2.svg",
       "alt": "Innovation Technology",
       "title": "Inventory gaps.\nFulfillment delays.\nDemand swings.",
       "description": "Respond to market changes with agility by implementing Microsoft Dynamic 365.",
@@ -145,7 +146,7 @@
     },
     {
       "id": 3,
-      "image": "/assets/banner/banner-3.png",
+      "image": "/assets/banner/KC Banner3.svg",
       "alt": "Supply Chain Management",
       "title": "A breakdown is an opportunity for a breakthrough",
       "description": "Implement SAP Digital Manufacturing solutions to plan better,forecast more accurately and avoid production delays.",
@@ -154,20 +155,20 @@
     },
     {
       "id": 4,
-      "image": "/assets/banner/banner-4.png",
+      "image": "/assets/banner/KC Banner4.svg",
       "alt": "Digital Mobility Solutions",
       "title": "A million customers isn't scale, it's a\nmillion moments\nto personalize",
       "description": "Create a unified,360-degree view of each customer to deliver personalized experiences across all touchpoints with Salesforce Customer 360",
-      "buttonText":"Know More",
+      "buttonText": "Know More",
       "buttonAction": "#mobility"
     },
-     {
+    {
       "id": 5,
-      "image": "/assets/banner/banner-6.png",
+      "image": "/assets/banner/KC Banner5.svg",
       "alt": "AI powered Enterprise Transformation",
       "title": "What happend when AI powers your enterprise-wide transformation?",
       "description": "Your experience growth like never before",
-      "buttonText":"Ask us how",
+      "buttonText": "Ask us how",
       "buttonAction": "#ai"
     }
   ],

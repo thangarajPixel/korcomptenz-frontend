@@ -63,18 +63,18 @@ export default function StickyCards({ className }: { className?: string }) {
               <Card
                 className={cn(
                   "overflow-hidden bg-[#F3F7F4] border-0 w-full py-0 h-auto lg:h-[28rem]",
-                  "flex flex-col md:flex-row md:items-stretch rounded-[40px] ",
+                  "flex flex-col md:flex-row md:items-stretch rounded-5xl ",
                   index && 'shadow-xl',
                   className
                 )}
               >
                 {/* ID */}
-                <div className="hidden md:block text-sm pl-5 pt-8 font-medium text-[#141414] ms-8 mt-3  uppercase tracking-wide">
+                <div className="hidden md:block text-sm pl-5 pt-14 font-medium text-[#141414] ms-8 mt-3  uppercase tracking-wide">
                   {card.id}
                 </div>
 
                 {/* Content */}
-                <div className="p-2 lg:py-8 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
+                <div className="p-2 lg:pt-14 lg:pb-16 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
                   <div className="space-y-4">
                     <h2 className="text-lg lg:text-2xl font-bold text-black leading-tight">
                       {card.title}

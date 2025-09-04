@@ -179,16 +179,7 @@ body {
     @apply text-[1.125rem];
   }
 }
-/* lg: 18px sm: 16px */
-/* @utility text-base {
-  @apply text-[1.125rem];
-  @variant sm {
-    @apply text-[1rem];
-  }
-  @variant lg {
-    @apply text-[1.125rem];
-  }
-} */
+
 /* lg: 22px sm: 18px */
 @utility text-md {
   @apply text-[1.375rem];
@@ -275,3 +266,6 @@ body {
 }
 @utility text-9xl {
 } */
+@utility rounded-5xl {
+  @apply rounded-[2.5rem];
+}

@@ -62,12 +62,12 @@ export default function InsightsSection() {
           >
             <Button size="xl" arrow={true} className="variant:default px-8 py-2 text-lg rounded-full inline-flex">
               Read All
-             
+
             </Button>
           </Link>
         </motion.div>
         <motion.div
-          className="hidden w-full grid-cols-3 gap-6 md:grid rounded-[40px]"
+          className="hidden w-full grid-cols-3 gap-6 md:grid rounded-5xl"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
