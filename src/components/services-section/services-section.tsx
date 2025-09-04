@@ -51,13 +51,13 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
   const [value, setValue] = React.useState<TabKey>("microsoft")
 
   return (
-    <section className={cn("my-5 md:my-0", className)}>
+    <section className={cn("my- md:my-0", className)}>
       {/* Top rounded segmented tabs */}
-      <div className="relative lg:pt-[130px] pt-[80px]">
+      <div className="relative lg:pt-[130px] md:pt-[80px]">
         <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="container-md ">
           <TabsList
             className={cn(
-              "mb-12 relative lg:h-[80px]   sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-2xl",
+              "mb-12 relative lg:h-[80px] line-clamp-1  h-[44px]  sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-2xl",
 
               "bg-secondary p-0 shadow-none border-none !ml-0"
             )}
@@ -67,11 +67,11 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                 key={t.key}
                 value={t.key}
                 className={cn(
-                  "relative !cursor-pointer h-[80px] z-10 rounded-none lg:px-6 px-2 py-2 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
+                  "relative !cursor-pointer md:h-[80px] z-10 rounded-none lg:px-6 px-2 py-2 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
                   "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50 lg:text-xl text-[10px] ">{t.label}</span>
+                <span className="z-50 lg:text-xl text-[12px] ">{t.label}</span>
                 {value === t.key && (
                   <motion.div
                     layoutId="active-pill"
@@ -83,7 +83,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             ))}
           </TabsList>
         </Tabs>
-        <div className="h-0.5 w-2/4 bg-secondary absolute top-42 right-0" />
+        <div className="h-0.5 w-2/4 bg-secondary absolute top-5 md:top-42 right-0" />
       </div>
       {/* Two‑column hero; content slides from right into center on tab change */}
       <div className="relative container-md  flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">
@@ -94,17 +94,17 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -60 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-2 "
+            className="space-y-3 "
           >
             <h1 className="text-pretty lg:text-5xl text-2xl font-semibold leading-tight text-custom-gray md:text-4xl">
-              {jsonData.content[value].heading}
+              {jsonData.content[value].heading} 
             </h1>
-            <p className="max-w-xl text-pretty text-sm text-custom-gray">{jsonData.content[value].subheading}</p>
+            <p className="max-w-xl text-pretty text-sm text-custom-gray py-3">{jsonData.content[value].subheading}</p>
             <Button
               size="xl"
               arrow={true}
 
-              className="rounded-full bg-[#16a085] px-6  variant:default"
+              className="rounded-full bg-[#16a085] px-6   variant:default"
             >
               Know More
 
