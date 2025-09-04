@@ -6,7 +6,6 @@ import Link from "next/link"
 import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
-import { ChevronRight } from "lucide-react"
 import { jsonData } from '@/utils/helper'
 
 // const insights: InsightCardType[] = [
@@ -62,12 +61,11 @@ export default function InsightsSection() {
           >
             <Button size="xl" arrow={true} className="variant:default px-8 py-2 text-lg rounded-full inline-flex">
               Read All
-
             </Button>
           </Link>
         </motion.div>
         <motion.div
-          className="hidden w-full grid-cols-3 gap-6 md:grid rounded-5xl"
+          className="hidden w-full grid-cols-3 gap-6 md:grid rounded-4xl"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -87,9 +85,8 @@ export default function InsightsSection() {
           <Link
             href="#"
           >
-            <Button>
+            <Button size="xl" arrow={true} >
               Read All
-              <ChevronRight />
             </Button>
           </Link>
         </motion.div>

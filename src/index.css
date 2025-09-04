@@ -266,6 +266,6 @@ body {
 }
 @utility text-9xl {
 } */
-@utility rounded-5xl {
+@utility rounded-4xl {
   @apply rounded-[2.5rem];
 }
