@@ -62,7 +62,7 @@ export default function StickyCards({ className }: { className?: string }) {
             <div className="flex items-center justify-center px-4 md:py-0 py-6">
               <Card
                 className={cn(
-                  "overflow-hidden bg-[#F3F7F4] border-0 w-full py-0 h-auto lg:h-96 shadow-xl",
+                  "overflow-hidden bg-[#F3F7F4] border-0 w-full py-0 h-auto lg:h-[28rem]",
                   "flex flex-col md:flex-row md:items-stretch rounded-[40px] ",
                   index && 'shadow-xl',
                   className
@@ -84,27 +84,27 @@ export default function StickyCards({ className }: { className?: string }) {
                     </p>
                   </div>
 
-                 {/* Mobile / sm / md */}
-<div className="block lg:hidden">
-  <Button
-    className="mt-3 mb-3 text-[10px] px-2 rounded-full
+                  {/* Mobile / sm / md */}
+                  <div className="block lg:hidden">
+                    <Button
+                      className="mt-3 mb-3 text-[10px] px-2 rounded-full
                bg-white text-primary border border-primary h-[44px] w-[155px]"
-  >
-    {card.buttonText}
-    <ChevronRight className="ml-2 h-4 w-4" />
-  </Button>
-</div>
+                    >
+                      {card.buttonText}
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
 
-{/* LG and above */}
-<div className="hidden lg:block">
-  <Button
-    size="xl"
-    className="mt-3 mb-3 w-fit text-lg px-6 rounded-full"
-  >
-    {card.buttonText}
-    <ChevronRight className="ml-2 h-5 w-5" />
-  </Button>
-</div>
+                  {/* LG and above */}
+                  <div className="hidden lg:block">
+                    <Button
+                      size="xl"
+                      className="mt-3 mb-3 w-fit text-lg px-6 rounded-full"
+                    >
+                      {card.buttonText}
+                      <ChevronRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </div>
 
                 </div>
 
