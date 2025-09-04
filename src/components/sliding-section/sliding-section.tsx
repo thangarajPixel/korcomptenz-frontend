@@ -8,11 +8,13 @@ import useEmblaCarousel, {
 import { Button } from "@/components/ui/button";
 import { jsonData } from "@/utils/helper";
 import KorcomptenzImage from "../korcomptenz-image";
+import { useMobile } from "@/utils/custom-hooks";
 
 export default function SlidingSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
   });
+  const isMobile = useMobile();
   const [_, setSelectedIndex] = React.useState(0);
 
   const onInit = React.useCallback((emblaApi?: UseEmblaCarouselType[1]) => {
@@ -52,7 +54,7 @@ export default function SlidingSection() {
               <div key={slide.id} className="flex-[0_0_100%] min-w-0">
                 <div className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-auto">
                   <KorcomptenzImage
-                    src={slide.image || "/placeholder.svg"}
+                    src={isMobile ? slide.mobileImage : slide.image || "/placeholder.svg"}
                     alt={slide.alt}
                     width={1000}
                     height={1000}
