@@ -76,7 +76,7 @@ export default function SlidingSection() {
                           {slide.title}
                         </h2>
                         {!slide.description && <div className="h-0 md:h-16 " />}
-                        <p className="text-lg md:text-xl mb-8 leading-tight  text-pretty">
+                        <p className="text-md md:text-xl mb-8 leading-tight  text-pretty">
                           {slide.description}
                         </p>
                         <Button
