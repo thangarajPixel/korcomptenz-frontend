@@ -56,7 +56,7 @@ export default function Opportunities() {
                         width={1000}
                         height={1000}
                       />
-                    </div> 
+                    </div>
                     <span className="text-[#22282E] text-lg lg:text-3xl  font-semibold">
                       build an
                     </span>
@@ -100,21 +100,21 @@ export default function Opportunities() {
                   <span className="text-[#22282E]  text-xl font-semibold ">
                     Ready to{" "}
                   </span>
-                 
-                    <div>
-                      <KorcomptenzImage
-                        src="/assets/home/profile-1.png"
-                        alt="Team member"
-                        className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
-                        width={1000}
-                        height={1000}
-                      />
-                    </div>
-                    <span className="text-[#22282E] text-xl  font-semibold">
-                      build an
-                    </span>
-                 
-                  
+
+                  <div>
+                    <KorcomptenzImage
+                      src="/assets/home/profile-1.png"
+                      alt="Team member"
+                      className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
+                      width={1000}
+                      height={1000}
+                    />
+                  </div>
+                  <span className="text-[#22282E] text-xl  font-semibold">
+                    build an
+                  </span>
+
+
                 </div>
 
                 <div className="flex flex-row justify-between items-center  mt:[40px]">
@@ -130,21 +130,21 @@ export default function Opportunities() {
                   <span className="text-primary text-xl  font-semibold">
                     exceptional{" "}
                   </span>
-                
-                    <div>
-                      <KorcomptenzImage
-                        src="/assets/home/profile-2.png"
-                        alt="Team member"
-                        width={1000}
-                        height={1000}
-                        className="lg:w-[100px] lg:h-[100px] w-16 h-16  rounded-full border-4 border-white shrink-0"
-                      />
-                    </div>
-                 
+
+                  <div>
+                    <KorcomptenzImage
+                      src="/assets/home/profile-2.png"
+                      alt="Team member"
+                      width={1000}
+                      height={1000}
+                      className="lg:w-[100px] lg:h-[100px] w-16 h-16  rounded-full border-4 border-white shrink-0"
+                    />
+                  </div>
+
                 </div>
-                 <span className="text-primary text-xl font-semibold">
-                      career?
-                    </span>
+                <span className="text-primary text-xl font-semibold">
+                  career?
+                </span>
               </div>
             </div>
             {/* Description text */}
@@ -157,7 +157,7 @@ export default function Opportunities() {
               type="button"
               variant="default"
               size="xl"
-              className="text-xs px-3 py-2"
+              arrow={true}
             >
               {careers.exploreBtn}
             </Button>

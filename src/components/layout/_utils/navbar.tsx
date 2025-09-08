@@ -91,32 +91,25 @@ export function Navbar() {
             </div>
 
             {/* Enhanced Mobile menu button with smooth animation */}
-            <div className="lg:hidden flex items-center gap-2">
-              {/* <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-700 hover:text-gray-900"
-              >
-                <Search className="h-5 w-5" />
-              </Button> */}
+            <div className="lg:hidden  gap-2">
               <button
                 className="transition-all duration-300 ease-out hover:scale-110 hover:bg-muted/50 p-2 rounded-md"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <div className="relative w-6 h-6">
                   <Menu
-                    className={`absolute inset-0 h-6 w-8 transition-all duration-500 ease-out ${
-                      isMenuOpen
-                        ? "opacity-0 rotate-180 scale-75"
-                        : "opacity-100 rotate-0 scale-100"
-                    }`}
+                    size={40}
+                    className={`absolute inset-0 transition-all duration-500 ease-out ${isMenuOpen
+                      ? "opacity-0 rotate-180 scale-75"
+                      : "opacity-100 rotate-0 scale-100"
+                      }`}
                   />
                   <X
-                    className={`absolute inset-0 h-7 w-8 transition-all duration-500 ease-out ${
-                      isMenuOpen
-                        ? "opacity-100 rotate-0 scale-100"
-                        : "opacity-0 -rotate-180 scale-75"
-                    }`}
+                    size={40}
+                    className={`absolute inset-0  transition-all duration-500 ease-out ${isMenuOpen
+                      ? "opacity-100 rotate-0 scale-100"
+                      : "opacity-0 -rotate-180 scale-75"
+                      }`}
                   />
                 </div>
               </button>
