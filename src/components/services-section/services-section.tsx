@@ -57,7 +57,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
         <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="container-md ">
           <TabsList
             className={cn(
-              "mb-12 relative lg:h-[80px] line-clamp-1  h-[44px]  sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-2xl",
+              "mb-12 relative lg:h-[80px] md:h-[60px] line-clamp-1  h-[44px]  sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-2xl",
 
               "bg-secondary p-0 shadow-none border-none !ml-0"
             )}
@@ -67,11 +67,11 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                 key={t.key}
                 value={t.key}
                 className={cn(
-                  "relative !cursor-pointer md:h-[80px] z-10 rounded-none lg:px-6 px-2 py-2 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
+                  "relative !cursor-pointer  z-10 rounded-none lg:px-6 px-2 py-2 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
                   "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50 lg:text-xl text-[12px] ">{t.label}</span>
+                <span className="z-50 md:text-xl text-[12px] ">{t.label}</span>
                 {value === t.key && (
                   <motion.div
                     layoutId="active-pill"
@@ -83,7 +83,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             ))}
           </TabsList>
         </Tabs>
-        <div className="h-0.5 w-2/4 bg-secondary absolute top-5 md:top-42 right-0" />
+        <div className="h-0.5 w-2/4 bg-secondary absolute top-5 md:top-27 lg:top-42 right-0" />
       </div>
       {/* Two‑column hero; content slides from right into center on tab change */}
       <div className="relative container-md  flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">

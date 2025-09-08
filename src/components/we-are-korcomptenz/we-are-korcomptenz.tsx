@@ -4,13 +4,13 @@ import React from "react";
 const WeAreKorcomptenzSection = () => {
   return (
     <div className="container-md md:mt-24">
-      <div className="grid lg:grid-cols-[1fr_2fr] gap-10 md:gap-32 items-start mb-10 md:mb-16">
+      <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-32 items-start mb-10 md:mb-16">
         {/* Left Column - Company Name */}
         <div className="lg:w-full">
-          <h1 className="text-2xl lg:text-4xl font-bold leading-tight">
+          <h1 className="text-2xl md:text-4xl font-bold leading-tight">
             We are
             <br />
-            <span className="text-2xl lg:text-3xl font-semibold">Korcomptenz</span>
+            <span className="text-2xl md:text-3xl font-semibold">Korcomptenz</span>
           </h1>
         </div>
 

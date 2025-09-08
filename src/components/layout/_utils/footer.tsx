@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from 'next/link'
 import React from 'react'
@@ -8,43 +8,44 @@ import { jsonData } from '@/utils/helper'
 import ScheduleCall from '@/components/layout/_utils/schedule';
 import { FacebookIcon, Footerlogo, InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from '../../../../public/svg/all-svg';
 
+
 type SocialIcons = {
   id: number;
   key: string;
   icon: React.ReactNode;
   href: string;
-}
+};
 
 export const socialIcons: SocialIcons[] = [
   {
     id: 1,
-    key: 'linkedin',
+    key: "linkedin",
     icon: <LinkedinIcon />,
-    href: '#',
+    href: "#",
   },
   {
     id: 2,
-    key: 'youtube',
+    key: "youtube",
     icon: <YoutubeIcon />,
-    href: '#',
+    href: "#",
   },
   {
     id: 3,
-    key: 'facebook',
+    key: "facebook",
     icon: <FacebookIcon />,
-    href: '#',
+    href: "#",
   },
   {
     id: 4,
-    key: 'instagram',
+    key: "instagram",
     icon: <InstagramIcon />,
-    href: '#',
+    href: "#",
   },
   {
     id: 5,
-    key: 'twitter',
+    key: "twitter",
     icon: <TwitterIcon />,
-    href: '#',
+    href: "#",
   },
 ];
 
@@ -54,7 +55,7 @@ export const Footer = () => {
   const address = jsonData.footer.address
   const footer = jsonData.footer
 
-
+  
   return (
     <footer className="bg-foreground text-white mt-2">
       <ScheduleCall />
@@ -66,7 +67,6 @@ export const Footer = () => {
               <div className="flex items-center space-x-2 mb-2">
                 <Footerlogo />
               </div>
-             
             </div>
             <div className="text-[#989CA0] text-sm space-y-1">
               <p>{address.line1}</p>
@@ -107,66 +107,69 @@ export const Footer = () => {
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="text-primary font-semibold text-md  border-b border-primary  pb-2">Services</h3>
+            <h3 className="text-primary font-semibold text-md  border-b border-primary  pb-2">
+              Services
+            </h3>
             <ul className="space-y-3">
-              {footer.services.map(
-                (service) => (
-                  <li key={service}>
-                    <Link
-                      href="#"
-                      className="text-[#F3F7F4] font-semibold text-sm transition-all duration-300 block"
-                    >
-                      {service}
-                    </Link>
-                  </li>
-                ),
-              )}
+              {footer.services.map((service) => (
+                <li key={service}>
+                  <Link
+                    href="#"
+                    className="text-[#F3F7F4] font-semibold text-sm transition-all duration-300 block"
+                  >
+                    {service}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Industries */}
           <div className="space-y-4">
-            <h3 className="text-primary font-semibold text-md border-b border-primary pb-2">Industries</h3>
+            <h3 className="text-primary font-semibold text-md border-b border-primary pb-2">
+              Industries
+            </h3>
             <ul className="space-y-3">
-              {footer.industries.map(
-                (industry) => (
-                  <li key={industry}>
-                    <Link
-                      href="#"
-                      className="text-[#F3F7F4] font-semibold block"
-                    >
-                      {industry}
-                    </Link>
-                  </li>
-                ),
-              )}
+              {footer.industries.map((industry) => (
+                <li key={industry}>
+                  <Link
+                    href="#"
+                    className="text-[#F3F7F4] text-sm font-semibold block"
+                  >
+                    {industry}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Insights */}
           <div className="space-y-4">
-            <h3 className="text-primary font-semibold text-md border-b border-primary pb-2">Insights</h3>
+            <h3 className="text-primary font-semibold text-md border-b border-primary pb-2">
+              Insights
+            </h3>
             <ul className="space-y-3">
-              {footer.insights.map(
-                (insight) => (
-                  <li key={insight}>
-                    <Link
-                      href="#"
-                      className="text-[#F3F7F4] font-semibold text-sm block"
-                    >
-                      {insight}
-                    </Link>
-                  </li>
-                ),
-              )}
+              {footer.insights.map((insight) => (
+                <li key={insight}>
+                  <Link
+                    href="#"
+                    className="text-[#F3F7F4] font-semibold text-sm block"
+                  >
+                    {insight}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Additional Links */}
-        <div className="space-y-4 md:mt-5 lg:mt-0 flex flex-col justify-around">
+          <div className="space-y-4 md:mt-5 lg:mt-0 flex flex-col justify-around">
             {/* Success Stories */}
             <div>
-              <Link href="#" className="flex items-center justify-between space-x-2 group">
+              <Link
+                href="#"
+                className="flex items-center justify-between space-x-2 group"
+              >
                 <h3 className="text-primary font-semibold text-md  transition-all duration-300">
                   Success Stories
                 </h3>
@@ -176,7 +179,10 @@ export const Footer = () => {
 
             {/* Careers */}
             <div>
-              <Link href="#" className="flex items-center justify-between space-x-2 group">
+              <Link
+                href="#"
+                className="flex items-center justify-between space-x-2 group"
+              >
                 <h3 className="text-primary font-semibold text-md  transition-all duration-300">
                   Careers
                 </h3>
@@ -186,7 +192,10 @@ export const Footer = () => {
 
             {/* Contact */}
             <div>
-              <Link href="#" className="flex items-center justify-between space-x-2 group">
+              <Link
+                href="#"
+                className="flex items-center justify-between space-x-2 group"
+              >
                 <h3 className="text-primary font-semibold  text-md transition-all duration-300">
                   Contact us
                 </h3>
@@ -201,15 +210,14 @@ export const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {/* About Us */}
             <section className="space-y-4" id="About">
-              <h4 className="text-primary font-semibold border-b border-primary text-md pb-2">About Us</h4>
+              <h4 className="text-primary font-semibold border-b border-primary text-md pb-2">
+                About Us
+              </h4>
               <h4 className="font-semibold text-sm">Who we are</h4>
               <ul className="space-y-2">
                 {footer.aboutUs.map((item) => (
                   <li key={item}>
-                    <Link
-                      href="#"
-                      className="text-[#AAAAAA] text-sm"
-                    >
+                    <Link href="#" className="text-[#AAAAAA] text-sm">
                       {item}
                     </Link>
                   </li>
@@ -219,10 +227,7 @@ export const Footer = () => {
               <ul className="space-y-2">
                 {footer.aboutUsNew.map((item) => (
                   <li key={item}>
-                    <Link
-                      href="#"
-                      className="font-semibold   "
-                    >
+                    <Link href="#" className="font-semibold text-sm  ">
                       {item}
                     </Link>
                   </li>
@@ -231,18 +236,19 @@ export const Footer = () => {
             </section>
 
             {/* Ecosystems - Microsoft */}
-            <section className='md:col-span-2 lg:col-span-4' >
-              <h4 className="text-primary font-semibold border-b border-primary text-md pb-2">Ecosystems</h4>
+            <section className="md:col-span-2 lg:col-span-4">
+              <h4 className="text-primary font-semibold border-b border-primary text-md pb-2">
+                Ecosystems
+              </h4>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-4">
                 <div className="space-y-4">
                   <ul className="space-y-2">
-                    <li><h4 className="font-semibold">Microsoft</h4></li>
+                    <li className="text-sm">
+                      <h4 className=" font-semibold ">Microsoft</h4>
+                    </li>
                     {footer.ecoSystems.microsoft.map((item) => (
                       <li key={item}>
-                        <Link
-                          href="#"
-                          className="text-[#AAAAAA]  text-sm"
-                        >
+                        <Link href="#" className="text-[#AAAAAA]  text-sm">
                           {item}
                         </Link>
                       </li>
@@ -256,10 +262,7 @@ export const Footer = () => {
                   <ul className="space-y-2">
                     {footer.ecoSystems.sap.map((item) => (
                       <li key={item}>
-                        <Link
-                          href="#"
-                          className="text-[#AAAAAA]  text-sm"
-                        >
+                        <Link href="#" className="text-[#AAAAAA]  text-sm">
                           {item}
                         </Link>
                       </li>
@@ -269,14 +272,11 @@ export const Footer = () => {
 
                 {/* Salesforce */}
                 <div className="space-y-4">
-                  <h4 className="font-semibold">Salesforce</h4>
+                  <h4 className="font-semibold text-sm">Salesforce</h4>
                   <ul className="space-y-2">
                     {footer.ecoSystems.salesforce.map((item) => (
                       <li key={item}>
-                        <Link
-                          href="#"
-                          className="text-[#AAAAAA]  text-sm"
-                        >
+                        <Link href="#" className="text-[#AAAAAA]  text-sm">
                           {item}
                         </Link>
                       </li>
@@ -288,24 +288,20 @@ export const Footer = () => {
                   <ul className="space-y-2 lg:mt-10">
                     {footer.ecoSystems.salesforceNew.map((item) => (
                       <li key={item}>
-                        <Link
-                          href="#"
-                          className="text-[#AAAAAA] text-sm"
-                        >
+                        <Link href="#" className="text-[#AAAAAA] text-sm">
                           {item}
                         </Link>
                       </li>
                     ))}
                   </ul>
                 </div>
-
               </div>
             </section>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-6 border-t border-slate-700 flex flex-col gap-3 sm:gap-0 sm:flex-row items-center justify-between">
+        <div className=" hidden mt-8 pt-6 border-t border-slate-700 lg:flex flex-col gap-3  items-center justify-between">
           <p className="text-[#AAAAAA] text-sm">{footer.copyright}</p>
           <div>
             {footer.policies.map((policy) => (
@@ -319,7 +315,25 @@ export const Footer = () => {
             ))}
           </div>
         </div>
+        {/* Mobile Copyright */}
+        <div className=" mt-8  lg:hidden  flex-col  items-center">
+        
+          <div className="flex justify-center  pb-4">
+            {footer.policies.map((policy) => (
+              <Link
+                key={policy}
+                href="#"
+                className="text-[#AAAAAA]  text-[14px] border-r-1 border-[#989CA0] mx-2 last:border-0 pr-2"
+              >
+                {policy}
+              </Link>
+            ))}
+          </div>
+          <div className="flex justify-center pt-4 border-t-1   border-[#989CA0]">
+            <p className="text-[#AAAAAA] text-[14px]  ">{footer.copyright}</p>
+          </div>
+        </div>
       </div>
     </footer>
-  )
-}
+  );
+};

@@ -8,7 +8,7 @@ import Opportunities from "@/components/opportunities";
 
 export default async function Home() {
   return (
-    <div className="flex flex-col gap-16" >
+    <div className="flex flex-col gap-10 md:gap-16" >
       <SlidingSection />
       <WeAreKorcomptenzSection />
       <ServicesSection />
