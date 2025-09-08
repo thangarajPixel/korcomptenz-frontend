@@ -76,10 +76,10 @@ export default function InsightsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="flex justify-start md:hidden"
+          className="flex justify-start md:hidden w-full"
         >
-          <Link href="#">
-            <Button size="lg" arrow={true}>
+          <Link href="#" className="w-full">
+            <Button size="lg" className=" w-full " arrow={true}>
               Read All
             </Button>
           </Link>
