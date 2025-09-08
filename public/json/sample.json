@@ -217,13 +217,13 @@
       "image": "/assets/home/salesforce.png"
     },
     "servicenow": {
-      "heading": "Accelerate work on ServiceNow",
-      "subheading": "Digitize workflows, automate service delivery, and gain visibility with a secure platform.",
+      "heading": "Modernize with ServiceNow",
+      "subheading": "Leverage ServiceNow’s powerful workflow engine to digitize operations, reduce friction, and create intelligent experiences across departments. We ensure transformation happens at scale, with speed and impact.",
       "image": "/assets/home/sap.png"
     },
     "aws": {
-      "heading": "Accelerate work on AWS",
-      "subheading": "Leverage the power of AWS to drive innovation and efficiency in your organization.",
+      "heading": "Fuel Innovation with AWS",
+      "subheading": "Leverage the full power of AWS to accelerate cloud-native development, drive data-driven decisions, and enable secure, scalable digital transformation. We help you go from idea to impact—fast.",
       "image": "/assets/home/sap.png"
     }
   }
