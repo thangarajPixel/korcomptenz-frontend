@@ -128,13 +128,11 @@ export default function StickyCards({ className }: { className?: string }) {
         ))}
 
         <div className="flex items-center justify-center sm:hidden relative top-7">
-          <Button size='xl' className="w-full lg:w-[178px]">
+          <Button size='xl' arrow={true}>
             Explore All
-            <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
           </Button>
         </div>
       </div>
     </div>
-
   );
 }
