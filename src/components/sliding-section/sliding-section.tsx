@@ -65,7 +65,7 @@ export default function SlidingSection() {
                     <div className="container-md">
                       <div className="max-w-2xl text-white">
                         <div
-                          className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide.subtitle ? "text-lg md:text-5xl" : "text-sm font-medium"
+                          className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide.subtitle ? "text-lg md:text-5xl" : "text-2xl font-medium"
                             }`}
                         >
                           {slide.subtitle || slide.subtitle2}
