@@ -3,34 +3,34 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronRight } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { jsonData } from "@/utils/helper";
 import Link from "next/link";
 import { SearchIcon } from "../../../../public/svg/all-svg";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  // const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > 10);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+  // useEffect(() => {
+  //   if (isMenuOpen) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "unset";
+  //   }
 
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isMenuOpen]);
+  //   return () => {
+  //     document.body.style.overflow = "unset";
+  //   };
+  // }, [isMenuOpen]);
 
   return (
     <React.Fragment>
@@ -44,8 +44,7 @@ export function Navbar() {
       >
         <div className="container-nav h-[100px] pt-5">
           <div
-            className={` flex items-center justify-between transition-all duration-500 ease-out ${isScrolled ? "h-14" : "h-16"
-              }`}
+            className={` flex items-center justify-between transition-all duration-500 ease-out "h-16"`}
           >
             {/* Logo with enhanced animation */}
             <div className="flex items-center group cursor-pointer">
