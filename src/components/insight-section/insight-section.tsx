@@ -37,7 +37,7 @@ import { jsonData } from '@/utils/helper'
 export default function InsightsSection() {
   return (
     <section aria-labelledby="insights-heading" className="container-lg">
-      <div className="flex flex-col items-center gap-6 text-center md:gap-8   ">
+      <div className="flex flex-col md:items-center gap-6 text-center md:gap-8   ">
         <motion.h2
           id="insights-heading"
           className="text-pretty lg:text-5xl text-2xl font-semibold text-gray-900 md:text-3xl "
@@ -50,7 +50,7 @@ export default function InsightsSection() {
         </motion.h2>
         <InsightsMobileCarousel items={jsonData.insights} />
         <motion.div
-          className="md:flex flex-row items-center justify-center hidden "
+          className="md:flex flex-row  items-center justify-center hidden "
           initial={{ opacity: 0, y: 6 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -59,7 +59,7 @@ export default function InsightsSection() {
           <Link
             href="#"
           >
-            <Button size="xl" arrow={true} className="variant:default px-8 py-2 text-lg rounded-full inline-flex">
+            <Button size="xl" arrow={true} className=" variant:default px-8 py-2 text-lg rounded-full inline-flex">
               Read All
             </Button>
           </Link>
@@ -76,20 +76,18 @@ export default function InsightsSection() {
           ))}
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 6 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className="block md:hidden"
-        >
-          <Link
-            href="#"
-          >
-            <Button size="xl" arrow={true} >
-              Read All
-            </Button>
-          </Link>
-        </motion.div>
+  initial={{ opacity: 0, y: 6 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.4 }}
+  transition={{ duration: 0.4, delay: 0.05 }}
+  className="flex justify-start md:hidden"
+>
+  <Link href="#">
+    <Button size="lg" arrow={true}>
+      Read All
+    </Button>
+  </Link>
+</motion.div>
       </div>
     </section>
   )
