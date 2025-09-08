@@ -36,15 +36,11 @@ import { jsonData } from '@/utils/helper'
 
 export default function InsightsSection() {
   return (
-    <section aria-labelledby="insights-heading" className="container-lg">
+    <section aria-labelledby="insights-heading" className="px-0 container-lg ">
       <div className="flex flex-col items-center gap-6 text-center md:gap-8   ">
         <motion.h2
           id="insights-heading"
           className="text-pretty lg:text-5xl text-2xl font-semibold text-gray-900 md:text-3xl "
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.5 }}
         >
           Insights that inspire
         </motion.h2>

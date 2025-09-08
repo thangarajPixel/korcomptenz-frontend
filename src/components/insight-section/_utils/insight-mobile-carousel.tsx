@@ -1,27 +1,22 @@
 "use client"
 
 import useEmblaCarousel from "embla-carousel-react"
-import { useEffect } from "react"
-import { useAnimation, motion } from "motion/react"
 import { InsightCard, type InsightCardType } from "./insight-cards"
 import { cn } from "@/lib/utils"
 
 
 export default function InsightsMobileCarousel({ items }: { items: InsightCardType[] }) {
   const [emblaRef] = useEmblaCarousel({
-    align: "start",
+    align: "center",
     dragFree: true,
-    containScroll: "trimSnaps",
+    containScroll: "keepSnaps",
     loop: true,
+    watchSlides: true,
   })
-  const controls = useAnimation()
 
-  useEffect(() => {
-    controls.start({ opacity: 1, y: 0, transition: { duration: 0.45 } })
-  }, [controls])
 
   return (
-    <motion.div initial={{ opacity: 0, y: 8 }} animate={controls} className="block md:hidden">
+    <div className="block md:hidden">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex gap-4 pl-4">
           {items.map((item) => (
@@ -31,6 +26,6 @@ export default function InsightsMobileCarousel({ items }: { items: InsightCardTy
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }

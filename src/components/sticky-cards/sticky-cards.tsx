@@ -55,7 +55,7 @@ export default function StickyCards({ className }: { className?: string }) {
           <div
             key={card.id}
             className={cn(
-              "sticky sm:top-48 top-20 ",
+              "sm:sticky relative sm:top-48 top-20 ",
               `z-[${index + 10}] sm:mb-12`
             )}
           >
@@ -64,7 +64,7 @@ export default function StickyCards({ className }: { className?: string }) {
                 className={cn(
                   "overflow-hidden bg-[#F3F7F4] border-0 w-full py-0 h-auto lg:h-[28rem]",
                   "flex flex-col md:flex-row md:items-stretch rounded-4xl ",
-                  index && 'shadow-xl',
+                  index && 'sm:shadow-xl shadow-none',
                   className
                 )}
               >
@@ -128,12 +128,11 @@ export default function StickyCards({ className }: { className?: string }) {
         ))}
 
         <div className="flex items-center justify-center sm:hidden relative top-7">
-          <Button size={'xl'}>
+          <Button size='xl'>
             Explore All
             <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
           </Button>
         </div>
-
       </div>
     </div>
 

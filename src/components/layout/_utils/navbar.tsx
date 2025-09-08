@@ -93,7 +93,7 @@ export function Navbar() {
             {/* Enhanced Mobile menu button with smooth animation */}
             <div className="lg:hidden  gap-2">
               <button
-                className="transition-all duration-300 ease-out hover:scale-110 hover:bg-muted/50 p-2 rounded-md"
+                className="transition-all duration-300 ease-out   p-2 rounded-md"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <div className="relative w-6 h-6">
