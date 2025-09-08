@@ -16,10 +16,10 @@ const WeAreKorcomptenzSection = () => {
 
         {/* Right Column - Description */}
         <div className="space-y-5">
-          <p className="font-outfit font-normal text-xs md:text-lg leading-[24px] md:leading-[34px] tracking-[0%] text-pretty whitespace-pre-wrap">
+          <p className="font-outfit font-normal text-xs md:text-lg leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
             {`We lead with expertise - in technology and domain to deliver solutions that align with your business\ngoals.`}
           </p>
-          <p className="font-outfit font-normal text-xs md:text-lg leading-[24px] md:leading-[34px] tracking-[0%] text-pretty whitespace-pre-wrap">
+          <p className="font-outfit font-normal text-xs md:text-lg leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
             {`We leverage our experience and robust partner\necosystem to elevate your processes, powering your\ntransformation journey toward impactful growth`}
           </p>
         </div>

@@ -8,7 +8,7 @@ const InspireSection = () => {
     <div className="container-lg  mt-0 md:mt-16 py-4">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
         <div className="block xl:hidden text-left md:text-center">
-          <h1 className="text-2xl font-bold text-custom-gray ">
+          <h1 className="text-xl lg:2xl font-bold text-custom-gray ">
             Best-in-class solutions for key industry challenges
           </h1>
         </div>

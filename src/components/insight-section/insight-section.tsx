@@ -46,7 +46,7 @@ export default function InsightsSection() {
         </motion.h2>
         <InsightsMobileCarousel items={jsonData.insights} />
         <motion.div
-          className="md:flex flex-row items-center justify-center hidden "
+          className="md:flex flex-row  items-center justify-center hidden "
           initial={{ opacity: 0, y: 6 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -55,7 +55,7 @@ export default function InsightsSection() {
           <Link
             href="#"
           >
-            <Button size="xl" arrow={true} className="variant:default px-8 py-2 text-lg rounded-full inline-flex">
+            <Button size="xl" arrow={true} className=" variant:default px-8 py-2 text-lg rounded-full inline-flex">
               Read All
             </Button>
           </Link>
@@ -76,12 +76,10 @@ export default function InsightsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="block md:hidden"
+          className="flex justify-start md:hidden"
         >
-          <Link
-            href="#"
-          >
-            <Button size="xl" arrow={true} >
+          <Link href="#">
+            <Button size="lg" arrow={true}>
               Read All
             </Button>
           </Link>
