@@ -41,23 +41,23 @@ export default function Opportunities() {
           {/* Right side - Content */}
           <div className="space-y-8 mx-auto">
             {/* Header text with profile images */}
-            <div className="relative transition-all duration-500 group-hover:-translate-x-2 group-hover:scale-105 hidden lg:block">
+            <div className="relative   hidden lg:block">
               <div className="text-xl font-bold leading-tight w-full">
-                <div className="flex flex-row items-center justify-between">
-                  <span className="text-[#22282E] text-lg lg:text-3xl font-semibold lg:me-20">
-                    Ready to{" "}
+                <div className="flex flex-row  justify-between ">
+                  <span className="text-[#22282E] transition-all duration-500 group-hover:-translate-x-2 text-lg lg:text-3xl font-semibold lg:me-20">
+                    Ready to
                   </span>
-                  <section className="flex flex-row items-center gap-2">
+                  <section className="flex flex-row  gap-2">
                     <div>
                       <Image
                         src="/assets/home/profile-1.png"
                         alt="Team member"
-                        className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
+                        className="lg:w-[100px] lg:h-[100px] w-16 h-16 transition-all duration-500 group-hover:scale-105 rounded-full border-4 border-white shrink-0"
                         width={1000}
                         height={1000}
                       />
                     </div>
-                    <span className="text-[#22282E] text-lg lg:text-3xl font-semibold">
+                    <span className="text-[#22282E] transition-all duration-500 group-hover:-translate-x-2 text-lg lg:text-3xl font-semibold">
                       build an
                     </span>
                   </section>
@@ -65,28 +65,28 @@ export default function Opportunities() {
                     <KorcomptenzImage
                       src="/assets/home/profile-3.png"
                       alt="Team member"
-                      className="w-16 h-16 lg:w-[100px] lg:h-[100px] rounded-full border-4 border-white shrink-0"
+                      className="w-16 h-16 lg:w-[100px] lg:h-[100px] transition-all duration-500 group-hover:scale-105 rounded-full border-4 border-white shrink-0"
                       width={1000}
                       height={1000}
                     />
                   </div>
                 </div>
 
-                <div className="flex flex-row items-center mt:[40px]">
-                  <span className="text-primary text-lg lg:-ml-38 lg:text-3xl lg:me-38 font-semibold">
+                <div className="flex flex-row  mt:[40px]">
+                  <span className="text-primary text-lg  transition-all duration-500 group-hover:-translate-x-2 lg:text-3xl lg:me-38 font-semibold">
                     exceptional{" "}
                   </span>
-                  <section className="flex flex-row items-center gap-2 lg:-ml-12">
+                  <section className="flex flex-row  gap-2 lg:-ml-12">
                     <div>
                       <KorcomptenzImage
                         src="/assets/home/profile-2.png"
                         alt="Team member"
-                        className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
+                        className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0 transition-all duration-500 group-hover:scale-105"
                         width={1000}
                         height={1000}
                       />
                     </div>
-                    <span className="text-primary text-lg lg:text-3xl font-semibold">
+                    <span className="text-primary transition-all duration-500 group-hover:-translate-x-2 text-lg lg:text-3xl font-semibold">
                       career?
                     </span>
                   </section>
