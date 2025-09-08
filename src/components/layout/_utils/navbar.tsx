@@ -2,7 +2,7 @@
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronRight } from "lucide-react";
+import { X, ChevronRight } from "lucide-react";
 import React, { useState } from "react";
 import { jsonData } from "@/utils/helper";
 import Link from "next/link";
@@ -92,19 +92,20 @@ export function Navbar() {
             {/* Enhanced Mobile menu button with smooth animation */}
             <div className="lg:hidden  gap-2">
               <button
-                className="transition-all duration-300 ease-out   p-2 rounded-md"
+                className="transition-all duration-300 ease-out cursor-pointer  p-2 rounded-md"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <div className="relative w-6 h-6">
-                  <Menu
-                    size={40}
+                  <KorcomptenzImage
+                    src="/assets/icn_mob_mob.svg"
+                    alt="menu"
+                    fill
                     className={`absolute inset-0 transition-all duration-500 ease-out ${isMenuOpen
                       ? "opacity-0 rotate-180 scale-75"
                       : "opacity-100 rotate-0 scale-100"
                       }`}
                   />
                   <X
-                    size={40}
                     className={`absolute inset-0  transition-all duration-500 ease-out ${isMenuOpen
                       ? "opacity-100 rotate-0 scale-100"
                       : "opacity-0 -rotate-180 scale-75"
