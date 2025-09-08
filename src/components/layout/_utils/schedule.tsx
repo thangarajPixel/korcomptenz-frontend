@@ -24,7 +24,7 @@ const ScheduleCall = () => {
           </div>
        
           <div className="flex items-center space-x-2 -mt-25 md:ml-0 ml-30 lg:ml-0 lg:mr-10 lg:mt-10">
-            <KorcomptenzImage src="/assets/lets-drive.png" alt="drive" className='w-[200px] lg:w-[550px] h-auto rounded-2xl' width={1112} height={607} />
+            <KorcomptenzImage src="/assets/lets-drive.png" alt="drive" className='w-full lg:w-[550px] h-auto rounded-2xl' width={1112} height={607} />
           </div>
            <Button size="xl"  arrow={true} className="text-lg  lg:hidden hover:bg-transparent lg:mt-48" >
               {footer.scheduleCall.cta}
