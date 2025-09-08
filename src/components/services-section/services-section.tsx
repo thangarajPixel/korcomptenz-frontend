@@ -58,11 +58,10 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
           <TabsList
             className={cn(
               "mb-12 relative lg:h-[80px] md:h-[60px] line-clamp-1  h-[44px]  sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-2xl",
-
               "bg-secondary p-0 shadow-none border-none !ml-0"
             )}
           >
-            {TABS.map((t) => (
+            {TABS.map((t, index) => (
               <TabsTrigger
                 key={t.key}
                 value={t.key}
@@ -76,7 +75,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                   <motion.div
                     layoutId="active-pill"
                     transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                    className="absolute inset-0 z-0  rounded-md bg-secondary-foreground"
+                    className={cn("absolute inset-0 z-0   bg-secondary-foreground", (index === 0 || index === TABS.length - 1) && "rounded-md")}
                   />
                 )}
               </TabsTrigger>
@@ -97,7 +96,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             className="space-y-3 "
           >
             <h1 className="text-pretty lg:text-5xl text-2xl font-semibold leading-tight text-custom-gray md:text-4xl">
-              {jsonData.content[value].heading} 
+              {jsonData.content[value].heading}
             </h1>
             <p className="max-w-xl text-pretty text-sm text-custom-gray py-3">{jsonData.content[value].subheading}</p>
             <Button

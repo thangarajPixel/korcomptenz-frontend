@@ -44,7 +44,7 @@ export default function SlidingSection() {
 
     return () => clearInterval(autoSlide);
   }, [emblaApi]);
-
+  // container-lg p-0 
   return (
     <section className="w-full rounded-none">
       <div className="relative">
