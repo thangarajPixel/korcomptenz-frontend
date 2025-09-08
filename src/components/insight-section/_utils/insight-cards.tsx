@@ -19,7 +19,6 @@ export function InsightCard({ title, imageSrc, alt, className, category }: Insig
     <motion.article
       className={cn(
         "group relative bg-card p-3   transition-colors",
-        "hover:ring-black/10",
         className,
       )}
       initial={{ opacity: 0, y: 22 }}
@@ -27,7 +26,7 @@ export function InsightCard({ title, imageSrc, alt, className, category }: Insig
       viewport={{ once: true, amount: 0.3 }}
     >
       <motion.div
-        className="relative overflow-hidden rounded-4xl"
+        className="relative rounded-4xl"
       >
         <span className=" mx-3 my-5  pointer-events-none absolute left-3 top-3 z-10 rounded-full bg-white/90 px-5 py-2 text-xs font-medium text-[#000000] ring-1 ring-gray-200 backdrop-blur">
           {category}
@@ -41,12 +40,12 @@ export function InsightCard({ title, imageSrc, alt, className, category }: Insig
             height={1000}
             width={1000}
             // sizes="(max-width:768px) 100vw, (max-width:1024px) 50vw, 33vw"
-            className=" size-full"
+            className=" size-full rounded-4xl"
             priority={false}
           />
         </div>
       </motion.div>
-      <p className="mt-4 text-start lg:text-xl text-md font-semibold leading-10 ">{title}</p>
+      <p className="mt-4 max-w-full text-start lg:text-xl text-md font-semibold leading-10 ">{title}</p>
     </motion.article>
   )
 }
