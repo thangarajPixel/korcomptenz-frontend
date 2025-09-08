@@ -40,7 +40,7 @@ export default function SlidingSection() {
 
     const autoSlide = setInterval(() => {
       emblaApi.scrollNext();
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(autoSlide);
   }, [emblaApi]);
