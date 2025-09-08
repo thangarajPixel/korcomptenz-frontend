@@ -85,7 +85,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
         <div className="h-0.5 w-2/4 bg-secondary absolute top-5 sm:top-7 md:top-27 lg:top-42 right-0" />
       </div>
       {/* Two‑column hero; content slides from right into center on tab change */}
-      <div className="relative container-md  flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">
+      <div className="relative container-md flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">
         <AnimatePresence mode="wait">
           <motion.div
             key={`copy-${value}`}
