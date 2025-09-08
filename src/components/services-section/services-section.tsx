@@ -66,7 +66,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                 key={t.key}
                 value={t.key}
                 className={cn(
-                  "relative !cursor-pointer  z-10 rounded-none lg:px-6 px-2 py-2 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
+                  "relative !cursor-pointer h-full z-10 rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
                   "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
