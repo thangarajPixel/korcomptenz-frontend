@@ -1,27 +1,27 @@
-'use client';
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { ChevronRight } from "lucide-react"
-import Image from "next/image"
-import { jsonData } from '@/utils/helper'
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { jsonData } from "@/utils/helper";
 
 export default function Opportunities() {
-  const careers = jsonData.careers
+  const careers = jsonData.careers;
   return (
     <section className="bg-white  px-4 sm:px-6 lg:px-8 mb-6">
-      <div className="container-lg">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
           {/* Left side - Image with geometric elements */}
           <div className="relative">
             {/* Blue geometric arrows */}
-            <div className="absolute top-8 left-6 z-10 group-hover:left-16 transition-all duration-1000">
+            <div className="absolute top-8 left-6 z-10 group-hover:left-24 transition-all duration-1000">
               <div className="flex space-x-1 w-72">
                 <Image
                   src="/assets/home/arrow.png"
                   alt="arrow"
                   className="w-full h-auto rounded-lg"
                   width={500}
-                  height={300} />
+                  height={300}
+                />
               </div>
             </div>
 
@@ -32,65 +32,71 @@ export default function Opportunities() {
                 alt="Professional working on laptop"
                 className="w-full h-auto rounded-lg"
                 width={1112}
-                height={607} />
+                height={607}
+              />
             </div>
           </div>
 
           {/* Right side - Content */}
           <div className="space-y-8 mx-auto">
             {/* Header text with profile images */}
-            <div className="relative group-hover:-translate-x-7 group-hover:scale-110 transition-all duration-1000">
+            <div className="relative group-hover:-translate-x-5 group-hover:scale-102 transition-all ">
               <div className="text-xl lg:text-5xl font-bold leading-tight w-full">
-                <div className='flex flex-row items-center justify-between mb-6'>
-                  <span className="text-gray-900 lg:-ml-24">Ready to </span>
+                <div className="flex flex-row items-center justify-between">
+                  <span className="text-[#22282E] lg:-ml-56 text-lg lg:text-3xl font-semibold lg:me-20">Ready to </span>
                   <section className="flex flex-row items-center gap-2">
                     <div>
                       <img
                         src="/assets/home/profile-1.png"
                         alt="Team member"
-                        className="w-16 h-16 rounded-full border-4 border-white shadow-lg shrink-0"
+                        className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
                       />
                     </div>
-                    <span className="text-gray-900">build an</span>
+                    <span className="text-[#22282E] text-lg lg:text-3xl  font-semibold">build an</span>
                   </section>
-                  <div>
+                  <div className="ps-10">
                     <img
                       src="/assets/home/profile-3.png"
                       alt="Team member"
-                      className="w-16 h-16 rounded-full border-4 border-white shadow-lg shrink-0"
+                      className="w-16 h-16 lg:w-[100px] lg:h-[100px] rounded-full border-4 border-white shrink-0"
                     />
                   </div>
                 </div>
 
-                <div className='flex flex-row items-center justify-between'>
-                  <span className="text-teal-600">exceptional </span>
-                  <section className="flex flex-row items-center gap-2">
-                    <div className="">
+                <div className="flex flex-row items-center  mt:[40px]">
+                  <span className="text-primary text-lg lg:-ml-42 lg:text-3xl lg:me-48 font-semibold">exceptional </span>
+                  <section className="flex flex-row items-center gap-2 lg:-ml-12">
+                    <div >
                       <img
                         src="/assets/home/profile-2.png"
                         alt="Team member"
-                        className="w-16 h-16 rounded-full border-4 border-white shadow-lg shrink-0"
+                        className="lg:w-[100px] lg:h-[100px] w-16 h-16  rounded-full border-4 border-white shrink-0"
                       />
                     </div>
-                    <span className="text-teal-600">career?</span>
+                    <span className="text-primary text-lg lg:text-3xl font-semibold">career?</span>
                   </section>
                 </div>
               </div>
             </div>
 
             {/* Description text */}
-            <p className="text-lg text-gray-700 leading-relaxed max-w-lg">
+           <p className="text-md text-[#22282E] leading-[28px] max-w-lg lg:ms-[-30px]">
               {careers.description}
             </p>
 
             {/* CTA Button */}
-            <Button type="button" variant="default" size="xl" >
+            <Button
+              type="button"
+              arrow={true}
+              variant="default"
+              size="xl"
+              className="text-sm lg:ms-[-30px]"
+            >
               {careers.exploreBtn}
-              <ChevronRight className="ml-2 h-5 w-5 transition-transform" />
             </Button>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

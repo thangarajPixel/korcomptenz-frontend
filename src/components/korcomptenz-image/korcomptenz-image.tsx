@@ -21,7 +21,7 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
     <Image
       {...props}
       src={props.src ?? props?.fallbackSrc ?? ''}
-      className={cn(!props?.nonAnimate && 'object-cover transition-transform duration-300 hover:scale-110', props?.className)}
+      className={cn(props?.nonAnimate && 'object-cover transition-transform duration-300 hover:scale-110', props?.className)}
       placeholder={imagePlaceholder}
     />
   );

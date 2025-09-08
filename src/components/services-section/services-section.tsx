@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { jsonData } from '@/utils/helper'
+import KorcomptenzImage from "../korcomptenz-image"
 
 
 type TabKey = "microsoft" | "sap" | "salesforce" | "servicenow" | "aws"
@@ -50,46 +51,42 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
   const [value, setValue] = React.useState<TabKey>("microsoft")
 
   return (
-    <section className={cn("my-5 md:my-0", className)}>
+    <section className={cn("my- md:my-0", className)}>
       {/* Top rounded segmented tabs */}
-      <div className="relative">
-        <div className="container mx-auto flex items-start">
-          <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="
-           mx-auto max-w-5xl px-4 sm:px-6">
-            <TabsList
-              className={cn(
-                "mb-12 relative  h-12 sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-xl",
-                "container-md",
-                "bg-secondary p-0 shadow-none border-none !ml-0"
-              )}
-            >
-              {TABS.map((t) => (
-                <TabsTrigger
-                  key={t.key}
-                  value={t.key}
-                  className={cn(
-                    "relative !cursor-pointer z-10 rounded-none px-6 py-2 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
-                    "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
-                  )}
-                >
-                  <span className="z-50">{t.label}</span>
-                  {value === t.key && (
-                    <motion.div
-                      layoutId="active-pill"
-                      transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                      className="absolute inset-0 z-0 rounded-md bg-secondary-foreground"
-                    />
-                  )}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </Tabs>
-        </div>
-        <div className="h-0.5 w-2/4 bg-secondary absolute top-1/4 right-0" />
+      <div className="relative lg:pt-[130px] md:pt-[80px]">
+        <Tabs value={value} onValueChange={(v) => setValue(v as TabKey)} className="container-md ">
+          <TabsList
+            className={cn(
+              "mb-12 relative lg:h-[80px] line-clamp-1  h-[44px]  sm:h-16 grid max-w-5xl s-10 grid-cols-5 overflow-hidden rounded-2xl",
+
+              "bg-secondary p-0 shadow-none border-none !ml-0"
+            )}
+          >
+            {TABS.map((t) => (
+              <TabsTrigger
+                key={t.key}
+                value={t.key}
+                className={cn(
+                  "relative !cursor-pointer md:h-[80px] z-10 rounded-none lg:px-6 px-2 py-2 shadow-none border-none  text-xs sm:text-base font-semibold text-white transition",
+                  "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
+                )}
+              >
+                <span className="z-50 lg:text-xl text-[12px] ">{t.label}</span>
+                {value === t.key && (
+                  <motion.div
+                    layoutId="active-pill"
+                    transition={{ type: "spring", stiffness: 120, damping: 20 }}
+                    className="absolute inset-0 z-0  rounded-md bg-secondary-foreground"
+                  />
+                )}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
+        <div className="h-0.5 w-2/4 bg-secondary absolute top-5 md:top-42 right-0" />
       </div>
       {/* Two‑column hero; content slides from right into center on tab change */}
-      <div className="relative container-md flex flex-col-reverse justify-between items-center gap-10 lg:flex-row">
-        {/* Left copy */}
+      <div className="relative container-md  flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">
         <AnimatePresence mode="wait">
           <motion.div
             key={`copy-${value}`}
@@ -97,25 +94,23 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -60 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-6"
+            className="space-y-3 "
           >
-            <h1 className="text-pretty text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">
-              {jsonData.content[value].heading}
+            <h1 className="text-pretty lg:text-5xl text-2xl font-semibold leading-tight text-custom-gray md:text-4xl">
+              {jsonData.content[value].heading} 
             </h1>
-            <p className="max-w-xl text-pretty text-gray-600">{jsonData.content[value].subheading}</p>
+            <p className="max-w-xl text-pretty text-sm text-custom-gray py-3">{jsonData.content[value].subheading}</p>
             <Button
-              size="lg"
-              className="h-12 rounded-full bg-[#16a085] px-6 text-base font-semibold text-white hover:bg-[#129072]"
+              size="xl"
+              arrow={true}
+
+              className="rounded-full bg-[#16a085] px-6   variant:default"
             >
               Know More
-              <span aria-hidden="true" className="ml-2">
-                ›
-              </span>
+
             </Button>
           </motion.div>
         </AnimatePresence>
-
-        {/* Right visual */}
         <AnimatePresence mode="wait">
           <motion.div
             key={`art-${value}`}
@@ -123,14 +118,16 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -60 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
+            className="relative h-full w-full lg:w-3/4"
           >
 
             {/* Photo placeholder matching composition */}
-            <img
+            <KorcomptenzImage
               src={jsonData.content[value].image}
               alt="Team collaborating on a laptop"
-              className="h-fit w-full rounded-xl object-contain shadow-lg"
+              className="h-fit w-full  rounded-xl object-contain "
+              width={1000}
+              height={1000}
             />
           </motion.div>
         </AnimatePresence>

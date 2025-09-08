@@ -6,6 +6,7 @@ import { Menu, X, Search, ChevronRight } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { jsonData } from "@/utils/helper";
 import Link from "next/link";
+import { SearchIcon } from "../../../../public/svg/all-svg";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,9 +35,11 @@ export function Navbar() {
   return (
     <React.Fragment>
       <header
-        className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out ${isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg supports-[backdrop-filter]:bg-background/80"
-          : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+        // className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out ${isScrolled
+        //   ? "bg-background/95 backdrop-blur-md shadow-lg supports-[backdrop-filter]:bg-background/80"
+        //   : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+        //   }`}
+        className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white
           }`}
       >
         <div className="container-nav h-[100px] pt-5">
@@ -48,86 +51,35 @@ export function Navbar() {
             <div className="flex items-center group cursor-pointer">
               <div className="flex items-center space-x-2">
                 <KorcomptenzImage
+                  className="size-full"
                   src={jsonData.header.companyDetail.logo}
                   alt="Logo"
-                  width={36}
-                  height={36}
+                  width={100}
+                  height={100}
                 />
-                <span className="text-2xl font-semibold text-gray-900">
-                  {jsonData.header.companyDetail.name}
-                </span>
               </div>
             </div>
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
-            <nav className="hidden lg:flex items-center space-x-7 relative text-[#313941] text-md">
+            <nav className="hidden lg:flex items-center space-x-7 relative text-[#313941] text-sm font-light">
               {jsonData.header.navItems.map((item, index) => (
                 <a
                   key={index}
                   href={item.href}
-                  className="font-medium transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav 
+                  className="font-medium transition-all duration-300 ease-out hover:text-primary  relative group/nav 
       after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all 
       after:duration-300 after:ease-out hover:after:w-full"
                 >
                   {item.label}
                 </a>
               ))}
-
-              {/* Enhanced regular nav items */}
-              {/* <a
-              href="#Services"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Services
-            </a>
-            <a
-              href="#Industries"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Industries
-            </a>
-            <a
-              href="#Ecosystems"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Ecosystems
-            </a>
-            <a
-              href="#Success"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Success Stories
-            </a>
-            <a
-              href="#Insights"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Insights
-            </a>
-            <a
-              href="#About"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              About Us
-            </a>
-            <a
-              href="#Careers"
-              className=" font-medium  transition-all duration-300 ease-out hover:text-primary hover:scale-105 relative group/nav after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:ease-out hover:after:w-full"
-            >
-              Careers
-            </a> */}
             </nav>
 
             {/* Enhanced Desktop CTA with animations */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-700 hover:text-gray-900"
-              >
-                <Search className="h-5 w-5" />
-              </Button>
-              <Button className="variant:default  h-[50px] w-[166px] font-base text-md">
+            <div className="hidden lg:flex items-center justify-between gap-10">
+              <SearchIcon className="w-8 h-8 text-black" />
+
+              <Button size="xl" className="variant:default  font-base ">
                 <Link
                   href={jsonData.header.button.href}
                   className="flex items-center"
@@ -204,56 +156,12 @@ export function Navbar() {
                   <a
                     key={index}
                     href={item.href}
-                    className="block px-3 py-3 text-base font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
+                    className="block px-3 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
                   </a>
                 ))}
-
-                {/* <a
-                href="#Services"
-                className="block px-3 py-3 text-base font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Services
-              </a>
-              <a
-                href="#Industries"
-                className="block px-3 py-3 text-base font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Industries
-              </a>
-              <a
-                href="#Ecosystems"
-                className="block px-3 py-3 text-base font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Ecosystems
-              </a>
-              <a
-                href="#Insights"
-                className="block px-3 py-3 text-base font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Insights
-              </a>
-              
-              <a
-                href="#"
-                className="block px-3 py-3 text-base font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About Us
-              </a>
-              <a
-                href="#Careers"
-                className="block px-3 py-3 text-base font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Careers
-              </a> */}
               </div>
 
               {/* Enhanced Mobile CTA buttons */}
@@ -265,19 +173,19 @@ export function Navbar() {
                 style={{ transitionDelay: "400ms" }}
               >
                 <div className="flex flex-col space-y-3">
-                  <Button
-                    size="lg"
-                    className="w-full transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg hover:-translate-y-0.5"
-                    onClick={() => setIsMenuOpen(false)}
+                  <Link
+                    href={jsonData.header.button.href}
+                    className="flex items-center"
                   >
-                    <Link
-                      href={jsonData.header.button.href}
-                      className="flex items-center"
+                    <Button
+                      size="lg"
+                      className="w-full transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg hover:-translate-y-0.5"
+                      onClick={() => setIsMenuOpen(false)}
                     >
                       {jsonData.header.button.name}
                       <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
-                    </Link>
-                  </Button>
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

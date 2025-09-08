@@ -38,14 +38,14 @@ const cardData = [
 
 export default function StickyCards({ className }: { className?: string }) {
   return (
-    <div className="relative">
+    <div className="relative ">
       <div className="relative container-md space-y-8">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-0">
-          <h1 className=" font-semibold text-4xl lg:text-[42px] lg:leading-[52px] tracking-[0]">
+          <h1 className=" font-semibold lg:text-4xl text-2xl lg:leading-[52px] tracking-[0]">
             Korcomptenz in action
           </h1>
 
-          <Button className="hidden sm:inline-flex variant:default" size="xl">
+          <Button className="hidden sm:inline-flex variant:default text-lg" size="xl">
             Explore All
             <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
           </Button>
@@ -55,41 +55,57 @@ export default function StickyCards({ className }: { className?: string }) {
           <div
             key={card.id}
             className={cn(
-              "sticky sm:top-48 top-20",
+              "sticky sm:top-48 top-20 ",
               `z-[${index + 10}] sm:mb-12`
             )}
           >
             <div className="flex items-center justify-center px-4 md:py-0 py-6">
               <Card
                 className={cn(
-                  "overflow-hidden bg-gray-50 border-0 w-full py-0 h-auto lg:h-96 shadow-xl",
-                  "flex flex-col md:flex-row md:items-stretch rounded-2xl ",
+                  "overflow-hidden bg-[#F3F7F4] border-0 w-full py-0 h-auto lg:h-[28rem]",
+                  "flex flex-col md:flex-row md:items-stretch rounded-4xl ",
+                  index && 'shadow-xl',
                   className
                 )}
               >
                 {/* ID */}
-                <div className="hidden md:block text-sm pl-5 pt-8 font-medium text-gray-500 uppercase tracking-wide">
+                <div className="hidden md:block text-sm pl-5 pt-14 font-medium text-[#141414] ms-8 mt-3  uppercase tracking-wide">
                   {card.id}
                 </div>
 
                 {/* Content */}
-                <div className="p-2 lg:py-8 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
+                <div className="p-2 lg:pt-14 lg:pb-16 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
                   <div className="space-y-4">
-                    <h2 className="text-lg lg:text-3xl font-bold text-gray-900 leading-tight">
+                    <h2 className="text-lg lg:text-2xl font-bold text-black leading-tight">
                       {card.title}
                     </h2>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-[#141414]  text-sm leading-relaxed">
                       {card.description}
                     </p>
                   </div>
 
-                  <Button
-                    size="xl"
-                    className="mt-6 w-fit  variant:default rounded-full px-6"
-                  >
-                    {card.buttonText}
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  {/* Mobile / sm / md */}
+                  <div className="block lg:hidden">
+                    <Button
+                      className="mt-3 mb-3 text-[10px] px-2 rounded-full
+               bg-white text-primary border border-primary h-[44px] w-[155px]"
+                    >
+                      {card.buttonText}
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
+
+                  {/* LG and above */}
+                  <div className="hidden lg:block">
+                    <Button
+                      size="xl"
+                      className="mt-3 mb-3 w-fit text-lg px-6 rounded-full"
+                    >
+                      {card.buttonText}
+                      <ChevronRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </div>
+
                 </div>
 
                 {/* Visual Section */}

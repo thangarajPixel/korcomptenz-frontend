@@ -6,7 +6,6 @@ import Link from "next/link"
 import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
-import { ChevronRight } from "lucide-react"
 import { jsonData } from '@/utils/helper'
 
 // const insights: InsightCardType[] = [
@@ -38,10 +37,10 @@ import { jsonData } from '@/utils/helper'
 export default function InsightsSection() {
   return (
     <section aria-labelledby="insights-heading" className="container-lg">
-      <div className="flex flex-col items-center gap-6 text-center md:gap-8">
+      <div className="flex flex-col items-center gap-6 text-center md:gap-8   ">
         <motion.h2
           id="insights-heading"
-          className="text-pretty text-2xl font-semibold text-gray-900 md:text-3xl"
+          className="text-pretty lg:text-5xl text-2xl font-semibold text-gray-900 md:text-3xl "
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -51,7 +50,7 @@ export default function InsightsSection() {
         </motion.h2>
         <InsightsMobileCarousel items={jsonData.insights} />
         <motion.div
-          className="md:flex flex-row items-center justify-center hidden"
+          className="md:flex flex-row items-center justify-center hidden "
           initial={{ opacity: 0, y: 6 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -60,21 +59,20 @@ export default function InsightsSection() {
           <Link
             href="#"
           >
-            <Button>
+            <Button size="xl" arrow={true} className="variant:default px-8 py-2 text-lg rounded-full inline-flex">
               Read All
-              <ChevronRight />
             </Button>
           </Link>
         </motion.div>
         <motion.div
-          className="hidden w-full grid-cols-3 gap-6 md:grid"
+          className="hidden w-full grid-cols-3 gap-6 md:grid rounded-4xl"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
         >
           {jsonData.insights.map((item, index) => (
-            <InsightCard key={item.id} {...item} className={cn('relative', (index + 1) % 2 === 0 ? "top-0" : "top-[-25px]")} />
+            <InsightCard key={item.id} {...item} className={cn('relative', (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] ")} />
           ))}
         </motion.div>
         <motion.div
@@ -87,9 +85,8 @@ export default function InsightsSection() {
           <Link
             href="#"
           >
-            <Button>
+            <Button size="xl" arrow={true} >
               Read All
-              <ChevronRight />
             </Button>
           </Link>
         </motion.div>

@@ -1,20 +1,42 @@
 {
   "header": {
     "navItems": [
-       { "label": "Services", "href": "#Services" },
-      { "label": "Industries", "href": "#Industries" },
-      { "label": "Ecosystems", "href": "#Ecosystems" },
-      { "label": "Success Stories", "href": "#Success" },
-      { "label": "Insights", "href": "#Insights" },
-      { "label": "About Us", "href": "#About" },
-      { "label": "Careers", "href": "#Careers" }
+      {
+        "label": "Services",
+        "href": "#Services"
+      },
+      {
+        "label": "Industries",
+        "href": "#Industries"
+      },
+      {
+        "label": "Ecosystems",
+        "href": "#Ecosystems"
+      },
+      {
+        "label": "Success Stories",
+        "href": "#Success"
+      },
+      {
+        "label": "Insights",
+        "href": "#Insights"
+      },
+      {
+        "label": "About Us",
+        "href": "#About"
+      },
+      {
+        "label": "Careers",
+        "href": "#Careers"
+      }
     ],
     "companyDetail": {
       "name": "Korcomptenz",
-    "logo": "/assets/logo.png"
-    },"button": {
+      "logo": "/assets/full-logo.svg"
+    },
+    "button": {
       "name": "Contact Us",
-    "href": "/"
+      "href": "/"
     }
   },
   "careers": {
@@ -105,69 +127,80 @@
   "slides": [
     {
       "id": 1,
-      "image": "/assets/banner/banner-1.png",
+      "image": "/assets/banner/KC Banner1.svg",
       "alt": "Digital Manufacturing Solutions",
-      "title": "Delivering",
-      "subtitle": "Industry 4.0 Solutions",
-      "description": "Expert-led Transformations & Impact-led Growth.",
-      "buttonText": "Learn More",
-      "buttonAction": "#manufacturing"
+      "title": "Expert-led Transformations\n& Impact-led Growth",
+      "subtitle": "",
+      "subtitle2": "Delivering",
+      "buttonText": "Know More",
+      "buttonAction": "#manufacturing",
+      "mobileImage": "/assets/banner/MKC1.svg"
     },
     {
       "id": 2,
-      "image": "/assets/banner/banner-2.png",
+      "image": "/assets/banner/KC Banner2.svg",
       "alt": "Innovation Technology",
-      "title": "Inventory gaps. Fulfillment delays.Demand swings.",
-      "subtitle": "Next-Gen Technology",
+      "title": "Inventory gaps.\nFulfillment delays.\nDemand swings.",
       "description": "Respond to market changes with agility by implementing Microsoft Dynamic 365.",
-      "buttonText": "Explore Innovation",
-      "buttonAction": "#innovation"
+      "buttonText": "Know More",
+      "buttonAction": "#innovation",
+      "mobileImage": "/assets/banner/MKC2.svg"
     },
     {
       "id": 3,
-      "image": "/assets/banner/banner-3.png",
+      "image": "/assets/banner/KC Banner3.svg",
       "alt": "Supply Chain Management",
       "title": "A breakdown is an opportunity for a breakthrough",
-      "subtitle": "Smart Logistics Solutions",
       "description": "Implement SAP Digital Manufacturing solutions to plan better,forecast more accurately and avoid production delays.",
-      "buttonText": "Discover Solutions",
-      "buttonAction": "#supply-chain"
+      "buttonText": "Know More",
+      "buttonAction": "#supply-chain",
+      "mobileImage": "/assets/banner/MKC3.svg"
     },
     {
       "id": 4,
-      "image": "/assets/banner/banner-4.png",
+      "image": "/assets/banner/KC Banner4.svg",
       "alt": "Digital Mobility Solutions",
-      "title": "A million customers isn't scale, it's a million moments to personalize",
-      "subtitle": "Anywhere, Anytime Access",
+      "title": "A million customers isn't scale, it's a\nmillion moments\nto personalize",
       "description": "Create a unified,360-degree view of each customer to deliver personalized experiences across all touchpoints with Salesforce Customer 360",
-      "buttonText": "Get Started",
-      "buttonAction": "#mobility"
+      "buttonText": "Know More",
+      "buttonAction": "#mobility",
+      "mobileImage": "/assets/banner/MKC4.svg"
+    },
+    {
+      "id": 5,
+      "image": "/assets/banner/KC Banner5.svg",
+      "alt": "AI powered Enterprise Transformation",
+      "title": "What happend when AI powers your enterprise-wide transformation?",
+      "description": "Your experience growth like never before",
+      "buttonText": "Ask us how",
+      "buttonAction": "#ai",
+      "mobileImage": "/assets/banner/MKC5.svg"
     }
   ],
-   "insights":  [
-  {
-    "id": "1",
-    "title": "Unlocking Agentic AI",
-    "category": "Blog",
-    "imageSrc": "/assets/home/6d93e01234b06061627de2e22e4fdce3e8166833.jpg",
-    "alt": ""
-  },
-  {
-    "id": "2",
-    "title": "Achieving Process Excellence with SAP",
-    "category": "Whitepaper",
-    "imageSrc": "/assets/home/e0dcec7d57469242884ca2941e49dfaa255aa9fd.jpg",
-    "alt": ""
-  },
-  {
-    "id": "3",
-    "title": "Azure stack",
-    "category": "E-Book",
-    "imageSrc": "/assets/home/6dc93a4dd03a487291f22843c0f97b56dc453aed.jpg",
-    "alt": ""
-  }
-],
-"content": {
+  "insights": [
+    {
+      "id": "1",
+      "title": "Unlocking Agentic AI",
+      "category": "Blog",
+      "imageSrc": "/assets/home/6d93e01234b06061627de2e22e4fdce3e8166833.jpg",
+      "alt": ""
+    },
+    {
+      "id": "2",
+      "title": "Achieving Process Excellence with SAP",
+      "category": "Whitepaper",
+      "imageSrc": "/assets/home/e0dcec7d57469242884ca2941e49dfaa255aa9fd.jpg",
+      "alt": ""
+    },
+    {
+      "id": "3",
+      "title": "Azure stack",
+      "category": "E-Book",
+      "imageSrc": "/assets/home/6dc93a4dd03a487291f22843c0f97b56dc453aed.jpg",
+      "alt": ""
+    }
+  ],
+  "content": {
     "microsoft": {
       "heading": "Solutions across Microsoft product suite",
       "subheading": "Microsoft technologies can transform how you operate and the outcomes you achieve. As a trusted Microsoft, we ensure this transformation happens without a hiccup so your business can be more agile, fast, and productive.",
@@ -194,5 +227,4 @@
       "image": "/assets/home/sap.png"
     }
   }
-
 }

@@ -12,7 +12,7 @@ export default function InsightsMobileCarousel({ items }: { items: InsightCardTy
     align: "start",
     dragFree: true,
     containScroll: "trimSnaps",
-    loop: false,
+    loop: true,
   })
   const controls = useAnimation()
 
