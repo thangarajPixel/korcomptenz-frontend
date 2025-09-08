@@ -7,11 +7,12 @@ import { cn } from "@/lib/utils"
 
 export default function InsightsMobileCarousel({ items }: { items: InsightCardType[] }) {
   const [emblaRef] = useEmblaCarousel({
-    align: "center",
+    align: "start",
     dragFree: true,
-    containScroll: "keepSnaps",
+    // containScroll: "keepSnaps",
     loop: true,
-    watchSlides: true,
+    // watchSlides: true,
+    // slides: 'always',
   })
 
 

@@ -1,8 +1,8 @@
 "use client"
 
+import { cn } from "@/lib/utils"
 import { motion } from "motion/react"
 import Image from "next/image"
-import { cn } from "@/lib/utils"
 
 export type InsightCardType = {
   id: string
@@ -21,9 +21,9 @@ export function InsightCard({ title, imageSrc, alt, className, category }: Insig
         "group relative bg-card p-3   transition-colors",
         className,
       )}
-      initial={{ opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
+    // initial={{ opacity: 0, y: 22 }}
+    // whileInView={{ opacity: 1, y: 0 }}
+    // viewport={{ once: true, amount: 0.3 }}
     >
       <motion.div
         className="relative rounded-4xl"

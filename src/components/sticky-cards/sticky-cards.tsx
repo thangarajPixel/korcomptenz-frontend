@@ -39,7 +39,7 @@ const cardData = [
 export default function StickyCards({ className }: { className?: string }) {
   return (
     <div className="relative ">
-      <div className="relative container-md space-y-8">
+      <div className="relative container-md ">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-0">
           <h1 className=" font-semibold lg:text-4xl text-2xl lg:leading-[52px] tracking-[0]">
             Korcomptenz in action
@@ -55,11 +55,11 @@ export default function StickyCards({ className }: { className?: string }) {
           <div
             key={card.id}
             className={cn(
-              "sm:sticky relative sm:top-48 top-20 ",
+              "sm:sticky relative sm:top-48 top-0 ",
               `z-[${index + 10}] sm:mb-12`
             )}
           >
-            <div className="flex items-center justify-center px-4 md:py-0 py-6">
+            <div className="flex items-center justify-center px-4 md:py-0 py-2 lg:py-6">
               <Card
                 className={cn(
                   "overflow-hidden bg-[#F3F7F4] border-0 w-full py-0 h-auto lg:h-[28rem]",
@@ -127,8 +127,8 @@ export default function StickyCards({ className }: { className?: string }) {
           </div>
         ))}
 
-        <div className="flex items-center justify-center sm:hidden relative top-7">
-          <Button size='xl' arrow={true}>
+        <div className="flex items-center justify-center sm:hidden relative mt-5">
+          <Button size='xl' className="w-full lg:w-fit " arrow={true}>
             Explore All
           </Button>
         </div>
