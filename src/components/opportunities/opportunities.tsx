@@ -44,7 +44,7 @@ export default function Opportunities() {
             <div className="relative   hidden lg:block">
               <div className="text-xl font-bold leading-tight w-full">
                 <div className="flex flex-row  justify-between ">
-                  <span className="text-[#22282E] transition-all duration-500 group-hover:-translate-x-2 text-lg lg:text-3xl font-semibold lg:me-20">
+                  <span className="text-[#22282E] transition-all duration-500 group-hover:-translate-x-2 text-lg lg:text-3xl font-semibold lg:me-[50px]">
                     Ready to
                   </span>
                   <section className="flex flex-row  gap-2">
