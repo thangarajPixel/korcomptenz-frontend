@@ -41,7 +41,7 @@ export default function Opportunities() {
           {/* Right side - Content */}
           <div className="space-y-8 mx-auto">
             {/* Header text with profile images */}
-            <div className="relative transition-all duration-500 group-hover:-translate-x-5 group-hover:scale-105 hidden lg:block">
+            <div className="relative transition-all duration-500 group-hover:-translate-x-2 group-hover:scale-105 hidden lg:block">
               <div className="text-xl font-bold leading-tight w-full">
                 <div className="flex flex-row items-center justify-between">
                   <span className="text-[#22282E] text-lg lg:text-3xl font-semibold lg:me-20">
