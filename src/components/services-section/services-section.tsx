@@ -75,7 +75,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                   <motion.div
                     layoutId="active-pill"
                     transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                    className={cn("absolute inset-0 z-0   bg-secondary-foreground", (index === 0 || index === TABS.length - 1) && "rounded-md")}
+                    className={cn("absolute inset-0 z-0   bg-secondary-foreground", index === 1 && "rounded-l-md", index === TABS.length - 2 && "rounded-r-md")}
                   />
                 )}
               </TabsTrigger>
