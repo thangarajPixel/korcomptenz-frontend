@@ -115,7 +115,7 @@ export const Footer = () => {
                 <li key={service}>
                   <Link
                     href="#"
-                    className="text-[#F3F7F4] font-semibold text-sm transition-all duration-300 block"
+                    className="text-[#F3F7F4]  hover:text-primary hover:translate-x-2  font-semibold text-sm transition-all duration-300 block"
                   >
                     {service}
                   </Link>
@@ -134,7 +134,7 @@ export const Footer = () => {
                 <li key={industry}>
                   <Link
                     href="#"
-                    className="text-[#F3F7F4] text-sm font-semibold block"
+                    className="text-[#F3F7F4]  hover:text-primary hover:translate-x-2  font-semibold text-sm transition-all duration-300 block"
                   >
                     {industry}
                   </Link>
@@ -153,7 +153,7 @@ export const Footer = () => {
                 <li key={insight}>
                   <Link
                     href="#"
-                    className="text-[#F3F7F4] font-semibold text-sm block"
+                    className="text-[#F3F7F4]  hover:text-primary hover:translate-x-2  font-semibold text-sm transition-all duration-300 block"
                   >
                     {insight}
                   </Link>
@@ -217,7 +217,7 @@ export const Footer = () => {
               <ul className="space-y-2">
                 {footer.aboutUs.map((item) => (
                   <li key={item}>
-                    <Link href="#" className="text-[#AAAAAA] text-sm">
+                    <Link href="#" className="text-[#AAAAAA] text-sm   hover:text-primary hover:translate-x-2  font-normal  transition-all duration-300 block">
                       {item}
                     </Link>
                   </li>
@@ -227,7 +227,7 @@ export const Footer = () => {
               <ul className="space-y-2">
                 {footer.aboutUsNew.map((item) => (
                   <li key={item}>
-                    <Link href="#" className="font-semibold text-sm  ">
+                    <Link href="#" className="font-semibold text-sm   ">
                       {item}
                     </Link>
                   </li>
@@ -248,7 +248,7 @@ export const Footer = () => {
                     </li>
                     {footer.ecoSystems.microsoft.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA]  text-sm">
+                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary hover:translate-x-2  font-normal  transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -262,7 +262,7 @@ export const Footer = () => {
                   <ul className="space-y-2">
                     {footer.ecoSystems.sap.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA]  text-sm">
+                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary hover:translate-x-2  font-normal   transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -276,7 +276,7 @@ export const Footer = () => {
                   <ul className="space-y-2">
                     {footer.ecoSystems.salesforce.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA]  text-sm">
+                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary hover:translate-x-2  font-normal  transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -288,7 +288,7 @@ export const Footer = () => {
                   <ul className="space-y-2 lg:mt-10">
                     {footer.ecoSystems.salesforceNew.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA] text-sm">
+                        <Link href="#" className="text-[#AAAAAA] text-sm  hover:text-primary hover:translate-x-2  font-normal   transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -301,20 +301,24 @@ export const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className=" hidden mt-8 pt-6 border-t border-slate-700 lg:flex flex-col gap-3  items-center justify-between">
-          <p className="text-[#AAAAAA] text-sm">{footer.copyright}</p>
-          <div>
-            {footer.policies.map((policy) => (
-              <Link
-                key={policy}
-                href="#"
-                className="text-[#AAAAAA]  text-sm mx-2"
-              >
-                {policy}
-              </Link>
-            ))}
-          </div>
-        </div>
+       <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex flex-row items-center justify-between">
+<p className="text-[#AAAAAA] text-sm">{footer.copyright}</p>
+  <div>
+    {footer.policies.map((policy) => (
+      <Link
+        key={policy}
+        href="#"
+        className="text-[#AAAAAA] text-sm mx-2"
+      >
+        {policy}
+      </Link>
+    ))}
+  </div>
+
+  {/* Right side: copyright */}
+  
+</div>
+
         {/* Mobile Copyright */}
         <div className=" mt-8  lg:hidden  flex-col  items-center">
         

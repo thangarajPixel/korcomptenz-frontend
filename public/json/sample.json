@@ -200,31 +200,35 @@
       "alt": ""
     }
   ],
-  "content": {
-    "microsoft": {
+  "content": [
+    {
+      "label":"Microsoft",
       "heading": "Solutions across Microsoft product suite",
       "subheading": "Microsoft technologies can transform how you operate and the outcomes you achieve. As a trusted Microsoft, we ensure this transformation happens without a hiccup so your business can be more agile, fast, and productive.",
       "image": "/assets/home/microsoft.png"
     },
-    "sap": {
+    {
+      "label":"SAP",
       "heading": "Making the SAP eco-system run for you",
       "subheading": "SAP is powerful but only when it's aligned with your goals. As a trusted SAP Sales and Services Partner, we help you get more value, faster. Whether you're moving to S/4HANA, embracing RISE with SAP, or building on BTP, we simplify complexity and accelerate outcomes.",
       "image": "/assets/home/sap.png"
     },
-    "salesforce": {
+    {
+      "label":"Salesforce", 
       "heading": "Driving deeper customer engagements with Salesforce",
       "subheading": "Unlock faster value through smarter customer engagement and streamlined processes. From implementation to integration, we ensure rapid deployment with measurable outcomes that enhance customer experiences, sales performance, and ROI.",
       "image": "/assets/home/salesforce.png"
     },
-    "servicenow": {
-      "heading": "Modernize with ServiceNow",
-      "subheading": "Leverage ServiceNow’s powerful workflow engine to digitize operations, reduce friction, and create intelligent experiences across departments. We ensure transformation happens at scale, with speed and impact.",
+     {"label":"ServiceNow",
+      "heading": "Accelerate work on ServiceNow",
+      "subheading": "Digitize workflows, automate service delivery, and gain visibility with a secure platform.",
       "image": "/assets/home/sap.png"
     },
-    "aws": {
-      "heading": "Fuel Innovation with AWS",
-      "subheading": "Leverage the full power of AWS to accelerate cloud-native development, drive data-driven decisions, and enable secure, scalable digital transformation. We help you go from idea to impact—fast.",
+    {
+      "label":"AWS",
+      "heading": "Accelerate work on AWS",
+      "subheading": "Leverage the power of AWS to drive innovation and efficiency in your organization.",
       "image": "/assets/home/sap.png"
     }
-  }
+  ]
 }
