@@ -1,7 +1,10 @@
+'use client'
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import React from "react";
+import { VideoPopup } from "../video-popup/video-popup";
 
 const WeAreKorcomptenzSection = () => {
+  const [isVideoOpen, setIsVideoOpen] = React.useState(false)
   return (
     <div className="container-md md:mt-24">
       <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-32 items-start mb-10 md:mb-16">
@@ -25,7 +28,7 @@ const WeAreKorcomptenzSection = () => {
         </div>
       </div>
 
-      <div className="relative m-1 md:m-0">
+      <div className="relative m-1 md:m-0   cursor-pointer" onClick={() => setIsVideoOpen(true)}>
         <KorcomptenzImage
           src="/assets/home/video-thumb.jpg"
           className="w-full h-[280px] md:h-[500px] object-cover  rounded-4xl"
@@ -46,6 +49,11 @@ const WeAreKorcomptenzSection = () => {
           />
         </div>
       </div>
+      {isVideoOpen && <VideoPopup
+        isOpen={isVideoOpen}
+        onClose={() => setIsVideoOpen(false)}
+        videoSrc="/placeholder-video.mp4"
+      />}
     </div>
   );
 };

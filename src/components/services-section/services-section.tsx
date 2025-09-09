@@ -32,7 +32,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
         <Tabs
           value={value}
           onValueChange={(v) => setValue(v)}
-          className="container-md"
+          className="container-md "
         >
           <TabsList
             className={cn(
@@ -40,24 +40,22 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
               "bg-secondary p-0 shadow-none border-none !ml-0"
             )}
           >
-            {content.map((t, index) => (
+            {content.map((t) => (
               <TabsTrigger
                 key={t.label}
                 value={t.label}
                 className={cn(
-                  "relative !cursor-pointer h-full z-10 rounded-none lg:px-6 px-2 py-2 shadow-none border-none text-xs sm:text-base font-semibold text-white transition",
-                  "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
+                  "relative !cursor-pointer h-full z-10 text-white  rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-xs sm:text-base font-semibold ",
+                  "transition-all duration-500 data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50 md:text-xl text-[12px]">{t.label}</span>
+                <span className="z-50 md:text-xl  text-[12px] ">{t.label}</span>
                 {value === t.label && (
                   <motion.div
                     layoutId="active-pill"
-                    transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                    className={cn(
-                      "absolute inset-0 z-0 bg-secondary-foreground",
-                      (index === 0 || index === content.length - 1) &&
-                        "rounded-md"
+                    transition={{ type: "spring", stiffness: 120, damping: 20, duration: 0.45 }}
+                    className={cn("absolute inset-0 z-0   bg-secondary-foreground",
+                      // index === 1 && "rounded-l-md", index === TABS.length - 2 && "rounded-r-md"
                     )}
                   />
                 )}
@@ -104,7 +102,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             className="relative h-full w-full lg:w-3/4"
           >
             <KorcomptenzImage
-              src={activeContent.image}
+              src={activeContent.image || "/placeholder.svg"}
               alt={activeContent.label}
               className="h-fit w-full rounded-xl object-contain"
               width={1000}
