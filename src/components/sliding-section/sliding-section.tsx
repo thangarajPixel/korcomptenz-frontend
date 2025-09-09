@@ -44,9 +44,9 @@ export default function SlidingSection() {
 
     return () => clearInterval(autoSlide);
   }, [emblaApi]);
-  // container-lg p-0 
+
   return (
-    <section className="w-full rounded-none">
+    <section className="container-nav max-w-[96rem] !md:max-w-full   md:mx-auto mx-0 p-0  rounded-none">
       <div className="relative">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">

@@ -7,11 +7,18 @@ import React, { useState } from "react";
 import { jsonData } from "@/utils/helper";
 import Link from "next/link";
 import { SearchIcon } from "../../../../public/svg/all-svg";
+import MegaMenuContent from "./mega-menu-content";
+import { cn } from "@/lib/utils";
+import { useOnClickOutside } from "@/utils/custom-hooks";
 
 export function Navbar() {
+  const targetRef = React.useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('templates');
   // const [isScrolled, setIsScrolled] = useState(false);
-
+  const handleClickOutside = () => {
+    setActiveSection('');
+  };
   // useEffect(() => {
   //   const handleScroll = () => {
   //     setIsScrolled(window.scrollY > 10);
@@ -31,16 +38,15 @@ export function Navbar() {
   //     document.body.style.overflow = "unset";
   //   };
   // }, [isMenuOpen]);
-
+  useOnClickOutside(targetRef as React.RefObject<HTMLElement>, handleClickOutside);
   return (
-    <React.Fragment>
+    <div ref={targetRef}>
       <header
         // className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out ${isScrolled
         //   ? "bg-background/95 backdrop-blur-md shadow-lg supports-[backdrop-filter]:bg-background/80"
         //   : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
         //   }`}
-        className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white
-          }`}
+        className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white`}
       >
         <div className="container-nav h-[100px] pt-5">
           <div
@@ -62,15 +68,17 @@ export function Navbar() {
             {/* Desktop Navigation with Enhanced Mega Menu */}
             <nav className="hidden lg:flex items-center space-x-7 relative text-[#313941] text-sm font-light">
               {jsonData.header.navItems.map((item, index) => (
-                <a
+                <p
                   key={index}
-                  href={item.href}
-                  className="font-medium transition-all duration-300 ease-out hover:text-primary  relative group/nav 
+                  className={cn(`cursor-pointer font-medium transition-all duration-300 ease-out hover:text-primary  relative group/nav 
       after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all 
-      after:duration-300 after:ease-out hover:after:w-full"
+      after:duration-300 after:ease-out hover:after:w-full`, {
+                    'after:w-full after:translate-x-0 after:opacity-100 after:visible after:z-10 text-primary': activeSection === item.label
+                  })}
+                  onClick={() => setActiveSection(item.label)}
                 >
                   {item.label}
-                </a>
+                </p>
               ))}
             </nav>
 
@@ -116,8 +124,9 @@ export function Navbar() {
             </div>
           </div>
         </div>
-      </header>
+        <MegaMenuContent activeTab={activeSection} />
 
+      </header>
       {/* Enhanced Mobile Menu with smooth animations */}
       <div
         className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ease-out ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
@@ -187,6 +196,6 @@ export function Navbar() {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
