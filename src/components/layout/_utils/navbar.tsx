@@ -9,16 +9,15 @@ import Link from "next/link";
 import { SearchIcon } from "../../../../public/svg/all-svg";
 import MegaMenuContent from "./mega-menu-content";
 import { cn } from "@/lib/utils";
-import { useOnClickOutside } from "@/utils/custom-hooks";
 
 export function Navbar() {
-  const targetRef = React.useRef<HTMLDivElement>(null);
+  // const targetRef = React.useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   // const [isScrolled, setIsScrolled] = useState(false);
-  const handleClickOutside = () => {
-    setActiveSection('');
-  };
+  // const handleClickOutside = () => {
+  //   setActiveSection('');
+  // };
   // useEffect(() => {
   //   const handleScroll = () => {
   //     setIsScrolled(window.scrollY > 10);
@@ -38,14 +37,15 @@ export function Navbar() {
   //     document.body.style.overflow = "unset";
   //   };
   // }, [isMenuOpen]);
-  useOnClickOutside(targetRef as React.RefObject<HTMLElement>, handleClickOutside);
+  // useOnClickOutside(targetRef as React.RefObject<HTMLElement>, handleClickOutside);
   return (
-    <div ref={targetRef}>
+    <>
       <header
         // className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out ${isScrolled
         //   ? "bg-background/95 backdrop-blur-md shadow-lg supports-[backdrop-filter]:bg-background/80"
         //   : "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
         //   }`}
+        onMouseLeave={() => setActiveSection('')}
         className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white`}
       >
         <div className="container-nav h-[100px] pt-5">
@@ -75,7 +75,7 @@ export function Navbar() {
       after:duration-300 after:ease-out hover:after:w-full`, {
                     'after:w-full after:translate-x-0 after:opacity-100 after:visible after:z-10 text-primary': activeSection === item.label
                   })}
-                  onClick={() => setActiveSection(item.label)}
+                  onMouseEnter={() => setActiveSection(item.label)}
                 >
                   {item.label}
                 </p>
@@ -196,6 +196,6 @@ export function Navbar() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

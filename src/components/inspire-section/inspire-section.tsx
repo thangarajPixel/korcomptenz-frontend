@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const InspireSection = () => {
   return (
-    <div className="container-lg  mt-0 md:mt-16 py-4">
+    <div className="container-md  mt-0 md:mt-16 py-4">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
         <div className="block xl:hidden text-left md:text-center">
           <h1 className="text-xl lg:2xl font-bold text-custom-gray ">

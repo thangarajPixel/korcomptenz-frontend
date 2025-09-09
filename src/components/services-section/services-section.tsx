@@ -46,7 +46,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                 value={t.label}
                 className={cn(
                   "relative !cursor-pointer h-full z-10 text-white  rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-xs sm:text-base font-semibold ",
-                  "transition-all duration-500 data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
+                  "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
                 <span className="z-50 md:text-xl  text-[12px] ">{t.label}</span>

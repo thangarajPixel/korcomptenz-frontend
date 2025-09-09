@@ -44,15 +44,23 @@ export default function SlidingSection() {
 
     return () => clearInterval(autoSlide);
   }, [emblaApi]);
-
+  // container-lg p-0 
   return (
-    <section className="container-nav max-w-[96rem] !md:max-w-full   md:mx-auto mx-0 p-0  rounded-none">
+    <section className="w-full rounded-none">
       <div className="relative">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
             {jsonData.slides.map((slide) => (
               <div key={slide.id} className="flex-[0_0_100%] min-w-0">
-                <div className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-auto">
+                <div className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
+                // style={{
+                //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/placeholder.svg"})`,
+                //   backgroundSize: "cover",
+                //   backgroundPosition: "center",
+                //   backgroundRepeat: "no-repeat",
+                //   objectFit: "cover"
+                // }}
+                >
                   <KorcomptenzImage
                     src={isMobile ? slide.mobileImage : slide.image || "/placeholder.svg"}
                     alt={slide.alt}

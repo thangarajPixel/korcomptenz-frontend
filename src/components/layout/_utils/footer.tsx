@@ -55,11 +55,11 @@ export const Footer = () => {
   const address = jsonData.footer.address
   const footer = jsonData.footer
 
-  
+
   return (
     <footer className="bg-foreground text-white mt-2">
       <ScheduleCall />
-      <div className="container-lg">
+      <div className="container-md py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
@@ -115,7 +115,7 @@ export const Footer = () => {
                 <li key={service}>
                   <Link
                     href="#"
-                    className="text-[#F3F7F4]  hover:text-primary hover:translate-x-2  font-semibold text-sm transition-all duration-300 block"
+                    className="text-[#F3F7F4]  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
                   >
                     {service}
                   </Link>
@@ -134,7 +134,7 @@ export const Footer = () => {
                 <li key={industry}>
                   <Link
                     href="#"
-                    className="text-[#F3F7F4]  hover:text-primary hover:translate-x-2  font-semibold text-sm transition-all duration-300 block"
+                    className="text-[#F3F7F4]  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
                   >
                     {industry}
                   </Link>
@@ -153,7 +153,7 @@ export const Footer = () => {
                 <li key={insight}>
                   <Link
                     href="#"
-                    className="text-[#F3F7F4]  hover:text-primary hover:translate-x-2  font-semibold text-sm transition-all duration-300 block"
+                    className="text-[#F3F7F4]  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
                   >
                     {insight}
                   </Link>
@@ -217,7 +217,7 @@ export const Footer = () => {
               <ul className="space-y-2">
                 {footer.aboutUs.map((item) => (
                   <li key={item}>
-                    <Link href="#" className="text-[#AAAAAA] text-sm   hover:text-primary hover:translate-x-2  font-normal  transition-all duration-300 block">
+                    <Link href="#" className="text-[#AAAAAA] text-sm   hover:text-primary   font-normal  transition-all duration-300 block">
                       {item}
                     </Link>
                   </li>
@@ -248,7 +248,7 @@ export const Footer = () => {
                     </li>
                     {footer.ecoSystems.microsoft.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary hover:translate-x-2  font-normal  transition-all duration-300 block">
+                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary   font-normal  transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -262,7 +262,7 @@ export const Footer = () => {
                   <ul className="space-y-2">
                     {footer.ecoSystems.sap.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary hover:translate-x-2  font-normal   transition-all duration-300 block">
+                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary   font-normal   transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -276,7 +276,7 @@ export const Footer = () => {
                   <ul className="space-y-2">
                     {footer.ecoSystems.salesforce.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary hover:translate-x-2  font-normal  transition-all duration-300 block">
+                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary   font-normal  transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -288,7 +288,7 @@ export const Footer = () => {
                   <ul className="space-y-2 lg:mt-10">
                     {footer.ecoSystems.salesforceNew.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA] text-sm  hover:text-primary hover:translate-x-2  font-normal   transition-all duration-300 block">
+                        <Link href="#" className="text-[#AAAAAA] text-sm  hover:text-primary   font-normal   transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -301,27 +301,27 @@ export const Footer = () => {
         </div>
 
         {/* Copyright */}
-       <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex flex-row items-center justify-between">
-<p className="text-[#AAAAAA] text-sm">{footer.copyright}</p>
-  <div>
-    {footer.policies.map((policy) => (
-      <Link
-        key={policy}
-        href="#"
-        className="text-[#AAAAAA] text-sm mx-2"
-      >
-        {policy}
-      </Link>
-    ))}
-  </div>
+        <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex flex-row items-center justify-between">
+          <p className="text-[#AAAAAA] text-sm">{footer.copyright}</p>
+          <div>
+            {footer.policies.map((policy) => (
+              <Link
+                key={policy}
+                href="#"
+                className="text-[#AAAAAA] text-sm mx-2"
+              >
+                {policy}
+              </Link>
+            ))}
+          </div>
 
-  {/* Right side: copyright */}
-  
-</div>
+          {/* Right side: copyright */}
+
+        </div>
 
         {/* Mobile Copyright */}
         <div className=" mt-8  lg:hidden  flex-col  items-center">
-        
+
           <div className="flex justify-center  pb-4">
             {footer.policies.map((policy) => (
               <Link
