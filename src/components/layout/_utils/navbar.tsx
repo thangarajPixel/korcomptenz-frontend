@@ -14,7 +14,7 @@ import { useOnClickOutside } from "@/utils/custom-hooks";
 export function Navbar() {
   const targetRef = React.useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('templates');
+  const [activeSection, setActiveSection] = useState('');
   // const [isScrolled, setIsScrolled] = useState(false);
   const handleClickOutside = () => {
     setActiveSection('');
