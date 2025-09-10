@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Users, Settings, Cloud, Smartphone } from "lucide-react";
+import { Users, Settings, Cloud, Smartphone, ChevronRight } from "lucide-react";
 
 const servicesData = {
   sections: [
@@ -8,7 +8,7 @@ const servicesData = {
       id: "enterprise-applications",
       title: "Enterprise Applications",
       icon: Settings,
-     
+
       items: [
         {
           title: "Advisory & Consulting",
@@ -55,13 +55,12 @@ const servicesData = {
     {
       id: "data-analytics-ai",
       title: "Data & Analytics and AI",
-     
-  
-    items: [
+
+      items: [
         {
           title: "AI First Strategy and Assessment",
           side: "left",
-          child: [ ],
+          child: [],
         },
         {
           title: "Modern Cloud Data Services",
@@ -99,11 +98,11 @@ const servicesData = {
       title: "Cloud Business Services",
       icon: Cloud,
       description: "Scalable cloud solutions for modern enterprises",
-     items: [
+      items: [
         {
           title: "Migration",
           side: "left",
-          child: [ ],
+          child: [],
         },
         {
           title: "Modernization",
@@ -124,7 +123,8 @@ const servicesData = {
           title: "Cybersecurity",
           side: "right",
           child: [],
-        }, {
+        },
+        {
           title: "Automation/Transformation",
           side: "right",
           child: [],
@@ -134,7 +134,6 @@ const servicesData = {
           side: "right",
           child: [],
         },
-        
       ],
     },
     {
@@ -146,22 +145,7 @@ const servicesData = {
         {
           title: "IoT Services",
           side: "left",
-          description: "End-to-end IoT platforms",
-        },
-        {
-          title: "Digital Product Development",
-          side: "right",
-          description: "Custom products",
-        },
-        {
-          title: "Smart Device Integration",
-          side: "left",
-          description: "Device management",
-        },
-        {
-          title: "Edge Computing Solutions",
-          side: "right",
-          description: "Faster insights",
+          child: [],
         },
       ],
     },
@@ -174,22 +158,24 @@ const servicesData = {
         {
           title: "Microsoft Fabric Solution Accelerators",
           side: "left",
-          description: "Ready-to-deploy Fabric implementations",
+          child: [
+            { title: "KOR Smartforge", type: "dark" },
+            { title: "Kor ESGenius", type: "dark" },
+            { title: "KOR BankIQ", type: "dark" },
+          ],
         },
         {
-          title: "KOR SmartForge",
+          title: "Microsoft Business Application Accelerators",
           side: "right",
-          description: "Automation + workflow",
-        },
-        {
-          title: "KOR ESGenius",
-          side: "left",
-          description: "ESG analytics platform",
-        },
-        {
-          title: "KOR BankIQ",
-          side: "right",
-          description: "Banking intelligence",
+          child: [
+            { title: "Product Configurator", type: "dark" },
+            { title: "Quality Control", type: "dark" },
+            { title: "Fleet Maintenance", type: "dark" },
+            { title: "EduUniv", type: "dark" },
+            { title: "Grant Management", type: "dark" },
+            { title: "Retail POS", type: "dark" },
+            { title: "K360", type: "dark" },
+          ],
         },
       ],
     },
@@ -249,18 +235,19 @@ const ServicesMenu = () => {
                     transition={{ delay: idx * 0.1, duration: 0.3 }}
                     className="group"
                   >
-                    <div className="px-5">
-                      <h4 className="font-normal text-primary mb-3">
+                    <div className="px-5 mb-6">
+                      <h4 className="group font-normal text-primary mb-4 inline-flex items-center cursor-pointer border-b-2 border-transparent hover:border-primary">
                         {item.title}
+                        <ChevronRight className="ml-2 w-4 h-4 hidden group-hover:inline-block" />
                       </h4>
                       {item.child && item.child.length > 0 && (
                         <div className="space-y-2">
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-xs ${
+                              className={`text-[15px] leading-5 ${
                                 sub.type === "dark"
-                                  ? "font-medium text-[#000000]"
+                                  ? "font-normal text-[#000000]"
                                   : "text-gray-500"
                               }`}
                             >
@@ -291,18 +278,19 @@ const ServicesMenu = () => {
                     transition={{ delay: idx * 0.1, duration: 0.3 }}
                     className="group"
                   >
-                    <div className="px-5">
-                      <h4 className="font-normal text-primary mb-3">
+                    <div className="px-5 lg:mb-6">
+                     <h4 className="group font-normal text-sm text-primary mb-4 inline-flex items-center cursor-pointer border-b-2 border-transparent hover:border-primary">
                         {item.title}
+                        <ChevronRight className="ml-2 w-4 h-4 hidden group-hover:inline-block" />
                       </h4>
                       {item.child && item.child.length > 0 && (
                         <div className="space-y-2">
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-xs ${
+                              className={`text-[15px] leading-5  ${
                                 sub.type === "dark"
-                                  ? "font-medium text-[#000000]"
+                                  ? "font-normal text-[#000000]"
                                   : "text-gray-500"
                               }`}
                             >
