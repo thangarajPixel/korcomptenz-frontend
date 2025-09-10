@@ -7,8 +7,9 @@ import React, { useState } from "react";
 import { jsonData } from "@/utils/helper";
 import Link from "next/link";
 import { SearchIcon } from "../../../../public/svg/all-svg";
-import MegaMenuContent from "./mega-menu-content";
+
 import { cn } from "@/lib/utils";
+import MegaMenuContent from "./mega-menu/mega-menu-content";
 
 export function Navbar() {
   // const targetRef = React.useRef<HTMLDivElement>(null);
