@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Users, Settings, Cloud, Smartphone, ChevronRight } from "lucide-react";
+import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const servicesData = {
   sections: [
@@ -188,9 +189,9 @@ const ServicesMenu = () => {
   );
 
   return (
-    <div className="grid grid-cols-12 gap-8">
+    <div className="grid grid-cols-24 ">
       {/* Sidebar */}
-      <div className="col-span-12 md:col-span-3 lg:col-span-3">
+      <div className="col-span-24 md:col-span-5 lg:col-span-5">
         <div className="bg-white sticky top-8">
           <nav className="space-y-2">
             {servicesData.sections.map((section) => (
@@ -214,7 +215,7 @@ const ServicesMenu = () => {
       </div>
 
       {/* Content (split left & right) */}
-      <div className="col-span-12 md:col-span-6 lg:col-span-6">
+      <div className="col-span-24 md:col-span-13 lg:col-span-13">
         <motion.div
           key={activeServiceSection.id}
           initial={{ opacity: 0, x: 20 }}
@@ -236,9 +237,11 @@ const ServicesMenu = () => {
                     className="group"
                   >
                     <div className="px-5 mb-6">
-                      <h4 className="group font-normal text-primary mb-4 inline-flex items-center cursor-pointer border-b-2 border-transparent hover:border-primary">
-                        {item.title}
-                        <ChevronRight className="ml-2 w-4 h-4 hidden group-hover:inline-block" />
+                      <h4 className="group relative font-normal text-sm text-primary mb-4 inline-flex items-center cursor-pointer">
+                        <span className="border-b-2 border-transparent group-hover:border-primary">
+                          {item.title}
+                        </span>
+                        <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
                       </h4>
                       {item.child && item.child.length > 0 && (
                         <div className="space-y-2">
@@ -279,9 +282,11 @@ const ServicesMenu = () => {
                     className="group"
                   >
                     <div className="px-5 lg:mb-6">
-                     <h4 className="group font-normal text-sm text-primary mb-4 inline-flex items-center cursor-pointer border-b-2 border-transparent hover:border-primary">
-                        {item.title}
-                        <ChevronRight className="ml-2 w-4 h-4 hidden group-hover:inline-block" />
+                      <h4 className="group relative font-normal text-sm text-primary mb-4 inline-flex items-center cursor-pointer">
+                        <span className="border-b-2 border-transparent group-hover:border-primary">
+                          {item.title}
+                        </span>
+                        <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
                       </h4>
                       {item.child && item.child.length > 0 && (
                         <div className="space-y-2">
@@ -313,11 +318,13 @@ const ServicesMenu = () => {
       </div>
 
       {/* Image Section */}
-      <div className="col-span-12 md:col-span-3 lg:col-span-3 flex ">
-        <img
+      <div className="col-span-24 md:col-span-6 lg:col-span-6 flex ">
+        <KorcomptenzImage
           src="/assets/menu/service_menu.png"
           alt={activeServiceSection.title}
-          className="w-full h-3/4 object-contain"
+          className="w-full h-full object-contain"
+          width={300}
+          height={300}
         />
       </div>
     </div>
