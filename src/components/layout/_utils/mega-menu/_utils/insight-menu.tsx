@@ -49,9 +49,9 @@ const insightsData = {
 
 const InsightsMenu = () => {
   return (
-<div className="bg-white w-full scroll-smooth">
+<div className="bg-white w-full overflow-x-hidden  overscroll-contain">
   <div className="mx-auto">
-    <div className="grid grid-cols-1 lg:grid-cols-[43%_57%] gap-8 h-[574px] items-stretch">
+    <div className="grid grid-cols-1 lg:grid-cols-[43%_57%] gap-8 h-[574px]  items-stretch">
       
       {/* Left side - Hero Image */}
       <motion.div

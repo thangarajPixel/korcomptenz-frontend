@@ -16,10 +16,10 @@ const InspireSectionCard: React.FC<{ card: CardProps }> = ({ card }) => {
   return (
     <Card
       key={card.id}
-      className="relative border-2 bg-[#E2EBE4] flex flex-col py-0 rounded-4xl h-full"
+      className="relative border-2 bg-light-gray flex flex-col py-0 rounded-4xl h-full"
     >
      
-        <CardContent className="px-0   text-[#313941] h-full">
+        <CardContent className="px-0   text-muted h-full">
           {card.position === "bottom" ? (
             <>
               <div className="p-6 ">
