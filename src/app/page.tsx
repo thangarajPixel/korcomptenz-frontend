@@ -6,6 +6,7 @@ import InspireSection from "@/components/inspire-section";
 import ServicesSection from "@/components/services-section";
 import Opportunities from "@/components/opportunities";
 
+
 export default async function Home() {
   return (
     <div className="flex flex-col gap-10 md:gap-16" >
