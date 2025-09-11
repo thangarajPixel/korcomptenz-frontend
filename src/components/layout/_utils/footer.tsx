@@ -68,7 +68,7 @@ export const Footer = () => {
                 <Footerlogo />
               </div>
             </div>
-            <div className="text-[#989CA0] text-sm space-y-1">
+            <div className="text-custom-gray-3 text-sm space-y-1">
               <p>{address.line1}</p>
               <p>{address.line2}</p>
               <p>{address.line3}</p>
@@ -115,7 +115,7 @@ export const Footer = () => {
                 <li key={service}>
                   <Link
                     href="#"
-                    className="text-[#F3F7F4]  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
+                    className="text-light-white  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
                   >
                     {service}
                   </Link>
@@ -134,7 +134,7 @@ export const Footer = () => {
                 <li key={industry}>
                   <Link
                     href="#"
-                    className="text-[#F3F7F4]  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
+                    className="text-light-white  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
                   >
                     {industry}
                   </Link>
@@ -153,7 +153,7 @@ export const Footer = () => {
                 <li key={insight}>
                   <Link
                     href="#"
-                    className="text-[#F3F7F4]  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
+                    className="text-light-white  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
                   >
                     {insight}
                   </Link>
@@ -217,7 +217,7 @@ export const Footer = () => {
               <ul className="space-y-2">
                 {footer.aboutUs.map((item) => (
                   <li key={item}>
-                    <Link href="#" className="text-[#AAAAAA] text-sm   hover:text-primary   font-normal  transition-all duration-300 block">
+                    <Link href="#" className="text-color-custom-gray-2 text-sm   hover:text-primary   font-normal  transition-all duration-300 block">
                       {item}
                     </Link>
                   </li>
@@ -248,7 +248,7 @@ export const Footer = () => {
                     </li>
                     {footer.ecoSystems.microsoft.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary   font-normal  transition-all duration-300 block">
+                        <Link href="#" className="text-color-custom-gray-2  text-sm  hover:text-primary   font-normal  transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -262,7 +262,7 @@ export const Footer = () => {
                   <ul className="space-y-2">
                     {footer.ecoSystems.sap.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary   font-normal   transition-all duration-300 block">
+                        <Link href="#" className="text-color-custom-gray-2  text-sm  hover:text-primary   font-normal   transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -276,7 +276,7 @@ export const Footer = () => {
                   <ul className="space-y-2">
                     {footer.ecoSystems.salesforce.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA]  text-sm  hover:text-primary   font-normal  transition-all duration-300 block">
+                        <Link href="#" className="text-color-custom-gray-2  text-sm  hover:text-primary   font-normal  transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -288,7 +288,7 @@ export const Footer = () => {
                   <ul className="space-y-2 lg:mt-10">
                     {footer.ecoSystems.salesforceNew.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-[#AAAAAA] text-sm  hover:text-primary   font-normal   transition-all duration-300 block">
+                        <Link href="#" className="text-color-custom-gray-2 text-sm  hover:text-primary   font-normal   transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -302,13 +302,13 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex flex-row items-center justify-between">
-          <p className="text-[#AAAAAA] text-sm">{footer.copyright}</p>
+          <p className="text-color-custom-gray-2 text-sm">{footer.copyright}</p>
           <div>
             {footer.policies.map((policy) => (
               <Link
                 key={policy}
                 href="#"
-                className="text-[#AAAAAA] text-sm mx-2"
+                className="text-color-custom-gray-2 text-sm mx-2"
               >
                 {policy}
               </Link>
@@ -327,14 +327,14 @@ export const Footer = () => {
               <Link
                 key={policy}
                 href="#"
-                className="text-[#AAAAAA]  text-[14px] border-r-1 border-[#989CA0] mx-2 last:border-0 pr-2"
+                className="text-color-custom-gray-2  text-[14px] border-r-1 border-custom-gray-3 mx-2 last:border-0 pr-2"
               >
                 {policy}
               </Link>
             ))}
           </div>
-          <div className="flex justify-center pt-4 border-t-1   border-[#989CA0]">
-            <p className="text-[#AAAAAA] text-[14px]  ">{footer.copyright}</p>
+          <div className="flex justify-center pt-4 border-t-1   border-custom-gray-3">
+            <p className="text-color-custom-gray-2 text-[14px]  ">{footer.copyright}</p>
           </div>
         </div>
       </div>

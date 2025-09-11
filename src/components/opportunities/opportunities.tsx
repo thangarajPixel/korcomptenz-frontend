@@ -44,7 +44,7 @@ export default function Opportunities() {
             <div className="relative hidden lg:block group-hover:-translate-x-5 group-hover:scale-102 transition-all ">
               <div className="text-xl lg:text-5xl font-bold leading-tight w-full">
                 <div className="flex flex-row items-center justify-between">
-                  <span className="text-[#22282E] lg:-ml-56 text-lg lg:text-3xl font-semibold lg:me-20">Ready to </span>
+                  <span className="text-custom-black lg:-ml-56 text-lg lg:text-3xl font-semibold lg:me-20">Ready to </span>
                   <section className="flex flex-row items-center gap-2">
                     <div>
                       <img
@@ -53,7 +53,7 @@ export default function Opportunities() {
                         className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
                       />
                     </div>
-                    <span className="text-[#22282E] text-lg lg:text-3xl  font-semibold">build an</span>
+                    <span className="text-custom-black text-lg lg:text-3xl  font-semibold">build an</span>
                   </section>
                   <div className="ps-10">
                     <img
@@ -83,7 +83,7 @@ export default function Opportunities() {
             <div className="relative transition-all duration-500 group-hover:-translate-x-5 group-hover:scale-105 lg:hidden">
               <div className="text-xl lg:text-5xl font-bold leading-tight w-full">
                 <div className="flex flex-row items-center justify-between">
-                  <span className="text-[#22282E] text-xl font-semibold">
+                  <span className="text-custom-black text-xl font-semibold">
                     Ready to{" "}
                   </span>
 
@@ -96,7 +96,7 @@ export default function Opportunities() {
                       height={1000}
                     />
                   </div>
-                  <span className="text-[#22282E] text-xl font-semibold">
+                  <span className="text-custom-black text-xl font-semibold">
                     build an
                   </span>
                 </div>
@@ -131,7 +131,7 @@ export default function Opportunities() {
               </div>
             </div>
             {/* Description text */}
-            <p className="text-md text-[#22282E] leading-[28px] max-w-lg lg:ms-[-30px]">
+            <p className="text-md text-custom-black leading-[28px] max-w-lg lg:ms-[-30px]">
               {careers.description}
             </p>
 

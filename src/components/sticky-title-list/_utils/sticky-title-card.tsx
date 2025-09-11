@@ -5,7 +5,7 @@ import KorcomptenzImage from '@/components/korcomptenz-image';
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
   const { title, description, image } = data;
   return (
-    <div className="bg-[#E8F5F0] rounded-4xl p-8 relative overflow-hidden min-h-[280px] flex flex-col justify-between">
+    <div className="bg-light-gray rounded-4xl p-8 relative overflow-hidden min-h-[280px] flex flex-col justify-between">
       {/* Content */}
       <div className="flex-1">
         <h3 className="text-gray-900 text-2xl font-bold mb-4 leading-tight">
