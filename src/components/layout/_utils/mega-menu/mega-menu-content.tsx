@@ -3,6 +3,7 @@ import React from 'react';
 
 import IndustriesMenu from './_utils/industries-menu';
 import ServicesMenu from './_utils/service-menu copy';
+import EcosystemMenu from './_utils/ecosystem-menu';
 
 const MegaMenuContent = ({ activeTab }: { activeTab: string }) => {
   console.log("activeTab", activeTab);
@@ -27,6 +28,7 @@ const MegaMenuContent = ({ activeTab }: { activeTab: string }) => {
             >
               {activeTab === "Services" && <ServicesMenu />}
               {activeTab === "Industries" && <IndustriesMenu />}
+              {activeTab === "Ecosystems" && <EcosystemMenu />} 
             </motion.div>
           </div>
         </motion.div>
