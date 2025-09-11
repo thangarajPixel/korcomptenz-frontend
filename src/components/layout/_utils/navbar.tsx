@@ -9,34 +9,16 @@ import Link from "next/link";
 import { SearchIcon } from "../../../../public/svg/all-svg";
 import MegaMenuContent from "./mega-menu-content";
 import { cn } from "@/lib/utils";
+import { APP_CONFIG } from "@/utils/app-config";
 
 export function Navbar() {
   // const targetRef = React.useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  // const [isScrolled, setIsScrolled] = useState(false);
   // const handleClickOutside = () => {
   //   setActiveSection('');
   // };
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setIsScrolled(window.scrollY > 10);
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
 
-  // useEffect(() => {
-  //   if (isMenuOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "unset";
-  //   }
-
-  //   return () => {
-  //     document.body.style.overflow = "unset";
-  //   };
-  // }, [isMenuOpen]);
   // useOnClickOutside(targetRef as React.RefObject<HTMLElement>, handleClickOutside);
   return (
     <>
@@ -48,7 +30,7 @@ export function Navbar() {
         onMouseLeave={() => setActiveSection('')}
         className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white`}
       >
-        <div className="container-nav h-[100px] pt-5">
+        <div className={`container-nav h-[${APP_CONFIG.APP_NAVBAR_HEIGHT}px] pt-5`}>
           <div
             className={` flex items-center justify-between transition-all duration-500 ease-out "h-16"`}
           >
@@ -66,7 +48,7 @@ export function Navbar() {
             </div>
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
-            <nav className="hidden lg:flex items-center space-x-7 relative text-[#313941] text-sm font-light">
+            <nav className="hidden lg:flex items-center space-x-7 relative text-muted text-sm font-light">
               {jsonData.header.navItems.map((item, index) => (
                 <p
                   key={index}

@@ -13,7 +13,7 @@ const InspireSection = () => {
           </h1>
         </div>
         <Card className="border-2 bg-[#E2EBE4] flex-row py-0 rounded-4xl">
-          <CardContent className="px-0 flex flex-col justify-between text-[#313941] ">
+          <CardContent className="px-0 flex flex-col justify-between text-muted ">
             <div className="p-6">
               <h3 className="text-xl font-semibold   mb-4">
                 Manufacturing
@@ -49,7 +49,7 @@ const InspireSection = () => {
             </Button>
           </div>
           <Card className="bg-[#E2EBE4] p-0 h-full rounded-4xl">
-            <CardContent className="p-6 text-[#313941]">
+            <CardContent className="p-6 text-muted">
               <div className="flex mb-4">
                 <KorcomptenzImage
                   src="/assets/home/Healthcare.png"
@@ -74,7 +74,7 @@ const InspireSection = () => {
         </div>
         <div className="flex flex-col gap-8 justify-between">
           <Card className="bg-[#E2EBE4] relative rounded-4xl">
-            <CardContent className="p-6 text-[#313941]">
+            <CardContent className="p-6 text-muted">
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold  mb-2 pt-5">
@@ -99,7 +99,7 @@ const InspireSection = () => {
             </CardContent>
           </Card>
           <Card className="bg-[#E2EBE4] relative rounded-4xl">
-            <CardContent className="p-6 text-[#313941]">
+            <CardContent className="p-6 text-muted">
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold  mb-2 pt-5">
@@ -151,7 +151,7 @@ export default InspireSection;
 //         </h1>
 //       </div>
 //       <Card className="border-2 bg-[#E2EBE4] flex-row py-3 md:py-0 rounded-4xl">
-//         <CardContent className="px-0 flex flex-col justify-between text-[#313941] ">
+//         <CardContent className="px-0 flex flex-col justify-between text-muted ">
 //           <div className="p-6">
 //             <h3 className="md:text-xl text-md font-semibold   mb-4">
 //               Manufacturing
@@ -187,7 +187,7 @@ export default InspireSection;
 //           </Button>
 //         </div>
 //         <Card className="bg-[#E2EBE4] p-0 h-full rounded-4xl">
-//           <CardContent className="p-6 text-[#313941]">
+//           <CardContent className="p-6 text-muted">
 //             <div className="flex mb-4">
 //               <KorcomptenzImage
 //                 src="/assets/home/Healthcare.png"
@@ -212,7 +212,7 @@ export default InspireSection;
 //       </div>
 //       <div className="flex flex-col gap-8  justify-between">
 //         <Card className="bg-[#E2EBE4] relative rounded-4xl">
-//           <CardContent className="p-6 text-[#313941]">
+//           <CardContent className="p-6 text-muted">
 //             <div className="flex items-start gap-4">
 //               <div className="flex-1">
 //                 <h3 className="text-xl font-semibold  mb-2 pt-5">
@@ -237,7 +237,7 @@ export default InspireSection;
 //           </CardContent>
 //         </Card>
 //         <Card className="bg-[#E2EBE4] relative rounded-4xl">
-//           <CardContent className="p-6 text-[#313941]">
+//           <CardContent className="p-6 text-muted">
 //             <div className="flex items-start gap-4">
 //               <div className="flex-1">
 //                 <h3 className="text-xl font-semibold  mb-2 pt-5">
