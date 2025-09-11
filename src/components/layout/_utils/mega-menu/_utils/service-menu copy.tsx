@@ -313,38 +313,42 @@ const ServicesMenu = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-24 gap-6 max-w-7xl mx-auto">
-      <div className="lg:col-span-5">
-        <div className="bg-white sticky top-8 rounded-lg p-6 shadow-sm">
+      <div className="grid grid-cols-24 ">
+      {/* Sidebar */}
+      <div className="col-span-24 md:col-span-5 lg:col-span-5">
+        <div className="bg-white sticky top-8">
           <nav className="space-y-2">
             {servicesData.sections.map((section) => (
               <motion.button
                 key={section.id}
                 onClick={() => setActiveServiceSection(section)}
-                className={`w-full text-left py-3 px-4 rounded-lg transition-all duration-200 flex items-center space-x-3 ${
-                  activeServiceSection.id === section.id
-                    ? "text-teal-600 bg-teal-50 border-l-4 border-primary"
-                    : "text-gray-600 hover:text-teal-600 hover:bg-gray-50"
-                }`}
+                className={`w-full text-left text-[#6B6B6B] py-3 
+                  rounded-lg transition-all duration-200 flex items-center space-x-3 ${
+                    activeServiceSection.id === section.id ? "text-primary" : ""
+                  }`}
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="text-sm font-medium">{section.title}</span>
+                <span className="text-sm font-normal leading-1">
+                  {section.title}
+                </span>
               </motion.button>
             ))}
           </nav>
         </div>
       </div>
 
-      <div className="lg:col-span-13">
+      {/* Content (split left & right) */}
+      <div className="col-span-24 md:col-span-13 lg:col-span-13">
         <motion.div
           key={activeServiceSection.id}
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-white rounded-lg shadow-sm border border-gray-100 p-6"
+          className="bg-white  border-l border-gray-200 px-6"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 gap-6">
+            {/* Left side */}
             <div>
               {activeServiceSection.items
                 .filter((item) => item.side === "left")
@@ -354,22 +358,24 @@ const ServicesMenu = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1, duration: 0.3 }}
-                    className="group mb-8"
+                    className="group"
                   >
-                    <div>
-                      <h4 className="group relative font-semibold text-sm text-teal-600 mb-4 inline-flex items-center cursor-pointer">
-                        <span className="border-b-2 border-transparent group-hover:border-primary transition-colors">
+                    <div className="px-5 mb-6">
+                      <h4 className="group relative font-normal text-sm text-primary mb-4 inline-flex items-center cursor-pointer">
+                        <span className="border-b-2 border-transparent group-hover:border-primary">
                           {item.title}
                         </span>
-                        <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
                       </h4>
                       {item.child && item.child.length > 0 && (
-                        <div className="space-y-3 pl-2">
+                        <div className="space-y-2">
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-sm leading-relaxed cursor-pointer hover:text-teal-600 transition-colors ${
-                                sub.type === "dark" ? "font-medium text-gray-900" : "text-gray-600"
+                              className={`text-[15px] leading-5 ${
+                                sub.type === "dark"
+                                  ? "font-normal text-[#000000]"
+                                  : "text-gray-500"
                               }`}
                             >
                               {sub.title}
@@ -377,11 +383,17 @@ const ServicesMenu = () => {
                           ))}
                         </div>
                       )}
+                      {item.description && (
+                        <p className="text-sm text-gray-600 mt-2">
+                          {item.description}
+                        </p>
+                      )}
                     </div>
                   </motion.div>
                 ))}
             </div>
 
+            {/* Right side */}
             <div>
               {activeServiceSection.items
                 .filter((item) => item.side === "right")
@@ -391,28 +403,35 @@ const ServicesMenu = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1, duration: 0.3 }}
-                    className="group mb-8"
+                    className="group"
                   >
-                    <div>
-                      <h4 className="group relative font-semibold text-sm text-teal-600 mb-4 inline-flex items-center cursor-pointer">
-                        <span className="border-b-2 border-transparent group-hover:border-primary transition-colors">
+                    <div className="px-5 lg:mb-6">
+                      <h4 className="group relative font-normal text-sm text-primary mb-4 inline-flex items-center cursor-pointer">
+                        <span className="border-b-2 border-transparent group-hover:border-primary">
                           {item.title}
                         </span>
-                        <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
                       </h4>
                       {item.child && item.child.length > 0 && (
-                        <div className="space-y-3 pl-2">
+                        <div className="space-y-2">
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-sm leading-relaxed cursor-pointer hover:text-teal-600 transition-colors ${
-                                sub.type === "dark" ? "font-medium text-gray-900" : "text-gray-600"
+                              className={`text-[15px] leading-5  ${
+                                sub.type === "dark"
+                                  ? "font-normal text-[#000000]"
+                                  : "text-gray-500"
                               }`}
                             >
                               {sub.title}
                             </div>
                           ))}
                         </div>
+                      )}
+                      {item.description && (
+                        <p className="text-sm text-gray-600 mt-2">
+                          {item.description}
+                        </p>
                       )}
                     </div>
                   </motion.div>
@@ -422,16 +441,15 @@ const ServicesMenu = () => {
         </motion.div>
       </div>
 
-      <div className="lg:col-span-6 flex items-start">
-        <div className="bg-white rounded-lg shadow-sm p-4 w-full">
-          <img
-            src={activeServiceSection.image || "/placeholder.svg"}
-            alt={activeServiceSection.title}
-            className="w-full h-auto object-contain rounded-lg"
-            width={300}
-            height={300}
-          />
-        </div>
+      {/* Image Section */}
+      <div className="col-span-24 md:col-span-6 lg:col-span-6 flex ">
+        <img
+          src={activeServiceSection.image}
+          alt={activeServiceSection.title}
+          className="w-full h-full object-contain"
+          width={300}
+          height={300}
+        />
       </div>
     </div>
   )

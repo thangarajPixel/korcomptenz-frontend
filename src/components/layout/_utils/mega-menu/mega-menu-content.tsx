@@ -31,7 +31,7 @@ const MegaMenuContent = ({ activeTab }: { activeTab: string }) => {
               transition={{ delay: 0.1, duration: 0.3 }}
             >
            
-              {activeTab === "Industries" && <ServicesMenu mobile={true} />}
+              {activeTab === "Services" && <ServicesMenu  />}
               {activeTab === "Industries" && <IndustriesMenu />}
               {activeTab === "Ecosystems" && <EcosystemMenu />} 
               {activeTab === "Insights" && <InsightsMenu />}
