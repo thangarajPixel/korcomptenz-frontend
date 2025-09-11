@@ -6,7 +6,11 @@
 @theme {
   --font-sans: "Outfit", "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
-  --color-custom-gray: "#313941";
+  --color-light-white: #f3f7f4;
+  --color-custom-black: #22282e;
+  --color-custom-gray-2: #aaaaaa;
+  --color-custom-gray-3: #989ca0;
+  --color-light-gray: #e2ebe4;
 }
 
 html,

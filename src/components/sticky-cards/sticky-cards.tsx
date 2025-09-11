@@ -62,7 +62,7 @@ export default function StickyCards({ className }: { className?: string }) {
             <div className="flex items-center justify-center px-4 md:py-0 py-4 lg:py-6">
               <Card
                 className={cn(
-                  "overflow-hidden bg-[#F3F7F4] border-0 w-full py-0 h-auto lg:min-h-[28rem]",
+                  "overflow-hidden bg-light-white border-0 w-full py-0 h-auto lg:min-h-[28rem]",
                   "flex flex-col md:flex-row md:items-stretch rounded-4xl ",
                   index && 'sm:shadow-xl shadow-none',
                   className

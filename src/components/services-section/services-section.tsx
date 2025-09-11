@@ -85,7 +85,6 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             <Button
               size="xl"
               arrow={true}
-              className="rounded-full bg-[#16a085] px-6 variant:default"
             >
               Know More
             </Button>
