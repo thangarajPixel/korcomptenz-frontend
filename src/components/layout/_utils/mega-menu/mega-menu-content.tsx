@@ -1,19 +1,16 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
-import ServicesMenu from "./_utils/service-menu copy";
+import ServicesMenu from "./_utils/service-menu";
 import IndustriesMenu from "./_utils/industries-menu";
 import InsightsMenu from "./_utils/insight-menu";
 import AboutMenu from "./_utils/about-menu";
 import EcosystemMenu from "./_utils/ecosystem-menu";
 
-
-
 const MegaMenuContent = ({ activeTab }: { activeTab: string }) => {
   console.log("activeTab", activeTab);
-  
 
   return (
-    <AnimatePresence mode="wait" >
+    <AnimatePresence mode="wait">
       {activeTab && (
         <motion.div
           key={activeTab}
@@ -30,10 +27,9 @@ const MegaMenuContent = ({ activeTab }: { activeTab: string }) => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.3 }}
             >
-           
-              {activeTab === "Services" && <ServicesMenu  />}
+              {activeTab === "Services" && <ServicesMenu />}
               {activeTab === "Industries" && <IndustriesMenu />}
-              {activeTab === "Ecosystems" && <EcosystemMenu />} 
+              {activeTab === "Ecosystems" && <EcosystemMenu />}
               {activeTab === "Insights" && <InsightsMenu />}
               {activeTab === "About Us" && <AboutMenu />}
             </motion.div>
