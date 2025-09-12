@@ -1,34 +1,43 @@
-import React from 'react'
+import KorcomptenzImage from "@/components/korcomptenz-image";
+import React from "react";
 
-const ManuelSliderCard = () => {
-  return (
-    <div className="bg-slate-700 rounded-3xl p-8   ">
-      {/* Decorative Elements */}
-      <div className="flex justify-end">
-        {/* Large Diamond */}
-        <div className="relative">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-green-500">
-            <path d="M16 2L24 16L16 30L8 16L16 2Z" fill="currentColor" />
-          </svg>
-          {/* Small Diamond */}
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="absolute -top-2 -right-2 text-green-400">
-            <path d="M10 1L15 10L10 19L5 10L10 1Z" fill="currentColor" />
-          </svg>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="flex flex-col">
-        <h3 className="text-white text-4xl font-bold mb-6">
-          AI
-        </h3>
-
-        <p className="text-gray-300 text-base leading-relaxed max-w-md">
-          You need to predict demand, reduce downtime, and make faster decisions. Our AI solutions bring advanced insights to optimize production, automate processes, and improve quality to drive greater efficiency, lower costs, and smarter operations.
-        </p>
-      </div>
-    </div>
-  )
+interface Slide {
+  id: number;
+  image: string;
+  alt: string;
+  title: string;
+  description: string;
 }
 
-export default ManuelSliderCard
+interface Props {
+  slide: Slide;
+}
+
+const ManuelSliderCard: React.FC<Props> = ({ slide }) => {
+  return (
+    <div className="flex-shrink-0 w-full">
+      <div className="bg-slate-700 rounded-3xl p-8 h-[400px] md:h-[476px] w-full flex flex-col justify-between">
+        <div className="flex flex-col gap-2 md:gap-5">
+          <div className="flex justify-end gap-2">
+            <KorcomptenzImage
+              className="w-12 h-12 object-contain"
+              width={48}
+              height={48}
+              src={slide.image}
+              alt={slide.alt}
+            />
+          </div>
+          <h3 className="text-white text:medium md:text-2xl font-normal mb-6">
+            {slide.title}
+          </h3>
+
+          <p className="text-gray-300 text-[14px] md:text-sm leading-relaxed">
+            {slide.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ManuelSliderCard;

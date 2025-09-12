@@ -1,4 +1,5 @@
 import BannerSection from '@/components/banner-section';
+import ManuelSlider from '@/components/manuel-slider/manuel-slider';
 import { StickyTitleList } from '@/components/sticky-title-list';
 import type { Params } from 'next/dist/server/request/params';
 import React from 'react'
@@ -13,7 +14,7 @@ const Page = async ({ params }: Props) => {
     <div key={JSON.stringify(slug)}>
       <BannerSection />
       <StickyTitleList />
-      {/* <ManuelSlider /> */}
+      <ManuelSlider />
     </div>
   )
 }
