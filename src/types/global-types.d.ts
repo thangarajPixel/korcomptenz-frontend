@@ -24,4 +24,5 @@ type GlobalFieldType = {
   mobile_image?: ImageType;
   subtitle?: string;
   title?: string;
+  subtitle2?: string;
 }

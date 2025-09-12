@@ -30,7 +30,7 @@ export function Navbar() {
         onMouseLeave={() => setActiveSection('')}
         className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white`}
       >
-        <div className={`container-nav h-[${APP_CONFIG.APP_NAVBAR_HEIGHT}px] pt-5`}>
+        <div className={`container-nav h-[${APP_CONFIG.APP_NAVBAR_HEIGHT}] pt-5`}>
           <div
             className={` flex items-center justify-between transition-all duration-500 ease-out "h-16"`}
           >

@@ -1,21 +1,40 @@
-import SlidingSection from "@/components/sliding-section";
-import StickyCards from "@/components/sticky-cards";
-import { InsightsSection } from "@/components/insight-section";
-import WeAreKorcomptenzSection from "@/components/we-are-korcomptenz";
-import InspireSection from "@/components/inspire-section";
-import ServicesSection from "@/components/services-section";
-import Opportunities from "@/components/opportunities";
+import GlobalPage from "@/components/global-page";
+import { jsonData } from "@/utils/helper";
 
+const tempData: PagesListType = {
+  id: '55',
+  locale: 'en',
+  slug: 'home',
+  list: [
+    {
+      __component: 'sliding-section',
+      list: jsonData.slides
+    },
+    {
+      __component: 'we-are-korcomptenz-section',
+    },
+    {
+      __component: 'services-section',
+      list: jsonData.content
+    },
+    {
+      __component: 'inspire-section'
+    },
+    {
+      __component: 'sticky-cards'
+    },
+    {
+      __component: 'insights-section'
+    },
+    {
+      __component: 'opportunities'
+    }
+  ]
+}
 export default async function Home() {
   return (
     <div className="flex flex-col gap-10 md:gap-16" >
-      <SlidingSection />
-      <WeAreKorcomptenzSection />
-      <ServicesSection />
-      <InspireSection />
-      <StickyCards />
-      <InsightsSection />
-      <Opportunities />
+      <GlobalPage data={tempData.list} />
     </div>
   );
 }
