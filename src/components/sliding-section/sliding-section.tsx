@@ -51,7 +51,7 @@ export default function SlidingSection() {
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
             {jsonData.slides.map((slide) => (
-              <div key={slide.id} className="flex-[0_0_100%] min-w-0">
+              <div key={`sliding-section-${slide.id}`} className="flex-[0_0_100%] min-w-0">
                 <div className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
                 // style={{
                 //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/placeholder.svg"})`,

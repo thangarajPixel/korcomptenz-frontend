@@ -7,14 +7,32 @@ import React, { useState } from "react";
 import { jsonData } from "@/utils/helper";
 import Link from "next/link";
 import { SearchIcon } from "../../../../public/svg/all-svg";
-import MegaMenuContent from "./mega-menu-content";
+import { motion } from "framer-motion";
+
 import { cn } from "@/lib/utils";
+import MegaMenuContent from "./mega-menu/mega-menu-content";
 import { APP_CONFIG } from "@/utils/app-config";
+import { AnimatePresence } from "framer-motion";
+import ServicesMenu from "./mega-menu/_utils/service-menu copy";
+import IndustriesMenu from "./mega-menu/_utils/industries-menu";
+import EcosystemMenu from "./mega-menu/_utils/ecosystem-menu";
+import InsightsMenu from "./mega-menu/_utils/insight-menu";
+import AboutMenu from "./mega-menu/_utils/about-menu";
 
 export function Navbar() {
   // const targetRef = React.useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [expandedItem, setExpandedItem] = useState<string | null>(null);
+
+
+
+
+
+const toggleExpand = (label: string) => {
+  setExpandedItem(expandedItem === label ? null : label);
+};
+  // const [isScrolled, setIsScrolled] = useState(false);
   // const handleClickOutside = () => {
   //   setActiveSection('');
   // };
@@ -138,16 +156,41 @@ export function Navbar() {
                   }`}
                 style={{ transitionDelay: "300ms" }}
               >
-                {jsonData.header.navItems.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.href}
-                    className="block px-3 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground hover:bg-muted hover:translate-x-1 rounded-md"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                ))}
+              {jsonData.header.navItems.map((item, index) => (
+  <div key={index}>
+    <button
+      onClick={() => toggleExpand(item.label)}
+      className="w-full flex justify-between items-center px-3 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground  rounded-md"
+    >
+      {item.label}
+      <ChevronRight
+        className={`ml-2 h-4 w-4 transition-transform ${
+          expandedItem === item.label ? "rotate-90" : ""
+        }`}
+      />
+    </button>
+
+    {/* Accordion Content */}
+    <AnimatePresence>
+      {expandedItem === item.label && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3 }}
+          className="pl-6 pr-3 py-3 bg-white rounded-md"
+        >
+          {item.label === "Industries" && <ServicesMenu />}
+          {item.label === "services" && <IndustriesMenu />}
+          {item.label === "Ecosystems" && <EcosystemMenu />}
+          {item.label === "Insights" && <InsightsMenu />}
+          {item.label === "About Us" && <AboutMenu />}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </div>
+))}
+
               </div>
 
               {/* Enhanced Mobile CTA buttons */}
@@ -177,6 +220,7 @@ export function Navbar() {
             </div>
           </div>
         </div>
+        <MegaMenuContent activeTab={activeSection} />
       </div>
     </>
   );
