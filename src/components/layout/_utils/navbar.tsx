@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import MegaMenuContent from "./mega-menu/mega-menu-content";
-import { APP_CONFIG } from "@/utils/app-config";
 import { AnimatePresence } from "framer-motion";
 import ServicesMenu from "./mega-menu/_utils/service-menu copy";
 import IndustriesMenu from "./mega-menu/_utils/industries-menu";
@@ -29,9 +28,9 @@ export function Navbar() {
 
 
 
-const toggleExpand = (label: string) => {
-  setExpandedItem(expandedItem === label ? null : label);
-};
+  const toggleExpand = (label: string) => {
+    setExpandedItem(expandedItem === label ? null : label);
+  };
   // const [isScrolled, setIsScrolled] = useState(false);
   // const handleClickOutside = () => {
   //   setActiveSection('');
@@ -48,7 +47,7 @@ const toggleExpand = (label: string) => {
         onMouseLeave={() => setActiveSection('')}
         className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white`}
       >
-        <div className={`container-nav h-[${APP_CONFIG.APP_NAVBAR_HEIGHT}px] pt-5`}>
+        <div className="container-nav h-[100px] pt-5">
           <div
             className={` flex items-center justify-between transition-all duration-500 ease-out "h-16"`}
           >
@@ -156,40 +155,39 @@ const toggleExpand = (label: string) => {
                   }`}
                 style={{ transitionDelay: "300ms" }}
               >
-              {jsonData.header.navItems.map((item, index) => (
-  <div key={index}>
-    <button
-      onClick={() => toggleExpand(item.label)}
-      className="w-full flex justify-between items-center px-3 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground  rounded-md"
-    >
-      {item.label}
-      <ChevronRight
-        className={`ml-2 h-4 w-4 transition-transform ${
-          expandedItem === item.label ? "rotate-90" : ""
-        }`}
-      />
-    </button>
+                {jsonData.header.navItems.map((item, index) => (
+                  <div key={index}>
+                    <button
+                      onClick={() => toggleExpand(item.label)}
+                      className="w-full flex justify-between items-center px-3 py-3 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:text-foreground  rounded-md"
+                    >
+                      {item.label}
+                      <ChevronRight
+                        className={`ml-2 h-4 w-4 transition-transform ${expandedItem === item.label ? "rotate-90" : ""
+                          }`}
+                      />
+                    </button>
 
-    {/* Accordion Content */}
-    <AnimatePresence>
-      {expandedItem === item.label && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.3 }}
-          className="pl-6 pr-3 py-3 bg-white rounded-md"
-        >
-          {item.label === "Industries" && <ServicesMenu />}
-          {item.label === "services" && <IndustriesMenu />}
-          {item.label === "Ecosystems" && <EcosystemMenu />}
-          {item.label === "Insights" && <InsightsMenu />}
-          {item.label === "About Us" && <AboutMenu />}
-        </motion.div>
-      )}
-    </AnimatePresence>
-  </div>
-))}
+                    {/* Accordion Content */}
+                    <AnimatePresence>
+                      {expandedItem === item.label && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="pl-6 pr-3 py-3 bg-white rounded-md"
+                        >
+                          {item.label === "Industries" && <ServicesMenu />}
+                          {item.label === "services" && <IndustriesMenu />}
+                          {item.label === "Ecosystems" && <EcosystemMenu />}
+                          {item.label === "Insights" && <InsightsMenu />}
+                          {item.label === "About Us" && <AboutMenu />}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
 
               </div>
 
