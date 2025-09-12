@@ -1,14 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { jsonData } from "@/utils/helper";
 import KorcomptenzImage from "../korcomptenz-image";
 
 export default function Opportunities() {
   const careers = jsonData.careers;
   return (
-    <section className="bg-white  px-4 sm:px-6 lg:px-8 mb-6">
+    <section className="bg-white px-4 sm:px-6 lg:px-8 mb-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
           {/* Left side - Image with geometric elements */}
@@ -16,8 +15,8 @@ export default function Opportunities() {
             {/* Blue geometric arrows */}
             <div className="absolute top-8 left-6 z-10 group-hover:left-24 transition-all duration-1000">
               <div className="flex space-x-1 w-72">
-                <Image
-                  src="/assets/home/arrow.png"
+                <KorcomptenzImage
+                  src={careers.images.arrow}
                   alt="arrow"
                   className="w-full h-auto rounded-lg"
                   width={500}
@@ -28,8 +27,8 @@ export default function Opportunities() {
 
             {/* Main image */}
             <div className="relative z-10 ml-10">
-              <Image
-                src="/assets/banner/banner-5.png"
+              <KorcomptenzImage
+                src={careers.images.banner}
                 alt="Professional working on laptop"
                 className="w-full h-auto rounded-lg"
                 width={1112}
@@ -40,102 +39,109 @@ export default function Opportunities() {
 
           {/* Right side - Content */}
           <div className="space-y-8 mx-auto">
-            {/* Header text with profile images */}
-            <div className="relative hidden lg:block group-hover:-translate-x-5 group-hover:scale-102 transition-all ">
+            {/* Desktop heading */}
+            <div className="relative hidden lg:block group-hover:-translate-x-5 group-hover:scale-102 transition-all">
               <div className="text-xl lg:text-5xl font-bold leading-tight w-full">
                 <div className="flex flex-row items-center justify-between">
-                  <span className="text-custom-black lg:-ml-56 text-lg lg:text-3xl font-semibold lg:me-20">Ready to </span>
+                  <span className="text-custom-black lg:-ml-56 text-lg lg:text-3xl font-semibold lg:me-20">
+                    {careers.heading.part1}
+                  </span>
                   <section className="flex flex-row items-center gap-2">
-                    <div>
-                      <img
-                        src="/assets/home/profile-1.png"
-                        alt="Team member"
-                        className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
-                      />
-                    </div>
-                    <span className="text-custom-black text-lg lg:text-3xl  font-semibold">build an</span>
+                    <KorcomptenzImage
+                      src={careers.profiles?.[0].src}
+                      alt={careers.profiles?.[0].alt}
+                      className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
+                      width={1000}
+                      height={1000}
+                    />
+                    <span className="text-custom-black text-lg lg:text-3xl font-semibold">
+                      {careers.heading.part2}
+                    </span>
                   </section>
                   <div className="ps-10">
-                    <img
-                      src="/assets/home/profile-3.png"
-                      alt="Team member"
+                    <KorcomptenzImage
+                      src={careers?.profiles?.[2].src}
+                      alt={careers?.profiles?.[2].alt}
                       className="w-16 h-16 lg:w-[100px] lg:h-[100px] rounded-full border-4 border-white shrink-0"
+                      width={1000}
+                      height={1000}
                     />
                   </div>
                 </div>
 
-                <div className="flex flex-row items-center  mt:[40px]">
-                  <span className="text-primary text-lg lg:-ml-42 lg:text-3xl lg:me-48 font-semibold">exceptional </span>
+                <div className="flex flex-row items-center mt:[40px]">
+                  <span className="text-primary text-lg lg:-ml-42 lg:text-3xl lg:me-48 font-semibold">
+                    {careers.heading.highlight1}
+                  </span>
                   <section className="flex flex-row items-center gap-2 lg:-ml-12">
-                    <div >
-                      <img
-                        src="/assets/home/profile-2.png"
-                        alt="Team member"
-                        className="lg:w-[100px] lg:h-[100px] w-16 h-16  rounded-full border-4 border-white shrink-0"
-                      />
-                    </div>
-                    <span className="text-primary text-lg lg:text-3xl font-semibold">career?</span>
+                    <KorcomptenzImage
+                      src={careers?.profiles?.[1].src}
+                      alt={careers?.profiles?.[1].alt}
+                      className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
+                      width={1000}
+                      height={1000}
+                    />
+                    <span className="text-primary text-lg lg:text-3xl font-semibold">
+                      {careers.heading.highlight2}
+                    </span>
                   </section>
                 </div>
               </div>
             </div>
-            {/* Header text with profile images responsive */}
+
+            {/* Mobile heading */}
             <div className="relative transition-all duration-500 group-hover:-translate-x-5 group-hover:scale-105 lg:hidden">
-              <div className="text-xl lg:text-5xl font-bold leading-tight w-full">
+              <div className="text-xl font-bold leading-tight w-full ">
                 <div className="flex flex-row items-center justify-between">
                   <span className="text-custom-black text-xl font-semibold">
-                    Ready to{" "}
+                    {careers.heading.part1}
                   </span>
 
-                  <div>
-                    <KorcomptenzImage
-                      src="/assets/home/profile-1.png"
-                      alt="Team member"
-                      className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
-                      width={1000}
-                      height={1000}
-                    />
-                  </div>
+                  <KorcomptenzImage
+                    src={careers.profiles[0].src}
+                    alt={careers.profiles[0].alt}
+                    className="w-16 h-16 rounded-full border-4 border-white shrink-0"
+                    width={1000}
+                    height={1000}
+                  />
+
                   <span className="text-custom-black text-xl font-semibold">
-                    build an
+                    {careers.heading.part2}
                   </span>
                 </div>
 
-                <div className="flex flex-row justify-between items-center mt:[40px]">
-                  <div>
-                    <KorcomptenzImage
-                      src="/assets/home/profile-3.png"
-                      alt="Team member"
-                      className="w-16 h-16 lg:w-[100px] lg:h-[100px] rounded-full border-4 border-white shrink-0"
-                      width={1000}
-                      height={1000}
-                    />
-                  </div>
+                <div className="flex flex-row justify-between items-center">
+                  <KorcomptenzImage
+                    src={careers.profiles[2].src}
+                    alt={careers.profiles[2].alt}
+                    className="w-16 h-16 rounded-full border-4 border-white shrink-0"
+                    width={1000}
+                    height={1000}
+                  />
                   <span className="text-primary text-xl font-semibold">
-                    exceptional{" "}
+                    {careers.heading.highlight1}
                   </span>
-
-                  <div>
-                    <KorcomptenzImage
-                      src="/assets/home/profile-2.png"
-                      alt="Team member"
-                      width={1000}
-                      height={1000}
-                      className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
-                    />
-                  </div>
+                  <KorcomptenzImage
+                    src={careers.profiles[1].src}
+                    alt={careers.profiles[1].alt}
+                    className="w-16 h-16 rounded-full border-4 border-white shrink-0"
+                    width={1000}
+                    height={1000}
+                  />
                 </div>
+
                 <span className="text-primary text-xl font-semibold">
-                  career?
+                  {careers.heading.highlight2}
                 </span>
               </div>
             </div>
-            {/* Description text */}
+
+            {/* Description */}
             <p className="text-md text-custom-black leading-[28px] max-w-lg lg:ms-[-30px]">
               {careers.description}
             </p>
 
-            {/* CTA Button */}
+            {/* CTA */}
             <Button
               type="button"
               arrow={true}

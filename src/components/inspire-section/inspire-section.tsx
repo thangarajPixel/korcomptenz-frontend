@@ -2,18 +2,32 @@ import React from "react";
 import { jsonData } from "@/utils/helper";
 import { Button } from "../ui/button";
 import InspireSectionCard from "./_utils/inspire-section-card";
+import { cn } from "@/lib/utils";
 
-const Inspiresection = () => {
+const InspireSection = () => {
   const heading = jsonData.insprieSection.mainheading;
   const cards = jsonData.insprieSection.cards;
+  const distributeCards = React.useCallback(() => {
+    const len = cards?.length;
+    if (len === 2) return { left: [cards?.[0]], center: [cards?.[1]], right: [] };
+    if (len === 3) return { left: [cards?.[0]], center: [cards?.[1]], right: [cards?.[2]] };
+    if (len === 4) return { left: [cards?.[0]], center: [cards?.[1]], right: cards?.slice(2) };
+    if (len === 5) return { left: cards?.slice(0, 2), center: [cards?.[2]], right: cards?.slice(3) };
+    // fallback: try to balance
+    const mid = Math.floor((len || 0) / 2);
+    return { left: cards?.slice(0, mid), center: [cards[mid]], right: cards?.slice(mid + 1) };
+  }, [cards]);
 
+  const { left, center, right } = distributeCards();
+  const centerSpan =
+    left.length > 0 && right.length > 0 ? "lg:col-span-1" : "lg:col-span-2";
   return (
     <div className="container-md mt-0 md:mt-16 py-4">
       <div className="grid lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 flex flex-col h-full ">
-         {cards.slice(0,1).map((card)=><InspireSectionCard key={card.id} card={card} />)}
+          {left?.map((card) => <InspireSectionCard key={`inspire-section-${card.id}`} card={card} />)}
         </div>
-        <div className="lg:col-span-1 flex flex-col gap-5 ">
+        <div className={cn("flex flex-col gap-5 ", centerSpan)}>
           <div className="hidden lg:flex flex-col text-center items-center justify-center h-full">
             <h1 className="text-2xl font-bold text-custom-gray mb-6 text-balance">
               {heading.title}
@@ -26,11 +40,11 @@ const Inspiresection = () => {
               {heading.buttonText}
             </Button>
           </div>
-         { cards.slice(1,2).map((card)=><InspireSectionCard key={card.id} card={card} />)}
+          {center?.map((card) => <InspireSectionCard key={`inspire-section-${card.id}`} card={card} />)}
         </div>
         <div className="lg:col-span-1 flex flex-col justify-between gap-6 ">
-          {cards.slice(2,4).map((card) => (
-            <InspireSectionCard key={card.id} card={card} />
+          {right?.map((card) => (
+            <InspireSectionCard key={`inspire-section-${card.id}`} card={card} />
           ))}
         </div>
       </div>
@@ -47,7 +61,7 @@ const Inspiresection = () => {
   );
 };
 
-export default Inspiresection;
+export default InspireSection;
 
 
 
