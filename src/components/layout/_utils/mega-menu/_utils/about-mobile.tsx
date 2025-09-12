@@ -59,9 +59,13 @@ const aboutData = {
     },
   ],
 };
+interface IndustryDrawerProps {
+  isOpen: boolean;
+  onClose: () => void;
 
-// Drawer only for "Who we are"
-const AboutDrawer = ({ isOpen, onClose }) => {
+}
+
+const AboutDrawer = ({ isOpen, onClose }: IndustryDrawerProps) => {
   const [activeItem, setActiveItem] = useState<number | null>(null);
 
   if (!isOpen) return null;

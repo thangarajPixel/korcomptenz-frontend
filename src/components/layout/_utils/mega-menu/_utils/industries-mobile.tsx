@@ -3,7 +3,39 @@
 import { useState } from "react";
 import { ChevronRight, ChevronLeft, X } from "lucide-react";
 
-const industriesData = {
+// ---------- Types ----------
+interface Section {
+  id: string;
+  title: string;
+  items: string[];
+  imagePath: string;
+  height: "short" | "tall";
+  imagePosition: "side" | "down";
+}
+
+interface Column {
+  sectionName: string;
+  colSpan: string;
+  sections: Section[];
+}
+
+interface IndustriesData {
+  columns: Column[];
+}
+
+interface DrawerState {
+  isOpen: boolean;
+  industry: Section | null;
+}
+
+interface IndustryDrawerProps {
+  isOpen: boolean;
+  onClose: () => void;
+  industry: Section | null;
+}
+
+// ---------- Data ----------
+const industriesData: IndustriesData = {
   columns: [
     {
       sectionName: "Section 1",
@@ -85,14 +117,14 @@ const industriesData = {
   ],
 };
 
-// Drawer Component for Industry Items
-const IndustryDrawer = ({ isOpen, onClose, industry }) => {
+// ---------- Drawer ----------
+const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
   if (!isOpen || !industry) return null;
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
       <div className="fixed inset-0 bg-black/5">
-        <div className="flex items-center justify-between  py-4 bg-white border-b-2 border-primary ">
+        <div className="flex items-center justify-between py-4 bg-white border-b-2 border-primary">
           <div className="flex items-center">
             <button
               onClick={onClose}
@@ -100,7 +132,7 @@ const IndustryDrawer = ({ isOpen, onClose, industry }) => {
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
-            <h2 className="text-sm font-normal text-primary ">{industry.title}</h2>
+            <h2 className="text-sm font-normal text-primary">{industry.title}</h2>
           </div>
           <button
             onClick={onClose}
@@ -108,15 +140,16 @@ const IndustryDrawer = ({ isOpen, onClose, industry }) => {
           >
             <X className="w-5 h-5 text-gray-400" />
           </button>
-        </div><span className="block w-full h-[0.5px] bg-primary"></span>
+        </div>
+        <span className="block w-full h-[0.5px] bg-primary"></span>
 
         <div className="h-full overflow-y-auto bg-white">
           <div className="divide-y divide-gray-100">
-            {industry.items && industry.items.length > 0 ? (
+            {industry.items.length > 0 ? (
               industry.items.map((item, index) => (
                 <div
                   key={index}
-                  className=" py-3 px-4  text-sm text-primary border-b border-primary"
+                  className="py-3 px-4 text-sm text-primary border-b border-primary"
                 >
                   {item}
                 </div>
@@ -133,14 +166,14 @@ const IndustryDrawer = ({ isOpen, onClose, industry }) => {
   );
 };
 
-// Main Industries Menu Component
+// ---------- Main Component ----------
 const IndustriesMobile = () => {
-  const [drawer, setDrawer] = useState({
+  const [drawer, setDrawer] = useState<DrawerState>({
     isOpen: false,
     industry: null,
   });
 
-  const openDrawer = (industry) => {
+  const openDrawer = (industry: Section) => {
     setDrawer({ isOpen: true, industry });
   };
 
@@ -155,15 +188,13 @@ const IndustriesMobile = () => {
           col.sections.map((section) => (
             <button
               key={section.id}
-              onClick={() =>
-                section.items && section.items.length > 0 && openDrawer(section)
-              }
+              onClick={() => section.items.length > 0 && openDrawer(section)}
               className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
             >
               <span className="text-sm text-custom-gray-4 font-normal">
                 {section.title}
               </span>
-              {section.items && section.items.length > 0 && (
+              {section.items.length > 0 && (
                 <ChevronRight className="w-4 h-4 text-primary" />
               )}
             </button>

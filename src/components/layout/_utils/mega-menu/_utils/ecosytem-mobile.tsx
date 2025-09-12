@@ -4,7 +4,48 @@ import { useState } from "react";
 import { ChevronRight, ChevronLeft, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const EcosystemData = {
+// ---------- Types ----------
+interface Type1Child {
+  title: string;
+  type: "Dark" | "Light";
+}
+
+interface Type2Child {
+  title: string;
+  description: string[];
+}
+
+interface SidebarItem {
+  title: string;
+  description: string;
+  buttontext: string;
+  childtype: "type1" | "type2";
+  child: Type1Child[] | Type2Child[];
+}
+
+interface SidebarMenu {
+  id: number;
+  menu: string;
+  items: SidebarItem[];
+}
+
+interface EcosystemDataType {
+  sidebar: SidebarMenu[];
+}
+
+interface EcosystemDrawerProps {
+  isOpen: boolean;
+  onClose: () => void;
+  menu: SidebarMenu | null;
+}
+
+interface DrawerState {
+  isOpen: boolean;
+  menu: SidebarMenu | null;
+}
+
+// ---------- Data ----------
+const EcosystemData: EcosystemDataType = {
   sidebar: [
     {
       id: 1,
@@ -93,8 +134,8 @@ const EcosystemData = {
   ],
 };
 
-// Drawer for selected Ecosystem menu
-const EcosystemDrawer = ({ isOpen, onClose, menu }) => {
+// ---------- Drawer ----------
+const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
   if (!isOpen || !menu) return null;
 
   const item = menu.items[0]; // pick the first item for now
@@ -125,15 +166,13 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }) => {
         <div className="h-full overflow-y-auto bg-white">
           {item && (
             <div className="p-4 space-y-4">
-             
-
               {/* type1 children */}
               {item.childtype === "type1" &&
-                item.child?.map((child, i) => (
+                (item.child as Type1Child[])?.map((child, i) => (
                   <div
                     key={i}
                     className={cn(
-                      "px-2 py-2 border-b border-primary text-sm  leading-6.5 text-primary"
+                      "px-2 py-2 border-b border-primary text-sm leading-6.5 text-primary"
                     )}
                   >
                     {child.title}
@@ -142,13 +181,13 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }) => {
 
               {/* type2 children */}
               {item.childtype === "type2" &&
-                item.child?.map((child, i) => (
+                (item.child as Type2Child[])?.map((child, i) => (
                   <div key={i} className="px-2 py-3 border-b border-gray-100">
-                    <p className="text-sm font-medium text-primary border-b border-primary ">
+                    <p className="text-sm font-medium text-primary border-b border-primary">
                       {child.title}
                     </p>
-                    {child.description && child.description.length > 0 && (
-                      <ul className=" mt-1 text-xs text-black">
+                    {child.description.length > 0 && (
+                      <ul className="mt-1 text-xs text-black">
                         {child.description.map((desc, j) => (
                           <li key={j}>{desc}</li>
                         ))}
@@ -164,10 +203,14 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }) => {
   );
 };
 
+// ---------- Main Component ----------
 const EcosystemMobile = () => {
-  const [drawer, setDrawer] = useState({ isOpen: false, menu: null });
+  const [drawer, setDrawer] = useState<DrawerState>({
+    isOpen: false,
+    menu: null,
+  });
 
-  const handleMenuClick = (menu) => {
+  const handleMenuClick = (menu: SidebarMenu) => {
     setDrawer({ isOpen: true, menu });
   };
 

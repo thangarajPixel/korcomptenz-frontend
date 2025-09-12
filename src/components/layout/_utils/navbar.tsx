@@ -1,5 +1,4 @@
 "use client";
-
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
 import { X, ChevronRight } from "lucide-react";
@@ -15,19 +14,21 @@ import {
   YoutubeIcon,
 } from "../../../../public/svg/all-svg";
 import { motion } from "framer-motion";
-
 import { cn } from "@/lib/utils";
 import MegaMenuContent from "./mega-menu/mega-menu-content";
-import { APP_CONFIG } from "@/utils/app-config";
 import { AnimatePresence } from "framer-motion";
+import ServicesMobile from "./mega-menu/_utils/service-mobile";
+import IndustriesMobile from "./mega-menu/_utils/industries-mobile";
+import AboutMobile from "./mega-menu/_utils/about-mobile";
+import InsightMobile from "./mega-menu/_utils/insight-mobile";
 
-import ServicesMobile from "./mega-menu/_utils/serviceMobile";
-import IndustriesMobile from "./mega-menu/_utils/industriesMobile";
-import AboutMobile from "./mega-menu/_utils/aboutMobile";
-import InsightMobile from "./mega-menu/_utils/insightMobile";
-
-import EcosystemMobile from "./mega-menu/_utils/ecosytemMobile";
-
+import EcosystemMobile from "./mega-menu/_utils/ecosytem-mobile";
+type SocialIcons = {
+  id: number;
+  key: string;
+  icon: React.ReactNode;
+  href: string;
+};
 export const socialIcons: SocialIcons[] = [
   {
     id: 1,
@@ -86,7 +87,7 @@ export function Navbar() {
         className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white`}
       >
         <div
-          className={`container-nav h-[${APP_CONFIG.APP_NAVBAR_HEIGHT}px] pt-5`}
+          className={`container-nav h-[100px] pt-5`}
         >
           <div
             className={` flex items-center justify-between transition-all duration-500 ease-out "h-16"`}
@@ -194,7 +195,7 @@ export function Navbar() {
           }`}
         >
           <div className="h-full overflow-y-auto">
-            <div className="pb-5 space-y-6 ">
+            <div className="pb-5 pt-5 space-y-6 ">
               {/* Enhanced Regular mobile nav items */}
               <div
                 className={`space-y-2 border-t border-border pt-6 transition-all duration-500 ease-out ${
@@ -226,7 +227,7 @@ export function Navbar() {
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.3 }}
-                          className="pr-3 pl-3 py-3 rounded-md "
+                          className="pr-3 pl-3 py-3  rounded-md "
                         >
                           {item.label === "Services" && <ServicesMobile />}
                           {item.label === "Industries" && <IndustriesMobile />}

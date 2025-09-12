@@ -1,8 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight, ArrowLeft, X ,ChevronLeft} from "lucide-react";
+import { ChevronRight, ArrowLeft, X, ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+interface ChildItem {
+  title: string;
+  type: "light" | "dark";
+}
+
+interface ServiceItem {
+  title: string;
+  side: "left" | "right";
+  child: readonly ChildItem[];
+}
+
+interface Service {
+  id: string;
+  title: string;
+  image: string;
+  items: readonly ServiceItem[];
+}
 
 const servicesData = {
   sections: [
@@ -178,16 +196,27 @@ const servicesData = {
       ],
     },
   ],
-};
+} as const;
 
-// Simplified Submenu Drawer Component
-const SubmenuDrawer = ({ isOpen, onClose, submenuItem, serviceName }) => {
+interface SubmenuDrawerProps {
+  isOpen: boolean;
+  onClose: () => void;
+  submenuItem: ServiceItem | null;
+  serviceName: string;
+}
+
+const SubmenuDrawer = ({
+  isOpen,
+  onClose,
+  submenuItem,
+  serviceName,
+}: SubmenuDrawerProps) => {
   if (!isOpen || !submenuItem) return null;
 
   return (
     <div className="fixed inset-0 z-[60] lg:hidden">
-      <div className="fixed inset-0 bg- bg-black/5">
-        <div className="flex items-center justify-between px-4  bg-white border-b border-gray-100 shadow-sm">
+      <div className="fixed inset-0 bg-black/5">
+        <div className="flex items-center justify-between px-4 bg-white border-b border-gray-100 shadow-sm">
           <div className="flex items-center">
             <button
               onClick={onClose}
@@ -206,44 +235,43 @@ const SubmenuDrawer = ({ isOpen, onClose, submenuItem, serviceName }) => {
             <X className="w-5 h-5 text-gray-400" />
           </button>
         </div>
-
-      
       </div>
     </div>
   );
 };
 
-// Simplified Main Services Menu Component (for navbar integration)
 const ServicesMobile = () => {
-  const [serviceDrawer, setServiceDrawer] = useState({
+  const [serviceDrawer, setServiceDrawer] = useState<{
+    isOpen: boolean;
+    service: Service | null;
+  }>({
     isOpen: false,
     service: null,
   });
-  const [submenuDrawer, setSubmenuDrawer] = useState({
+
+  const [submenuDrawer, setSubmenuDrawer] = useState<{
+    isOpen: boolean;
+    item: ServiceItem | null;
+    serviceName: string;
+  }>({
     isOpen: false,
     item: null,
     serviceName: "",
   });
 
-  const handleServiceClick = (service) => {
-    setServiceDrawer({
-      isOpen: true,
-      service: service,
-    });
+  const handleServiceClick = (service: Service) => {
+    setServiceDrawer({ isOpen: true, service });
   };
 
   const closeServiceDrawer = () => {
-    setServiceDrawer({
-      isOpen: false,
-      service: null,
-    });
+    setServiceDrawer({ isOpen: false, service: null });
   };
 
-  const handleSubmenuClick = (item, serviceName) => {
+  const handleSubmenuClick = (item: ServiceItem, serviceName: string) => {
     setSubmenuDrawer({
       isOpen: true,
-      item: item,
-      serviceName: serviceName || "",
+      item,
+      serviceName,
     });
   };
 
@@ -262,9 +290,9 @@ const ServicesMobile = () => {
           <button
             key={service.id}
             onClick={() => handleServiceClick(service)}
-            className="w-full flex items-center justify-between p-1 text-left "
+            className="w-full flex items-center justify-between p-1 text-left"
           >
-            <span className="text-sm  text-custom-gray-4 font-normal">
+            <span className="text-sm text-custom-gray-4 font-normal">
               {service.title}
             </span>
             <ChevronRight className="w-4 h-4 text-primary" />
@@ -275,8 +303,7 @@ const ServicesMobile = () => {
       {serviceDrawer.isOpen && serviceDrawer.service && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="fixed inset-0 bg-white">
-            <div className="flex items-center justify-between py-4 bg-white border-b  border-primary">
-              {/* Left section */}
+            <div className="flex items-center justify-between py-4 bg-white border-b border-primary">
               <div className="flex items-center">
                 <button
                   onClick={closeServiceDrawer}
@@ -284,9 +311,8 @@ const ServicesMobile = () => {
                 >
                   <ChevronLeft className="w-5 h-5 text-primary" />
                 </button>
-                <h2 className="items-center  font-medium text-sm leading-[26px]  text-primary">
+                <h2 className="items-center font-medium text-sm leading-[26px] text-primary">
                   {serviceDrawer.service.title}
-                  
                 </h2>
               </div>
             </div>
@@ -297,22 +323,23 @@ const ServicesMobile = () => {
                   <button
                     key={index}
                     onClick={() =>
-                      handleSubmenuClick(item, serviceDrawer.service.title)
+                      handleSubmenuClick(item, serviceDrawer.service!.title)
                     }
                     className="w-full text-left border-b border-primary"
                   >
                     <div className="text-sm font-normal text-primary py-2 px-4 leading-6.5">
                       {item.title}
                     </div>
-                    {item.child && item.child.length > 0 && (
+                    {item.child.length > 0 && (
                       <div className="space-y-1 mt-2">
                         {item.child.map((childItem, childIndex) => (
                           <div
                             key={childIndex}
-                            className={cn(`text-sm px-4  rounded `,
-          childItem.type === "light"&& "text-custom-gray-4 ps-7 ",
-          childItem.type === "dark" && "text-black mb-1 "
-            )}
+                            className={cn(
+                              `text-sm px-4 rounded`,
+                              childItem.type === "light" && "text-custom-gray-4 ps-7",
+                              childItem.type === "dark" && "text-black mb-1"
+                            )}
                           >
                             {childItem.title}
                           </div>
