@@ -207,31 +207,7 @@ const SubmenuDrawer = ({ isOpen, onClose, submenuItem, serviceName }) => {
           </button>
         </div>
 
-        <div className="h-full overflow-y-auto bg-white">
-          <div className="divide-y divide-gray-100">
-            <div className="px-4 py-4 border-b border-gray-200">
-              <h3 className="text-base font-medium text-primary">
-                {submenuItem.title}
-              </h3>
-            </div>
-
-            {submenuItem.child && submenuItem.child.length > 0 ? (
-              submenuItem.child.map((childItem, index) => (
-                <div key={index} className="px-4 py-3 border-b border-gray-100">
-                  <span className="text-sm  text-gray-700">
-                    {childItem.title}
-                  </span>
-                </div>
-              ))
-            ) : (
-              <div className="px-4 py-8 text-center">
-                <p className="text-gray-500 text-sm">
-                  No additional services available
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
+      
       </div>
     </div>
   );

@@ -89,7 +89,7 @@ const industriesData = {
 const IndustriesMenu = () => {
 
   return (
-  <div className="bg-white min-h-screen w-full">
+  <div className="bg-white  w-full">
   <div className="w-full">
     <div className="grid grid-cols-24 gap-6 w-full">
       {industriesData.columns.map((column, columnIndex) => (
