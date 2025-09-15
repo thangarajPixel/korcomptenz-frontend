@@ -6,6 +6,7 @@ const BannerSectionData = {
   bannerimage: "/assets/services/servicebanner.png", 
   banneralt: "VR Experience",
   logo: "/assets/services/serviceimgban.png", 
+  logombl:"/assets/services/micrsoftImage.png",
   alt: "Microsoft logo",
   title: "VR Experience in Modern Workplaces",
   description:
@@ -50,14 +51,14 @@ const BannerSection = () => {
   />
   </div>
   <div className=" gap-6 justify-center items-start p-4 md:p-8 w-full h-full">
-    {/* <KorcomptenzImage
-      src={BannerSectionData.logo}
+    <KorcomptenzImage
+      src={BannerSectionData.logombl}
       alt={BannerSectionData.alt}
       width={300}
       height={200}
-      className="w-20 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
-    /> */}
-    <p className="text-xl font-medium text-foreground mb-4 md:mb-8 max-w-md">
+      className="w-[300px] h-auto object-contain mb-2 md:mb-4 opacity-65"
+    />
+    <p className="text-sm font-medium text-foreground mb-4 md:mb-8 max-w-md">
       {BannerSectionData.description}
     </p>
   </div> 
