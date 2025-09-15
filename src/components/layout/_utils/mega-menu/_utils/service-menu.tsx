@@ -1,10 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronRight, ChevronLeft} from "lucide-react"
+import {  useState } from "react"
+import { motion  } from "framer-motion"
+import { ChevronRight} from "lucide-react"
 
 const servicesData = {
+  
   sections: [
     {
       id: "enterprise-applications",
@@ -179,138 +180,8 @@ const servicesData = {
 
 const ServicesMenu = () => {
   const [activeServiceSection, setActiveServiceSection] = useState(servicesData.sections[0])
-  const [isMobile, setIsMobile] = useState(false)
 
-  const [mobileNavStack, setMobileNavStack] = useState([])
-  const [currentMobileView, setCurrentMobileView] = useState("services")
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1000)
-    }
-
-    handleResize()
-    window.addEventListener("resize", handleResize)
-
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  const navigateToSection = (section) => {
-    setMobileNavStack([...mobileNavStack, currentMobileView])
-    setCurrentMobileView(section.id)
-  }
-
-  const navigateBack = () => {
-    if (mobileNavStack.length > 0) {
-      const previousView = mobileNavStack[mobileNavStack.length - 1]
-      setMobileNavStack(mobileNavStack.slice(0, -1))
-      setCurrentMobileView(previousView)
-    }
-  }
-
-  const getCurrentViewData = () => {
-    if (currentMobileView === "services") {
-      return {
-        title: "Services",
-        items: servicesData.sections.map((section) => ({
-          id: section.id,
-          title: section.title,
-          hasChildren: true,
-        })),
-      }
-    }
-
-    const serviceSection = servicesData.sections.find((s) => s.id === currentMobileView)
-    if (serviceSection) {
-      return {
-        title: serviceSection.title,
-        items: serviceSection.items,
-        isServiceDetail: true,
-      }
-    }
-
-    return { title: "Services", items: [] }
-  }
-
-  if (isMobile) {
-    const currentData = getCurrentViewData()
-
-    return (
-      <div className="bg-gray-50 ">
-       
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentMobileView}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="bg-white  "
-          >
-            {currentMobileView !== "services" && (
-              <div className="border-b border-gray-200   py-5 flex items-center space-x-3">
-                <button onClick={navigateBack} className="p-2  ">
-                  <ChevronLeft className="w-5 h-5 text-primary" />
-                </button>
-                <span className="text-sm font-medium text-primary  ">{currentData.title}</span>
-              </div>
-            )}
-
-            {currentMobileView === "services" ? (
-              <div className="p-4 ">
-                
-
-                <div className="">
-                  {currentData.items.map((item) => (
-                    <motion.button
-                      key={item.id}
-                      onClick={() => navigateToSection(item)}
-                      className="w-full bg-gray-50   p-2 border-b border-[#E0E0E0]  flex items-center justify-between"
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 0.99 }}
-                    >
-                      <span className="text-sm font-normal text-[#6B6B6B] text-left">{item.title}</span>
-                      <ChevronRight className="w-4 h-4 text-gray-400" />
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <div className=" space-y-4 mt-5">
-                {currentData.items?.map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.1 }}
-                  >
-                    <div className="border-b border-gray-200 pb-4 ps-10">
-                      <h3 className="text-sm font-semibold text-primary ">{item.title}</h3>
-
-                      {item.child && item.child.length > 0 && (
-                        <div className="space-y-2 pl-2">
-                          {item.child.map((sub, subIdx) => (
-                            <div
-                              key={subIdx}
-                              className={`text-sm py-1 ${
-                                sub.type === "dark" ? "font-medium text-gray-900" : "text-gray-600"
-                              }`}
-                            >
-                              {sub.title}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    )
-  }
+  
 
   return (
       <div className="grid grid-cols-24 ">
@@ -383,11 +254,7 @@ const ServicesMenu = () => {
                           ))}
                         </div>
                       )}
-                      {item.description && (
-                        <p className="text-sm text-gray-600 mt-2">
-                          {item.description}
-                        </p>
-                      )}
+                      
                     </div>
                   </motion.div>
                 ))}
@@ -428,11 +295,7 @@ const ServicesMenu = () => {
                           ))}
                         </div>
                       )}
-                      {item.description && (
-                        <p className="text-sm text-gray-600 mt-2">
-                          {item.description}
-                        </p>
-                      )}
+                     
                     </div>
                   </motion.div>
                 ))}
