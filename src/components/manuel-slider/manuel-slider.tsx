@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import ManuelSliderCard from "./_utils/manuel-slider-card";
+import ManuelSliderCard from "./_utils/dark-slider";
 import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
@@ -75,13 +75,13 @@ const ManuelSlider = () => {
 
   return (
     <div className="container-md my-20 overflow-hidden ">
-      <div className="grid grid-cols-24 gap-4">
-        <div className="col-span-22 lg:col-span-8 flex flex-col gap-10">
-          <div className="flex flex-wrap">
-            <h2 className="text-xl sm:text-xl md:text-4xl font-semibold w-[280px] sm:w-[500px] leading-tight text-[#000000]">
+      <div className="grid grid-cols-1 lg:grid-cols-24 gap-4">
+        <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
+       
+            <h1 className="text-2xl md:text-5xl font-bold leading-tight text-[#000000] px-5 lg:px-0 mb-5 lg:mb-0">
               {manuelSliderData.heading}
-            </h2>
-          </div>
+            </h1>
+        
 
           <div className="hidden lg:flex  items-center gap-4">
             <Button

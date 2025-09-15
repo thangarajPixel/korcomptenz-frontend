@@ -16,7 +16,7 @@ interface Props {
 const ManuelSliderCard: React.FC<Props> = ({ slide }) => {
   return (
     <div className="flex-shrink-0 w-full">
-      <div className="bg-slate-700 rounded-3xl p-8 h-[400px] md:h-[476px] w-full flex flex-col justify-between">
+      <div className="bg-foreground rounded-3xl p-8 h-[400px] md:h-[476px] w-full flex flex-col justify-between">
         <div className="flex flex-col gap-2 md:gap-5">
           <div className="flex justify-end gap-2">
             <KorcomptenzImage
