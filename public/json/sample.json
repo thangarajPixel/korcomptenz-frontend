@@ -41,7 +41,34 @@
   },
   "careers": {
     "description": "Then this is the place for you! Work with us to skill yourself in the latest technologies building cutting-edge IT solutions for the world's largest enterprises.",
-    "exploreBtn": "Explore opportunities"
+    "exploreBtn": "Explore opportunities",
+    "profiles": [
+      {
+        "id": 1,
+        "src": "/assets/home/profile-1.png",
+        "alt": "Team member 1"
+      },
+      {
+        "id": 2,
+        "src": "/assets/home/profile-2.png",
+        "alt": "Team member 2"
+      },
+      {
+        "id": 3,
+        "src": "/assets/home/profile-3.png",
+        "alt": "Team member 3"
+      }
+    ],
+    "heading": {
+      "part1": "Ready to",
+      "part2": "build an",
+      "highlight1": "exceptional",
+      "highlight2": "career?"
+    },
+    "images": {
+      "arrow": "/assets/home/arrow.png",
+      "banner": "/assets/banner/banner-5.png"
+    }
   },
   "footer": {
     "scheduleCall": {
@@ -231,5 +258,49 @@
       "subheading": "Leverage the power of AWS to drive innovation and efficiency in your organization.",
       "image": "/assets/home/sap.png"
     }
-  ]
+  ],
+  "insprieSection": {
+    "mainheading": {
+      "title": "Best-in-class solutions for key industry challenges",
+      "buttonText": "Explore solutions for your industry"
+    },
+    "cards": [
+      {
+        "id": "1",
+        "position": "bottom",
+        "image": "/assets/home/Manufacturing.png",
+        "alt": "Manufacturing",
+        "title": "Manufacturing",
+        "order": "order-1 lg:order-1",
+        "description": "Struggling with poor supply chain visibility, planning gaps, and disconnected operations? We help you simplify processes, boost efficiency, and respond better to customer demands."
+      },
+      {
+        "id": "2",
+        "position": "top",
+        "image": "/assets/home/Healthcare.png",
+        "alt": "Healthcare",
+        "title": "Healthcare",
+        "order": "order-3 lg:order-2",
+        "description": "We enable healthcare providers to deliver connected, patient-centric experiences through intuitive design, personalized journeys, and digital innovation."
+      },
+      {
+        "id": "3",
+        "position": "topAbove",
+        "image": "/assets/home/Card.png",
+        "alt": "Banking & Financial Services",
+        "title": "Banking & Financial Services",
+        "order": "order-2 lg:order-3",
+        "description": "We help you lead in the digital era with AI-driven, customer-centric solutions that enhance engagement, boost efficiency, and elevate customer experiences."
+      },
+      {
+        "id": "4",
+        "position": "topAbove",
+        "image": "/assets/home/Reatils.png",
+        "alt": "Retail & E-Commerce",
+        "order": "order-4 lg:order-4",
+        "title": "Retail & E-Commerce",
+        "description": "We empower retail brands with connected, end-to-end solutions that streamline operations, improve agility, simplify supply chain management and elevate customer experiences."
+      }
+    ]
+  }
 }

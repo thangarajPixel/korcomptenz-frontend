@@ -49,7 +49,7 @@ export function VideoPopup({ isOpen, onClose, videoSrc, title }: VideoPopupProps
   // if (isMobile) {
   // Full-screen popup for mobile
   return isOpen && (
-    <div className="fixed inset-0 z-50 bg-black">
+    <div className="fixed inset-0 z-50 bg-transparent">
       {/* Close button */}
       <Button
         variant="ghost"
