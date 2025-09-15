@@ -1,0 +1,78 @@
+import KorcomptenzImage from "@/components/korcomptenz-image";
+import React from "react";
+const sapSEctionData = {
+  heading: "The right partner for your SAP transformation journey",
+  description:
+    " With decades of ERP experience and a sharp focus on your business goals, we deliver tailored solutions and services to help you get the most out of your SAP investments. As a trusted SAP partner, we blend deep expertise with innovation to build the right platform for rapid and sustained growth.",
+  imageSection: {
+    image1: {
+      src: "/assets/services/sapimage1.png",
+      alt: "Business professionals image",
+    },
+    image2: {
+      src: "/assets/services/sapimage2.png",
+      alt: " Office image",
+    },
+  },
+  card: {
+    value: "30%",
+    content: "overall reduction in delivery time ",
+  },
+};
+const SapSection = () => {
+  return (
+    <div className="container-md my-10 md:my-20">
+      <section className="grid grid-cols-24">
+        {/* Left Content */}
+        <div className="space-y-8 col-span-24 md:col-span-10 px-5 mb-5 lg:mb-0">  {/*chnage */}
+          <h1 className="text-2xl md:text-5xl font-bold text-foreground leading-tight">
+            {sapSEctionData.heading}
+          </h1>
+          <p className="text-xs md:text-sm text-foreground leading-relaxed ">
+            {sapSEctionData.description}
+          </p>
+        </div>
+
+        {/* Right Content */}
+        <div className="space-y-4 col-span-24 md:col-span-14  ">        {/*chnage */}
+          <div className="flex flex-col md:flex-row justify-between gap-6 p-6 lg:p-0"> {/*chnage */}
+            <div className="hidden md:block rounded-3xl overflow-hidden w-full md:w-1/2">    {/*chnage */}
+              <KorcomptenzImage
+                src={sapSEctionData.imageSection.image1.src}
+                alt={sapSEctionData.imageSection.image1.alt}
+                width={400}
+                height={300}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+
+            {/* Business Meeting Image 2 */}
+            <div className="flex flex-col gap-10 w-full md:w-1/2">             {/*chnage */}
+              <div className="bg-secondary rounded-3xl p-6 text-white flex items-center">
+                <div className="flex flex-row gap-4">
+                  <div className="text-2xl xl:text-4xl font-bold mb-2">
+                    {sapSEctionData.card.value}
+                  </div>
+                  <div className="text-xs md:text-sm font-medium">
+                    <p>{sapSEctionData.card.content}</p>
+                  </div>
+                </div>
+              </div>
+              <div className=" rounded-3xl overflow-hidden">
+                <KorcomptenzImage
+                  src={sapSEctionData.imageSection.image2.src}
+                  alt={sapSEctionData.imageSection.image2.alt}
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default SapSection;

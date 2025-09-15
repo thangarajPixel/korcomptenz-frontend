@@ -1,34 +1,69 @@
-import React from 'react'
+import React from "react";
+import KorcomptenzImage from "../korcomptenz-image";
+
+const BannerSectionData = {
+  bannerimagembl: "/assets/services/servicebannermbl.png",
+  bannerimage: "/assets/services/servicebanner.png", 
+  banneralt: "VR Experience",
+  logo: "/assets/services/serviceimgban.png", 
+  alt: "Microsoft logo",
+  title: "VR Experience in Modern Workplaces",
+  description:
+    "Experience the power of modern workplaces and transformed operations in driving impact-led growth.",
+};
 
 const BannerSection = () => {
   return (
-    <div className="container-nav md:mt-8 max-w-[96rem] !md:max-w-full md:mx-auto mx-0 mt-0">
-
-      <div className="relative w-full min-h-[30rem] md:min-h-[33rem] h-full overflow-hidden rounded-4xl"
-      >
-
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url(/assets/banner/KCBanner2.svg)" }}
+    <div className="container-md mt-10">
+      {/*Desktop view */}
+      <div className="relative w-full md:h-[513px] h-full overflow-hidden rounded-4xl hidden lg:block">
+        <KorcomptenzImage
+          src={BannerSectionData.bannerimage}
+          alt={BannerSectionData.banneralt}
+          width={1000}
+          height={800}
+          className="w-full h-full object-cover rounded-4xl"
         />
-
-        <div className="
-          absolute inset-0 
-          md:bg-gradient-to-r md:from-black/80 md:via-black/5 md:to-transparent
-          bg-gradient-to-t from-black/80 via-black/5 to-transparent
-        " />
-
-        <div className="absolute z-10 h-full flex flex-col justify-end items-end gap-10  px-6 md:px-12 lg:px-16 max-w-2xl pb-16 ">
-          <h1 className="text-white  md:text-3xl text-2xl  font-bold leading-tight ">
-            Advisory & Consulting Services
-          </h1>
-          <p className="text-white/90 text-lg md:text-2xl max-w-xl">
-            Unlock enterprise transformation with expert-led advisory and consulting—aligning ERP, CRM, and cloud strategies to accelerate modernization, improve ROI, and ensure scalable, business-aligned outcomes from day one.
+        <div className="absolute top-30 left-10 p-4 md:p-8 z-10 w-full h-full flex flex-col gap-6 justify-center items-start">
+          <KorcomptenzImage
+            src={BannerSectionData.logo}
+            alt={BannerSectionData.alt}
+            width={300}
+            height={200}
+            className="w-20 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
+          />
+          <p className="text-sm md:text-base text-white mb-4 md:mb-8 max-w-md">
+            {BannerSectionData.description}
           </p>
         </div>
       </div>
-    </div>
-  )
-}
 
-export default BannerSection
+{/*       
+        {/*Mobile view */}
+       <div className="w-full h-[513px] overflow-hidden rounded-4xl lg:hidden items-center justify-center">
+  <KorcomptenzImage
+    src={BannerSectionData.bannerimagembl}
+    alt={BannerSectionData.banneralt}
+    width={1000}
+    height={800}
+    className="w-full h-full object-cover"
+  />
+  </div>
+  <div className=" gap-6 justify-center items-start p-4 md:p-8 w-full h-full">
+    {/* <KorcomptenzImage
+      src={BannerSectionData.logo}
+      alt={BannerSectionData.alt}
+      width={300}
+      height={200}
+      className="w-20 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
+    /> */}
+    <p className="text-xl font-medium text-foreground mb-4 md:mb-8 max-w-md">
+      {BannerSectionData.description}
+    </p>
+  </div> 
+</div>
+    
+  );
+};
+
+export default BannerSection;
