@@ -46,12 +46,6 @@ http.interceptors.response.use(
         // Internal Server Error
         return Promise.reject(error?.response.data);
       }
-
-      if (error.response?.status === 508) {
-        // Loop Detected
-        return Promise.reject(error?.response.data);
-      }
-
       return Promise.reject(errorData);
     }
     return Promise.reject(error?.response?.data);
