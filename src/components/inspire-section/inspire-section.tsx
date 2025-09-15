@@ -29,13 +29,13 @@ const InspireSection = () => {
         </div>
         <div className={cn("flex flex-col gap-5 ", centerSpan)}>
           <div className="hidden lg:flex flex-col text-center items-center justify-center h-full">
-            <h1 className="text-2xl font-bold text-custom-gray mb-6 text-balance">
+            <h1 className="text-4xl leading-normal font-bold text-custom-gray mb-6 text-balance">
               {heading.title}
             </h1>
             <Button
               size="xl"
               arrow={true}
-              className="variant:default lg:px-4 xl:px-8 py-2 text-lg rounded-full inline-flex"
+              className="variant:default lg:px-4 xl:px-8 py-2 text-2xl rounded-full inline-flex"
             >
               {heading.buttonText}
             </Button>
@@ -52,7 +52,7 @@ const InspireSection = () => {
         <Button
           size="lg"
           arrow={true}
-          className="variant:default text-xs px-2 py-3 rounded-full w-full inline-flex"
+          className="variant:default text-2xl px-2 py-3 rounded-full w-full inline-flex"
         >
           {heading.buttonText}
         </Button>

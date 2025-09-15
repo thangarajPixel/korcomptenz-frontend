@@ -41,9 +41,9 @@ export default function Opportunities() {
           <div className="space-y-8 mx-auto">
             {/* Desktop heading */}
             <div className="relative hidden lg:block group-hover:-translate-x-5 group-hover:scale-102 transition-all">
-              <div className="text-xl lg:text-5xl font-bold leading-tight w-full">
+              <div className="text-3xl lg:text-6xl font-bold leading-tight w-full">
                 <div className="flex flex-row items-center justify-between">
-                  <span className="text-custom-black lg:-ml-56 text-lg lg:text-3xl font-semibold lg:me-20">
+                  <span className="text-custom-black lg:-ml-56 text-2xl lg:text-5xl font-semibold lg:me-20">
                     {careers.heading.part1}
                   </span>
                   <section className="flex flex-row items-center gap-2">
@@ -54,7 +54,7 @@ export default function Opportunities() {
                       width={1000}
                       height={1000}
                     />
-                    <span className="text-custom-black text-lg lg:text-3xl font-semibold">
+                    <span className="text-custom-black text-2xl lg:text-5xl font-semibold">
                       {careers.heading.part2}
                     </span>
                   </section>
@@ -70,7 +70,7 @@ export default function Opportunities() {
                 </div>
 
                 <div className="flex flex-row items-center mt:[40px]">
-                  <span className="text-primary text-lg lg:-ml-42 lg:text-3xl lg:me-48 font-semibold">
+                  <span className="text-primary text-2xl lg:-ml-42 lg:text-5xl lg:me-48 font-semibold">
                     {careers.heading.highlight1}
                   </span>
                   <section className="flex flex-row items-center gap-2 lg:-ml-12">
@@ -81,7 +81,7 @@ export default function Opportunities() {
                       width={1000}
                       height={1000}
                     />
-                    <span className="text-primary text-lg lg:text-3xl font-semibold">
+                    <span className="text-primary text-2xl lg:text-5xl font-semibold">
                       {careers.heading.highlight2}
                     </span>
                   </section>
@@ -91,9 +91,9 @@ export default function Opportunities() {
 
             {/* Mobile heading */}
             <div className="relative transition-all duration-500 group-hover:-translate-x-5 group-hover:scale-105 lg:hidden">
-              <div className="text-xl font-bold leading-tight w-full ">
+              <div className="text-3xl font-bold leading-tight w-full ">
                 <div className="flex flex-row items-center justify-between">
-                  <span className="text-custom-black text-xl font-semibold">
+                  <span className="text-custom-black text-3xl font-semibold">
                     {careers.heading.part1}
                   </span>
 
@@ -105,7 +105,7 @@ export default function Opportunities() {
                     height={1000}
                   />
 
-                  <span className="text-custom-black text-xl font-semibold">
+                  <span className="text-custom-black text-3xl font-semibold">
                     {careers.heading.part2}
                   </span>
                 </div>
@@ -118,7 +118,7 @@ export default function Opportunities() {
                     width={1000}
                     height={1000}
                   />
-                  <span className="text-primary text-xl font-semibold">
+                  <span className="text-primary text-3xl font-semibold">
                     {careers.heading.highlight1}
                   </span>
                   <KorcomptenzImage
@@ -130,14 +130,14 @@ export default function Opportunities() {
                   />
                 </div>
 
-                <span className="text-primary text-xl font-semibold">
+                <span className="text-primary text-3xl font-semibold">
                   {careers.heading.highlight2}
                 </span>
               </div>
             </div>
 
             {/* Description */}
-            <p className="text-md text-custom-black leading-[28px] max-w-lg lg:ms-[-30px]">
+            <p className="text-2xl text-custom-black leading-[28px] max-w-lg lg:ms-[-30px]">
               {careers.description}
             </p>
 
@@ -147,7 +147,7 @@ export default function Opportunities() {
               arrow={true}
               variant="default"
               size="xl"
-              className="text-sm lg:ms-[-30px]"
+              className="text-lg lg:ms-[-30px]"
             >
               {careers.exploreBtn}
             </Button>

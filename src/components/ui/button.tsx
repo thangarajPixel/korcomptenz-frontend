@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { Loader2, ChevronRight } from 'lucide-react';
 
 const buttonVariants = cva(
-  "cursor-pointer rounded-full inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive ",
+  "cursor-pointer rounded-full inline-flex items-center justify-center gap-2 whitespace-nowrap text-lg font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive ",
   {
     variants: {
       variant: {
@@ -21,7 +21,7 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        white: "bg-white text-primary hover:bg-gray-100 text-sm"
+        white: "bg-white text-primary hover:bg-gray-100 text-lg"
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3 ",
@@ -71,7 +71,7 @@ function Button({
           )
           : (
             <React.Fragment>
-              <span className="relative flex items-center justify-center text-sm  gap-1">
+              <span className="relative flex items-center justify-center text-lg  gap-1">
                 {children}
                 {arrow && <ChevronRight className="size-4 font-bold" />}
               </span>

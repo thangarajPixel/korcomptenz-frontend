@@ -152,7 +152,7 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
-            <h2 className="font-medium text-sm text-primary">{menu.menu}</h2>
+            <h2 className="font-medium text-lg text-primary">{menu.menu}</h2>
           </div>
           <button
             onClick={onClose}
@@ -172,7 +172,7 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
                   <div
                     key={i}
                     className={cn(
-                      "px-2 py-2 border-b border-primary text-sm leading-6.5 text-primary"
+                      "px-2 py-2 border-b border-primary text-lg leading-6.5 text-primary"
                     )}
                   >
                     {child.title}
@@ -183,11 +183,11 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
               {item.childtype === "type2" &&
                 (item.child as Type2Child[])?.map((child, i) => (
                   <div key={i} className="px-2 py-3 border-b border-gray-100">
-                    <p className="text-sm font-medium text-primary border-b border-primary">
+                    <p className="text-lg font-medium text-primary border-b border-primary">
                       {child.title}
                     </p>
                     {child.description.length > 0 && (
-                      <ul className="mt-1 text-xs text-black">
+                      <ul className="mt-1 text-md text-black">
                         {child.description.map((desc, j) => (
                           <li key={j}>{desc}</li>
                         ))}
@@ -228,7 +228,7 @@ const EcosystemMobile = () => {
             onClick={() => handleMenuClick(ec)}
             className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
           >
-            <span className="text-sm text-custom-gray-4 font-normal">{ec.menu}</span>
+            <span className="text-lg text-custom-gray-4 font-normal">{ec.menu}</span>
             <ChevronRight className="w-4 h-4 text-primary" />
           </button>
         ))}

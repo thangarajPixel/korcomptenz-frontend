@@ -28,7 +28,7 @@ export function InsightCard({ title, imageSrc, alt, className, category }: Insig
       <motion.div
         className="relative rounded-4xl"
       >
-        <span className=" mx-3 my-5  pointer-events-none absolute left-3 top-3 z-10 rounded-full bg-white/90 px-5 py-2 text-xs font-medium text-black ring-1 ring-gray-200 backdrop-blur">
+        <span className=" mx-3 my-5  pointer-events-none absolute left-3 top-3 z-10 rounded-full bg-white/90 px-5 py-2 text-md font-medium text-black ring-1 ring-gray-200 backdrop-blur">
           {category}
         </span>
 
@@ -46,7 +46,7 @@ export function InsightCard({ title, imageSrc, alt, className, category }: Insig
         </div>
       </motion.div>
 
-      <p className="mt-4 left-0 top-0 max-w-fit text-start lg:text-xl text-md  font-semibold leading-7 lg:leading-10 ">{title}</p>
+      <p className="mt-4 left-0 top-0 max-w-fit text-start lg:text-3xl text-md  font-semibold leading-7 lg:leading-10 ">{title}</p>
 
     </motion.article>
   )

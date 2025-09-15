@@ -1,11 +1,11 @@
 "use client"
 
-import {  useState } from "react"
-import { motion  } from "framer-motion"
-import { ChevronRight} from "lucide-react"
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { ChevronRight } from "lucide-react"
 
 const servicesData = {
-  
+
   sections: [
     {
       id: "enterprise-applications",
@@ -181,10 +181,10 @@ const servicesData = {
 const ServicesMenu = () => {
   const [activeServiceSection, setActiveServiceSection] = useState(servicesData.sections[0])
 
-  
+
 
   return (
-      <div className="grid grid-cols-24 ">
+    <div className="grid grid-cols-24 ">
       {/* Sidebar */}
       <div className="col-span-24 md:col-span-5 lg:col-span-5">
         <div className="bg-white sticky top-8">
@@ -194,13 +194,12 @@ const ServicesMenu = () => {
                 key={section.id}
                 onClick={() => setActiveServiceSection(section)}
                 className={`w-full text-left text-[#6B6B6B] py-3 
-                  rounded-lg transition-all duration-200 flex items-center space-x-3 ${
-                    activeServiceSection.id === section.id ? "text-primary" : ""
+                  rounded-lg transition-all duration-200 flex items-center space-x-3 ${activeServiceSection.id === section.id ? "text-primary" : ""
                   }`}
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="text-sm font-normal leading-1">
+                <span className="text-lg font-normal leading-1">
                   {section.title}
                 </span>
               </motion.button>
@@ -232,7 +231,7 @@ const ServicesMenu = () => {
                     className="group"
                   >
                     <div className="px-5 mb-6">
-                      <h4 className="group relative font-normal text-sm text-primary mb-4 inline-flex items-center cursor-pointer">
+                      <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
                         <span className="border-b-2 border-transparent group-hover:border-primary">
                           {item.title}
                         </span>
@@ -243,18 +242,16 @@ const ServicesMenu = () => {
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-[15px] leading-5 ${
-                                sub.type === "dark"
-                                  ? "font-normal text-[#000000]"
-                                  : "text-gray-500"
-                              }`}
+                              className={`text-sm leading-5 ${sub.type === "dark"
+                                ? "font-normal text-[#000000]"
+                                : "text-gray-500"
+                                }`}
                             >
                               {sub.title}
                             </div>
                           ))}
                         </div>
                       )}
-                      
                     </div>
                   </motion.div>
                 ))}
@@ -273,7 +270,7 @@ const ServicesMenu = () => {
                     className="group"
                   >
                     <div className="px-5 lg:mb-6">
-                      <h4 className="group relative font-normal text-sm text-primary mb-4 inline-flex items-center cursor-pointer">
+                      <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
                         <span className="border-b-2 border-transparent group-hover:border-primary">
                           {item.title}
                         </span>
@@ -284,18 +281,17 @@ const ServicesMenu = () => {
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-[15px] leading-5  ${
-                                sub.type === "dark"
-                                  ? "font-normal text-[#000000]"
-                                  : "text-gray-500"
-                              }`}
+                              className={`text-[15px] leading-5  ${sub.type === "dark"
+                                ? "font-normal text-[#000000]"
+                                : "text-gray-500"
+                                }`}
                             >
                               {sub.title}
                             </div>
                           ))}
                         </div>
                       )}
-                     
+
                     </div>
                   </motion.div>
                 ))}

@@ -224,7 +224,7 @@ const SubmenuDrawer = ({
             >
               <ArrowLeft className="w-5 h-5 text-primary" />
             </button>
-            <h2 className="text-lg font-normal text-custom-gray-4 leading-6.5">
+            <h2 className="text-2xl font-normal text-custom-gray-4 leading-6.5">
               {serviceName}
             </h2>
           </div>
@@ -292,7 +292,7 @@ const ServicesMobile = () => {
             onClick={() => handleServiceClick(service)}
             className="w-full flex items-center justify-between p-1 text-left"
           >
-            <span className="text-sm text-custom-gray-4 font-normal">
+            <span className="text-lg text-custom-gray-4 font-normal">
               {service.title}
             </span>
             <ChevronRight className="w-4 h-4 text-primary" />
@@ -311,7 +311,7 @@ const ServicesMobile = () => {
                 >
                   <ChevronLeft className="w-5 h-5 text-primary" />
                 </button>
-                <h2 className="items-center font-medium text-sm leading-[26px] text-primary">
+                <h2 className="items-center font-medium text-lg leading-[26px] text-primary">
                   {serviceDrawer.service.title}
                 </h2>
               </div>
@@ -327,7 +327,7 @@ const ServicesMobile = () => {
                     }
                     className="w-full text-left border-b border-primary"
                   >
-                    <div className="text-sm font-normal text-primary py-2 px-4 leading-6.5">
+                    <div className="text-lg font-normal text-primary py-2 px-4 leading-6.5">
                       {item.title}
                     </div>
                     {item.child.length > 0 && (
@@ -336,7 +336,7 @@ const ServicesMobile = () => {
                           <div
                             key={childIndex}
                             className={cn(
-                              `text-sm px-4 rounded`,
+                              `text-lg px-4 rounded`,
                               childItem.type === "light" && "text-custom-gray-4 ps-7",
                               childItem.type === "dark" && "text-black mb-1"
                             )}

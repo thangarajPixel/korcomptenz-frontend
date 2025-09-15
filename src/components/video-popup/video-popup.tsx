@@ -81,7 +81,7 @@ export function VideoPopup({ isOpen, onClose, videoSrc, title }: VideoPopupProps
       {/* Title overlay */}
       {title && (
         <div className="absolute bottom-4 left-4 right-4 text-white">
-          <h3 className="text-lg font-semibold">{title}</h3>
+          <h3 className="text-2xl font-semibold">{title}</h3>
         </div>
       )}
     </div>

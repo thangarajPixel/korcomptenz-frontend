@@ -40,7 +40,7 @@ export default function InsightsSection() {
       <div className="flex flex-col items-center gap-6 text-center md:gap-8   ">
         <motion.h2
           id="insights-heading"
-          className="text-pretty lg:text-5xl text-2xl font-semibold text-gray-900 md:text-3xl "
+          className="text-pretty lg:text-6xl text-4xl font-semibold text-gray-900 md:text-5xl "
         >
           Insights that inspire
         </motion.h2>
@@ -55,7 +55,7 @@ export default function InsightsSection() {
           <Link
             href="#"
           >
-            <Button size="xl" arrow={true} className=" variant:default px-8 py-2 text-lg rounded-full inline-flex">
+            <Button size="xl" arrow={true} className=" variant:default px-8 py-2 text-2xl rounded-full inline-flex">
               Read All
             </Button>
           </Link>
