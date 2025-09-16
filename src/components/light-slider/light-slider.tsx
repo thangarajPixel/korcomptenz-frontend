@@ -54,7 +54,7 @@ const solutionsData = {
   ],
 };
 
-const SolutionsSlider = () => {
+const LightSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -179,4 +179,4 @@ const SolutionsSlider = () => {
   );
 };
 
-export default SolutionsSlider;
+export default LightSlider;

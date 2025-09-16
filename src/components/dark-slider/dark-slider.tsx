@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import ManuelSliderCard from "./_utils/dark-slider";
+
 import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
+import SliderCard from "./_utils/slider-card";
 
 const manuelSliderData = {
   heading:
@@ -44,7 +45,7 @@ const manuelSliderData = {
   ],
 };
 
-const ManuelSlider = () => {
+const DarkSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -119,7 +120,7 @@ const ManuelSlider = () => {
                       : ""
                   }`}
                 >
-                  <ManuelSliderCard slide={slide} />
+                  <SliderCard slide={slide} />
                 </div>
               ))}
             </div>
@@ -130,4 +131,4 @@ const ManuelSlider = () => {
   );
 };
 
-export default ManuelSlider;
+export default DarkSlider;
