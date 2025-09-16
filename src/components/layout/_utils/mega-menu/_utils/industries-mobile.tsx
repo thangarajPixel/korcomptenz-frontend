@@ -132,7 +132,7 @@ const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
-            <h2 className="text-sm font-normal text-primary">{industry.title}</h2>
+            <h2 className="text-lg font-normal text-primary">{industry.title}</h2>
           </div>
           <button
             onClick={onClose}
@@ -149,13 +149,13 @@ const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
               industry.items.map((item, index) => (
                 <div
                   key={index}
-                  className="py-3 px-4 text-sm text-primary border-b border-primary"
+                  className="py-3 px-4 text-lg text-primary border-b border-primary"
                 >
                   {item}
                 </div>
               ))
             ) : (
-              <div className="px-4 py-8 text-center text-gray-500 text-sm">
+              <div className="px-4 py-8 text-center text-gray-500 text-lg">
                 No additional items available
               </div>
             )}
@@ -191,7 +191,7 @@ const IndustriesMobile = () => {
               onClick={() => section.items.length > 0 && openDrawer(section)}
               className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
             >
-              <span className="text-sm text-custom-gray-4 font-normal">
+              <span className="text-lg text-custom-gray-4 font-normal">
                 {section.title}
               </span>
               {section.items.length > 0 && (

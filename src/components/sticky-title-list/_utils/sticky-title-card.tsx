@@ -8,7 +8,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
     <div className="bg-light-gray rounded-4xl p-6 md:p-8 relative overflow-hidden min-h-[280px] flex flex-col justify-between">
       {/* Content */}
       <div className="flex-1">
-        <h3 className="text-foreground text-2xl font-bold mb-4 leading-tight">
+        <h3 className="text-foreground text-6xl font-bold mb-4 leading-tight">
           {title}
         </h3>
         <p className="text-foreground  text-base leading-relaxed mb-8 max-w-xs">
@@ -37,14 +37,14 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
 
         )}
       </div>
-     {/*Mobile Button */}
-    
-        <div className="relative lg:hidden ">
-        
-          <Button size="xl" arrow={true} className="mb-20" >
-            Know More
-          </Button>
-      
+      {/*Mobile Button */}
+
+      <div className="relative lg:hidden ">
+
+        <Button size="xl" arrow={true} className="mb-20" >
+          Know More
+        </Button>
+
 
         {/* Illustration */}
         {image && (

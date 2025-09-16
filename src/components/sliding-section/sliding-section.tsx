@@ -36,24 +36,24 @@ export default function SlidingSection() {
               <div className="container-md">
                 <div className="max-w-2xl text-white">
                   <div
-                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide.subtitle ? "text-lg md:text-5xl" : "text-sm md:text-3xl font-medium"
+                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide.subtitle ? "text-4xl md:text-9xl" : "text-lg md:text-7xl font-medium"
                       }`}
                   >
                     {slide.subtitle || slide.subtitle2}
                   </div>
 
 
-                  <h2 className="text-2xl md:text-4xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
+                  <h2 className="text-6xl md:text-8xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
                     {slide.title}
                   </h2>
                   {!slide.description && <div className="h-0 md:h-16 " />}
-                  <p className="text-md md:text-xl mb-8 leading-tight  text-pretty">
+                  <p className="text-3xl md:text-5xl mb-8 leading-tight  text-pretty">
                     {slide.description}
                   </p>
                   <Button
                     size="xl"
                     variant="white"
-                    className="hover:bg-transparent text-xs md:text-sm hover:text-primary border hover:border-primary"
+                    className="hover:bg-transparent text-md md:text-lg hover:text-primary border hover:border-primary"
                     arrow={true}
                   >
                     {slide.buttonText}

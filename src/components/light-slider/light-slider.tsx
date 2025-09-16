@@ -91,7 +91,7 @@ const LightSlider = () => {
         <div className="px-6 mx-auto">
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-12">
-            <h2 className="text-2xl md:text-5xl font-semibold text-foreground leading-tight max-w-2xl">
+            <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
               {solutionsData.title}
             </h2>
 
@@ -147,10 +147,10 @@ const LightSlider = () => {
                     <div className="space-y-4">
                       {slide.solutions.map((solution, solutionIndex) => (
                         <div key={solutionIndex} className="space-y-2">
-                          <h3 className="text-lg mg:text-xl font-semibold text-foreground">
+                          <h3 className="text-4xl mg:text-5xl font-semibold text-foreground">
                             {solution.title}
                           </h3>
-                          <p className="text-custom-gray-9 text-xs md:text-sm leading-relaxed">
+                          <p className="text-custom-gray-9 text-md md:text-lg leading-relaxed">
                             {solution.description}
                           </p>
                           <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">

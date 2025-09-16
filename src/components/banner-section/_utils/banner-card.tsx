@@ -34,7 +34,7 @@ const BannerCard = ({ data, className }: {
             height={200}
             className="w-20 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
           />
-          <p className="text-sm md:text-base text-white mb-4 md:mb-8 max-w-md">
+          <p className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md">
             {data.description}
           </p>
         </div>
@@ -58,7 +58,7 @@ const BannerCard = ({ data, className }: {
           height={200}
           className="w-[300px] h-auto object-contain mb-2 md:mb-4 opacity-65"
         />
-        <p className="text-sm font-medium text-foreground mb-4 md:mb-8 max-w-md">
+        <p className="text-lg font-medium text-foreground mb-4 md:mb-8 max-w-md">
           {data.description}
         </p>
       </div>

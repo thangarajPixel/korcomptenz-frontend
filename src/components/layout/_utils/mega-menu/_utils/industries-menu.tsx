@@ -117,8 +117,8 @@ const IndustriesMenu = () => {
                   {/* Content Wrapper */}
                   <div
                     className={`flex flex-col ${section.imagePosition === "side"
-                        ? "w-[70%] pr-4"
-                        : "w-full"
+                      ? "w-[70%] pr-4"
+                      : "w-full"
                       }`}
                   >
                     <h3 className="text-[20px] font-normal text-primary leading-6.5 mb-4 whitespace-break-spaces">
@@ -130,7 +130,7 @@ const IndustriesMenu = () => {
                         {section.items.map((item, itemIndex) => (
                           <motion.div
                             key={itemIndex}
-                            className="text-sm text-gray-700 font-medium"
+                            className="text-lg text-gray-700 font-medium"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                           // transition={{
@@ -150,8 +150,8 @@ const IndustriesMenu = () => {
                   {/* Image */}
                   <div
                     className={`flex items-center justify-center ${section.imagePosition === "side"
-                        ? "w-[40%]"
-                        : "w-full mt-4"
+                      ? "w-[40%]"
+                      : "w-full mt-4"
                       }`}
                   >
                     <motion.div
@@ -172,8 +172,8 @@ const IndustriesMenu = () => {
                         width={section.height === "tall" ? 160 : 120}
                         height={section.height === "tall" ? 160 : 120}
                         className={`object-contain drop-shadow-lg ${section.height === "tall"
-                            ? "w-[200px] h-[200px]"
-                            : "w-[120px] h-[120px]"
+                          ? "w-[200px] h-[200px]"
+                          : "w-[120px] h-[120px]"
                           }`}
                       />
                     </motion.div>

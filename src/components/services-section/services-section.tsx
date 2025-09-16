@@ -45,11 +45,11 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                 key={t.label}
                 value={t.label}
                 className={cn(
-                  "relative !cursor-pointer h-full z-10 text-white  rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-xs sm:text-base font-semibold ",
+                  "relative !cursor-pointer h-full z-10 text-white  rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-md sm:text-base font-semibold ",
                   "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50 md:text-xl  text-[12px] ">{t.label}</span>
+                <span className="z-50 md:text-5xl  text-[12px] ">{t.label}</span>
                 {value === t.label && (
                   <motion.div
                     layoutId="active-pill"
@@ -76,10 +76,10 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-3"
           >
-            <h1 className="text-pretty lg:text-5xl text-2xl font-semibold leading-tight text-custom-gray md:text-4xl">
+            <h1 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl">
               {activeContent.heading}
             </h1>
-            <p className="max-w-xl text-pretty text-sm text-custom-gray py-3">
+            <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
               {activeContent.subheading}
             </p>
             <Button

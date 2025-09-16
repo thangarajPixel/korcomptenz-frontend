@@ -19,19 +19,19 @@ const WeAreKorcomptenzSection = () => {
       <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-32 items-start mb-10 md:mb-16">
         {/* Left Column - Company Name */}
         <div className="lg:w-full">
-          <h1 className="text-2xl md:text-4xl font-bold leading-tight">
+          <h1 className="text-6xl md:text-8xl font-bold leading-tight">
             {weAreKorcomptenzData.titleH1}
             <br />
-            <span className="text-2xl md:text-3xl font-semibold">{weAreKorcomptenzData.titleH2}</span>
+            <span className="text-6xl md:text-7xl font-semibold">{weAreKorcomptenzData.titleH2}</span>
           </h1>
         </div>
 
         {/* Right Column - Description */}
         <div className="space-y-5">
-          <p className="font-outfit font-normal text-xs md:text-lg leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
+          <p className="font-outfit font-normal text-md md:text-4xl leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
             {weAreKorcomptenzData.p1}
           </p>
-          <p className="font-outfit font-normal text-xs md:text-lg leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
+          <p className="font-outfit font-normal text-md md:text-4xl leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
             {weAreKorcomptenzData.p2}
           </p>
         </div>
