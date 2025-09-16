@@ -74,7 +74,7 @@ const AboutMenu = () => {
         </div>
 
         {/* Middle section */}
-        <div className="w-2/5 bg-[#F3F7F4] mx-10">
+        <div className="w-2/5 bg-light-white mx-10">
           <div className="h-full rounded-2xl p-6 pt-10 flex flex-col">
             {/* Top section - 40% */}
             <div className="flex-[0.4] flex">
@@ -136,7 +136,7 @@ const AboutMenu = () => {
                 className="flex-1 bg-gray-100 rounded-2xl p-4 flex items-center cursor-pointer"
               >
                 {/* Text - 50% */}
-                <div className="w-1/2 pr-2 grid items-center gap-3 bg-[#F3F7F4]">
+                <div className="w-1/2 pr-2 grid items-center gap-3 bg-light-white">
                   <div>
                     <h3 className="text-md font-normal text-primary leading-7">
                       {section.title}

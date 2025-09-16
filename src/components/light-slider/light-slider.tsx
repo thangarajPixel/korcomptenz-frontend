@@ -4,6 +4,7 @@ import React from "react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "../ui/button";
 
 const solutionsData = {
   title: " Solutions that elevate outcomes for your business",
@@ -96,30 +97,25 @@ const LightSlider = () => {
 
             {/* Navigation Arrows */}
             <div className="hidden lg:flex items-center gap-4 mt-4">
-              <button
+              <Button
+                size="icon"
+                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 onClick={scrollPrev}
                 disabled={!prevBtnEnabled}
-                className={`w-12 h-12 rounded-full ${
-                  !prevBtnEnabled
-                    ? "bg-primary opacity-45"
-                    : "bg-primary hover:bg-primary"
-                } transition-colors flex items-center justify-center text-white`}
-                aria-label="Previous solutions"
               >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
+                <ChevronLeft className="size-6" />
+              </Button>
+              <Button
+                size="icon"
+                className={`rounded-full size-12  hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 onClick={scrollNext}
                 disabled={!nextBtnEnabled}
-                className={`w-12 h-12 rounded-full ${
-                  !nextBtnEnabled
-                    ? "bg-primary opacity-45"
-                    : "bg-primary hover:bg-primary"
-                } transition-colors flex items-center justify-center text-white`}
-                aria-label="Next solutions"
               >
-                <ChevronRight className="w-6 h-6" />
-              </button>
+                <ChevronRight className="size-6" />
+              </Button>
+
             </div>
           </div>
 
@@ -143,11 +139,10 @@ const LightSlider = () => {
                 {solutionsData.slideContent.map((slide, index) => (
                   <div
                     key={slide.id}
-                    className={`min-w-full pl-4 pr-1 relative ${
-                      index === solutionsData.slideContent.length - 1
-                        ? "mr-[0px]"
-                        : ""
-                    }`}
+                    className={`min-w-full pl-4 pr-1 relative ${index === solutionsData.slideContent.length - 1
+                      ? "mr-[0px]"
+                      : ""
+                      }`}
                   >
                     <div className="space-y-4">
                       {slide.solutions.map((solution, solutionIndex) => (
