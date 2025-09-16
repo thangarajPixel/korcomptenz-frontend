@@ -1,11 +1,11 @@
 "use client"
 
-import {  useState } from "react"
-import { motion  } from "framer-motion"
-import { ChevronRight} from "lucide-react"
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { ChevronRight } from "lucide-react"
 
 const servicesData = {
-  
+
   sections: [
     {
       id: "enterprise-applications",
@@ -181,10 +181,10 @@ const servicesData = {
 const ServicesMenu = () => {
   const [activeServiceSection, setActiveServiceSection] = useState(servicesData.sections[0])
 
-  
+
 
   return (
-      <div className="grid grid-cols-24 ">
+    <div className="grid grid-cols-24 ">
       {/* Sidebar */}
       <div className="col-span-24 md:col-span-5 lg:col-span-5">
         <div className="bg-white sticky top-8">
@@ -193,9 +193,8 @@ const ServicesMenu = () => {
               <motion.button
                 key={section.id}
                 onClick={() => setActiveServiceSection(section)}
-                className={`w-full text-left text-[#6B6B6B] py-3 
-                  rounded-lg transition-all duration-200 flex items-center space-x-3 ${
-                    activeServiceSection.id === section.id ? "text-primary" : ""
+                className={`w-full text-left text-custom-gray-4 py-3 
+                  rounded-lg transition-all duration-200 flex items-center space-x-3 ${activeServiceSection.id === section.id ? "text-primary" : ""
                   }`}
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.98 }}
@@ -243,18 +242,17 @@ const ServicesMenu = () => {
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-[15px] leading-5 ${
-                                sub.type === "dark"
-                                  ? "font-normal text-[#000000]"
-                                  : "text-gray-500"
-                              }`}
+                              className={`text-[15px] leading-5 ${sub.type === "dark"
+                                ? "font-normal text-black"
+                                : "text-gray-500"
+                                }`}
                             >
                               {sub.title}
                             </div>
                           ))}
                         </div>
                       )}
-                      
+
                     </div>
                   </motion.div>
                 ))}
@@ -284,18 +282,17 @@ const ServicesMenu = () => {
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-[15px] leading-5  ${
-                                sub.type === "dark"
-                                  ? "font-normal text-[#000000]"
-                                  : "text-gray-500"
-                              }`}
+                              className={`text-[15px] leading-5  ${sub.type === "dark"
+                                ? "font-normal text-black"
+                                : "text-gray-500"
+                                }`}
                             >
                               {sub.title}
                             </div>
                           ))}
                         </div>
                       )}
-                     
+
                     </div>
                   </motion.div>
                 ))}
