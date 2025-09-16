@@ -21,10 +21,10 @@ const sapSEctionData = {
 };
 const SapSection = () => {
   return (
-    <div className="container-md my-10 md:my-20">
+    <div className="container-md my-10 lg:my-20">
       <section className="grid grid-cols-24">
         {/* Left Content */}
-        <div className="space-y-8 col-span-24 md:col-span-10 px-5 mb-5 lg:mb-0">  {/*chnage */}
+        <div className="space-y-8 col-span-24 lg:col-span-10 px-5 mb-5 lg:mb-0">  {/*chnage */}
           <h1 className="text-2xl md:text-5xl font-bold text-foreground leading-tight">
             {sapSEctionData.heading}
           </h1>
@@ -34,9 +34,9 @@ const SapSection = () => {
         </div>
 
         {/* Right Content */}
-        <div className="space-y-4 col-span-24 md:col-span-14  ">        {/*chnage */}
-          <div className="flex flex-col md:flex-row justify-between gap-6 p-6 lg:p-0"> {/*chnage */}
-            <div className="hidden md:block rounded-3xl overflow-hidden w-full md:w-1/2">    {/*chnage */}
+        <div className="space-y-4 col-span-24 lg:col-span-14  ">        {/*chnage */}
+          <div className="flex flex-col lg:flex-row justify-between gap-6 p-6 lg:p-0"> {/*chnage */}
+            <div className="hidden md:block rounded-3xl overflow-hidden w-full lg:w-1/2">    {/*chnage */}
               <KorcomptenzImage
                 src={sapSEctionData.imageSection.image1.src}
                 alt={sapSEctionData.imageSection.image1.alt}
@@ -47,7 +47,7 @@ const SapSection = () => {
             </div>
 
             {/* Business Meeting Image 2 */}
-            <div className="flex flex-col gap-10 w-full md:w-1/2">             {/*chnage */}
+            <div className="flex flex-col gap-10 w-full lg:w-1/2">             {/*chnage */}
               <div className="bg-secondary rounded-3xl p-6 text-white flex items-center">
                 <div className="flex flex-row gap-4">
                   <div className="text-2xl xl:text-4xl font-bold mb-2">

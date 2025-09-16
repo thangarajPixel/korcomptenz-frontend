@@ -69,7 +69,7 @@ export default function StickyCards({ className }: { className?: string }) {
                 )}
               >
                 {/* ID */}
-                <div className="hidden md:block text-sm pl-5 pt-14 font-medium text-[#141414] ms-8 mt-3  uppercase tracking-wide">
+                <div className="hidden md:block text-sm pl-5 pt-14 font-medium text-custom-black-1 ms-8 mt-3  uppercase tracking-wide">
                   {card.id}
                 </div>
 
@@ -79,7 +79,7 @@ export default function StickyCards({ className }: { className?: string }) {
                     <h2 className="text-lg lg:text-2xl font-bold text-black leading-tight">
                       {card.title}
                     </h2>
-                    <p className="text-[#141414]  text-sm leading-relaxed">
+                    <p className="text-custom-black-1  text-sm leading-relaxed">
                       {card.description}
                     </p>
                   </div>

@@ -88,7 +88,7 @@ const LightSlider = () => {
     <div className="container-md py-10">
       {/* Solutions Carousel Section */}
       <section >
-        <div className="max-w-7xl mx-auto">
+        <div className="px-6 mx-auto">
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-12">
             <h2 className="text-2xl md:text-5xl font-semibold text-foreground leading-tight max-w-2xl">
@@ -150,7 +150,7 @@ const LightSlider = () => {
                           <h3 className="text-lg mg:text-xl font-semibold text-foreground">
                             {solution.title}
                           </h3>
-                          <p className="text-[#363636] text-xs md:text-sm leading-relaxed">
+                          <p className="text-custom-gray-9 text-xs md:text-sm leading-relaxed">
                             {solution.description}
                           </p>
                           <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">

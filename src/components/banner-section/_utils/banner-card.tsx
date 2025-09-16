@@ -41,7 +41,7 @@ const BannerCard = ({ data, className }: {
       </div>
 
       {/* Mobile view */}
-      <div className="w-full  h-[513px] overflow-hidden rounded-4xl lg:hidden items-center justify-center">
+      <div className="w-full h-auto aspect-square overflow-hidden rounded-4xl lg:hidden items-center justify-center">
         <KorcomptenzImage
           src={data.imageMobile}
           alt={data.altMobile}

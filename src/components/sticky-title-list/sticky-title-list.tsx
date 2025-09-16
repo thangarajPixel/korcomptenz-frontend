@@ -7,7 +7,7 @@ const salesforceServices: GlobalFieldType[] = [
     description:
       "Boost revenue with our world-class CRM designed to help your sales teams close deals faster.",
     image: {
-      url: "/assets/services/stickyheadingimg1.png",
+      url: "/assets/temp-img.png",
       height: 100,
       width: 100,
       name: "temp-img",

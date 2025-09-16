@@ -134,11 +134,11 @@ const EcosystemMenu = () => {
                 key={item.id}
                 onClick={() => setActiveSiderBar(item)}
                 className={`w-full group ${activeSideBar.id === item.id
-                  ? "border-b-2 border-[#26A17C]"
-                  : "border-b-2 border-transparent hover:border-[#26A17C]"
+                  ? "border-b-2 border-primary"
+                  : "border-b-2 border-transparent hover:border-primary"
                   }`}
               >
-                <h4 className="relative font-medium text-md text-[#26A17C]  leading-10 flex items-center justify-between cursor-pointer">
+                <h4 className="relative font-medium text-md text-primary  leading-10 flex items-center justify-between cursor-pointer">
                   <span>{item.menu}</span>
                   {activeSideBar.id === item.id && (
                     <ChevronRight className="w-5 h-5 font-extrabold" />
@@ -166,7 +166,7 @@ const EcosystemMenu = () => {
               <div className="mt-4">
                 <Button
                   arrow={true}
-                  className="bg-[#26A17C] text-[10px] text-white hover:bg-[white] hover:text-[#26A17C] border border-[#26A17C]"
+                  className="bg-primary text-[10px] text-white hover:bg-[white] hover:text-primary border border-primary"
                 >
                   {contentItem.buttontext}
                 </Button>
@@ -178,7 +178,7 @@ const EcosystemMenu = () => {
                       key={childIndex}
                       className={` ${"type" in childItem && childItem.type === "Dark"
                         ? "text-black"
-                        : " text-[#26A17C]"
+                        : " text-primary"
                         }`}
                     >
                       {childItem.title}

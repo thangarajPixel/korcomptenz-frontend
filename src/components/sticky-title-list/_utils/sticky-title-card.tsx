@@ -8,17 +8,17 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
     <div className="bg-light-gray rounded-4xl p-6 md:p-8 relative overflow-hidden min-h-[280px] flex flex-col justify-between">
       {/* Content */}
       <div className="flex-1">
-        <h3 className="text-gray-900 text-2xl font-bold mb-4 leading-tight">
+        <h3 className="text-foreground text-2xl font-bold mb-4 leading-tight">
           {title}
         </h3>
-        <p className="text-gray-700 text-base leading-relaxed mb-8 max-w-xs">
+        <p className="text-foreground  text-base leading-relaxed mb-8 max-w-xs">
           {description}
         </p>
       </div>
 
-      {/* Button */}
-      <div className="hidden md:block">
-        <div className="flex justify-start">
+      {/*Desktop Button */}
+      <div className=" hidden lg:flex  flex-row justify-between">
+        <div className="flex justify-start items-center">
           <Button size="xl" arrow={true} >
             Know More
           </Button>
@@ -26,9 +26,9 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
 
         {/* Illustration */}
         {image && (
-          <div className="absolute bottom-8 right-10 ">
+          <div className="flex justify-end items-end  ">
             <KorcomptenzImage
-              className="w-full h-[200px]object-contain"
+              className="w-full h-[150px] md:h-[200px] object-contain p-0"
               width={150}
               height={150}
               src={image}
@@ -37,17 +37,20 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
 
         )}
       </div>
-      <div>
-        <div className="md:hidden flex flex-col">
-          <div className="flex justify-start">
-            <Button size="lg" arrow={true}  className="mb-20">
-              Know More
-            </Button>
-          </div>
-         {image && (
-          <div className="absolute bottom-4 right-2 ">
+     {/*Mobile Button */}
+    
+        <div className="relative lg:hidden ">
+        
+          <Button size="xl" arrow={true} className="mb-20" >
+            Know More
+          </Button>
+      
+
+        {/* Illustration */}
+        {image && (
+          <div className="flex absolute -right-10 -bottom-10 justify-end items-end aspect-square ">
             <KorcomptenzImage
-              className="w-full h-full object-contain"
+              className="w-full h-[150px] md:h-[200px] object-contain p-0"
               width={150}
               height={150}
               src={image}
@@ -55,7 +58,6 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           </div>
 
         )}
-        </div>
       </div>
     </div>
   );
