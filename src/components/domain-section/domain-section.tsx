@@ -41,13 +41,13 @@ const domainData = {
 const DomainSection = () => {
   return (
     <section className="container-md ">
-      <div className="rounded-2xl  bg-custom-gray-4">
+      <div className="rounded-2xl  bg-custom-gray-6">
         <div className="flex items-start justify-center  pt-6 md:pt-20">
-          <div className="border-b-4 border-custom-gray-5 w-1/3 mt-4"></div>
+          <div className="border-b-4 border-custom-gray-7 w-1/3 mt-4"></div>
           <h1 className="text-2xl md:text-4xl font-semibold text-foreground mx-4 text-balance text-center">
             {domainData.title}
           </h1>
-          <div className="border-b-4 border-custom-gray-5 w-1/3 mt-4"></div>
+          <div className="border-b-4 border-custom-gray-7 w-1/3 mt-4"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10  p-6 md:p-10 ">
           {domainData.slides.map((slide, index) => {
