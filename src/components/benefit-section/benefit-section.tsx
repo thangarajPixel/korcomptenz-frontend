@@ -42,7 +42,7 @@ const BenefitSection = () => {
   return (
     <section className="container-md py-10 ">
       <div>
-        <h1 className="text-6xl md:text-8xl font-semibold text-foreground mb-6 text-balance w-full lg:w-1/2">
+        <h1 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 text-balance w-full lg:w-1/2">
           {benefitData.title}
         </h1>
         <div className="flex flex-wrap lg:flex-nowrap lg:flex-row md:p-6 gap-10">
@@ -67,10 +67,10 @@ const BenefitSection = () => {
                     }`}
                 >
                   <div className="md:mx-4 m-2">
-                    <p className="text-6xl font-light text-primary w-10 shrink-0 ">
+                    <p className="text-8xl font-light text-primary w-10 shrink-0 ">
                       {card.number}
                     </p>
-                    <p className="text-foreground">{card.description}</p>
+                    <p className="text-foreground text-lg">{card.description}</p>
                   </div>
                 </div>
               );

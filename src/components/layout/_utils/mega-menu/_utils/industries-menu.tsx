@@ -121,7 +121,7 @@ const IndustriesMenu = () => {
                       : "w-full"
                       }`}
                   >
-                    <h3 className="text-[20px] font-normal text-primary leading-6.5 mb-4 whitespace-break-spaces">
+                    <h3 className="text-lg font-normal text-primary leading-6.5 mb-4 whitespace-break-spaces">
                       {section.title}
                     </h3>
 

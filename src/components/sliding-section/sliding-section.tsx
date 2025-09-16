@@ -43,7 +43,7 @@ export default function SlidingSection() {
                   </div>
 
 
-                  <h2 className="text-6xl md:text-8xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
+                  <h2 className="text-6xl md:text-7xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
                     {slide.title}
                   </h2>
                   {!slide.description && <div className="h-0 md:h-16 " />}

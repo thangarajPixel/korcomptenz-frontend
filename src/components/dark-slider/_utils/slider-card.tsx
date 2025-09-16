@@ -31,7 +31,7 @@ const SliderCard: React.FC<Props> = ({ slide }) => {
             {slide.title}
           </h3>
 
-          <p className="text-gray-300 text-[14px] md:text-lg leading-relaxed">
+          <p className="text-gray-300 text-xs md:text-lg leading-relaxed">
             {slide.description}
           </p>
         </div>

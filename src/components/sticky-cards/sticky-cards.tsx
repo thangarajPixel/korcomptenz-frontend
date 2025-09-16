@@ -79,7 +79,7 @@ export default function StickyCards({ className }: { className?: string }) {
                     <h2 className="text-4xl lg:text-6xl font-bold text-black leading-tight">
                       {card.title}
                     </h2>
-                    <p className="text-custom-black-1  text-lg leading-relaxed">
+                    <p className="text-custom-black-1  text-lg md:xl leading-relaxed">
                       {card.description}
                     </p>
                   </div>
@@ -87,7 +87,7 @@ export default function StickyCards({ className }: { className?: string }) {
                   {/* Mobile / sm / md */}
                   <div className="block lg:hidden">
                     <Button
-                      className="mt-3 mb-3 text-[10px] px-2 rounded-full
+                      className="mt-3 mb-3 text-xs px-2 rounded-full
                bg-white text-primary border border-primary h-[44px] w-[155px]"
                     >
                       {card.buttonText}

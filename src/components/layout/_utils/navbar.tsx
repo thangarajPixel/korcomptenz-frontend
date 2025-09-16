@@ -244,7 +244,7 @@ export function Navbar() {
               >
                 <div className="flex items-center justify-between pt-4 px-2">
                   {/* Left side - Career | Contact Us */}
-                  <div className="text-[14px] text-muted space-x-2">
+                  <div className="text-xs text-muted space-x-2">
                     <Link
                       href="/career"
                       className="hover:text-primary transition-colors"

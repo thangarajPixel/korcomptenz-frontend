@@ -53,7 +53,7 @@ const FaqSection = () => {
 
   return (
     <div className='container-md my-10'>
-      <h1 className='text-6xl md:text-8xl font-semibold text-foreground mb-4'>{faqData.title}</h1>
+      <h1 className='text-6xl md:text-9xl font-semibold text-foreground mb-4'>{faqData.title}</h1>
       {
         faqData.faqs.map((data) => (
           <div key={data.id} className={`rounded-2xl p-4 md:p-6 my-8 ${openId === data.id ? 'bg-light-gray' : 'bg-custom-gray-8'}`}>

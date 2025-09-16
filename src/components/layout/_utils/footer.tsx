@@ -327,14 +327,14 @@ export const Footer = () => {
               <Link
                 key={policy}
                 href="#"
-                className="text-color-custom-gray-2  text-[14px] border-r-1 border-custom-gray-3 mx-2 last:border-0 pr-2"
+                className="text-color-custom-gray-2  text-xs border-r-1 border-custom-gray-3 mx-2 last:border-0 pr-2"
               >
                 {policy}
               </Link>
             ))}
           </div>
           <div className="flex justify-center pt-4 border-t-1   border-custom-gray-3">
-            <p className="text-color-custom-gray-2 text-[14px]  ">{footer.copyright}</p>
+            <p className="text-color-custom-gray-2 text-xs  ">{footer.copyright}</p>
           </div>
         </div>
       </div>

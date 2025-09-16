@@ -49,7 +49,7 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                   "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50 md:text-5xl  text-[12px] ">{t.label}</span>
+                <span className="z-50 md:text-5xl  text-xs ">{t.label}</span>
                 {value === t.label && (
                   <motion.div
                     layoutId="active-pill"

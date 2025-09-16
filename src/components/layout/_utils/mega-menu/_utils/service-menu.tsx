@@ -242,7 +242,7 @@ const ServicesMenu = () => {
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-[15px] leading-5 ${sub.type === "dark"
+                              className={`text-xs leading-5 ${sub.type === "dark"
                                 ? "font-normal text-black"
                                 : "text-gray-500"
                                 }`}
@@ -282,7 +282,7 @@ const ServicesMenu = () => {
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-[15px] leading-5  ${sub.type === "dark"
+                              className={`text-xs leading-5  ${sub.type === "dark"
                                 ? "font-normal text-black"
                                 : "text-gray-500"
                                 }`}

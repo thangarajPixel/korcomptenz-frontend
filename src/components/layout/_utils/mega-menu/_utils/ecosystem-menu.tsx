@@ -160,13 +160,13 @@ const EcosystemMenu = () => {
               <h2 className="text-3xl font-normal  text-foreground mb-4">
                 {contentItem.title}
               </h2>
-              <p className="text-[15px] text-custom-gray-4 ">
+              <p className="text-sm text-custom-gray-4 ">
                 {contentItem.description}
               </p>
               <div className="mt-4">
                 <Button
                   arrow={true}
-                  className="bg-primary text-[10px] text-white hover:bg-[white] hover:text-primary border border-primary"
+                  className="bg-primary text-xs text-white hover:bg-[white] hover:text-primary border border-primary"
                 >
                   {contentItem.buttontext}
                 </Button>
@@ -195,7 +195,7 @@ const EcosystemMenu = () => {
                           childItem.description?.map((item, index) => (
                             <p
                               key={index}
-                              className="text-custom-gray-4 text-[15px] w-1/2 leading-6 mb-2"
+                              className="text-custom-gray-4 text-sm w-1/2 leading-6 mb-2"
                             >
                               {item}
                             </p>
