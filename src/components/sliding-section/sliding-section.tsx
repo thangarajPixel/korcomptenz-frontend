@@ -3,17 +3,17 @@
 import React from "react";
 
 import { Button } from "@/components/ui/button";
-import { jsonData } from "@/utils/helper";
+
 import KorcomptenzImage from "../korcomptenz-image";
 import { useMobile } from "@/utils/custom-hooks";
 import CardSwiper from "../ui/card-swiper";
 
-export default function SlidingSection() {
+export default function SlidingSection({ slides }: { slides: SlidingSectionType[] }) {
   const isMobile = useMobile();
 
   return (
     <CardSwiper>
-      {jsonData.slides.map((slide) => (
+      {slides.map((slide) => (
         <div key={`sliding-section-${slide.id}`} className="embla__custom_slide">
           <div className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
           // style={{

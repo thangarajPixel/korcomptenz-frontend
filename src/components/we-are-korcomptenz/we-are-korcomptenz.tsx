@@ -3,17 +3,11 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import React from "react";
 import { VideoPopup } from "../video-popup/video-popup";
 
-const WeAreKorcomptenzSection = () => {
+
+const WeAreKorcomptenzSection = ({weAreKorcomptenzData}: {
+  weAreKorcomptenzData: WeAreKorcomptenzSectionType
+}) => {
   const [isVideoOpen, setIsVideoOpen] = React.useState(false);
-  const weAreKorcomptenzData = {
-    link: '/',
-    titleH1: 'We are',
-    titleH2: 'Korcomptenz',
-    p1: `We lead with expertise - in technology and domain to deliver solutions that align with your business\ngoals.`,
-    p2: `We leverage our experience and robust partner\necosystem to elevate your processes, powering your\ntransformation journey toward impactful growth`,
-    image: '/assets/home/video-thumb.jpg',
-    videoSrc: '/placeholder-video.mp4'
-  };
   return (
     <div className="container-md md:mt-24">
       <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-32 items-start mb-10 md:mb-16">

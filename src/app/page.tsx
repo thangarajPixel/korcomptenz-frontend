@@ -12,22 +12,29 @@ const tempData: PagesListType = {
     },
     {
       __component: 'we-are-korcomptenz-section',
+      list:jsonData.weAreKorcomptenzData
     },
     {
       __component: 'services-section',
       list: jsonData.content
     },
     {
-      __component: 'inspire-section'
+      __component: 'inspire-section',
+      
+
     },
     {
-      __component: 'sticky-cards'
+      __component: 'sticky-cards',
+      list: jsonData.stickyCards
+    
     },
     {
-      __component: 'insights-section'
+      __component: 'insights-section',
+      list: jsonData.insights
     },
     {
-      __component: 'opportunities'
+      __component: 'opportunities',
+      list: jsonData.careers
     }
   ]
 }

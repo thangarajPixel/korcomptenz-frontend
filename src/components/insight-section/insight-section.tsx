@@ -6,7 +6,7 @@ import Link from "next/link"
 import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
-import { jsonData } from '@/utils/helper'
+
 
 // const insights: InsightCardType[] = [
 //   {
@@ -34,7 +34,8 @@ import { jsonData } from '@/utils/helper'
 //   },
 // ]
 
-export default function InsightsSection() {
+export default function InsightsSection({insights}: {insights:InsightsSectionType}) {
+
   return (
     <section aria-labelledby="insights-heading" className="px-0 container-md ">
       <div className="flex flex-col items-center gap-6 text-center md:gap-8   ">
@@ -42,9 +43,9 @@ export default function InsightsSection() {
           id="insights-heading"
           className="text-pretty lg:text-9xl text-6xl font-semibold text-gray-900 md:text-7xl "
         >
-          Insights that inspire
+         {insights.title}
         </motion.h2>
-        <InsightsMobileCarousel items={jsonData.insights} />
+        <InsightsMobileCarousel items={insights.items} />
         <motion.div
           className="md:flex flex-row  items-center justify-center hidden "
           initial={{ opacity: 0, y: 6 }}
@@ -56,7 +57,7 @@ export default function InsightsSection() {
             href="#"
           >
             <Button size="xl" arrow={true} className=" variant:default px-8 py-2 text-4xl rounded-full inline-flex">
-              Read All
+            {insights.buttonLabel}
             </Button>
           </Link>
         </motion.div>
@@ -67,7 +68,7 @@ export default function InsightsSection() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
         >
-          {jsonData.insights.map((item, index) => (
+          {insights.items.map((item, index) => (
             <InsightCard key={item.id} {...item} className={cn('relative', (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] ")} />
           ))}
         </motion.div>
@@ -80,7 +81,7 @@ export default function InsightsSection() {
         >
           <Link href="#" >
             <Button size="lg" arrow={true}>
-              Read All
+         {insights.buttonLabel}
             </Button>
           </Link>
         </motion.div>

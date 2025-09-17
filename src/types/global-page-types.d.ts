@@ -20,19 +20,64 @@ type ServicesSectionType = {
 }
 
 type InspireSectionType = {
+   
+  
 
 }
 
-type StickyCardsType = {
-
+ type StickyCardsType = {
+    title: string;
+    buttonText: string;
+    cardData: {
+        id: string;
+        title: string;
+        description: string;
+        buttonText: string;
+        image: string;
+    }[];
 }
 
-type InsightsSectionType = {
-
+type InsightsSectionType ={
+    title: string;
+    buttonLabel: string;
+    buttonHref: string;
+    items: {
+        id: string;
+        title: string;
+        category: string;
+        imageSrc: string;
+        alt: string;
+    }[];
 }
 
 type OpportunitiesType = {
-
+    description: string;
+    exploreBtn: string;
+    profiles: {
+        id: number;
+        src: string;
+        alt: string;
+    }[];
+    heading: {
+        part1: string;
+        part2: string;
+        highlight1: string;
+        highlight2: string;
+    };
+    images: {
+        arrow: string;
+        banner: string;
+    };
+}
+type WeAreKorcomptenzSectionType = {
+ 
+    link: string;
+    titleH1: string;
+    titleH2: string;
+    p1: string;
+    p2: string;
+    image: string;
+    videoSrc: string;
 }
 
 type BannerSectionType = {
@@ -74,18 +119,25 @@ type ComponentPropsMap = {
   };
   WeAreKorcomptenzSection: {
     __component: 'we-are-korcomptenz-section';
+    list: WeAreKorcomptenzSectionType
+   
+    
   };
   InspireSection: {
     __component: 'inspire-section';
+   
   };
   StickyCards: {
     __component: 'sticky-cards';
+    list: StickyCardsType
   };
   InsightsSection: {
     __component: 'insights-section';
+    list: InsightsSectionType
   };
   Opportunities: {
     __component: 'opportunities';
+  list: OpportunitiesType;
   };
   BannerSection: {
     __component: 'banner-section';

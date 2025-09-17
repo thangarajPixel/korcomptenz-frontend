@@ -204,7 +204,11 @@
       "mobileImage": "/assets/banner/MKC1.png"
     }
   ],
-  "insights": [
+   "insights": {
+  "title": "Insights that inspire",
+  "buttonLabel": "Read All",
+  "buttonHref": "#Insights",
+  "items": [
     {
       "id": "1",
       "title": "Unlocking Agentic AI",
@@ -226,7 +230,8 @@
       "imageSrc": "/assets/home/6dc93a4dd03a487291f22843c0f97b56dc453aed.jpg",
       "alt": ""
     }
-  ],
+  ]
+},
   "content": [
     {
       "label": "Microsoft",
@@ -263,7 +268,9 @@
     "mainheading": {
       "title": "Best-in-class solutions for key industry challenges",
       "buttonText": "Explore solutions for your industry"
-    },
+    }, 
+   
+
     "cards": [
       {
         "id": "1",
@@ -302,5 +309,39 @@
         "description": "We empower retail brands with connected, end-to-end solutions that streamline operations, improve agility, simplify supply chain management and elevate customer experiences."
       }
     ]
+  }, "weAreKorcomptenzData" : {
+  "link": "/",
+  "titleH1": "We are",
+  "titleH2": "Korcomptenz",
+  "p1": "We lead with expertise - in technology and domain to deliver solutions that align with your business\ngoals.",
+  "p2": "We leverage our experience and robust partner\necosystem to elevate your processes, powering your\ntransformation journey toward impactful growth",
+  "image": "/assets/home/video-thumb.jpg",
+  "videoSrc": "/placeholder-video.mp4"
+},
+"stickyCards":{
+   "title": " Korcomptenz in action",
+   "buttonText": "Explore All",
+ "cardData":[
+  {
+    "id": "001",
+    "title": "How did an optical manufacturer improve process performance by 50%?",
+    "description": "We helped them efficiently migrate from AX to Microsoft Dynamics 365 F&O.",
+    "buttonText": "Dive Deeper",
+    "image": "/assets/home/1ff3496e049b548f0f9b9b28ccbefc8f7f22f880.png"
+  },
+  {
+    "id": "002",
+    "title": "What helped a leading Process Industry achieve 30% reduction in delivery time?",
+    "description": "We accelerated this outcome by unifying SAP systems and enabling rapid SLO transition unified three country codes into one platform.",
+    "buttonText": "Dive Deeper",
+    "image": "/assets/home/d7bcd5707f3eafcddf4552d420e9401416063ee2.png"
+  },
+  {
+    "id": "003",
+    "title": "How did an industrial manufacturer reduce its IT infrastructure costs by 30%?",
+    "description": "We streamlined manufacturing and built scalable cloud solutions to help them reduce costs and accelerate growth.",
+    "buttonText": "Dive Deeper",
+    "image": "/assets/home/520f5641cdab551d39236bc1517c269f8dc87c4a.png"
   }
+]}
 }
