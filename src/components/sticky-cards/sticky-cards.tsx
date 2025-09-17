@@ -29,7 +29,7 @@ export default function StickyCards({ className, stickyCards }: { className?: st
         </div>
         {cardData?.map((card, index) => (
           <div
-            key={card.id}
+            key={card.specificId}
             className={cn(
               "sm:sticky relative sm:top-48 top-0 ",
               `z-[${index + 10}] sm:mb-12`
@@ -46,7 +46,7 @@ export default function StickyCards({ className, stickyCards }: { className?: st
               >
                 {/* ID */}
                 <div className="hidden md:block text-lg pl-5 pt-14 font-medium text-custom-black-1 ms-8 mt-3  uppercase tracking-wide">
-                  {card.id}
+                  {card.specificId}
                 </div>
 
                 {/* Content */}

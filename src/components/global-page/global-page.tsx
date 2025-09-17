@@ -6,6 +6,14 @@ import ServicesSection from '../services-section'
 import SlidingSection from '../sliding-section'
 import StickyCards from '../sticky-cards'
 import WeAreKorcomptenzSection from '../we-are-korcomptenz'
+import BannerSection from '../banner-section'
+import SapSection from '../sap-section'
+import LightSlider from '../light-slider'
+import DarkSlider from '../dark-slider'
+import DomainSection from '../domain-section'
+import BenefitSection from '../benefit-section'
+import FaqSection from '../faq-section'
+import { StickyTitleList } from '../sticky-title-list'
 
 type Props = {
   data: ComponentPropsType[]
@@ -29,6 +37,24 @@ const GlobalPage = (props: Props) => {
         return <InspireSection key={index} insprieSection={item.list} />
       case 'home.we-are-korcomptenz':
         return <WeAreKorcomptenzSection key={index} weAreKorcomptenzData={item.list} />
+      case 'home.banner':
+        return <BannerSection key={index} />
+      case 'sap-section':
+        return <SapSection key={index} />
+      case 'light-slider':
+        return <LightSlider key={index} />
+      case 'sticky-title-list':
+        return <StickyTitleList key={index} />
+      case 'dark-slider':
+        return <DarkSlider key={index} />
+      case 'domain-section':
+        return <DomainSection key={index} />
+      case 'benefit-section':
+        return <BenefitSection key={index} />
+      case 'faq-section':
+        return <FaqSection key={index} />
+  
+      
       default:
         return;
     }

@@ -8,16 +8,15 @@ import { cn } from "@/lib/utils";
 
 import KorcomptenzImage from "../korcomptenz-image";
 
-// infer type from jsonData.content
+
 
 
 export function AnimatedTabsHero({ className,content }: { className?: string,content:ServicesSectionType[] }) {
 
 
-  // default to first tab
+
   const [value, setValue] = React.useState<string>(content[0].label);
 
-  // get currently selected content
   const activeContent = content.find((c) => c.label === value) || content[0];
 
   return (
@@ -75,7 +74,7 @@ export function AnimatedTabsHero({ className,content }: { className?: string,con
               {activeContent.heading}
             </h1>
             <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
-              {activeContent.subheading}
+              {activeContent.description}
             </p>
             <Button
               size="xl"

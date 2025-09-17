@@ -7,7 +7,7 @@ import FaqSection from "@/components/faq-section";
 import LightSlider from "@/components/light-slider/light-slider";
 import DarkSlider from "@/components/dark-slider/dark-slider";
 import SapSection from "@/components/sap-section";
-import { getPageService } from "@/services";
+
 
 type Props = {
   params: Promise<{ slug: string[] }>;
@@ -15,7 +15,7 @@ type Props = {
 
 const Page = async ({ params }: Props) => {
   const { slug } = await params;
-  await getPageService({ slug });
+  // await getPageService({ slug });
 
   return (
     <div key={`page-${JSON.stringify(slug)}`}>

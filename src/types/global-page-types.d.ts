@@ -15,7 +15,7 @@ type SlidingSectionType = {
 type ServicesSectionType = {
   label: string;
   heading: string;
-  subheading: string;
+  description: string;
   image?: string;
 }
 
@@ -35,16 +35,16 @@ type InspireSectionType = {
   }[];
 }
 
-type StickyCardsType = {
-  title: string;
-  buttonText: string;
-  cardData: {
-    id: string;
+ type StickyCardsType = {
     title: string;
-    description: string;
     buttonText: string;
-    image: string;
-  }[];
+    cardData: {
+        specificId: string;
+        title: string;
+        description: string;
+        buttonText: string;
+        image: string;
+    }[];
 }
 
 type InsightsSectionType = {
