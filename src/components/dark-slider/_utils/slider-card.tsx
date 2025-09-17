@@ -13,7 +13,7 @@ interface Props {
   slide: Slide;
 }
 
-const ManuelSliderCard: React.FC<Props> = ({ slide }) => {
+const SliderCard: React.FC<Props> = ({ slide }) => {
   return (
     <div className="flex-shrink-0 w-full">
       <div className="bg-foreground rounded-3xl p-8 h-[400px] md:h-[476px] w-full flex flex-col justify-between">
@@ -27,11 +27,11 @@ const ManuelSliderCard: React.FC<Props> = ({ slide }) => {
               alt={slide.alt}
             />
           </div>
-          <h3 className="text-white text:medium md:text-2xl font-normal mb-6">
+          <h3 className="text-white text:medium md:text-6xl font-normal mb-6">
             {slide.title}
           </h3>
 
-          <p className="text-gray-300 text-[14px] md:text-sm leading-relaxed">
+          <p className="text-gray-300 text-xs md:text-lg leading-relaxed">
             {slide.description}
           </p>
         </div>
@@ -40,4 +40,4 @@ const ManuelSliderCard: React.FC<Props> = ({ slide }) => {
   );
 };
 
-export default ManuelSliderCard;
+export default SliderCard;

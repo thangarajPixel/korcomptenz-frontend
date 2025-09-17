@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import ManuelSliderCard from "./_utils/dark-slider";
+
 import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
+import SliderCard from "./_utils/slider-card";
 
 const manuelSliderData = {
   heading:
@@ -44,7 +45,7 @@ const manuelSliderData = {
   ],
 };
 
-const ManuelSlider = () => {
+const DarkSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -77,32 +78,30 @@ const ManuelSlider = () => {
     <div className="container-md my-20 overflow-hidden ">
       <div className="grid grid-cols-1 lg:grid-cols-24 gap-4">
         <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
-       
-            <h1 className="text-2xl md:text-5xl font-bold leading-tight text-[#000000] px-5 lg:px-0 mb-5 lg:mb-0">
-              {manuelSliderData.heading}
-            </h1>
-        
+
+          <h1 className="text-6xl md:text-9xl font-bold leading-tight text-black px-5 lg:px-0 mb-5 lg:mb-0">
+            {manuelSliderData.heading}
+          </h1>
+
 
           <div className="hidden lg:flex  items-center gap-4">
             <Button
               size="icon"
-              className={`rounded-full h-14 w-14 ${
-                !prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`rounded-full size-14 hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               onClick={scrollPrev}
               disabled={!prevBtnEnabled}
             >
-              <ChevronLeft className="w-20 h-20" />
+              <ChevronLeft className="size-6" />
             </Button>
             <Button
               size="icon"
-              className={`rounded-full h-14 w-14 ${
-                !nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`rounded-full size-14 hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               onClick={scrollNext}
               disabled={!nextBtnEnabled}
             >
-              <ChevronRight height={20} width={20} />
+              <ChevronRight className="size-6" />
             </Button>
           </div>
         </div>
@@ -113,13 +112,12 @@ const ManuelSlider = () => {
               {manuelSliderData.slides.map((slide, index) => (
                 <div
                   key={slide.id}
-                  className={`min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${
-                    index === manuelSliderData.slides.length - 1
-                      ? "mr-[100px]"
-                      : ""
-                  }`}
+                  className={`min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${index === manuelSliderData.slides.length - 1
+                    ? "mr-[100px]"
+                    : ""
+                    }`}
                 >
-                  <ManuelSliderCard slide={slide} />
+                  <SliderCard slide={slide} />
                 </div>
               ))}
             </div>
@@ -130,4 +128,4 @@ const ManuelSlider = () => {
   );
 };
 
-export default ManuelSlider;
+export default DarkSlider;

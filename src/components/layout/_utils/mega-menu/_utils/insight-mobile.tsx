@@ -52,10 +52,10 @@ const InsightMobile = () => {
           key={cat.id}
           className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
         >
-          <span className="text-sm text-custom-gray-4 font-normal">
+          <span className="text-lg text-custom-gray-4 font-normal">
             {cat.title}
           </span>
-         
+
         </div>
       ))}
     </div>

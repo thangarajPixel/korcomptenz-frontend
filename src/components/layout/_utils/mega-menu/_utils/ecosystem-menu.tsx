@@ -133,13 +133,12 @@ const EcosystemMenu = () => {
               <div
                 key={item.id}
                 onClick={() => setActiveSiderBar(item)}
-                className={`w-full group ${
-                  activeSideBar.id === item.id
-                    ? "border-b-2 border-[#26A17C]"
-                    : "border-b-2 border-transparent hover:border-[#26A17C]"
-                }`}
+                className={`w-full group ${activeSideBar.id === item.id
+                  ? "border-b-2 border-primary"
+                  : "border-b-2 border-transparent hover:border-primary"
+                  }`}
               >
-                <h4 className="relative font-medium text-md text-[#26A17C]  leading-10 flex items-center justify-between cursor-pointer">
+                <h4 className="relative font-medium text-3xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
                   <span>{item.menu}</span>
                   {activeSideBar.id === item.id && (
                     <ChevronRight className="w-5 h-5 font-extrabold" />
@@ -158,16 +157,16 @@ const EcosystemMenu = () => {
         <div className="space-y-6">
           {activeSideBar.items.map((contentItem, index) => (
             <div key={index}>
-              <h2 className="text-md font-normal  text-[#313941] mb-4">
+              <h2 className="text-3xl font-normal  text-foreground mb-4">
                 {contentItem.title}
               </h2>
-              <p className="text-[15px] text-[#6B6B6B] ">
+              <p className="text-sm text-custom-gray-4 ">
                 {contentItem.description}
               </p>
               <div className="mt-4">
                 <Button
                   arrow={true}
-                  className="bg-[#26A17C] text-[10px] text-white hover:bg-[white] hover:text-[#26A17C] border border-[#26A17C]"
+                  className="bg-primary text-xs text-white hover:bg-[white] hover:text-primary border border-primary"
                 >
                   {contentItem.buttontext}
                 </Button>
@@ -177,11 +176,10 @@ const EcosystemMenu = () => {
                   contentItem.child.map((childItem, childIndex) => (
                     <div
                       key={childIndex}
-                      className={` ${
-                        "type" in childItem && childItem.type === "Dark"
-                          ? "text-[#000000]"
-                          : " text-[#26A17C]"
-                      }`}
+                      className={` ${"type" in childItem && childItem.type === "Dark"
+                        ? "text-black"
+                        : " text-primary"
+                        }`}
                     >
                       {childItem.title}
                     </div>
@@ -189,7 +187,7 @@ const EcosystemMenu = () => {
                 {contentItem.childtype === "type2" &&
                   contentItem.child.map((childItem, childIndex) => (
                     <div key={childIndex}>
-                      <span className="text-[#313941] text-md">
+                      <span className="text-foreground text-3xl">
                         {childItem.title}
                       </span>
                       <div className="my-8 flex flex-wrap">
@@ -197,7 +195,7 @@ const EcosystemMenu = () => {
                           childItem.description?.map((item, index) => (
                             <p
                               key={index}
-                              className="text-[#6B6B6B] text-[15px] w-1/2 leading-6 mb-2"
+                              className="text-custom-gray-4 text-sm w-1/2 leading-6 mb-2"
                             >
                               {item}
                             </p>

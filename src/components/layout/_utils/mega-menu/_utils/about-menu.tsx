@@ -67,21 +67,21 @@ const AboutMenu = () => {
       <div className="flex h-full">
         {/* Left section */}
         <div className="w-1/3 h-full flex flex-col">
-          <h1 className="text-5xl font-semibold text-primary mb-8">
+          <h1 className="text-9xl font-semibold text-primary mb-8">
             {aboutData.aboutUs.title}
           </h1>
           <span className="relative h-1 border-5 border-b  border-primary w-[462px] z-3"></span>
         </div>
 
         {/* Middle section */}
-        <div className="w-2/5 bg-[#F3F7F4] mx-10">
+        <div className="w-2/5 bg-light-white mx-10">
           <div className="h-full rounded-2xl p-6 pt-10 flex flex-col">
             {/* Top section - 40% */}
             <div className="flex-[0.4] flex">
               {/* Left side */}
               <div className="w-2/5 flex flex-col">
                 <div className="flex items-center mb-4">
-                  <h2 className="text-md font-normal text-primary mr-3">
+                  <h2 className="text-3xl font-normal text-primary mr-3">
                     {aboutData.whoWeAre.title}
                   </h2>
                   <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
@@ -98,7 +98,7 @@ const AboutMenu = () => {
                       key={item.id}
                       className="flex items-center justify-between p-2 rounded-lg cursor-pointer group"
                     >
-                      <span className="text-custom-gray text-sm font-medium">
+                      <span className="text-custom-gray text-lg font-medium">
                         {item.title}
                       </span>
                       <div
@@ -136,9 +136,9 @@ const AboutMenu = () => {
                 className="flex-1 bg-gray-100 rounded-2xl p-4 flex items-center cursor-pointer"
               >
                 {/* Text - 50% */}
-                <div className="w-1/2 pr-2 grid items-center gap-3 bg-[#F3F7F4]">
+                <div className="w-1/2 pr-2 grid items-center gap-3 bg-light-white">
                   <div>
-                    <h3 className="text-md font-normal text-primary leading-7">
+                    <h3 className="text-3xl font-normal text-primary leading-7">
                       {section.title}
                     </h3>
                   </div>

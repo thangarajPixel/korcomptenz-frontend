@@ -4,6 +4,7 @@ import React from "react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "../ui/button";
 
 const solutionsData = {
   title: " Solutions that elevate outcomes for your business",
@@ -54,7 +55,7 @@ const solutionsData = {
   ],
 };
 
-const SolutionsSlider = () => {
+const LightSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -87,39 +88,34 @@ const SolutionsSlider = () => {
     <div className="container-md py-10">
       {/* Solutions Carousel Section */}
       <section >
-        <div className="max-w-7xl mx-auto">
+        <div className="px-6 mx-auto">
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-12">
-            <h2 className="text-2xl md:text-5xl font-semibold text-foreground leading-tight max-w-2xl">
+            <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
               {solutionsData.title}
             </h2>
 
             {/* Navigation Arrows */}
             <div className="hidden lg:flex items-center gap-4 mt-4">
-              <button
+              <Button
+                size="icon"
+                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 onClick={scrollPrev}
                 disabled={!prevBtnEnabled}
-                className={`w-12 h-12 rounded-full ${
-                  !prevBtnEnabled
-                    ? "bg-primary opacity-45"
-                    : "bg-primary hover:bg-primary"
-                } transition-colors flex items-center justify-center text-white`}
-                aria-label="Previous solutions"
               >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
+                <ChevronLeft className="size-6" />
+              </Button>
+              <Button
+                size="icon"
+                className={`rounded-full size-12  hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 onClick={scrollNext}
                 disabled={!nextBtnEnabled}
-                className={`w-12 h-12 rounded-full ${
-                  !nextBtnEnabled
-                    ? "bg-primary opacity-45"
-                    : "bg-primary hover:bg-primary"
-                } transition-colors flex items-center justify-center text-white`}
-                aria-label="Next solutions"
               >
-                <ChevronRight className="w-6 h-6" />
-              </button>
+                <ChevronRight className="size-6" />
+              </Button>
+
             </div>
           </div>
 
@@ -143,19 +139,18 @@ const SolutionsSlider = () => {
                 {solutionsData.slideContent.map((slide, index) => (
                   <div
                     key={slide.id}
-                    className={`min-w-full pl-4 pr-1 relative ${
-                      index === solutionsData.slideContent.length - 1
-                        ? "mr-[0px]"
-                        : ""
-                    }`}
+                    className={`min-w-full pl-4 pr-1 relative ${index === solutionsData.slideContent.length - 1
+                      ? "mr-[0px]"
+                      : ""
+                      }`}
                   >
                     <div className="space-y-4">
                       {slide.solutions.map((solution, solutionIndex) => (
                         <div key={solutionIndex} className="space-y-2">
-                          <h3 className="text-lg mg:text-xl font-semibold text-foreground">
+                          <h3 className="text-4xl mg:text-5xl font-semibold text-foreground">
                             {solution.title}
                           </h3>
-                          <p className="text-[#363636] text-xs md:text-sm leading-relaxed">
+                          <p className="text-custom-gray-9 text-md md:text-lg leading-relaxed">
                             {solution.description}
                           </p>
                           <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">
@@ -179,4 +174,4 @@ const SolutionsSlider = () => {
   );
 };
 
-export default SolutionsSlider;
+export default LightSlider;

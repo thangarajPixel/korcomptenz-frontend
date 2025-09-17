@@ -13,12 +13,12 @@ const ScheduleCall = () => {
         <div className="lg:flex flex-row items-center  justify-center lg:gap-8 ">
           {/* Left content */}
           <div className="flex-1 text-center lg:text-left lg:ml-0">
-            <h2 className="text-2xl text-left sm:text-4xl lg:text-3xl font-bold text-[#C4D7C9] leading-tight mb-20">
+            <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl font-bold text-custom-green-1 leading-tight mb-20">
               {footer.scheduleCall.title}
               <br />
               {footer.scheduleCall.highlight}
             </h2>
-            <Button size="xl" arrow={true} className="text-lg hidden lg:inline-flex hover:bg-transparent lg:mt-48" >
+            <Button size="xl" arrow={true} className="text-4xl hidden lg:inline-flex hover:bg-transparent lg:mt-48" >
               {footer.scheduleCall.cta}
             </Button>
           </div>
@@ -26,7 +26,7 @@ const ScheduleCall = () => {
           <div className="flex items-center space-x-2 -mt-25 md:ml-0 ml-30 lg:ml-0 lg:mr-10 lg:mt-10">
             <KorcomptenzImage src="/assets/lets-drive.png" alt="drive" className='w-full lg:w-[550px] h-auto rounded-2xl' width={1112} height={607} />
           </div>
-          <Button size="lg" arrow={true} className="text-lg py-3 lg:hidden hover:bg-transparent lg:mt-48" >
+          <Button size="lg" arrow={true} className="text-4xl py-3 lg:hidden hover:bg-transparent lg:mt-48" >
             {footer.scheduleCall.cta}
           </Button>
         </div>

@@ -68,7 +68,7 @@ export const Footer = () => {
                 <Footerlogo />
               </div>
             </div>
-            <div className="text-custom-gray-3 text-sm space-y-1">
+            <div className="text-custom-gray-3 text-lg space-y-1">
               <p>{address.line1}</p>
               <p>{address.line2}</p>
               <p>{address.line3}</p>
@@ -91,7 +91,7 @@ export const Footer = () => {
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="text-primary font-semibold text-md  border-b border-primary  pb-2">
+            <h3 className="text-primary font-semibold text-3xl  border-b border-primary  pb-2">
               Services
             </h3>
             <ul className="space-y-3">
@@ -99,7 +99,7 @@ export const Footer = () => {
                 <li key={service}>
                   <Link
                     href="#"
-                    className="text-light-white  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
+                    className="text-light-white  hover:text-primary   font-semibold text-lg transition-all duration-300 block"
                   >
                     {service}
                   </Link>
@@ -110,7 +110,7 @@ export const Footer = () => {
 
           {/* Industries */}
           <div className="space-y-4">
-            <h3 className="text-primary font-semibold text-md border-b border-primary pb-2">
+            <h3 className="text-primary font-semibold text-3xl border-b border-primary pb-2">
               Industries
             </h3>
             <ul className="space-y-3">
@@ -118,7 +118,7 @@ export const Footer = () => {
                 <li key={industry}>
                   <Link
                     href="#"
-                    className="text-light-white  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
+                    className="text-light-white  hover:text-primary   font-semibold text-lg transition-all duration-300 block"
                   >
                     {industry}
                   </Link>
@@ -129,7 +129,7 @@ export const Footer = () => {
 
           {/* Insights */}
           <div className="space-y-4">
-            <h3 className="text-primary font-semibold text-md border-b border-primary pb-2">
+            <h3 className="text-primary font-semibold text-3xl border-b border-primary pb-2">
               Insights
             </h3>
             <ul className="space-y-3">
@@ -137,7 +137,7 @@ export const Footer = () => {
                 <li key={insight}>
                   <Link
                     href="#"
-                    className="text-light-white  hover:text-primary   font-semibold text-sm transition-all duration-300 block"
+                    className="text-light-white  hover:text-primary   font-semibold text-lg transition-all duration-300 block"
                   >
                     {insight}
                   </Link>
@@ -154,7 +154,7 @@ export const Footer = () => {
                 href="#"
                 className="flex items-center justify-between space-x-2 group"
               >
-                <h3 className="text-primary font-semibold text-md  transition-all duration-300">
+                <h3 className="text-primary font-semibold text-3xl  transition-all duration-300">
                   Success Stories
                 </h3>
                 <ChevronRight className="w-4 h-4 text-primary rounded-full" />
@@ -167,7 +167,7 @@ export const Footer = () => {
                 href="#"
                 className="flex items-center justify-between space-x-2 group"
               >
-                <h3 className="text-primary font-semibold text-md  transition-all duration-300">
+                <h3 className="text-primary font-semibold text-3xl  transition-all duration-300">
                   Careers
                 </h3>
                 <ChevronRight className="w-4 h-4 text-primary rounded-full" />
@@ -180,7 +180,7 @@ export const Footer = () => {
                 href="#"
                 className="flex items-center justify-between space-x-2 group"
               >
-                <h3 className="text-primary font-semibold  text-md transition-all duration-300">
+                <h3 className="text-primary font-semibold  text-3xl transition-all duration-300">
                   Contact us
                 </h3>
                 <ChevronRight className="w-4 h-4 text-primary rounded-full" />
@@ -194,14 +194,14 @@ export const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {/* About Us */}
             <section className="space-y-4" id="About">
-              <h4 className="text-primary font-semibold border-b border-primary text-md pb-2">
+              <h4 className="text-primary font-semibold border-b border-primary text-3xl pb-2">
                 About Us
               </h4>
-              <h4 className="font-semibold text-sm">Who we are</h4>
+              <h4 className="font-semibold text-lg">Who we are</h4>
               <ul className="space-y-2">
                 {footer.aboutUs.map((item) => (
                   <li key={item}>
-                    <Link href="#" className="text-color-custom-gray-2 text-sm   hover:text-primary   font-normal  transition-all duration-300 block">
+                    <Link href="#" className="text-color-custom-gray-2 text-lg   hover:text-primary   font-normal  transition-all duration-300 block">
                       {item}
                     </Link>
                   </li>
@@ -211,7 +211,7 @@ export const Footer = () => {
               <ul className="space-y-2">
                 {footer.aboutUsNew.map((item) => (
                   <li key={item}>
-                    <Link href="#" className="font-semibold text-sm   ">
+                    <Link href="#" className="font-semibold text-lg   ">
                       {item}
                     </Link>
                   </li>
@@ -221,18 +221,18 @@ export const Footer = () => {
 
             {/* Ecosystems - Microsoft */}
             <section className="md:col-span-2 lg:col-span-4">
-              <h4 className="text-primary font-semibold border-b border-primary text-md pb-2">
+              <h4 className="text-primary font-semibold border-b border-primary text-3xl pb-2">
                 Ecosystems
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-4">
                 <div className="space-y-4">
                   <ul className="space-y-2">
-                    <li className="text-sm">
+                    <li className="text-lg">
                       <h4 className=" font-semibold ">Microsoft</h4>
                     </li>
                     {footer.ecoSystems.microsoft.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-color-custom-gray-2  text-sm  hover:text-primary   font-normal  transition-all duration-300 block">
+                        <Link href="#" className="text-color-custom-gray-2  text-lg  hover:text-primary   font-normal  transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -242,11 +242,11 @@ export const Footer = () => {
 
                 {/* SAP */}
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-sm">SAP</h4>
+                  <h4 className="font-semibold text-lg">SAP</h4>
                   <ul className="space-y-2">
                     {footer.ecoSystems.sap.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-color-custom-gray-2  text-sm  hover:text-primary   font-normal   transition-all duration-300 block">
+                        <Link href="#" className="text-color-custom-gray-2  text-lg  hover:text-primary   font-normal   transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -256,11 +256,11 @@ export const Footer = () => {
 
                 {/* Salesforce */}
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-sm">Salesforce</h4>
+                  <h4 className="font-semibold text-lg">Salesforce</h4>
                   <ul className="space-y-2">
                     {footer.ecoSystems.salesforce.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-color-custom-gray-2  text-sm  hover:text-primary   font-normal  transition-all duration-300 block">
+                        <Link href="#" className="text-color-custom-gray-2  text-lg  hover:text-primary   font-normal  transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -272,7 +272,7 @@ export const Footer = () => {
                   <ul className="space-y-2 lg:mt-10">
                     {footer.ecoSystems.salesforceNew.map((item) => (
                       <li key={item}>
-                        <Link href="#" className="text-color-custom-gray-2 text-sm  hover:text-primary   font-normal   transition-all duration-300 block">
+                        <Link href="#" className="text-color-custom-gray-2 text-lg  hover:text-primary   font-normal   transition-all duration-300 block">
                           {item}
                         </Link>
                       </li>
@@ -286,13 +286,13 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex flex-row items-center justify-between">
-          <p className="text-color-custom-gray-2 text-sm">{footer.copyright}</p>
+          <p className="text-color-custom-gray-2 text-lg">{footer.copyright}</p>
           <div>
             {footer.policies.map((policy) => (
               <Link
                 key={policy}
                 href="#"
-                className="text-color-custom-gray-2 text-sm mx-2"
+                className="text-color-custom-gray-2 text-lg mx-2"
               >
                 {policy}
               </Link>
@@ -311,14 +311,14 @@ export const Footer = () => {
               <Link
                 key={policy}
                 href="#"
-                className="text-color-custom-gray-2  text-[14px] border-r-1 border-custom-gray-3 mx-2 last:border-0 pr-2"
+                className="text-color-custom-gray-2  text-xs border-r-1 border-custom-gray-3 mx-2 last:border-0 pr-2"
               >
                 {policy}
               </Link>
             ))}
           </div>
           <div className="flex justify-center pt-4 border-t-1   border-custom-gray-3">
-            <p className="text-color-custom-gray-2 text-[14px]  ">{footer.copyright}</p>
+            <p className="text-color-custom-gray-2 text-xs  ">{footer.copyright}</p>
           </div>
         </div>
       </div>

@@ -106,7 +106,7 @@ export function Navbar() {
             </div>
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
-            <nav className="hidden lg:flex items-center space-x-7 relative text-muted text-sm font-light">
+            <nav className="hidden lg:flex items-center space-x-7 relative text-muted text-lg font-light">
               {jsonData.header.navItems.map((item, index) => (
                 <p
                   key={index}
@@ -203,7 +203,7 @@ export function Navbar() {
                   <div key={index}>
                     <button
                       onClick={() => toggleExpand(item.label)}
-                      className="w-full flex justify-between items-center px-3 py-3 text-sm font-medium text-muted-foreground border-b-1 border-primary"
+                      className="w-full flex justify-between items-center px-3 py-3 text-lg font-medium text-muted-foreground border-b-1 border-primary"
                     >
                       {item.label}
                       <ChevronRight
@@ -244,7 +244,7 @@ export function Navbar() {
               >
                 <div className="flex items-center justify-between pt-4 px-2">
                   {/* Left side - Career | Contact Us */}
-                  <div className="text-[14px] text-muted space-x-2">
+                  <div className="text-xs text-muted space-x-2">
                     <Link
                       href="/career"
                       className="hover:text-primary transition-colors"
