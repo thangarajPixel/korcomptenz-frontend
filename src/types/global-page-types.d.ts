@@ -19,75 +19,75 @@ type ServicesSectionType = {
   image?: string;
 }
 
-type InspireSectionType =  {
-    
-        title: string;
-        buttonText: string;
-   
-    cards: {
-        id: string;
-        position: string;
-        image: string;
-        alt: string;
-        title: string;
-        order: string;
-        description: string;
-    }[];
+type InspireSectionType = {
+
+  title: string;
+  buttonText: string;
+
+  cards: {
+    id: string;
+    position: string;
+    image: string;
+    alt: string;
+    title: string;
+    order: string;
+    description: string;
+  }[];
 }
 
- type StickyCardsType = {
+type StickyCardsType = {
+  title: string;
+  buttonText: string;
+  cardData: {
+    id: string;
     title: string;
+    description: string;
     buttonText: string;
-    cardData: {
-        id: string;
-        title: string;
-        description: string;
-        buttonText: string;
-        image: string;
-    }[];
+    image: string;
+  }[];
 }
 
-type InsightsSectionType ={
+type InsightsSectionType = {
+  title: string;
+  buttonLabel: string;
+  buttonHref: string;
+  items: {
+    id: string;
     title: string;
-    buttonLabel: string;
-    buttonHref: string;
-    items: {
-        id: string;
-        title: string;
-        category: string;
-        imageSrc: string;
-        alt: string;
-    }[];
+    category: string;
+    imageSrc: string;
+    alt: string;
+  }[];
 }
 
 type OpportunitiesType = {
-    description: string;
-    exploreBtn: string;
-    profiles: {
-        id: number;
-        src: string;
-        alt: string;
-    }[];
-    heading: {
-        part1: string;
-        part2: string;
-        highlight1: string;
-        highlight2: string;
-    };
-    images: {
-        arrow: string;
-        banner: string;
-    };
+  description: string;
+  exploreBtn: string;
+  profiles: {
+    id: number;
+    src: string;
+    alt: string;
+  }[];
+  heading: {
+    part1: string;
+    part2: string;
+    highlight1: string;
+    highlight2: string;
+  };
+  images: {
+    arrow: string;
+    banner: string;
+  };
 }
 type WeAreKorcomptenzSectionType = {
- 
-    link: string;
-    titleH1: string;
-    titleH2: string;
-    p1: string;
-    p2: string;
-    image: string;
-    videoSrc: string;
+
+  link: string;
+  titleH1: string;
+  titleH2: string;
+  p1: string;
+  p2: string;
+  image: string;
+  videoSrc: string;
 }
 
 type BannerSectionType = {
@@ -125,22 +125,23 @@ type LightSliderType = {
   title: string;
   image: string;
   alt: string;
-   slideContent:[{
-     id: number,
-     SlideContent:[
-    {
+  slideContent: [{
+    id: number,
+    SlideContent: [
+      {
         id: number,
         title: string,
         description: string
-     }
-                  ] }
-    
-   ]
+      }
+    ]
+  }
+
+  ]
 }
 
 type DarkSliderType = {
   heading: string;
-  slides:[
+  slides: [
     {
       id: number,
       image: string,
@@ -151,23 +152,23 @@ type DarkSliderType = {
   ]
 }
 type StickyTitleListType = {
- buttonText?: string;
+  buttonText?: string;
   description?: string;
-  image?:[
+  image?: [
     {
       height: number;
       width: number;
       caption?: string;
-       alternativeText?: string;
-       url: string;
-       name: string;
-       id: string;
-       createdAt: string;
-       updatedAt: string;
-       publishedAt: string;
-       size: number;
-       ext: string;
-       mime: string;
+      alternativeText?: string;
+      url: string;
+      name: string;
+      id: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+      size: number;
+      ext: string;
+      mime: string;
     }
   ]
   link?: string;
@@ -178,7 +179,7 @@ type StickyTitleListType = {
 }
 type DomainSectionType = {
   title: string;
-  slides:[
+  slides: [
     {
       id: number,
       title: string,
@@ -193,18 +194,18 @@ type DomainSectionType = {
 
 }
 type BenefitSectionType = {
-   title: string;
-   image: string;
-   cards: [
-     {
+  title: string;
+  image: string;
+  cards: [
+    {
       id: number,
       number: string,
       description: string
-     }
-   ]
+    }
+  ]
 }
 type FaqSectionType = {
- title: string;
+  title: string;
   faqs: [
     {
       id: number,
@@ -216,38 +217,38 @@ type FaqSectionType = {
 
 type ComponentPropsMap = {
   SlidingSection: {
-    __component: 'sliding-section';
+    __component: 'home.hero-section-one';
     list: SlidingSectionType[]
   };
   ServicesSection: {
-    __component: 'services-section';
+    __component: 'home.services-section';
     list: ServicesSectionType[]
   };
   WeAreKorcomptenzSection: {
-    __component: 'we-are-korcomptenz-section';
+    __component: 'home.we-are-korcomptenz';
     list: WeAreKorcomptenzSectionType
-   
-    
+
+
   };
   InspireSection: {
-    __component: 'inspire-section';
+    __component: 'page-componets.inspire-section';
     list: InspireSectionType
-   
+
   };
   StickyCards: {
-    __component: 'sticky-cards';
+    __component: 'page-componets.sticky-cards-list';
     list: StickyCardsType
   };
   InsightsSection: {
-    __component: 'insights-section';
+    __component: 'page-componets.insights-section';
     list: InsightsSectionType
   };
   Opportunities: {
-    __component: 'opportunities';
-  list: OpportunitiesType;
+    __component: 'home.opportunity';
+    list: OpportunitiesType;
   };
   BannerSection: {
-    __component: 'banner-section';
+    __component: 'home.banner';
     list: BannerSectionType;
   };
   SapSection: {

@@ -1,4 +1,5 @@
 import GlobalPage from "@/components/global-page";
+import { getHomeService } from "@/services";
 import { jsonData } from "@/utils/helper";
 
 const tempData: PagesListType = {
@@ -7,38 +8,39 @@ const tempData: PagesListType = {
   slug: 'home',
   list: [
     {
-      __component: 'sliding-section',
+      __component: 'home.hero-section-one',
       list: jsonData.slides
     },
     {
-      __component: 'we-are-korcomptenz-section',
-      list:jsonData.weAreKorcomptenzData
+      __component: 'home.we-are-korcomptenz',
+      list: jsonData.weAreKorcomptenzData
     },
     {
-      __component: 'services-section',
+      __component: 'home.services-section',
       list: jsonData.content
     },
     {
-      __component: 'inspire-section',
+      __component: 'page-componets.inspire-section',
       list: jsonData.insprieSection
 
     },
     {
-      __component: 'sticky-cards',
+      __component: 'page-componets.sticky-cards-list',
       list: jsonData.stickyCards
-    
+
     },
     {
-      __component: 'insights-section',
+      __component: 'page-componets.insights-section',
       list: jsonData.insights
     },
     {
-      __component: 'opportunities',
+      __component: 'home.opportunity',
       list: jsonData.careers
     }
   ]
 }
 export default async function Home() {
+  await getHomeService();
   return (
     <div className="flex flex-col gap-10 md:gap-16" >
       <GlobalPage data={tempData.list} />

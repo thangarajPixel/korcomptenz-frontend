@@ -10,7 +10,7 @@ import KorcomptenzImage from "../korcomptenz-image";
 
 
 
-export default function StickyCards({ className,stickyCards}: { className?: string,stickyCards:StickyCardsType}) {
+export default function StickyCards({ className, stickyCards }: { className?: string, stickyCards: StickyCardsType }) {
 
   const cardData = stickyCards.cardData;
   return (
@@ -18,16 +18,16 @@ export default function StickyCards({ className,stickyCards}: { className?: stri
       <div className="relative container-md ">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-5">
           <h1 className=" font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
-         {  stickyCards.title}
+            {stickyCards.title}
           </h1>
 
           <Button className="hidden sm:inline-flex variant:default text-4xl" size="xl">
-      {  stickyCards.buttonText}
+            {stickyCards.buttonText}
             <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
           </Button>
 
         </div>
-        {cardData.map((card, index) => (
+        {cardData?.map((card, index) => (
           <div
             key={card.id}
             className={cn(

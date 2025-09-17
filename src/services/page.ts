@@ -2,11 +2,12 @@ import http from "./http";
 
 const HOME = '/home';
 const GLOBAL_PAGE = '/page';
-export const getHomeService = async (): Promise<{ cart_count: number }> => {
+
+export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
   return data;
 };
-export const getPageService = async ({ slug }: { slug: string[] }): Promise<{ cart_count: number }> => {
+export const getPageService = async ({ slug }: { slug: string[] }): Promise<PagesListType> => {
   const { data } = await http.get(GLOBAL_PAGE, { params: { slug } });
   return data;
 };

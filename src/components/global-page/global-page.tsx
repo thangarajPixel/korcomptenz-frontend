@@ -15,19 +15,19 @@ const GlobalPage = (props: Props) => {
   const { data } = props
   return data.map((item, index) => {
     switch (item.__component) {
-      case 'sliding-section':
+      case 'home.hero-section-one':
         return <SlidingSection key={index} slides={item.list} />
-      case 'sticky-cards':
+      case 'page-componets.sticky-cards-list':
         return <StickyCards key={index} stickyCards={item.list} />
-      case 'insights-section':
-        return <InsightsSection key={index} insights={item.list } />
-      case 'opportunities':
+      case 'page-componets.insights-section':
+        return <InsightsSection key={index} insights={item.list} />
+      case 'home.opportunity':
         return <Opportunities key={index} careers={item.list} />
-      case 'services-section':
-        return <ServicesSection key={index} content={item.list}  />
-      case 'inspire-section':
+      case 'home.services-section':
+        return <ServicesSection key={index} content={item.list} />
+      case 'page-componets.inspire-section':
         return <InspireSection key={index} insprieSection={item.list} />
-      case 'we-are-korcomptenz-section':
+      case 'home.we-are-korcomptenz':
         return <WeAreKorcomptenzSection key={index} weAreKorcomptenzData={item.list} />
       default:
         return;

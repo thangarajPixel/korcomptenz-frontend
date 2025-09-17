@@ -4,7 +4,7 @@ import React from "react";
 import { VideoPopup } from "../video-popup/video-popup";
 
 
-const WeAreKorcomptenzSection = ({weAreKorcomptenzData}: {
+const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
   weAreKorcomptenzData: WeAreKorcomptenzSectionType
 }) => {
   const [isVideoOpen, setIsVideoOpen] = React.useState(false);
@@ -14,26 +14,26 @@ const WeAreKorcomptenzSection = ({weAreKorcomptenzData}: {
         {/* Left Column - Company Name */}
         <div className="lg:w-full">
           <h1 className="text-6xl md:text-8xl font-bold leading-tight">
-            {weAreKorcomptenzData.titleH1}
+            {weAreKorcomptenzData?.titleH1}
             <br />
-            <span className="text-6xl md:text-7xl font-semibold">{weAreKorcomptenzData.titleH2}</span>
+            <span className="text-6xl md:text-7xl font-semibold">{weAreKorcomptenzData?.titleH2}</span>
           </h1>
         </div>
 
         {/* Right Column - Description */}
         <div className="space-y-5">
           <p className="font-outfit font-normal text-md md:text-4xl leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
-            {weAreKorcomptenzData.p1}
+            {weAreKorcomptenzData?.p1}
           </p>
           <p className="font-outfit font-normal text-md md:text-4xl leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
-            {weAreKorcomptenzData.p2}
+            {weAreKorcomptenzData?.p2}
           </p>
         </div>
       </div>
 
       <div className="relative m-1 md:m-0   cursor-pointer" onClick={() => setIsVideoOpen(true)}>
         <KorcomptenzImage
-          src={weAreKorcomptenzData.image}
+          src={weAreKorcomptenzData?.image}
           className="w-full h-[280px] md:h-[500px] object-cover  rounded-4xl"
           alt="video-thumb"
           width={1112}
@@ -55,7 +55,7 @@ const WeAreKorcomptenzSection = ({weAreKorcomptenzData}: {
       {isVideoOpen && <VideoPopup
         isOpen={isVideoOpen}
         onClose={() => setIsVideoOpen(false)}
-        videoSrc={weAreKorcomptenzData.videoSrc}
+        videoSrc={weAreKorcomptenzData?.videoSrc}
       />}
     </div>
   );
