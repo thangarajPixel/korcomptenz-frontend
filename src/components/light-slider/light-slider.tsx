@@ -6,7 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 
-const solutionsData = {
+const LightSliderData = {
   title: " Solutions that elevate outcomes for your business",
   image: "/assets/services/solutionimage.png",
   alt: "Solutions Image",
@@ -16,16 +16,19 @@ const solutionsData = {
       id: 1,
       solutions: [
         {
+          id: 1,
           title: "SAP IBP",
           description:
             "Optimize your supply chain with SAP Integrated Business Planning to get real-time insights and advanced tools for better forecasting and inventory management.",
         },
         {
+          id: 2,
           title: "SAP Merger and Divestiture",
           description:
             "Streamline M&A and spin-off processes by automating data separation, regulatory compliance, and integration to reduce risk.",
         },
         {
+          id: 3,
           title: "Joule AI",
           description:
             "Harness generative AI to empower users with instant contextual insights, natural-language queries, and smart recommendations directly within SAP.",
@@ -36,16 +39,19 @@ const solutionsData = {
       id: 2,
       solutions: [
         {
+          id: 1,
           title: "Business Suite on Public Cloud",
           description:
             "Run your SAP applications on a shared cloud environment for rapid rollout, enhanced scalability, and lower infrastructure costs with minimal IT overhead.",
         },
         {
+          id: 2,
           title: "Business Suite on Private Cloud",
           description:
             "Use a dedicated cloud environment for speed and flexibility, while ensuring tighter control and enhanced security.",
         },
         {
+          id: 3,
           title: "BTP Platform",
           description:
             "Integrate, innovate, and extend applications with comprehensive data management, analytics, AI capabilities, and cloud services for business agility and efficiency.",
@@ -92,7 +98,7 @@ const LightSlider = () => {
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-12">
             <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
-              {solutionsData.title}
+              {LightSliderData.title}
             </h2>
 
             {/* Navigation Arrows */}
@@ -124,8 +130,8 @@ const LightSlider = () => {
             {/* Left: Business Meeting Image */}
             <div className="rounded-3xl overflow-hidden">
               <KorcomptenzImage
-                src={solutionsData.image}
-                alt={solutionsData.alt}
+                src={LightSliderData.image}
+                alt={LightSliderData.alt}
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"
@@ -136,10 +142,10 @@ const LightSlider = () => {
 
             <div ref={emblaRef} className=" overflow-hidden">
               <div className="flex flex-row gap-4">
-                {solutionsData.slideContent.map((slide, index) => (
+                {LightSliderData.slideContent.map((slide, index) => (
                   <div
                     key={slide.id}
-                    className={`min-w-full pl-4 pr-1 relative ${index === solutionsData.slideContent.length - 1
+                    className={`min-w-full pl-4 pr-1 relative ${index === LightSliderData.slideContent.length - 1
                       ? "mr-[0px]"
                       : ""
                       }`}
