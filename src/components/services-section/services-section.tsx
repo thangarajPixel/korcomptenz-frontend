@@ -5,19 +5,14 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { jsonData } from "@/utils/helper";
+
 import KorcomptenzImage from "../korcomptenz-image";
 
 // infer type from jsonData.content
-type ContentItem = {
-  label: string;
-  heading: string;
-  subheading: string;
-  image?: string;
-};
 
-export function AnimatedTabsHero({ className }: { className?: string }) {
-  const content: ContentItem[] = jsonData.content;
+
+export function AnimatedTabsHero({ className,content }: { className?: string,content:ServicesSectionType[] }) {
+
 
   // default to first tab
   const [value, setValue] = React.useState<string>(content[0].label);

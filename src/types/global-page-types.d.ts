@@ -19,10 +19,20 @@ type ServicesSectionType = {
   image?: string;
 }
 
-type InspireSectionType = {
+type InspireSectionType =  {
+    
+        title: string;
+        buttonText: string;
    
-  
-
+    cards: {
+        id: string;
+        position: string;
+        image: string;
+        alt: string;
+        title: string;
+        order: string;
+        description: string;
+    }[];
 }
 
  type StickyCardsType = {
@@ -125,6 +135,7 @@ type ComponentPropsMap = {
   };
   InspireSection: {
     __component: 'inspire-section';
+    list: InspireSectionType
    
   };
   StickyCards: {

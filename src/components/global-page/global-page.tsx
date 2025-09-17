@@ -24,9 +24,9 @@ const GlobalPage = (props: Props) => {
       case 'opportunities':
         return <Opportunities key={index} careers={item.list} />
       case 'services-section':
-        return <ServicesSection key={index}  />
+        return <ServicesSection key={index} content={item.list}  />
       case 'inspire-section':
-        return <InspireSection key={index} />
+        return <InspireSection key={index} insprieSection={item.list} />
       case 'we-are-korcomptenz-section':
         return <WeAreKorcomptenzSection key={index} weAreKorcomptenzData={item.list} />
       default:

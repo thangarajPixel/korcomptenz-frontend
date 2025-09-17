@@ -20,7 +20,7 @@ const tempData: PagesListType = {
     },
     {
       __component: 'inspire-section',
-      
+      list: jsonData.insprieSection
 
     },
     {
