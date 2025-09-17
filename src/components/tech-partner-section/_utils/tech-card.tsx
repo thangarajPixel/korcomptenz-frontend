@@ -13,14 +13,10 @@ const TechCard = ({
   className?: string;
 }) => {
   return (
-    <section className={cn(className)}>
-      <div className="flex flex-col  gap-2 p-8">
-        <div>
-          <h3 className="text-2xl font-normal text-background">{data.title}</h3>
-        </div>
-        <div>
-          <p className="text-sm text-background">{data.description}</p>
-        </div>
+    <section className={cn(className, "p-4 flex flex-col justify-center")}>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-2xl lg:text-6xl font-normal text-background">{data.title}</h3>
+        <p className="text-sm lg:text-lg text-background">{data.description}</p>
       </div>
     </section>
   );

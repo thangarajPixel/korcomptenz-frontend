@@ -10,12 +10,14 @@ import React, { type PropsWithChildren } from 'react';
 const CardSwiper = ({
   children,
   className,
+   slidesPerPage = 1,
   disableAutoSlide = false,
-}: PropsWithChildren<unknown> & { className?: string; disableAutoSlide?: boolean }) => {
+}: PropsWithChildren<unknown> & { className?: string; disableAutoSlide?: boolean ; slidesPerPage?: number}) => {
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     // dragFree: true,
     loop: true,
+    slidesToScroll: slidesPerPage,
     watchDrag: (_emblaApi, event) => {
       // Check if the target element is the div you want to disable dragging on
       if (

@@ -11,8 +11,8 @@ const BuildConnect = () => {
   return (
     <div className='container-md my-10 grid grid-cols-1 lg:grid-cols-2 '>
       <div className='px-5 space-y-3'>
-        <h1 className='text-2xl md:text-5xl font-bold text-foreground leading-15'>{buildData.title}</h1>
-        <p className='text-xs md:text-sm text-foreground leading-relaxed '>{buildData.description}</p>
+        <h1 className='text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15'>{buildData.title}</h1>
+        <p className='text-md md:text-2xl text-foreground leading-7  '>{buildData.description}</p>
       </div>
       <div className='p-5 hidden lg:block'>
         <KorcomptenzImage

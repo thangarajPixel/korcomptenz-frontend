@@ -318,5 +318,5 @@ body {
   @apply flex-[0_0_100%] min-w-0;
 }
 .embla__custom_slide1 {
-  @apply flex-[0_0_50%] min-w-0;
+  @apply flex-[0_0_100%] lg:flex-[0_0_50%] min-w-0;
 }
