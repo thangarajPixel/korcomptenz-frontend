@@ -138,7 +138,7 @@ const EcosystemMenu = () => {
                   : "border-b-2 border-transparent hover:border-primary"
                   }`}
               >
-                <h4 className="relative font-medium text-md text-primary  leading-10 flex items-center justify-between cursor-pointer">
+                <h4 className="relative font-medium text-3xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
                   <span>{item.menu}</span>
                   {activeSideBar.id === item.id && (
                     <ChevronRight className="w-5 h-5 font-extrabold" />
@@ -157,16 +157,16 @@ const EcosystemMenu = () => {
         <div className="space-y-6">
           {activeSideBar.items.map((contentItem, index) => (
             <div key={index}>
-              <h2 className="text-md font-normal  text-foreground mb-4">
+              <h2 className="text-3xl font-normal  text-foreground mb-4">
                 {contentItem.title}
               </h2>
-              <p className="text-[15px] text-custom-gray-4 ">
+              <p className="text-sm text-custom-gray-4 ">
                 {contentItem.description}
               </p>
               <div className="mt-4">
                 <Button
                   arrow={true}
-                  className="bg-primary text-[10px] text-white hover:bg-[white] hover:text-primary border border-primary"
+                  className="bg-primary text-xs text-white hover:bg-[white] hover:text-primary border border-primary"
                 >
                   {contentItem.buttontext}
                 </Button>
@@ -187,7 +187,7 @@ const EcosystemMenu = () => {
                 {contentItem.childtype === "type2" &&
                   contentItem.child.map((childItem, childIndex) => (
                     <div key={childIndex}>
-                      <span className="text-foreground text-md">
+                      <span className="text-foreground text-3xl">
                         {childItem.title}
                       </span>
                       <div className="my-8 flex flex-wrap">
@@ -195,7 +195,7 @@ const EcosystemMenu = () => {
                           childItem.description?.map((item, index) => (
                             <p
                               key={index}
-                              className="text-custom-gray-4 text-[15px] w-1/2 leading-6 mb-2"
+                              className="text-custom-gray-4 text-sm w-1/2 leading-6 mb-2"
                             >
                               {item}
                             </p>

@@ -25,10 +25,10 @@ const SapSection = () => {
       <section className="grid grid-cols-24">
         {/* Left Content */}
         <div className="space-y-8 col-span-24 lg:col-span-10 px-5 mb-5 lg:mb-0">  {/*chnage */}
-          <h1 className="text-2xl md:text-5xl font-bold text-foreground leading-tight">
+          <h1 className="text-6xl md:text-9xl font-bold text-foreground leading-tight">
             {sapSEctionData.heading}
           </h1>
-          <p className="text-xs md:text-sm text-foreground leading-relaxed ">
+          <p className="text-md md:text-lg text-foreground leading-4xl ">
             {sapSEctionData.description}
           </p>
         </div>
@@ -50,10 +50,10 @@ const SapSection = () => {
             <div className="flex flex-col gap-10 w-full lg:w-1/2">             {/*chnage */}
               <div className="bg-secondary rounded-3xl p-6 text-white flex items-center">
                 <div className="flex flex-row gap-4">
-                  <div className="text-2xl xl:text-4xl font-bold mb-2">
+                  <div className="text-6xl md:text-8xl font-bold mb-2">
                     {sapSEctionData.card.value}
                   </div>
-                  <div className="text-xs md:text-sm font-medium">
+                  <div className="text-md md:text-lg font-medium">
                     <p>{sapSEctionData.card.content}</p>
                   </div>
                 </div>

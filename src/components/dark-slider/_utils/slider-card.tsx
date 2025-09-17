@@ -27,11 +27,11 @@ const SliderCard: React.FC<Props> = ({ slide }) => {
               alt={slide.alt}
             />
           </div>
-          <h3 className="text-white text:medium md:text-2xl font-normal mb-6">
+          <h3 className="text-white text:medium md:text-6xl font-normal mb-6">
             {slide.title}
           </h3>
 
-          <p className="text-gray-300 text-[14px] md:text-sm leading-relaxed">
+          <p className="text-gray-300 text-xs md:text-lg leading-relaxed">
             {slide.description}
           </p>
         </div>

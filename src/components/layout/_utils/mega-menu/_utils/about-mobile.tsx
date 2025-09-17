@@ -86,7 +86,7 @@ const AboutDrawer = ({ isOpen, onClose }: IndustryDrawerProps) => {
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
-            <h2 className="text-sm font-normal text-primary">
+            <h2 className="text-lg font-normal text-primary">
               {aboutData.whoWeAre.title}
             </h2>
           </div>
@@ -94,24 +94,24 @@ const AboutDrawer = ({ isOpen, onClose }: IndustryDrawerProps) => {
             onClick={onClose}
             className="p-2 rounded-full hover:bg-gray-50 transition-colors"
           >
-          
+
           </button>
         </div>
 
         <span className="block w-full h-[0.5px] bg-primary"></span>
 
         {/* Accordion list */}
-        <div className="h-full bg-white p-4 text-sm text-gray-700">
+        <div className="h-full bg-white p-4 text-lg text-gray-700">
           {aboutData.navigationItems.map((item) => (
             <div key={item.id} className="border-b border-gray-100">
               <button
                 onClick={() => toggleAccordion(item.id)}
-                className="w-full flex items-center justify-between py-3 text-sm text-primary"
+                className="w-full flex items-center justify-between py-3 text-lg text-primary"
               >
                 <span>{item.title}</span>
-                
+
               </button>
-             
+
             </div>
           ))}
         </div>
@@ -131,7 +131,7 @@ const AboutMobile = () => {
           onClick={() => setDrawerOpen(true)}
           className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
         >
-          <span className="text-sm text-custom-gray-4 font-normal">
+          <span className="text-lg text-custom-gray-4 font-normal">
             {aboutData.whoWeAre.title}
           </span>
           <ChevronRight className="w-4 h-4 text-primary" />
@@ -143,7 +143,7 @@ const AboutMobile = () => {
             key={sec.id}
             className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
           >
-            <span className="text-sm text-custom-gray-4 font-normal">
+            <span className="text-lg text-custom-gray-4 font-normal">
               {sec.title}
             </span>
           </div>

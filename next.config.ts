@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
       },
       {
+        protocol: 'https',
+        hostname: 'aue2kormlworkspacetest01.blob.core.windows.net',
+      },
+      {
         protocol: 'http',
         hostname: process.env.NEXT_PUBLIC_IMAGE_DOMAIN || 'korcomptenz.com',
       },

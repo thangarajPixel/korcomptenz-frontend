@@ -57,12 +57,10 @@ export default function InsightsSection() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.4, delay: 0.05 }}
         >
-          <Link href="#">
-            <Button
-              size="xl"
-              arrow={true}
-              className=" variant:default px-8 py-2 text-lg rounded-full inline-flex"
-            >
+          <Link
+            href="#"
+          >
+            <Button size="xl" arrow={true} className=" variant:default px-8 py-2 text-4xl rounded-full inline-flex">
               Read All
             </Button>
           </Link>

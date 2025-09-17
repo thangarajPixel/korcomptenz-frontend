@@ -79,7 +79,7 @@ const DarkSlider = () => {
       <div className="grid grid-cols-1 lg:grid-cols-24 gap-4">
         <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
 
-          <h1 className="text-2xl md:text-5xl font-bold leading-tight text-black px-5 lg:px-0 mb-5 lg:mb-0">
+          <h1 className="text-6xl md:text-9xl font-bold leading-tight text-black px-5 lg:px-0 mb-5 lg:mb-0">
             {manuelSliderData.heading}
           </h1>
 

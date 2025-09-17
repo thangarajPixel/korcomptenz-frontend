@@ -7,16 +7,16 @@
   --font-sans: "Outfit", "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
   --color-light-white: #f3f7f4;
-   --color-light-gray: #e2ebe4;
-   --color-answer-color: #696969;
+  --color-light-gray: #e2ebe4;
+  --color-answer-color: #696969;
   --color-custom-black: #22282e;
   --color-custom-gray-2: #aaaaaa;
   --color-custom-gray-3: #989ca0;
-  --color-custom-gray-4: #6B6B6B;
-  --color-custom-gray-5: #E0E0E0;
-  --color-custom-gray-6: #EEEEEE;
-  --color-custom-gray-7: #CFCFCF;
-  --color-custom-gray-8: #F7F7F7; 
+  --color-custom-gray-4: #6b6b6b;
+  --color-custom-gray-5: #e0e0e0;
+  --color-custom-gray-6: #eeeeee;
+  --color-custom-gray-7: #cfcfcf;
+  --color-custom-gray-8: #f7f7f7;
   --color-custom-gray-9: #363636;
   --color-custom-black-1:#141414; 
   --color-custom-green-1:#C4D7C9;
@@ -178,8 +178,29 @@ body {
     @apply max-w-[96rem] px-8;
   }
 }
-/* lg: 17px sm: 16px */
+/* lg: 13px sm: 12px */
 @utility text-xs {
+  @apply text-[0.813rem];
+  @variant sm {
+    @apply text-[0.75rem];
+  }
+  @variant lg {
+    @apply text-[0.813rem];
+  }
+}
+/* lg: 15px sm: 14px */
+@utility text-sm {
+  @apply text-[0.938rem];
+  @variant sm {
+    @apply text-[0.875rem];
+  }
+  @variant lg {
+    @apply text-[0.938rem];
+  }
+}
+
+/* lg: 17px sm: 16px */
+@utility text-md {
   @apply text-[1.063rem];
   @variant sm {
     @apply text-[1rem];
@@ -189,7 +210,7 @@ body {
   }
 }
 /* lg: 18px sm: 16px */
-@utility text-sm {
+@utility text-lg {
   @apply text-[1.125rem];
   @variant sm {
     @apply text-[1rem];
@@ -198,9 +219,28 @@ body {
     @apply text-[1.125rem];
   }
 }
-
-/* lg: 22px sm: 18px */
-@utility text-md {
+/* lg: 19px sm: 18px */
+@utility text-xl {
+  @apply text-[1.188rem];
+  @variant sm {
+    @apply text-[1.125rem];
+  }
+  @variant lg {
+    @apply text-[1.188rem];
+  }
+}
+/* lg: 20px sm: 18px */
+@utility text-2xl {
+  @apply text-[1.25rem];
+  @variant sm {
+    @apply text-[1.125rem];
+  }
+  @variant lg {
+    @apply text-[1.25rem];
+  }
+}
+/* lg: 22px sm: 20px */
+@utility text-3xl {
   @apply text-[1.375rem];
   @variant sm {
     @apply text-[1.25rem];
@@ -210,27 +250,27 @@ body {
   }
 }
 /* lg: 25px sm: 22px */
-@utility text-lg {
+@utility text-4xl {
   @apply text-[1.563rem];
   @variant sm {
-    @apply text-[1.375rem];
+    @apply text-[1.25rem];
   }
   @variant lg {
     @apply text-[1.563rem];
   }
 }
 /* lg: 28px sm: 24px */
-@utility text-xl {
+@utility text-5xl {
   @apply text-[1.75rem];
   @variant sm {
-    @apply text-[1.563rem];
+    @apply text-[1.5rem];
   }
   @variant lg {
     @apply text-[1.75rem];
   }
 }
-/* lg: 36px sm: 28px */
-@utility text-2xl {
+/* lg: 36px sm: 30px */
+@utility text-6xl {
   @apply text-[2.25rem];
   @variant sm {
     @apply text-[1.875rem];
@@ -239,8 +279,8 @@ body {
     @apply text-[2.25rem];
   }
 }
-/* lg: 42px sm: 30px */
-@utility text-3xl {
+/* lg: 42px sm: 36px */
+@utility text-7xl {
   @apply text-[2.625rem];
   @variant sm {
     @apply text-[2.25rem];
@@ -249,8 +289,8 @@ body {
     @apply text-[2.625rem];
   }
 }
-/* lg: 48px sm: 36px */
-@utility text-4xl {
+/* lg: 45px sm: 42px */
+@utility text-8xl {
   @apply text-[3rem];
   @variant sm {
     @apply text-[2.625rem];
@@ -259,32 +299,17 @@ body {
     @apply text-[3rem];
   }
 }
-/* lg: 50px sm: 40px */
-@utility text-5xl {
+/* lg: 50px sm: 45px */
+@utility text-9xl {
   @apply text-[3.125rem];
   @variant sm {
-    @apply text-[2.25rem];
+    @apply text-[2.813rem];
   }
   @variant lg {
     @apply text-[3.125rem];
   }
 }
-/* lg: 60px sm: 48px */
-@utility text-6xl {
-  @apply text-[3.75rem];
-  @variant sm {
-    @apply text-[2.25rem];
-  }
-  @variant lg {
-    @apply text-[3.75rem];
-  }
-}
-/* @utility text-7xl {
-}
-@utility text-8xl {
-}
-@utility text-9xl {
-} */
+
 @utility rounded-4xl {
   @apply rounded-[2.5rem];
 }

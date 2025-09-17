@@ -199,7 +199,7 @@ const ServicesMenu = () => {
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="text-sm font-normal leading-1">
+                <span className="text-lg font-normal leading-1">
                   {section.title}
                 </span>
               </motion.button>
@@ -231,7 +231,7 @@ const ServicesMenu = () => {
                     className="group"
                   >
                     <div className="px-5 mb-6">
-                      <h4 className="group relative font-normal text-sm text-primary mb-4 inline-flex items-center cursor-pointer">
+                      <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
                         <span className="border-b-2 border-transparent group-hover:border-primary">
                           {item.title}
                         </span>
@@ -242,7 +242,7 @@ const ServicesMenu = () => {
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-[15px] leading-5 ${sub.type === "dark"
+                              className={`text-xs leading-5 ${sub.type === "dark"
                                 ? "font-normal text-black"
                                 : "text-gray-500"
                                 }`}
@@ -271,7 +271,7 @@ const ServicesMenu = () => {
                     className="group"
                   >
                     <div className="px-5 lg:mb-6">
-                      <h4 className="group relative font-normal text-sm text-primary mb-4 inline-flex items-center cursor-pointer">
+                      <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
                         <span className="border-b-2 border-transparent group-hover:border-primary">
                           {item.title}
                         </span>
@@ -282,7 +282,7 @@ const ServicesMenu = () => {
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-[15px] leading-5  ${sub.type === "dark"
+                              className={`text-xs leading-5  ${sub.type === "dark"
                                 ? "font-normal text-black"
                                 : "text-gray-500"
                                 }`}
