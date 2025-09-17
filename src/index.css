@@ -18,8 +18,10 @@
   --color-custom-gray-7: #CFCFCF;
   --color-custom-gray-8: #F7F7F7; 
   --color-custom-gray-9: #363636;
-  --color-custom-black-1:#141414;
+  --color-custom-black-1:#141414; 
   --color-custom-green-1:#C4D7C9;
+  --color-custom-white-1:#FFFFFF33;
+  
 
 }
 
@@ -289,4 +291,7 @@ body {
 
 .embla__custom_slide {
   @apply flex-[0_0_100%] min-w-0;
+}
+.embla__custom_slide1 {
+  @apply flex-[0_0_50%] min-w-0;
 }

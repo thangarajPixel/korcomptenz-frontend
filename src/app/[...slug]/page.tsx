@@ -8,6 +8,8 @@ import FaqSection from "@/components/faq-section";
 import LightSlider from "@/components/light-slider/light-slider";
 import DarkSlider from "@/components/dark-slider/dark-slider";
 import SapSection from "@/components/sap-section";
+import TechPartner from "@/components/tech-partner-section/tech-partner";
+import BuildConnect from "@/components/build-connect";
 
 type Props = {
   params: Promise<Params>;
@@ -25,6 +27,8 @@ const Page = async ({ params }: Props) => {
       <DomainSection />
       <BenefitSection />
       <FaqSection/>
+      <TechPartner/>
+      <BuildConnect/>
     </div>
   );
 };

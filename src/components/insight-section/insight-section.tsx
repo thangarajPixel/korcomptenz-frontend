@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { InsightCard, } from "./_utils/insight-cards"
-import InsightsMobileCarousel from "./_utils/insight-mobile-carousel"
-import Link from "next/link"
-import { motion } from "motion/react"
-import { cn } from "@/lib/utils"
-import { Button } from "../ui/button"
-import { jsonData } from '@/utils/helper'
+import { InsightCard } from "./_utils/insight-cards";
+import InsightsMobileCarousel from "./_utils/insight-mobile-carousel";
+import Link from "next/link";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import { jsonData } from "@/utils/helper";
 
 // const insights: InsightCardType[] = [
 //   {
@@ -38,12 +38,17 @@ export default function InsightsSection() {
   return (
     <section aria-labelledby="insights-heading" className="px-0 container-md ">
       <div className="flex flex-col items-center gap-6 text-center md:gap-8   ">
-        <motion.h2
-          id="insights-heading"
-          className="text-pretty lg:text-5xl text-2xl font-semibold text-gray-900 md:text-3xl "
-        >
-          Insights that inspire
-        </motion.h2>
+        <div className="flex flex-row items-center justify-center gap-4 w-full ">
+          <div className="md:block hidden absolute -left-0 w-3/8 bg-primary h-1"></div>
+          <motion.h2
+            id="insights-heading"
+            className="text-pretty lg:text-5xl text-2xl font-semibold text-gray-900 md:text-3xl "
+          >
+            Insights that inspire
+          </motion.h2>
+           <div className="md:block hidden absolute -right-0 w-3/8 bg-primary h-1"></div>
+        </div>
+
         <InsightsMobileCarousel items={jsonData.insights} />
         <motion.div
           className="md:flex flex-row  items-center justify-center hidden "
@@ -52,10 +57,12 @@ export default function InsightsSection() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.4, delay: 0.05 }}
         >
-          <Link
-            href="#"
-          >
-            <Button size="xl" arrow={true} className=" variant:default px-8 py-2 text-lg rounded-full inline-flex">
+          <Link href="#">
+            <Button
+              size="xl"
+              arrow={true}
+              className=" variant:default px-8 py-2 text-lg rounded-full inline-flex"
+            >
               Read All
             </Button>
           </Link>
@@ -68,7 +75,14 @@ export default function InsightsSection() {
           transition={{ duration: 0.5 }}
         >
           {jsonData.insights.map((item, index) => (
-            <InsightCard key={item.id} {...item} className={cn('relative', (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] ")} />
+            <InsightCard
+              key={item.id}
+              {...item}
+              className={cn(
+                "relative",
+                (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] "
+              )}
+            />
           ))}
         </motion.div>
         <motion.div
@@ -78,7 +92,7 @@ export default function InsightsSection() {
           transition={{ duration: 0.4, delay: 0.05 }}
           className="container-md flex justify-start md:hidden w-full"
         >
-          <Link href="#" >
+          <Link href="#">
             <Button size="lg" arrow={true}>
               Read All
             </Button>
@@ -86,5 +100,5 @@ export default function InsightsSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
