@@ -18,7 +18,7 @@ const Page = async ({ params }: Props) => {
   await getPageService({ slug });
 
   return (
-    <div key={JSON.stringify(slug)}>
+    <div key={`page-${JSON.stringify(slug)}`}>
       <BannerSection />
       <SapSection />
       <LightSlider />

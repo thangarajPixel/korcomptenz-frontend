@@ -35,6 +35,34 @@ type OpportunitiesType = {
 
 }
 
+type BannerSectionType = {
+
+}
+
+type SapSectionType = {
+
+}
+
+type LightSliderType = {
+
+}
+
+type DarkSliderType = {
+
+}
+type StickyTitleListType = {
+
+}
+type DomainSectionType = {
+
+}
+type BenefitSectionType = {
+
+}
+type FaqSectionType = {
+
+}
+
 type ComponentPropsMap = {
   SlidingSection: {
     __component: 'sliding-section';
@@ -49,16 +77,40 @@ type ComponentPropsMap = {
   };
   InspireSection: {
     __component: 'inspire-section';
-  }
+  };
   StickyCards: {
     __component: 'sticky-cards';
-  }
+  };
   InsightsSection: {
     __component: 'insights-section';
-  }
+  };
   Opportunities: {
     __component: 'opportunities';
-  }
+  };
+  BannerSection: {
+    __component: 'banner-section';
+  };
+  SapSection: {
+    __component: 'sap-section';
+  };
+  LightSlider: {
+    __component: 'light-slider';
+  };
+  DarkSlider: {
+    __component: 'dark-slider';
+  };
+  StickyTitleList: {
+    __component: 'sticky-title-list';
+  };
+  DomainSection: {
+    __component: 'domain-section';
+  };
+  BenefitSection: {
+    __component: 'benefit-section';
+  };
+  FaqSection: {
+    __component: 'faq-section';
+  };
 }
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
