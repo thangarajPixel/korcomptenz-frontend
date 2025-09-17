@@ -194,10 +194,10 @@ const ServicesMenu = () => {
                 key={section.id}
                 onClick={() => setActiveServiceSection(section)}
                 className={`w-full text-left text-custom-gray-4 py-3 
-                  rounded-lg transition-all duration-200 flex items-center space-x-3 ${activeServiceSection.id === section.id ? "text-primary" : ""
+                  rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${activeServiceSection.id === section.id ? "text-primary" : ""
                   }`}
-                whileHover={{ x: 4 }}
-                whileTap={{ scale: 0.98 }}
+                // whileHover={{ x: 4 }}
+                // whileTap={{ scale: 0.98 }}
               >
                 <span className="text-lg font-normal leading-1">
                   {section.title}
@@ -212,7 +212,7 @@ const ServicesMenu = () => {
       <div className="col-span-24 md:col-span-13 lg:col-span-13">
         <motion.div
           key={activeServiceSection.id}
-          initial={{ opacity: 0, x: 20 }}
+          // initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
           className="bg-white  border-l border-gray-200 px-6"
@@ -242,7 +242,7 @@ const ServicesMenu = () => {
                           {item.child.map((sub, subIdx) => (
                             <div
                               key={subIdx}
-                              className={`text-xs leading-5 ${sub.type === "dark"
+                              className={`text-md leading-5 cursor-pointer ${sub.type === "dark"
                                 ? "font-normal text-black"
                                 : "text-gray-500"
                                 }`}
