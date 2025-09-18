@@ -44,13 +44,13 @@ const GlobalPage = (props: Props) => {
       case 'page-componets.sap-section-data':
         return <SapSection key={`sap-section-${item.__component}-${item.id}`} sapSectionData={item} />
       case 'page-componets.light-slider-list':
-        return <LightSlider key={`light-slider-${item.__component}-${item.id}`}  LightSliderData={item} />
+        return <LightSlider key={`light-slider-${item.__component}-${item.id}`} LightSliderData={item} />
       case 'page-componets.sticky-title-list':
         return <StickyTitleList key={`sticky-title-list-${item.__component}-${item.id}`} salesforceServices={item} />
       case 'page-componets.dark-slider-list':
         return <DarkSlider key={`dark-slider-${item.__component}-${item.id}`} manuelSliderData={item} />
       case 'page-componets.domain-data':
-        return <DomainSection key={`domain-section-${item.__component}-${item.id}`}  domainData={item} />
+        return <DomainSection key={`domain-section-${item.__component}-${item.id}`} domainData={item} />
       case 'page-componets.benefit-data':
         return <BenefitSection key={`benefit-section-${item.__component}-${item.id}`} benefitData={item} />
       case 'page-componets.faq-title':

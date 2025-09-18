@@ -90,7 +90,7 @@ type BannerSectionType = {
   alt: string;
   logo: ImageType;
   logoMobile: ImageType;
- altMobile: ImageType;
+  altMobile: ImageType;
   title: string;
   description: string;
 };
@@ -99,8 +99,8 @@ type SapSectionType = {
   heading: string;
   description: string;
   imageSection: {
-    image1:{image:ImageType}
-    image2: {image:ImageType}
+    image1: { image: ImageType }
+    image2: { image: ImageType }
   };
   card: {
     value: string;
@@ -142,7 +142,7 @@ type StickyTitleListType = {
   buttonText?: string;
   description?: string;
   list?: [
-   {
+    {
       height: number;
       image: ImageType;
       width: number;
@@ -172,7 +172,7 @@ type DomainSectionType = {
       id: number;
       title: string;
       description: string;
-      image: string;
+      image: ImageType;
       alt: string;
       type: string;
       buttonText: string;
@@ -181,7 +181,7 @@ type DomainSectionType = {
 };
 type BenefitSectionType = {
   title: string;
-  image:ImageType;
+  image: ImageType;
   cards: [
     {
       id: number;
@@ -232,7 +232,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "home.opportunity";
   };
-  BannerSection:BannerSectionDataType & {
+  BannerSection: BannerSectionDataType & {
     id: string;
     __component: "page-componets.banner-section-list";
     list: BannerSectionType;
