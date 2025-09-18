@@ -1,6 +1,8 @@
 import GlobalPage from "@/components/global-page";
 import { getHomeService } from "@/services";
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   const data = await getHomeService();
   return (
