@@ -2,34 +2,37 @@ import React from "react";
 import CardSwiper from "../ui/card-swiper";
 import BannerCard from "./_utils/banner-card";
 
-const BannerSectionData = [
-  {
-    id: 1,
-    imageMobile: "/assets/services/servicebannermbl.png",
-    image: "/assets/services/servicebanner.png",
-    alt: "VR Experience",
-    logo: "/assets/services/serviceimgban.png",
-    logoMobile: "/assets/services/micrsoftImage.png",
-    altMobile: "Microsoft logo",
-    title: "VR Experience in Modern Workplaces",
-    description:
-      "Experience the power of modern workplaces and transformed operations in driving impact-led growth.",
-  },
-  // {
-  //   id: 2,
-  //   imageMobile: "/assets/services/servicebannermbl.png",
-  //   image: "/assets/services/servicebanner.png",
-  //   alt: "VR Experience",
-  //   logo: "/assets/services/serviceimgban.png",
-  //   logoMobile: "/assets/services/micrsoftImage.png",
-  //   altMobile: "Microsoft logo",
-  //   title: "VR Experience in Modern Workplaces",
-  //   description:
-  //     "Experience the power of modern workplaces and transformed operations in driving impact-led growth.",
-  // }
-];
+// const BannerSectionData = [
+//   // {
+//   //   id: 1,
+//   //   imageMobile: "/assets/services/servicebannermbl.png",
+//   //   image: "/assets/services/servicebanner.png",
+//   //   alt: "VR Experience",
+//   //   logo: "/assets/services/serviceimgban.png",
+//   //   logoMobile: "/assets/services/micrsoftImage.png",
+//   //   altMobile: "Microsoft logo",
+//   //   title: "VR Experience in Modern Workplaces",
+//   //   description:
+//   //     "Experience the power of modern workplaces and transformed operations in driving impact-led growth.",
+//   // },
+//   // {
+//   //   id: 2,
+//   //   imageMobile: "/assets/services/servicebannermbl.png",
+//   //   image: "/assets/services/servicebanner.png",
+//   //   alt: "VR Experience",
+//   //   logo: "/assets/services/serviceimgban.png",
+//   //   logoMobile: "/assets/services/micrsoftImage.png",
+//   //   altMobile: "Microsoft logo",
+//   //   title: "VR Experience in Modern Workplaces",
+//   //   description:
+//   //     "Experience the power of modern workplaces and transformed operations in driving impact-led growth.",
+//   // }
+// ];
+ 
 
-const BannerSection = () => {
+const BannerSection = ({ BannerSectionData }:{ BannerSectionData: BannerSectionType[]}) => {
+
+
   return (
     <div className="container-md mt-10">
       {BannerSectionData.length < 2 ? (

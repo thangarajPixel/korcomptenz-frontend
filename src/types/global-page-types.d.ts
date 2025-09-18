@@ -7,7 +7,7 @@ type SlidingSectionType = {
   subtitle2?: string;
   buttonText: string;
   buttonAction: string;
-  mobileImage: ImageType;
+  mobile_image: ImageType;
   description?: string;
 };
 
@@ -85,12 +85,12 @@ type WeAreKorcomptenzSectionType = {
 
 type BannerSectionType = {
   id: number;
-  imageMobile: string;
-  image: string;
+  imageMobile: ImageType;
+  image: ImageType;
   alt: string;
-  logo: string;
-  logoMobile: string;
-  altMobile: string;
+  logo: ImageType;
+  logoMobile: ImageType;
+ altMobile: ImageType;
   title: string;
   description: string;
 };
@@ -99,14 +99,8 @@ type SapSectionType = {
   heading: string;
   description: string;
   imageSection: {
-    image1: {
-      src: string;
-      alt: string;
-    };
-    image2: {
-      src: string;
-      alt: string;
-    };
+    image1:{image:ImageType}
+    image2: {image:ImageType}
   };
   card: {
     value: string;
@@ -116,12 +110,12 @@ type SapSectionType = {
 
 type LightSliderType = {
   title: string;
-  image: string;
+  image: ImageType;
   alt: string;
-  slideContent: [
+  list: [
     {
       id: number;
-      SlideContent: [
+      solutions: [
         {
           id: number;
           title: string;
@@ -137,8 +131,8 @@ type DarkSliderType = {
   slides: [
     {
       id: number;
-      image: string;
-      alt: string;
+      image: ImageType;
+      alt: ImageType;
       title: string;
       description: string;
     }
@@ -147,9 +141,10 @@ type DarkSliderType = {
 type StickyTitleListType = {
   buttonText?: string;
   description?: string;
-  image?: [
-    {
+  list?: [
+   {
       height: number;
+      image: ImageType;
       width: number;
       caption?: string;
       alternativeText?: string;
@@ -186,7 +181,7 @@ type DomainSectionType = {
 };
 type BenefitSectionType = {
   title: string;
-  image: string;
+  image:ImageType;
   cards: [
     {
       id: number;
@@ -197,73 +192,84 @@ type BenefitSectionType = {
 };
 type FaqSectionType = {
   title: string;
-  faqs: [
+  faq: [
     {
       id: number;
-      question: string;
-      answer: string;
+      title: string;
+      description: string;
     }
   ];
 };
 
 type ComponentPropsMap = {
   SlidingSection: {
+    id: string;
     __component: "home.hero-section-one";
     list: SlidingSectionType[];
   };
   ServicesSection: {
+    id: string;
     __component: "home.services-section";
     list: ServicesSectionType[];
   };
   WeAreKorcomptenzSection: WeAreKorcomptenzSectionType & {
+    id: string;
     __component: "home.we-are-korcomptenz";
-
   };
   InspireSection: InspireSectionType & {
+    id: string;
     __component: "page-componets.inspire-section";
   };
   StickyCards: StickyCardsType & {
+    id: string;
     __component: "page-componets.sticky-cards-list";
-
   };
   InsightsSection: InsightsSectionType & {
+    id: string;
     __component: "page-componets.insights-section";
-
   };
   Opportunities: OpportunitiesType & {
+    id: string;
     __component: "home.opportunity";
-
   };
-  BannerSection: {
-    __component: "home.banner";
+  BannerSection:BannerSectionDataType & {
+    id: string;
+    __component: "page-componets.banner-section-list";
     list: BannerSectionType;
   };
   SapSection: {
-    __component: "sap-section";
+    id: string;
+    __component: "page-componets.sap-section-data";
     list: SapSectionType;
   };
   LightSlider: {
-    __component: "light-slider";
+    id: string;
+    __component: "page-componets.light-slider-list";
     list: LightSliderType;
   };
   DarkSlider: {
-    __component: "dark-slider";
+    id: string;
+    __component: "page-componets.dark-slider-list";
     list: DarkSliderType;
   };
   StickyTitleList: {
-    __component: "sticky-title-list";
+    id: string;
+    __component: "page-componets.sticky-title-list";
     list: StickyTitleListType;
   };
   DomainSection: {
-    __component: "domain-section";
+    id: string;
+    __component: "page-componets.domain-data";
     list: DomainSectionType;
   };
   BenefitSection: {
-    __component: "benefit-section";
+    id: string;
+    __component: "page-componets.benefit-data";
     list: BenefitSectionType;
   };
   FaqSection: {
-    __component: "faq-section";
+    id: string;
+    __component: "page-componets.faq-title";
     list: FaqSectionType;
   };
 };

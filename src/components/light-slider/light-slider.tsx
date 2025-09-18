@@ -5,63 +5,66 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
+import { APP_CONFIG } from "@/utils/app-config";
 
-const LightSliderData = {
-  title: " Solutions that elevate outcomes for your business",
-  image: "/assets/services/solutionimage.png",
-  alt: "Solutions Image",
+// const LightSliderData = {
+//   title: " Solutions that elevate outcomes for your business",
+//   image: "/assets/services/solutionimage.png",
+//   alt: "Solutions Image",
 
-  slideContent: [
-    {
-      id: 1,
-      solutions: [
-        {
-          id: 1,
-          title: "SAP IBP",
-          description:
-            "Optimize your supply chain with SAP Integrated Business Planning to get real-time insights and advanced tools for better forecasting and inventory management.",
-        },
-        {
-          id: 2,
-          title: "SAP Merger and Divestiture",
-          description:
-            "Streamline M&A and spin-off processes by automating data separation, regulatory compliance, and integration to reduce risk.",
-        },
-        {
-          id: 3,
-          title: "Joule AI",
-          description:
-            "Harness generative AI to empower users with instant contextual insights, natural-language queries, and smart recommendations directly within SAP.",
-        },
-      ],
-    },
-    {
-      id: 2,
-      solutions: [
-        {
-          id: 1,
-          title: "Business Suite on Public Cloud",
-          description:
-            "Run your SAP applications on a shared cloud environment for rapid rollout, enhanced scalability, and lower infrastructure costs with minimal IT overhead.",
-        },
-        {
-          id: 2,
-          title: "Business Suite on Private Cloud",
-          description:
-            "Use a dedicated cloud environment for speed and flexibility, while ensuring tighter control and enhanced security.",
-        },
-        {
-          id: 3,
-          title: "BTP Platform",
-          description:
-            "Integrate, innovate, and extend applications with comprehensive data management, analytics, AI capabilities, and cloud services for business agility and efficiency.",
-        },
-      ],
-    },
-  ],
-};
+//   list: [
+//     {
+//       id: 1,
+//       solutions: [
+//         {
+//           id: 1,
+//           title: "SAP IBP",
+//           description:
+//             "Optimize your supply chain with SAP Integrated Business Planning to get real-time insights and advanced tools for better forecasting and inventory management.",
+//         },
+//         {
+//           id: 2,
+//           title: "SAP Merger and Divestiture",
+//           description:
+//             "Streamline M&A and spin-off processes by automating data separation, regulatory compliance, and integration to reduce risk.",
+//         },
+//         {
+//           id: 3,
+//           title: "Joule AI",
+//           description:
+//             "Harness generative AI to empower users with instant contextual insights, natural-language queries, and smart recommendations directly within SAP.",
+//         },
+//       ],
+//     },
+//     {
+//       id: 2,
+//       solutions: [
+//         {
+//           id: 1,
+//           title: "Business Suite on Public Cloud",
+//           description:
+//             "Run your SAP applications on a shared cloud environment for rapid rollout, enhanced scalability, and lower infrastructure costs with minimal IT overhead.",
+//         },
+//         {
+//           id: 2,
+//           title: "Business Suite on Private Cloud",
+//           description:
+//             "Use a dedicated cloud environment for speed and flexibility, while ensuring tighter control and enhanced security.",
+//         },
+//         {
+//           id: 3,
+//           title: "BTP Platform",
+//           description:
+//             "Integrate, innovate, and extend applications with comprehensive data management, analytics, AI capabilities, and cloud services for business agility and efficiency.",
+//         },
+//       ],
+//     },
+//   ],
+// };
 
-const LightSlider = () => {
+const LightSlider = ({LightSliderData}: {LightSliderData:LightSliderType}) => {
+
+  
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -130,8 +133,10 @@ const LightSlider = () => {
             {/* Left: Business Meeting Image */}
             <div className="rounded-3xl overflow-hidden">
               <KorcomptenzImage
-                src={LightSliderData.image}
-                alt={LightSliderData.alt}
+                src={ LightSliderData.image?.url
+                ? APP_CONFIG.APP_URL_IMAGE + LightSliderData.image?.url
+                : "/placeholder.svg"}
+                alt={LightSliderData.image?.alternativeText}
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"
@@ -142,10 +147,10 @@ const LightSlider = () => {
 
             <div ref={emblaRef} className=" overflow-hidden">
               <div className="flex flex-row gap-4">
-                {LightSliderData.slideContent.map((slide, index) => (
+                {LightSliderData.list.map((slide, index) => (
                   <div
                     key={slide.id}
-                    className={`min-w-full pl-4 pr-1 relative ${index === LightSliderData.slideContent.length - 1
+                    className={`min-w-full pl-4 pr-1 relative ${index === LightSliderData.list.length - 1
                       ? "mr-[0px]"
                       : ""
                       }`}

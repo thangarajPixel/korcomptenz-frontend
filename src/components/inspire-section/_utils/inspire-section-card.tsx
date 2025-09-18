@@ -6,6 +6,7 @@ import React from "react";
 const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
   card,
 }) => {
+  
   return (
     <Card
       key={card.id}
@@ -65,18 +66,28 @@ const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
                   <p className=" md:text-lg text-md">{card.description}</p>
                 </div>
                 <div
-                  className={`flex-shrink-0 absolute  ${"mt-4"
-                    } right-3 -top-10`}
+                  className={`flex-shrink-0 absolute ${
+                    card.image?.height === 111 ? "" : "mt-4"
+                  } right-3 -top-10`}
                 >
                   <KorcomptenzImage
                     src={
-                      APP_CONFIG.APP_URL_IMAGE + card.image?.url ||
-                      "/placeholder.svg"
+                      card.image?.url
+                        ? APP_CONFIG.APP_URL_IMAGE + card.image.url
+                        : "/placeholder.svg"
                     }
-                    alt={card.image?.alternativeText}
-                    width={144}
-                    height={80}
-                    className={`rounded-lg `}
+                    alt={card.image?.alternativeText || "image"}
+                    width={
+                      card.image?.height === 111
+                        ? 111
+                        : card.image?.height === 182
+                        ? 144
+                        : 111
+                    }
+                    height={card.image?.height || 80} 
+                    className={`rounded-lg ${
+                      card.image?.height === 111 ? "mt-4" : ""
+                    }`}
                   />
                 </div>
               </div>

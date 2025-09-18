@@ -37,7 +37,7 @@ export default function SlidingSection({
             <KorcomptenzImage
               src={
                 isMobile
-                  ? APP_CONFIG.APP_URL_IMAGE + slide.mobileImage?.url
+                  ? APP_CONFIG.APP_URL_IMAGE + slide.mobile_image?.url
                   : APP_CONFIG.APP_URL_IMAGE + slide.image?.url ||
                     "/placeholder.svg"
               }

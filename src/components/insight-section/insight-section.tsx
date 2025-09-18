@@ -1,18 +1,17 @@
-"use client"
+"use client";
 
-import { InsightCard, } from "./_utils/insight-cards"
-import InsightsMobileCarousel from "./_utils/insight-mobile-carousel"
-import Link from "next/link"
-import { motion } from "motion/react"
-import { cn } from "@/lib/utils"
-import { Button } from "../ui/button"
+import { InsightCard } from "./_utils/insight-cards";
+import InsightsMobileCarousel from "./_utils/insight-mobile-carousel";
+import Link from "next/link";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
 
-
-
-
-export default function InsightsSection({insights}: {insights:InsightsSectionType}) {
- 
-
+export default function InsightsSection({
+  insights,
+}: {
+  insights: InsightsSectionType;
+}) {
   return (
     <section aria-labelledby="insights-heading" className="px-0 container-md ">
       <div className="flex flex-col items-center gap-6 text-center md:gap-8   ">
@@ -20,7 +19,7 @@ export default function InsightsSection({insights}: {insights:InsightsSectionTyp
           id="insights-heading"
           className="text-pretty lg:text-9xl text-6xl font-semibold text-gray-900 md:text-7xl "
         >
-         {insights.title}
+          {insights.title}
         </motion.h2>
         <InsightsMobileCarousel items={insights.list} />
         <motion.div
@@ -30,11 +29,13 @@ export default function InsightsSection({insights}: {insights:InsightsSectionTyp
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.4, delay: 0.05 }}
         >
-          <Link
-            href="#"
-          >
-            <Button size="xl" arrow={true} className=" variant:default px-8 py-2 text-4xl rounded-full inline-flex">
-            {insights.buttontext}
+          <Link href="#">
+            <Button
+              size="xl"
+              arrow={true}
+              className=" variant:default px-8 py-2 text-4xl rounded-full inline-flex"
+            >
+              {insights.buttontext}
             </Button>
           </Link>
         </motion.div>
@@ -46,7 +47,14 @@ export default function InsightsSection({insights}: {insights:InsightsSectionTyp
           transition={{ duration: 0.5 }}
         >
           {insights.list.map((item, index) => (
-            <InsightCard key={item.id} {...item} className={cn('relative', (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] ")} />
+            <InsightCard
+              key={item.id}
+              {...item}
+              className={cn(
+                "relative",
+                (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] "
+              )}
+            />
           ))}
         </motion.div>
         <motion.div
@@ -56,13 +64,13 @@ export default function InsightsSection({insights}: {insights:InsightsSectionTyp
           transition={{ duration: 0.4, delay: 0.05 }}
           className="container-md flex justify-start md:hidden w-full"
         >
-          <Link href="#" >
+          <Link href="#">
             <Button size="lg" arrow={true}>
-         {insights.buttontext}
+              {insights.buttontext}
             </Button>
           </Link>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

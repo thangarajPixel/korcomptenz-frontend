@@ -4,7 +4,7 @@ import { Header, Footer } from "./_utils";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   // const api = await getLayoutService()
-  // console.log(api, 'api')
+ 
   return (
     <div className="flex min-h-svh  flex-col">
       <Header />

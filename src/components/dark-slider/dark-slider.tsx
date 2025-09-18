@@ -6,46 +6,47 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import SliderCard from "./_utils/slider-card";
 
-const manuelSliderData = {
-  heading:
-    "Our services ensure that you have a connected and efficient ecosystem",
-  slides: [
-    {
-      id: 1,
-      image: "/assets/services/slider1.png",
-      alt: "ai image",
-      title: "Ai",
-      description:
-        "You need to predict demand, reduce downtime, and make faster decisions. Our AI solutions bring advanced insights to optimize production, automate processes, and improve quality to drive greater efficiency, lower costs, and smarter operations.",
-    },
-    {
-      id: 2,
-      image: "/assets/services/slider2.png",
-      alt: "cloud image",
-      title: "Cloud",
-      description:
-        "Scaling operations and accessing data anywhere is critical for your business. We help you move to the cloud securely and seamlessly, enabling faster collaboration and real-time visibility, empowering you with higher agility, resilience, and a future-ready infrastructure.",
-    },
-    {
-      id: 3,
-      image: "/assets/services/slider1.png",
-      alt: "cybersecurity image",
-      title: "Cybersecurity",
-      description:
-        "In today's digital landscape, protecting your data and systems is paramount. Our cybersecurity services safeguard your business from threats, ensuring compliance and building trust with your customers through robust security measures.",
-    },
-    {
-      id: 4,
-      image: "/assets/services/slider1.png",
-      alt: "data analytics image",
-      title: "Data Analytics",
-      description:
-        "In today's digital landscape, protecting your data and systems is paramount. Our cybersecurity services safeguard your business from threats, ensuring compliance and building trust with your customers through robust security measures.",
-    },
-  ],
-};
+// const manuelSliderData = {
+//   heading:
+//     "Our services ensure that you have a connected and efficient ecosystem",
+//   slides: [
+//     {
+//       id: 1,
+//       image: "/assets/services/slider1.png",
+//       alt: "ai image",
+//       title: "Ai",
+//       description:
+//         "You need to predict demand, reduce downtime, and make faster decisions. Our AI solutions bring advanced insights to optimize production, automate processes, and improve quality to drive greater efficiency, lower costs, and smarter operations.",
+//     },
+//     {
+//       id: 2,
+//       image: "/assets/services/slider2.png",
+//       alt: "cloud image",
+//       title: "Cloud",
+//       description:
+//         "Scaling operations and accessing data anywhere is critical for your business. We help you move to the cloud securely and seamlessly, enabling faster collaboration and real-time visibility, empowering you with higher agility, resilience, and a future-ready infrastructure.",
+//     },
+//     {
+//       id: 3,
+//       image: "/assets/services/slider1.png",
+//       alt: "cybersecurity image",
+//       title: "Cybersecurity",
+//       description:
+//         "In today's digital landscape, protecting your data and systems is paramount. Our cybersecurity services safeguard your business from threats, ensuring compliance and building trust with your customers through robust security measures.",
+//     },
+//     {
+//       id: 4,
+//       image: "/assets/services/slider1.png",
+//       alt: "data analytics image",
+//       title: "Data Analytics",
+//       description:
+//         "In today's digital landscape, protecting your data and systems is paramount. Our cybersecurity services safeguard your business from threats, ensuring compliance and building trust with your customers through robust security measures.",
+//     },
+//   ],
+// };
 
-const DarkSlider = () => {
+const DarkSlider = ({manuelSliderData}:{manuelSliderData:DarkSliderType}) => {
+ 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
