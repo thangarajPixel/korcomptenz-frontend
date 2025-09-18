@@ -163,9 +163,6 @@ body {
     @apply px-6;
   }
   @variant xl {
-    @apply max-w-6xl;
-  }
-  @variant xl {
     @apply max-w-[80rem] px-8;
   }
 }

@@ -4,10 +4,9 @@ import { Button } from "../ui/button";
 import InspireSectionCard from "./_utils/inspire-section-card";
 import { cn } from "@/lib/utils";
 
-const InspireSection = ( {insprieSection}: {insprieSection:InspireSectionType}) => {
-  console.log(insprieSection, 'insprieSection')
+const InspireSection = ({ inspireSection }: { inspireSection: InspireSectionType }) => {
 
-  const cards = insprieSection.list;
+  const cards = inspireSection.list;
   const distributeCards = React.useCallback(() => {
     const len = cards?.length;
     if (len === 2) return { left: [cards?.[0]], center: [cards?.[1]], right: [] };
@@ -31,14 +30,14 @@ const InspireSection = ( {insprieSection}: {insprieSection:InspireSectionType}) 
         <div className={cn("flex flex-col gap-5 ", centerSpan)}>
           <div className="hidden lg:flex flex-col text-center items-center justify-center h-full">
             <h1 className="text-6xl font-bold text-custom-gray mb-6 text-balance">
-              {insprieSection.title}
+              {inspireSection.title}
             </h1>
             <Button
               size="xl"
               arrow={true}
               className="variant:default lg:px-4 xl:px-8 py-2 text-4xl rounded-full inline-flex"
             >
-              {insprieSection.buttonText}
+              {inspireSection.buttonText}
             </Button>
           </div>
           {center?.map((card) => <InspireSectionCard key={`inspire-section-${card.id}`} card={card} />)}
@@ -55,7 +54,7 @@ const InspireSection = ( {insprieSection}: {insprieSection:InspireSectionType}) 
           arrow={true}
           className="variant:default text-md px-2 py-3 rounded-full w-full inline-flex"
         >
-          {insprieSection.buttonText}
+          {inspireSection.buttonText}
         </Button>
       </div>
     </div>

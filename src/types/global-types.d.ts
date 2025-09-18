@@ -27,3 +27,15 @@ type GlobalFieldType = {
   title?: string;
   subtitle2?: string;
 }
+
+
+type ApiErrorType = {
+  data: null,
+  error: {
+    status: number,
+    name: string,
+    message: string,
+    details: object
+  },
+  status: number
+}

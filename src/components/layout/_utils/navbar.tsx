@@ -94,7 +94,7 @@ export function Navbar() {
           >
             {/* Logo with enhanced animation */}
             <div className="flex items-center group cursor-pointer">
-              <div className="flex items-center space-x-2">
+              <Link href={'/'} className="flex items-center space-x-2">
                 <KorcomptenzImage
                   className="size-full"
                   src={jsonData.header.companyDetail.logo}
@@ -102,7 +102,7 @@ export function Navbar() {
                   width={100}
                   height={100}
                 />
-              </div>
+              </Link>
             </div>
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
@@ -119,7 +119,7 @@ export function Navbar() {
                         activeSection === item.label,
                     }
                   )}
-                 onMouseEnter={() => item.href && setActiveSection(item.label)}
+                  onMouseEnter={() => item.href && setActiveSection(item.label)}
 
                 >
                   {item.label}
@@ -154,14 +154,14 @@ export function Navbar() {
                     alt="menu"
                     fill
                     className={`absolute inset-0 transition-all duration-500 ease-out ${isMenuOpen
-                        ? "opacity-0 rotate-180 scale-75"
-                        : "opacity-100 rotate-0 scale-100"
+                      ? "opacity-0 rotate-180 scale-75"
+                      : "opacity-100 rotate-0 scale-100"
                       }`}
                   />
                   <X
                     className={`absolute inset-0  transition-all duration-500 ease-out ${isMenuOpen
-                        ? "opacity-100 rotate-0 scale-100"
-                        : "opacity-0 -rotate-180 scale-75"
+                      ? "opacity-100 rotate-0 scale-100"
+                      : "opacity-0 -rotate-180 scale-75"
                       }`}
                   />
                 </div>
@@ -186,8 +186,8 @@ export function Navbar() {
         {/* Enhanced Mobile Navigation Panel with slide animation */}
         <div
           className={`fixed top-16 left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl transition-all duration-500 ease-out ${isMenuOpen
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-4 opacity-0"
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-4 opacity-0"
             }`}
         >
           <div className="h-full overflow-y-auto">
@@ -195,8 +195,8 @@ export function Navbar() {
               {/* Enhanced Regular mobile nav items */}
               <div
                 className={`space-y-2 border-t border-border pt-6 transition-all duration-500 ease-out ${isMenuOpen
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-4"
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-4"
                   }`}
                 style={{ transitionDelay: "300ms" }}
               >
@@ -238,8 +238,8 @@ export function Navbar() {
               {/* Enhanced Mobile CTA buttons */}
               <div
                 className={`border-t border-border pt-6 transition-all duration-500 ease-out ${isMenuOpen
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
                   }`}
                 style={{ transitionDelay: "400ms" }}
               >
