@@ -8,6 +8,7 @@ import LightSlider from "@/components/light-slider/light-slider";
 import DarkSlider from "@/components/dark-slider/dark-slider";
 import SapSection from "@/components/sap-section";
 import { getPageService } from "@/services";
+import DemonstratreSection from "@/components/demonstrate-section";
 
 
 type Props = {
@@ -25,6 +26,7 @@ const Page = async ({ params }: Props) => {
       <DarkSlider />
       <DomainSection />
       <BenefitSection />
+      <DemonstratreSection/>
       <FaqSection />
     </div>
   );
