@@ -18,7 +18,7 @@ const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
           <h1 className="text-6xl md:text-8xl font-bold leading-tight">
             {weAreKorcomptenzData?.titleH1}
             <br />
-            <span className="text-6xl md:text-7xl font-semibold">{weAreKorcomptenzData?.titleH2}</span>
+            <span className="text-6xl md:text-7xl font-semibold">{weAreKorcomptenzData?.titleSpan}</span>
           </h1>
         </div>
 
@@ -36,9 +36,9 @@ const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
       <div className="relative m-1 md:m-0   cursor-pointer" onClick={() => setIsVideoOpen(true)}>
         <KorcomptenzImage
           src={APP_CONFIG.APP_URL_IMAGE + weAreKorcomptenzData.image?.url ||
-                                "/placeholder.svg"}
+            "/placeholder.svg"}
           className="w-full h-[280px] md:h-[500px] object-cover  rounded-4xl"
-          alt={ weAreKorcomptenzData.image?.alternativeText}
+          alt={weAreKorcomptenzData.image?.alternativeText}
           width={1112}
           height={500}
         />
