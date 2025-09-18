@@ -203,6 +203,22 @@ type FaqSectionType = {
   ];
 };
 
+type DemonstrationSectionType ={
+    title: string;
+    buttontext: string;
+    buttonlink: string;
+    list: {
+        id: number;
+        type: string;
+        image: ImageType;
+        title: string;
+        alt: ImageType;
+        description: string;
+        buttonText: string;
+        buttonLink: string;
+    }[];
+}
+
 type ComponentPropsMap = {
   SlidingSection: {
     id: string;
@@ -273,6 +289,11 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.faq-title";
     list: FaqSectionType;
+  };
+  DemonstrationSection:DemonstrationSectionType & {
+    id: string;
+    __component: "page-componets.demonstrate-section";
+    
   };
 };
 type ComponentType = keyof ComponentPropsMap;
