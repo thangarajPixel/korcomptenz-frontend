@@ -5,8 +5,9 @@ import InspireSectionCard from "./_utils/inspire-section-card";
 import { cn } from "@/lib/utils";
 
 const InspireSection = ( {insprieSection}: {insprieSection:InspireSectionType}) => {
+  console.log(insprieSection, 'insprieSection')
 
-  const cards = insprieSection.cards;
+  const cards = insprieSection.list;
   const distributeCards = React.useCallback(() => {
     const len = cards?.length;
     if (len === 2) return { left: [cards?.[0]], center: [cards?.[1]], right: [] };

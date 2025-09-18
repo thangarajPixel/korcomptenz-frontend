@@ -5,14 +5,17 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "../korcomptenz-image";
+import { APP_CONFIG } from "@/utils/app-config";
 
-
-
-
-
-export default function StickyCards({ className, stickyCards }: { className?: string, stickyCards: StickyCardsType }) {
-
-  const cardData = stickyCards.cardData;
+export default function StickyCards({
+  className,
+  stickyCards,
+}: {
+  className?: string;
+  stickyCards: StickyCardsType;
+}) {
+ 
+  const cardData = stickyCards.list;
   return (
     <div className="relative ">
       <div className="relative container-md ">
@@ -21,11 +24,13 @@ export default function StickyCards({ className, stickyCards }: { className?: st
             {stickyCards.title}
           </h1>
 
-          <Button className="hidden sm:inline-flex variant:default text-4xl" size="xl">
+          <Button
+            className="hidden sm:inline-flex variant:default text-4xl"
+            size="xl"
+          >
             {stickyCards.buttonText}
             <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
           </Button>
-
         </div>
         {cardData?.map((card, index) => (
           <div
@@ -40,7 +45,7 @@ export default function StickyCards({ className, stickyCards }: { className?: st
                 className={cn(
                   "overflow-hidden bg-light-white border-0 w-full py-0 h-auto lg:min-h-[28rem]",
                   "flex flex-col md:flex-row md:items-stretch rounded-4xl ",
-                  index && 'sm:shadow-xl shadow-none',
+                  index && "sm:shadow-xl shadow-none",
                   className
                 )}
               >
@@ -81,7 +86,6 @@ export default function StickyCards({ className, stickyCards }: { className?: st
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </div>
-
                 </div>
 
                 {/* Visual Section */}
@@ -92,8 +96,11 @@ export default function StickyCards({ className, stickyCards }: { className?: st
                 >
                   <KorcomptenzImage
                     className="w-full h-44 md:h-full object-cover"
-                    src={card.image}
-                    alt={card.title}
+                    src={
+                      APP_CONFIG.APP_URL_IMAGE + card.image?.url ||
+                      "/placeholder.svg"
+                    }
+                    alt={card.image?.alternativeText}
                     width={1000}
                     height={1000}
                   />
@@ -104,7 +111,7 @@ export default function StickyCards({ className, stickyCards }: { className?: st
         ))}
 
         <div className="flex items-center justify-center sm:hidden relative mt-5">
-          <Button size='xl' className="w-full lg:w-fit " arrow={true}>
+          <Button size="xl" className="w-full lg:w-fit " arrow={true}>
             Explore All
           </Button>
         </div>

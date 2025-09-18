@@ -1,19 +1,21 @@
 "use client"
 
+import KorcomptenzImage from "@/components/korcomptenz-image"
 import { cn } from "@/lib/utils"
+import { APP_CONFIG } from "@/utils/app-config"
 import { motion } from "motion/react"
-import Image from "next/image"
+
 
 export type InsightCardType = {
   id: string
   title: string
-  imageSrc: string
+  image: ImageType
   alt: string
   className?: string
   category: string
 }
 
-export function InsightCard({ title, imageSrc, alt, className, category }: InsightCardType) {
+export function InsightCard({ title, image,  className, category }: InsightCardType) {
 
   return (
     <motion.article
@@ -33,9 +35,9 @@ export function InsightCard({ title, imageSrc, alt, className, category }: Insig
         </span>
 
         <div className="relative aspect-[4/3] w-full rounded-4xl">
-          <Image
-            src={imageSrc || "/placeholder.svg"}
-            alt={alt}
+          <KorcomptenzImage
+            src={APP_CONFIG.APP_URL_IMAGE+image?.url || "/placeholder.svg"}
+            alt={image?.alternativeText}
             // fill
             height={1000}
             width={1000}

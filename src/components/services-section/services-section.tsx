@@ -7,14 +7,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 import KorcomptenzImage from "../korcomptenz-image";
+import { APP_CONFIG } from "@/utils/app-config";
 
-
-
-
-export function AnimatedTabsHero({ className,content }: { className?: string,content:ServicesSectionType[] }) {
-
-
-
+export function AnimatedTabsHero({
+  className,
+  content,
+}: {
+  className?: string;
+  content: ServicesSectionType[];
+}) {
+  
   const [value, setValue] = React.useState<string>(content[0].label);
 
   const activeContent = content.find((c) => c.label === value) || content[0];
@@ -47,8 +49,14 @@ export function AnimatedTabsHero({ className,content }: { className?: string,con
                 {value === t.label && (
                   <motion.div
                     layoutId="active-pill"
-                    transition={{ type: "spring", stiffness: 120, damping: 20, duration: 0.45 }}
-                    className={cn("absolute inset-0 z-0   bg-secondary-foreground",
+                    transition={{
+                      type: "spring",
+                      stiffness: 120,
+                      damping: 20,
+                      duration: 0.45,
+                    }}
+                    className={cn(
+                      "absolute inset-0 z-0   bg-secondary-foreground"
                       // index === 1 && "rounded-l-md", index === TABS.length - 2 && "rounded-r-md"
                     )}
                   />
@@ -76,10 +84,7 @@ export function AnimatedTabsHero({ className,content }: { className?: string,con
             <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
               {activeContent.description}
             </p>
-            <Button
-              size="xl"
-              arrow={true}
-            >
+            <Button size="xl" arrow={true}>
               Know More
             </Button>
           </motion.div>
@@ -95,8 +100,11 @@ export function AnimatedTabsHero({ className,content }: { className?: string,con
             className="relative h-full w-full lg:w-3/4"
           >
             <KorcomptenzImage
-              src={activeContent.image || "/placeholder.svg"}
-              alt={activeContent.label}
+              src={
+                APP_CONFIG.APP_URL_IMAGE + activeContent.image?.url ||
+                "/placeholder.svg"
+              }
+              alt={activeContent.image?.alternativeText}
               className="h-fit w-full rounded-xl object-contain"
               width={1000}
               height={1000}

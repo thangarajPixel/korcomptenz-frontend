@@ -21,22 +21,25 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props
+  console.log(data, 'data')
   return data.map((item, index) => {
+   
     switch (item.__component) {
+     
       case 'home.hero-section-one':
         return <SlidingSection key={index} slides={item.list} />
       case 'page-componets.sticky-cards-list':
-        return <StickyCards key={index} stickyCards={item.list} />
+        return <StickyCards key={index} stickyCards={item} />
       case 'page-componets.insights-section':
-        return <InsightsSection key={index} insights={item.list} />
+        return <InsightsSection key={index} insights={item} />
       case 'home.opportunity':
-        return <Opportunities key={index} careers={item.list} />
+        return <Opportunities key={index} careers={item} />
       case 'home.services-section':
         return <ServicesSection key={index} content={item.list} />
       case 'page-componets.inspire-section':
-        return <InspireSection key={index} insprieSection={item.list} />
+        return <InspireSection key={index} insprieSection={item} />
       case 'home.we-are-korcomptenz':
-        return <WeAreKorcomptenzSection key={index} weAreKorcomptenzData={item.list} />
+        return <WeAreKorcomptenzSection key={index} weAreKorcomptenzData={item} />
       case 'home.banner':
         return <BannerSection key={index} />
       case 'sap-section':

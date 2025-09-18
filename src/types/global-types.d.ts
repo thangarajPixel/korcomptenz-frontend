@@ -13,6 +13,7 @@ type ImageType = {
   size: number;
   ext: string;
   mime: string;
+includes?: string
 }
 
 

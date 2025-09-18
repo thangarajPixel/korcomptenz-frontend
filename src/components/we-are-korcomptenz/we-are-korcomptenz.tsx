@@ -2,11 +2,13 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import React from "react";
 import { VideoPopup } from "../video-popup/video-popup";
+import { APP_CONFIG } from "@/utils/app-config";
 
 
 const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
   weAreKorcomptenzData: WeAreKorcomptenzSectionType
 }) => {
+
   const [isVideoOpen, setIsVideoOpen] = React.useState(false);
   return (
     <div className="container-md md:mt-24">
@@ -33,9 +35,10 @@ const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
 
       <div className="relative m-1 md:m-0   cursor-pointer" onClick={() => setIsVideoOpen(true)}>
         <KorcomptenzImage
-          src={weAreKorcomptenzData?.image}
+          src={APP_CONFIG.APP_URL_IMAGE + weAreKorcomptenzData.image?.url ||
+                                "/placeholder.svg"}
           className="w-full h-[280px] md:h-[500px] object-cover  rounded-4xl"
-          alt="video-thumb"
+          alt={ weAreKorcomptenzData.image?.alternativeText}
           width={1112}
           height={500}
         />

@@ -8,33 +8,10 @@ import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
 
 
-// const insights: InsightCardType[] = [
-//   {
-//     id: "1",
-//     title: "Unlocking Agentic AI",
-//     category: "Blog",
-//     imageSrc: "/assets/home/6d93e01234b06061627de2e22e4fdce3e8166833.jpg",
 
-//     alt: ""
-//   },
-//   {
-//     id: "2",
-//     title: "Achieving Process Excellence with SAP",
-//     category: "Whitepaper",
-//     imageSrc: "/assets/home/e0dcec7d57469242884ca2941e49dfaa255aa9fd.jpg",
-
-//     alt: ""
-//   },
-//   {
-//     id: "3",
-//     title: "Azure stack",
-//     category: "E-Book",
-//     imageSrc: "/assets/home/6dc93a4dd03a487291f22843c0f97b56dc453aed.jpg",
-//     alt: ""
-//   },
-// ]
 
 export default function InsightsSection({insights}: {insights:InsightsSectionType}) {
+ 
 
   return (
     <section aria-labelledby="insights-heading" className="px-0 container-md ">
@@ -45,7 +22,7 @@ export default function InsightsSection({insights}: {insights:InsightsSectionTyp
         >
          {insights.title}
         </motion.h2>
-        <InsightsMobileCarousel items={insights.items} />
+        <InsightsMobileCarousel items={insights.list} />
         <motion.div
           className="md:flex flex-row  items-center justify-center hidden "
           initial={{ opacity: 0, y: 6 }}
@@ -57,7 +34,7 @@ export default function InsightsSection({insights}: {insights:InsightsSectionTyp
             href="#"
           >
             <Button size="xl" arrow={true} className=" variant:default px-8 py-2 text-4xl rounded-full inline-flex">
-            {insights.buttonLabel}
+            {insights.buttontext}
             </Button>
           </Link>
         </motion.div>
@@ -68,7 +45,7 @@ export default function InsightsSection({insights}: {insights:InsightsSectionTyp
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
         >
-          {insights.items.map((item, index) => (
+          {insights.list.map((item, index) => (
             <InsightCard key={item.id} {...item} className={cn('relative', (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] ")} />
           ))}
         </motion.div>
@@ -81,7 +58,7 @@ export default function InsightsSection({insights}: {insights:InsightsSectionTyp
         >
           <Link href="#" >
             <Button size="lg" arrow={true}>
-         {insights.buttonLabel}
+         {insights.buttontext}
             </Button>
           </Link>
         </motion.div>

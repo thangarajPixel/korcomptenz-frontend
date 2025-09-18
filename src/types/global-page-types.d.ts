@@ -1,14 +1,13 @@
-
 type SlidingSectionType = {
-  id: number,
-  image: string,
-  alt: string,
-  title: string,
-  subtitle?: string,
-  subtitle2?: string,
-  buttonText: string,
-  buttonAction: string,
-  mobileImage: string,
+  id: number;
+  image: ImageType;
+  alt: string;
+  title: string;
+  subtitle?: string;
+  subtitle2?: string;
+  buttonText: string;
+  buttonAction: string;
+  mobileImage: ImageType;
   description?: string;
 };
 
@@ -16,79 +15,73 @@ type ServicesSectionType = {
   label: string;
   heading: string;
   description: string;
-  image?: string;
-}
+  image?: ImageType;
+};
 
 type InspireSectionType = {
-
   title: string;
   buttonText: string;
 
-  cards: {
+  list: {
     id: string;
     position: string;
-    image: string;
+    image: ImageType;
     alt: string;
     title: string;
     order: string;
     description: string;
   }[];
-}
+};
 
- type StickyCardsType = {
+type StickyCardsType = {
+  title: string;
+  buttonText: string;
+  list: {
+    specificId: string;
     title: string;
+    description: string;
     buttonText: string;
-    cardData: {
-        specificId: string;
-        title: string;
-        description: string;
-        buttonText: string;
-        image: string;
-    }[];
-}
+    image: ImageType;
+  }[];
+};
 
 type InsightsSectionType = {
   title: string;
-  buttonLabel: string;
+  buttontext: string;
   buttonHref: string;
-  items: {
+  list: {
     id: string;
     title: string;
     category: string;
-    imageSrc: string;
+    image: imageType;
     alt: string;
   }[];
-}
+};
 
 type OpportunitiesType = {
   description: string;
-  exploreBtn: string;
+  buttonText: string;
   profiles: {
     id: number;
-    src: string;
-    alt: string;
+    image: ImageType;
   }[];
-  heading: {
-    part1: string;
-    part2: string;
-    highlight1: string;
-    highlight2: string;
-  };
-  images: {
-    arrow: string;
-    banner: string;
-  };
-}
-type WeAreKorcomptenzSectionType = {
+  breakOne: string;
+  breakTwo: string;
+  breakThree: string;
+  breakFour: string;
 
+  arrowImage: ImageType;
+  bannerImage: ImageType;
+};
+type WeAreKorcomptenzSectionType = {
   link: string;
   titleH1: string;
   titleH2: string;
   p1: string;
   p2: string;
-  image: string;
+  image: ImageType;
   videoSrc: string;
-}
+};
 
 type BannerSectionType = {
   id: number;
@@ -100,7 +93,7 @@ type BannerSectionType = {
   altMobile: string;
   title: string;
   description: string;
-}
+};
 
 type SapSectionType = {
   heading: string;
@@ -125,32 +118,32 @@ type LightSliderType = {
   title: string;
   image: string;
   alt: string;
-  slideContent: [{
-    id: number,
-    SlideContent: [
-      {
-        id: number,
-        title: string,
-        description: string
-      }
-    ]
-  }
-
-  ]
-}
+  slideContent: [
+    {
+      id: number;
+      SlideContent: [
+        {
+          id: number;
+          title: string;
+          description: string;
+        }
+      ];
+    }
+  ];
+};
 
 type DarkSliderType = {
   heading: string;
   slides: [
     {
-      id: number,
-      image: string,
-      alt: string,
-      title: string,
-      description: string
+      id: number;
+      image: string;
+      alt: string;
+      title: string;
+      description: string;
     }
-  ]
-}
+  ];
+};
 type StickyTitleListType = {
   buttonText?: string;
   description?: string;
@@ -170,124 +163,117 @@ type StickyTitleListType = {
       ext: string;
       mime: string;
     }
-  ]
+  ];
   link?: string;
   mobile_image?: ImageType;
   subtitle?: string;
   title?: string;
   subtitle2?: string;
-}
+};
 type DomainSectionType = {
   title: string;
   slides: [
     {
-      id: number,
-      title: string,
-      description: string
-      image: string,
-      alt: string,
-      type: string,
-      buttonText: string,
-
+      id: number;
+      title: string;
+      description: string;
+      image: string;
+      alt: string;
+      type: string;
+      buttonText: string;
     }
-  ]
-
-}
+  ];
+};
 type BenefitSectionType = {
   title: string;
   image: string;
   cards: [
     {
-      id: number,
-      number: string,
-      description: string
+      id: number;
+      number: string;
+      description: string;
     }
-  ]
-}
+  ];
+};
 type FaqSectionType = {
   title: string;
   faqs: [
     {
-      id: number,
-      question: string,
-      answer: string
+      id: number;
+      question: string;
+      answer: string;
     }
-  ]
-}
+  ];
+};
 
 type ComponentPropsMap = {
   SlidingSection: {
-    __component: 'home.hero-section-one';
-    list: SlidingSectionType[]
+    __component: "home.hero-section-one";
+    list: SlidingSectionType[];
   };
   ServicesSection: {
-    __component: 'home.services-section';
-    list: ServicesSectionType[]
+    __component: "home.services-section";
+    list: ServicesSectionType[];
   };
-  WeAreKorcomptenzSection: {
-    __component: 'home.we-are-korcomptenz';
-    list: WeAreKorcomptenzSectionType
-
-
+  WeAreKorcomptenzSection:WeAreKorcomptenzSectionType & {
+    __component: "home.we-are-korcomptenz";
+    
   };
-  InspireSection: {
-    __component: 'page-componets.inspire-section';
-    list: InspireSectionType
-
+  InspireSection: InspireSectionType & {
+    __component: "page-componets.inspire-section";
   };
-  StickyCards: {
-    __component: 'page-componets.sticky-cards-list';
-    list: StickyCardsType
+  StickyCards:StickyCardsType & {
+    __component: "page-componets.sticky-cards-list";
+   
   };
-  InsightsSection: {
-    __component: 'page-componets.insights-section';
-    list: InsightsSectionType
+  InsightsSection:InsightsSectionType & {
+    __component: "page-componets.insights-section";
+  
   };
-  Opportunities: {
-    __component: 'home.opportunity';
-    list: OpportunitiesType;
+  Opportunities:OpportunitiesType & {
+    __component: "home.opportunity";
+   
   };
   BannerSection: {
-    __component: 'home.banner';
+    __component: "home.banner";
     list: BannerSectionType;
   };
   SapSection: {
-    __component: 'sap-section';
+    __component: "sap-section";
     list: SapSectionType;
   };
   LightSlider: {
-    __component: 'light-slider';
+    __component: "light-slider";
     list: LightSliderType;
   };
   DarkSlider: {
-    __component: 'dark-slider';
+    __component: "dark-slider";
     list: DarkSliderType;
   };
   StickyTitleList: {
-    __component: 'sticky-title-list';
+    __component: "sticky-title-list";
     list: StickyTitleListType;
   };
   DomainSection: {
-    __component: 'domain-section';
+    __component: "domain-section";
     list: DomainSectionType;
   };
   BenefitSection: {
-    __component: 'benefit-section';
-    list: BenefitSectionType
+    __component: "benefit-section";
+    list: BenefitSectionType;
   };
   FaqSection: {
-    __component: 'faq-section';
-    list: FaqSectionType
+    __component: "faq-section";
+    list: FaqSectionType;
   };
-}
+};
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
 
 type PagesListType = {
-  id: string,
-  locale?: string,
-  slug: string,
-  list: ComponentPropsType[]
-}
-
-
+  id: string;
+  locale?: string;
+  slug: string;
+  list: ComponentPropsType[];
+  data: ComponentPropsType[];
+};
