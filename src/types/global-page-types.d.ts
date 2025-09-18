@@ -76,7 +76,7 @@ type OpportunitiesType = {
 type WeAreKorcomptenzSectionType = {
   link: string;
   titleH1: string;
-  titleH2: string;
+  titleSpan: string;
   p1: string;
   p2: string;
   image: ImageType;
@@ -215,24 +215,24 @@ type ComponentPropsMap = {
     __component: "home.services-section";
     list: ServicesSectionType[];
   };
-  WeAreKorcomptenzSection:WeAreKorcomptenzSectionType & {
+  WeAreKorcomptenzSection: WeAreKorcomptenzSectionType & {
     __component: "home.we-are-korcomptenz";
-    
+
   };
   InspireSection: InspireSectionType & {
     __component: "page-componets.inspire-section";
   };
-  StickyCards:StickyCardsType & {
+  StickyCards: StickyCardsType & {
     __component: "page-componets.sticky-cards-list";
-   
+
   };
-  InsightsSection:InsightsSectionType & {
+  InsightsSection: InsightsSectionType & {
     __component: "page-componets.insights-section";
-  
+
   };
-  Opportunities:OpportunitiesType & {
+  Opportunities: OpportunitiesType & {
     __component: "home.opportunity";
-   
+
   };
   BannerSection: {
     __component: "home.banner";

@@ -203,11 +203,11 @@ body {
     @apply text-[1.063rem];
   }
 }
-/* lg: 18px sm: 16px */
+/* lg: 18px sm: 17px */
 @utility text-lg {
   @apply text-[1.125rem];
   @variant sm {
-    @apply text-[1rem];
+    @apply text-[1.063rem];
   }
   @variant lg {
     @apply text-[1.125rem];
