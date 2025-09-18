@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 
 import KorcomptenzImage from "../korcomptenz-image";
 import { APP_CONFIG } from "@/utils/app-config";
+import Link from "next/link";
 
 export function AnimatedTabsHero({
   className,
@@ -16,7 +17,7 @@ export function AnimatedTabsHero({
   className?: string;
   content: ServicesSectionType[];
 }) {
-  
+
   const [value, setValue] = React.useState<string>(content[0].label);
 
   const activeContent = content.find((c) => c.label === value) || content[0];
@@ -84,9 +85,11 @@ export function AnimatedTabsHero({
             <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
               {activeContent.description}
             </p>
-            <Button size="xl" arrow={true}>
-              Know More
-            </Button>
+            <Link href={activeContent.link}>
+              <Button size="xl" arrow={true}>
+                {activeContent.buttonText}
+              </Button>
+            </Link>
           </motion.div>
         </AnimatePresence>
 

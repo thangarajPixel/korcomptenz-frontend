@@ -16,6 +16,8 @@ type ServicesSectionType = {
   heading: string;
   description: string;
   image?: ImageType;
+  link: string;
+  buttonText: string;
 };
 
 type InspireSectionType = {
