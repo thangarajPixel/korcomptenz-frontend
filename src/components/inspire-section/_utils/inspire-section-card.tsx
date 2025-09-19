@@ -23,8 +23,8 @@ const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
             </div>
             <div className="flex justify-end  md:h-3/4 lg:pb-28  pr-0 p-6 ">
               <KorcomptenzImage
-                src={
-                  APP_CONFIG.APP_URL_IMAGE + card.image?.url ||
+                src={card.image?.url?
+                  APP_CONFIG.APP_URL_IMAGE + card.image?.url :
                   "/placeholder.svg"
                 }
                 alt={card.image?.alternativeText}
@@ -38,8 +38,8 @@ const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
           <>
             <div className="flex mb-4 p-6">
               <KorcomptenzImage
-                src={
-                  APP_CONFIG.APP_URL_IMAGE + card.image?.url ||
+                src={card.image?.url?
+                  APP_CONFIG.APP_URL_IMAGE + card.image?.url :
                   "/placeholder.svg"
                 }
                 alt={card.image?.alternativeText}

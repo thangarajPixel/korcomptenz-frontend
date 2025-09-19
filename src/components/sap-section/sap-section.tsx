@@ -48,9 +48,9 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
               {" "}
               {/*chnage */}
               <KorcomptenzImage
-                src={
+                src={sapSectionData.imageSection.image1?.image.url?
                   APP_CONFIG.APP_URL_IMAGE +
-                  sapSectionData.imageSection.image1?.image.url
+                  sapSectionData.imageSection.image1?.image.url:"/placeholder.svg"
                 }
                 alt={sapSectionData.imageSection.image1?.image?.alternativeText}
                 width={400}
@@ -74,9 +74,9 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
               </div>
               <div className=" rounded-3xl overflow-hidden">
                 <KorcomptenzImage
-                  src={
+                  src={sapSectionData.imageSection.image2?.image.url?
                     APP_CONFIG.APP_URL_IMAGE +
-                    sapSectionData.imageSection.image2?.image.url
+                    sapSectionData.imageSection.image2?.image.url:"/placeholder.svg"
                   }
                   alt={sapSectionData.imageSection.image2?.image?.alternativeText}
                   width={600}
