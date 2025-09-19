@@ -5,57 +5,68 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
+import { APP_CONFIG } from "@/utils/app-config";
 
-const solutionsData = {
-  title: " Solutions that elevate outcomes for your business",
-  image: "/assets/services/solutionimage.png",
-  alt: "Solutions Image",
+// const LightSliderData = {
+//   title: " Solutions that elevate outcomes for your business",
+//   image: "/assets/services/solutionimage.png",
+//   alt: "Solutions Image",
 
-  slideContent: [
-    {
-      id: 1,
-      solutions: [
-        {
-          title: "SAP IBP",
-          description:
-            "Optimize your supply chain with SAP Integrated Business Planning to get real-time insights and advanced tools for better forecasting and inventory management.",
-        },
-        {
-          title: "SAP Merger and Divestiture",
-          description:
-            "Streamline M&A and spin-off processes by automating data separation, regulatory compliance, and integration to reduce risk.",
-        },
-        {
-          title: "Joule AI",
-          description:
-            "Harness generative AI to empower users with instant contextual insights, natural-language queries, and smart recommendations directly within SAP.",
-        },
-      ],
-    },
-    {
-      id: 2,
-      solutions: [
-        {
-          title: "Business Suite on Public Cloud",
-          description:
-            "Run your SAP applications on a shared cloud environment for rapid rollout, enhanced scalability, and lower infrastructure costs with minimal IT overhead.",
-        },
-        {
-          title: "Business Suite on Private Cloud",
-          description:
-            "Use a dedicated cloud environment for speed and flexibility, while ensuring tighter control and enhanced security.",
-        },
-        {
-          title: "BTP Platform",
-          description:
-            "Integrate, innovate, and extend applications with comprehensive data management, analytics, AI capabilities, and cloud services for business agility and efficiency.",
-        },
-      ],
-    },
-  ],
-};
+//   list: [
+//     {
+//       id: 1,
+//       solutions: [
+//         {
+//           id: 1,
+//           title: "SAP IBP",
+//           description:
+//             "Optimize your supply chain with SAP Integrated Business Planning to get real-time insights and advanced tools for better forecasting and inventory management.",
+//         },
+//         {
+//           id: 2,
+//           title: "SAP Merger and Divestiture",
+//           description:
+//             "Streamline M&A and spin-off processes by automating data separation, regulatory compliance, and integration to reduce risk.",
+//         },
+//         {
+//           id: 3,
+//           title: "Joule AI",
+//           description:
+//             "Harness generative AI to empower users with instant contextual insights, natural-language queries, and smart recommendations directly within SAP.",
+//         },
+//       ],
+//     },
+//     {
+//       id: 2,
+//       solutions: [
+//         {
+//           id: 1,
+//           title: "Business Suite on Public Cloud",
+//           description:
+//             "Run your SAP applications on a shared cloud environment for rapid rollout, enhanced scalability, and lower infrastructure costs with minimal IT overhead.",
+//         },
+//         {
+//           id: 2,
+//           title: "Business Suite on Private Cloud",
+//           description:
+//             "Use a dedicated cloud environment for speed and flexibility, while ensuring tighter control and enhanced security.",
+//         },
+//         {
+//           id: 3,
+//           title: "BTP Platform",
+//           description:
+//             "Integrate, innovate, and extend applications with comprehensive data management, analytics, AI capabilities, and cloud services for business agility and efficiency.",
+//         },
+//       ],
+//     },
+//   ],
+// };
 
-const LightSlider = () => {
+const LightSlider = ({
+  LightSliderData,
+}: {
+  LightSliderData: LightSliderType;
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -87,20 +98,21 @@ const LightSlider = () => {
   return (
     <div className="container-md py-10">
       {/* Solutions Carousel Section */}
-      <section >
-        <div className="px-6 mx-auto">
+      <section>
+        <div className=" mx-auto">
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-12">
             <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
-              {solutionsData.title}
+              {LightSliderData.title}
             </h2>
 
             {/* Navigation Arrows */}
             <div className="hidden lg:flex items-center gap-4 mt-4">
               <Button
                 size="icon"
-                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
+                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${
+                  !prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                }`}
                 onClick={scrollPrev}
                 disabled={!prevBtnEnabled}
               >
@@ -108,14 +120,14 @@ const LightSlider = () => {
               </Button>
               <Button
                 size="icon"
-                className={`rounded-full size-12  hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
+                className={`rounded-full size-12  hover:bg-primary hover:text-white ${
+                  !nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                }`}
                 onClick={scrollNext}
                 disabled={!nextBtnEnabled}
               >
                 <ChevronRight className="size-6" />
               </Button>
-
             </div>
           </div>
 
@@ -124,8 +136,12 @@ const LightSlider = () => {
             {/* Left: Business Meeting Image */}
             <div className="rounded-3xl overflow-hidden">
               <KorcomptenzImage
-                src={solutionsData.image}
-                alt={solutionsData.alt}
+                src={
+                  LightSliderData.image?.url
+                    ? APP_CONFIG.APP_URL_IMAGE + LightSliderData.image?.url
+                    : "/placeholder.svg"
+                }
+                alt={LightSliderData.image?.alternativeText}
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"
@@ -136,13 +152,14 @@ const LightSlider = () => {
 
             <div ref={emblaRef} className=" overflow-hidden">
               <div className="flex flex-row gap-4">
-                {solutionsData.slideContent.map((slide, index) => (
+                {LightSliderData.list.map((slide, index) => (
                   <div
                     key={slide.id}
-                    className={`min-w-full pl-4 pr-1 relative ${index === solutionsData.slideContent.length - 1
-                      ? "mr-[0px]"
-                      : ""
-                      }`}
+                    className={`min-w-full pl-4 pr-1 relative ${
+                      index === LightSliderData.list.length - 1
+                        ? "mr-[0px]"
+                        : ""
+                    }`}
                   >
                     <div className="space-y-4">
                       {slide.solutions.map((solution, solutionIndex) => (

@@ -1,34 +1,19 @@
-import BannerSection from "@/components/banner-section";
-import BenefitSection from "@/components/benefit-section/benefit-section";
-import DomainSection from "@/components/domain-section/domain-section";
-import { StickyTitleList } from "@/components/sticky-title-list";
-import type { Params } from "next/dist/server/request/params";
+
 import React from "react";
-import FaqSection from "@/components/faq-section";
-import LightSlider from "@/components/light-slider/light-slider";
-import DarkSlider from "@/components/dark-slider/dark-slider";
-import SapSection from "@/components/sap-section";
-import TechPartner from "@/components/tech-partner-section/tech-partner";
-import BuildConnect from "@/components/build-connect";
+import { getPageService } from "@/services";
+import GlobalPage from "@/components/global-page";
 
 type Props = {
-  params: Promise<Params>;
+  params: Promise<{ slug: string[] }>;
 };
 
 const Page = async ({ params }: Props) => {
   const { slug } = await params;
+  const data = await getPageService({ slug });
+
   return (
-    <div key={JSON.stringify(slug)}>
-      <BannerSection />
-      <SapSection />
-      <LightSlider />
-      <StickyTitleList />
-      <DarkSlider />
-      <DomainSection />
-      <BenefitSection />
-      <FaqSection/>
-      <TechPartner/>
-      <BuildConnect/>
+    <div className="flex flex-col gap-10 md:gap-16">
+      <GlobalPage data={data.list} />
     </div>
   );
 };

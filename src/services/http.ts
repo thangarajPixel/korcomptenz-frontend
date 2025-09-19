@@ -14,8 +14,9 @@ const http = axios.create({
 http.interceptors.request.use(async (config) => {
   try {
     return config;
-  } catch (error) {
-    console.error('Error in request interceptor:', error);
+  } catch {
+    // eslint no-console: "error"
+    // console.error('Error in request interceptor:', error);
     return config;
   }
 });
@@ -46,12 +47,6 @@ http.interceptors.response.use(
         // Internal Server Error
         return Promise.reject(error?.response.data);
       }
-
-      if (error.response?.status === 508) {
-        // Loop Detected
-        return Promise.reject(error?.response.data);
-      }
-
       return Promise.reject(errorData);
     }
     return Promise.reject(error?.response?.data);

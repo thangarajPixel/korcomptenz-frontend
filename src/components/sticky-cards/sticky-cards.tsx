@@ -5,55 +5,36 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "../korcomptenz-image";
+import { APP_CONFIG } from "@/utils/app-config";
 
-const cardData = [
-  {
-    id: "001",
-    title:
-      "How did an optical manufacturer improve process performance by 50%?",
-    description:
-      "We helped them efficiently migrate from AX to Microsoft Dynamics 365 F&O.",
-    buttonText: "Dive Deeper",
-    image: "/assets/home/1ff3496e049b548f0f9b9b28ccbefc8f7f22f880.png", // replace with actual path
-  },
-  {
-    id: "002",
-    title:
-      "What helped a leading Process Industry achieve 30% reduction in delivery time?",
-    description:
-      "We accelerated this outcome by unifying SAP systems and enabling rapid SLO transition unified three country codes into one platform.",
-    buttonText: "Dive Deeper",
-    image: "/assets/home/d7bcd5707f3eafcddf4552d420e9401416063ee2.png", // replace with actual path
-  },
-  {
-    id: "003",
-    title:
-      "How did an industrial manufacturer reduce its IT infrastructure costs by 30%?",
-    description:
-      "We streamlined manufacturing and built scalable cloud solutions to help them reduce costs and accelerate growth.",
-    buttonText: "Dive Deeper",
-    image: "/assets/home/520f5641cdab551d39236bc1517c269f8dc87c4a.png", // replace with actual path
-  },
-];
-
-export default function StickyCards({ className }: { className?: string }) {
+export default function StickyCards({
+  className,
+  stickyCards,
+}: {
+  className?: string;
+  stickyCards: StickyCardsType;
+}) {
+ 
+  const cardData = stickyCards.list;
   return (
     <div className="relative ">
       <div className="relative container-md ">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-5">
           <h1 className=" font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
-            Korcomptenz in action
+            {stickyCards.title}
           </h1>
 
-          <Button className="hidden sm:inline-flex variant:default text-4xl" size="xl">
-            Explore All
+          <Button
+            className="hidden sm:inline-flex variant:default text-4xl"
+            size="xl"
+          >
+            {stickyCards.buttonText}
             <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
           </Button>
-
         </div>
-        {cardData.map((card, index) => (
+        {cardData?.map((card, index) => (
           <div
-            key={card.id}
+            key={card.specificId}
             className={cn(
               "sm:sticky relative sm:top-48 top-0 ",
               `z-[${index + 10}] sm:mb-12`
@@ -64,13 +45,13 @@ export default function StickyCards({ className }: { className?: string }) {
                 className={cn(
                   "overflow-hidden bg-light-white border-0 w-full py-0 h-auto lg:min-h-[28rem]",
                   "flex flex-col md:flex-row md:items-stretch rounded-4xl ",
-                  index && 'sm:shadow-xl shadow-none',
+                  index && "sm:shadow-xl shadow-none",
                   className
                 )}
               >
                 {/* ID */}
                 <div className="hidden md:block text-lg pl-5 pt-14 font-medium text-custom-black-1 ms-8 mt-3  uppercase tracking-wide">
-                  {card.id}
+                  {card.specificId}
                 </div>
 
                 {/* Content */}
@@ -105,7 +86,6 @@ export default function StickyCards({ className }: { className?: string }) {
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </div>
-
                 </div>
 
                 {/* Visual Section */}
@@ -116,8 +96,11 @@ export default function StickyCards({ className }: { className?: string }) {
                 >
                   <KorcomptenzImage
                     className="w-full h-44 md:h-full object-cover"
-                    src={card.image}
-                    alt={card.title}
+                    src={
+                      APP_CONFIG.APP_URL_IMAGE + card.image?.url ||
+                      "/placeholder.svg"
+                    }
+                    alt={card.image?.alternativeText}
                     width={1000}
                     height={1000}
                   />
@@ -128,7 +111,7 @@ export default function StickyCards({ className }: { className?: string }) {
         ))}
 
         <div className="flex items-center justify-center sm:hidden relative mt-5">
-          <Button size='xl' className="w-full lg:w-fit " arrow={true}>
+          <Button size="xl" className="w-full lg:w-fit " arrow={true}>
             Explore All
           </Button>
         </div>

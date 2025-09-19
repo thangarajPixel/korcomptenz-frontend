@@ -1,44 +1,47 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
+import { APP_CONFIG } from "@/utils/app-config";
 
-const benefitData = {
-  title: "Focusing on benefits that truly matter",
-  image: "/assets/services/benefitimage.png",
-  cards: [
-    {
-      id: 1,
-      number: "01",
-      description:
-        "Gain real-time insights across business functions to make smarter, data-driven decisions.",
-    },
-    {
-      id: 2,
-      number: "02",
-      description:
-        "Automate routine tasks and streamline processes to reduce manual effort and increase productivity.",
-    },
-    {
-      id: 3,
-      number: "03",
-      description:
-        "Break down silos by unifying data, teams, and tools across departments and geographies.",
-    },
-    {
-      id: 4,
-      number: "04",
-      description:
-        "Adopt a modular platform that grows with your business and adapts to changing needs.",
-    },
-    {
-      id: 5,
-      number: "05",
-      description:
-        "Deliver personalized experiences and faster service through integrated sales, marketing, and support tools.",
-    },
-  ],
-};
+// const benefitData = {
+//   title: "Focusing on benefits that truly matter",
+//   image: "/assets/services/benefitimage.png",
+//   cards: [
+//     {
+//       id: 1,
+//       number: "01",
+//       description:
+//         "Gain real-time insights across business functions to make smarter, data-driven decisions.",
+//     },
+//     {
+//       id: 2,
+//       number: "02",
+//       description:
+//         "Automate routine tasks and streamline processes to reduce manual effort and increase productivity.",
+//     },
+//     {
+//       id: 3,
+//       number: "03",
+//       description:
+//         "Break down silos by unifying data, teams, and tools across departments and geographies.",
+//     },
+//     {
+//       id: 4,
+//       number: "04",
+//       description:
+//         "Adopt a modular platform that grows with your business and adapts to changing needs.",
+//     },
+//     {
+//       id: 5,
+//       number: "05",
+//       description:
+//         "Deliver personalized experiences and faster service through integrated sales, marketing, and support tools.",
+//     },
+//   ],
+// };
 
-const BenefitSection = () => {
+const BenefitSection = ({benefitData}:{benefitData:BenefitSectionType}) => {
+
+
   return (
     <section className="container-md py-10 ">
       <div>
@@ -48,8 +51,10 @@ const BenefitSection = () => {
         <div className="flex flex-wrap lg:flex-nowrap lg:flex-row md:p-6 gap-10">
           <div className="lg:w-1/2 w-full">
             <KorcomptenzImage
-              src={benefitData.image}
-              alt={benefitData.title}
+              src={benefitData?.image?.url ?
+                 APP_CONFIG.APP_URL_IMAGE + benefitData?.image?.url
+                : "/placeholder.svg"}
+              alt={benefitData.image?.alternativeText}
               width={500}
               height={500}
               className="w-full h-auto object-cover"

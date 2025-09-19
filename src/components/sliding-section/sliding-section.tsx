@@ -3,30 +3,45 @@
 import React from "react";
 
 import { Button } from "@/components/ui/button";
-import { jsonData } from "@/utils/helper";
+
 import KorcomptenzImage from "../korcomptenz-image";
 import { useMobile } from "@/utils/custom-hooks";
 import CardSwiper from "../ui/card-swiper";
+import { APP_CONFIG } from "@/utils/app-config";
 
-export default function SlidingSection() {
+export default function SlidingSection({
+  slides,
+}: {
+  slides: SlidingSectionType[];
+}) {
   const isMobile = useMobile();
+  
 
   return (
     <CardSwiper>
-      {jsonData.slides.map((slide) => (
-        <div key={`sliding-section-${slide.id}`} className="embla__custom_slide">
-          <div className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
-          // style={{
-          //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/placeholder.svg"})`,
-          //   backgroundSize: "cover",
-          //   backgroundPosition: "center",
-          //   backgroundRepeat: "no-repeat",
-          //   objectFit: "cover"
-          // }}
+      {slides.map((slide) => (
+        <div
+          key={`sliding-section-${slide.id}`}
+          className="embla__custom_slide"
+        >
+          <div
+            className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
+            // style={{
+            //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/placeholder.svg"})`,
+            //   backgroundSize: "cover",
+            //   backgroundPosition: "center",
+            //   backgroundRepeat: "no-repeat",
+            //   objectFit: "cover"
+            // }}
           >
             <KorcomptenzImage
-              src={isMobile ? slide.mobileImage : slide.image || "/placeholder.svg"}
-              alt={slide.alt}
+              src={
+                isMobile
+                  ? APP_CONFIG.APP_URL_IMAGE + slide.mobile_image?.url
+                  : APP_CONFIG.APP_URL_IMAGE + slide.image?.url ||
+                    "/placeholder.svg"
+              }
+              alt={slide?.image?.alternativeText}
               width={1000}
               height={1000}
               priority={true}
@@ -36,12 +51,14 @@ export default function SlidingSection() {
               <div className="container-md">
                 <div className="max-w-2xl text-white">
                   <div
-                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide.subtitle ? "text-4xl md:text-9xl" : "text-lg md:text-7xl font-medium"
-                      }`}
+                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${
+                      slide.subtitle
+                        ? "text-4xl md:text-9xl"
+                        : "text-lg md:text-7xl font-medium"
+                    }`}
                   >
                     {slide.subtitle || slide.subtitle2}
                   </div>
-
 
                   <h2 className="text-6xl md:text-7xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
                     {slide.title}
@@ -59,12 +76,11 @@ export default function SlidingSection() {
                     {slide.buttonText}
                   </Button>
                 </div>
-              </div >
-            </div >
-          </div >
-        </div >
-      ))
-      }
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </CardSwiper>
   );
 }

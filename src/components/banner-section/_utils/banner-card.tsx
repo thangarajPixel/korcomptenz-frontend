@@ -1,35 +1,48 @@
-import KorcomptenzImage from '@/components/korcomptenz-image'
-import { cn } from '@/lib/utils';
-import React from 'react'
+import KorcomptenzImage from "@/components/korcomptenz-image";
+import { cn } from "@/lib/utils";
+import { APP_CONFIG } from "@/utils/app-config";
+import React from "react";
 
-const BannerCard = ({ data, className }: {
+const BannerCard = ({
+  data,
+  className,
+}: {
   data: {
     id: number;
-    imageMobile: string;
-    image: string;
+    imageMobile: ImageType;
+    image: ImageType;
     alt: string;
-    logo: string;
-    logoMobile: string;
-    altMobile: string;
+    logo: ImageType;
+    logoMobile: ImageType;
+    altMobile: ImageType;
     title: string;
     description: string;
-  }; className?: string
+  };
+  className?: string;
 }) => {
   return (
     <div className={cn(className)}>
       {/* Desktop view */}
       <div className="relative w-full md:h-[513px] h-full overflow-hidden rounded-4xl hidden lg:block">
         <KorcomptenzImage
-          src={data.image}
-          alt={data.alt}
+          src={
+            data.image?.url
+              ? APP_CONFIG.APP_URL_IMAGE + data.image?.url
+              : "/placeholder.svg"
+          }
+          alt={data.image?.alternativeText}
           width={1000}
           height={800}
           className="w-full h-full object-cover rounded-4xl"
         />
         <div className="absolute top-30 left-10 p-4 md:p-8 z-10 w-full h-full flex flex-col gap-6 justify-center items-start">
           <KorcomptenzImage
-            src={data.logo}
-            alt={data.alt}
+            src={
+              data.logo?.url
+                ? APP_CONFIG.APP_URL_IMAGE + data.logo?.url
+                : "/placeholder.svg"
+            }
+            alt={data.logo?.alternativeText}
             width={300}
             height={200}
             className="w-20 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
@@ -43,8 +56,12 @@ const BannerCard = ({ data, className }: {
       {/* Mobile view */}
       <div className="w-full h-auto aspect-square overflow-hidden rounded-4xl lg:hidden items-center justify-center">
         <KorcomptenzImage
-          src={data.imageMobile}
-          alt={data.altMobile}
+          src={
+            data.imageMobile
+              ? APP_CONFIG.APP_URL_IMAGE + data.imageMobile?.url
+              : "/placeholder.svg"
+          }
+          alt={data.imageMobile?.alternativeText}
           width={1000}
           height={800}
           className="w-full h-full object-cover"
@@ -52,8 +69,12 @@ const BannerCard = ({ data, className }: {
       </div>
       <div className="gap-6 justify-center items-start p-4 md:p-8 w-full lg:hidden  h-full">
         <KorcomptenzImage
-          src={data.logoMobile}
-          alt={data.altMobile}
+          src={
+            data.logoMobile?.url
+              ? APP_CONFIG.APP_URL_IMAGE + data.logoMobile?.url
+              : "/placeholder.svg"
+          }
+          alt={data.altMobile?.alternativeText}
           width={300}
           height={200}
           className="w-[300px] h-auto object-contain mb-2 md:mb-4 opacity-65"
@@ -63,7 +84,7 @@ const BannerCard = ({ data, className }: {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BannerCard
+export default BannerCard;

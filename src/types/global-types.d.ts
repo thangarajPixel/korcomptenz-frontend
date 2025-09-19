@@ -13,6 +13,7 @@ type ImageType = {
   size: number;
   ext: string;
   mime: string;
+includes?: string
 }
 
 
@@ -24,4 +25,17 @@ type GlobalFieldType = {
   mobile_image?: ImageType;
   subtitle?: string;
   title?: string;
+  subtitle2?: string;
+}
+
+
+type ApiErrorType = {
+  data: null,
+  error: {
+    status: number,
+    name: string,
+    message: string,
+    details: object
+  },
+  status: number
 }

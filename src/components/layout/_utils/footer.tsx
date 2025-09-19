@@ -75,22 +75,6 @@ export const Footer = () => {
             </div>
 
             {/* Social Media Icons */}
-            {/* <div className="flex space-x-4 pt-4">
-              {[
-                { icon: Linkedin, href: "#" },
-                { icon: Youtube, href: "#" },
-                { icon: Facebook, href: "#" },
-                { icon: Instagram, href: "#" },
-              ].map((social, index) => (
-                <Link
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center transition-all duration-300 hover:bg-teal-500 hover:scale-110 hover:shadow-lg"
-                >
-                  <social.icon className="w-5 h-5" />
-                </Link>
-              ))}
-            </div> */}
             <div className="flex space-x-2 pt-4">
               {socialIcons.map((social, index) => (
                 <Link

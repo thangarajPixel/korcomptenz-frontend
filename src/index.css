@@ -166,9 +166,6 @@ body {
     @apply px-6;
   }
   @variant xl {
-    @apply max-w-6xl;
-  }
-  @variant xl {
     @apply max-w-[80rem] px-8;
   }
 }
@@ -209,11 +206,11 @@ body {
     @apply text-[1.063rem];
   }
 }
-/* lg: 18px sm: 16px */
+/* lg: 18px sm: 17px */
 @utility text-lg {
   @apply text-[1.125rem];
   @variant sm {
-    @apply text-[1rem];
+    @apply text-[1.063rem];
   }
   @variant lg {
     @apply text-[1.125rem];

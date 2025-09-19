@@ -5,24 +5,21 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { jsonData } from "@/utils/helper";
+
 import KorcomptenzImage from "../korcomptenz-image";
+import { APP_CONFIG } from "@/utils/app-config";
+import Link from "next/link";
 
-// infer type from jsonData.content
-type ContentItem = {
-  label: string;
-  heading: string;
-  subheading: string;
-  image?: string;
-};
+export function AnimatedTabsHero({
+  className,
+  content,
+}: {
+  className?: string;
+  content: ServicesSectionType[];
+}) {
 
-export function AnimatedTabsHero({ className }: { className?: string }) {
-  const content: ContentItem[] = jsonData.content;
-
-  // default to first tab
   const [value, setValue] = React.useState<string>(content[0].label);
 
-  // get currently selected content
   const activeContent = content.find((c) => c.label === value) || content[0];
 
   return (
@@ -53,8 +50,14 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
                 {value === t.label && (
                   <motion.div
                     layoutId="active-pill"
-                    transition={{ type: "spring", stiffness: 120, damping: 20, duration: 0.45 }}
-                    className={cn("absolute inset-0 z-0   bg-secondary-foreground",
+                    transition={{
+                      type: "spring",
+                      stiffness: 120,
+                      damping: 20,
+                      duration: 0.45,
+                    }}
+                    className={cn(
+                      "absolute inset-0 z-0   bg-secondary-foreground"
                       // index === 1 && "rounded-l-md", index === TABS.length - 2 && "rounded-r-md"
                     )}
                   />
@@ -80,14 +83,13 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
               {activeContent.heading}
             </h1>
             <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
-              {activeContent.subheading}
+              {activeContent.description}
             </p>
-            <Button
-              size="xl"
-              arrow={true}
-            >
-              Know More
-            </Button>
+            <Link href={activeContent.link}>
+              <Button size="xl" arrow={true}>
+                {activeContent.buttonText}
+              </Button>
+            </Link>
           </motion.div>
         </AnimatePresence>
 
@@ -101,8 +103,11 @@ export function AnimatedTabsHero({ className }: { className?: string }) {
             className="relative h-full w-full lg:w-3/4"
           >
             <KorcomptenzImage
-              src={activeContent.image || "/placeholder.svg"}
-              alt={activeContent.label}
+              src={
+                APP_CONFIG.APP_URL_IMAGE + activeContent.image?.url ||
+                "/placeholder.svg"
+              }
+              alt={activeContent.image?.alternativeText}
               className="h-fit w-full rounded-xl object-contain"
               width={1000}
               height={1000}

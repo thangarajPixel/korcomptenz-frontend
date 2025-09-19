@@ -10,7 +10,7 @@
     "no-async-promise-executor": "warn",
     "no-caller": "warn",
     "no-class-assign": "warn",
-    "no-console.log": "error",
+    "no-console": "error",
     "no-compare-neg-zero": "warn",
     "no-cond-assign": "warn",
     "no-const-assign": "warn",

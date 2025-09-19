@@ -7,7 +7,7 @@ import AboutMenu from "./_utils/about-menu";
 import EcosystemMenu from "./_utils/ecosystem-menu";
 
 const MegaMenuContent = ({ activeTab }: { activeTab: string }) => {
-  console.log("activeTab", activeTab);
+
 
   return (
     <AnimatePresence mode="wait">

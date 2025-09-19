@@ -1,23 +1,14 @@
-import SlidingSection from "@/components/sliding-section";
-import StickyCards from "@/components/sticky-cards";
-import { InsightsSection } from "@/components/insight-section";
-import WeAreKorcomptenzSection from "@/components/we-are-korcomptenz";
-import InspireSection from "@/components/inspire-section";
-import ServicesSection from "@/components/services-section";
-import Opportunities from "@/components/opportunities";
+import GlobalPage from "@/components/global-page";
+import { getHomeService } from "@/services";
 
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
+  const data = await getHomeService();
   return (
-    <div className="flex flex-col gap-10 md:gap-16" >
-      <SlidingSection />
-      <WeAreKorcomptenzSection />
-      <ServicesSection />
-      <InspireSection />
-      <StickyCards />
-      <InsightsSection />
-      <Opportunities />
+    <div className="flex flex-col gap-10 md:gap-16">
+      <GlobalPage data={data.list} />
     </div>
   );
 }
-1
+1;

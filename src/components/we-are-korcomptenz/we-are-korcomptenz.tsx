@@ -2,46 +2,43 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import React from "react";
 import { VideoPopup } from "../video-popup/video-popup";
+import { APP_CONFIG } from "@/utils/app-config";
 
-const WeAreKorcomptenzSection = () => {
+
+const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
+  weAreKorcomptenzData: WeAreKorcomptenzSectionType
+}) => {
+
   const [isVideoOpen, setIsVideoOpen] = React.useState(false);
-  const weAreKorcomptenzData = {
-    link: '/',
-    titleH1: 'We are',
-    titleH2: 'Korcomptenz',
-    p1: `We lead with expertise - in technology and domain to deliver solutions that align with your business\ngoals.`,
-    p2: `We leverage our experience and robust partner\necosystem to elevate your processes, powering your\ntransformation journey toward impactful growth`,
-    image: '/assets/home/video-thumb.jpg',
-    videoSrc: '/placeholder-video.mp4'
-  };
   return (
     <div className="container-md md:mt-24">
       <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-32 items-start mb-10 md:mb-16">
         {/* Left Column - Company Name */}
         <div className="lg:w-full">
           <h1 className="text-6xl md:text-8xl font-bold leading-tight">
-            {weAreKorcomptenzData.titleH1}
+            {weAreKorcomptenzData?.titleH1}
             <br />
-            <span className="text-6xl md:text-7xl font-semibold">{weAreKorcomptenzData.titleH2}</span>
+            <span className="text-6xl md:text-7xl font-semibold">{weAreKorcomptenzData?.titleSpan}</span>
           </h1>
         </div>
 
         {/* Right Column - Description */}
         <div className="space-y-5">
           <p className="font-outfit font-normal text-md md:text-4xl leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
-            {weAreKorcomptenzData.p1}
+            {weAreKorcomptenzData?.p1}
           </p>
           <p className="font-outfit font-normal text-md md:text-4xl leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
-            {weAreKorcomptenzData.p2}
+            {weAreKorcomptenzData?.p2}
           </p>
         </div>
       </div>
 
       <div className="relative m-1 md:m-0   cursor-pointer" onClick={() => setIsVideoOpen(true)}>
         <KorcomptenzImage
-          src={weAreKorcomptenzData.image}
+          src={APP_CONFIG.APP_URL_IMAGE + weAreKorcomptenzData.image?.url ||
+            "/placeholder.svg"}
           className="w-full h-[280px] md:h-[500px] object-cover  rounded-4xl"
-          alt="video-thumb"
+          alt={weAreKorcomptenzData.image?.alternativeText}
           width={1112}
           height={500}
         />
@@ -61,7 +58,7 @@ const WeAreKorcomptenzSection = () => {
       {isVideoOpen && <VideoPopup
         isOpen={isVideoOpen}
         onClose={() => setIsVideoOpen(false)}
-        videoSrc={weAreKorcomptenzData.videoSrc}
+        videoSrc={weAreKorcomptenzData?.videoSrc}
       />}
     </div>
   );

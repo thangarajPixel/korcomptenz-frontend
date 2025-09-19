@@ -1,24 +1,17 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Card, CardContent } from "@/components/ui/card";
+import { APP_CONFIG } from "@/utils/app-config";
 import React from "react";
 
-interface CardProps {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  alt: string;
-  order?: string;
-  position?: string;
-}
-
-const InspireSectionCard: React.FC<{ card: CardProps }> = ({ card }) => {
+const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
+  card,
+}) => {
+  
   return (
     <Card
       key={card.id}
       className="relative border-2 bg-light-gray flex flex-col py-0 rounded-4xl h-full"
     >
-
       <CardContent className="px-0   text-muted h-full">
         {card.position === "bottom" ? (
           <>
@@ -30,8 +23,11 @@ const InspireSectionCard: React.FC<{ card: CardProps }> = ({ card }) => {
             </div>
             <div className="flex justify-end  md:h-3/4 lg:pb-28  pr-0 p-6 ">
               <KorcomptenzImage
-                src={card.image}
-                alt={card.alt}
+                src={card.image?.url?
+                  APP_CONFIG.APP_URL_IMAGE + card.image?.url :
+                  "/placeholder.svg"
+                }
+                alt={card.image?.alternativeText}
                 width={500}
                 height={500}
                 className=" h-auto   w-[90%]"
@@ -42,8 +38,11 @@ const InspireSectionCard: React.FC<{ card: CardProps }> = ({ card }) => {
           <>
             <div className="flex mb-4 p-6">
               <KorcomptenzImage
-                src={card.image}
-                alt={card.alt}
+                src={card.image?.url?
+                  APP_CONFIG.APP_URL_IMAGE + card.image?.url :
+                  "/placeholder.svg"
+                }
+                alt={card.image?.alternativeText}
                 width={300}
                 height={100}
                 className="rounded-lg"
@@ -55,7 +54,6 @@ const InspireSectionCard: React.FC<{ card: CardProps }> = ({ card }) => {
               </p>
               <p className="md:text-lg text-md ">{card.description}</p>
             </div>
-
           </>
         ) : (
           card.position === "topAbove" && (
@@ -68,16 +66,28 @@ const InspireSectionCard: React.FC<{ card: CardProps }> = ({ card }) => {
                   <p className=" md:text-lg text-md">{card.description}</p>
                 </div>
                 <div
-                  className={`flex-shrink-0 absolute  ${card.image.includes("Reatils") ? "" : "mt-4"
-                    } right-3 -top-10`}
+                  className={`flex-shrink-0 absolute ${
+                    card.image?.height === 111 ? "" : "mt-4"
+                  } right-3 -top-10`}
                 >
                   <KorcomptenzImage
-                    src={card.image}
-                    alt={card.alt}
-                    width={card.image.includes("Reatils") ? 111 : 144}
-                    height={80}
-                    className={`rounded-lg ${card.image.includes("Reatils") ? "mt-4" : ""
-                      }`}
+                    src={
+                      card.image?.url
+                        ? APP_CONFIG.APP_URL_IMAGE + card.image.url
+                        : "/placeholder.svg"
+                    }
+                    alt={card.image?.alternativeText || "image"}
+                    width={
+                      card.image?.height === 111
+                        ? 111
+                        : card.image?.height === 182
+                        ? 144
+                        : 111
+                    }
+                    height={card.image?.height || 80} 
+                    className={`rounded-lg ${
+                      card.image?.height === 111 ? "mt-4" : ""
+                    }`}
                   />
                 </div>
               </div>
@@ -85,7 +95,6 @@ const InspireSectionCard: React.FC<{ card: CardProps }> = ({ card }) => {
           )
         )}
       </CardContent>
-
     </Card>
   );
 };

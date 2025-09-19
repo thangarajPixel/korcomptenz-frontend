@@ -1,44 +1,10 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { ChevronRight } from "lucide-react";
+import { APP_CONFIG } from "@/utils/app-config";
 
-const domainData = {
-  title: "And we drive operational transformation for your domain",
-  slides: [
-    {
-      id: 1,
-      title: "Automotive",
-      description:
-        "Embrace advanced technologies like IoT, AI, big data analytics, 3D printing, robotics, and digital twin technologies to optimize production efficiency, reduce costs, and accelerate time to market.",
-      image: "/assets/services/domainimg1.png",
-      alt: "automotive image",
-      type: "odd",
-      buttonText: "Know More",
-    },
-    {
-      id: 2,
-      title: "Medical device",
-      description:
-        "Enable seamless connectivity and interoperability of medical devices to provide enhanced patient outcomes with access to deep insights that drive better delivery, experience, and care.",
-      image: "/assets/services/domainimg2.png",
-      alt: "Lap image",
-      type: "even",
-      buttonText: "Know More",
-    },
-    {
-      id: 3,
-      title: "Packaging",
-      description:
-        "Drive intelligent and sustainable packaging solutions that improve the customer experience, create new connections with customers, and reduce waste.",
-      image: "/assets/services/domainimg3.png",
-      alt: "manufacturing image",
-      type: "odd",
-      buttonText: "Know More",
-    },
-  ],
-};
+const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
 
-const DomainSection = () => {
   return (
     <section className="container-md ">
       <div className="rounded-2xl  bg-custom-gray-6">
@@ -55,8 +21,10 @@ const DomainSection = () => {
               <section key={index} className={`bg-none flex flex-col gap-4 `}>
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
-                    src={slide.image}
-                    alt={slide.alt}
+                    src={slide?.image?.url
+                      ? APP_CONFIG.APP_URL_IMAGE + slide?.image?.url
+                      : "/placeholder.svg"}
+                    alt={slide.image?.alternativeText}
                     width={500}
                     height={500}
                     className="object-cover w-full h-full "
