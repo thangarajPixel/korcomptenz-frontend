@@ -114,7 +114,7 @@ const DemonstratreSection = ({
           arrow={true}
           className=" w-full lg:hidden variant:default px-8 py-2 text-4xl rounded-full mt-10"
         >
-          {demonstData.buttontext}
+          {demonstData.buttonText}
         </Button>
       </div>
     </section>

@@ -205,7 +205,7 @@ type FaqSectionType = {
 
 type DemonstrationSectionType ={
     title: string;
-    buttontext: string;
+    buttonText: string;
     buttonlink: string;
     list: {
         id: number;
