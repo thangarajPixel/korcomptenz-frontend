@@ -62,9 +62,11 @@ import { APP_CONFIG } from "@/utils/app-config";
 //   ],
 // };
 
-const LightSlider = ({LightSliderData}: {LightSliderData:LightSliderType}) => {
-
-  
+const LightSlider = ({
+  LightSliderData,
+}: {
+  LightSliderData: LightSliderType;
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -96,8 +98,8 @@ const LightSlider = ({LightSliderData}: {LightSliderData:LightSliderType}) => {
   return (
     <div className="container-md py-10">
       {/* Solutions Carousel Section */}
-      <section >
-        <div className="px-6 mx-auto">
+      <section>
+        <div className=" mx-auto">
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-12">
             <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
@@ -108,8 +110,9 @@ const LightSlider = ({LightSliderData}: {LightSliderData:LightSliderType}) => {
             <div className="hidden lg:flex items-center gap-4 mt-4">
               <Button
                 size="icon"
-                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
+                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${
+                  !prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                }`}
                 onClick={scrollPrev}
                 disabled={!prevBtnEnabled}
               >
@@ -117,14 +120,14 @@ const LightSlider = ({LightSliderData}: {LightSliderData:LightSliderType}) => {
               </Button>
               <Button
                 size="icon"
-                className={`rounded-full size-12  hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
+                className={`rounded-full size-12  hover:bg-primary hover:text-white ${
+                  !nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                }`}
                 onClick={scrollNext}
                 disabled={!nextBtnEnabled}
               >
                 <ChevronRight className="size-6" />
               </Button>
-
             </div>
           </div>
 
@@ -133,9 +136,11 @@ const LightSlider = ({LightSliderData}: {LightSliderData:LightSliderType}) => {
             {/* Left: Business Meeting Image */}
             <div className="rounded-3xl overflow-hidden">
               <KorcomptenzImage
-                src={ LightSliderData.image?.url
-                ? APP_CONFIG.APP_URL_IMAGE + LightSliderData.image?.url
-                : "/placeholder.svg"}
+                src={
+                  LightSliderData.image?.url
+                    ? APP_CONFIG.APP_URL_IMAGE + LightSliderData.image?.url
+                    : "/placeholder.svg"
+                }
                 alt={LightSliderData.image?.alternativeText}
                 width={600}
                 height={400}
@@ -150,10 +155,11 @@ const LightSlider = ({LightSliderData}: {LightSliderData:LightSliderType}) => {
                 {LightSliderData.list.map((slide, index) => (
                   <div
                     key={slide.id}
-                    className={`min-w-full pl-4 pr-1 relative ${index === LightSliderData.list.length - 1
-                      ? "mr-[0px]"
-                      : ""
-                      }`}
+                    className={`min-w-full pl-4 pr-1 relative ${
+                      index === LightSliderData.list.length - 1
+                        ? "mr-[0px]"
+                        : ""
+                    }`}
                   >
                     <div className="space-y-4">
                       {slide.solutions.map((solution, solutionIndex) => (

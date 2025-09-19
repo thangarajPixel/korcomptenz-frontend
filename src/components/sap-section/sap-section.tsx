@@ -26,7 +26,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
     <div className="container-md my-10 lg:my-20">
       <section className="grid grid-cols-24">
         {/* Left Content */}
-        <div className="space-y-8 col-span-24 lg:col-span-10 px-5 mb-5 lg:mb-0">
+        <div className="space-y-8 col-span-24 lg:col-span-10  mb-5 lg:mb-0">
           {" "}
           {/*chnage */}
           <h1 className="text-6xl md:text-9xl font-bold text-foreground leading-tight">
@@ -48,9 +48,11 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
               {" "}
               {/*chnage */}
               <KorcomptenzImage
-                src={sapSectionData.imageSection.image1?.image.url?
-                  APP_CONFIG.APP_URL_IMAGE +
-                  sapSectionData.imageSection.image1?.image.url:"/placeholder.svg"
+                src={
+                  sapSectionData.imageSection.image1?.image.url
+                    ? APP_CONFIG.APP_URL_IMAGE +
+                      sapSectionData.imageSection.image1?.image.url
+                    : "/placeholder.svg"
                 }
                 alt={sapSectionData.imageSection.image1?.image?.alternativeText}
                 width={400}
@@ -74,11 +76,15 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
               </div>
               <div className=" rounded-3xl overflow-hidden">
                 <KorcomptenzImage
-                  src={sapSectionData.imageSection.image2?.image.url?
-                    APP_CONFIG.APP_URL_IMAGE +
-                    sapSectionData.imageSection.image2?.image.url:"/placeholder.svg"
+                  src={
+                    sapSectionData.imageSection.image2?.image.url
+                      ? APP_CONFIG.APP_URL_IMAGE +
+                        sapSectionData.imageSection.image2?.image.url
+                      : "/placeholder.svg"
                   }
-                  alt={sapSectionData.imageSection.image2?.image?.alternativeText}
+                  alt={
+                    sapSectionData.imageSection.image2?.image?.alternativeText
+                  }
                   width={600}
                   height={400}
                   className="w-full h-auto object-cover"

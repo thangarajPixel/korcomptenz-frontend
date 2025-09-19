@@ -1,5 +1,4 @@
 "use client";
-
 import { InsightCard } from "./_utils/insight-cards";
 import InsightsMobileCarousel from "./_utils/insight-mobile-carousel";
 import Link from "next/link";
@@ -13,7 +12,7 @@ export default function InsightsSection({
   insights: InsightsSectionType;
 }) {
   return (
-    <section aria-labelledby="insights-heading" className="px-0 container-md ">
+    <section aria-labelledby="insights-heading" className=" container-md ">
       <div className="flex flex-col items-center gap-6 text-center md:gap-8   ">
         <motion.h2
           id="insights-heading"

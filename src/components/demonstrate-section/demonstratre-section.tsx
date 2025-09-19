@@ -54,7 +54,7 @@ const DemonstratreSection = ({
 }) => {
   return (
     <section className="container-md">
-      <div className="p-6">
+      <div className="">
         <div className="flex flex-col gap-9 text-start lg:text-center items-start lg:items-center justify-center leading-14  text-foreground  ">
           <h1 className="text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0">
             {demonstData.title}

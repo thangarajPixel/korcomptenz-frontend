@@ -8,7 +8,7 @@ import { APP_CONFIG } from "@/utils/app-config";
 export default function Opportunities({careers}: {careers:OpportunitiesType}) {
 
   return (
-    <section className="bg-white px-4 sm:px-6 lg:px-8 mb-6">
+    <section className="bg-white container-md mb-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
           {/* Left side - Image with geometric elements */}

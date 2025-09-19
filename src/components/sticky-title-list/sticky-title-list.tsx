@@ -151,14 +151,17 @@ import StickyTitleCard from "./_utils/sticky-title-card";
 //   ]
 // }
 
-const StickyTitleList = ({salesforceServices}:{salesforceServices:StickyTitleListType}) => {
-
+const StickyTitleList = ({
+  salesforceServices,
+}: {
+  salesforceServices: StickyTitleListType;
+}) => {
   return (
     <div className="container-md">
-      <div className="w-full px-0 md:px-12 lg:px-16">
+      <div className="w-full ">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
           {/* Left Sidebar - Title */}
-          <div >
+          <div>
             <div className={`lg:sticky lg:top-28`}>
               <h2 className="text-6xl  md:text-9xl font-bold text-gray-900 ">
                 {salesforceServices.title}
@@ -167,7 +170,7 @@ const StickyTitleList = ({salesforceServices}:{salesforceServices:StickyTitleLis
           </div>
 
           {/* Right Content - Service Cards */}
-          <div >
+          <div>
             <div className="space-y-6">
               {salesforceServices?.list?.map((service, index) => (
                 <StickyTitleCard key={index} data={service} />
