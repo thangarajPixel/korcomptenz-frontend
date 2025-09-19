@@ -64,7 +64,7 @@ const DemonstratreSection = ({
             arrow={true}
             className="hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full "
           >
-            {demonstData.buttontext}
+            {demonstData?.buttonText}
           </Button>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:p-10 ">
