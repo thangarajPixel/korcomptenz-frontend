@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { APP_CONFIG } from "@/utils/app-config";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
  
@@ -66,8 +65,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               height={image?.height}
               src={
                 image?.url
-                  ? APP_CONFIG.APP_URL_IMAGE + image?.url
-                  : "/placeholder.svg"
+                  ||"/placeholder.svg"
               }
               alt={image?.alternativeText}
             />

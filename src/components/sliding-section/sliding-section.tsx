@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "../korcomptenz-image";
 import { useMobile } from "@/utils/custom-hooks";
 import CardSwiper from "../ui/card-swiper";
-import { APP_CONFIG } from "@/utils/app-config";
 
 export default function SlidingSection({
   slides,
@@ -15,7 +14,6 @@ export default function SlidingSection({
   slides: SlidingSectionType[];
 }) {
   const isMobile = useMobile();
-  
 
   return (
     <CardSwiper>
@@ -37,9 +35,8 @@ export default function SlidingSection({
             <KorcomptenzImage
               src={
                 isMobile
-                  ? APP_CONFIG.APP_URL_IMAGE + slide.mobile_image?.url
-                  : APP_CONFIG.APP_URL_IMAGE + slide.image?.url ||
-                    "/placeholder.svg"
+                  ? slide.mobile_image?.url
+                  : slide.image?.url || "/placeholder.svg"
               }
               alt={slide?.image?.alternativeText}
               width={1000}

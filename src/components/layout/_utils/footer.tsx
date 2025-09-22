@@ -1,13 +1,19 @@
 "use client";
 
-import Link from 'next/link'
-import React from 'react'
-import { ChevronRight } from "lucide-react"
+import Link from "next/link";
+import React from "react";
+import { ChevronRight } from "lucide-react";
 
-import { jsonData } from '@/utils/helper'
-import ScheduleCall from '@/components/layout/_utils/schedule';
-import { FacebookIcon, Footerlogo, InstagramIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from '../../../../public/svg/all-svg';
-
+import { jsonData } from "@/utils/helper";
+import ScheduleCall from "@/components/layout/_utils/schedule";
+import {
+  FacebookIcon,
+  Footerlogo,
+  InstagramIcon,
+  LinkedinIcon,
+  TwitterIcon,
+  YoutubeIcon,
+} from "../../../../public/svg/all-svg";
 
 type SocialIcons = {
   id: number;
@@ -50,11 +56,8 @@ export const socialIcons: SocialIcons[] = [
 ];
 
 export const Footer = () => {
-
-
-  const address = jsonData.footer.address
-  const footer = jsonData.footer
-
+  const address = jsonData.footer.address;
+  const footer = jsonData.footer;
 
   return (
     <footer className="bg-foreground text-white mt-8">
@@ -92,16 +95,16 @@ export const Footer = () => {
           {/* Services */}
           <div className="space-y-4">
             <h3 className="text-primary font-semibold text-3xl  border-b border-primary  pb-2">
-              Services
+              {jsonData?.servicemenu?.title}
             </h3>
             <ul className="space-y-3">
-              {footer.services.map((service) => (
-                <li key={service}>
+              {jsonData.servicemenu.sections.map((service) => (
+                <li key={service.id}>
                   <Link
                     href="#"
-                    className="text-light-white  hover:text-primary   font-semibold text-lg transition-all duration-300 block"
+                    className="text-light-white hover:text-primary font-semibold text-lg transition-all duration-300 block"
                   >
-                    {service}
+                    {service.title}
                   </Link>
                 </li>
               ))}
@@ -111,35 +114,37 @@ export const Footer = () => {
           {/* Industries */}
           <div className="space-y-4">
             <h3 className="text-primary font-semibold text-3xl border-b border-primary pb-2">
-              Industries
+              {jsonData?.industriesmenu?.heading}
             </h3>
             <ul className="space-y-3">
-              {footer.industries.map((industry) => (
-                <li key={industry}>
-                  <Link
-                    href="#"
-                    className="text-light-white  hover:text-primary   font-semibold text-lg transition-all duration-300 block"
-                  >
-                    {industry}
-                  </Link>
-                </li>
-              ))}
+              {jsonData?.industriesmenu?.columns
+                ?.flatMap((col) => col.sections.map((section) => section.title))
+                .map((industry) => (
+                  <li key={industry}>
+                    <Link
+                      href="#"
+                      className="text-light-white  hover:text-primary   font-semibold text-lg transition-all duration-300 block"
+                    >
+                      {industry}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
 
           {/* Insights */}
           <div className="space-y-4">
             <h3 className="text-primary font-semibold text-3xl border-b border-primary pb-2">
-              Insights
+              {jsonData?.insightsmenu?.title}
             </h3>
             <ul className="space-y-3">
-              {footer.insights.map((insight) => (
-                <li key={insight}>
+              {jsonData?.insightsmenu?.categories.map((insight) => (
+                <li key={insight.id}>
                   <Link
                     href="#"
                     className="text-light-white  hover:text-primary   font-semibold text-lg transition-all duration-300 block"
                   >
-                    {insight}
+                    {insight.title}
                   </Link>
                 </li>
               ))}
@@ -195,23 +200,30 @@ export const Footer = () => {
             {/* About Us */}
             <section className="space-y-4" id="About">
               <h4 className="text-primary font-semibold border-b border-primary text-3xl pb-2">
-                About Us
+                {jsonData?.aboutmenu?.aboutUs?.title}
               </h4>
+
               <h4 className="font-semibold text-lg">Who we are</h4>
+
+              {/* Gray items */}
               <ul className="space-y-2">
                 {footer.aboutUs.map((item) => (
                   <li key={item}>
-                    <Link href="#" className="text-color-custom-gray-2 text-lg   hover:text-primary   font-normal  transition-all duration-300 block">
+                    <Link
+                      href="#"
+                      className="text-custom-gray-2 text-lg hover:text-primary font-normal transition-all duration-300 block"
+                    >
                       {item}
                     </Link>
                   </li>
                 ))}
               </ul>
 
+              {/* Bold items */}
               <ul className="space-y-2">
                 {footer.aboutUsNew.map((item) => (
                   <li key={item}>
-                    <Link href="#" className="font-semibold text-lg   ">
+                    <Link href="#" className="font-semibold text-lg">
                       {item}
                     </Link>
                   </li>
@@ -224,61 +236,30 @@ export const Footer = () => {
               <h4 className="text-primary font-semibold border-b border-primary text-3xl pb-2">
                 Ecosystems
               </h4>
+
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-4">
-                <div className="space-y-4">
-                  <ul className="space-y-2">
-                    <li className="text-lg">
-                      <h4 className=" font-semibold ">Microsoft</h4>
-                    </li>
-                    {footer.ecoSystems.microsoft.map((item) => (
-                      <li key={item}>
-                        <Link href="#" className="text-color-custom-gray-2  text-lg  hover:text-primary   font-normal  transition-all duration-300 block">
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {jsonData?.ecosystemmenu?.sidebar?.map((menu) =>
+                  menu.items
+                    ?.filter((item) => item.child && item.child.length > 0)
+                    .map((item, idx) => (
+                      <div className="space-y-4" key={`${menu.id}-${idx}`}>
+                        <h4 className="font-semibold text-lg">{item.title}</h4>
 
-                {/* SAP */}
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-lg">SAP</h4>
-                  <ul className="space-y-2">
-                    {footer.ecoSystems.sap.map((item) => (
-                      <li key={item}>
-                        <Link href="#" className="text-color-custom-gray-2  text-lg  hover:text-primary   font-normal   transition-all duration-300 block">
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Salesforce */}
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-lg">Salesforce</h4>
-                  <ul className="space-y-2">
-                    {footer.ecoSystems.salesforce.map((item) => (
-                      <li key={item}>
-                        <Link href="#" className="text-color-custom-gray-2  text-lg  hover:text-primary   font-normal  transition-all duration-300 block">
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="space-y-4">
-                  <ul className="space-y-2 lg:mt-10">
-                    {footer.ecoSystems.salesforceNew.map((item) => (
-                      <li key={item}>
-                        <Link href="#" className="text-color-custom-gray-2 text-lg  hover:text-primary   font-normal   transition-all duration-300 block">
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                        <ul className="space-y-2">
+                          {item.child.map((childItem, i) => (
+                            <li key={i}>
+                              <Link
+                                href="#"
+                                className="text-custom-gray-2 text-lg hover:text-primary font-normal transition-all duration-300 block"
+                              >
+                                {childItem.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))
+                )}
               </div>
             </section>
           </div>
@@ -286,13 +267,13 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex flex-row items-center justify-between">
-          <p className="text-color-custom-gray-2 text-lg">{footer.copyright}</p>
+          <p className="text-custom-gray-2 text-lg">{footer.copyright}</p>
           <div>
             {footer.policies.map((policy) => (
               <Link
                 key={policy}
                 href="#"
-                className="text-color-custom-gray-2 text-lg mx-2"
+                className="text-custom-gray-2 text-lg mx-2"
               >
                 {policy}
               </Link>
@@ -300,25 +281,23 @@ export const Footer = () => {
           </div>
 
           {/* Right side: copyright */}
-
         </div>
 
         {/* Mobile Copyright */}
         <div className=" mt-8  lg:hidden  flex-col  items-center">
-
           <div className="flex justify-center  pb-4">
             {footer.policies.map((policy) => (
               <Link
                 key={policy}
                 href="#"
-                className="text-color-custom-gray-2  text-xs border-r-1 border-custom-gray-3 mx-2 last:border-0 pr-2"
+                className="text-custom-gray-2  text-xs border-r-1 border-custom-gray-3 mx-2 last:border-0 pr-2"
               >
                 {policy}
               </Link>
             ))}
           </div>
           <div className="flex justify-center pt-4 border-t-1   border-custom-gray-3">
-            <p className="text-color-custom-gray-2 text-xs  ">{footer.copyright}</p>
+            <p className="text-custom-gray-2 text-xs  ">{footer.copyright}</p>
           </div>
         </div>
       </div>

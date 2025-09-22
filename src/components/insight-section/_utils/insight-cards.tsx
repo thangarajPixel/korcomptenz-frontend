@@ -2,7 +2,6 @@
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { cn } from "@/lib/utils";
-import { APP_CONFIG } from "@/utils/app-config";
 import { motion } from "motion/react";
 
 export type InsightCardType = {
@@ -37,11 +36,7 @@ export function InsightCard({
 
         <div className="relative aspect-[4/3] w-full rounded-4xl">
           <KorcomptenzImage
-            src={
-              image?.url
-                ? APP_CONFIG.APP_URL_IMAGE + image?.url
-                : "/placeholder.svg"
-            }
+            src={image?.url || "/placeholder.svg"}
             alt={image?.alternativeText}
             // fill
             height={1000}

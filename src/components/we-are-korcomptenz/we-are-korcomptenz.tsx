@@ -1,14 +1,13 @@
-'use client'
+"use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import React from "react";
 import { VideoPopup } from "../video-popup/video-popup";
-import { APP_CONFIG } from "@/utils/app-config";
 
-
-const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
-  weAreKorcomptenzData: WeAreKorcomptenzSectionType
+const WeAreKorcomptenzSection = ({
+  weAreKorcomptenzData,
+}: {
+  weAreKorcomptenzData: WeAreKorcomptenzSectionType;
 }) => {
-
   const [isVideoOpen, setIsVideoOpen] = React.useState(false);
   return (
     <div className="container-md ">
@@ -18,7 +17,9 @@ const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
           <h1 className="text-6xl md:text-8xl font-bold leading-tight">
             {weAreKorcomptenzData?.titleH1}
             <br />
-            <span className="text-6xl md:text-7xl font-semibold">{weAreKorcomptenzData?.titleSpan}</span>
+            <span className="text-6xl md:text-7xl font-semibold">
+              {weAreKorcomptenzData?.titleSpan}
+            </span>
           </h1>
         </div>
 
@@ -33,10 +34,12 @@ const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
         </div>
       </div>
 
-      <div className="relative m-1 md:m-0   cursor-pointer" onClick={() => setIsVideoOpen(true)}>
+      <div
+        className="relative m-1 md:m-0   cursor-pointer"
+        onClick={() => setIsVideoOpen(true)}
+      >
         <KorcomptenzImage
-          src={APP_CONFIG.APP_URL_IMAGE + weAreKorcomptenzData.image?.url ||
-            "/placeholder.svg"}
+          src={weAreKorcomptenzData.image?.url || "/placeholder.svg"}
           className="w-full h-[280px] md:h-[500px] object-cover  rounded-4xl"
           alt={weAreKorcomptenzData.image?.alternativeText}
           width={1112}
@@ -55,11 +58,13 @@ const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
           />
         </div>
       </div>
-      {isVideoOpen && <VideoPopup
-        isOpen={isVideoOpen}
-        onClose={() => setIsVideoOpen(false)}
-        videoSrc={weAreKorcomptenzData?.videoSrc}
-      />}
+      {isVideoOpen && (
+        <VideoPopup
+          isOpen={isVideoOpen}
+          onClose={() => setIsVideoOpen(false)}
+          videoSrc={weAreKorcomptenzData?.videoSrc}
+        />
+      )}
     </div>
   );
 };

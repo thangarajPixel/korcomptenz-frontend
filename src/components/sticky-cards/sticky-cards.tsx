@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "../korcomptenz-image";
-import { APP_CONFIG } from "@/utils/app-config";
 
 export default function StickyCards({
   className,
@@ -14,7 +13,6 @@ export default function StickyCards({
   className?: string;
   stickyCards: StickyCardsType;
 }) {
- 
   const cardData = stickyCards.list;
   return (
     <div className="relative ">
@@ -96,10 +94,7 @@ export default function StickyCards({
                 >
                   <KorcomptenzImage
                     className="w-full h-44 md:h-full object-cover"
-                    src={
-                      APP_CONFIG.APP_URL_IMAGE + card.image?.url ||
-                      "/placeholder.svg"
-                    }
+                    src={card.image?.url || "/placeholder.svg"}
                     alt={card.image?.alternativeText}
                     width={1000}
                     height={1000}

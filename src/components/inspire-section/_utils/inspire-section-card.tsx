@@ -1,12 +1,10 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Card, CardContent } from "@/components/ui/card";
-import { APP_CONFIG } from "@/utils/app-config";
 import React from "react";
 
 const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
   card,
 }) => {
-  
   return (
     <Card
       key={card.id}
@@ -23,10 +21,7 @@ const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
             </div>
             <div className="flex justify-end  md:h-3/4 lg:pb-28  pr-0 p-6 ">
               <KorcomptenzImage
-                src={card.image?.url?
-                  APP_CONFIG.APP_URL_IMAGE + card.image?.url :
-                  "/placeholder.svg"
-                }
+                src={card.image?.url || "/placeholder.svg"}
                 alt={card.image?.alternativeText}
                 width={500}
                 height={500}
@@ -38,10 +33,7 @@ const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
           <>
             <div className="flex mb-4 p-6">
               <KorcomptenzImage
-                src={card.image?.url?
-                  APP_CONFIG.APP_URL_IMAGE + card.image?.url :
-                  "/placeholder.svg"
-                }
+                src={card.image?.url || "/placeholder.svg"}
                 alt={card.image?.alternativeText}
                 width={300}
                 height={100}
@@ -71,11 +63,7 @@ const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
                   } right-3 -top-10`}
                 >
                   <KorcomptenzImage
-                    src={
-                      card.image?.url
-                        ? APP_CONFIG.APP_URL_IMAGE + card.image.url
-                        : "/placeholder.svg"
-                    }
+                    src={card.image?.url || "/placeholder.svg"}
                     alt={card.image?.alternativeText || "image"}
                     width={
                       card.image?.height === 111
@@ -84,7 +72,7 @@ const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
                         ? 144
                         : 111
                     }
-                    height={card.image?.height || 80} 
+                    height={card.image?.height || 80}
                     className={`rounded-lg ${
                       card.image?.height === 111 ? "mt-4" : ""
                     }`}

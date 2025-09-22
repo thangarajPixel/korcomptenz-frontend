@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 import KorcomptenzImage from "../korcomptenz-image";
-import { APP_CONFIG } from "@/utils/app-config";
 import Link from "next/link";
 
 export function AnimatedTabsHero({
@@ -104,7 +103,7 @@ export function AnimatedTabsHero({
           >
             <KorcomptenzImage
               src={
-                APP_CONFIG.APP_URL_IMAGE + activeContent.image?.url ||
+                 activeContent.image?.url ||
                 "/placeholder.svg"
               }
               alt={activeContent.image?.alternativeText}

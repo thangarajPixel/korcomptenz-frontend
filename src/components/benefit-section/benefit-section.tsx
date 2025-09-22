@@ -1,6 +1,5 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
-import { APP_CONFIG } from "@/utils/app-config";
 
 // const benefitData = {
 //   title: "Focusing on benefits that truly matter",
@@ -39,9 +38,11 @@ import { APP_CONFIG } from "@/utils/app-config";
 //   ],
 // };
 
-const BenefitSection = ({ benefitData }: { benefitData: BenefitSectionType }) => {
-
-
+const BenefitSection = ({
+  benefitData,
+}: {
+  benefitData: BenefitSectionType;
+}) => {
   return (
     <section className="container-md ">
       <div>
@@ -51,9 +52,7 @@ const BenefitSection = ({ benefitData }: { benefitData: BenefitSectionType }) =>
         <div className="flex flex-wrap lg:flex-nowrap lg:flex-row md:p-6 gap-10">
           <div className="lg:w-1/2 w-full">
             <KorcomptenzImage
-              src={benefitData?.image?.url ?
-                APP_CONFIG.APP_URL_IMAGE + benefitData?.image?.url
-                : "/placeholder.svg"}
+              src={benefitData?.image?.url || "/placeholder.svg"}
               alt={benefitData.image?.alternativeText}
               width={500}
               height={500}
@@ -68,14 +67,17 @@ const BenefitSection = ({ benefitData }: { benefitData: BenefitSectionType }) =>
               return (
                 <div
                   key={card.id}
-                  className={`flex gap-4 ${isOddNumberOfCards ? "w-full" : "w-1/2"
-                    }`}
+                  className={`flex gap-4 ${
+                    isOddNumberOfCards ? "w-full" : "w-1/2"
+                  }`}
                 >
                   <div className="md:mx-4 m-2">
                     <p className="text-8xl font-light text-primary w-10 shrink-0 ">
                       {card.number}
                     </p>
-                    <p className="text-foreground text-lg">{card.description}</p>
+                    <p className="text-foreground text-lg">
+                      {card.description}
+                    </p>
                   </div>
                 </div>
               );

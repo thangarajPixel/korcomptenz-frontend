@@ -66,7 +66,19 @@ const EcosystemData = {
             },
             {
               title: "Azure",
-              description: [],
+              description: [
+                "Compute & Application Services ",
+                "Storage & Database",
+                "Networking & Security",
+                "Migration & Modernization",
+                "Analytics & AI/ML",
+                "Management & Monitoring ",
+                "Azure Consulting Service",
+                "Azure Migration Service",
+                "Azure Managed Service ",
+                "Azure Integration Service",
+                "Azure Support & Maintenance Service",
+              ],
             },
           ],
         },
@@ -83,9 +95,13 @@ const EcosystemData = {
           buttontext: "know more",
           childtype: "type1",
           child: [
-            { title: "Sales Cloud", type: "Dark" },
-            { title: "Service Cloud", type: "Light" },
-            { title: "Marketing Cloud", type: "Dark" },
+            { title: "Salesforce Service Cloud", type: "Dark" },
+            { title: "Salesforce Sales Cloud", type: "Light" },
+            { title: "Salesforce Marketing Cloud", type: "Dark" },
+            { title: "Salesforce Field Service Cloud", type: "Dark" },
+            { title: "Salesforce Einstein & Analytics", type: "Dark" },
+            { title: "Salesforce Data Cloud", type: "Dark" },
+            { title: "Salesforce Agentforce", type: "Dark" },
           ],
         },
       ],
@@ -114,7 +130,19 @@ const EcosystemData = {
             "AWS offers the widest variety of compute instances, storage classes, databases, and analytics, all purpose-built to deliver the best cost and performance. ",
           buttontext: "know more",
           childtype: "type1",
-          child: [],
+          child: [
+            { title: "Compute & Application Services", type: "Dark" },
+            { title: "Storage & Database", type: "Dark" },
+            { title: "Networking & Security", type: "Dark" },
+            { title: "Migration & Modernization", type: "Dark" },
+            { title: "Analytics & AI/ML", type: "Dark" },
+            { title: "Management & Monitoring ", type: "Dark" },
+            { title: "AWS Consulting Service", type: "Dark" },
+            { title: "AWS Migration Service ", type: "Dark" },
+            { title: "AWS Managed Service", type: "Dark" },
+            { title: "AWS Integration Service", type: "Dark" },
+            { title: "AWS Support & Maintenance Service ", type: "Dark" },
+          ],
         },
       ],
     },
@@ -133,10 +161,11 @@ const EcosystemMenu = () => {
               <div
                 key={item.id}
                 onClick={() => setActiveSiderBar(item)}
-                className={`w-full group ${activeSideBar.id === item.id
-                  ? "border-b-2 border-primary"
-                  : "border-b-2 border-transparent hover:border-primary"
-                  }`}
+                className={`w-full group ${
+                  activeSideBar.id === item.id
+                    ? "border-b-2 border-primary"
+                    : "border-b-2 border-transparent hover:border-primary"
+                }`}
               >
                 <h4 className="relative font-medium text-3xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
                   <span>{item.menu}</span>
@@ -164,10 +193,7 @@ const EcosystemMenu = () => {
                 {contentItem.description}
               </p>
               <div className="mt-4">
-                <Button
-                  arrow={true}
-                  className="bg-primary text-xs text-white hover:bg-[white] hover:text-primary border border-primary"
-                >
+                <Button size="lg" arrow={true}>
                   {contentItem.buttontext}
                 </Button>
               </div>
@@ -176,10 +202,11 @@ const EcosystemMenu = () => {
                   contentItem.child.map((childItem, childIndex) => (
                     <div
                       key={childIndex}
-                      className={` ${"type" in childItem && childItem.type === "Dark"
-                        ? "text-black"
-                        : " text-primary"
-                        }`}
+                      className={` ${
+                        "type" in childItem && childItem.type === "Dark"
+                          ? "text-black"
+                          : " text-primary"
+                      }`}
                     >
                       {childItem.title}
                     </div>

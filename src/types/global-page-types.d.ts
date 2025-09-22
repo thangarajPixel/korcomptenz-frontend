@@ -101,8 +101,8 @@ type SapSectionType = {
   heading: string;
   description: string;
   imageSection: {
-    image1: { image: ImageType }
-    image2: { image: ImageType }
+    image1: { image: ImageType };
+    image2: { image: ImageType };
   };
   card: {
     value: string;
@@ -203,21 +203,28 @@ type FaqSectionType = {
   ];
 };
 
-type DemonstrationSectionType ={
+type DemonstrationSectionType = {
+  title: string;
+  buttonText: string;
+  buttonlink: string;
+  list: {
+    id: number;
+    type: string;
+    image: ImageType;
     title: string;
+    alt: ImageType;
+    description: string;
     buttonText: string;
-    buttonlink: string;
-    list: {
-        id: number;
-        type: string;
-        image: ImageType;
-        title: string;
-        alt: ImageType;
-        description: string;
-        buttonText: string;
-        buttonLink: string;
-    }[];
-}
+    buttonLink: string;
+  }[];
+};
+type buildConnectSectionType = {
+  title: string;
+  description: string;
+  image: ImageType;
+  imagemobile: ImageType;
+  alt: string;
+};
 
 type ComponentPropsMap = {
   SlidingSection: {
@@ -290,10 +297,17 @@ type ComponentPropsMap = {
     __component: "page-componets.faq-title";
     list: FaqSectionType;
   };
-  DemonstrationSection:DemonstrationSectionType & {
+  DemonstrationSection: DemonstrationSectionType & {
     id: string;
     __component: "page-componets.demonstrate-section";
-    
+  };
+  DemonstrationSection: DemonstrationSectionType & {
+    id: string;
+    __component: "page-componets.demonstrate-section";
+  };
+  BuildConnectSection: buildConnectSectionType & {
+    id: string;
+    __component: "page-componets.build-data";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

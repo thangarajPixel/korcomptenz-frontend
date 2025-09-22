@@ -1,10 +1,8 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { ChevronRight } from "lucide-react";
-import { APP_CONFIG } from "@/utils/app-config";
 
 const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
-
   return (
     <section className="container-md ">
       <div className="rounded-2xl  bg-custom-gray-6">
@@ -21,9 +19,7 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
               <section key={index} className={`bg-none flex flex-col gap-4 `}>
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
-                    src={slide?.image?.url
-                      ? APP_CONFIG.APP_URL_IMAGE + slide?.image?.url
-                      : "/placeholder.svg"}
+                    src={slide?.image?.url || "/placeholder.svg"}
                     alt={slide.image?.alternativeText}
                     width={500}
                     height={500}

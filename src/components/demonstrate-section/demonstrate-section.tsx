@@ -2,7 +2,6 @@ import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
-import { APP_CONFIG } from "@/utils/app-config";
 // const demonstData = {
 //   title: "Demonstrating value\nthrough tangible impact",
 //   buttontext: "Read All",
@@ -72,16 +71,13 @@ const DemonstrateSection = ({
             return (
               <section
                 key={index}
-                className={`bg-none flex flex-col gap-4 ${!((index + 1) % 2) ? "lg:mt-10" : ""
-                  }`}
+                className={`bg-none flex flex-col gap-4 ${
+                  !((index + 1) % 2) ? "lg:mt-10" : ""
+                }`}
               >
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
-                    src={
-                      card.image?.url
-                        ? APP_CONFIG.APP_URL_IMAGE + card?.image?.url
-                        : "/placeholder.svg"
-                    }
+                    src={card.image?.url || "/placeholder.svg"}
                     alt={card.image?.alternativeText}
                     width={500}
                     height={500}

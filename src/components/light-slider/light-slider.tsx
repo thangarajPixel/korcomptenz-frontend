@@ -5,7 +5,6 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
-import { APP_CONFIG } from "@/utils/app-config";
 
 // const LightSliderData = {
 //   title: " Solutions that elevate outcomes for your business",
@@ -135,9 +134,7 @@ const LightSlider = ({
             <div className="rounded-3xl overflow-hidden">
               <KorcomptenzImage
                 src={
-                  LightSliderData.image?.url
-                    ? APP_CONFIG.APP_URL_IMAGE + LightSliderData.image?.url
-                    : "/placeholder.svg"
+                  LightSliderData.image?.url|| "/placeholder.svg"
                 }
                 alt={LightSliderData.image?.alternativeText}
                 width={600}

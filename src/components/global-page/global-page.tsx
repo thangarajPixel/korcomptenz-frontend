@@ -15,6 +15,7 @@ import BenefitSection from "../benefit-section";
 import FaqSection from "../faq-section";
 import { StickyTitleList } from "../sticky-title-list";
 import DemonstrateSection from "../demonstrate-section";
+import BuildConnect from "../build-connect";
 
 type Props = {
   data: ComponentPropsType[];
@@ -22,6 +23,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
+
   return data.map((item) => {
     switch (item.__component) {
       case "home.hero-section-one":
@@ -134,6 +136,13 @@ const GlobalPage = (props: Props) => {
           <DemonstrateSection
             key={`demonstrate-section-${item.__component}-${item.id}`}
             demonstData={item}
+          />
+        );
+      case "page-componets.build-data":
+        return (
+          <BuildConnect
+            key={`demonstrate-section-${item.__component}-${item.id}`}
+            buildData={item}
           />
         );
       default:

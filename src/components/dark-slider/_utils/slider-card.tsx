@@ -1,5 +1,4 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { APP_CONFIG } from "@/utils/app-config";
 import React from "react";
 
 interface Slide {
@@ -24,9 +23,7 @@ const SliderCard: React.FC<Props> = ({ slide }) => {
               className="w-12 h-12 object-contain"
               width={48}
               height={48}
-              src={ slide?.image?.url
-                ? APP_CONFIG.APP_URL_IMAGE +slide?.image?.url
-                : "/placeholder.svg"}
+              src={slide?.image?.url || "/placeholder.svg"}
               alt={slide.image?.alternativeText}
             />
           </div>

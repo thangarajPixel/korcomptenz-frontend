@@ -1,5 +1,4 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { APP_CONFIG } from "@/utils/app-config";
 import React from "react";
 
 // const sapSectionData = {
@@ -49,10 +48,8 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
               {/*chnage */}
               <KorcomptenzImage
                 src={
-                  sapSectionData.imageSection.image1?.image.url
-                    ? APP_CONFIG.APP_URL_IMAGE +
-                    sapSectionData.imageSection.image1?.image.url
-                    : "/placeholder.svg"
+                  sapSectionData.imageSection.image1?.image.url ||
+                  "/placeholder.svg"
                 }
                 alt={sapSectionData.imageSection.image1?.image?.alternativeText}
                 width={400}
@@ -77,10 +74,8 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
               <div className=" rounded-3xl overflow-hidden">
                 <KorcomptenzImage
                   src={
-                    sapSectionData.imageSection.image2?.image.url
-                      ? APP_CONFIG.APP_URL_IMAGE +
-                      sapSectionData.imageSection.image2?.image.url
-                      : "/placeholder.svg"
+                    sapSectionData.imageSection.image2?.image.url ||
+                    "/placeholder.svg"
                   }
                   alt={
                     sapSectionData.imageSection.image2?.image?.alternativeText
