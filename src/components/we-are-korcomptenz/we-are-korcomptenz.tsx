@@ -11,7 +11,7 @@ const WeAreKorcomptenzSection = ({ weAreKorcomptenzData }: {
 
   const [isVideoOpen, setIsVideoOpen] = React.useState(false);
   return (
-    <div className="container-md md:mt-24">
+    <div className="container-md ">
       <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-32 items-start mb-10 md:mb-16">
         {/* Left Column - Company Name */}
         <div className="lg:w-full">

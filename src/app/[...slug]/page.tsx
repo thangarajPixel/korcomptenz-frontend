@@ -12,7 +12,7 @@ const Page = async ({ params }: Props) => {
   const data = await getPageService({ slug });
 
   return (
-    <div className="flex flex-col gap-10 md:gap-16">
+    <div className="flex flex-col gap-16 md:gap-32">
       <GlobalPage data={data.list} />
     </div>
   );

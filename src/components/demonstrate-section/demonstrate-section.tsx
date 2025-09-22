@@ -47,7 +47,7 @@ import { APP_CONFIG } from "@/utils/app-config";
 //   ],
 // };
 
-const DemonstratreSection = ({
+const DemonstrateSection = ({
   demonstData,
 }: {
   demonstData: DemonstrationSectionType;
@@ -72,9 +72,8 @@ const DemonstratreSection = ({
             return (
               <section
                 key={index}
-                className={`bg-none flex flex-col gap-4 ${
-                  !((index + 1) % 2) ? "lg:mt-10" : ""
-                }`}
+                className={`bg-none flex flex-col gap-4 ${!((index + 1) % 2) ? "lg:mt-10" : ""
+                  }`}
               >
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
@@ -121,4 +120,4 @@ const DemonstratreSection = ({
   );
 };
 
-export default DemonstratreSection;
+export default DemonstrateSection;

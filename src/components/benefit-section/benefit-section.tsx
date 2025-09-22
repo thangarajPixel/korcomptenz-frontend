@@ -39,11 +39,11 @@ import { APP_CONFIG } from "@/utils/app-config";
 //   ],
 // };
 
-const BenefitSection = ({benefitData}:{benefitData:BenefitSectionType}) => {
+const BenefitSection = ({ benefitData }: { benefitData: BenefitSectionType }) => {
 
 
   return (
-    <section className="container-md py-10 ">
+    <section className="container-md ">
       <div>
         <h1 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 text-balance w-full lg:w-1/2">
           {benefitData.title}
@@ -52,7 +52,7 @@ const BenefitSection = ({benefitData}:{benefitData:BenefitSectionType}) => {
           <div className="lg:w-1/2 w-full">
             <KorcomptenzImage
               src={benefitData?.image?.url ?
-                 APP_CONFIG.APP_URL_IMAGE + benefitData?.image?.url
+                APP_CONFIG.APP_URL_IMAGE + benefitData?.image?.url
                 : "/placeholder.svg"}
               alt={benefitData.image?.alternativeText}
               width={500}

@@ -23,7 +23,7 @@ import React from "react";
 // };
 const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
   return (
-    <div className="container-md my-10 lg:my-20">
+    <div className="container-md ">
       <section className="grid grid-cols-24">
         {/* Left Content */}
         <div className="space-y-8 col-span-24 lg:col-span-10  mb-5 lg:mb-0">
@@ -51,7 +51,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
                 src={
                   sapSectionData.imageSection.image1?.image.url
                     ? APP_CONFIG.APP_URL_IMAGE +
-                      sapSectionData.imageSection.image1?.image.url
+                    sapSectionData.imageSection.image1?.image.url
                     : "/placeholder.svg"
                 }
                 alt={sapSectionData.imageSection.image1?.image?.alternativeText}
@@ -79,7 +79,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
                   src={
                     sapSectionData.imageSection.image2?.image.url
                       ? APP_CONFIG.APP_URL_IMAGE +
-                        sapSectionData.imageSection.image2?.image.url
+                      sapSectionData.imageSection.image2?.image.url
                       : "/placeholder.svg"
                   }
                   alt={

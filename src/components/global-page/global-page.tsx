@@ -14,7 +14,7 @@ import DomainSection from "../domain-section";
 import BenefitSection from "../benefit-section";
 import FaqSection from "../faq-section";
 import { StickyTitleList } from "../sticky-title-list";
-import DemonstratreSection from "../demonstrate-section";
+import DemonstrateSection from "../demonstrate-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -131,7 +131,7 @@ const GlobalPage = (props: Props) => {
         );
       case "page-componets.demonstrate-section":
         return (
-          <DemonstratreSection
+          <DemonstrateSection
             key={`demonstrate-section-${item.__component}-${item.id}`}
             demonstData={item}
           />

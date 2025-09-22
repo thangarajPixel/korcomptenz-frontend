@@ -45,8 +45,8 @@ import SliderCard from "./_utils/slider-card";
 //   ],
 // };
 
-const DarkSlider = ({manuelSliderData}:{manuelSliderData:DarkSliderType}) => {
- 
+const DarkSlider = ({ manuelSliderData }: { manuelSliderData: DarkSliderType }) => {
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -76,7 +76,7 @@ const DarkSlider = ({manuelSliderData}:{manuelSliderData:DarkSliderType}) => {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="container-md my-20 overflow-hidden ">
+    <div className="container-md overflow-hidden ">
       <div className="grid grid-cols-1 lg:grid-cols-24 gap-4">
         <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
 

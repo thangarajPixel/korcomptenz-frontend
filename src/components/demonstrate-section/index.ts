@@ -1,3 +1,3 @@
-import DemonstratreSection from "./demonstratre-section";
+import DemonstrateSection from "./demonstrate-section";
 
-export default DemonstratreSection
+export default DemonstrateSection

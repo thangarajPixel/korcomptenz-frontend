@@ -96,7 +96,7 @@ const LightSlider = ({
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="container-md py-10">
+    <div className="container-md">
       {/* Solutions Carousel Section */}
       <section>
         <div className=" mx-auto">
@@ -110,9 +110,8 @@ const LightSlider = ({
             <div className="hidden lg:flex items-center gap-4 mt-4">
               <Button
                 size="icon"
-                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${
-                  !prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 onClick={scrollPrev}
                 disabled={!prevBtnEnabled}
               >
@@ -120,9 +119,8 @@ const LightSlider = ({
               </Button>
               <Button
                 size="icon"
-                className={`rounded-full size-12  hover:bg-primary hover:text-white ${
-                  !nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+                className={`rounded-full size-12  hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 onClick={scrollNext}
                 disabled={!nextBtnEnabled}
               >
@@ -155,11 +153,10 @@ const LightSlider = ({
                 {LightSliderData.list.map((slide, index) => (
                   <div
                     key={slide.id}
-                    className={`min-w-full pl-4 pr-1 relative ${
-                      index === LightSliderData.list.length - 1
-                        ? "mr-[0px]"
-                        : ""
-                    }`}
+                    className={`min-w-full pl-4 pr-1 relative ${index === LightSliderData.list.length - 1
+                      ? "mr-[0px]"
+                      : ""
+                      }`}
                   >
                     <div className="space-y-4">
                       {slide.solutions.map((solution, solutionIndex) => (

@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "../korcomptenz-image";
 import { APP_CONFIG } from "@/utils/app-config";
 
-export default function Opportunities({careers}: {careers:OpportunitiesType}) {
+export default function Opportunities({ careers }: { careers: OpportunitiesType }) {
 
   return (
-    <section className="bg-white container-md mb-6">
+    <section className="bg-white container-md">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
           {/* Left side - Image with geometric elements */}
@@ -17,7 +17,7 @@ export default function Opportunities({careers}: {careers:OpportunitiesType}) {
             <div className="absolute top-8 left-6 z-10 group-hover:left-24 transition-all duration-1000">
               <div className="flex space-x-1 w-72">
                 <KorcomptenzImage
-                  src={APP_CONFIG.APP_URL_IMAGE+careers?.arrowImage?.url||"/placeholder.svg"}
+                  src={APP_CONFIG.APP_URL_IMAGE + careers?.arrowImage?.url || "/placeholder.svg"}
                   alt={careers?.arrowImage?.alternativeText}
                   className="w-full h-auto rounded-lg"
                   width={500}
@@ -29,8 +29,8 @@ export default function Opportunities({careers}: {careers:OpportunitiesType}) {
             {/* Main image */}
             <div className="relative z-10 ml-10">
               <KorcomptenzImage
-                 src={APP_CONFIG.APP_URL_IMAGE+careers?.bannerImage?.url||"/placeholder.svg"}
-                  alt={careers?.bannerImage?.alternativeText}
+                src={APP_CONFIG.APP_URL_IMAGE + careers?.bannerImage?.url || "/placeholder.svg"}
+                alt={careers?.bannerImage?.alternativeText}
                 className="w-full h-auto rounded-lg"
                 width={1112}
                 height={607}
@@ -49,7 +49,7 @@ export default function Opportunities({careers}: {careers:OpportunitiesType}) {
                   </span>
                   <section className="flex flex-row items-center gap-2">
                     <KorcomptenzImage
-                      src={APP_CONFIG.APP_URL_IMAGE+careers.profiles?.[0].image?.url}
+                      src={APP_CONFIG.APP_URL_IMAGE + careers.profiles?.[0].image?.url}
                       alt={careers.profiles?.[0].image?.alternativeText}
                       className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
                       width={1000}
@@ -61,7 +61,7 @@ export default function Opportunities({careers}: {careers:OpportunitiesType}) {
                   </section>
                   <div className="ps-10">
                     <KorcomptenzImage
-                     src={APP_CONFIG.APP_URL_IMAGE+careers.profiles?.[2].image?.url}
+                      src={APP_CONFIG.APP_URL_IMAGE + careers.profiles?.[2].image?.url}
                       alt={careers.profiles?.[2].image?.alternativeText}
                       className="w-16 h-16 lg:w-[100px] lg:h-[100px] rounded-full border-4 border-white shrink-0"
                       width={1000}
@@ -76,7 +76,7 @@ export default function Opportunities({careers}: {careers:OpportunitiesType}) {
                   </span>
                   <section className="flex flex-row items-center gap-2 lg:-ml-12">
                     <KorcomptenzImage
-                     src={APP_CONFIG.APP_URL_IMAGE+careers.profiles?.[1].image?.url}
+                      src={APP_CONFIG.APP_URL_IMAGE + careers.profiles?.[1].image?.url}
                       alt={careers.profiles?.[1].image?.alternativeText}
                       className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
                       width={1000}
@@ -99,8 +99,8 @@ export default function Opportunities({careers}: {careers:OpportunitiesType}) {
                   </span>
 
                   <KorcomptenzImage
-                   src={APP_CONFIG.APP_URL_IMAGE+careers.profiles?.[0].image?.url}
-                      alt={careers.profiles?.[0].image?.alternativeText}
+                    src={APP_CONFIG.APP_URL_IMAGE + careers.profiles?.[0].image?.url}
+                    alt={careers.profiles?.[0].image?.alternativeText}
                     className="w-16 h-16 rounded-full border-4 border-white shrink-0"
                     width={1000}
                     height={1000}
@@ -113,8 +113,8 @@ export default function Opportunities({careers}: {careers:OpportunitiesType}) {
 
                 <div className="flex flex-row justify-between items-center">
                   <KorcomptenzImage
-                   src={APP_CONFIG.APP_URL_IMAGE+careers.profiles?.[2].image?.url}
-                      alt={careers.profiles?.[2].image?.alternativeText}
+                    src={APP_CONFIG.APP_URL_IMAGE + careers.profiles?.[2].image?.url}
+                    alt={careers.profiles?.[2].image?.alternativeText}
                     className="w-16 h-16 rounded-full border-4 border-white shrink-0"
                     width={1000}
                     height={1000}
@@ -123,8 +123,8 @@ export default function Opportunities({careers}: {careers:OpportunitiesType}) {
                     {careers.breakThree}
                   </span>
                   <KorcomptenzImage
-                    src={APP_CONFIG.APP_URL_IMAGE+careers.profiles?.[1].image?.url}
-                      alt={careers.profiles?.[1].image?.alternativeText}
+                    src={APP_CONFIG.APP_URL_IMAGE + careers.profiles?.[1].image?.url}
+                    alt={careers.profiles?.[1].image?.alternativeText}
                     className="w-16 h-16 rounded-full border-4 border-white shrink-0"
                     width={1000}
                     height={1000}

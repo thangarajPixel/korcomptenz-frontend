@@ -10,7 +10,7 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
   };
 
   return (
-    <div className="container-md my-10">
+    <div className="container-md">
       <h1 className="text-6xl md:text-9xl font-semibold text-foreground mb-4">
         {faqData.title}
       </h1>
@@ -18,9 +18,8 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
       {faqData.faq.map((item) => (
         <div
           key={item.id}
-          className={`rounded-2xl p-4 md:p-6 my-8 ${
-            activeId === item.id ? "bg-light-gray" : "bg-custom-gray-8"
-          }`}
+          className={`rounded-2xl p-4 md:p-6 my-8 ${activeId === item.id ? "bg-light-gray" : "bg-custom-gray-8"
+            }`}
         >
           <button
             className="text-lg md:text-5xl font-semibold w-full text-left flex justify-between items-start text-foreground"
