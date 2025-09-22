@@ -21,19 +21,18 @@ const techData = {
       description:
         "Our collaboration with SAP brings powerful, integrated solutions that address real manufacturing challenges. From smarter supply chains to connected shop floors, we help you unlock the full potential of SAP faster - turning strategy into measurable outcomes with minimal disruption.",
     },
-    //  {
-    //   id: 3,
-    //   title: "SAP",
-    //   description:
-    //     "Our collaboration with SAP brings powerful, integrated solutions that address real manufacturing challenges. From smarter supply chains to connected shop floors, we help you unlock the full potential of SAP faster - turning strategy into measurable outcomes with minimal disruption.",
-    // },
-    // {
-    //   id: 4,
-    //   title: "Microsoft",
-    //   description:
-    //     "Our partnership with Microsoft ensures that you get faster results from your Dynamics 365 investments. With industry-aligned implementations and deep platform expertise, we help streamline your operations, improve planning, and significantly enhance your ROI.",
-    // },
-   
+    {
+      id: 3,
+      title: "SAP",
+      description:
+        "Our collaboration with SAP brings powerful, integrated solutions that address real manufacturing challenges. From smarter supply chains to connected shop floors, we help you unlock the full potential of SAP faster - turning strategy into measurable outcomes with minimal disruption.",
+    },
+    {
+      id: 4,
+      title: "Microsoft",
+      description:
+        "Our partnership with Microsoft ensures that you get faster results from your Dynamics 365 investments. With industry-aligned implementations and deep platform expertise, we help streamline your operations, improve planning, and significantly enhance your ROI.",
+    },
   ],
 };
 const TechPartner = () => {
@@ -47,31 +46,55 @@ const TechPartner = () => {
             </h1>
           </div>
           <div className="hidden lg:block">
-            <CardSwiper disableAutoSlide={true} slidesPerPage={1}>
-              {techData.techslides.map((slide) => (
-                <TechCard
-                  key={slide.id}
-                  data={slide}
-                  className="embla__custom_slide1"
-                />
-              ))}
+            <CardSwiper disableAutoSlide={true}>
+              {techData.techslides
+                .reduce((acc: (typeof techData.techslides)[], _, i, arr) => {
+                  if (i % 2 === 0) acc.push(arr.slice(i, i + 2));
+                  return acc;
+                }, [])
+                .map((pair, index) => (
+                  <div
+                    key={index}
+                    className="embla__slide flex-none w-full flex flex-col lg:flex-row gap-6"
+                  >
+                    {pair.map((slide) => (
+                      <TechCard
+                        key={slide.id}
+                        data={slide}
+                        className="flex-1"
+                      />
+                    ))}
+                  </div>
+                ))}
             </CardSwiper>
           </div>
           {/*Mobile slide */}
-         
-          <div className="lg:hidden col-span-12 flex flex-col gap-6">
-           
-              {techData.techslides.map((slide) => (
-                <div className="flex flex-col gap-2" key={slide.id}>
-                  <h1 className="text-2xl font-normal text-background">
-                    {slide.title}
-                  </h1>
-                  <p className="text-sm font-normal text-background">
-                    {slide.description}
-                  </p>
-                </div>
-              ))}
-            
+
+          <div className="lg:hidden col-span-12">
+            <CardSwiper disableAutoSlide={true}>
+              {techData.techslides
+                .reduce((acc: (typeof techData.techslides)[], _, i, arr) => {
+                  if (i % 2 === 0) acc.push(arr.slice(i, i + 2));
+                  return acc;
+                }, [])
+                .map((pair, index) => (
+                  <div
+                    key={index}
+                    className="embla__slide flex-none w-full flex flex-col gap-6"
+                  >
+                    {pair.map((slide) => (
+                      <div className="flex flex-col gap-2" key={slide.id}>
+                        <h1 className="text-2xl font-normal text-background">
+                          {slide.title}
+                        </h1>
+                        <p className="text-sm font-normal text-background">
+                          {slide.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+            </CardSwiper>
           </div>
         </div>
         <div className="col-span-12 lg:col-span-4 h-full">

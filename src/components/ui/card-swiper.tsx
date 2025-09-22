@@ -1,8 +1,10 @@
-'use client';
+"use client";
 
-import { cn } from '@/lib/utils';
-import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
-import React, { type PropsWithChildren } from 'react';
+import { cn } from "@/lib/utils";
+import useEmblaCarousel, {
+  type UseEmblaCarouselType,
+} from "embla-carousel-react";
+import React, { type PropsWithChildren } from "react";
 
 const CardSwiper = ({
   children,
@@ -14,17 +16,8 @@ const CardSwiper = ({
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
-    // Prevent drag on specific elements
-    watchDrag: (_emblaApi, event) => {
-      if (
-        (event?.target as HTMLElement)?.classList?.contains('embla__disable_swiper')
-      ) {
-        return false;
-      }
-      return true;
-    },
+    slidesToScroll: 1,
   });
-
 
   // Safe initializer
   const onInit = React.useCallback((api?: UseEmblaCarouselType[1]) => {
@@ -42,12 +35,12 @@ const CardSwiper = ({
     onInit(emblaApi);
     onSelect(emblaApi);
 
-    emblaApi.on('reInit', () => onInit(emblaApi));
-    emblaApi.on('select', () => onSelect(emblaApi));
+    emblaApi.on("reInit", () => onInit(emblaApi));
+    emblaApi.on("select", () => onSelect(emblaApi));
 
     return () => {
-      emblaApi.off('reInit', () => onInit(emblaApi));
-      emblaApi.off('select', () => onSelect(emblaApi));
+      emblaApi.off("reInit", () => onInit(emblaApi));
+      emblaApi.off("select", () => onSelect(emblaApi));
     };
   }, [emblaApi, onInit, onSelect]);
 
@@ -67,13 +60,11 @@ const CardSwiper = ({
   }, [emblaApi, disableAutoSlide]);
 
   return (
-    <section className={cn('w-full rounded-none', className)}>
+    <section className={cn("w-full rounded-none", className)}>
       <div className="relative">
         <div className="overflow-hidden" ref={emblaRef}>
           {/* Important: min-w-0 ensures flex items shrink properly */}
-          <div className={cn('flex min-w-0')}>
-            {children}
-          </div>
+          <div className={cn("flex")}>{children}</div>
         </div>
       </div>
     </section>
