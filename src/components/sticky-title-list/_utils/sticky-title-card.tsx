@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
- 
   const { title, description, image, buttonText } = data;
   return (
     <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px] ">
@@ -43,11 +42,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                 }`}
                 width={image.width}
                 height={image.height}
-                src={
-                  image.url
-                    ? `${APP_CONFIG.APP_URL_IMAGE}${image.url}`
-                    : "/placeholder.svg"
-                }
+                src={image.url || "/placeholder.svg"}
                 alt={image.alternativeText}
               />
             </div>
@@ -63,10 +58,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               className="w-full object-cover p-0"
               width={image?.width}
               height={image?.height}
-              src={
-                image?.url
-                  ||"/placeholder.svg"
-              }
+              src={image?.url || "/placeholder.svg"}
               alt={image?.alternativeText}
             />
           </div>
