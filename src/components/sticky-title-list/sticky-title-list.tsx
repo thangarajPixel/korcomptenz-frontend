@@ -158,10 +158,10 @@ const StickyTitleList = ({
 }) => {
   return (
     <div className="container-md">
-      <div className="w-full ">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+      <div className="w-full px-0 md:px-12 lg:px-16">
+        <div className="flex flex-col lg:flex-row gap-8 ">
           {/* Left Sidebar - Title */}
-          <div>
+          <div className="w-1/2"  >
             <div className={`lg:sticky lg:top-28`}>
               <h2 className="text-6xl  md:text-9xl font-bold text-gray-900 ">
                 {salesforceServices.title}
