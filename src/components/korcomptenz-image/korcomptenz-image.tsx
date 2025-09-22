@@ -18,13 +18,13 @@ type KorcomptenzImageProps = Omit<ImageProps, "src" | "alt"> & {
 }
 
 const KorcomptenzImage = (props: KorcomptenzImageProps) => {
-  const src = typeof props.src === 'string' ? props?.src : props.src?.url || '';
-  const alt = typeof props.src === 'string' ? props?.alt : props.src?.alternativeText;
+  const src = (props.src as ImageType)?.url ? (props.src as ImageType)?.url : props.src || '';
+  const alt = (props.src as ImageType)?.alternativeText ? (props.src as ImageType)?.alternativeText : props.alt || '';
   return (
     <Image
       {...props}
-      src={src}
-      alt={alt || ''}
+      src={(src || '/assets/placeholder.png') as string}
+      alt={alt || '/assets/placeholder.png'}
       className={cn(props?.nonAnimate && 'object-cover transition-transform duration-300 hover:scale-110', props?.className)}
       placeholder={imagePlaceholder}
     />

@@ -102,11 +102,7 @@ export function AnimatedTabsHero({
             className="relative h-full w-full lg:w-3/4"
           >
             <KorcomptenzImage
-              src={
-                 activeContent.image?.url ||
-                "/placeholder.svg"
-              }
-              alt={activeContent.image?.alternativeText}
+              src={activeContent.image}
               className="h-fit w-full rounded-xl object-contain"
               width={1000}
               height={1000}

@@ -21,8 +21,7 @@ const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
             </div>
             <div className="flex justify-end  md:h-3/4 lg:pb-28  pr-0 p-6 ">
               <KorcomptenzImage
-                src={card.image?.url || "/placeholder.svg"}
-                alt={card.image?.alternativeText}
+                src={card.image}
                 width={500}
                 height={500}
                 className=" h-auto   w-[90%]"
@@ -33,8 +32,7 @@ const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
           <>
             <div className="flex mb-4 p-6">
               <KorcomptenzImage
-                src={card.image?.url || "/placeholder.svg"}
-                alt={card.image?.alternativeText}
+                src={card.image}
                 width={300}
                 height={100}
                 className="rounded-lg"
@@ -58,24 +56,21 @@ const InspireSectionCard: React.FC<{ card: InspireSectionType["list"][0] }> = ({
                   <p className=" md:text-lg text-md">{card.description}</p>
                 </div>
                 <div
-                  className={`flex-shrink-0 absolute ${
-                    card.image?.height === 111 ? "" : "mt-4"
-                  } right-3 -top-10`}
+                  className={`flex-shrink-0 absolute ${card.image?.height === 111 ? "" : "mt-4"
+                    } right-3 -top-10`}
                 >
                   <KorcomptenzImage
-                    src={card.image?.url || "/placeholder.svg"}
-                    alt={card.image?.alternativeText || "image"}
+                    src={card.image}
                     width={
                       card.image?.height === 111
                         ? 111
                         : card.image?.height === 182
-                        ? 144
-                        : 111
+                          ? 144
+                          : 111
                     }
                     height={card.image?.height || 80}
-                    className={`rounded-lg ${
-                      card.image?.height === 111 ? "mt-4" : ""
-                    }`}
+                    className={`rounded-lg ${card.image?.height === 111 ? "mt-4" : ""
+                      }`}
                   />
                 </div>
               </div>

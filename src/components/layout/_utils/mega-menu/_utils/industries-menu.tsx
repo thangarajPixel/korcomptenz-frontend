@@ -167,7 +167,7 @@ const IndustriesMenu = () => {
                       className="ml-auto"
                     >
                       <Image
-                        src={section.imagePath || "/placeholder.svg"}
+                        src={section.imagePath || "/assets/placeholder.png"}
                         alt={section.title}
                         width={section.height === "tall" ? 160 : 120}
                         height={section.height === "tall" ? 160 : 120}

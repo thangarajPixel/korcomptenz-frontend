@@ -1,8 +1,7 @@
 "use client";
 
-
-import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const aboutData = {
   aboutUs: {
@@ -70,11 +69,11 @@ const AboutMenu = () => {
           <h1 className="text-9xl font-semibold text-primary mb-8">
             {aboutData.aboutUs.title}
           </h1>
-          <span className="relative h-1 border-5 border-b  border-primary w-[462px] z-3"></span>
+          <div className="relative h-1 border-5 border-b  border-primary w-full " />
         </div>
 
         {/* Middle section */}
-        <div className="w-2/5 bg-light-white mx-10">
+        <div className="w-2/5 bg-light-white mr-10 rounded-2xl">
           <div className="h-full rounded-2xl p-6 pt-10 flex flex-col">
             {/* Top section - 40% */}
             <div className="flex-[0.4] flex">
@@ -84,7 +83,7 @@ const AboutMenu = () => {
                   <h2 className="text-3xl font-normal text-primary mr-3">
                     {aboutData.whoWeAre.title}
                   </h2>
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                     <ChevronRight className="w-4 h-4 text-white" />
                   </div>
                 </div>
@@ -102,8 +101,7 @@ const AboutMenu = () => {
                         {item.title}
                       </span>
                       <div
-                        className="
-                                      w-8 h-8 flex items-center justify-center rounded-full bg-white border border-transparent group-hover:border-primary  group-hover:text-primary transition-colors duration-300  "
+                        className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-transparent group-hover:border-primary  group-hover:text-primary transition-colors duration-300  "
                       >
                         <ChevronRight className="w-4 h-4 text-custom-gray group-hover:text-primary transition-colors" />
                       </div>
@@ -115,9 +113,9 @@ const AboutMenu = () => {
 
             {/* Bottom image section - 60% */}
             <div className="flex-[0.6] mt-6">
-              <div className="relative w-full h-full rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src={aboutData.whoWeAre.image.src || "/placeholder.svg"}
+              <div className="relative w-full h-full rounded-xl overflow-hidden shadow-none">
+                <KorcomptenzImage
+                  src={aboutData.whoWeAre.image.src || "/assets/placeholder.png"}
                   alt={aboutData.whoWeAre.image.alt}
                   fill
                   className="object-contain"
@@ -149,8 +147,8 @@ const AboutMenu = () => {
 
                 {/* Image - 50% */}
                 <div className="relative w-1/2 h-full flex items-center justify-center">
-                  <Image
-                    src={section.icon || "/placeholder.svg"}
+                  <KorcomptenzImage
+                    src={section.icon}
                     alt={`${section.title} icon`}
                     fill
                     className="object-contain"

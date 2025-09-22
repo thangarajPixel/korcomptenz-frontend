@@ -94,8 +94,7 @@ export default function StickyCards({
                 >
                   <KorcomptenzImage
                     className="w-full h-44 md:h-full object-cover"
-                    src={card.image?.url || "/placeholder.svg"}
-                    alt={card.image?.alternativeText}
+                    src={card.image}
                     width={1000}
                     height={1000}
                   />

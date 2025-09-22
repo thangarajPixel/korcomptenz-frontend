@@ -19,8 +19,7 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
               <section key={index} className={`bg-none flex flex-col gap-4 `}>
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
-                    src={slide?.image?.url || "/placeholder.svg"}
-                    alt={slide.image?.alternativeText}
+                    src={slide?.image}
                     width={500}
                     height={500}
                     className="object-cover w-full h-full "

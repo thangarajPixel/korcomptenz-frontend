@@ -24,21 +24,20 @@ export default function SlidingSection({
         >
           <div
             className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
-            // style={{
-            //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/placeholder.svg"})`,
-            //   backgroundSize: "cover",
-            //   backgroundPosition: "center",
-            //   backgroundRepeat: "no-repeat",
-            //   objectFit: "cover"
-            // }}
+          // style={{
+          //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
+          //   backgroundSize: "cover",
+          //   backgroundPosition: "center",
+          //   backgroundRepeat: "no-repeat",
+          //   objectFit: "cover"
+          // }}
           >
             <KorcomptenzImage
               src={
                 isMobile
-                  ? slide.mobile_image?.url
-                  : slide.image?.url || "/placeholder.svg"
+                  ? slide.mobile_image
+                  : slide.image
               }
-              alt={slide?.image?.alternativeText}
               width={1000}
               height={1000}
               priority={true}
@@ -48,11 +47,10 @@ export default function SlidingSection({
               <div className="container-md">
                 <div className="max-w-2xl text-white">
                   <div
-                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${
-                      slide.subtitle
-                        ? "text-4xl md:text-9xl"
-                        : "text-lg md:text-7xl font-medium"
-                    }`}
+                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide.subtitle
+                      ? "text-4xl md:text-9xl"
+                      : "text-lg md:text-7xl font-medium"
+                      }`}
                   >
                     {slide.subtitle || slide.subtitle2}
                   </div>

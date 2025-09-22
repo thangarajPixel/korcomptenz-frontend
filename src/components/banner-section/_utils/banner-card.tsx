@@ -24,16 +24,14 @@ const BannerCard = ({
       {/* Desktop view */}
       <div className="relative w-full md:h-[513px] h-full overflow-hidden rounded-4xl hidden lg:block">
         <KorcomptenzImage
-          src={data.image?.url || "/placeholder.svg"}
-          alt={data.image?.alternativeText}
+          src={data.image}
           width={1000}
           height={800}
           className="w-full h-full object-cover rounded-4xl"
         />
         <div className="absolute top-30 left-10 p-4 md:p-8 z-10 w-full h-full flex flex-col gap-6 justify-center items-start">
           <KorcomptenzImage
-            src={data.logo?.url || "/placeholder.svg"}
-            alt={data.logo?.alternativeText}
+            src={data.logo}
             width={300}
             height={200}
             className="w-20 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
@@ -47,8 +45,7 @@ const BannerCard = ({
       {/* Mobile view */}
       <div className="w-full h-auto aspect-square overflow-hidden rounded-4xl lg:hidden items-center justify-center">
         <KorcomptenzImage
-          src={data.imageMobile?.url || "/placeholder.svg"}
-          alt={data.imageMobile?.alternativeText}
+          src={data.imageMobile}
           width={1000}
           height={800}
           className="w-full h-full object-cover"
@@ -56,8 +53,7 @@ const BannerCard = ({
       </div>
       <div className="gap-6 justify-center items-start p-4 md:p-8 w-full lg:hidden  h-full">
         <KorcomptenzImage
-          src={data.logoMobile?.url || "/placeholder.svg"}
-          alt={data.altMobile?.alternativeText}
+          src={data.logoMobile}
           width={300}
           height={200}
           className="w-[300px] h-auto object-contain mb-2 md:mb-4 opacity-65"

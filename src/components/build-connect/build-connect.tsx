@@ -25,8 +25,7 @@ const BuildConnect = ({
       </div>
       <div className="p-5 hidden lg:block">
         <KorcomptenzImage
-          src={buildData?.image?.url || "/placeholder.svg"}
-          alt={buildData.image?.alternativeText}
+          src={buildData?.image}
           width={500}
           height={500}
           className="w-full h-auto object-cover"
@@ -34,8 +33,7 @@ const BuildConnect = ({
       </div>
       <div className="p-5 lg:hidden ">
         <KorcomptenzImage
-          src={buildData.imagemobile?.url || "/placeholder.svg"}
-          alt={buildData.imagemobile?.alternativeText}
+          src={buildData.imagemobile}
           width={500}
           height={500}
           className="w-full h-auto object-cover"

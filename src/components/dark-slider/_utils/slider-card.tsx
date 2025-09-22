@@ -23,8 +23,7 @@ const SliderCard: React.FC<Props> = ({ slide }) => {
               className="w-12 h-12 object-contain"
               width={48}
               height={48}
-              src={slide?.image?.url || "/placeholder.svg"}
-              alt={slide.image?.alternativeText}
+              src={slide?.image}
             />
           </div>
           <h3 className="text-white text:medium md:text-6xl font-normal mb-6">

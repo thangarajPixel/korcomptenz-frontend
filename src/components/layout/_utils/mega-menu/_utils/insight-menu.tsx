@@ -62,7 +62,7 @@ const InsightsMenu = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full">
               <Image
-                src={insightsData.heroImage || "/placeholder.svg"}
+                src={insightsData.heroImage || "/assets/placeholder.png"}
                 alt="Professional business insights"
                 fill
                 className="object-cover"

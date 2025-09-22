@@ -31,19 +31,17 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           {image && (
             <div className="flex absolute -right-0 -bottom-0 justify-end items-end">
               <KorcomptenzImage
-                className={`w-full object-cover p-0 ${
-                  image.height > 300
-                    ? "h-[300px]"
-                    : image.height >= 200
+                className={`w-full object-cover p-0 ${image.height > 300
+                  ? "h-[300px]"
+                  : image.height >= 200
                     ? "h-[200px]"
                     : image.height >= 100
-                    ? "h-[150px]"
-                    : "h-[90px]"
-                }`}
+                      ? "h-[150px]"
+                      : "h-[90px]"
+                  }`}
                 width={image.width}
                 height={image.height}
-                src={image.url || "/placeholder.svg"}
-                alt={image.alternativeText}
+                src={image}
               />
             </div>
           )}
@@ -58,8 +56,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               className="w-full object-cover p-0"
               width={image?.width}
               height={image?.height}
-              src={image?.url || "/placeholder.svg"}
-              alt={image?.alternativeText}
+              src={image}
             />
           </div>
         )}

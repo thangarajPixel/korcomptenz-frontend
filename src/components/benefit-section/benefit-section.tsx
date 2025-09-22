@@ -52,8 +52,7 @@ const BenefitSection = ({
         <div className="flex flex-wrap lg:flex-nowrap lg:flex-row md:p-6 gap-10">
           <div className="lg:w-1/2 w-full">
             <KorcomptenzImage
-              src={benefitData?.image?.url || "/placeholder.svg"}
-              alt={benefitData.image?.alternativeText}
+              src={benefitData?.image}
               width={500}
               height={500}
               className="w-full h-auto object-cover"
@@ -67,9 +66,8 @@ const BenefitSection = ({
               return (
                 <div
                   key={card.id}
-                  className={`flex gap-4 ${
-                    isOddNumberOfCards ? "w-full" : "w-1/2"
-                  }`}
+                  className={`flex gap-4 ${isOddNumberOfCards ? "w-full" : "w-1/2"
+                    }`}
                 >
                   <div className="md:mx-4 m-2">
                     <p className="text-8xl font-light text-primary w-10 shrink-0 ">

@@ -19,8 +19,7 @@ export default function Opportunities({
             <div className="absolute top-8 left-6 z-10 group-hover:left-24 transition-all duration-1000">
               <div className="flex space-x-1 w-72">
                 <KorcomptenzImage
-                  src={careers?.arrowImage?.url || "/placeholder.svg"}
-                  alt={careers?.arrowImage?.alternativeText}
+                  src={careers?.arrowImage}
                   className="w-full h-auto rounded-lg"
                   width={500}
                   height={300}
@@ -31,8 +30,7 @@ export default function Opportunities({
             {/* Main image */}
             <div className="relative z-10 ml-10">
               <KorcomptenzImage
-                src={careers?.bannerImage?.url || "/placeholder.svg"}
-                alt={careers?.bannerImage?.alternativeText}
+                src={careers?.bannerImage}
                 className="w-full h-auto rounded-lg"
                 width={1112}
                 height={607}

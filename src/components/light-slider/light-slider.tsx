@@ -133,10 +133,7 @@ const LightSlider = ({
             {/* Left: Business Meeting Image */}
             <div className="rounded-3xl overflow-hidden">
               <KorcomptenzImage
-                src={
-                  LightSliderData.image?.url|| "/placeholder.svg"
-                }
-                alt={LightSliderData.image?.alternativeText}
+                src={LightSliderData.image}
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"

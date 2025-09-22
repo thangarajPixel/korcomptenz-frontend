@@ -71,14 +71,12 @@ const DemonstrateSection = ({
             return (
               <section
                 key={index}
-                className={`bg-none flex flex-col gap-4 ${
-                  !((index + 1) % 2) ? "lg:mt-10" : ""
-                }`}
+                className={`bg-none flex flex-col gap-4 ${!((index + 1) % 2) ? "lg:mt-10" : ""
+                  }`}
               >
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
-                    src={card.image?.url || "/placeholder.svg"}
-                    alt={card.image?.alternativeText}
+                    src={card.image}
                     width={500}
                     height={500}
                     className="object-cover w-full h-full "
