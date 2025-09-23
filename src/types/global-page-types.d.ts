@@ -112,6 +112,7 @@ type SapSectionType = {
 
 type LightSliderType = {
   title: string;
+  description: string;
   image: ImageType;
   alt: string;
   list: [
@@ -122,6 +123,7 @@ type LightSliderType = {
           id: number;
           title: string;
           description: string;
+          buttonText: string;
         }
       ];
     }
@@ -222,8 +224,22 @@ type buildConnectSectionType = {
   title: string;
   description: string;
   image: ImageType;
-  imagemobile: ImageType;
+  mobileImage: ImageType;
+  imageCaption: string;
+  buttonText: string;
   alt: string;
+};
+
+type techpartnersectionType = {
+  heading: string;
+  image: string;
+  mobileimage: string;
+  alt: string;
+  techslides: {
+    id: number;
+    title: string;
+    description: string;
+  }[];
 };
 
 type ComponentPropsMap = {
@@ -308,6 +324,10 @@ type ComponentPropsMap = {
   BuildConnectSection: buildConnectSectionType & {
     id: string;
     __component: "page-componets.build-data";
+  };
+  TechpartnerSection: techpartnersectionType & {
+    id: string;
+    __component: "page-componets.tech-data";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

@@ -1,6 +1,7 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
-import { ChevronRight } from "lucide-react";
+
+import { Button } from "../ui/button";
 
 const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
   return (
@@ -16,7 +17,10 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10  p-6 md:p-10 ">
           {domainData.slides.map((slide) => {
             return (
-              <div key={`slide-domain-${slide.id}`} className={`bg-none flex flex-col gap-4 `}>
+              <div
+                key={`slide-domain-${slide.id}`}
+                className={`bg-none flex flex-col gap-4 `}
+              >
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
                     src={slide?.image}
@@ -36,17 +40,21 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
                   </p>
                 </div>
                 <div>
-                  <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors">
-                    {slide.buttonText}
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                  {slide.buttonText && (
+                    <Button
+                      arrow
+                      className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors"
+                    >
+                      {slide.buttonText}
+                    </Button>
+                  )}
                 </div>
               </div>
             );
           })}
         </div>
       </div>
-    </section >
+    </section>
   );
 };
 

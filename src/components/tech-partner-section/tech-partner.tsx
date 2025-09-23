@@ -3,39 +3,39 @@ import KorcomptenzImage from "../korcomptenz-image";
 import CardSwiper from "../ui/card-swiper";
 import TechCard from "./_utils/tech-card";
 
-const techData = {
-  heading: "Our technology partnerships accelerate your time to value",
-  image: "/assets/services/Maskgroup.png",
-  mobileimage: "/assets/services/maskgroupmobile.png",
-  alt: "tech image",
-  techslides: [
-    {
-      id: 1,
-      title: "Microsoft",
-      description:
-        "Our partnership with Microsoft ensures that you get faster results from your Dynamics 365 investments. With industry-aligned implementations and deep platform expertise, we help streamline your operations, improve planning, and significantly enhance your ROI.",
-    },
-    {
-      id: 2,
-      title: "SAP",
-      description:
-        "Our collaboration with SAP brings powerful, integrated solutions that address real manufacturing challenges. From smarter supply chains to connected shop floors, we help you unlock the full potential of SAP faster - turning strategy into measurable outcomes with minimal disruption.",
-    },
-    {
-      id: 3,
-      title: "SAP",
-      description:
-        "Our collaboration with SAP brings powerful, integrated solutions that address real manufacturing challenges. From smarter supply chains to connected shop floors, we help you unlock the full potential of SAP faster - turning strategy into measurable outcomes with minimal disruption.",
-    },
-    {
-      id: 4,
-      title: "Microsoft",
-      description:
-        "Our partnership with Microsoft ensures that you get faster results from your Dynamics 365 investments. With industry-aligned implementations and deep platform expertise, we help streamline your operations, improve planning, and significantly enhance your ROI.",
-    },
-  ],
-};
-const TechPartner = () => {
+// const techData = {
+//   heading: "Our technology partnerships accelerate your time to value",
+//   image: "/assets/services/Maskgroup.png",
+//   mobileimage: "/assets/services/maskgroupmobile.png",
+//   alt: "tech image",
+//   techslides: [
+//     {
+//       id: 1,
+//       title: "Microsoft",
+//       description:
+//         "Our partnership with Microsoft ensures that you get faster results from your Dynamics 365 investments. With industry-aligned implementations and deep platform expertise, we help streamline your operations, improve planning, and significantly enhance your ROI.",
+//     },
+//     {
+//       id: 2,
+//       title: "SAP",
+//       description:
+//         "Our collaboration with SAP brings powerful, integrated solutions that address real manufacturing challenges. From smarter supply chains to connected shop floors, we help you unlock the full potential of SAP faster - turning strategy into measurable outcomes with minimal disruption.",
+//     },
+//     {
+//       id: 3,
+//       title: "SAP",
+//       description:
+//         "Our collaboration with SAP brings powerful, integrated solutions that address real manufacturing challenges. From smarter supply chains to connected shop floors, we help you unlock the full potential of SAP faster - turning strategy into measurable outcomes with minimal disruption.",
+//     },
+//     {
+//       id: 4,
+//       title: "Microsoft",
+//       description:
+//         "Our partnership with Microsoft ensures that you get faster results from your Dynamics 365 investments. With industry-aligned implementations and deep platform expertise, we help streamline your operations, improve planning, and significantly enhance your ROI.",
+//     },
+//   ],
+// };
+const TechPartner = ({ techData }: { techData: techpartnersectionType }) => {
   return (
     <div className="container-md my-10">
       <section className="bg-secondary rounded-none lg:rounded-4xl grid grid-cols-12 ">

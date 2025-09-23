@@ -40,20 +40,30 @@ const LightSlider = ({
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="container-md" data-debug={"page-componets.light-slider-list"}>
+    <section
+      className="container-md"
+      data-debug={"page-componets.light-slider-list"}
+    >
       <div className=" mx-auto">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-12">
-          <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
-            {LightSliderData.title}
-          </h2>
+          <div className="grid gap-3">
+            <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
+              {LightSliderData.title}
+            </h2>
+
+            <h2 className="text-custom-gray-9 text-md md:text-lg leading-relaxed">
+              {LightSliderData.description}
+            </h2>
+          </div>
 
           {/* Navigation Arrows */}
           <div className="hidden lg:flex items-center gap-4 mt-4">
             <Button
               size="icon"
-              className={`rounded-full size-12  hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+              className={`rounded-full size-12  hover:bg-primary hover:text-white  ${
+                !prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               onClick={scrollPrev}
               disabled={!prevBtnEnabled}
             >
@@ -61,8 +71,9 @@ const LightSlider = ({
             </Button>
             <Button
               size="icon"
-              className={`rounded-full size-12  hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+              className={`rounded-full size-12  hover:bg-primary hover:text-white ${
+                !nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               onClick={scrollNext}
               disabled={!nextBtnEnabled}
             >
@@ -90,10 +101,9 @@ const LightSlider = ({
               {LightSliderData.list.map((slide, index) => (
                 <div
                   key={slide.id}
-                  className={`min-w-full pl-4 pr-1 relative ${index === LightSliderData.list.length - 1
-                    ? "mr-[0px]"
-                    : ""
-                    }`}
+                  className={`min-w-full pl-4 pr-1 relative ${
+                    index === LightSliderData.list.length - 1 ? "mr-[0px]" : ""
+                  }`}
                 >
                   <div className="space-y-4">
                     {slide.solutions.map((solution, solutionIndex) => (
@@ -101,13 +111,15 @@ const LightSlider = ({
                         <h3 className="text-4xl mg:text-5xl font-semibold text-foreground">
                           {solution.title}
                         </h3>
-                        <p className="text-custom-gray-9 text-md md:text-lg leading-relaxed">
+                        <p className="text-custom-gray-9 text-md md:text-lg leading-relaxed break-words">
                           {solution.description}
                         </p>
-                        <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">
-                          Learn more
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
+                        {solution.buttonText && (
+                          <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">
+                            {solution.buttonText}
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        )}
                         {solutionIndex < slide.solutions.length - 1 && (
                           <hr className="border-gray-200 mt-2" />
                         )}

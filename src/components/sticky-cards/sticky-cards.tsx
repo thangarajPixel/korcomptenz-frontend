@@ -14,21 +14,27 @@ export default function StickyCards({
   stickyCards: StickyCardsType;
 }) {
   const cardData = stickyCards.list;
+
   return (
-    <section data-debug={"page-componets.sticky-cards-list"} className="relative">
+    <section
+      data-debug={"page-componets.sticky-cards-list"}
+      className="relative"
+    >
       <div className="relative container-md ">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-5">
           <h1 className=" font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
             {stickyCards.title}
           </h1>
 
-          <Button
-            className="hidden sm:inline-flex variant:default text-4xl"
-            size="xl"
-          >
-            {stickyCards.buttonText}
-            <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
-          </Button>
+          {stickyCards.buttonText && (
+            <Button
+              className="hidden sm:inline-flex variant:default text-4xl"
+              size="xl"
+            >
+              {stickyCards.buttonText}
+              <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
+            </Button>
+          )}
         </div>
         {cardData?.map((card, index) => (
           <div

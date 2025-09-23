@@ -16,6 +16,7 @@ import FaqSection from "../faq-section";
 import { StickyTitleList } from "../sticky-title-list";
 import DemonstrateSection from "../demonstrate-section";
 import BuildConnect from "../build-connect";
+import TechPartner from "../tech-partner-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -143,6 +144,13 @@ const GlobalPage = (props: Props) => {
           <BuildConnect
             key={`build-connect-${item.__component}-${item.id}`}
             buildData={item}
+          />
+        );
+      case "page-componets.tech-data":
+        return (
+          <TechPartner
+            key={`tech-partner-${item.__component}-${item.id}`}
+            techData={item}
           />
         );
       default:
