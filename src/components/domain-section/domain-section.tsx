@@ -14,15 +14,15 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
           <div className="border-b-4 hidden lg:block border-custom-gray-7 w-1/3 mt-4"></div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10  p-6 md:p-10 ">
-          {domainData.slides.map((slide, index) => {
+          {domainData.slides.map((slide) => {
             return (
-              <section key={index} className={`bg-none flex flex-col gap-4 `}>
+              <div key={`slide-domain-${slide.id}`} className={`bg-none flex flex-col gap-4 `}>
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
                     src={slide?.image}
                     width={500}
                     height={500}
-                    className="object-cover w-full h-full "
+                    className="object-cover w-full h-full"
                   />
                 </div>
                 <div>
@@ -31,7 +31,7 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
                   </p>
                 </div>
                 <div>
-                  <p className="text-lg font-normal text-foreground leading-[25px]">
+                  <p className="text-lg font-normal text-foreground leading-6 break-words">
                     {slide.description}
                   </p>
                 </div>
@@ -41,7 +41,7 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
-              </section>
+              </div>
             );
           })}
         </div>
