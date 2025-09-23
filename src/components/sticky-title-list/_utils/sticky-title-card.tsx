@@ -26,7 +26,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
         </div>
 
         {/*Desktop Button */}
-        <div className="hidden lg:flex   -ml-10 pt-10  pb-0 ">
+        <div className="hidden lg:flex -ml-10 pt-10  pb-0 ">
           {/* Illustration */}
           {image && (
             <div className="flex absolute -right-0 -bottom-0 justify-end items-end">

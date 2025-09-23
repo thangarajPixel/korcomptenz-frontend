@@ -9,14 +9,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 's3-alpha-sig.figma.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-      {
-        protocol: 'https',
         hostname: 'aue2kormlworkspacetest01.blob.core.windows.net',
       },
       {
