@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react";
 
 const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
   return (
-    <section className="container-md ">
+    <section className="container-md" data-debug={"page-componets.domain-data"}>
       <div className="rounded-2xl  bg-custom-gray-6">
         <div className="flex items-start justify-center  pt-6 md:pt-20">
           <div className="border-b-4 hidden lg:block border-custom-gray-7 w-1/3 mt-4"></div>
@@ -46,7 +46,7 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
           })}
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

@@ -13,7 +13,7 @@ export default function InsightsSection({
   insights: InsightsSectionType;
 }) {
   return (
-    <div>
+    <section data-debug={"page-componets.insights-section"}>
       <SplitDivider>
         <motion.h2
           id="insights-heading"
@@ -22,7 +22,7 @@ export default function InsightsSection({
           {insights.title}
         </motion.h2>
       </SplitDivider>
-      <section aria-labelledby="insights-heading" className="container-md mt-7">
+      <div aria-labelledby="insights-heading" className="container-md mt-7">
         <div className="flex flex-col items-center gap-6 text-center md:gap-8">
           <InsightsMobileCarousel items={insights.list} />
           <motion.div
@@ -74,8 +74,8 @@ export default function InsightsSection({
             </Link>
           </motion.div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
   );
 }

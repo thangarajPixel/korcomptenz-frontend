@@ -1,29 +1,10 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import React from "react";
 
-// const sapSectionData = {
-//   heading: "The right partner for your SAP transformation journey",
-//   description:
-//     " With decades of ERP experience and a sharp focus on your business goals, we deliver tailored solutions and services to help you get the most out of your SAP investments. As a trusted SAP partner, we blend deep expertise with innovation to build the right platform for rapid and sustained growth.",
-//   imageSection: {
-//     image1: {
-//       src: "/assets/services/sapimage1.png",
-//       alt: "Business professionals image",
-//     },
-//     image2: {
-//       src: "/assets/services/sapimage2.png",
-//       alt: " Office image",
-//     },
-//   },
-//   card: {
-//     value: "30%",
-//     content: "overall reduction in delivery time ",
-//   },
-// };
 const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
   return (
-    <div className="container-md ">
-      <section className="grid grid-cols-24">
+    <section className="container-md" data-debug={"page-componets.sap-section-data"}>
+      <div className="grid grid-cols-24">
         {/* Left Content */}
         <div className="space-y-8 col-span-24 lg:col-span-10  mb-5 lg:mb-0">
           {" "}
@@ -78,8 +59,8 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

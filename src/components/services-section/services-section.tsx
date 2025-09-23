@@ -22,9 +22,9 @@ export function AnimatedTabsHero({
   const activeContent = content.find((c) => c.label === value) || content[0];
 
   return (
-    <section className={cn("my- md:my-0", className)}>
+    <section className={cn("my- md:my-0", className)} data-debug={"home.services-section"}>
       {/* Top rounded segmented tabs */}
-      <div className="relative ">
+      <div className="relative">
         <Tabs
           value={value}
           onValueChange={(v) => setValue(v)}
@@ -90,9 +90,7 @@ export function AnimatedTabsHero({
               </Button>
             </Link>
           </motion.div>
-        </AnimatePresence>
 
-        <AnimatePresence mode="wait">
           <motion.div
             key={`art-${value}`}
             initial={{ opacity: 0, x: 120 }}

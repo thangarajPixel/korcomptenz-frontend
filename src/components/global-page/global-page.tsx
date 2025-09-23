@@ -135,13 +135,13 @@ const GlobalPage = (props: Props) => {
         return (
           <DemonstrateSection
             key={`demonstrate-section-${item.__component}-${item.id}`}
-            demonstData={item}
+            data={item}
           />
         );
       case "page-componets.build-data":
         return (
           <BuildConnect
-            key={`demonstrate-section-${item.__component}-${item.id}`}
+            key={`build-connect-${item.__component}-${item.id}`}
             buildData={item}
           />
         );

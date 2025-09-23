@@ -10,10 +10,11 @@ const CardSwiper = ({
   children,
   className,
   disableAutoSlide = false,
+  ...props
 }: PropsWithChildren<unknown> & {
   className?: string;
   disableAutoSlide?: boolean;
-}) => {
+} & React.HTMLAttributes<HTMLDivElement>) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     slidesToScroll: 1,
@@ -60,7 +61,7 @@ const CardSwiper = ({
   }, [emblaApi, disableAutoSlide]);
 
   return (
-    <section className={cn("w-full rounded-none", className)}>
+    <section className={cn("w-full rounded-none", className)} {...props} >
       <div className="relative">
         <div className="overflow-hidden" ref={emblaRef}>
           {/* Important: min-w-0 ensures flex items shrink properly */}

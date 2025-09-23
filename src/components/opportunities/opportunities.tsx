@@ -10,7 +10,7 @@ export default function Opportunities({
   careers: OpportunitiesType;
 }) {
   return (
-    <section className="bg-white container-md">
+    <section className="bg-white container-md" data-debug={"home.opportunity"}>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
           {/* Left side - Image with geometric elements */}

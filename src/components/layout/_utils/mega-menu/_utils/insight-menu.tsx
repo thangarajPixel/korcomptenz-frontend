@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import KorcomptenzImage from "@/components/korcomptenz-image";
 
 // Sample insights data structure
 const insightsData = {
@@ -61,7 +61,7 @@ const InsightsMenu = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full">
-              <Image
+              <KorcomptenzImage
                 src={insightsData.heroImage || "/assets/placeholder.png"}
                 alt="Professional business insights"
                 fill

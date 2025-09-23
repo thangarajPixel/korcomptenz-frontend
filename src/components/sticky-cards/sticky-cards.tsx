@@ -15,7 +15,7 @@ export default function StickyCards({
 }) {
   const cardData = stickyCards.list;
   return (
-    <div className="relative ">
+    <section data-debug={"page-componets.sticky-cards-list"} className="relative">
       <div className="relative container-md ">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-5">
           <h1 className=" font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
@@ -110,6 +110,6 @@ export default function StickyCards({
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

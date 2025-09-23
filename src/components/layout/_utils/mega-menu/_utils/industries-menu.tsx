@@ -1,8 +1,7 @@
 "use client";
 
-
+import KorcomptenzImage from "@/components/korcomptenz-image";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const industriesData = {
   columns: [
@@ -166,7 +165,7 @@ const IndustriesMenu = () => {
                       // }}
                       className="ml-auto"
                     >
-                      <Image
+                      <KorcomptenzImage
                         src={section.imagePath || "/assets/placeholder.png"}
                         alt={section.title}
                         width={section.height === "tall" ? 160 : 120}

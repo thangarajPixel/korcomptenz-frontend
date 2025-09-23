@@ -1,50 +1,13 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 
-// const benefitData = {
-//   title: "Focusing on benefits that truly matter",
-//   image: "/assets/services/benefitimage.png",
-//   cards: [
-//     {
-//       id: 1,
-//       number: "01",
-//       description:
-//         "Gain real-time insights across business functions to make smarter, data-driven decisions.",
-//     },
-//     {
-//       id: 2,
-//       number: "02",
-//       description:
-//         "Automate routine tasks and streamline processes to reduce manual effort and increase productivity.",
-//     },
-//     {
-//       id: 3,
-//       number: "03",
-//       description:
-//         "Break down silos by unifying data, teams, and tools across departments and geographies.",
-//     },
-//     {
-//       id: 4,
-//       number: "04",
-//       description:
-//         "Adopt a modular platform that grows with your business and adapts to changing needs.",
-//     },
-//     {
-//       id: 5,
-//       number: "05",
-//       description:
-//         "Deliver personalized experiences and faster service through integrated sales, marketing, and support tools.",
-//     },
-//   ],
-// };
-
 const BenefitSection = ({
   benefitData,
 }: {
   benefitData: BenefitSectionType;
 }) => {
   return (
-    <section className="container-md ">
+    <section className="container-md" data-debug={"page-componets.benefit-data"}>
       <div>
         <h1 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 text-balance w-full lg:w-1/2">
           {benefitData.title}

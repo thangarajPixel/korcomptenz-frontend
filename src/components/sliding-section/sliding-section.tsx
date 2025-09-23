@@ -16,7 +16,7 @@ export default function SlidingSection({
   const isMobile = useMobile();
 
   return (
-    <CardSwiper>
+    <CardSwiper data-debug={"home.hero-section-one"}>
       {slides.map((slide) => (
         <div
           key={`sliding-section-${slide.id}`}

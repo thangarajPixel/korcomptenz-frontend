@@ -22,7 +22,7 @@ const InspireSection = ({ inspireSection }: { inspireSection: InspireSectionType
   const centerSpan =
     left.length > 0 && right.length > 0 ? "lg:col-span-1" : "lg:col-span-2";
   return (
-    <div className="container-md">
+    <section className="container-md" data-debug={"page-componets.inspire-section"}>
       <div className="grid lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 flex flex-col h-full ">
           {left?.map((card) => <InspireSectionCard key={`inspire-section-${card.id}`} card={card} />)}
@@ -57,7 +57,7 @@ const InspireSection = ({ inspireSection }: { inspireSection: InspireSectionType
           {inspireSection.buttonText}
         </Button>
       </div>
-    </div>
+    </section>
   );
 };
 

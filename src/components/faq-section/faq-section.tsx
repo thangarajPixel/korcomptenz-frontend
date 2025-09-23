@@ -11,7 +11,7 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
   };
 
   return (
-    <div className="container-md">
+    <section className="container-md" data-debug={"page-componets.faq-title"}>
       <h1 className="text-6xl md:text-9xl font-semibold text-foreground mb-4">
         {faqData.title}
       </h1>
@@ -41,7 +41,7 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
 
       </Accordion>
 
-    </div>
+    </section>
   );
 };
 
