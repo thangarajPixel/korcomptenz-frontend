@@ -132,6 +132,7 @@ type LightSliderType = {
 
 type DarkSliderType = {
   heading: string;
+  descripition: string;
   slides: [
     {
       id: number;
@@ -171,6 +172,7 @@ type StickyTitleListType = {
 };
 type DomainSectionType = {
   title: string;
+  description: string;
   slides: [
     {
       id: number;

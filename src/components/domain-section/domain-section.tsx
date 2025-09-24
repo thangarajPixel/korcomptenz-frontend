@@ -1,6 +1,5 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
-
 import { Button } from "../ui/button";
 
 const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
@@ -14,6 +13,11 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
           </h1>
           <div className="border-b-4 hidden lg:block border-custom-gray-7 w-1/3 mt-4"></div>
         </div>
+        {domainData.description && (
+          <p className="lg:py-5 lg:px-36 text-center">
+            {domainData.description}
+          </p>
+        )}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10  p-6 md:p-10 ">
           {domainData.slides.map((slide) => {
             return (

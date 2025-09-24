@@ -6,8 +6,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import SliderCard from "./_utils/slider-card";
 
-const DarkSlider = ({ manuelSliderData }: { manuelSliderData: DarkSliderType }) => {
-
+const DarkSlider = ({
+  manuelSliderData,
+}: {
+  manuelSliderData: DarkSliderType;
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -37,20 +40,25 @@ const DarkSlider = ({ manuelSliderData }: { manuelSliderData: DarkSliderType }) 
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="container-md overflow-hidden" data-debug={"page-componets.dark-slider-list"}>
+    <section
+      className="container-md overflow-hidden"
+      data-debug={"page-componets.dark-slider-list"}
+    >
       <div className="grid grid-cols-1 lg:grid-cols-24 gap-4">
         <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
-
           <h1 className="text-6xl md:text-9xl font-bold leading-tight text-black px-5 lg:px-0 mb-5 lg:mb-0">
             {manuelSliderData.heading}
           </h1>
-
+          {manuelSliderData.descripition && (
+            <p>{manuelSliderData.descripition}</p>
+          )}
 
           <div className="hidden lg:flex  items-center gap-4">
             <Button
               size="icon"
-              className={`rounded-full size-14 hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+              className={`rounded-full size-14 hover:bg-primary hover:text-white  ${
+                !prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               onClick={scrollPrev}
               disabled={!prevBtnEnabled}
             >
@@ -58,8 +66,9 @@ const DarkSlider = ({ manuelSliderData }: { manuelSliderData: DarkSliderType }) 
             </Button>
             <Button
               size="icon"
-              className={`rounded-full size-14 hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+              className={`rounded-full size-14 hover:bg-primary hover:text-white ${
+                !nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               onClick={scrollNext}
               disabled={!nextBtnEnabled}
             >
@@ -74,10 +83,11 @@ const DarkSlider = ({ manuelSliderData }: { manuelSliderData: DarkSliderType }) 
               {manuelSliderData.slides.map((slide, index) => (
                 <div
                   key={slide.id}
-                  className={`min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${index === manuelSliderData.slides.length - 1
-                    ? "mr-[100px]"
-                    : ""
-                    }`}
+                  className={`min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${
+                    index === manuelSliderData.slides.length - 1
+                      ? "mr-[100px]"
+                      : ""
+                  }`}
                 >
                   <SliderCard slide={slide} />
                 </div>
