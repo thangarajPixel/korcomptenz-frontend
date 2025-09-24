@@ -71,40 +71,38 @@ export function AnimatedTabsHero({
       <div className="relative container-md  flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">
         <AnimatePresence mode="wait" >
           <motion.div
-            key={`copy-${value}`}
-            initial={{ opacity: 0, x: 120 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -60 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-3"
-          >
-            <h1 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl">
-              {activeContent.heading}
-            </h1>
-            <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
-              {activeContent.description}
-            </p>
-            <Link href={activeContent.link}>
-              <Button size="xl" arrow={true}>
-                {activeContent.buttonText}
-              </Button>
-            </Link>
-          </motion.div>
-
-          <motion.div
             key={`art-${value}`}
-            initial={{ opacity: 0, x: 120 }}
+            initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -60 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="relative h-full w-full lg:w-3/4"
+            transition={{ duration: 0.50, ease: [0.22, 0.36, 0.22, 1] }}
+            className="space-y-3 w-full flex flex-col-reverse lg:flex-row"
           >
-            <KorcomptenzImage
-              src={activeContent.image}
-              className="h-fit w-full rounded-xl object-contain"
-              width={1000}
-              height={1000}
-            />
+            <div
+              className="space-y-3 "
+            >
+              <h1 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl">
+                {activeContent.heading}
+              </h1>
+              <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
+                {activeContent.description}
+              </p>
+              <Link href={activeContent.link}>
+                <Button size="xl" arrow={true}>
+                  {activeContent.buttonText}
+                </Button>
+              </Link>
+            </div>
+
+            <div className="w-full">
+
+              <KorcomptenzImage
+                src={activeContent.image}
+                className="h-full w-full rounded-xl object-contain"
+                width={1000}
+                height={1000}
+              />
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>

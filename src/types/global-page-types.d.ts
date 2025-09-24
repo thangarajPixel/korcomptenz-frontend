@@ -82,7 +82,7 @@ type WeAreKorcomptenzSectionType = {
   p1: string;
   p2: string;
   image: ImageType;
-  videoSrc: string;
+  // videoSrc: string;
 };
 
 type BannerSectionType = {

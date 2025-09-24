@@ -10,9 +10,8 @@ const WeAreKorcomptenzSection = ({
 }) => {
   const [isVideoOpen, setIsVideoOpen] = React.useState(false);
   return (
-    <section className="container-md" data-debug={"home.we-are-korcomptenz"}>
+    <section className="container-md" data-debug="home.we-are-korcomptenz">
       <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-32 items-start mb-10 md:mb-16">
-        {/* Left Column - Company Name */}
         <div className="lg:w-full">
           <h1 className="text-6xl md:text-8xl font-bold leading-tight">
             {weAreKorcomptenzData?.titleH1}
@@ -22,8 +21,6 @@ const WeAreKorcomptenzSection = ({
             </span>
           </h1>
         </div>
-
-        {/* Right Column - Description */}
         <div className="space-y-5">
           <p className="font-outfit font-normal text-md md:text-4xl leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">
             {weAreKorcomptenzData?.p1}
@@ -40,7 +37,7 @@ const WeAreKorcomptenzSection = ({
       >
         <KorcomptenzImage
           src={weAreKorcomptenzData.image}
-          className="w-full h-[280px] md:h-[500px] object-cover  rounded-4xl"
+          className="w-full h-[280px] md:h-[600px] object-cover  rounded-4xl"
           width={1112}
           height={500}
         />
@@ -57,11 +54,11 @@ const WeAreKorcomptenzSection = ({
           />
         </div>
       </div>
-      {isVideoOpen && (
+      {(isVideoOpen && weAreKorcomptenzData?.link) && (
         <VideoPopup
           isOpen={isVideoOpen}
           onClose={() => setIsVideoOpen(false)}
-          videoSrc={weAreKorcomptenzData?.videoSrc}
+          videoSrc={weAreKorcomptenzData?.link}
         />
       )}
     </section>

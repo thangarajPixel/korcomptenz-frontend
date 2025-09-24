@@ -1,5 +1,3 @@
-'use client';
-
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import KorcomptenzImage from '@/components/korcomptenz-image'
@@ -11,7 +9,7 @@ const ScheduleCall = ({
   scheduleCall: ScheduleCallType;
 }) => {
   return (
-    <section className="bg-accent-foreground/30 py-16  lg:h-[600px] ">
+    <section className="bg-accent-foreground/30 py-16  lg:h-[600px] " data-debug={"home.schedule-call"}>
       <div className="container-md">
         <div className="lg:flex flex-row items-center  justify-center lg:gap-8 ">
           {/* Left content */}
