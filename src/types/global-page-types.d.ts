@@ -39,6 +39,7 @@ type StickyCardsType = {
   title: string;
   buttonText: string;
   list: {
+    id: string;
     specificId: string;
     title: string;
     description: string;
@@ -356,4 +357,6 @@ type PagesListType = {
 type LayoutType = {
   scheduleCall: ScheduleCallType;
   company: CompanyType;
-}
+  industriesMenu: IndustriesMenuType["industriesMenu"];
+  serviceMenu: ServicesMenuProps["data"]["serviceMenu"];
+};

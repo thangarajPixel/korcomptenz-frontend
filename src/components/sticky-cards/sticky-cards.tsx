@@ -38,7 +38,7 @@ export default function StickyCards({
         </div>
         {cardData?.map((card, index) => (
           <div
-            key={card.specificId}
+            key={card.id}
             className={cn(
               "sm:sticky relative sm:top-48 top-0 ",
               `z-[${index + 10}] sm:mb-12`

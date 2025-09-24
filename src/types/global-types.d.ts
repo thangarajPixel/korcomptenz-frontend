@@ -1,4 +1,3 @@
-
 type ImageType = {
   height: number;
   width: number;
@@ -13,9 +12,8 @@ type ImageType = {
   size: number;
   ext: string;
   mime: string;
-  includes?: string
-}
-
+  includes?: string;
+};
 
 type GlobalFieldType = {
   buttonText?: string;
@@ -26,19 +24,18 @@ type GlobalFieldType = {
   subtitle?: string;
   title?: string;
   subtitle2?: string;
-}
-
+};
 
 type ApiErrorType = {
-  data: null,
+  data: null;
   error: {
-    status: number,
-    name: string,
-    message: string,
-    details: object
-  },
-  status: number
-}
+    status: number;
+    name: string;
+    message: string;
+    details: object;
+  };
+  status: number;
+};
 
 type CompanyType = {
   id: string;
@@ -56,4 +53,44 @@ type CompanyType = {
     icon: string;
   }[];
   companyDarkLogo: ImageType;
-}
+};
+
+type ServicesMenuProps = {
+  data: {
+    serviceMenu: {
+      id: string;
+      title: string;
+      image: ImageType;
+      items: {
+        id: number;
+        title: string;
+        side: "left" | "right";
+        link?: string | null;
+        child: {
+          id: number;
+          title: string;
+          type: "dark" | "light";
+          link?: string | null;
+        }[];
+      }[];
+    }[];
+  };
+};
+type IndustriesMenuType = {
+  industriesMenu: {
+    sectionName: string;
+    colSpan: string;
+    sections: {
+      id: string;
+      title: string;
+      items: {
+        id: string;
+        title: string;
+        href: string;
+      }[];
+      image: ImageType;
+      height: string;
+      imagePosition: string;
+    }[];
+  }[];
+};
