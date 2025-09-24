@@ -17,6 +17,7 @@ import { StickyTitleList } from "../sticky-title-list";
 import DemonstrateSection from "../demonstrate-section";
 import BuildConnect from "../build-connect";
 import TechPartner from "../tech-partner-section";
+import ScheduleCall from "../layout/_utils/schedule";
 
 type Props = {
   data: ComponentPropsType[];
@@ -151,6 +152,13 @@ const GlobalPage = (props: Props) => {
           <TechPartner
             key={`tech-partner-${item.__component}-${item.id}`}
             techData={item}
+          />
+        );
+      case "home.schedule-call":
+        return (
+          <ScheduleCall
+            key={`schedule-call-${item.__component}-${item.id}`}
+            scheduleCall={item}
           />
         );
       default:

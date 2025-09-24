@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 const BuildConnect = ({
   buildData,
 }: {
-  buildData: buildConnectSectionType;
+  buildData: BuildConnectSectionType;
 }) => {
   return (
     <section

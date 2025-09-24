@@ -222,7 +222,7 @@ type DemonstrationSectionType = {
     buttonLink: string;
   }[];
 };
-type buildConnectSectionType = {
+type BuildConnectSectionType = {
   title: string;
   description: string;
   image: ImageType;
@@ -232,7 +232,7 @@ type buildConnectSectionType = {
   alt: string;
 };
 
-type techpartnersectionType = {
+type TechPartnerSectionType = {
   heading: string;
   image: string;
   mobileimage: string;
@@ -242,6 +242,12 @@ type techpartnersectionType = {
     title: string;
     description: string;
   }[];
+};
+type ScheduleCallType = {
+  title: string;
+  buttonText: string;
+  link: string;
+  image: string;
 };
 
 type ComponentPropsMap = {
@@ -323,13 +329,17 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.demonstrate-section";
   };
-  BuildConnectSection: buildConnectSectionType & {
+  BuildConnectSection: BuildConnectSectionType & {
     id: string;
     __component: "page-componets.build-data";
   };
-  TechpartnerSection: techpartnersectionType & {
+  TechpartnerSection: TechPartnerSectionType & {
     id: string;
     __component: "page-componets.tech-data";
+  };
+  ScheduleCall: ScheduleCallType & {
+    id: string;
+    __component: "home.schedule-call";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
@@ -342,3 +352,8 @@ type PagesListType = {
   list: ComponentPropsType[];
   data: ComponentPropsType[];
 };
+
+type LayoutType = {
+  scheduleCall: ScheduleCallType;
+  company: CompanyType;
+}

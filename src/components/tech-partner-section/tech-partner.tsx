@@ -35,7 +35,7 @@ import TechCard from "./_utils/tech-card";
 //     },
 //   ],
 // };
-const TechPartner = ({ techData }: { techData: techpartnersectionType }) => {
+const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
   return (
     <div className="container-md my-10">
       <section className="bg-secondary rounded-none lg:rounded-4xl grid grid-cols-12 ">

@@ -13,7 +13,7 @@ type ImageType = {
   size: number;
   ext: string;
   mime: string;
-includes?: string
+  includes?: string
 }
 
 
@@ -38,4 +38,22 @@ type ApiErrorType = {
     details: object
   },
   status: number
+}
+
+type CompanyType = {
+  id: string;
+  companyName: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  address: string;
+  companyLogo: ImageType;
+  companyFullLogo: ImageType;
+  socialPlatforms: {
+    id: string;
+    name: string;
+    link: string;
+    icon: string;
+  }[];
+  companyDarkLogo: ImageType;
 }

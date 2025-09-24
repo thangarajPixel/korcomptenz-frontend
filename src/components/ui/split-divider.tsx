@@ -7,7 +7,7 @@ const SplitDivider = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="flex items-center gap-4 w-full">
+    <div className="flex items-center gap-44 w-full">
       <div
         className={cn(
           'h-1 flex-1 bg-primary'

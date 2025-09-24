@@ -61,7 +61,7 @@ export const socialIcons: SocialIcons[] = [
     href: "#",
   },
 ];
-export function Navbar() {
+export function Navbar({ data }: { data: LayoutType }) {
   // const targetRef = React.useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -263,13 +263,13 @@ export function Navbar() {
 
                   {/* Right side - Social icons */}
                   <div className="flex space-x-2">
-                    {socialIcons.map((social, index) => (
+                    {data.company.socialPlatforms.map((social) => (
                       <Link
-                        key={index}
-                        href={social.href}
-                        className="w-6 h-6 rounded-lg flex items-center justify-center cursor-not-allowed"
+                        key={`social-platform-${social.id}`}
+                        href={social.link}
+                        className="w-8 h-8 rounded-lg flex items-center justify-center"
                       >
-                        {social.icon}
+                        <KorcomptenzImage src={social.icon} width={1000} height={1000} />
                       </Link>
                     ))}
                   </div>
