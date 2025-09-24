@@ -35,7 +35,7 @@ const MegaMenuContent = ({
               {activeTab === "Industries" && <IndustriesMenu data={data} />}
               {activeTab === "Ecosystems" && <EcosystemMenu />}
               {activeTab === "Insights" && <InsightsMenu data={data} />}
-              {activeTab === "About Us" && <AboutMenu />}
+              {activeTab === "About Us" && <AboutMenu data={data} />}
             </motion.div>
           </div>
         </motion.div>

@@ -56,41 +56,66 @@ type CompanyType = {
 };
 
 type ServicesMenuProps = {
-  data: {
-    serviceMenu: {
-      id: string;
+  id: string;
+  title: string;
+  image: ImageType;
+  items: {
+    id: number;
+    title: string;
+    side: "left" | "right";
+    link?: string | null;
+    child: {
+      id: number;
       title: string;
-      image: ImageType;
-      items: {
-        id: number;
-        title: string;
-        side: "left" | "right";
-        link?: string | null;
-        child: {
-          id: number;
-          title: string;
-          type: "dark" | "light";
-          link?: string | null;
-        }[];
-      }[];
+      type: "dark" | "light";
+      link?: string | null;
     }[];
-  };
+  }[];
 };
 type IndustriesMenuType = {
-  industriesMenu: {
-    sectionName: string;
-    colSpan: string;
-    sections: {
+  sectionName: string;
+  colSpan: string;
+  sections: {
+    id: string;
+    title: string;
+    items: {
       id: string;
       title: string;
-      items: {
-        id: string;
-        title: string;
-        href: string;
-      }[];
-      image: ImageType;
-      height: string;
-      imagePosition: string;
+      href: string;
     }[];
+    image: ImageType;
+    height: string;
+    imagePosition: string;
+  }[];
+};
+
+type InsightsDataType = {
+  title: string;
+  heroImage: ImageType;
+  categories: {
+    id: string;
+    title: string;
+    description: string;
+  }[];
+};
+
+type AboutMenuType = {
+  title: string;
+
+  whoWeAre: {
+    title: string;
+    content: string;
+    image: ImageType;
+  };
+  navigationItems: {
+    id: number;
+    title: string;
+    description: string;
+  }[];
+  sidebarSections: {
+    id: number;
+    title: string;
+    icon: string;
+    description: string;
   }[];
 };

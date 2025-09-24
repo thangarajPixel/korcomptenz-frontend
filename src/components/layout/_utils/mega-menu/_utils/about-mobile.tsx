@@ -1,71 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight, ChevronLeft, } from "lucide-react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
-const aboutData = {
-  aboutUs: {
-    title: "About Us",
-  },
-  whoWeAre: {
-    title: "Who we are",
-    content:
-      "We are a forward-thinking organization committed to excellence and innovation. Our team brings together diverse expertise to deliver exceptional results for our clients and stakeholders.",
-    image: {
-      src: "/assets/menu/About-menu1 (1).png",
-      alt: "Professional team collaboration",
-    },
-  },
-  navigationItems: [
-    {
-      id: 1,
-      title: "Our story",
-      description: "Learn about our journey and heritage",
-    },
-    {
-      id: 2,
-      title: "Our journey",
-      description: "Discover our path to success",
-    },
-    {
-      id: 3,
-      title: "Our vision",
-      description: "See what drives us forward",
-    },
-    {
-      id: 4,
-      title: "Our mission",
-      description: "Understand our core purpose",
-    },
-  ],
-  sidebarSections: [
-    {
-      id: 1,
-      title: "KORCARES (CSR)",
-      icon: "/assets/menu/About-menu1 (2).png",
-      description: "Corporate Social Responsibility",
-    },
-    {
-      id: 2,
-      title: "Events",
-      icon: "/assets/menu/About-menu1 (3).png",
-      description: "Company events and activities",
-    },
-    {
-      id: 3,
-      title: "Newsroom",
-      icon: "/assets/menu/About-menu1 (4).png",
-      description: "Latest news and updates",
-    },
-  ],
-};
 interface IndustryDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-
+  data: LayoutType;
 }
 
-const AboutDrawer = ({ isOpen, onClose }: IndustryDrawerProps) => {
+const AboutDrawer = ({ isOpen, onClose, data }: IndustryDrawerProps) => {
   const [activeItem, setActiveItem] = useState<number | null>(null);
 
   if (!isOpen) return null;
@@ -87,31 +31,27 @@ const AboutDrawer = ({ isOpen, onClose }: IndustryDrawerProps) => {
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
             <h2 className="text-lg font-normal text-primary">
-              {aboutData.whoWeAre.title}
+              {data?.aboutMenu.whoWeAre.title}
             </h2>
           </div>
           <button
             onClick={onClose}
             className="p-2 rounded-full hover:bg-gray-50 transition-colors"
-          >
-
-          </button>
+          ></button>
         </div>
 
         <span className="block w-full h-[0.5px] bg-primary"></span>
 
         {/* Accordion list */}
         <div className="h-full bg-white p-4 text-lg text-gray-700">
-          {aboutData.navigationItems.map((item) => (
+          {data?.aboutMenu.navigationItems.map((item) => (
             <div key={item.id} className="border-b border-gray-100">
               <button
                 onClick={() => toggleAccordion(item.id)}
                 className="w-full flex items-center justify-between py-3 text-lg text-primary"
               >
                 <span>{item.title}</span>
-
               </button>
-
             </div>
           ))}
         </div>
@@ -120,7 +60,7 @@ const AboutDrawer = ({ isOpen, onClose }: IndustryDrawerProps) => {
   );
 };
 
-const AboutMobile = () => {
+const AboutMobile = ({ data }: { data: LayoutType }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -132,13 +72,13 @@ const AboutMobile = () => {
           className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
         >
           <span className="text-lg text-custom-gray-4 font-normal">
-            {aboutData.whoWeAre.title}
+            {data?.aboutMenu.whoWeAre.title}
           </span>
           <ChevronRight className="w-4 h-4 text-primary" />
         </button>
 
         {/* Sidebar Sections (static, no drawer) */}
-        {aboutData.sidebarSections.map((sec) => (
+        {data?.aboutMenu.sidebarSections.map((sec) => (
           <div
             key={sec.id}
             className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
@@ -151,7 +91,11 @@ const AboutMobile = () => {
       </div>
 
       {/* Drawer only for "Who we are" */}
-      <AboutDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
+      <AboutDrawer
+        isOpen={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        data={data}
+      />
     </>
   );
 };

@@ -3,71 +3,14 @@
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-const aboutData = {
-  aboutUs: {
-    title: "About Us",
-  },
-  whoWeAre: {
-    title: "Who we are",
-    content:
-      "We are a forward-thinking organization committed to excellence and innovation. Our team brings together diverse expertise to deliver exceptional results for our clients and stakeholders.",
-    image: {
-      src: "/assets/menu/About-menu1 (1).png",
-      alt: "Professional team collaboration",
-    },
-  },
-  navigationItems: [
-    {
-      id: 1,
-      title: "Our story",
-      description: "Learn about our journey and heritage",
-    },
-    {
-      id: 2,
-      title: "Our journey",
-      description: "Discover our path to success",
-    },
-    {
-      id: 3,
-      title: "Our vision",
-      description: "See what drives us forward",
-    },
-    {
-      id: 4,
-      title: "Our mission",
-      description: "Understand our core purpose",
-    },
-  ],
-  sidebarSections: [
-    {
-      id: 1,
-      title: "KORCARES (CSR)",
-      icon: "/assets/menu/About-menu1 (2).png",
-      description: "Corporate Social Responsibility",
-    },
-    {
-      id: 2,
-      title: "Events",
-      icon: "/assets/menu/About-menu1 (3).png",
-      description: "Company events and activities",
-    },
-    {
-      id: 3,
-      title: "Newsroom",
-      icon: "/assets/menu/About-menu1 (4).png",
-      description: "Latest news and updates",
-    },
-  ],
-};
-
-const AboutMenu = () => {
+const AboutMenu = ({ data }: { data: LayoutType }) => {
   return (
     <div className="bg-white h-[598px] w-full overflow-y-auto overflow-x-hidden">
       <div className="flex h-full">
         {/* Left section */}
         <div className="w-1/3 h-full flex flex-col">
           <h1 className="text-9xl font-semibold text-primary mb-8">
-            {aboutData.aboutUs.title}
+            {data?.aboutMenu.title}
           </h1>
           <div className="relative h-1 border-5 border-b  border-primary w-full " />
         </div>
@@ -81,7 +24,7 @@ const AboutMenu = () => {
               <div className="w-2/5 flex flex-col">
                 <div className="flex items-center mb-4">
                   <h2 className="text-3xl font-normal text-primary mr-3">
-                    {aboutData.whoWeAre.title}
+                    {data?.aboutMenu?.whoWeAre.title}
                   </h2>
                   <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                     <ChevronRight className="w-4 h-4 text-white" />
@@ -92,7 +35,7 @@ const AboutMenu = () => {
               {/* Right side */}
               <div className="w-3/5 pl-6">
                 <div className="">
-                  {aboutData.navigationItems.map((item) => (
+                  {data?.aboutMenu?.navigationItems.map((item) => (
                     <div
                       key={item.id}
                       className="flex items-center justify-between p-2 rounded-lg cursor-pointer group"
@@ -100,9 +43,7 @@ const AboutMenu = () => {
                       <span className="text-custom-gray text-lg font-medium">
                         {item.title}
                       </span>
-                      <div
-                        className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-transparent group-hover:border-primary  group-hover:text-primary transition-colors duration-300  "
-                      >
+                      <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-transparent group-hover:border-primary  group-hover:text-primary transition-colors duration-300  ">
                         <ChevronRight className="w-4 h-4 text-custom-gray group-hover:text-primary transition-colors" />
                       </div>
                     </div>
@@ -115,8 +56,7 @@ const AboutMenu = () => {
             <div className="flex-[0.6] mt-6">
               <div className="relative w-full h-full rounded-xl overflow-hidden shadow-none">
                 <KorcomptenzImage
-                  src={aboutData.whoWeAre.image.src || "/assets/placeholder.png"}
-                  alt={aboutData.whoWeAre.image.alt}
+                  src={data?.aboutMenu?.whoWeAre.image}
                   fill
                   className="object-contain"
                 />
@@ -128,7 +68,7 @@ const AboutMenu = () => {
         {/* Right section */}
         <div className="w-[26.67%]">
           <div className="h-full flex flex-col gap-4">
-            {aboutData.sidebarSections.map((section) => (
+            {data?.aboutMenu?.sidebarSections.map((section) => (
               <div
                 key={section.id}
                 className="flex-1 bg-gray-100 rounded-2xl p-4 flex items-center cursor-pointer"

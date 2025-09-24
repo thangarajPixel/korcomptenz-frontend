@@ -4,55 +4,11 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-// Sample insights data structure
-const insightsData = {
-  title: "Insights",
-  heroImage: "/assets/menu/Insight-menu.png",
-  categories: [
-    {
-      id: "whitepapers",
-      title: "Whitepapers",
-      description: "In-depth research and analysis",
-    },
-    {
-      id: "blogs",
-      title: "Blogs",
-      description: "Latest industry thoughts and trends",
-    },
-    {
-      id: "ebooks",
-      title: "eBooks",
-      description: "Comprehensive guides and resources",
-    },
-    {
-      id: "infographics",
-      title: "Infographics",
-      description: "Visual data and insights",
-    },
-    {
-      id: "brochures",
-      title: "Brochures",
-      description: "Product and service overviews",
-    },
-    {
-      id: "webinars",
-      title: "Webinars",
-      description: "Live and recorded sessions",
-    },
-    {
-      id: "podcasts",
-      title: "Podcasts",
-      description: "Audio content and discussions",
-    },
-  ],
-};
-
-const InsightsMenu = () => {
+const InsightsMenu = ({ data }: { data: LayoutType }) => {
   return (
     <div className="bg-white w-full overflow-x-hidden  overscroll-contain">
       <div className="mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[43%_57%] gap-8 h-[574px]  items-stretch">
-
           {/* Left side - Hero Image */}
           <motion.div
             className="relative h-full"
@@ -62,8 +18,7 @@ const InsightsMenu = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full">
               <KorcomptenzImage
-                src={insightsData.heroImage || "/assets/placeholder.png"}
-                alt="Professional business insights"
+                src={data?.insightMenu?.heroImage}
                 fill
                 className="object-cover"
               />
@@ -77,9 +32,9 @@ const InsightsMenu = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {insightsData.categories.map((category, index) => (
+            {data?.insightMenu?.categories.map((category, index) => (
               <motion.div
-                key={category.id}
+                key={category?.id}
                 className="group bg-white  h-16 transition-all duration-300 cursor-pointer border-b border-[#D2D2D2]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -92,8 +47,10 @@ const InsightsMenu = () => {
                     </h3>
                   </div>
                   <div className="ml-4">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center 
-                                hover:bg-white hover:border hover:border-primary transition-colors duration-200">
+                    <div
+                      className="w-10 h-10 bg-primary rounded-full flex items-center justify-center 
+                                hover:bg-white hover:border hover:border-primary transition-colors duration-200"
+                    >
                       <ChevronRight className="w-5 h-5 text-white hover:text-primary transition-colors duration-200" />
                     </div>
                   </div>
@@ -104,10 +61,6 @@ const InsightsMenu = () => {
         </div>
       </div>
     </div>
-
-
-
-
   );
 };
 

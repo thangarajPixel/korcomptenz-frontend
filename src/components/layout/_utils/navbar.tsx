@@ -234,8 +234,12 @@ export function Navbar({ data }: { data: LayoutType }) {
                             <IndustriesMobile data={data} />
                           )}
                           {item.label === "Ecosystems" && <EcosystemMobile />}
-                          {item.label === "Insights" && <InsightMobile />}
-                          {item.label === "About Us" && <AboutMobile />}
+                          {item.label === "Insights" && (
+                            <InsightMobile data={data} />
+                          )}
+                          {item.label === "About Us" && (
+                            <AboutMobile data={data} />
+                          )}
                         </motion.div>
                       )}
                     </AnimatePresence>

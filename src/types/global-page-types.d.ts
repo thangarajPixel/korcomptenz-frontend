@@ -357,6 +357,8 @@ type PagesListType = {
 type LayoutType = {
   scheduleCall: ScheduleCallType;
   company: CompanyType;
-  industriesMenu: IndustriesMenuType["industriesMenu"];
-  serviceMenu: ServicesMenuProps["data"]["serviceMenu"];
+  industriesMenu: IndustriesMenuType[];
+  serviceMenu: ServicesMenuProps[];
+  insightMenu: InsightsDataType;
+  aboutMenu: AboutMenuType;
 };

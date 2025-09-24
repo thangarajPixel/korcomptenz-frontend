@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { ChevronRight, ChevronLeft, X } from "lucide-react";
 
-// ---------- Types ----------
 interface Section {
   id: string;
   title: string;
