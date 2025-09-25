@@ -8,7 +8,7 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
       <div className="rounded-2xl  bg-custom-gray-6">
         <div className="flex items-start justify-center  pt-6 md:pt-20">
           <div className="border-b-4 hidden lg:block border-custom-gray-7 w-1/3 mt-4"></div>
-          <h1 className="text-6xl md:text-9xl font-semibold text-foreground mx-4 lg:text-center">
+          <h1 className="text-6xl md:text-9xl font-semibold text-foreground mx-4 py-4 lg:text-center">
             {domainData.title}
           </h1>
           <div className="border-b-4 hidden lg:block border-custom-gray-7 w-1/3 mt-4"></div>
@@ -34,7 +34,7 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
                   />
                 </div>
                 <div>
-                  <p className="text-6xl font-normal text-foreground break-words">
+                  <p className="text-5xl font-semibold text-foreground break-words">
                     {slide.title}
                   </p>
                 </div>
