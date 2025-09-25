@@ -361,4 +361,5 @@ type LayoutType = {
   serviceMenu: ServicesMenuProps[];
   insightMenu: InsightsDataType;
   aboutMenu: AboutMenuType;
+  ecosystemMenu: EcosystemMenuType[];
 };

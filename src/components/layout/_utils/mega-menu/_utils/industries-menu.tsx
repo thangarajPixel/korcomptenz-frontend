@@ -2,6 +2,7 @@
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const IndustriesMenu = ({ data }: { data: LayoutType }) => {
   return (
@@ -40,16 +41,18 @@ const IndustriesMenu = ({ data }: { data: LayoutType }) => {
                         : "w-full"
                     }`}
                   >
-                    <h3 className="text-lg font-normal text-primary leading-6.5 mb-4 whitespace-break-spaces">
-                      {section.title}
-                    </h3>
-
+                    {" "}
+                    <Link href={section.href || ""}>
+                      <h3 className="text-lg font-normal text-primary leading-6.5 mb-4 whitespace-break-spaces">
+                        {section.title}
+                      </h3>
+                    </Link>
                     {section.items.length > 0 && (
                       <div className="space-y-2">
                         {section.items.map((item, itemIndex) => (
                           <motion.div
                             key={itemIndex}
-                            className="text-lg text-gray-700 font-medium"
+                            className="text-lg text-gray-700 font-medium cursor-pointer hover:text-primary"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             // transition={{
@@ -59,7 +62,12 @@ const IndustriesMenu = ({ data }: { data: LayoutType }) => {
                             //     itemIndex * 0.02,
                             // }}
                           >
-                            {item?.title}
+                            <Link
+                              href={item.href || ""}
+                              className="text-lg text-gray-700 font-medium hover:text-primary transition-colors"
+                            >
+                              {item?.title}
+                            </Link>
                           </motion.div>
                         ))}
                       </div>

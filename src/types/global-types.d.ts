@@ -81,11 +81,12 @@ type IndustriesMenuType = {
     items: {
       id: string;
       title: string;
-      href: string;
+      href: string | null;
     }[];
     image: ImageType;
     height: string;
     imagePosition: string;
+    href: string | null;
   }[];
 };
 
@@ -119,3 +120,19 @@ type AboutMenuType = {
     description: string;
   }[];
 };
+type EcosystemMenuType = {
+  id: number;
+  menu: string;
+  items: {
+    title: string;
+    description: [];
+    buttontext: string;
+    child: {
+      title: string;
+
+      description: string;
+    }[];
+  }[];
+};
+
+[];
