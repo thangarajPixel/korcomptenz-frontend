@@ -74,7 +74,9 @@ export function Navbar({ data }: { data: LayoutType }) {
                         activeSection === item.label,
                     }
                   )}
-                  onMouseEnter={() => item.href && setActiveSection(item.label)}
+                  onMouseEnter={() =>
+                    item.hasChild && setActiveSection(item.label)
+                  }
                 >
                   {item.label}
                 </p>
