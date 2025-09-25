@@ -34,7 +34,7 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
                   />
                 </div>
                 <div>
-                  <p className="text-6xl font-normal text-foreground">
+                  <p className="text-4xl font-semibold text-foreground">
                     {slide.title}
                   </p>
                 </div>
