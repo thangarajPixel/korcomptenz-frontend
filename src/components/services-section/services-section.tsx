@@ -68,39 +68,34 @@ export function AnimatedTabsHero({
         <div className="h-1 w-2/4 bg-secondary absolute top-1/2 right-0" />
       </div>
       {/* Two‑column hero; content slides from right into center on tab change */}
-      <div className="relative container-md  flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">
-        <AnimatePresence mode="wait" >
+      <div className="relative container-md overflow-hidden flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">
+        <AnimatePresence mode="wait">
           <motion.div
-            key={`art-${value}`}
-            initial={{ opacity: 0, x: 60 }}
+            key={`active-content-${value}`}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -60 }}
-            transition={{ duration: 0.50, ease: [0.22, 0.36, 0.22, 1] }}
+            exit={{ opacity: 0, x: -40 }}
+            transition={{ duration: 0.3, ease: [0.22, 0.36, 0.22, 1] }}
             className="space-y-3 w-full flex flex-col-reverse lg:flex-row"
           >
-            <div
-              className="space-y-3 "
-            >
+            <div className="space-y-3  w-full lg:w-1/2  ">
               <h1 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl">
                 {activeContent.heading}
               </h1>
-              <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
-                {activeContent.description}
-              </p>
+              <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">{activeContent.description}</p>
               <Link href={activeContent.link}>
                 <Button size="xl" arrow={true}>
                   {activeContent.buttonText}
                 </Button>
               </Link>
             </div>
-
-            <div className="w-full">
-
+            <div className="flex-1">
               <KorcomptenzImage
                 src={activeContent.image}
                 className="h-full w-full rounded-xl object-contain"
                 width={1000}
                 height={1000}
+                priority={true}
               />
             </div>
           </motion.div>
