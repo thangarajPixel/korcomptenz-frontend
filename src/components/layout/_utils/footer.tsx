@@ -89,7 +89,7 @@ const CompanyInfo = ({ data }: { data: LayoutType["company"] }) => (
           href={social.link}
           className="w-8 h-8 rounded-lg flex items-center justify-center"
         >
-          <KorcomptenzImage src={social.icon} width={20} height={20} />
+          <KorcomptenzImage src={social.icon} width={20} height={20} placeholder="empty" />
         </Link>
       ))}
     </div>

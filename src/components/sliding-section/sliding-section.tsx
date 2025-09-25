@@ -40,7 +40,6 @@ export default function SlidingSection({
               }
               width={1000}
               height={1000}
-              priority={true}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0  flex items-start mt-12 md:mt-0 md:items-center">

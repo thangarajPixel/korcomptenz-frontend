@@ -22,11 +22,11 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
   const alt = (props.src as ImageType)?.alternativeText ? (props.src as ImageType)?.alternativeText : props.alt || '';
   return (
     <Image
+      placeholder={imagePlaceholder}
       {...props}
       src={(src || '/assets/placeholder.png') as string}
       alt={alt || '/assets/placeholder.png'}
       className={cn(props?.nonAnimate && 'object-cover transition-transform duration-300 hover:scale-110', props?.className)}
-      placeholder={imagePlaceholder}
     />
   );
 };
