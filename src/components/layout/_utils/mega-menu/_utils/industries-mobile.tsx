@@ -9,7 +9,7 @@ interface Section {
   items: {
     id: string;
     title: string;
-    href: string;
+    href: string | null;
   }[];
   image: ImageType;
   height: string;

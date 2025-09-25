@@ -3,163 +3,18 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import React, { useState } from "react";
-const EcosystemData = {
-  sidebar: [
-    {
-      id: 1,
-      menu: "SAP",
-      items: [
-        {
-          title: "SAP",
-          description:
-            "Get software and technology solutions from SAP, the leader in business applications. Run simple with the best in cloud, analytics, mobile and IT solutions.",
-          buttontext: "know more",
-          childtype: "type1",
-          child: [
-            { title: "Business Suite on Public CLoud", type: "Dark" },
-            { title: "Business Suite on Private Cloud", type: "Light" },
-            { title: "BTP Platform", type: "Dark" },
-            { title: "SAP IBP", type: "Dark" },
-            { title: "SAP Merger and Divesture ", type: "Dark" },
-            { title: "Joule AI", type: "Dark" },
-          ],
-        },
-      ],
-    },
-    {
-      id: 2,
-      menu: "Microsoft",
-      items: [
-        {
-          title: "Microsoft",
-          description:
-            "Explore Microsoft products and services and support for your home or business. Shop Microsoft 365, Copilot, Teams, Xbox, Windows, Azure, Surface and more.",
-          buttontext: "know more",
-          childtype: "type2",
-          child: [
-            {
-              title: "Dynamics 365",
-              description: [
-                "Sales",
-                "Supply Chain Management",
-                "Customer",
-                "Commerce",
-                "Customer Service",
-                "Advance Warehouse Management",
-                "Field Service",
-                "Finance & Operations",
-                "Customer Engagement",
-                "Business Central",
-              ],
-            },
-            {
-              title: "AI, Analytics, & Automation",
-              description: [
-                "Microsoft Fabric",
-                "Power BI",
-                "Microsoft Copilot",
-                "Azure Databricks",
-                "Azure AI Foundry",
-                "Azure Synapse Analytics",
-                "Power Platform",
-              ],
-            },
-            {
-              title: "Azure",
-              description: [
-                "Compute & Application Services ",
-                "Storage & Database",
-                "Networking & Security",
-                "Migration & Modernization",
-                "Analytics & AI/ML",
-                "Management & Monitoring ",
-                "Azure Consulting Service",
-                "Azure Migration Service",
-                "Azure Managed Service ",
-                "Azure Integration Service",
-                "Azure Support & Maintenance Service",
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 3,
-      menu: "Salesforce",
-      items: [
-        {
-          title: "Salesforce",
-          description:
-            "Salesforce, the global CRM leader, empowers companies to connect with their customers in a whole new way. We bring companies and customers together.",
-          buttontext: "know more",
-          childtype: "type1",
-          child: [
-            { title: "Salesforce Service Cloud", type: "Dark" },
-            { title: "Salesforce Sales Cloud", type: "Light" },
-            { title: "Salesforce Marketing Cloud", type: "Dark" },
-            { title: "Salesforce Field Service Cloud", type: "Dark" },
-            { title: "Salesforce Einstein & Analytics", type: "Dark" },
-            { title: "Salesforce Data Cloud", type: "Dark" },
-            { title: "Salesforce Agentforce", type: "Dark" },
-          ],
-        },
-      ],
-    },
-    {
-      id: 4,
-      menu: "ServiceNow",
-      items: [
-        {
-          title: "ServiceNow",
-          description:
-            "ServiceNow is the cloud-based platform that automates enterprise IT operations. It creates a single system of record for IT and automates manual tasks.",
-          buttontext: "know more",
-          childtype: "type1",
-          child: [],
-        },
-      ],
-    },
-    {
-      id: 5,
-      menu: "AWS",
-      items: [
-        {
-          title: "AWS",
-          description:
-            "AWS offers the widest variety of compute instances, storage classes, databases, and analytics, all purpose-built to deliver the best cost and performance. ",
-          buttontext: "know more",
-          childtype: "type1",
-          child: [
-            { title: "Compute & Application Services", type: "Dark" },
-            { title: "Storage & Database", type: "Dark" },
-            { title: "Networking & Security", type: "Dark" },
-            { title: "Migration & Modernization", type: "Dark" },
-            { title: "Analytics & AI/ML", type: "Dark" },
-            { title: "Management & Monitoring ", type: "Dark" },
-            { title: "AWS Consulting Service", type: "Dark" },
-            { title: "AWS Migration Service ", type: "Dark" },
-            { title: "AWS Managed Service", type: "Dark" },
-            { title: "AWS Integration Service", type: "Dark" },
-            { title: "AWS Support & Maintenance Service ", type: "Dark" },
-          ],
-        },
-      ],
-    },
-  ],
-};
 
-const EcosystemMenu = () => {
-  const [activeSideBar, setActiveSiderBar] = useState(EcosystemData.sidebar[0]);
+const EcosystemMenu = ({ data }: { data: LayoutType }) => {
+  const [activeSideBar, setActiveSiderBar] = useState(data?.ecosystemMenu[0]);
   return (
     <div className="grid grid-cols-24 ">
       {/* Sidebar */}
       <div className="col-span-24 md:col-span-6 lg:col-span-6">
         <div className="bg-white sticky top-8">
           <nav className="space-y-2 px-10  ">
-            {EcosystemData.sidebar.map((item) => (
+            {data?.ecosystemMenu?.map((item) => (
               <div
-                key={item.id}
+                key={item?.id}
                 onClick={() => setActiveSiderBar(item)}
                 className={`w-full group ${
                   activeSideBar.id === item.id
@@ -184,7 +39,7 @@ const EcosystemMenu = () => {
       {/* Content Area */}
       <div className="col-span-24 md:col-span-12 lg:col-span-12 pl-0 md:px-8 lg:px-8">
         <div className="space-y-6">
-          {activeSideBar.items.map((contentItem, index) => (
+          {activeSideBar?.item?.map((contentItem, index) => (
             <div key={index}>
               <h2 className="text-3xl font-normal  text-foreground mb-4">
                 {contentItem.title}
@@ -197,39 +52,30 @@ const EcosystemMenu = () => {
                   {contentItem.buttontext}
                 </Button>
               </div>
-              <div className="mt-6 space-y-2">
-                {contentItem.childtype === "type1" &&
-                  contentItem.child.map((childItem, childIndex) => (
-                    <div
-                      key={childIndex}
+              <div className="mt-6 space-y-2 ">
+                {contentItem?.child?.map((childItem, childIndex) => (
+                  <div key={childIndex}>
+                    <span
                       className={` ${
-                        "type" in childItem && childItem.type === "Dark"
+                        childItem.type === "Dark"
                           ? "text-black"
                           : " text-primary"
                       }`}
                     >
                       {childItem.title}
+                    </span>
+                    <div className="my-2 flex flex-wrap">
+                      {childItem?.description?.map((item, index) => (
+                        <p
+                          key={index}
+                          className="text-custom-gray-4 text-sm w-1/2 leading-5.5 mb-2"
+                        >
+                          {item.description}
+                        </p>
+                      ))}
                     </div>
-                  ))}
-                {contentItem.childtype === "type2" &&
-                  contentItem.child.map((childItem, childIndex) => (
-                    <div key={childIndex}>
-                      <span className="text-foreground text-3xl">
-                        {childItem.title}
-                      </span>
-                      <div className="my-8 flex flex-wrap">
-                        {"description" in childItem &&
-                          childItem.description?.map((item, index) => (
-                            <p
-                              key={index}
-                              className="text-custom-gray-4 text-sm w-1/2 leading-6 mb-2"
-                            >
-                              {item}
-                            </p>
-                          ))}
-                      </div>
-                    </div>
-                  ))}
+                  </div>
+                ))}
               </div>
             </div>
           ))}

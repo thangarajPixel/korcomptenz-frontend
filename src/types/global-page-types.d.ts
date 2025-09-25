@@ -366,4 +366,5 @@ type LayoutType = {
   insightMenu: InsightsDataType;
   aboutMenu: AboutMenuType;
   ecosystemMenu: EcosystemMenuType[];
+  navItems: NavItemType;
 };

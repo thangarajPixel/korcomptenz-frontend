@@ -24,20 +24,16 @@ export default function SlidingSection({
         >
           <div
             className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
-          // style={{
-          //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
-          //   backgroundSize: "cover",
-          //   backgroundPosition: "center",
-          //   backgroundRepeat: "no-repeat",
-          //   objectFit: "cover"
-          // }}
+            // style={{
+            //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
+            //   backgroundSize: "cover",
+            //   backgroundPosition: "center",
+            //   backgroundRepeat: "no-repeat",
+            //   objectFit: "cover"
+            // }}
           >
             <KorcomptenzImage
-              src={
-                isMobile
-                  ? slide.mobile_image
-                  : slide.image
-              }
+              src={isMobile ? slide.mobile_image : slide.image}
               width={1000}
               height={1000}
               className="w-full h-full object-cover"
@@ -46,10 +42,11 @@ export default function SlidingSection({
               <div className="container-md">
                 <div className="max-w-2xl text-white">
                   <div
-                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide.subtitle
-                      ? "text-4xl md:text-9xl"
-                      : "text-lg md:text-7xl font-medium"
-                      }`}
+                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${
+                      slide.subtitle
+                        ? "text-4xl md:text-9xl"
+                        : "text-lg md:text-7xl font-medium"
+                    }`}
                   >
                     {slide.subtitle || slide.subtitle2}
                   </div>
@@ -61,14 +58,16 @@ export default function SlidingSection({
                   <p className="text-3xl md:text-5xl mb-8 leading-tight  text-pretty">
                     {slide.description}
                   </p>
-                  <Button
-                    size="xl"
-                    variant="white"
-                    className="hover:bg-transparent text-md md:text-lg hover:text-primary border hover:border-primary"
-                    arrow={true}
-                  >
-                    {slide.buttonText}
-                  </Button>
+                  {slide.buttonText && (
+                    <Button
+                      size="xl"
+                      variant="white"
+                      className="hover:bg-transparent text-md md:text-lg hover:text-primary border hover:border-primary"
+                      arrow={true}
+                    >
+                      {slide.buttonText}
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>

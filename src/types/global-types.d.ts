@@ -40,16 +40,26 @@ type ApiErrorType = {
 type CompanyType = {
   id: string;
   companyName: string;
+  copyrights: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
   address: string;
   companyLogo: ImageType;
   companyFullLogo: ImageType;
-  socialPlatforms: {
+  socialPlatforms: [
+    {
+      id: string;
+      label: string;
+      href: string | null;
+      icon: ImageType;
+    }
+  ];
+
+  policy: {
     id: string;
-    name: string;
-    link: string;
+    label: string;
+    href: string | null;
     icon: string;
   }[];
   companyDarkLogo: ImageType;
@@ -123,16 +133,24 @@ type AboutMenuType = {
 type EcosystemMenuType = {
   id: number;
   menu: string;
-  items: {
+  item: {
+    id: number;
     title: string;
-    description: [];
+    description: string;
     buttontext: string;
     child: {
       title: string;
-
-      description: string;
+      description: {
+        description: string;
+      }[];
+      type?: string;
     }[];
   }[];
 };
 
-[];
+type NavItemType = {
+  label: string;
+  href: string;
+  hasChild: boolean;
+  childKey: string;
+}[];

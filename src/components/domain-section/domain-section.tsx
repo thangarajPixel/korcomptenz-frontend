@@ -34,7 +34,7 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
                   />
                 </div>
                 <div>
-                  <p className="text-4xl font-semibold text-foreground">
+                  <p className="text-6xl font-normal text-foreground break-words">
                     {slide.title}
                   </p>
                 </div>
@@ -45,12 +45,7 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
                 </div>
                 <div>
                   {slide.buttonText && (
-                    <Button
-                      arrow
-                      className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors"
-                    >
-                      {slide.buttonText}
-                    </Button>
+                    <Button arrow>{slide.buttonText}</Button>
                   )}
                 </div>
               </div>

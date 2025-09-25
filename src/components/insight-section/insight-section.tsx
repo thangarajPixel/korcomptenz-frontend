@@ -76,6 +76,5 @@ export default function InsightsSection({
         </div>
       </div>
     </section>
-
   );
 }

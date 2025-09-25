@@ -11,8 +11,6 @@ import FooterTitle from "./footer-title";
 import FooterDescription from "./footer-description";
 
 export const Footer = ({ data }: { data: LayoutType }) => {
-  const { footer } = jsonData;
-
   return (
     <footer className="bg-foreground text-white mt-8">
       <ScheduleCall scheduleCall={data?.scheduleCall} />
@@ -24,8 +22,12 @@ export const Footer = ({ data }: { data: LayoutType }) => {
 
           {/* Services */}
           <FooterLinksGroup
-            title={jsonData.servicemenu?.title}
-            items={jsonData.servicemenu.sections.map((s) => ({
+            title={
+              data?.navItems?.find(
+                (item) => item?.childKey.trim() === "serviceMenu"
+              )?.label
+            }
+            items={data?.serviceMenu.map((s) => ({
               id: s.id,
               label: s.title,
             }))}
@@ -33,38 +35,45 @@ export const Footer = ({ data }: { data: LayoutType }) => {
 
           {/* Industries */}
           <FooterLinksGroup
-            title={jsonData.industriesmenu?.heading}
-            items={jsonData.industriesmenu.columns.flatMap((col) =>
+            title={
+              data?.navItems?.find(
+                (item) => item?.childKey === "industriesMenu"
+              )?.label
+            }
+            items={data?.industriesMenu.flatMap((col) =>
               col.sections.map((s) => ({ id: s.title, label: s.title }))
             )}
           />
 
           {/* Insights */}
           <FooterLinksGroup
-            title={jsonData.insightsmenu?.title}
-            items={jsonData.insightsmenu.categories.map((c) => ({
+            title={
+              data?.navItems?.find((item) => item?.childKey === "insightMenu")
+                ?.label
+            }
+            items={data?.insightMenu.categories.map((c) => ({
               id: c.id,
               label: c.title,
             }))}
           />
 
           {/* Quick Links */}
-          <QuickLinks />
+          <QuickLinks data={data} />
         </div>
 
         {/* Bottom Section */}
         <div className="pt-8">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {/* About Us */}
-            <AboutSection footer={footer} />
+            <AboutSection data={data} />
 
             {/* Ecosystems */}
-            <EcosystemSection />
+            <EcosystemSection data={data} />
           </div>
         </div>
 
         {/* Copyright */}
-        <CopyrightSection footer={footer} />
+        <CopyrightSection data={data} />
       </div>
     </footer>
   );
@@ -83,10 +92,10 @@ const CompanyInfo = ({ data }: { data: LayoutType["company"] }) => (
     </div>
 
     <div className="flex space-x-2 pt-4">
-      {data.socialPlatforms.map((social) => (
+      {data?.socialPlatforms.map((social) => (
         <Link
           key={social.id}
-          href={social.link}
+          href={social.href || "/"}
           className="w-8 h-8 rounded-lg flex items-center justify-center"
         >
           <KorcomptenzImage src={social.icon} width={20} height={20} placeholder="empty" />
@@ -113,18 +122,19 @@ const FooterLinksGroup = ({
     </FooterTitle>
   ) : null;
 
-const QuickLinks = () => {
-  const links = ["Success Stories", "Careers", "Contact us"];
+const QuickLinks = ({ data }: { data: LayoutType }) => {
+  const links = data?.navItems.filter((item) => !item?.hasChild) || [];
+
   return (
     <div className="space-y-4 md:mt-5 lg:mt-0 flex flex-col justify-around">
       {links.map((label) => (
         <Link
-          key={label}
+          key={label.label}
           href="#"
           className="flex items-center justify-between group"
         >
           <h3 className="text-primary font-semibold text-3xl transition-all duration-300">
-            {label}
+            {label.label}
           </h3>
           <ChevronRight className="w-4 h-4 text-primary rounded-full" />
         </Link>
@@ -133,32 +143,34 @@ const QuickLinks = () => {
   );
 };
 
-const AboutSection = ({ footer }: { footer: typeof jsonData.footer }) => (
+const AboutSection = ({ data }: { data: LayoutType }) => (
   <section className="space-y-4" id="About">
     <h4 className="text-primary font-semibold border-b border-primary text-3xl pb-2">
       {jsonData?.aboutmenu?.aboutUs?.title}
     </h4>
 
-    <h4 className="font-semibold text-lg">Who we are</h4>
+    <h4 className="font-semibold text-lg">
+      {data?.aboutMenu?.whoWeAre?.title}
+    </h4>
 
     <ul className="space-y-2">
-      {footer.aboutUs.map((item) => (
-        <li key={item}>
+      {data?.aboutMenu?.navigationItems?.map((item) => (
+        <li key={item?.id}>
           <Link
             href="#"
             className="text-custom-gray-2 text-lg hover:text-primary transition-all duration-300"
           >
-            {item}
+            {item?.title}
           </Link>
         </li>
       ))}
     </ul>
 
     <ul className="space-y-2">
-      {footer.aboutUsNew.map((item) => (
-        <li key={item}>
+      {data?.aboutMenu?.sidebarSections.map((item) => (
+        <li key={item?.id}>
           <Link href="#" className="font-semibold text-lg">
-            {item}
+            {item?.title}
           </Link>
         </li>
       ))}
@@ -166,14 +178,17 @@ const AboutSection = ({ footer }: { footer: typeof jsonData.footer }) => (
   </section>
 );
 
-const EcosystemSection = () => (
+const EcosystemSection = ({ data }: { data: LayoutType }) => (
   <section className="md:col-span-2 lg:col-span-4">
     <h4 className="text-primary font-semibold border-b border-primary text-3xl pb-2">
-      Ecosystems
+      {
+        data?.navItems?.find((item) => item?.childKey === "ecosystemMenu")
+          ?.label
+      }
     </h4>
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-4">
-      {jsonData.ecosystemmenu.sidebar.flatMap((menu) =>
-        menu.items
+      {data?.ecosystemMenu.flatMap((menu) =>
+        menu.item
           ?.filter((item) => item.child?.length)
           .map((item, idx) => (
             <div className="space-y-4" key={`${menu.id}-${idx}`}>
@@ -197,15 +212,19 @@ const EcosystemSection = () => (
   </section>
 );
 
-const CopyrightSection = ({ footer }: { footer: typeof jsonData.footer }) => (
+const CopyrightSection = ({ data }: { data: LayoutType }) => (
   <>
     {/* Desktop */}
     <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex items-center justify-between">
-      <p className="text-custom-gray-2 text-lg">{footer.copyright}</p>
+      <p className="text-custom-gray-2 text-lg">{data?.company?.copyrights}</p>
       <div>
-        {footer.policies.map((policy) => (
-          <Link key={policy} href="#" className="text-custom-gray-2 text-lg mx-2">
-            {policy}
+        {data?.company?.policy.map((policy) => (
+          <Link
+            key={policy?.id}
+            href={policy?.href || "/"}
+            className="text-custom-gray-2 text-lg mx-2"
+          >
+            {policy?.label}
           </Link>
         ))}
       </div>
@@ -214,19 +233,24 @@ const CopyrightSection = ({ footer }: { footer: typeof jsonData.footer }) => (
     {/* Mobile */}
     <div className="mt-8 lg:hidden flex flex-col items-center">
       <div className="flex justify-center pb-4">
-        {footer.policies.map((policy, i) => (
+        {data?.company?.policy.map((policy, i) => (
           <Link
-            key={policy}
+            key={policy?.id}
             href="#"
-            className={`text-custom-gray-2 text-xs mx-2 ${i < footer.policies.length - 1 ? "border-r pr-2 border-custom-gray-3" : ""
-              }`}
+            className={`text-custom-gray-2 text-xs mx-2 ${
+              i < data?.company?.policy.length - 1
+                ? "border-r pr-2 border-custom-gray-3"
+                : ""
+            }`}
           >
-            {policy}
+            {policy.label}
           </Link>
         ))}
       </div>
       <div className="flex justify-center pt-4 border-t border-custom-gray-3">
-        <p className="text-custom-gray-2 text-xs">{footer.copyright}</p>
+        <p className="text-custom-gray-2 text-xs">
+          {data?.company?.copyrights}
+        </p>
       </div>
     </div>
   </>

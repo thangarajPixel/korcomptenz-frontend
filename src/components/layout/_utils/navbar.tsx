@@ -5,14 +5,7 @@ import { X, ChevronRight } from "lucide-react";
 import React, { useState } from "react";
 import { jsonData } from "@/utils/helper";
 import Link from "next/link";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  SearchIcon,
-  TwitterIcon,
-  YoutubeIcon,
-} from "../../../../public/svg/all-svg";
+import { SearchIcon } from "../../../../public/svg/all-svg";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import MegaMenuContent from "./mega-menu/mega-menu-content";
@@ -23,44 +16,7 @@ import AboutMobile from "./mega-menu/_utils/about-mobile";
 import InsightMobile from "./mega-menu/_utils/insight-mobile";
 
 import EcosystemMobile from "./mega-menu/_utils/ecosytem-mobile";
-type SocialIcons = {
-  id: number;
-  key: string;
-  icon: React.ReactNode;
-  href: string;
-};
-export const socialIcons: SocialIcons[] = [
-  {
-    id: 1,
-    key: "linkedin",
-    icon: <LinkedinIcon />,
-    href: "#",
-  },
-  {
-    id: 2,
-    key: "youtube",
-    icon: <YoutubeIcon />,
-    href: "#",
-  },
-  {
-    id: 3,
-    key: "facebook",
-    icon: <FacebookIcon />,
-    href: "#",
-  },
-  {
-    id: 4,
-    key: "instagram",
-    icon: <InstagramIcon />,
-    href: "#",
-  },
-  {
-    id: 5,
-    key: "twitter",
-    icon: <TwitterIcon />,
-    href: "#",
-  },
-];
+
 export function Navbar({ data }: { data: LayoutType }) {
   // const targetRef = React.useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,6 +32,7 @@ export function Navbar({ data }: { data: LayoutType }) {
   // };
 
   // useOnClickOutside(targetRef as React.RefObject<HTMLElement>, handleClickOutside);
+
   return (
     <>
       <header
@@ -105,7 +62,7 @@ export function Navbar({ data }: { data: LayoutType }) {
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
             <nav className="hidden lg:flex items-center space-x-7 relative text-muted text-lg font-light">
-              {jsonData.header.navItems.map((item, index) => (
+              {data?.navItems.map((item, index) => (
                 <p
                   key={index}
                   className={cn(
@@ -203,7 +160,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                 }`}
                 style={{ transitionDelay: "300ms" }}
               >
-                {jsonData.header.navItems.map((item, index) => (
+                {data?.navItems.map((item, index) => (
                   <div key={index}>
                     <button
                       onClick={() => toggleExpand(item.label)}
@@ -233,7 +190,9 @@ export function Navbar({ data }: { data: LayoutType }) {
                           {item.label === "Industries" && (
                             <IndustriesMobile data={data} />
                           )}
-                          {item.label === "Ecosystems" && <EcosystemMobile />}
+                          {item.label === "Ecosystems" && (
+                            <EcosystemMobile data={data} />
+                          )}
                           {item.label === "Insights" && (
                             <InsightMobile data={data} />
                           )}
@@ -279,7 +238,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                     {data.company.socialPlatforms.map((social) => (
                       <Link
                         key={`social-platform-${social.id}`}
-                        href={social.link}
+                        href={social.href || "/"}
                         className="w-8 h-8 rounded-lg flex items-center justify-center"
                       >
                         <KorcomptenzImage
