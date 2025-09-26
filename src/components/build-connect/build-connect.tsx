@@ -14,10 +14,10 @@ const BuildConnect = ({
     >
       <div className="px-5 space-y-3 ">
         <h1 className="text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
-          {buildData.title}
+          {buildData?.title}
         </h1>
         <p className="text-md md:text-2xl text-foreground leading-7 break-words">
-          {buildData.description}
+          {buildData?.description}
         </p>
       </div>
       <div className="p-5 hidden lg:block">

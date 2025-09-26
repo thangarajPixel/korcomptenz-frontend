@@ -96,6 +96,7 @@ type BannerSectionType = {
   altMobile: ImageType;
   title: string;
   description: string;
+  buttonText: string;
 };
 
 type SapSectionType = {

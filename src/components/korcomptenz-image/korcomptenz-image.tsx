@@ -18,8 +18,8 @@ type KorcomptenzImageProps = Omit<ImageProps, "src" | "alt"> & {
 }
 
 const KorcomptenzImage = (props: KorcomptenzImageProps) => {
-  const src = (props.src as ImageType)?.url ? (props.src as ImageType)?.url : props.src || '';
-  const alt = (props.src as ImageType)?.alternativeText ? (props.src as ImageType)?.alternativeText : props.alt || '';
+  const src = (props?.src as ImageType)?.url ? (props?.src as ImageType)?.url : props.src || '';
+  const alt = (props?.src as ImageType)?.alternativeText ? (props?.src as ImageType)?.alternativeText : props?.alt || '';
   return (
     <Image
       placeholder={imagePlaceholder}

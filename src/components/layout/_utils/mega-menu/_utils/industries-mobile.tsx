@@ -42,7 +42,7 @@ const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
             <h2 className="text-lg font-normal text-primary">
-              {industry.title}
+              {industry?.title}
             </h2>
           </div>
           <button
@@ -56,10 +56,10 @@ const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
 
         <div className="h-full overflow-y-auto bg-white">
           <div className="divide-y divide-gray-100">
-            {industry.items.length > 0 ? (
-              industry.items.map((item, index) => (
+            {industry?.items?.length > 0 ? (
+              industry?.items?.map((item, index) => (
                 <div
-                  key={index}
+                  key={`industries-mobile-${index}`}
                   className="py-3 px-4 text-lg text-primary border-b border-primary"
                 >
                   {item?.title}
@@ -98,14 +98,14 @@ const IndustriesMobile = ({ data }: { data: LayoutType }) => {
         {data?.industriesMenu.map((col) =>
           col.sections.map((section) => (
             <button
-              key={section?.id}
-              onClick={() => section.items.length > 0 && openDrawer(section)}
+              key={`industries-mobile-${section?.id}`}
+              onClick={() => section?.items?.length > 0 && openDrawer(section)}
               className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
             >
               <span className="text-lg text-custom-gray-4 font-normal">
-                {section.title}
+                {section?.title}
               </span>
-              {section.items.length > 0 && (
+              {section?.items?.length > 0 && (
                 <ChevronRight className="w-4 h-4 text-primary" />
               )}
             </button>

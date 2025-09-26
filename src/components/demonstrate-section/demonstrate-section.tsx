@@ -13,7 +13,7 @@ const DemonstrateSection = ({
       <div className="">
         <div className="flex flex-col gap-9 text-start lg:text-center items-start lg:items-center justify-center leading-14  text-foreground  ">
           <h1 className="text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0">
-            {data.title}
+            {data?.title}
           </h1>
           <Button
             size="xl"
@@ -24,17 +24,17 @@ const DemonstrateSection = ({
           </Button>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:p-10 ">
-          {data.list.map((card, index) => {
+          {data?.list?.map((card, index) => {
 
             return (
               <div
-                key={`card-item-demo-${card.id}`}
+                key={`card-item-demo-${card?.id}`}
                 className={`bg-none flex flex-col gap-4 ${!((index + 1) % 2) ? "lg:mt-10" : ""
                   }`}
               >
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
-                    src={card.image}
+                    src={card?.image}
                     width={500}
                     height={500}
                     className="object-cover w-full h-full "
@@ -42,17 +42,17 @@ const DemonstrateSection = ({
                 </div>
                 <div>
                   <p className="lg:text-5xl text-4xl font-semibold text-foreground leading-9">
-                    {card.title}
+                    {card?.title}
                   </p>
                 </div>
 
                 <p className="text-lg font-normal text-foreground leading-6 break-words">
-                  {card.description}
+                  {card?.description}
                 </p>
 
                 <div>
                   <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors">
-                    {card.buttonText}
+                    {card?.buttonText}
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -65,7 +65,7 @@ const DemonstrateSection = ({
           arrow={true}
           className=" w-full lg:hidden variant:default px-8 py-2 text-4xl rounded-full mt-10"
         >
-          {data.buttonText}
+          {data?.buttonText}
         </Button>
       </div>
     </section>

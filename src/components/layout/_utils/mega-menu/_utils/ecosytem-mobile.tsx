@@ -54,7 +54,7 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
-            <h2 className="font-medium text-lg text-primary">{menu.menu}</h2>
+            <h2 className="font-medium text-lg text-primary">{menu?.menu}</h2>
           </div>
           <button
             onClick={onClose}
@@ -69,14 +69,14 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
           {item && (
             <div className="p-4 space-y-4">
               {item?.child?.map((child, i) => (
-                <div key={i} className="px-2 py-3 border-b border-gray-100">
+                <div key={`ecosystem-mobile-${i}`} className="px-2 py-3 border-b border-gray-100">
                   <p className="text-lg font-medium text-primary border-b border-primary">
-                    {child.title}
+                    {child?.title}
                   </p>
-                  {child.description.length > 0 && (
+                  {child?.description?.length > 0 && (
                     <ul className="mt-1 text-md text-black">
-                      {child.description.map((desc, j) => (
-                        <li key={j}>{desc.description}</li>
+                      {child?.description?.map((desc, j) => (
+                        <li key={`ecosystem-mobile-${j}`}>{desc?.description}</li>
                       ))}
                     </ul>
                   )}
@@ -111,12 +111,12 @@ const EcosystemMobile = ({ data }: { data: LayoutType }) => {
       <div className="px-0">
         {data?.ecosystemMenu?.map((ec) => (
           <button
-            key={ec?.id}
+            key={`ecosystem-mobile-${ec?.id}`}
             onClick={() => handleMenuClick(ec)}
             className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
           >
             <span className="text-lg text-custom-gray-4 font-normal">
-              {ec.menu}
+              {ec?.menu}
             </span>
             <ChevronRight className="w-4 h-4 text-primary" />
           </button>

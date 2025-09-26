@@ -9,20 +9,20 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
         <div className="flex items-start justify-center  pt-6 md:pt-20">
           <div className="border-b-4 hidden lg:block border-custom-gray-7 w-1/3 mt-4"></div>
           <h1 className="text-6xl md:text-9xl font-semibold text-foreground mx-4 py-4 lg:text-center">
-            {domainData.title}
+            {domainData?.title}
           </h1>
           <div className="border-b-4 hidden lg:block border-custom-gray-7 w-1/3 mt-4"></div>
         </div>
-        {domainData.description && (
+        {domainData?.description && (
           <p className="lg:py-5 lg:px-36 text-center">
-            {domainData.description}
+            {domainData?.description}
           </p>
         )}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10  p-6 md:p-10 ">
-          {domainData.slides.map((slide) => {
+          {domainData?.slides?.map((slide) => {
             return (
               <div
-                key={`slide-domain-${slide.id}`}
+                key={`slide-domain-${slide?.id}`}
                 className={`bg-none flex flex-col gap-4 `}
               >
                 <div className="py-3 md:py-0 rounded-4xl">
@@ -35,19 +35,17 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
                 </div>
                 <div>
                   <p className="text-5xl font-semibold text-foreground break-words">
-                    {slide.title}
+                    {slide?.title}
                   </p>
                 </div>
                 <div>
                   <p className="text-lg font-normal text-foreground leading-6 break-words">
-                    {slide.description}
+                    {slide?.description}
                   </p>
                 </div>
                 <div>
-                  {slide.buttonText && (
-                    <Button size="xl" arrow>
-                      {slide.buttonText}
-                    </Button>
+                  {slide?.buttonText && (
+                    <Button arrow>{slide?.buttonText}</Button>
                   )}
                 </div>
               </div>
