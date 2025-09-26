@@ -2,35 +2,25 @@
 
 import { useState } from "react";
 import { ChevronRight, ChevronLeft, X } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 // ---------- Types ----------
-interface Type1Child {
-  title: string;
-  type: "Dark" | "Light";
-}
-
-interface Type2Child {
-  title: string;
-  description: string[];
-}
-
-interface SidebarItem {
-  title: string;
-  description: string;
-  buttontext: string;
-  childtype: "type1" | "type2";
-  child: Type1Child[] | Type2Child[];
-}
 
 interface SidebarMenu {
   id: number;
   menu: string;
-  items: SidebarItem[];
-}
-
-interface EcosystemDataType {
-  sidebar: SidebarMenu[];
+  item: {
+    id: number;
+    title: string;
+    description: string;
+    buttontext: string;
+    child: {
+      title: string;
+      description: {
+        description: string;
+      }[];
+      type?: string;
+    }[];
+  }[];
 }
 
 interface EcosystemDrawerProps {
@@ -45,100 +35,12 @@ interface DrawerState {
 }
 
 // ---------- Data ----------
-const EcosystemData: EcosystemDataType = {
-  sidebar: [
-    {
-      id: 1,
-      menu: "SAP",
-      items: [
-        {
-          title: "SAP",
-          description:
-            "Get software and technology solutions from SAP, the leader in business applications. Run simple with the best in cloud, analytics, mobile and IT solutions.",
-          buttontext: "know more",
-          childtype: "type1",
-          child: [
-            { title: "Business Suite on Public CLoud", type: "Dark" },
-            { title: "Business Suite on Private Cloud", type: "Light" },
-            { title: "BTP Platform", type: "Dark" },
-            { title: "SAP IBP", type: "Dark" },
-            { title: "SAP Merger and Divesture", type: "Dark" },
-            { title: "Joule AI", type: "Dark" },
-          ],
-        },
-      ],
-    },
-    {
-      id: 2,
-      menu: "Microsoft",
-      items: [
-        {
-          title: "Microsoft",
-          description:
-            "Explore Microsoft products and services and support for your home or business. Shop Microsoft 365, Copilot, Teams, Xbox, Windows, Azure, Surface and more.",
-          buttontext: "know more",
-          childtype: "type2",
-          child: [
-            {
-              title: "Dynamics 365",
-              description: [
-                "Sales",
-                "Supply Chain Management",
-                "Customer",
-                "Commerce",
-                "Customer Service",
-                "Advance Warehouse Management",
-                "Field Service",
-                "Finance & Operations",
-                "Customer Engagement",
-                "Business Central",
-              ],
-            },
-            {
-              title: "AI, Analytics, & Automation",
-              description: [
-                "Microsoft Fabric",
-                "Power BI",
-                "Microsoft Copilot",
-                "Azure Databricks",
-                "Azure AI Foundry",
-                "Azure Synapse Analytics",
-                "Power Platform",
-              ],
-            },
-            { title: "Azure", description: [] },
-          ],
-        },
-      ],
-    },
-    {
-      id: 3,
-      menu: "Salesforce",
-      items: [
-        {
-          title: "Salesforce",
-          description:
-            "Salesforce, the global CRM leader, empowers companies to connect with their customers in a whole new way.",
-          buttontext: "know more",
-          childtype: "type1",
-          child: [
-            { title: "Sales Cloud", type: "Dark" },
-            { title: "Service Cloud", type: "Light" },
-            { title: "Marketing Cloud", type: "Dark" },
-          ],
-        },
-      ],
-    },
-    { id: 4, menu: "ServiceNow", items: [] },
-    { id: 5, menu: "AWS", items: [] },
-  ],
-};
 
 // ---------- Drawer ----------
 const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
   if (!isOpen || !menu) return null;
 
-  const item = menu.items[0]; // pick the first item for now
+  const item = menu?.item[0];
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
@@ -166,35 +68,20 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
         <div className="h-full overflow-y-auto bg-white">
           {item && (
             <div className="p-4 space-y-4">
-              {/* type1 children */}
-              {item.childtype === "type1" &&
-                (item.child as Type1Child[])?.map((child, i) => (
-                  <div
-                    key={i}
-                    className={cn(
-                      "px-2 py-2 border-b border-primary text-lg leading-6.5 text-primary"
-                    )}
-                  >
+              {item?.child?.map((child, i) => (
+                <div key={i} className="px-2 py-3 border-b border-gray-100">
+                  <p className="text-lg font-medium text-primary border-b border-primary">
                     {child.title}
-                  </div>
-                ))}
-
-              {/* type2 children */}
-              {item.childtype === "type2" &&
-                (item.child as Type2Child[])?.map((child, i) => (
-                  <div key={i} className="px-2 py-3 border-b border-gray-100">
-                    <p className="text-lg font-medium text-primary border-b border-primary">
-                      {child.title}
-                    </p>
-                    {child.description.length > 0 && (
-                      <ul className="mt-1 text-md text-black">
-                        {child.description.map((desc, j) => (
-                          <li key={j}>{desc}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                ))}
+                  </p>
+                  {child.description.length > 0 && (
+                    <ul className="mt-1 text-md text-black">
+                      {child.description.map((desc, j) => (
+                        <li key={j}>{desc.description}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
             </div>
           )}
         </div>
@@ -204,7 +91,7 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
 };
 
 // ---------- Main Component ----------
-const EcosystemMobile = () => {
+const EcosystemMobile = ({ data }: { data: LayoutType }) => {
   const [drawer, setDrawer] = useState<DrawerState>({
     isOpen: false,
     menu: null,
@@ -222,13 +109,15 @@ const EcosystemMobile = () => {
     <>
       {/* Sidebar list */}
       <div className="px-0">
-        {EcosystemData.sidebar.map((ec) => (
+        {data?.ecosystemMenu?.map((ec) => (
           <button
-            key={ec.id}
+            key={ec?.id}
             onClick={() => handleMenuClick(ec)}
             className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
           >
-            <span className="text-lg text-custom-gray-4 font-normal">{ec.menu}</span>
+            <span className="text-lg text-custom-gray-4 font-normal">
+              {ec.menu}
+            </span>
             <ChevronRight className="w-4 h-4 text-primary" />
           </button>
         ))}

@@ -17,7 +17,7 @@ export default function InsightsSection({
       <SplitDivider>
         <motion.h2
           id="insights-heading"
-          className="text-pretty lg:text-9xl text-6xl font-semibold text-gray-900 md:text-7xl "
+          className="text-pretty lg:text-9xl text-6xl font-semibold text-gray-900 break-words md:text-7xl "
         >
           {insights.title}
         </motion.h2>
@@ -76,6 +76,5 @@ export default function InsightsSection({
         </div>
       </div>
     </section>
-
   );
 }

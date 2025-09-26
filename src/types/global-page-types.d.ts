@@ -350,6 +350,10 @@ type PagesListType = {
   id: string;
   locale?: string;
   slug: string;
+  seo: {
+    title: string;
+    description: string;
+  };
   list: ComponentPropsType[];
   data: ComponentPropsType[];
 };
@@ -362,4 +366,5 @@ type LayoutType = {
   insightMenu: InsightsDataType;
   aboutMenu: AboutMenuType;
   ecosystemMenu: EcosystemMenuType[];
+  navItems: NavItemType;
 };

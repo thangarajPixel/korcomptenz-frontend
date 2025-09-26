@@ -40,16 +40,26 @@ type ApiErrorType = {
 type CompanyType = {
   id: string;
   companyName: string;
+  copyrights: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
   address: string;
   companyLogo: ImageType;
   companyFullLogo: ImageType;
-  socialPlatforms: {
+  socialPlatforms: [
+    {
+      id: string;
+      label: string;
+      href: string | null;
+      icon: ImageType;
+    }
+  ];
+
+  policy: {
     id: string;
-    name: string;
-    link: string;
+    label: string;
+    href: string | null;
     icon: string;
   }[];
   companyDarkLogo: ImageType;
@@ -58,17 +68,18 @@ type CompanyType = {
 type ServicesMenuProps = {
   id: string;
   title: string;
+  href?: string | null;
   image: ImageType;
   items: {
     id: number;
     title: string;
     side: "left" | "right";
-    link?: string | null;
+    href?: string | null;
     child: {
       id: number;
       title: string;
       type: "dark" | "light";
-      link?: string | null;
+      href?: string | null;
     }[];
   }[];
 };
@@ -97,6 +108,7 @@ type InsightsDataType = {
     id: string;
     title: string;
     description: string;
+    href: string | null;
   }[];
 };
 
@@ -123,16 +135,25 @@ type AboutMenuType = {
 type EcosystemMenuType = {
   id: number;
   menu: string;
-  items: {
+  item: {
+    id: number;
     title: string;
-    description: [];
+    description: string;
     buttontext: string;
     child: {
       title: string;
-
-      description: string;
+      description: {
+        description: string;
+      }[];
+      type?: string;
     }[];
   }[];
 };
 
-[];
+type NavItemType = {
+  label: string;
+  href: string | null;
+  hasChild: boolean;
+  childKey: string;
+  isButton: boolean;
+}[];
