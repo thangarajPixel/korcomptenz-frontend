@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "korcomptenz-frontend",
   description: "korcomptenz-frontend",
 };
+export const dynamic = "force-dynamic";
 
 export default function RootLayout({
   children,

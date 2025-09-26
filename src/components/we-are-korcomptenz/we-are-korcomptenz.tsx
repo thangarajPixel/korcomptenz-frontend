@@ -36,7 +36,7 @@ const WeAreKorcomptenzSection = ({
         onClick={() => setIsVideoOpen(true)}
       >
         <KorcomptenzImage
-          src={weAreKorcomptenzData.image}
+          src={weAreKorcomptenzData?.image}
           className="w-full h-[280px] md:h-[600px] object-cover  rounded-4xl"
           width={1112}
           height={500}

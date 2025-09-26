@@ -31,16 +31,16 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           {image && (
             <div className="flex absolute -right-0 -bottom-0 justify-end items-end">
               <KorcomptenzImage
-                className={`w-full object-cover p-0 ${image.height > 300
+                className={`w-full object-cover p-0 ${image?.height > 300
                   ? "h-[300px]"
-                  : image.height >= 200
+                  : image?.height >= 200
                     ? "h-[200px]"
-                    : image.height >= 100
+                    : image?.height >= 100
                       ? "h-[150px]"
                       : "h-[90px]"
                   }`}
-                width={image.width}
-                height={image.height}
+                width={image?.width}
+                height={image?.height}
                 src={image}
               />
             </div>

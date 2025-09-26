@@ -117,14 +117,14 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
             className="w-full flex items-center justify-between p-1 text-left"
           >
             <span className="text-lg text-custom-gray-4 font-normal">
-              {service.title}
+              {service?.title}
             </span>
             <ChevronRight className="w-4 h-4 text-primary" />
           </button>
         ))}
       </div>
 
-      {serviceDrawer.isOpen && serviceDrawer.service && (
+      {serviceDrawer.isOpen && serviceDrawer?.service && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="fixed inset-0 bg-white">
             <div className="flex items-center justify-between py-4 bg-white border-b border-primary">
@@ -136,37 +136,37 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
                   <ChevronLeft className="w-5 h-5 text-primary" />
                 </button>
                 <h2 className="items-center font-medium text-lg leading-[26px] text-primary">
-                  {serviceDrawer.service.title}
+                  {serviceDrawer?.service?.title}
                 </h2>
               </div>
             </div>
 
             <div className="h-full overflow-y-auto bg-white">
               <div className="divide-y divide-gray-100">
-                {serviceDrawer?.service?.items.map((item, index) => (
+                {serviceDrawer?.service?.items?.map((item, index) => (
                   <button
                     key={index}
                     onClick={() =>
-                      handleSubmenuClick(item, serviceDrawer.service!.title)
+                      handleSubmenuClick(item, serviceDrawer?.service?.title || '')
                     }
                     className="w-full text-left border-b border-primary"
                   >
                     <div className="text-lg font-normal text-primary py-2 px-4 leading-6.5">
-                      {item.title}
+                      {item?.title}
                     </div>
-                    {item.child.length > 0 && (
+                    {item?.child?.length > 0 && (
                       <div className="space-y-1 mt-2">
-                        {item?.child.map((childItem, childIndex) => (
+                        {item?.child?.map((childItem, childIndex) => (
                           <div
-                            key={childIndex}
+                            key={`ng-sub-${childIndex}`}
                             className={cn(
                               `text-lg px-4 rounded`,
-                              childItem.type === "light" &&
-                                "text-custom-gray-4 ps-7",
-                              childItem.type === "dark" && "text-black mb-1"
+                              childItem?.type === "light" &&
+                              "text-custom-gray-4 ps-7",
+                              childItem?.type === "dark" && "text-black mb-1"
                             )}
                           >
-                            {childItem.title}
+                            {childItem?.title}
                           </div>
                         ))}
                       </div>
