@@ -16,7 +16,7 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
             <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl font-bold text-custom-green-1 leading-tight mb-20 whitespace-pre-wrap">
               {scheduleCall?.title}
             </h2>
-            <Link href={scheduleCall?.link}>
+            <Link href={scheduleCall?.link || "#"}>
               <Button
                 size="xl"
                 arrow={true}
@@ -36,7 +36,7 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
               height={607}
             />
           </div>
-          <Link href={scheduleCall?.link}>
+          <Link href={scheduleCall?.link || "#"}>
             <Button
               size="lg"
               arrow={true}

@@ -23,13 +23,13 @@ export const Footer = ({ data }: { data: LayoutType }) => {
           {/* Services */}
           <FooterLinksGroup
             title={
-              data?.navItems?.find(
-                (item) => item?.childKey.trim() === "serviceMenu"
-              )?.label
+              data?.navItems?.find((item) => item?.childKey === "serviceMenu")
+                ?.label
             }
             items={data?.serviceMenu.map((s) => ({
               id: s.id,
               label: s.title,
+              href: s.href || "#",
             }))}
           />
 
@@ -41,7 +41,11 @@ export const Footer = ({ data }: { data: LayoutType }) => {
               )?.label
             }
             items={data?.industriesMenu.flatMap((col) =>
-              col.sections.map((s) => ({ id: s.title, label: s.title }))
+              col.sections.map((s) => ({
+                id: s.title,
+                label: s.title,
+                href: s.href,
+              }))
             )}
           />
 
@@ -54,6 +58,7 @@ export const Footer = ({ data }: { data: LayoutType }) => {
             items={data?.insightMenu.categories.map((c) => ({
               id: c.id,
               label: c.title,
+              href: c.href,
             }))}
           />
 
@@ -92,13 +97,18 @@ const CompanyInfo = ({ data }: { data: LayoutType["company"] }) => (
     </div>
 
     <div className="flex space-x-2 pt-4">
-      {data?.socialPlatforms.map((social) => (
+      {data?.socialPlatforms?.map((social) => (
         <Link
           key={social.id}
-          href={social.href || "/"}
+          href={social?.href || "#"}
           className="w-8 h-8 rounded-lg flex items-center justify-center"
         >
-          <KorcomptenzImage src={social.icon} width={20} height={20} placeholder="empty" />
+          <KorcomptenzImage
+            src={social.icon}
+            width={20}
+            height={20}
+            placeholder="empty"
+          />
         </Link>
       ))}
     </div>
@@ -110,12 +120,12 @@ const FooterLinksGroup = ({
   items,
 }: {
   title?: string;
-  items: { id: string | number; label: string }[];
+  items: { id: string | number; label: string; href: string | null }[];
 }) =>
   title ? (
     <FooterTitle title={title}>
       {items.map((item) => (
-        <FooterDescription key={item.id} link="#">
+        <FooterDescription key={item.id} link={item?.href || "/"}>
           {item.label}
         </FooterDescription>
       ))}

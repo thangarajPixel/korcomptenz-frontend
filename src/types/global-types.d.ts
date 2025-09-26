@@ -68,17 +68,18 @@ type CompanyType = {
 type ServicesMenuProps = {
   id: string;
   title: string;
+  href?: string | null;
   image: ImageType;
   items: {
     id: number;
     title: string;
     side: "left" | "right";
-    link?: string | null;
+    href?: string | null;
     child: {
       id: number;
       title: string;
       type: "dark" | "light";
-      link?: string | null;
+      href?: string | null;
     }[];
   }[];
 };
@@ -107,6 +108,7 @@ type InsightsDataType = {
     id: string;
     title: string;
     description: string;
+    href: string | null;
   }[];
 };
 
@@ -150,7 +152,8 @@ type EcosystemMenuType = {
 
 type NavItemType = {
   label: string;
-  href: string;
+  href: string | null;
   hasChild: boolean;
   childKey: string;
+  isButton: boolean;
 }[];

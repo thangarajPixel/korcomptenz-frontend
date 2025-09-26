@@ -3,9 +3,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
 import { X, ChevronRight } from "lucide-react";
 import React, { useState } from "react";
-import { jsonData } from "@/utils/helper";
 import Link from "next/link";
-import { SearchIcon } from "../../../../public/svg/all-svg";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import MegaMenuContent from "./mega-menu/mega-menu-content";
@@ -52,8 +50,7 @@ export function Navbar({ data }: { data: LayoutType }) {
               <Link href={"/"} className="flex items-center space-x-2">
                 <KorcomptenzImage
                   className="size-full"
-                  src={jsonData.header.companyDetail.logo}
-                  alt="Logo"
+                  src={data?.company?.companyFullLogo}
                   width={100}
                   height={100}
                 />
@@ -85,14 +82,14 @@ export function Navbar({ data }: { data: LayoutType }) {
 
             {/* Enhanced Desktop CTA with animations */}
             <div className="hidden lg:flex items-center justify-between gap-10">
-              <SearchIcon className="w-8 h-8 text-black" />
-
               <Button size="xl" className="variant:default  font-base ">
                 <Link
-                  href={jsonData.header.button.href}
+                  href={
+                    data?.navItems?.find((item) => item?.isButton)?.href || "#"
+                  }
                   className="flex items-center"
                 >
-                  {jsonData.header.button.name}
+                  {data?.navItems?.find((item) => item?.isButton)?.label}
                   <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
                 </Link>
               </Button>
@@ -237,10 +234,10 @@ export function Navbar({ data }: { data: LayoutType }) {
 
                   {/* Right side - Social icons */}
                   <div className="flex space-x-2">
-                    {data.company.socialPlatforms.map((social) => (
+                    {data?.company?.socialPlatforms.map((social) => (
                       <Link
                         key={`social-platform-${social.id}`}
-                        href={social.href || "/"}
+                        href={social?.href || "/"}
                         className="w-8 h-8 rounded-lg flex items-center justify-center"
                       >
                         <KorcomptenzImage

@@ -45,7 +45,9 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
                 </div>
                 <div>
                   {slide.buttonText && (
-                    <Button arrow>{slide.buttonText}</Button>
+                    <Button size="xl" arrow>
+                      {slide.buttonText}
+                    </Button>
                   )}
                 </div>
               </div>

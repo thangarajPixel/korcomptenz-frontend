@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";

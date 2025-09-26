@@ -1,12 +1,12 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 type Props = {
-  link: string,
-  children: React.ReactNode
-}
+  link: string;
+  children: React.ReactNode;
+};
 
-const FooterDescription = ({ link = '#', children }: Props) => {
+const FooterDescription = ({ link, children }: Props) => {
   return (
     <li>
       <Link
@@ -16,7 +16,7 @@ const FooterDescription = ({ link = '#', children }: Props) => {
         {children}
       </Link>
     </li>
-  )
-}
+  );
+};
 
-export default FooterDescription
+export default FooterDescription;
