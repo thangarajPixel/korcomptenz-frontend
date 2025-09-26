@@ -47,18 +47,17 @@ const DarkSlider = ({
       <div className="grid grid-cols-1 lg:grid-cols-24 gap-4">
         <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
           <h1 className="text-6xl md:text-9xl font-bold leading-tight text-black px-5 lg:px-0 mb-5 lg:mb-0">
-            {manuelSliderData.heading}
+            {manuelSliderData?.heading}
           </h1>
-          {manuelSliderData.descripition && (
-            <p>{manuelSliderData.descripition}</p>
+          {manuelSliderData?.descripition && (
+            <p>{manuelSliderData?.descripition}</p>
           )}
 
           <div className="hidden lg:flex  items-center gap-4">
             <Button
               size="icon"
-              className={`rounded-full size-14 hover:bg-primary hover:text-white  ${
-                !prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`rounded-full size-14 hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               onClick={scrollPrev}
               disabled={!prevBtnEnabled}
             >
@@ -66,9 +65,8 @@ const DarkSlider = ({
             </Button>
             <Button
               size="icon"
-              className={`rounded-full size-14 hover:bg-primary hover:text-white ${
-                !nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`rounded-full size-14 hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               onClick={scrollNext}
               disabled={!nextBtnEnabled}
             >
@@ -80,14 +78,13 @@ const DarkSlider = ({
         <section className="col-span-24 lg:col-span-16">
           <div ref={emblaRef} className="overflow-hidden">
             <div className="flex flex-row gap-6">
-              {manuelSliderData.slides.map((slide, index) => (
+              {manuelSliderData?.slides?.map((slide, index) => (
                 <div
-                  key={slide.id}
-                  className={`min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${
-                    index === manuelSliderData.slides.length - 1
+                  key={slide?.id}
+                  className={`min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${index === manuelSliderData?.slides?.length - 1
                       ? "mr-[100px]"
                       : ""
-                  }`}
+                    }`}
                 >
                   <SliderCard slide={slide} />
                 </div>

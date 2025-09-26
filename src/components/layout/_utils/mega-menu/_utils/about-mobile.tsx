@@ -31,7 +31,7 @@ const AboutDrawer = ({ isOpen, onClose, data }: IndustryDrawerProps) => {
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
             <h2 className="text-lg font-normal text-primary">
-              {data?.aboutMenu.whoWeAre.title}
+              {data?.aboutMenu?.whoWeAre?.title}
             </h2>
           </div>
           <button
@@ -44,13 +44,13 @@ const AboutDrawer = ({ isOpen, onClose, data }: IndustryDrawerProps) => {
 
         {/* Accordion list */}
         <div className="h-full bg-white p-4 text-lg text-gray-700">
-          {data?.aboutMenu.navigationItems.map((item) => (
-            <div key={item.id} className="border-b border-gray-100">
+          {data?.aboutMenu?.navigationItems?.map((item) => (
+            <div key={`about-mobile-${item?.id}`} className="border-b border-gray-100">
               <button
-                onClick={() => toggleAccordion(item.id)}
+                onClick={() => toggleAccordion(item?.id)}
                 className="w-full flex items-center justify-between py-3 text-lg text-primary"
               >
-                <span>{item.title}</span>
+                <span>{item?.title}</span>
               </button>
             </div>
           ))}
@@ -72,19 +72,19 @@ const AboutMobile = ({ data }: { data: LayoutType }) => {
           className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
         >
           <span className="text-lg text-custom-gray-4 font-normal">
-            {data?.aboutMenu.whoWeAre.title}
+            {data?.aboutMenu?.whoWeAre?.title}
           </span>
           <ChevronRight className="w-4 h-4 text-primary" />
         </button>
 
         {/* Sidebar Sections (static, no drawer) */}
-        {data?.aboutMenu.sidebarSections.map((sec) => (
+        {data?.aboutMenu?.sidebarSections?.map((sec) => (
           <div
-            key={sec.id}
+            key={`about-mobile-${sec?.id}`}
             className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
           >
             <span className="text-lg text-custom-gray-4 font-normal">
-              {sec.title}
+              {sec?.title}
             </span>
           </div>
         ))}

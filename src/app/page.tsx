@@ -17,7 +17,7 @@ export default async function Home() {
   const data = await getHomeServiceCache();
   return (
     <div className="flex flex-col gap-16 md:gap-32">
-      <GlobalPage data={data.list} />
+      <GlobalPage data={data?.list} />
     </div>
   );
 }

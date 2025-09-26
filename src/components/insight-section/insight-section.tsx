@@ -19,12 +19,12 @@ export default function InsightsSection({
           id="insights-heading"
           className="text-pretty lg:text-9xl text-6xl font-semibold text-gray-900 break-words md:text-7xl "
         >
-          {insights.title}
+          {insights?.title}
         </motion.h2>
       </SplitDivider>
       <div aria-labelledby="insights-heading" className="container-md mt-7">
         <div className="flex flex-col items-center gap-6 text-center md:gap-8">
-          <InsightsMobileCarousel items={insights.list} />
+          <InsightsMobileCarousel items={insights?.list} />
           <motion.div
             className="md:flex flex-row  items-center justify-center hidden "
             initial={{ opacity: 0, y: 6 }}
@@ -38,7 +38,7 @@ export default function InsightsSection({
                 arrow={true}
                 className=" variant:default px-8 py-2 text-4xl rounded-full inline-flex"
               >
-                {insights.buttontext}
+                {insights?.buttontext}
               </Button>
             </Link>
           </motion.div>
@@ -49,7 +49,7 @@ export default function InsightsSection({
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
           >
-            {insights.list.map((item, index) => (
+            {insights?.list.map((item, index) => (
               <InsightCard
                 key={item.id}
                 {...item}
@@ -69,7 +69,7 @@ export default function InsightsSection({
           >
             <Link href="#">
               <Button size="lg" arrow={true}>
-                {insights.buttontext}
+                {insights?.buttontext}
               </Button>
             </Link>
           </motion.div>
