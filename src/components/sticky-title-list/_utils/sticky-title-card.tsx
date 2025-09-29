@@ -4,6 +4,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
   const { title, description, image, buttonText } = data;
+
   return (
     <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px] ">
       {/* Content */}
@@ -16,13 +17,15 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
             {description}
           </p>
 
-          <Button
-            size="xl"
-            className="flex w-[150px] md:w-[200px] mb-10 mr-4 lg:mb-0"
-            arrow={true}
-          >
-            {buttonText}
-          </Button>
+          {buttonText && (
+            <Button
+              size="xl"
+              className="flex w-[150px] md:w-[200px] mb-10 mr-4 lg:mb-0"
+              arrow={true}
+            >
+              {buttonText}
+            </Button>
+          )}
         </div>
 
         {/*Desktop Button */}
@@ -31,14 +34,15 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           {image && (
             <div className="flex absolute -right-0 -bottom-0 justify-end items-end">
               <KorcomptenzImage
-                className={`w-full object-cover p-0 ${image?.height > 300
-                  ? "h-[300px]"
-                  : image?.height >= 200
+                className={`w-full object-cover p-0 ${
+                  image?.height > 300
+                    ? "h-[300px]"
+                    : image?.height >= 200
                     ? "h-[200px]"
                     : image?.height >= 100
-                      ? "h-[150px]"
-                      : "h-[90px]"
-                  }`}
+                    ? "h-[150px]"
+                    : "h-[90px]"
+                }`}
                 width={image?.width}
                 height={image?.height}
                 src={image}
