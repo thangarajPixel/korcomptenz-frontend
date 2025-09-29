@@ -27,9 +27,9 @@ export const Footer = ({ data }: { data: LayoutType }) => {
                 ?.label
             }
             items={data?.serviceMenu.map((s) => ({
-              id: s.id,
-              label: s.title,
-              href: s.href || "#",
+              id: s?.id,
+              label: s?.title,
+              href: s?.href?.slug || "#",
             }))}
           />
 
@@ -42,9 +42,9 @@ export const Footer = ({ data }: { data: LayoutType }) => {
             }
             items={data?.industriesMenu.flatMap((col) =>
               col.sections.map((s) => ({
-                id: s.title,
-                label: s.title,
-                href: s.href,
+                id: s?.id,
+                label: s?.title,
+                href: s?.href?.slug || "#",
               }))
             )}
           />
@@ -56,9 +56,9 @@ export const Footer = ({ data }: { data: LayoutType }) => {
                 ?.label
             }
             items={data?.insightMenu.categories.map((c) => ({
-              id: c.id,
-              label: c.title,
-              href: c.href,
+              id: c?.id,
+              label: c?.title,
+              href: c?.href?.slug || "#",
             }))}
           />
 
@@ -197,20 +197,20 @@ const EcosystemSection = ({ data }: { data: LayoutType }) => (
       }
     </h4>
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-4">
-      {data?.ecosystemMenu.flatMap((menu) =>
-        menu.item
-          ?.filter((item) => item.child?.length)
-          .map((item, idx) => (
-            <div className="space-y-4" key={`${menu.id}-${idx}`}>
-              <h4 className="font-semibold text-lg">{item.title}</h4>
+      {data?.ecosystemMenu?.flatMap((menu) =>
+        menu?.item
+          ?.filter((item) => item?.child?.length)
+          ?.map((item, idx) => (
+            <div className="space-y-4" key={`${menu?.id}-${idx}`}>
+              <h4 className="font-semibold text-lg">{item?.title}</h4>
               <ul className="space-y-2">
-                {item.child.map((child, i) => (
+                {item?.child?.map((child, i) => (
                   <li key={i}>
                     <Link
                       href="#"
                       className="text-custom-gray-2 text-lg hover:text-primary transition-all duration-300"
                     >
-                      {child.title}
+                      {child?.title}
                     </Link>
                   </li>
                 ))}
@@ -228,9 +228,9 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
     <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex items-center justify-between">
       <p className="text-custom-gray-2 text-lg">{data?.company?.copyrights}</p>
       <div>
-        {data?.company?.policy.map((policy) => (
+        {data?.company?.policy?.map((policy) => (
           <Link
-            key={policy?.id}
+            key={`policy-${policy?.id}`}
             href={policy?.href || "/"}
             className="text-custom-gray-2 text-lg mx-2"
           >
@@ -243,17 +243,16 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
     {/* Mobile */}
     <div className="mt-8 lg:hidden flex flex-col items-center">
       <div className="flex justify-center pb-4">
-        {data?.company?.policy.map((policy, i) => (
+        {data?.company?.policy?.map((policy, i) => (
           <Link
-            key={policy?.id}
-            href="#"
-            className={`text-custom-gray-2 text-xs mx-2 ${
-              i < data?.company?.policy.length - 1
+            key={`policy-${policy?.id}`}
+            href={policy?.href || "#"}
+            className={`text-custom-gray-2 text-xs mx-2 ${i < data?.company?.policy?.length - 1
                 ? "border-r pr-2 border-custom-gray-3"
                 : ""
-            }`}
+              }`}
           >
-            {policy.label}
+            {policy?.label}
           </Link>
         ))}
       </div>

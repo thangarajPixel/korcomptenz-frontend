@@ -17,7 +17,7 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
           <nav className="space-y-2">
             {data?.serviceMenu.map((section) => (
               <motion.button
-                key={section?.id}
+                key={`service-section-${section?.id}`}
                 onClick={() => setActiveServiceSection(section)}
                 className={`w-full text-left text-custom-gray-4 py-3 
                   rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${activeServiceSection?.id === section?.id
@@ -37,7 +37,7 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
       {/* Content */}
       <div className="col-span-24 md:col-span-13 lg:col-span-13">
         <motion.div
-          key={activeServiceSection?.id}
+          key={`service-section-content-${activeServiceSection?.id}`}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
           className="bg-white border-l border-gray-200 px-6"
@@ -49,7 +49,7 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                 ?.filter((item) => item?.side === "left")
                 ?.map((item, idx) => (
                   <motion.div
-                    key={`ng-left-${item?.id}`}
+                    key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1, duration: 0.3 }}
@@ -66,10 +66,10 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                         <div className="space-y-2">
                           {item?.child?.map((sub) => (
                             <div
-                              key={sub?.id}
+                              key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
                               className={`text-sm leading-5 cursor-pointer ${sub?.type === "dark"
-                                  ? "font-normal text-black"
-                                  : "text-gray-500"
+                                ? "font-normal text-black"
+                                : "text-gray-500"
                                 }`}
                             >
                               {sub?.title}
@@ -88,7 +88,7 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                 ?.filter((item) => item?.side === "right")
                 ?.map((item, idx) => (
                   <motion.div
-                    key={`ng-right-${item?.id}`}
+                    key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1, duration: 0.3 }}
@@ -105,10 +105,10 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                         <div className="space-y-2">
                           {item?.child?.map((sub) => (
                             <div
-                              key={`ng-sub-${sub?.id}`}
+                              key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}-sub-${sub?.id}`}
                               className={`text-sm leading-5 ${sub?.type === "dark"
-                                  ? "font-normal text-black"
-                                  : "text-gray-500"
+                                ? "font-normal text-black"
+                                : "text-gray-500"
                                 }`}
                             >
                               {sub?.title}

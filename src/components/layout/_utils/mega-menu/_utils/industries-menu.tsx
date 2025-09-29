@@ -35,12 +35,12 @@ const IndustriesMenu = ({ data }: { data: LayoutType }) => {
                   {/* Content Wrapper */}
                   <div
                     className={`flex flex-col ${section?.imagePosition === "side"
-                        ? "w-[70%] pr-4"
-                        : "w-full"
+                      ? "w-[70%] pr-4"
+                      : "w-full"
                       }`}
                   >
                     {" "}
-                    <Link href={section.href || ""}>
+                    <Link href={section.href?.slug || "/"}>
                       <h3 className="text-lg font-normal text-primary leading-6.5 mb-4 whitespace-break-spaces">
                         {section.title}
                       </h3>
@@ -61,7 +61,7 @@ const IndustriesMenu = ({ data }: { data: LayoutType }) => {
                           // }}
                           >
                             <Link
-                              href={item.href || ""}
+                              href={item.href?.slug || "/"}
                               className="text-lg text-gray-700 font-medium hover:text-primary transition-colors"
                             >
                               {item?.title}
@@ -75,8 +75,8 @@ const IndustriesMenu = ({ data }: { data: LayoutType }) => {
                   {/* Image */}
                   <div
                     className={`flex items-center justify-center ${section?.imagePosition === "side"
-                        ? "w-[40%]"
-                        : "w-full mt-4"
+                      ? "w-[40%]"
+                      : "w-full mt-4"
                       }`}
                   >
                     <motion.div
@@ -96,8 +96,8 @@ const IndustriesMenu = ({ data }: { data: LayoutType }) => {
                         width={section?.height === "tall" ? 160 : 120}
                         height={section?.height === "tall" ? 160 : 120}
                         className={`object-contain drop-shadow-lg ${section?.height === "tall"
-                            ? "w-[200px] h-[200px]"
-                            : "w-[120px] h-[120px]"
+                          ? "w-[200px] h-[200px]"
+                          : "w-[120px] h-[120px]"
                           }`}
                       />
                     </motion.div>
