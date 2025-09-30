@@ -4,6 +4,8 @@ import "../index.css";
 import Providers from "@/components/providers";
 import Layout from "@/components/layout";
 
+export const dynamic = "force-dynamic";
+
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",
   subsets: ["latin"],
@@ -14,7 +16,6 @@ export const metadata: Metadata = {
   title: "korcomptenz-frontend",
   description: "korcomptenz-frontend",
 };
-export const dynamic = "force-dynamic";
 
 export default function RootLayout({
   children,
