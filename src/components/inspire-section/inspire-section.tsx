@@ -24,11 +24,11 @@ const InspireSection = ({ inspireSection }: { inspireSection: InspireSectionType
   return (
     <section className="container-md" data-debug={"page-componets.inspire-section"}>
       <div className="grid lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-1 flex flex-col h-full ">
+        <div className="lg:col-span-1 flex flex-col  gap-6 ">
           {left?.map((card) => <InspireSectionCard key={`inspire-section-${card.id}`} card={card} />)}
         </div>
         <div className={cn("flex flex-col gap-5 ", centerSpan)}>
-          <div className="hidden lg:flex flex-col text-center items-center justify-center h-full">
+          <div className="hidden lg:flex flex-col text-center items-center justify-center ">
             <h1 className="text-6xl font-bold text-custom-gray mb-6 text-balance">
               {inspireSection?.title}
             </h1>
@@ -42,7 +42,7 @@ const InspireSection = ({ inspireSection }: { inspireSection: InspireSectionType
           </div>
           {center?.map((card) => <InspireSectionCard key={`inspire-section-${card.id}`} card={card} />)}
         </div>
-        <div className="lg:col-span-1 flex flex-col justify-between gap-6 ">
+        <div className="lg:col-span-1 flex flex-col gap-6 ">
           {right?.map((card) => (
             <InspireSectionCard key={`inspire-section-${card.id}`} card={card} />
           ))}
