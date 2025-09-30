@@ -193,6 +193,7 @@ type BenefitSectionType = {
   cards: [
     {
       id: number;
+      title: string;
       number: string;
       description: string;
     }
@@ -260,7 +261,7 @@ type StretchableSectionType = {
     description: string;
     image: ImageType;
     buttonText: string;
-  }[]
+  }[];
 };
 type ComponentPropsMap = {
   SlidingSection: {
