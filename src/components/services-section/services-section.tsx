@@ -17,9 +17,9 @@ export function AnimatedTabsHero({
   content: ServicesSectionType[];
 }) {
 
-  const [value, setValue] = React.useState<string>(content[0].label);
+  const [value, setValue] = React.useState<string>(content?.[0]?.label);
 
-  const activeContent = content.find((c) => c.label === value) || content[0];
+  const activeContent = content?.find((c) => c?.label === value) || content?.[0];
 
   return (
     <section className={cn("my- md:my-0", className)} data-debug={"home.services-section"}>
@@ -36,17 +36,17 @@ export function AnimatedTabsHero({
               "bg-secondary p-0 shadow-none border-none !ml-0"
             )}
           >
-            {content.map((t) => (
+            {content?.map((t) => (
               <TabsTrigger
-                key={t.label}
-                value={t.label}
+                key={t?.label}
+                value={t?.label}
                 className={cn(
                   "relative !cursor-pointer h-full z-10 text-white  rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-md sm:text-base font-semibold ",
                   "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50 md:text-5xl  text-xs ">{t.label}</span>
-                {value === t.label && (
+                <span className="z-50 md:text-5xl  text-xs ">{t?.label}</span>
+                {value === t?.label && (
                   <motion.div
                     layoutId="active-pill"
                     transition={{
@@ -80,18 +80,18 @@ export function AnimatedTabsHero({
           >
             <div className="space-y-3  w-full lg:w-1/2  ">
               <h1 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl">
-                {activeContent.heading}
+                {activeContent?.heading}
               </h1>
-              <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">{activeContent.description}</p>
-              <Link href={activeContent.link}>
+              <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">{activeContent?.description}</p>
+              <Link href={activeContent?.link}>
                 <Button size="xl" arrow={true}>
-                  {activeContent.buttonText}
+                  {activeContent?.buttonText}
                 </Button>
               </Link>
             </div>
             <div className="flex-1">
               <KorcomptenzImage
-                src={activeContent.image}
+                src={activeContent?.image}
                 className="h-full w-full rounded-xl object-contain"
                 width={1000}
                 height={1000}

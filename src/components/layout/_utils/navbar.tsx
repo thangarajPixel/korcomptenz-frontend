@@ -59,25 +59,27 @@ export function Navbar({ data }: { data: LayoutType }) {
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
             <nav className="hidden lg:flex items-center space-x-7 relative text-muted text-lg font-light">
-              {data?.navItems.map((item, index) => (
-                <p
-                  key={index}
-                  className={cn(
-                    `cursor-pointer font-medium transition-all duration-300 ease-out hover:text-primary  relative group/nav 
+              {data?.navItems
+                .filter((item) => !item?.isButton)
+                .map((item, index) => (
+                  <p
+                    key={index}
+                    className={cn(
+                      `cursor-pointer font-medium transition-all duration-300 ease-out hover:text-primary  relative group/nav 
       after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all 
       after:duration-300 after:ease-out hover:after:w-full`,
-                    {
-                      "after:w-full after:translate-x-0 after:opacity-100 after:visible after:z-10 text-primary":
-                        activeSection === item.label,
+                      {
+                        "after:w-full after:translate-x-0 after:opacity-100 after:visible after:z-10 text-primary":
+                          activeSection === item.label,
+                      }
+                    )}
+                    onMouseEnter={() =>
+                      item.hasChild && setActiveSection(item.label)
                     }
-                  )}
-                  onMouseEnter={() =>
-                    item.hasChild && setActiveSection(item.label)
-                  }
-                >
-                  {item.label}
-                </p>
-              ))}
+                  >
+                    {item.label}
+                  </p>
+                ))}
             </nav>
 
             {/* Enhanced Desktop CTA with animations */}
@@ -85,7 +87,8 @@ export function Navbar({ data }: { data: LayoutType }) {
               <Button size="xl" className="variant:default  font-base ">
                 <Link
                   href={
-                    data?.navItems?.find((item) => item?.isButton)?.href || "#"
+                    data?.navItems?.find((item) => item?.isButton)?.href
+                      ?.slug || "#"
                   }
                   className="flex items-center"
                 >

@@ -7,7 +7,10 @@ const BenefitSection = ({
   benefitData: BenefitSectionType;
 }) => {
   return (
-    <section className="container-md" data-debug={"page-componets.benefit-data"}>
+    <section
+      className="container-md"
+      data-debug={"page-componets.benefit-data"}
+    >
       <div>
         <h1 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 text-balance w-full lg:w-1/2">
           {benefitData?.title}
@@ -29,13 +32,15 @@ const BenefitSection = ({
               return (
                 <div
                   key={card?.id}
-                  className={`flex gap-4 ${isOddNumberOfCards ? "w-full" : "w-1/2"
-                    }`}
+                  className={`flex gap-4 ${
+                    isOddNumberOfCards ? "w-full" : "w-1/2"
+                  }`}
                 >
                   <div className="md:mx-4 m-2">
                     <p className="text-8xl font-light text-primary w-10 shrink-0 ">
                       {card?.number}
                     </p>
+                    <p className="text-black text-xl">{card?.title}</p>
                     <p className="text-foreground text-lg">
                       {card?.description}
                     </p>

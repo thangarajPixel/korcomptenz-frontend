@@ -193,6 +193,7 @@ type BenefitSectionType = {
   cards: [
     {
       id: number;
+      title: string;
       number: string;
       description: string;
     }
@@ -251,7 +252,17 @@ type ScheduleCallType = {
   link: string;
   image: string;
 };
-
+type StretchableSectionType = {
+  title: string;
+  image: ImageType;
+  list: {
+    id: number;
+    title: string;
+    description: string;
+    image: ImageType;
+    buttonText: string;
+  }[];
+};
 type ComponentPropsMap = {
   SlidingSection: {
     id: string;
@@ -342,6 +353,10 @@ type ComponentPropsMap = {
   ScheduleCall: ScheduleCallType & {
     id: string;
     __component: "home.schedule-call";
+  };
+  StretchableSection: StretchableSectionType & {
+    id: string;
+    __component: "page-componets.stretchable-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

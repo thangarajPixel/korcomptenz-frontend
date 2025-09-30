@@ -4,6 +4,8 @@ import "../index.css";
 import Providers from "@/components/providers";
 import Layout from "@/components/layout";
 
+export const dynamic = "force-dynamic";
+
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",
   subsets: ["latin"],

@@ -17,17 +17,16 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
           <nav className="space-y-2">
             {data?.serviceMenu.map((section) => (
               <motion.button
-                key={section?.id}
+                key={`service-section-${section?.id}`}
                 onClick={() => setActiveServiceSection(section)}
                 className={`w-full text-left text-custom-gray-4 py-3 
-                  rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${
-                    activeServiceSection?.id === section?.id
-                      ? "text-primary"
-                      : ""
+                  rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${activeServiceSection?.id === section?.id
+                    ? "text-primary"
+                    : ""
                   }`}
               >
                 <span className="text-lg font-normal leading-1">
-                  {section.title}
+                  {section?.title}
                 </span>
               </motion.button>
             ))}
@@ -38,7 +37,7 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
       {/* Content */}
       <div className="col-span-24 md:col-span-13 lg:col-span-13">
         <motion.div
-          key={activeServiceSection?.id}
+          key={`service-section-content-${activeServiceSection?.id}`}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
           className="bg-white border-l border-gray-200 px-6"
@@ -47,10 +46,10 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
             {/* Left */}
             <div>
               {activeServiceSection?.items
-                .filter((item) => item.side === "left")
-                .map((item, idx) => (
+                ?.filter((item) => item?.side === "left")
+                ?.map((item, idx) => (
                   <motion.div
-                    key={item.id}
+                    key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1, duration: 0.3 }}
@@ -59,22 +58,21 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                     <div className="px-5 mb-6">
                       <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
                         <span className="border-b-2 border-transparent group-hover:border-primary">
-                          {item.title}
+                          {item?.title}
                         </span>
                         <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
                       </h4>
-                      {item.child && item.child.length > 0 && (
+                      {item?.child && item?.child?.length > 0 && (
                         <div className="space-y-2">
-                          {item.child.map((sub) => (
+                          {item?.child?.map((sub) => (
                             <div
-                              key={sub?.id}
-                              className={`text-sm leading-5 cursor-pointer ${
-                                sub.type === "dark"
-                                  ? "font-normal text-black"
-                                  : "text-gray-500"
-                              }`}
+                              key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
+                              className={`text-sm leading-5 cursor-pointer ${sub?.type === "dark"
+                                ? "font-normal text-black"
+                                : "text-gray-500"
+                                }`}
                             >
-                              {sub.title}
+                              {sub?.title}
                             </div>
                           ))}
                         </div>
@@ -87,10 +85,10 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
             {/* Right */}
             <div>
               {activeServiceSection?.items
-                .filter((item) => item.side === "right")
-                .map((item, idx) => (
+                ?.filter((item) => item?.side === "right")
+                ?.map((item, idx) => (
                   <motion.div
-                    key={item.id}
+                    key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1, duration: 0.3 }}
@@ -99,22 +97,21 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                     <div className="px-5 lg:mb-6">
                       <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
                         <span className="border-b-2 border-transparent group-hover:border-primary">
-                          {item.title}
+                          {item?.title}
                         </span>
                         <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
                       </h4>
-                      {item.child && item.child.length > 0 && (
+                      {item?.child && item?.child?.length > 0 && (
                         <div className="space-y-2">
-                          {item.child.map((sub) => (
+                          {item?.child?.map((sub) => (
                             <div
-                              key={sub?.id}
-                              className={`text-sm leading-5 ${
-                                sub.type === "dark"
-                                  ? "font-normal text-black"
-                                  : "text-gray-500"
-                              }`}
+                              key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}-sub-${sub?.id}`}
+                              className={`text-sm leading-5 ${sub?.type === "dark"
+                                ? "font-normal text-black"
+                                : "text-gray-500"
+                                }`}
                             >
-                              {sub.title}
+                              {sub?.title}
                             </div>
                           ))}
                         </div>

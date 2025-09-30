@@ -1,4 +1,3 @@
-"use client";
 
 import { Button } from "@/components/ui/button";
 
@@ -49,8 +48,8 @@ export default function Opportunities({
                   </span>
                   <section className="flex flex-row items-center gap-2">
                     <KorcomptenzImage
-                      src={careers.profiles?.[0].image?.url}
-                      alt={careers.profiles?.[0].image?.alternativeText}
+                      src={careers?.profiles?.[0].image?.url}
+                      alt={careers?.profiles?.[0].image?.alternativeText}
                       className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
                       width={1000}
                       height={1000}
@@ -61,8 +60,8 @@ export default function Opportunities({
                   </section>
                   <div className="ps-10">
                     <KorcomptenzImage
-                      src={careers.profiles?.[2].image?.url}
-                      alt={careers.profiles?.[2].image?.alternativeText}
+                      src={careers?.profiles?.[2].image?.url}
+                      alt={careers?.profiles?.[2].image?.alternativeText}
                       className="w-16 h-16 lg:w-[100px] lg:h-[100px] rounded-full border-4 border-white shrink-0"
                       width={1000}
                       height={1000}
@@ -72,18 +71,18 @@ export default function Opportunities({
 
                 <div className="flex flex-row items-center mt:[40px]">
                   <span className="text-primary text-4xl lg:-ml-42 lg:text-7xl lg:me-48 font-semibold">
-                    {careers.breakThree}
+                    {careers?.breakThree}
                   </span>
                   <section className="flex flex-row items-center gap-2 lg:-ml-12">
                     <KorcomptenzImage
-                      src={careers.profiles?.[1].image?.url}
-                      alt={careers.profiles?.[1].image?.alternativeText}
+                      src={careers?.profiles?.[1].image?.url}
+                      alt={careers?.profiles?.[1].image?.alternativeText}
                       className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
                       width={1000}
                       height={1000}
                     />
                     <span className="text-primary text-4xl lg:text-7xl font-semibold">
-                      {careers.breakFour}
+                      {careers?.breakFour}
                     </span>
                   </section>
                 </div>
@@ -95,36 +94,36 @@ export default function Opportunities({
               <div className="text-5xl font-bold leading-tight w-full ">
                 <div className="flex flex-row items-center justify-between">
                   <span className="text-custom-black text-5xl font-semibold">
-                    {careers.breakOne}
+                    {careers?.breakOne}
                   </span>
 
                   <KorcomptenzImage
-                    src={careers.profiles?.[0].image?.url}
-                    alt={careers.profiles?.[0].image?.alternativeText}
+                    src={careers?.profiles?.[0].image?.url}
+                    alt={careers?.profiles?.[0].image?.alternativeText}
                     className="w-16 h-16 rounded-full border-4 border-white shrink-0"
                     width={1000}
                     height={1000}
                   />
 
                   <span className="text-custom-black text-5xl font-semibold">
-                    {careers.breakTwo}
+                    {careers?.breakTwo}
                   </span>
                 </div>
 
                 <div className="flex flex-row justify-between items-center">
                   <KorcomptenzImage
-                    src={careers.profiles?.[2].image?.url}
-                    alt={careers.profiles?.[2].image?.alternativeText}
+                    src={careers?.profiles?.[2].image?.url}
+                    alt={careers?.profiles?.[2].image?.alternativeText}
                     className="w-16 h-16 rounded-full border-4 border-white shrink-0"
                     width={1000}
                     height={1000}
                   />
                   <span className="text-primary text-5xl font-semibold">
-                    {careers.breakThree}
+                    {careers?.breakThree}
                   </span>
                   <KorcomptenzImage
-                    src={careers.profiles?.[1].image?.url}
-                    alt={careers.profiles?.[1].image?.alternativeText}
+                    src={careers?.profiles?.[1].image?.url}
+                    alt={careers?.profiles?.[1].image?.alternativeText}
                     className="w-16 h-16 rounded-full border-4 border-white shrink-0"
                     width={1000}
                     height={1000}
@@ -132,14 +131,14 @@ export default function Opportunities({
                 </div>
 
                 <span className="text-primary text-5xl font-semibold">
-                  {careers.breakFour}
+                  {careers?.breakFour}
                 </span>
               </div>
             </div>
 
             {/* Description */}
             <p className="text-3xl text-custom-black leading-[28px] max-w-lg lg:ms-[-30px]">
-              {careers.description}
+              {careers?.description}
             </p>
 
             {/* CTA */}
@@ -150,7 +149,7 @@ export default function Opportunities({
               size="xl"
               className="text-lg lg:ms-[-30px]"
             >
-              {careers.buttonText}
+              {careers?.buttonText}
             </Button>
           </div>
         </div>

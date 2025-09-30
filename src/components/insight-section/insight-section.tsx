@@ -26,7 +26,7 @@ export default function InsightsSection({
         <div className="flex flex-col items-center gap-6 text-center md:gap-8">
           <InsightsMobileCarousel items={insights?.list} />
           <motion.div
-            className="md:flex flex-row  items-center justify-center hidden "
+            className="md:flex flex-row  items-center justify-center hidden"
             initial={{ opacity: 0, y: 6 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}

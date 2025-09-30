@@ -13,7 +13,7 @@ export default function StickyCards({
   className?: string;
   stickyCards: StickyCardsType;
 }) {
-  const cardData = stickyCards.list;
+  const cardData = stickyCards?.list;
 
   return (
     <section
@@ -23,22 +23,22 @@ export default function StickyCards({
       <div className="relative container-md ">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-5">
           <h1 className=" font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
-            {stickyCards.title}
+            {stickyCards?.title}
           </h1>
 
-          {stickyCards.buttonText && (
+          {stickyCards?.buttonText && (
             <Button
               className="hidden sm:inline-flex variant:default text-4xl"
               size="xl"
             >
-              {stickyCards.buttonText}
+              {stickyCards?.buttonText}
               <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
             </Button>
           )}
         </div>
         {cardData?.map((card, index) => (
           <div
-            key={card.id}
+            key={`sticky-card-${card?.id}`}
             className={cn(
               "sm:sticky relative sm:top-48 top-0 ",
               `z-[${index + 10}] sm:mb-12`
@@ -55,17 +55,17 @@ export default function StickyCards({
               >
                 {/* ID */}
                 <div className="hidden md:block text-lg pl-5 pt-14 font-medium text-custom-black-1 ms-8 mt-3  uppercase tracking-wide">
-                  {card.specificId}
+                  {card?.specificId}
                 </div>
 
                 {/* Content */}
                 <div className="p-2 lg:pt-14 lg:pb-16 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
                   <div className="space-y-4">
                     <h2 className="text-4xl lg:text-6xl font-bold text-black leading-tight">
-                      {card.title}
+                      {card?.title}
                     </h2>
                     <p className="text-custom-black-1  text-lg md:xl leading-relaxed">
-                      {card.description}
+                      {card?.description}
                     </p>
                   </div>
 
@@ -75,7 +75,7 @@ export default function StickyCards({
                       className="mt-3 mb-3 text-xs px-2 rounded-full
                bg-white text-primary border border-primary h-[44px] w-[155px]"
                     >
-                      {card.buttonText}
+                      {card?.buttonText}
                       <ChevronRight className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
@@ -86,7 +86,7 @@ export default function StickyCards({
                       size="xl"
                       className="mt-3 mb-3 w-fit text-4xl px-6 rounded-full"
                     >
-                      {card.buttonText}
+                      {card?.buttonText}
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </div>
@@ -100,7 +100,7 @@ export default function StickyCards({
                 >
                   <KorcomptenzImage
                     className="w-full h-44 md:h-full object-cover"
-                    src={card.image}
+                    src={card?.image}
                     width={1000}
                     height={1000}
                   />

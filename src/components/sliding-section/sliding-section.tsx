@@ -17,23 +17,23 @@ export default function SlidingSection({
 
   return (
     <CardSwiper data-debug={"home.hero-section-one"}>
-      {slides.map((slide) => (
+      {slides?.map((slide) => (
         <div
-          key={`sliding-section-${slide.id}`}
+          key={`sliding-section-${slide?.id}`}
           className="embla__custom_slide"
         >
           <div
             className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
-            // style={{
-            //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
-            //   backgroundSize: "cover",
-            //   backgroundPosition: "center",
-            //   backgroundRepeat: "no-repeat",
-            //   objectFit: "cover"
-            // }}
+          // style={{
+          //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
+          //   backgroundSize: "cover",
+          //   backgroundPosition: "center",
+          //   backgroundRepeat: "no-repeat",
+          //   objectFit: "cover"
+          // }}
           >
             <KorcomptenzImage
-              src={isMobile ? slide.mobile_image : slide.image}
+              src={isMobile ? slide?.mobile_image : slide?.image}
               width={1000}
               height={1000}
               className="w-full h-full object-cover"
@@ -42,30 +42,29 @@ export default function SlidingSection({
               <div className="container-md">
                 <div className="max-w-2xl text-white">
                   <div
-                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${
-                      slide.subtitle
+                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide?.subtitle
                         ? "text-4xl md:text-9xl"
                         : "text-lg md:text-7xl font-medium"
-                    }`}
+                      }`}
                   >
-                    {slide.subtitle || slide.subtitle2}
+                    {slide?.subtitle || slide?.subtitle2}
                   </div>
 
                   <h2 className="text-6xl md:text-7xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
-                    {slide.title}
+                    {slide?.title}
                   </h2>
-                  {!slide.description && <div className="h-0 md:h-16 " />}
+                  {!slide?.description && <div className="h-0 md:h-16 " />}
                   <p className="text-3xl md:text-5xl mb-8 leading-tight  text-pretty">
-                    {slide.description}
+                    {slide?.description}
                   </p>
-                  {slide.buttonText && (
+                  {slide?.buttonText && (
                     <Button
                       size="xl"
                       variant="white"
                       className="hover:bg-transparent text-md md:text-lg hover:text-primary border hover:border-primary"
                       arrow={true}
                     >
-                      {slide.buttonText}
+                      {slide?.buttonText}
                     </Button>
                   )}
                 </div>

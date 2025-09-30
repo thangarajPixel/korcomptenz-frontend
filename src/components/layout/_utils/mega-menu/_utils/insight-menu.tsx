@@ -31,7 +31,7 @@ const InsightsMenu = ({ data }: { data: LayoutType }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {data?.insightMenu?.categories.map((category, index) => (
+            {data?.insightMenu?.categories?.map((category, index) => (
               <motion.div
                 key={category?.id}
                 className="group bg-white  h-16 transition-all duration-300 cursor-pointer border-b border-[#D2D2D2]"
@@ -42,7 +42,7 @@ const InsightsMenu = ({ data }: { data: LayoutType }) => {
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <h3 className="text-5xl font-normal text-custom-gray group-hover:text-primary">
-                      {category.title}
+                      {category?.title}
                     </h3>
                   </div>
                   <div className="ml-4">

@@ -3,28 +3,16 @@
 import { useState } from "react";
 import { ChevronRight, ChevronLeft, X } from "lucide-react";
 
-interface Section {
-  id: string;
-  title: string;
-  items: {
-    id: string;
-    title: string;
-    href: string | null;
-  }[];
-  image: ImageType;
-  height: string;
-  imagePosition: string;
-}
 
 interface DrawerState {
   isOpen: boolean;
-  industry: Section | null;
+  industry: IndustriesMenuType['sections'][number] | null;
 }
 
 interface IndustryDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  industry: Section | null;
+  industry: IndustriesMenuType['sections'][number] | null;
 }
 
 const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
@@ -84,7 +72,7 @@ const IndustriesMobile = ({ data }: { data: LayoutType }) => {
     industry: null,
   });
 
-  const openDrawer = (industry: Section) => {
+  const openDrawer = (industry: IndustriesMenuType['sections'][number]) => {
     setDrawer({ isOpen: true, industry });
   };
 

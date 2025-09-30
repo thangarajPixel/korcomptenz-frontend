@@ -18,6 +18,7 @@ import DemonstrateSection from "../demonstrate-section";
 import BuildConnect from "../build-connect";
 import TechPartner from "../tech-partner-section";
 import ScheduleCall from "../layout/_utils/schedule";
+import StretchableSection from "../stretchable-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -159,6 +160,13 @@ const GlobalPage = (props: Props) => {
           <ScheduleCall
             key={`schedule-call-${item?.__component}-${item?.id}`}
             scheduleCall={item}
+          />
+        );
+      case "page-componets.stretchable-section":
+        return (
+          <StretchableSection
+            key={`stretchable-section-${item?.__component}-${item?.id}`}
+            item={item}
           />
         );
       default:

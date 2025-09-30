@@ -36,7 +36,10 @@ type ApiErrorType = {
   };
   status: number;
 };
-
+type HrefType = {
+  id: string;
+  slug: string;
+}
 type CompanyType = {
   id: string;
   companyName: string;
@@ -68,18 +71,18 @@ type CompanyType = {
 type ServicesMenuProps = {
   id: string;
   title: string;
-  href?: string | null;
+  href?: HrefType | null;
   image: ImageType;
   items: {
     id: number;
     title: string;
     side: "left" | "right";
-    href?: string | null;
+    href?: HrefType | null;
     child: {
       id: number;
       title: string;
       type: "dark" | "light";
-      href?: string | null;
+      href?: HrefType | null;
     }[];
   }[];
 };
@@ -92,12 +95,12 @@ type IndustriesMenuType = {
     items: {
       id: string;
       title: string;
-      href: string | null;
+      href: HrefType | null;
     }[];
     image: ImageType;
     height: string;
     imagePosition: string;
-    href: string | null;
+    href: HrefType | null;
   }[];
 };
 
@@ -108,7 +111,7 @@ type InsightsDataType = {
     id: string;
     title: string;
     description: string;
-    href: string | null;
+    href: HrefType | null;
   }[];
 };
 
@@ -152,7 +155,7 @@ type EcosystemMenuType = {
 
 type NavItemType = {
   label: string;
-  href: string | null;
+  href: HrefType | null;
   hasChild: boolean;
   childKey: string;
   isButton: boolean;
