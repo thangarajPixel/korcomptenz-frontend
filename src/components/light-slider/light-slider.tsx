@@ -7,9 +7,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 
 const LightSlider = ({
-  LightSliderData,
+  data,
 }: {
-  LightSliderData: LightSliderType;
+  data: LightSliderType;
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
@@ -49,35 +49,37 @@ const LightSlider = ({
         <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-12">
           <div className="grid gap-3">
             <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
-              {LightSliderData?.title}
+              {data?.title}
             </h2>
 
             <h2 className="text-custom-gray-9 text-md md:text-lg leading-relaxed">
-              {LightSliderData?.description}
+              {data?.description}
             </h2>
           </div>
 
           {/* Navigation Arrows */}
-          <div className="hidden lg:flex items-center gap-4 mt-4">
-            <Button
-              size="icon"
-              className={`rounded-full size-12  hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              onClick={scrollPrev}
-              disabled={!prevBtnEnabled}
-            >
-              <ChevronLeft className="size-6" />
-            </Button>
-            <Button
-              size="icon"
-              className={`rounded-full size-12  hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              onClick={scrollNext}
-              disabled={!nextBtnEnabled}
-            >
-              <ChevronRight className="size-6" />
-            </Button>
-          </div>
+          {data?.list?.length > 1 && (
+            <div className="hidden lg:flex items-center gap-4 mt-4">
+              <Button
+                size="icon"
+                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
+                onClick={scrollPrev}
+                disabled={!prevBtnEnabled}
+              >
+                <ChevronLeft className="size-6" />
+              </Button>
+              <Button
+                size="icon"
+                className={`rounded-full size-12  hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
+                onClick={scrollNext}
+                disabled={!nextBtnEnabled}
+              >
+                <ChevronRight className="size-6" />
+              </Button>
+            </div>
+          )}
         </div>
 
         {/* Solutions Content */}
@@ -85,7 +87,7 @@ const LightSlider = ({
           {/* Left: Business Meeting Image */}
           <div className="rounded-3xl overflow-hidden">
             <KorcomptenzImage
-              src={LightSliderData?.image}
+              src={data?.image}
               width={600}
               height={400}
               className="w-full h-auto object-cover"
@@ -96,10 +98,10 @@ const LightSlider = ({
 
           <div ref={emblaRef} className=" overflow-hidden">
             <div className="flex flex-row gap-4">
-              {LightSliderData?.list?.map((slide, index) => (
+              {data?.list?.map((slide, index) => (
                 <div
                   key={`slide-${slide?.id}`}
-                  className={`min-w-full pl-4 pr-1 relative ${index === LightSliderData?.list?.length - 1 ? "mr-[0px]" : ""
+                  className={`min-w-full pl-4 pr-1 relative ${index === data?.list?.length - 1 ? "mr-[0px]" : ""
                     }`}
                 >
                   <div className="space-y-4">
