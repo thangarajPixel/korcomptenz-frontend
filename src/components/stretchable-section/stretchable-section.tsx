@@ -5,8 +5,9 @@ import { useMobile } from '@/utils/custom-hooks'
 import CardSwiper from '../ui/card-swiper'
 
 const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
-  const isMobile = useMobile()
-  const [hoveredCard, setHoveredCard] = useState<string | null>(item?.list?.[1].title.toLowerCase());
+  const defaultCard = item?.list?.[1]?.title?.toLowerCase() || null;
+  const isMobile = useMobile();
+  const [hoveredCard, setHoveredCard] = useState<string | null>(defaultCard);
 
   return (
     <section data-debug="page-componets.stretchable-section" className="container-md">
@@ -34,7 +35,7 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
             open={hoveredCard === value?.title?.toLowerCase()}
             props={{
               onMouseEnter: () => setHoveredCard(value?.title?.toLowerCase()),
-              onMouseLeave: () => setHoveredCard(item?.list?.[1].title.toLowerCase())
+              onMouseLeave: () => setHoveredCard(defaultCard)
             }}
             image={item?.image}
             data={value}

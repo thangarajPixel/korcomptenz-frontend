@@ -96,7 +96,7 @@ const GlobalPage = (props: Props) => {
         return (
           <LightSlider
             key={`light-slider-${item?.__component}-${item?.id}`}
-            LightSliderData={item}
+            data={item}
           />
         );
       case "page-componets.sticky-title-list":
