@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { cn } from "@/lib/utils"
+import { SearchIcon } from "../../../../public/svg/all-svg"
 
 type Chip = {
   id: string
@@ -34,7 +35,7 @@ export default function SearchChips() {
         <label htmlFor="search" className="sr-only">
           Search case studies
         </label>
-        <div className="flex items-center gap-3 bg-card border border-input rounded-full px-4 md:px-6 py-3 md:py-4">
+        <div className="flex items-center gap-3 bg-card border border-input rounded-2xl px-4 md:px-6 py-3 md:py-4">
           {/* Active chips inside the search field (limit to 1 + summary) */}
           <div className="flex items-center gap-2">
             {visibleSelected.map((c) => (
@@ -42,7 +43,7 @@ export default function SearchChips() {
                 key={c.id}
                 type="button"
                 onClick={() => toggle(c.id)}
-                className="whitespace-nowrap inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm"
+                className="whitespace-nowrap inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm cursor-pointer"
                 aria-pressed={c.selected}
                 aria-label={`${c.label} selected. Remove`}
               >
@@ -55,7 +56,7 @@ export default function SearchChips() {
             ))}
             {extraCount > 0 && (
               <span
-                className="whitespace-nowrap inline-flex items-center rounded-full border border-input bg-primary text-primary-foreground px-3 py-1.5 text-sm"
+                className="whitespace-nowrap inline-flex items-center rounded-full border border-input bg-primary text-primary-foreground px-3 py-1.5 text-sm cursor-pointer"
                 aria-label={`${extraCount} more selected`}
               >
                 +{extraCount} selected
@@ -66,20 +67,17 @@ export default function SearchChips() {
           <input
             id="search"
             name="q"
-            placeholder="Search case studies"
-            className="min-w-0 flex-1 bg-transparent outline-none text-base md:text-lg placeholder:text-muted-foreground/70"
+            placeholder="Search"
+            className="min-w-0 flex-1 bg-transparent outline-none text-base md:text-lg placeholder:text-foreground"
           />
 
           {/* Search icon button */}
           <button
             type="submit"
-            className="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground hover:text-primary-foreground border border-input size-10"
+            className="inline-flex items-center justify-center rounded-full text-foreground  size-10"
             aria-label="Search"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
-              <path d="M20 20L17 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
+            <SearchIcon />
           </button>
         </div>
       </form>
@@ -94,7 +92,7 @@ export default function SearchChips() {
               type="button"
               onClick={() => toggle(c.id)}
               className={cn(
-                "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm",
+                "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm cursor-pointer",
                 "border border-input bg-primary text-primary-foreground ",
               )}
               aria-pressed={c.selected}
