@@ -196,27 +196,28 @@ const EcosystemSection = ({ data }: { data: LayoutType }) => (
       }
     </h4>
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-4">
-      {data?.ecosystemMenu?.flatMap((menu) =>
-        menu?.item
-          ?.filter((item) => item?.child?.length)
-          ?.map((item, idx) => (
-            <div className="space-y-4" key={`${menu?.id}-${idx}`}>
-              <h4 className="font-semibold text-lg">{item?.title}</h4>
-              <ul className="space-y-2">
-                {item?.child?.map((child, i) => (
-                  <li key={i}>
-                    <Link
-                      href="#"
-                      className="text-custom-gray-2 text-lg hover:text-primary transition-all duration-300"
-                    >
-                      {child?.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))
-      )}
+      {data?.ecosystemMenu?.map((menu) => {
+        const item = menu?.item;
+        if (!item?.child?.length) return null;
+        return (
+          <div className="space-y-4" key={menu?.id}>
+            <h4 className="font-semibold text-lg">{item?.title}</h4>
+            <ul className="space-y-2">
+              {item?.child?.map((child, i) => (
+                <li key={i}>
+                  <Link
+                    href="#"
+                    className="text-custom-gray-2 text-lg hover:text-primary transition-all duration-300"
+                  >
+                    {child?.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+
     </div>
   </section>
 );

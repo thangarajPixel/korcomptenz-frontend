@@ -143,6 +143,7 @@ type EcosystemMenuType = {
     title: string;
     description: string;
     buttontext: string;
+    image: ImageType;
     child: {
       title: string;
       description: {
@@ -150,7 +151,7 @@ type EcosystemMenuType = {
       }[];
       type?: string;
     }[];
-  }[];
+  };
 };
 
 type NavItemType = {

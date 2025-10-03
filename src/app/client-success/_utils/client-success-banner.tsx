@@ -6,7 +6,7 @@ const ClientSuccessBanner = () => {
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
       <div className="absolute inset-0">
-        <KorcomptenzImage src="/assets/Arrow Alone.svg" fill alt="Korcomptenz" />
+        <KorcomptenzImage src="/assets/arrow-alone.svg" fill alt="Korcomptenz" />
       </div>
 
       <div className="relative container-lg py-12 md:py-20">
@@ -29,7 +29,7 @@ const ClientSuccessBanner = () => {
             <div className="grid grid-cols-2 lg:grid-cols-[1fr_1fr] gap-6 items-stretch">
               {/* Top left image (medium) */}
               <KorcomptenzImage
-                src="/assets/industrial-robot-welding-factory.png"
+                src="/assets/tempory/industrial-robot-welding-factory.png"
                 alt="Industrial robots in a factory welding"
                 className="rounded-3xl border border-border object-cover w-full h-[200px] md:h-[240px]"
                 width={1000}
@@ -38,7 +38,7 @@ const ClientSuccessBanner = () => {
 
               {/* Tall right image */}
               <KorcomptenzImage
-                src="/assets/engineers-monitoring-production-screens.png"
+                src="/assets/tempory/engineers-monitoring-production-screens.png"
                 alt="Engineers reviewing production dashboards"
                 className="rounded-3xl border border-border object-cover w-full row-span-2 h-[440px] md:h-[520px]"
                 width={1000}
@@ -47,7 +47,7 @@ const ClientSuccessBanner = () => {
 
               {/* Bottom left image (large) */}
               <KorcomptenzImage
-                src="/assets/precision-manufacturing-cnc-machine.jpg"
+                src="/assets/tempory/precision-manufacturing-cnc-machine.jpg"
                 alt="Precision manufacturing on CNC machine"
                 className="rounded-3xl border border-border object-cover w-full h-[260px] md:h-[320px]"
                 width={1000}

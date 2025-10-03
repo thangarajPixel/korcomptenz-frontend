@@ -46,7 +46,7 @@ const WeAreKorcomptenzSection = ({
 
         <div className="absolute inset-0 flex items-center justify-center">
           <KorcomptenzImage
-            src="/assets/home/Play button.png"
+            src="/assets/play-button.png"
             className="w-12 h-12"
             alt="play-icon"
             width={54}
