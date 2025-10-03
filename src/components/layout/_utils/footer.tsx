@@ -4,7 +4,6 @@ import Link from "next/link";
 import React from "react";
 import { ChevronRight } from "lucide-react";
 
-import { jsonData } from "@/utils/helper";
 import ScheduleCall from "@/components/layout/_utils/schedule";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import FooterTitle from "./footer-title";
@@ -156,7 +155,7 @@ const QuickLinks = ({ data }: { data: LayoutType }) => {
 const AboutSection = ({ data }: { data: LayoutType }) => (
   <section className="space-y-4" id="About">
     <h4 className="text-primary font-semibold border-b border-primary text-3xl pb-2">
-      {jsonData?.aboutmenu?.aboutUs?.title}
+      {data?.aboutMenu?.title || "About Us"}
     </h4>
 
     <h4 className="font-semibold text-lg">
@@ -248,8 +247,8 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
             key={`policy-${policy?.id}`}
             href={policy?.href || "#"}
             className={`text-custom-gray-2 text-xs mx-2 ${i < data?.company?.policy?.length - 1
-                ? "border-r pr-2 border-custom-gray-3"
-                : ""
+              ? "border-r pr-2 border-custom-gray-3"
+              : ""
               }`}
           >
             {policy?.label}
