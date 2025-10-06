@@ -17,6 +17,7 @@ type ImageType = {
 
 type GlobalFieldType = {
   buttonText?: string;
+  titleimage?: ImageType;
   description?: string;
   image?: ImageType;
   link?: string;
@@ -39,7 +40,7 @@ type ApiErrorType = {
 type HrefType = {
   id: string;
   slug: string;
-}
+};
 type CompanyType = {
   id: string;
   companyName: string;

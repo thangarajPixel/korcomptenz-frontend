@@ -1,9 +1,9 @@
-'use client'
+"use client";
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion } from 'motion/react';
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { Loader2, ChevronRight } from 'lucide-react';
+import { Loader2, ChevronRight } from "lucide-react";
 
 const buttonVariants = cva(
   "cursor-pointer rounded-full inline-flex items-center justify-center gap-2 whitespace-nowrap text-lg font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive ",
@@ -21,7 +21,9 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        white: "bg-white text-primary hover:bg-gray-100 text-lg"
+        white: "bg-white text-primary hover:bg-gray-100 text-lg",
+        filter:
+          "h-[50px] gap-2.5 rotate-0 opacity-100 rounded border border-solid p-[8px] pl-[12px] ",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3 ",
@@ -35,7 +37,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  },
+  }
 );
 
 function Button({
@@ -53,8 +55,8 @@ function Button({
     isLoading?: boolean;
     arrow?: boolean;
     disabled?: boolean;
-  } & import('motion/react').HTMLMotionProps<'button'> & VariantProps<typeof buttonVariants>) {
-
+  } & import("motion/react").HTMLMotionProps<"button"> &
+  VariantProps<typeof buttonVariants>) {
   return (
     <motion.button
       className={cn(buttonVariants({ variant, size, className }))}
@@ -62,21 +64,19 @@ function Button({
       disabled={isLoading || disabled}
     >
       <span className="relative flex items-center justify-center  gap-1">
-        {isLoading
-          ? (
-            <span className="inline-flex h-6 w-full items-center  justify-center gap-2">
+        {isLoading ? (
+          <span className="inline-flex h-6 w-full items-center  justify-center gap-2">
+            {children}
+            <Loader2 className="mt-[-4px] size-4 animate-spin" />
+          </span>
+        ) : (
+          <React.Fragment>
+            <span className="relative flex items-center justify-center text-lg  gap-1">
               {children}
-              <Loader2 className="mt-[-4px] size-4 animate-spin" />
+              {arrow && <ChevronRight className="size-4 font-bold" />}
             </span>
-          )
-          : (
-            <React.Fragment>
-              <span className="relative flex items-center justify-center text-lg  gap-1">
-                {children}
-                {arrow && <ChevronRight className="size-4 font-bold" />}
-              </span>
-            </React.Fragment>
-          )}
+          </React.Fragment>
+        )}
       </span>
     </motion.button>
   );
