@@ -16,10 +16,11 @@ const EcosystemMenu = ({ data }: { data: LayoutType }) => {
               <div
                 key={`ecosystem-menu-${item?.id}`}
                 onClick={() => setActiveSideBar(item)}
-                className={`w-full group ${activeSideBar?.id === item?.id
-                  ? "border-b-2 border-primary"
-                  : "border-b-2 border-transparent hover:border-primary"
-                  }`}
+                className={`w-full group ${
+                  activeSideBar?.id === item?.id
+                    ? "border-b-2 border-primary"
+                    : "border-b-2 border-transparent hover:border-primary"
+                }`}
               >
                 <h4 className="relative font-medium text-3xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
                   <span>{item?.menu}</span>
@@ -38,7 +39,6 @@ const EcosystemMenu = ({ data }: { data: LayoutType }) => {
       {/* Content Area */}
       <div className="col-span-24 md:col-span-12 lg:col-span-12 pl-0 md:px-8 lg:px-8">
         <div className="space-y-6">
-
           <div key={`ecosystem-menu-item-${activeSideBar?.id}`}>
             <h2 className="text-3xl font-normal  text-foreground mb-4">
               {activeSideBar?.item?.title}
@@ -55,10 +55,9 @@ const EcosystemMenu = ({ data }: { data: LayoutType }) => {
               {activeSideBar?.item?.child?.map((childItem, childIndex) => (
                 <div key={`ecosystem-menu-${childIndex}`}>
                   <span
-                    className={` ${childItem.type === "Dark"
-                      ? "text-black"
-                      : " text-primary"
-                      }`}
+                    className={` ${
+                      childItem.type === "Dark" ? "text-black" : " text-primary"
+                    }`}
                   >
                     {childItem?.title}
                   </span>
@@ -76,7 +75,6 @@ const EcosystemMenu = ({ data }: { data: LayoutType }) => {
               ))}
             </div>
           </div>
-
         </div>
       </div>
       {/* Image Section */}

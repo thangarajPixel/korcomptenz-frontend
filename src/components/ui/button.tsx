@@ -24,6 +24,10 @@ const buttonVariants = cva(
         white: "bg-white text-primary hover:bg-gray-100 text-lg",
         filter:
           "h-[50px] gap-2.5 rotate-0 opacity-100 rounded border border-solid p-[8px] pl-[12px] ",
+        highlight:
+          " text-lg hover:text-white hover:bg-primary transition-all duration-300 rounded-[8px]",
+        ishighlight:
+          " text-lg text-white bg-primary transition-all duration-300 rounded-[8px]",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3 ",

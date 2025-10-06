@@ -1,14 +1,26 @@
-import React from 'react'
-import { ClientSuccessFilter, ClientSuccessBanner, ClientSuccessList } from './_utils'
+import React from "react";
+import {
+  ClientSuccessFilter,
+  ClientSuccessBanner,
+  ClientSuccessList,
+  ClientPartnership,
+  ClientTestimonial,
+  ClinetCustomer,
+} from "./_utils";
 
 const Page = () => {
   return (
-    <React.Fragment>
+    <div className="flex flex-col gap-16 md:gap-32">
       <ClientSuccessBanner />
-      <ClientSuccessFilter />
-      <ClientSuccessList />
-    </React.Fragment>
-  )
-}
+      <div>
+        <ClientSuccessFilter />
+        <ClientSuccessList />
+      </div>
+      <ClientPartnership />
+      <ClinetCustomer />
+      <ClientTestimonial />
+    </div>
+  );
+};
 
-export default Page
+export default Page;
