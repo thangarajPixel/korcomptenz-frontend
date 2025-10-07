@@ -19,6 +19,8 @@ import BuildConnect from "../build-connect";
 import TechPartner from "../tech-partner-section";
 import ScheduleCall from "../layout/_utils/schedule";
 import StretchableSection from "../stretchable-section";
+import CaseStudyStickyCards from "../sticky-cards/case-study-sticky-cards";
+import CaseStudyDomainSection from "../domain-section/case-study-domain-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -167,6 +169,20 @@ const GlobalPage = (props: Props) => {
           <StretchableSection
             key={`stretchable-section-${item?.__component}-${item?.id}`}
             item={item}
+          />
+        );
+      case "case-study.case-study-sticky-cards-list":
+        return (
+          <CaseStudyStickyCards
+            key={`sticky-cards-${item?.__component}-${item?.id}`}
+            stickyCards={item}
+          />
+        );
+      case "case-study.case-study-domain-data":
+        return (
+          <CaseStudyDomainSection
+            key={`domain-section-${item?.__component}-${item?.id}`}
+            domainData={item}
           />
         );
       default:

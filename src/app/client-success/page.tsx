@@ -1,26 +1,12 @@
-import React from "react";
-import {
-  ClientSuccessFilter,
-  ClientSuccessBanner,
-  ClientSuccessList,
-  ClientPartnership,
-  ClientTestimonial,
-  ClinetCustomer,
-} from "./_utils";
+import React, { cache } from "react";
+import { getCaseStudiesService } from "@/services";
+import CaseStudies from "./_utils/casestudies";
 
-const Page = () => {
-  return (
-    <div className="flex flex-col gap-16 md:gap-32">
-      <ClientSuccessBanner />
-      <div>
-        <ClientSuccessFilter />
-        <ClientSuccessList />
-      </div>
-      <ClientPartnership />
-      <ClinetCustomer />
-      <ClientTestimonial />
-    </div>
-  );
+const getCaseStudiesCache = cache(getCaseStudiesService);
+const Page = async () => {
+  const data = await getCaseStudiesCache();
+
+  return <CaseStudies data={data} />;
 };
 
 export default Page;
