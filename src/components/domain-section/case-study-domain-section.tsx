@@ -5,9 +5,21 @@ import DomainSection from "./domain-section";
 const CaseStudyDomainSection = ({
   domainData,
 }: {
-  domainData: DomainSectionType;
+  domainData: CaseStudyStickyCardsType;
 }) => {
-  return <DomainSection domainData={domainData} />;
+  const componentProps: DomainSectionType = {
+    ...domainData,
+    slides: domainData.list.map((item) => ({
+      ...item,
+      image: item.heroSection.image,
+      type: '',
+      buttonText: 'Korcomptenz',
+      title: item.heroSection.title,
+      description: item.heroSection.description,
+    })),
+    description: ""
+  };
+  return <DomainSection domainData={componentProps} />;
 };
 
 export default CaseStudyDomainSection;

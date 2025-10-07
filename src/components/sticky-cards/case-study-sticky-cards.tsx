@@ -4,7 +4,18 @@ import StickyCards from "./sticky-cards";
 export default function CaseStudyStickyCards({
   stickyCards,
 }: {
-  stickyCards: StickyCardsType;
+  stickyCards: CaseStudyStickyCardsType;
 }) {
-  return <StickyCards stickyCards={stickyCards} />;
+  const componentProps: StickyCardsType = {
+    ...stickyCards,
+    list: stickyCards.list.map((item) => ({
+      ...item,
+      specificId: item.id,
+      title: item.heroSection.title,
+      description: item.heroSection.description,
+      buttonText: 'Korcomptenz',
+      image: item.heroSection.image,
+    })),
+  };
+  return <StickyCards stickyCards={componentProps} />;
 }

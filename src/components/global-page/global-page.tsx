@@ -4,13 +4,13 @@ import InspireSection from "../inspire-section";
 import Opportunities from "../opportunities";
 import ServicesSection from "../services-section";
 import SlidingSection from "../sliding-section";
-import StickyCards from "../sticky-cards";
+import { StickyCards, CaseStudyStickyCards } from "../sticky-cards";
 import WeAreKorcomptenzSection from "../we-are-korcomptenz";
 import BannerSection from "../banner-section";
 import SapSection from "../sap-section";
 import LightSlider from "../light-slider";
 import DarkSlider from "../dark-slider";
-import DomainSection from "../domain-section";
+import { DomainSection, CaseStudyDomainSection } from "../domain-section";
 import BenefitSection from "../benefit-section";
 import FaqSection from "../faq-section";
 import { StickyTitleList } from "../sticky-title-list";
@@ -19,8 +19,6 @@ import BuildConnect from "../build-connect";
 import TechPartner from "../tech-partner-section";
 import ScheduleCall from "../layout/_utils/schedule";
 import StretchableSection from "../stretchable-section";
-import CaseStudyStickyCards from "../sticky-cards/case-study-sticky-cards";
-import CaseStudyDomainSection from "../domain-section/case-study-domain-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -174,14 +172,14 @@ const GlobalPage = (props: Props) => {
       case "case-study.case-study-sticky-cards-list":
         return (
           <CaseStudyStickyCards
-            key={`sticky-cards-${item?.__component}-${item?.id}`}
+            key={`case-study-sticky-cards-${item?.__component}-${item?.id}`}
             stickyCards={item}
           />
         );
       case "case-study.case-study-domain-data":
         return (
           <CaseStudyDomainSection
-            key={`domain-section-${item?.__component}-${item?.id}`}
+            key={`case-study-domain-section-${item?.__component}-${item?.id}`}
             domainData={item}
           />
         );
