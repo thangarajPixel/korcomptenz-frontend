@@ -72,7 +72,7 @@ const data = {
 };
 export default function ClientPartnership() {
   return (
-    <section className="container-md">
+    <section className="container-lg">
       <h1 className="text-4xl  font-bold text-foreground mb-12 text-balance">
         Our partnership at a glance
       </h1>

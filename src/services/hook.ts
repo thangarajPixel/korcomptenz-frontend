@@ -14,7 +14,7 @@ export const useCaseStudyHook = ({
   });
 };
 
-export const useFilterdataHook = ({
+export const useFilterCaseStudyHook = ({
   options,
 }: {
   options?: OptionsType<FilterDataType>;

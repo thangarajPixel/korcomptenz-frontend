@@ -168,7 +168,7 @@ body {
   }
 }
 @utility container-lg {
-  @apply container mx-auto max-w-7xl px-6 py-12;
+  @apply container mx-auto max-w-7xl px-6 py-0;
   @variant xl {
     @apply max-w-[96rem] px-8;
   }

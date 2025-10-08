@@ -20,10 +20,10 @@ const statsData = {
   ],
 };
 
-export default function ClinetCustomer() {
+export default function ClientCustomer() {
   return (
-    <section className="bg-[#F8F8F8] container-md py-12">
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-[#F8F8F8]  py-12">
+      <div className="container-lg">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
           {/* Left side - Heading */}
           <div className="max-w-md">

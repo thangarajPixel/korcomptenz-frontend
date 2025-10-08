@@ -173,7 +173,7 @@ const ClientSuccessList = () => {
   };
 
   return (
-    <div className="container-md">
+    <React.Fragment>
       <div className="grid grid-cols-12 gap-6 mb-8">
         <div className="col-span-12 md:col-span-4">
           <StickyTitleCard data={data.stickyCard} />
@@ -185,8 +185,7 @@ const ClientSuccessList = () => {
           </div>
         ))}
       </div>
-
-      <div className="container-md flex justify-between items-center">
+      <div className="flex justify-between items-center">
         <div>
           <Pagination>
             <PaginationContent>
@@ -274,11 +273,10 @@ const ClientSuccessList = () => {
                 <DropdownMenuItem
                   key={num}
                   onClick={() => handleItemsPerPageChange(num)}
-                  className={`cursor-pointer ${
-                    itemsPerPage === num
-                      ? "bg-gray-100 text-muted font-normal"
-                      : ""
-                  }`}
+                  className={`cursor-pointer ${itemsPerPage === num
+                    ? "bg-gray-100 text-muted font-normal"
+                    : ""
+                    }`}
                 >
                   {num}
                 </DropdownMenuItem>
@@ -288,7 +286,7 @@ const ClientSuccessList = () => {
           <span>of {totalItems} entries</span>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

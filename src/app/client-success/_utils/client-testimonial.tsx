@@ -66,7 +66,7 @@ export default function ClientTestimonial() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <Card className="container  max-w-5xl mx-auto bg-[#C9F5FF]">
+    <Card className="container-md bg-[#C9F5FF]">
       <div className="relative z-10">
         {currentTestimonial.sideImage && (
           <div className="absolute right-8 top-8 w-32 h-32 opacity-20">
@@ -96,9 +96,9 @@ export default function ClientTestimonial() {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={cn(
-                  "w-3 h-3 rounded-full transition-all duration-300",
+                  "w-3 h-3  transition-all duration-300 cursor-pointer",
                   index === currentIndex
-                    ? "bg-slate-800 w-6"
+                    ? "bg-slate-800"
                     : "bg-slate-300 hover:bg-slate-400"
                 )}
                 aria-label={`Go to testimonial ${index + 1}`}
