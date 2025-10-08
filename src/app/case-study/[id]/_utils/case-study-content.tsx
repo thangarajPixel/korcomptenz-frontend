@@ -1,6 +1,7 @@
 "use client";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import DangerousHtml from "@/components/ui/dangerous-html";
 import type { CaseStudyDescription } from "@/types/global-types";
 
 export default function CaseStudyContent({
@@ -70,7 +71,7 @@ export default function CaseStudyContent({
                     {item.title}
                   </h2>
 
-                  <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                  <DangerousHtml html={item.description} />
                 </section>
               ))}
             </article>
@@ -82,11 +83,10 @@ export default function CaseStudyContent({
               {Rightdata?.rightImage?.sections?.map((section, sectionIndex) => (
                 <div key={sectionIndex} className="mb-6 last:mb-0">
                   <div
-                    className={`grid ${
-                      section.items.length > 1
-                        ? "grid-cols-2 gap-6"
-                        : "grid-cols-1 gap-0"
-                    }`}
+                    className={`grid ${section.items.length > 1
+                      ? "grid-cols-2 gap-6"
+                      : "grid-cols-1 gap-0"
+                      }`}
                   >
                     {section?.items?.map((item, itemIndex) => (
                       <div key={itemIndex} className="flex flex-col space-y-1">

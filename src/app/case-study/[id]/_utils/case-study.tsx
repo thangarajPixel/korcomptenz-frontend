@@ -7,12 +7,12 @@ import type { CaseStudyData } from "@/types/global-types";
 
 const CaseStudy = ({ data }: { data: CaseStudyData }) => {
   return (
-    <div>
+    <React.Fragment>
       <CaseStudyBanner data={data?.heroSection} />
       <CaseStudyContent data={data?.descriptionSection} />
       <ClientTestimonial data={data?.testimonials} />
       <ContactForm />
-    </div>
+    </React.Fragment>
   );
 };
 

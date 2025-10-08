@@ -13,11 +13,7 @@ const Page = async ({ params }: Props) => {
   const slug = id;
   const data = await getCaseStudySingleCache({ slug });
 
-  return (
-    <div>
-      <CaseStudy data={data} />
-    </div>
-  );
+  return (<CaseStudy data={data} />);
 };
 
 export default Page;

@@ -2,7 +2,7 @@ import type { OptionsType } from "@/types/essential-types";
 import { useQuery } from "@tanstack/react-query";
 import * as PAGE from "./page";
 
-export const useCaseStudyHook = ({
+export const useCaseStudiesHook = ({
   options,
 }: {
   options?: OptionsType<CaseStudiesType>;
