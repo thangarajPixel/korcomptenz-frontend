@@ -172,3 +172,34 @@ type NavItemType = {
   childKey: string;
   isButton: boolean;
 }[];
+
+//case study types
+export interface CaseStudyDescription {
+  id: number;
+  description: string;
+  title: string;
+}
+
+export interface CaseStudyHeroSection {
+  id: number;
+  title: string;
+  description: string;
+  image: ImageType;
+}
+
+export interface CaseStudyTestimonial {
+  id: number;
+  title: string;
+  description: string;
+}
+
+export interface CaseStudyData {
+  id: number;
+  documentId: string;
+  study: string;
+  slug: string;
+
+  descriptionSection: CaseStudyDescription[];
+  heroSection: CaseStudyHeroSection;
+  testimonials: CaseStudyTestimonial[];
+}

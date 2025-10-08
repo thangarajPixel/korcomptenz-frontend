@@ -1,3 +1,4 @@
+import type { CaseStudyData } from "@/types/global-types";
 import http from "./http";
 
 const HOME = "/home";
@@ -20,9 +21,9 @@ export const getPageService = async ({
 export const getCaseStudyService = async ({
   slug,
 }: {
-  slug: string[];
-}): Promise<PagesListType> => {
-  const { data } = await http.get(CASE_STUDY, { params: { slug } });
+  slug: string;
+}): Promise<CaseStudyData> => {
+  const { data } = await http.get(CASE_STUDY + "/" + slug);
   return data;
 };
 

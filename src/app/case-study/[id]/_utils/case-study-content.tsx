@@ -1,35 +1,14 @@
 "use client";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import type { CaseStudyDescription } from "@/types/global-types";
 
-export default function CaseStudyContent() {
-  const data = {
-    left: [
-      {
-        title: "About the Client",
-        description:
-          "Our client is a leading provider of self-directed IRA (SDIRA) custodianship and alternative investment administration. The company enables clients to diversify their retirement portfolios by investing in assets such as real estate, promissory notes, oil and gas, private placements, and cryptocurrencies. With over 18,000 clients nationwide, our clients is renowned for its exceptional customer service and commitment to investor education, offering weekly classes, workshops, and seminars to empower clients in making informed investment decisions..",
-      },
-      {
-        title: "About the Client",
-        description:
-          "• Cumbersome PDF forms, higher error and abandonment rates\n" +
-          "• Lack of real-time validation leading to confusing submissions\n" +
-          "• No visibility or tracking across the application lifecycle\n\n",
-      },
-      {
-        title: "About the Client",
-        description:
-          "Our client is a leading provider of self-directed IRA (SDIRA) custodianship and alternative investment administration. The company enables clients to diversify their retirement portfolios by investing in assets such as real estate, promissory notes, oil and gas, private placements, and cryptocurrencies. With over 18,000 clients nationwide, our clients is renowned for its exceptional customer service and commitment to investor education, offering weekly classes, workshops, and seminars to empower clients in making informed investment decisions..",
-      },
-      {
-        title: "About the Client",
-        description:
-          "• Cumbersome PDF forms, higher error and abandonment rates\n" +
-          "• Lack of real-time validation leading to confusing submissions\n" +
-          "• No visibility or tracking across the application lifecycle\n\n",
-      },
-    ],
+export default function CaseStudyContent({
+  data,
+}: {
+  data: CaseStudyDescription[];
+}) {
+  const Rightdata = {
     rightImage: {
       sections: [
         {
@@ -78,7 +57,7 @@ export default function CaseStudyContent() {
           {/* LEFT: One section only (title + description text) */}
           <div className="md:basis-1/2 md:pr-2 overflow-y-auto">
             <article>
-              {data?.left.map((item, index) => (
+              {data?.map((item, index) => (
                 <section
                   aria-labelledby="content-title"
                   className="space-y-4 py-5"
@@ -91,9 +70,7 @@ export default function CaseStudyContent() {
                     {item.title}
                   </h2>
 
-                  <p className="whitespace-pre-line text-2xl leading-6 text-custom-gray-4 mt-4">
-                    {item.description}
-                  </p>
+                  <div dangerouslySetInnerHTML={{ __html: item.description }} />
                 </section>
               ))}
             </article>
@@ -102,7 +79,7 @@ export default function CaseStudyContent() {
           {/* RIGHT: Static image exactly like provided */}
           <div className="md:basis-1/2 md:pl-2 flex justify-end items-start">
             <div className="bg-[#5A36E9] text-white rounded-[25px] p-8 w-full max-w-sm">
-              {data?.rightImage?.sections?.map((section, sectionIndex) => (
+              {Rightdata?.rightImage?.sections?.map((section, sectionIndex) => (
                 <div key={sectionIndex} className="mb-6 last:mb-0">
                   <div
                     className={`grid ${

@@ -1,15 +1,21 @@
-import React from "react";
-import { CaseStudyBanner, CaseStudyContent } from "./_utils";
-import { ClientTestimonial } from "@/app/client-success/_utils";
-import { ContactForm } from "./_utils/case-study-contact";
+import React, { cache } from "react";
+import CaseStudy from "./_utils/case-study";
+import { getCaseStudyService } from "@/services";
 
-const Page = () => {
+type Props = {
+  params: { id: string };
+};
+
+const getCaseStudySingleCache = cache(getCaseStudyService);
+
+const Page = async ({ params }: Props) => {
+  const { id } = await params;
+  const slug = id;
+  const data = await getCaseStudySingleCache({ slug });
+
   return (
     <div>
-      <CaseStudyBanner />
-      <CaseStudyContent />
-      <ClientTestimonial />
-      <ContactForm />
+      <CaseStudy data={data} />
     </div>
   );
 };

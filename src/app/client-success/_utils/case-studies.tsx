@@ -3,7 +3,7 @@ import ClientSuccessBanner from "./client-success-banner";
 import { ClientSuccessFilter } from "./client-success-filter";
 import ClientSuccessList from "./client-success-list";
 import ClientCustomer from "./client-customer";
-import ClientTestimonial from "./client-testimonial";
+
 import ClientPartnership from "./client-partnership";
 
 const CaseStudies = async () => {
@@ -16,7 +16,7 @@ const CaseStudies = async () => {
       </div>
       <ClientPartnership />
       <ClientCustomer />
-      <ClientTestimonial />
+      {/* <ClientTestimonial /> */}
     </div>
   );
 };
