@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
+import { useFilterdataHook } from "@/services";
+import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const filterData = {
   filterLabels: {
@@ -26,37 +27,37 @@ const filterData = {
     filterByBusinessOutcome: "Filter by Business Outcome",
     filterByRegion: "Filter by Region",
   },
-  industries: [
-    { id: "manufacturing", name: "Manufacturing" },
-    { id: "healthcare", name: "Healthcare" },
-    { id: "fashion and Retail", name: "Fashion and Retail" },
-    { id: "logistics and Supply Chain", name: "Logistics and Supply Chain" },
-    { id: "financial", name: "Financial" },
-  ],
-  services: [
-    {
-      id: "digital-transformation",
-      name: "Digital Transformation Consulting",
-      url: "#",
-    },
-    {
-      id: "app-development",
-      name: "Application Development",
-      url: "#",
-    },
-    { id: "devops", name: "DevOps and Automation", url: "#" },
-    { id: "erp-crm", name: "ERP/CRM Implementation", url: "#" },
-    {
-      id: "managed-it",
-      name: "Managed IT Services",
-      url: "#",
-    },
-    {
-      id: "ecommerce",
-      name: "E-commerce Solutions",
-      url: "#",
-    },
-  ],
+  // industries: [
+  //   { id: "manufacturing", name: "Manufacturing" },
+  //   { id: "healthcare", name: "Healthcare" },
+  //   { id: "fashion and Retail", name: "Fashion and Retail" },
+  //   { id: "logistics and Supply Chain", name: "Logistics and Supply Chain" },
+  //   { id: "financial", name: "Financial" },
+  // ],
+  // services: [
+  //   {
+  //     id: "digital-transformation",
+  //     name: "Digital Transformation Consulting",
+  //     url: "#",
+  //   },
+  //   {
+  //     id: "app-development",
+  //     name: "Application Development",
+  //     url: "#",
+  //   },
+  //   { id: "devops", name: "DevOps and Automation", url: "#" },
+  //   { id: "erp-crm", name: "ERP/CRM Implementation", url: "#" },
+  //   {
+  //     id: "managed-it",
+  //     name: "Managed IT Services",
+  //     url: "#",
+  //   },
+  //   {
+  //     id: "ecommerce",
+  //     name: "E-commerce Solutions",
+  //     url: "#",
+  //   },
+  // ],
   technologies: [
     {
       id: "Sales",
@@ -275,20 +276,20 @@ const filterData = {
     { id: "Shopify", name: "Shopify", icon: "💧", url: "#" },
     { id: "Drupal", name: "Drupal", icon: "💧", url: "#" },
   ],
-  businessOutcomes: [
-    { id: "operational-excellence", name: "Operational Excellence" },
-    { id: "cost-optimization", name: "Cost Optimization" },
-    { id: "scalability", name: "Scalability & Performance" },
-    { id: "data-driven", name: "Data-Driven Decision Making" },
-    { id: "innovation", name: "Innovation Enablement" },
-  ],
-  regions: [
-    { id: "usa", name: "USA" },
-    { id: "uae", name: "UAE" },
-    { id: "australia", name: "Australia" },
-    { id: "canada", name: "Canada" },
-    { id: "india", name: "India" },
-  ],
+  // businessOutcomes: [
+  //   { id: "operational-excellence", name: "Operational Excellence" },
+  //   { id: "cost-optimization", name: "Cost Optimization" },
+  //   { id: "scalability", name: "Scalability & Performance" },
+  //   { id: "data-driven", name: "Data-Driven Decision Making" },
+  //   { id: "innovation", name: "Innovation Enablement" },
+  // ],
+  // regions: [
+  //   { id: "usa", name: "USA" },
+  //   { id: "uae", name: "UAE" },
+  //   { id: "australia", name: "Australia" },
+  //   { id: "canada", name: "Canada" },
+  //   { id: "india", name: "India" },
+  // ],
 };
 
 type FilterType = "industries" | "businessOutcomes" | "regions";
@@ -302,6 +303,8 @@ interface FilterBarProps {
 }
 
 export function FilterBar({ onFilterChange }: FilterBarProps) {
+  const { data } = useFilterdataHook({});
+
   const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
   const [selectedBusinessOutcomes, setSelectedBusinessOutcomes] = useState<
     string[]
@@ -385,7 +388,7 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
                 {filterData.filterLabels.filterByIndustry}
               </div>
               <div className="space-y-3">
-                {filterData.industries.map((industry) => (
+                {data?.industries?.map((industry) => (
                   <label
                     key={industry.id}
                     className="flex items-center gap-3 cursor-pointer hover:bg-accent/50  rounded-md transition-colors"
@@ -401,7 +404,7 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
                       }
                     />
 
-                    <span className="text-lg">{industry.name}</span>
+                    <span className="text-lg">{industry.label}</span>
                   </label>
                 ))}
               </div>
@@ -426,13 +429,13 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
                 {filterData.filterLabels.filterByService}
               </div>
               <div className="space-y-2">
-                {filterData.services.map((service) => (
+                {data?.service?.map((service) => (
                   <Link
                     key={service.id}
                     href="#"
                     className="flex items-center gap-3 cursor-pointer hover:bg-accent/50  rounded-md text-lg leading-6.5"
                   >
-                    {service.name}
+                    {service.label}
                   </Link>
                 ))}
               </div>
@@ -454,14 +457,20 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
           >
             <div className="p-4">
               <div className="grid grid-cols-4 gap-3">
-                {filterData.technologies.map((tech) => (
+                {data?.technology?.map((tech) => (
                   <Link
                     key={tech.id}
                     href="#"
                     className="flex items-center gap-3 cursor-pointer hover:bg-accent/50  rounded-md text-lg leading-6.5"
                   >
-                    <span className="text-2xl flex-shrink-0">{tech.icon}</span>
-                    <span className="text-left truncate">{tech.name}</span>
+                    <span className="text-2xl flex-shrink-0">
+                      <KorcomptenzImage
+                        src={tech.image}
+                        width={26}
+                        height={22}
+                      />
+                    </span>
+                    <span className="text-left truncate">{tech.label}</span>
                   </Link>
                 ))}
               </div>
@@ -504,7 +513,7 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
                   />
                   <span className="text-sm">{filterData.filterLabels.all}</span>
                 </label> */}
-                {filterData.businessOutcomes.map((outcome) => (
+                {data?.businessOutcomes.map((outcome) => (
                   <label
                     key={outcome.id}
                     className="flex items-center gap-3 cursor-pointer hover:bg-accent/50  rounded-md transition-colors"
@@ -519,7 +528,7 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
                         )
                       }
                     />
-                    <span className="text-lg">{outcome.name}</span>
+                    <span className="text-lg">{outcome?.label}</span>
                   </label>
                 ))}
               </div>
@@ -562,7 +571,7 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
                   />
                   <span className="text-lg">{filterData.filterLabels.all}</span>
                 </label> */}
-                {filterData.regions.map((region) => (
+                {data?.region?.map((region) => (
                   <label
                     key={region.id}
                     className="flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors"
@@ -577,7 +586,7 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
                         )
                       }
                     />
-                    <span className="text-lg">{region.name}</span>
+                    <span className="text-lg">{region.label}</span>
                   </label>
                 ))}
               </div>

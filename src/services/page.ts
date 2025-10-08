@@ -3,6 +3,7 @@ import http from "./http";
 const HOME = "/home";
 const GLOBAL_PAGE = "/page";
 export const CASE_STUDY = "/case-studies";
+export const FILTER_CASE_STUDY = "/case-study-filter";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -25,7 +26,12 @@ export const getCaseStudyService = async ({
   return data;
 };
 
-export const getCaseStudiesService = async (): Promise<PagesListType> => {
+export const getCaseStudiesService = async (): Promise<CaseStudiesType> => {
   const { data } = await http.get(CASE_STUDY);
+  return data;
+};
+
+export const getFilterCaseStudies = async (): Promise<FilterDataType> => {
+  const { data } = await http.get(FILTER_CASE_STUDY);
   return data;
 };

@@ -136,24 +136,34 @@ type AboutMenuType = {
     description: string;
   }[];
 };
-type EcosystemMenuType = {
+
+interface ItemType {
+  id: number;
+  title: string;
+  description: string;
+  buttontext: string;
+  child?: {
+    title: string;
+    description: { description: string }[];
+    type?: string | undefined;
+  }[];
+}
+interface EcosystemMenuType {
   id: number;
   menu: string;
   item: {
     id: number;
     title: string;
     description: string;
-    buttontext: string;
     image: ImageType;
+    buttontext: string;
     child: {
       title: string;
-      description: {
-        description: string;
-      }[];
+      description: { description: string }[];
       type?: string;
     }[];
   };
-};
+}
 
 type NavItemType = {
   label: string;

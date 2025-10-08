@@ -64,6 +64,58 @@ type CaseStudyStickyCardsType = {
   }[];
 };
 
+type CaseStudiesType = {
+  pagination: {
+    page: number;
+    pageSize: number;
+    pageCount: number;
+    total: number;
+  };
+  results: {
+    id: string;
+    slug: string;
+    study: string;
+    heroSection: {
+      id: string;
+      title: string;
+      description: string;
+      image: ImageType;
+    };
+  }[];
+};
+
+type BusinessOutcomeFilterType = {
+  label: string;
+  id: string;
+};
+type IndustriesFilterType = {
+  label: string;
+  id: string;
+};
+type RegionFilterType = {
+  label: string;
+  id: string;
+};
+
+type ServiceFilterType = {
+  label: string;
+  id: string;
+};
+
+type TechnologyFilterType = {
+  label: string;
+  id: string;
+  image: ImageType;
+};
+
+type FilterDataType = {
+  businessOutcomes: BusinessOutcomeType[];
+  industries: IndustriesFilterType[];
+  region: RegionFilterType[];
+  service: ServiceFilterType[];
+  technology: TechnologyFilterType[];
+};
+
 type InsightsSectionType = {
   title: string;
   buttontext: string;
@@ -198,8 +250,7 @@ type DomainSectionType = {
     image: ImageType;
     type: string;
     buttonText: string;
-  }[]
-
+  }[];
 };
 type BenefitSectionType = {
   title: string;
@@ -217,7 +268,7 @@ type FaqSectionType = {
     id: number;
     title: string;
     description: string;
-  }[]
+  }[];
 };
 
 type DemonstrationSectionType = {

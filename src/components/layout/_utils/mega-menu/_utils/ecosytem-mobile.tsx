@@ -5,33 +5,15 @@ import { ChevronRight, ChevronLeft, X } from "lucide-react";
 
 // ---------- Types ----------
 
-interface SidebarMenu {
-  id: number;
-  menu: string;
-  item: {
-    id: number;
-    title: string;
-    description: string;
-    buttontext: string;
-    child: {
-      title: string;
-      description: {
-        description: string;
-      }[];
-      type?: string;
-    }[];
-  }[];
-}
-
 interface EcosystemDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  menu: SidebarMenu | null;
+  menu: EcosystemMenuType | null;
 }
 
 interface DrawerState {
   isOpen: boolean;
-  menu: SidebarMenu | null;
+  menu: EcosystemMenuType | null;
 }
 
 // ---------- Data ----------
@@ -40,7 +22,7 @@ interface DrawerState {
 const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
   if (!isOpen || !menu) return null;
 
-  const item = menu?.item[0];
+  const item = menu?.item;
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
@@ -69,14 +51,19 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
           {item && (
             <div className="p-4 space-y-4">
               {item?.child?.map((child, i) => (
-                <div key={`ecosystem-mobile-${i}`} className="px-2 py-3 border-b border-gray-100">
+                <div
+                  key={`ecosystem-mobile-${i}`}
+                  className="px-2 py-3 border-b border-gray-100"
+                >
                   <p className="text-lg font-medium text-primary border-b border-primary">
                     {child?.title}
                   </p>
                   {child?.description?.length > 0 && (
                     <ul className="mt-1 text-md text-black">
                       {child?.description?.map((desc, j) => (
-                        <li key={`ecosystem-mobile-${j}`}>{desc?.description}</li>
+                        <li key={`ecosystem-mobile-${j}`}>
+                          {desc?.description}
+                        </li>
                       ))}
                     </ul>
                   )}
@@ -97,7 +84,7 @@ const EcosystemMobile = ({ data }: { data: LayoutType }) => {
     menu: null,
   });
 
-  const handleMenuClick = (menu: SidebarMenu) => {
+  const handleMenuClick = (menu: EcosystemMenuType) => {
     setDrawer({ isOpen: true, menu });
   };
 
