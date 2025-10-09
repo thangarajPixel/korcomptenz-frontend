@@ -20,5 +20,7 @@ export const contactSchema = z
     organization: z
       .string()
       .min(1, 'Organization is required'),
+    caseStudyId: z
+      .string().optional()
   })
 export type ContactFormData = z.infer<typeof contactSchema>

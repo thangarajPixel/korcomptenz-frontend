@@ -9,7 +9,8 @@ import { contactSchema, type ContactFormData } from '@/utils/validation.schema';
 import { useCaseStudyLeadHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
 
-export function ContactForm() {
+
+export function ContactForm({ data }: { data: CaseStudyData }) {
   const { control, handleSubmit, setError, formState: { isSubmitting } } = useForm<ContactFormData>({
     mode: "onSubmit",
     resolver: zodResolver(contactSchema),
@@ -19,6 +20,7 @@ export function ContactForm() {
       organization: "",
       phone: "",
       message: "",
+      caseStudyId: data.id,
     },
   });
   const { mutateAsync } = useCaseStudyLeadHook();

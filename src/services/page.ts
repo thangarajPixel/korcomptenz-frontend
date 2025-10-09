@@ -7,7 +7,7 @@ const CASE_STUDIES_PAGE = "/case-study-list";
 export const CASE_STUDY = "/case-studies";
 
 export const FILTER_CASE_STUDY = "/case-study-filter";
-export const CASE_STUDY_LEAD = "/case-study-lead";
+export const CASE_STUDY_LEAD = "/case-study-leads";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -40,7 +40,7 @@ export const getFilterCaseStudies = async (): Promise<FilterDataType> => {
   return data;
 };
 export const createCaseStudyLead = async (formData: ContactFormData) => {
-  const { data } = await http.post(CASE_STUDY_LEAD, formData);
+  const { data } = await http.post(CASE_STUDY_LEAD, { data: formData });
   return data;
 };
 

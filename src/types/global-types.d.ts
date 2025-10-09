@@ -203,7 +203,7 @@ type CaseStudyTestimonial = {
 };
 
 type CaseStudyData = {
-  id: number;
+  id: string;
   documentId: string;
   study: string;
   slug: string;

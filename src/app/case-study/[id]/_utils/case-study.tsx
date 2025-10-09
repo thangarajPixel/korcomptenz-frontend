@@ -10,7 +10,7 @@ const CaseStudy = ({ data }: { data: CaseStudyData }) => {
       <CaseStudyBanner data={data?.heroSection} />
       <CaseStudyContent data={data?.descriptionSection} />
       <ClientTestimonial data={data?.testimonials} />
-      <ContactForm />
+      <ContactForm data={data} />
     </React.Fragment>
   );
 };
