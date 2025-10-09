@@ -16,12 +16,12 @@ type ImageType = {
 };
 
 type ToastPosition =
-  | 'top-left'
-  | 'top-right'
-  | 'bottom-left'
-  | 'bottom-right'
-  | 'top-center'
-  | 'bottom-center';
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right"
+  | "top-center"
+  | "bottom-center";
 
 type GlobalFieldType = {
   buttonText?: string;
@@ -145,7 +145,7 @@ type AboutMenuType = {
   }[];
 };
 
-interface ItemType {
+type ItemType = {
   id: number;
   title: string;
   description: string;
@@ -155,8 +155,8 @@ interface ItemType {
     description: { description: string }[];
     type?: string | undefined;
   }[];
-}
-interface EcosystemMenuType {
+};
+type EcosystemMenuType = {
   id: number;
   menu: string;
   item: {
@@ -171,7 +171,7 @@ interface EcosystemMenuType {
       type?: string;
     }[];
   };
-}
+};
 
 type NavItemType = {
   label: string;
@@ -182,27 +182,27 @@ type NavItemType = {
 }[];
 
 //case study types
-export interface CaseStudyDescription {
+type CaseStudyDescription = {
   id: number;
   description: string;
   title: string;
-}
+};
 
-export interface CaseStudyHeroSection {
+type CaseStudyHeroSection = {
   id: number;
   title: string;
   description: string;
   image: ImageType;
   buttonText: string;
-}
+};
 
-export interface CaseStudyTestimonial {
+type CaseStudyTestimonial = {
   id: number;
   title: string;
   description: string;
-}
+};
 
-export interface CaseStudyData {
+type CaseStudyData = {
   id: number;
   documentId: string;
   study: string;
@@ -213,34 +213,34 @@ export interface CaseStudyData {
   case_industries: { label: string }[];
   services: { label: string }[];
   technologies: { label: string }[];
-}
+};
 
 // ✅ Banner section
-export interface BannerSectionType {
+type ClientSuccessBannerSectionType = {
   id: string;
   title: string;
   description: string;
   images: { image: ImageType }[];
   buttonText: string;
   searchPlaceholder: string;
-}
+};
 
 // ✅ Customer section
-export interface CustomerValueType {
+type CustomerValueType = {
   id: string;
   title: string;
   description: string;
-}
+};
 
-export interface CustomerSectionType {
+type CustomerSectionType = {
   id: string;
   title: string;
   description: string;
   customerValues: CustomerValueType[];
-}
+};
 
 // ✅ Filter label section
-export interface FilterLabelType {
+type FilterLabelType = {
   id: string;
   industry: string;
   outcome: string;
@@ -248,44 +248,33 @@ export interface FilterLabelType {
   resetFilter: string;
   service: string;
   technology: string;
-}
+};
 
 // ✅ Partnership section
-export interface PartnerType {
+type PartnerType = {
   id: string;
   name: string;
   logo: ImageType;
-}
+};
 
-export interface PartnershipSectionType {
+type PartnershipSectionType = {
   id: string;
   title: string;
   partner: PartnerType[];
-}
+};
 
 // ✅ Sponsor section
-export interface SponsorSectionType {
+type SponsorSectionType = {
   id: string;
   title: string;
   description: string;
   image: ImageType;
   buttonText: string;
-}
+};
 
 // ✅ Testimonial section
-export interface TestimonialType {
+type TestimonialType = {
   id: string;
   title: string;
   description: string;
-}
-
-// ✅ Main Page Type (final combined type)
-export interface CaseStudiesPageType {
-  id: string;
-  banner: BannerSectionType;
-  customerSection: CustomerSectionType;
-  filterLabel: FilterLabelType;
-  partnerSection: PartnershipSectionType;
-  sponser: SponsorSectionType;
-  testimonal: TestimonialType[];
-}
+};

@@ -4,7 +4,6 @@ import { ClientSuccessFilter } from "./client-success-filter";
 import ClientSuccessList from "./client-success-list";
 import ClientCustomer from "./client-customer";
 import ClientPartnership from "./client-partnership";
-import type { CaseStudiesPageType } from "@/types/global-types";
 import ClientTestimonial from "./client-testimonial";
 
 const CaseStudies = async ({ data }: { data: CaseStudiesPageType }) => {

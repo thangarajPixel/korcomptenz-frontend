@@ -1,9 +1,12 @@
 import React from "react";
 import SearchChips from "./search-chips";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import type { BannerSectionType } from "@/types/global-types";
 
-const ClientSuccessBanner = ({ data }: { data: BannerSectionType }) => {
+const ClientSuccessBanner = ({
+  data,
+}: {
+  data: ClientSuccessBannerSectionType;
+}) => {
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
       <div className="absolute inset-0">

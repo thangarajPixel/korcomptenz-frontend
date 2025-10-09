@@ -8,7 +8,6 @@ import ScheduleCall from "@/components/layout/_utils/schedule";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import FooterTitle from "./footer-title";
 import FooterDescription from "./footer-description";
-import type { LayoutType } from "@/types/global-page-types";
 
 export const Footer = ({ data }: { data: LayoutType }) => {
   return (

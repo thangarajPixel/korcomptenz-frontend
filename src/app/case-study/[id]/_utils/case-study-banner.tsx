@@ -1,7 +1,7 @@
 "use client";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import type { CaseStudyHeroSection } from "@/types/global-types";
+
 
 export function CaseStudyBanner({ data }: { data: CaseStudyHeroSection }) {
   return (

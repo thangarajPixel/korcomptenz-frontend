@@ -11,7 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import { useFilterCaseStudyHook } from "@/services";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import type { FilterLabelType } from "@/types/global-types";
+
 
 const filterData = {
   filterLabels: {

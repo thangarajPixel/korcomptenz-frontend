@@ -1,5 +1,4 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import type { PartnershipSectionType } from "@/types/global-types";
 
 export default function ClientPartnership({
   data,

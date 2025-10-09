@@ -1,5 +1,3 @@
-import type { CustomerSectionType } from "@/types/global-types";
-
 export default function ClientCustomer({
   data,
 }: {

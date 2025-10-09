@@ -3,7 +3,6 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { CaseStudyData } from "@/types/global-types";
 
 import { motion } from "motion/react";
 import Link from "next/link";

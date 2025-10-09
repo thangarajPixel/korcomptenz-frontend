@@ -24,7 +24,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import type { SponsorSectionType } from "@/types/global-types";
 import { useCaseStudyListHook } from "@/services";
 
 const ClientSuccessList = ({

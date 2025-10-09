@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import type { GlobalFieldType } from "@/types/global-types";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
   const { title, description, image, buttonText, titleimage } = data;

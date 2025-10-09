@@ -1,7 +1,5 @@
-import type { CaseStudiesPageType, CaseStudyData } from "@/types/global-types";
 import http from "./http";
 import type { ContactFormData } from "@/utils/validation.schema";
-import type { CaseStudiesType, FilterDataType, PagesListType } from "@/types/global-page-types";
 
 const HOME = "/home";
 const GLOBAL_PAGE = "/page";
@@ -44,7 +42,7 @@ export const getFilterCaseStudies = async (): Promise<FilterDataType> => {
 export const createCaseStudyLead = async (formData: ContactFormData) => {
   const { data } = await http.post(CASE_STUDY_LEAD, formData);
   return data;
-}
+};
 
 export const getCaseStudyList = async (): Promise<CaseStudiesType> => {
   const { data } = await http.get(CASE_STUDY);

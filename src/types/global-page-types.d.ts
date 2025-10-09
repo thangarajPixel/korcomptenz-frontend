@@ -1,5 +1,3 @@
-import type { CaseStudyData } from "./global-types";
-
 type SlidingSectionType = {
   id: number;
   image: ImageType;
@@ -305,6 +303,34 @@ type ScheduleCallType = {
   link: string;
   image: string;
 };
+type CompanyType = {
+  id: string;
+  companyName: string;
+  copyrights: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  address: string;
+  companyLogo: ImageType;
+  companyFullLogo: ImageType;
+  socialPlatforms: [
+    {
+      id: string;
+      label: string;
+      href: string | null;
+      icon: ImageType;
+    }
+  ];
+
+  policy: {
+    id: string;
+    label: string;
+    href: string | null;
+    icon: string;
+  }[];
+  companyDarkLogo: ImageType;
+};
+
 type StretchableSectionType = {
   title: string;
   image: ImageType;
@@ -437,4 +463,14 @@ type LayoutType = {
   aboutMenu: AboutMenuType;
   ecosystemMenu: EcosystemMenuType[];
   navItems: NavItemType;
+};
+
+type CaseStudiesPageType = {
+  id: string;
+  banner: ClientSuccessBannerSectionType;
+  customerSection: CustomerSectionType;
+  filterLabel: FilterLabelType;
+  partnerSection: PartnershipSectionType;
+  sponser: SponsorSectionType;
+  testimonal: TestimonialType[];
 };

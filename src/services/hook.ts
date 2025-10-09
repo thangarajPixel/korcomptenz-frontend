@@ -1,10 +1,6 @@
 import type { OptionsType } from "@/types/essential-types";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import * as PAGE from "./page";
-import type {
-  CaseStudiesType,
-  FilterDataType,
-} from "@/types/global-page-types";
 
 // export const useCaseStudyHook = ({
 //   options,
