@@ -19,6 +19,7 @@ import BuildConnect from "../build-connect";
 import TechPartner from "../tech-partner-section";
 import ScheduleCall from "../layout/_utils/schedule";
 import StretchableSection from "../stretchable-section";
+import type { ComponentPropsType } from "@/types/global-page-types";
 
 type Props = {
   data: ComponentPropsType[];

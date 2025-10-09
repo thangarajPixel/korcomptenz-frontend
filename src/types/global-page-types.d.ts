@@ -1,3 +1,5 @@
+import type { CaseStudyData } from "./global-types";
+
 type SlidingSectionType = {
   id: number;
   image: ImageType;
@@ -69,19 +71,9 @@ type CaseStudiesType = {
     page: number;
     pageSize: number;
     pageCount: number;
-    total: number;
+    total: number | undefined;
   };
-  results: {
-    id: string;
-    slug: string;
-    study: string;
-    heroSection: {
-      id: string;
-      title: string;
-      description: string;
-      image: ImageType;
-    };
-  }[];
+  results: CaseStudyData[];
 };
 
 type BusinessOutcomeFilterType = {

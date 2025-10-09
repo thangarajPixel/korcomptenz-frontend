@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import type { CaseStudyTestimonial } from "@/types/global-types";
+import type { TestimonialType } from "@/types/global-types";
 
 export default function ClientTestimonial({
   data,
 }: {
-  data: CaseStudyTestimonial[];
+  data: TestimonialType[];
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
