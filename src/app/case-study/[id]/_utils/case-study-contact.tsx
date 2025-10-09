@@ -11,6 +11,7 @@ import { errorSet, notify } from "@/utils/helper";
 
 
 export function ContactForm({ data }: { data: CaseStudyData }) {
+
   const { control, handleSubmit, setError, formState: { isSubmitting } } = useForm<ContactFormData>({
     mode: "onSubmit",
     resolver: zodResolver(contactSchema),
@@ -20,7 +21,7 @@ export function ContactForm({ data }: { data: CaseStudyData }) {
       organization: "",
       phone: "",
       message: "",
-      caseStudyId: data.id,
+      caseStudyId: String(data.id),
     },
   });
   const { mutateAsync } = useCaseStudyLeadHook();
@@ -32,7 +33,6 @@ export function ContactForm({ data }: { data: CaseStudyData }) {
       errorSet(error, setError)
     }
   }, [mutateAsync]);
-
 
   return (
     <div className="container-md py-12 px-8">

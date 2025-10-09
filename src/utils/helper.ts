@@ -135,3 +135,17 @@ export const errorSet = <T extends Record<string, never>>(
     });
   }
 };
+
+export async function downloadFileExcel(response: {
+  name: string;
+  bufferResponse: Buffer;
+  type: string;
+}, name?: string) {
+  const responseName = name || String(response?.name).split('=')?.[1]?.split('.')?.[0] || '';
+  const blob = new Blob([response.bufferResponse as never], { type: response.type });
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = String(responseName).replace('/', '');
+  a.click();
+}
