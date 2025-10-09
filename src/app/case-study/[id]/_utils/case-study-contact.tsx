@@ -1,29 +1,30 @@
 "use client";
-import { useState } from "react";
-import { ChevronRight } from "lucide-react";
+import React from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { contactSchema, type ContactFormData } from '@/utils/validation.schema';
 
 export function ContactForm() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    organization: "",
-    phone: "",
-    message: "",
-  });
+  const { control, handleSubmit } = useForm<ContactFormData>({
+    mode: "onSubmit",
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+      organization: "",
+      phone: "",
+      message: "",
+    },
+  })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
- 
-  };
+  const handleFormSubmit: SubmitHandler<ContactFormData> = React.useCallback(() => {
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+
+  }, []);
+
 
   return (
     <div className="container-md py-12 px-8">
@@ -42,76 +43,23 @@ export function ContactForm() {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
           {/* Row 1: Full name and Email */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-            <div className="relative">
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Full name"
-                value={formData.fullName}
-                onChange={handleChange}
-                className="w-full bg-transparent border-0 border-b border-[#cbd5e0] pb-3 text-[#2d3748] placeholder:text-[#cbd5e0] focus:outline-none focus:border-[#4a5568] transition-colors"
-              />
-            </div>
-            <div className="relative">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email ID"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full bg-transparent border-0 border-b border-[#cbd5e0] pb-3 text-[#2d3748] placeholder:text-[#cbd5e0] focus:outline-none focus:border-[#4a5568] transition-colors"
-              />
-            </div>
+            <Input control={control} name="fullName" placeholder="Full name" />
+            <Input control={control} name="email" placeholder="Email ID" />
           </div>
-
           {/* Row 2: Organization and Phone */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-            <div className="relative">
-              <input
-                type="text"
-                name="organization"
-                placeholder="Organization"
-                value={formData.organization}
-                onChange={handleChange}
-                className="w-full bg-transparent border-0 border-b border-[#cbd5e0] pb-3 text-[#2d3748] placeholder:text-[#cbd5e0] focus:outline-none focus:border-[#4a5568] transition-colors"
-              />
-            </div>
-            <div className="relative">
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full bg-transparent border-0 border-b border-[#cbd5e0] pb-3 text-[#2d3748] placeholder:text-[#cbd5e0] focus:outline-none focus:border-[#4a5568] transition-colors"
-              />
-            </div>
+            <Input control={control} name="organization" placeholder="Organization" />
+            <Input control={control} name="phone" placeholder="Phone Number" />
           </div>
-
-          {/* Message textarea */}
-          <div className="relative">
-            <textarea
-              name="message"
-              placeholder="Type your message/enquiry here.."
-              value={formData.message}
-              onChange={handleChange}
-              rows={1}
-              className="w-full bg-transparent border-0 border-b border-[#cbd5e0] pb-3 text-[#2d3748] placeholder:text-[#cbd5e0] focus:outline-none focus:border-[#4a5568] transition-colors resize-none"
-            />
-          </div>
-
+          <Textarea control={control} name="message" placeholder="Type your message/enquiry here.." />
           {/* Submit button */}
           <div className="pt-4">
-            <button
-              type="submit"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-[#319795] text-[#319795] hover:bg-[#319795] hover:text-white transition-colors duration-300"
-            >
+            <Button type="submit" size={'xl'} variant={'outline'} className="hover:bg-primary border-primary text-primary hover:text-white" arrow>
               Submit
-              <ChevronRight className="w-4 h-4" />
-            </button>
+            </Button>
           </div>
         </form>
       </div>

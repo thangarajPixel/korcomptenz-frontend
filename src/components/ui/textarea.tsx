@@ -1,15 +1,15 @@
-import * as React from "react";
-import { useController, type UseControllerProps } from "react-hook-form";
-import { cn } from "@/lib/utils";
+import * as React from "react"
 
+import { cn } from "@/lib/utils"
+import { useController, type UseControllerProps } from 'react-hook-form';
 type FieldValue = {
   [key: string]: unknown;
 };
 
-type InputProps<D extends FieldValue> = UseControllerProps<D> & Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "defaultValue" | "name" | "onBlur" | "ref"> & {
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+type TextAreaProps<D extends FieldValue> = UseControllerProps<D> & Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "onChange" | "defaultValue" | "name" | "onBlur" | "ref"> & {
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
 };
-const Input = <D extends FieldValue>({ control, name, defaultValue, className, ...props }: InputProps<D>) => {
+const Textarea = <T extends FieldValue>({ control, name, defaultValue, className, ...props }: TextAreaProps<T>) => {
   const {
     field,
     fieldState: { error },
@@ -20,11 +20,11 @@ const Input = <D extends FieldValue>({ control, name, defaultValue, className, .
   });
   return (
     <div className={cn('relative', props.disabled && 'cursor-pointer')}>
-      <input
-        data-slot="input"
+      <textarea
+        data-slot="textarea"
         className={cn(
           "w-full bg-transparent border-0 border-b border-[#cbd5e0] pb-3 text-[#2d3748] placeholder:text-[#cbd5e0] focus:outline-none focus:border-[#4a5568] transition-colors",
-          className,
+          className
         )}
         {...field}
         {...props}
@@ -46,7 +46,7 @@ const Input = <D extends FieldValue>({ control, name, defaultValue, className, .
         </p>
       )}
     </div>
-  );
+  )
 }
 
-export { Input };
+export { Textarea }
