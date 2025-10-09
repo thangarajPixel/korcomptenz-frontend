@@ -217,7 +217,6 @@ const EcosystemSection = ({ data }: { data: LayoutType }) => (
           </div>
         );
       })}
-
     </div>
   </section>
 );
@@ -247,10 +246,11 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
           <Link
             key={`policy-${policy?.id}`}
             href={policy?.href || "#"}
-            className={`text-custom-gray-2 text-xs mx-2 ${i < data?.company?.policy?.length - 1
-              ? "border-r pr-2 border-custom-gray-3"
-              : ""
-              }`}
+            className={`text-custom-gray-2 text-xs mx-2 ${
+              i < data?.company?.policy?.length - 1
+                ? "border-r pr-2 border-custom-gray-3"
+                : ""
+            }`}
           >
             {policy?.label}
           </Link>

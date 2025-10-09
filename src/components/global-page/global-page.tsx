@@ -4,13 +4,13 @@ import InspireSection from "../inspire-section";
 import Opportunities from "../opportunities";
 import ServicesSection from "../services-section";
 import SlidingSection from "../sliding-section";
-import StickyCards from "../sticky-cards";
+import { StickyCards, CaseStudyStickyCards } from "../sticky-cards";
 import WeAreKorcomptenzSection from "../we-are-korcomptenz";
 import BannerSection from "../banner-section";
 import SapSection from "../sap-section";
 import LightSlider from "../light-slider";
 import DarkSlider from "../dark-slider";
-import DomainSection from "../domain-section";
+import { DomainSection, CaseStudyDomainSection } from "../domain-section";
 import BenefitSection from "../benefit-section";
 import FaqSection from "../faq-section";
 import { StickyTitleList } from "../sticky-title-list";
@@ -167,6 +167,20 @@ const GlobalPage = (props: Props) => {
           <StretchableSection
             key={`stretchable-section-${item?.__component}-${item?.id}`}
             item={item}
+          />
+        );
+      case "case-study.case-study-sticky-cards-list":
+        return (
+          <CaseStudyStickyCards
+            key={`case-study-sticky-cards-${item?.__component}-${item?.id}`}
+            stickyCards={item}
+          />
+        );
+      case "case-study.case-study-domain-data":
+        return (
+          <CaseStudyDomainSection
+            key={`case-study-domain-section-${item?.__component}-${item?.id}`}
+            domainData={item}
           />
         );
       default:

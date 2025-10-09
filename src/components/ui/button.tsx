@@ -23,7 +23,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         white: "bg-white text-primary hover:bg-gray-100 text-lg",
         filter:
-          "h-[50px] gap-2.5 rotate-0 opacity-100 rounded border border-solid p-[8px] pl-[12px] ",
+          " gap-2.5 rotate-0 opacity-100 rounded border border-solid p-[8px] pl-[12px]  ",
         highlight:
           " text-lg hover:text-white hover:bg-primary transition-all duration-300 rounded-[8px]",
         ishighlight:

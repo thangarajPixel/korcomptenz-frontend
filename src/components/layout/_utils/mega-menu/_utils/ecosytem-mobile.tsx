@@ -5,33 +5,15 @@ import { ChevronLeft, X } from "lucide-react";
 
 // ---------- Types ----------
 
-interface SidebarMenu {
-  id: number;
-  menu: string;
-  item: {
-    id: number;
-    title: string;
-    description: string;
-    buttontext: string;
-    child: {
-      title: string;
-      description: {
-        description: string;
-      }[];
-      type?: string;
-    }[];
-  }[];
-}
-
 interface EcosystemDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  menu: SidebarMenu | null;
+  menu: EcosystemMenuType | null;
 }
 
 interface DrawerState {
   isOpen: boolean;
-  menu: SidebarMenu | null;
+  menu: EcosystemMenuType | null;
 }
 
 // ---------- Data ----------
@@ -40,7 +22,7 @@ interface DrawerState {
 const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
   if (!isOpen || !menu) return null;
 
-  const item = menu?.item[0];
+  const item = menu?.item;
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">

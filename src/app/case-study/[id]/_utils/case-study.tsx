@@ -1,0 +1,18 @@
+import React from "react";
+import CaseStudyBanner from "./case-study-banner";
+import CaseStudyContent from "./case-study-content";
+import { ClientTestimonial } from "@/app/client-success/_utils";
+import { ContactForm } from "./case-study-contact";
+
+const CaseStudy = ({ data }: { data: CaseStudyData }) => {
+  return (
+    <React.Fragment>
+      <CaseStudyBanner data={data?.heroSection} />
+      <CaseStudyContent data={data?.descriptionSection} />
+      <ClientTestimonial data={data?.testimonials} />
+      <ContactForm data={data} />
+    </React.Fragment>
+  );
+};
+
+export default CaseStudy;

@@ -47,6 +47,64 @@ type StickyCardsType = {
     image: ImageType;
   }[];
 };
+type CaseStudyStickyCardsType = {
+  title: string;
+  buttonText: string;
+  link: string;
+  list: {
+    id: string;
+    heroSection: {
+      id: string;
+      title: string;
+      description: string;
+      image: ImageType;
+    };
+    slug: string;
+    study: string;
+  }[];
+};
+
+type CaseStudiesType = {
+  pagination: {
+    page: number;
+    pageSize: number;
+    pageCount: number;
+    total: number | undefined;
+  };
+  results: CaseStudyData[];
+};
+
+type BusinessOutcomeFilterType = {
+  label: string;
+  id: string;
+};
+type IndustriesFilterType = {
+  label: string;
+  id: string;
+};
+type RegionFilterType = {
+  label: string;
+  id: string;
+};
+
+type ServiceFilterType = {
+  label: string;
+  id: string;
+};
+
+type TechnologyFilterType = {
+  label: string;
+  id: string;
+  image: ImageType;
+};
+
+type FilterDataType = {
+  businessOutcomes: BusinessOutcomeType[];
+  industries: IndustriesFilterType[];
+  region: RegionFilterType[];
+  service: ServiceFilterType[];
+  technology: TechnologyFilterType[];
+};
 
 type InsightsSectionType = {
   title: string;
@@ -175,39 +233,32 @@ type StickyTitleListType = {
 type DomainSectionType = {
   title: string;
   description: string;
-  slides: [
-    {
-      id: number;
-      title: string;
-      description: string;
-      image: ImageType;
-      alt: string;
-      type: string;
-      buttonText: string;
-    }
-  ];
+  slides: {
+    id: string;
+    title: string;
+    description: string;
+    image: ImageType;
+    type: string;
+    buttonText: string;
+  }[];
 };
 type BenefitSectionType = {
   title: string;
   image: ImageType;
-  cards: [
-    {
-      id: number;
-      title: string;
-      number: string;
-      description: string;
-    }
-  ];
+  cards: {
+    id: number;
+    title: string;
+    number: string;
+    description: string;
+  }[];
 };
 type FaqSectionType = {
   title: string;
-  faq: [
-    {
-      id: number;
-      title: string;
-      description: string;
-    }
-  ];
+  faq: {
+    id: number;
+    title: string;
+    description: string;
+  }[];
 };
 
 type DemonstrationSectionType = {
@@ -252,6 +303,34 @@ type ScheduleCallType = {
   link: string;
   image: string;
 };
+type CompanyType = {
+  id: string;
+  companyName: string;
+  copyrights: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  address: string;
+  companyLogo: ImageType;
+  companyFullLogo: ImageType;
+  socialPlatforms: [
+    {
+      id: string;
+      label: string;
+      href: string | null;
+      icon: ImageType;
+    }
+  ];
+
+  policy: {
+    id: string;
+    label: string;
+    href: string | null;
+    icon: string;
+  }[];
+  companyDarkLogo: ImageType;
+};
+
 type StretchableSectionType = {
   title: string;
   image: ImageType;
@@ -294,45 +373,38 @@ type ComponentPropsMap = {
     id: string;
     __component: "home.opportunity";
   };
-  BannerSection: BannerSectionDataType & {
+  BannerSection: {
     id: string;
     __component: "page-componets.banner-section-list";
-    list: BannerSectionType;
+    list: BannerSectionType[];
   };
-  SapSection: {
+  SapSection: SapSectionType & {
     id: string;
     __component: "page-componets.sap-section-data";
-    list: SapSectionType;
   };
-  LightSlider: {
+  LightSlider: LightSliderType & {
     id: string;
     __component: "page-componets.light-slider-list";
-    list: LightSliderType;
   };
-  DarkSlider: {
+  DarkSlider: DarkSliderType & {
     id: string;
     __component: "page-componets.dark-slider-list";
-    list: DarkSliderType;
   };
-  StickyTitleList: {
+  StickyTitleList: StickyTitleListType & {
     id: string;
     __component: "page-componets.sticky-title-list";
-    list: StickyTitleListType;
   };
-  DomainSection: {
+  DomainSection: DomainSectionType & {
     id: string;
     __component: "page-componets.domain-data";
-    list: DomainSectionType;
   };
-  BenefitSection: {
+  BenefitSection: BenefitSectionType & {
     id: string;
     __component: "page-componets.benefit-data";
-    list: BenefitSectionType;
   };
-  FaqSection: {
+  FaqSection: FaqSectionType & {
     id: string;
     __component: "page-componets.faq-title";
-    list: FaqSectionType;
   };
   DemonstrationSection: DemonstrationSectionType & {
     id: string;
@@ -357,6 +429,14 @@ type ComponentPropsMap = {
   StretchableSection: StretchableSectionType & {
     id: string;
     __component: "page-componets.stretchable-section";
+  };
+  CaseStudyStickyCards: CaseStudyStickyCardsType & {
+    id: string;
+    __component: "case-study.case-study-sticky-cards-list";
+  };
+  CaseStudyDomainSection: CaseStudyStickyCardsType & {
+    id: string;
+    __component: "case-study.case-study-domain-data";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
@@ -383,4 +463,14 @@ type LayoutType = {
   aboutMenu: AboutMenuType;
   ecosystemMenu: EcosystemMenuType[];
   navItems: NavItemType;
+};
+
+type CaseStudiesPageType = {
+  id: string;
+  banner: ClientSuccessBannerSectionType;
+  customerSection: CustomerSectionType;
+  filterLabel: FilterLabelType;
+  partnerSection: PartnershipSectionType;
+  sponser: SponsorSectionType;
+  testimonal: TestimonialType[];
 };

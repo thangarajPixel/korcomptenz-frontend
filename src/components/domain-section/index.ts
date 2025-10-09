@@ -1,3 +1,4 @@
-
 import DomainSection from "./domain-section";
-export default DomainSection
+import CaseStudyDomainSection from "./case-study-domain-section";
+
+export { CaseStudyDomainSection, DomainSection };

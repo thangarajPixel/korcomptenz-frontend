@@ -15,6 +15,14 @@ type ImageType = {
   includes?: string;
 };
 
+type ToastPosition =
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right"
+  | "top-center"
+  | "bottom-center";
+
 type GlobalFieldType = {
   buttonText?: string;
   titleimage?: ImageType;
@@ -136,6 +144,18 @@ type AboutMenuType = {
     description: string;
   }[];
 };
+
+type ItemType = {
+  id: number;
+  title: string;
+  description: string;
+  buttontext: string;
+  child?: {
+    title: string;
+    description: { description: string }[];
+    type?: string | undefined;
+  }[];
+};
 type EcosystemMenuType = {
   id: number;
   menu: string;
@@ -143,13 +163,11 @@ type EcosystemMenuType = {
     id: number;
     title: string;
     description: string;
-    buttontext: string;
     image: ImageType;
+    buttontext: string;
     child: {
       title: string;
-      description: {
-        description: string;
-      }[];
+      description: { description: string }[];
       type?: string;
     }[];
   };
@@ -162,3 +180,101 @@ type NavItemType = {
   childKey: string;
   isButton: boolean;
 }[];
+
+//case study types
+type CaseStudyDescription = {
+  id: number;
+  description: string;
+  title: string;
+};
+
+type CaseStudyHeroSection = {
+  id: number;
+  title: string;
+  description: string;
+  image: ImageType;
+  buttonText: string;
+};
+
+type CaseStudyTestimonial = {
+  id: number;
+  title: string;
+  description: string;
+};
+
+type CaseStudyData = {
+  id: string;
+  documentId: string;
+  study: string;
+  slug: string;
+  descriptionSection: CaseStudyDescription[];
+  heroSection: CaseStudyHeroSection;
+  testimonials: TestimonialType[];
+  case_industries: { label: string }[];
+  services: { label: string }[];
+  technologies: { label: string }[];
+};
+
+// ✅ Banner section
+type ClientSuccessBannerSectionType = {
+  id: string;
+  title: string;
+  description: string;
+  images: { image: ImageType }[];
+  buttonText: string;
+  searchPlaceholder: string;
+};
+
+// ✅ Customer section
+type CustomerValueType = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+type CustomerSectionType = {
+  id: string;
+  title: string;
+  description: string;
+  customerValues: CustomerValueType[];
+};
+
+// ✅ Filter label section
+type FilterLabelType = {
+  id: string;
+  industry: string;
+  outcome: string;
+  region: string;
+  resetFilter: string;
+  service: string;
+  technology: string;
+};
+
+// ✅ Partnership section
+type PartnerType = {
+  id: string;
+  name: string;
+  logo: ImageType;
+};
+
+type PartnershipSectionType = {
+  id: string;
+  title: string;
+  partner: PartnerType[];
+};
+
+// ✅ Sponsor section
+type SponsorSectionType = {
+  id: string;
+  title: string;
+  description: string;
+  image: ImageType;
+  buttonText: string;
+};
+
+// ✅ Testimonial section
+type TestimonialType = {
+  id: string;
+  title: string;
+  description: string;
+};

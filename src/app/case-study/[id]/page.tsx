@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { cache } from "react";
+import CaseStudy from "./_utils/case-study";
+import { getCaseStudyService } from "@/services";
 
-const Page = () => {
-  return (
-    <div>Page</div>
-  )
-}
+type Props = {
+  params: Promise<{ id: string }>;
+};
 
-export default Page
+const getCaseStudySingleCache = cache(getCaseStudyService);
+
+const Page = async ({ params }: Props) => {
+  const { id: slug } = await params;
+  const data = await getCaseStudySingleCache({ slug });
+
+  return <CaseStudy data={data} />;
+};
+
+export default Page;
