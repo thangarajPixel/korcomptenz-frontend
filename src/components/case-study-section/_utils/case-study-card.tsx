@@ -3,60 +3,42 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { CaseStudyData } from "@/types/global-types";
 
 import { motion } from "motion/react";
+import Link from "next/link";
 
-export type CaseStudyCardType = {
-  id: string;
-  title: string;
-  image: ImageType;
-  className?: string;
-  category: string;
-  description: string;
-  buttonText: string;
-  industry?: string[];
-  service?: string[];
-  technology?: string[];
-};
-
-export function CaseStudyCard({
-  title,
-  image,
-  className,
-
-  description,
-  buttonText,
-  industry = [],
-  service = [],
-  technology = [],
-}: CaseStudyCardType) {
+export function CaseStudyCard({ data }: { data: CaseStudyData }) {
   return (
     <motion.article
       className={cn(
-        "group relative bg-card p-3 flex flex-col  transition-colors",
-        className
+        "group relative bg-card p-3 flex flex-col  transition-colors"
       )}
     >
       <motion.div className="relative  rounded-4xl">
         <div className="absolute left-3 top-3 flex flex-wrap gap-2 z-10">
           {/* Industry chip */}
-          {industry.length > 0 && (
+          {data?.case_industries.length > 0 && (
             <span className="rounded-full px-4 py-1 text-sm font-medium text-white bg-secondary">
-              {industry.join(", ")}
+              {data.case_industries
+                .map((industry) => industry.label)
+                .join(", ")}
             </span>
           )}
 
           {/* Service + Technology chip */}
-          {(service.length > 0 || technology.length > 0) && (
+          {(data?.services.length > 0 || data?.technologies.length > 0) && (
             <span className="rounded-full px-4 py-1 text-sm font-medium text-white bg-primary">
-              {[...service, ...technology].join(", ")}
+              {[...data.services, ...data.technologies]
+                .map((item) => item.label)
+                .join(", ")}
             </span>
           )}
         </div>
 
         <div className="relative  w-full rounded-4xl">
           <KorcomptenzImage
-            src={image}
+            src={data?.heroSection?.image}
             height={431}
             width={323}
             className=" size-full rounded-4xl"
@@ -66,12 +48,20 @@ export function CaseStudyCard({
       </motion.div>
 
       <h2 className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black ">
-        {title}
+        {data?.heroSection?.title}
       </h2>
-      <p className="text-lg text-black font-normal mb-5 line-clamp-3 ">
-        {description}
+      <p className="text-lg text-black font-normal mb-5 mt-5 line-clamp-3 ">
+        {data?.heroSection?.description}
       </p>
-      <Button className="flex-1">{buttonText}</Button>
+      <Link href={`/case-study/${data?.slug}`}>
+        <Button
+          variant="ghost"
+          arrow
+          className="text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px]"
+        >
+          {data?.heroSection?.buttonText}
+        </Button>
+      </Link>
     </motion.article>
   );
 }

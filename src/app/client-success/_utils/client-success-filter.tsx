@@ -11,6 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import { useFilterCaseStudyHook } from "@/services";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import type { FilterLabelType } from "@/types/global-types";
 
 const filterData = {
   filterLabels: {
@@ -27,292 +28,77 @@ const filterData = {
     filterByBusinessOutcome: "Filter by Business Outcome",
     filterByRegion: "Filter by Region",
   },
-  technologies: [
-    {
-      id: "Sales",
-      name: "Sales",
-      icon: "🤖",
-      url: "#",
-    },
-    {
-      id: "azure-databricks",
-      name: "Azure Databricks",
-      icon: "🧱",
-      url: "#",
-    },
-    {
-      id: "Sales Insights",
-      name: "Sales Insights",
-      icon: "📊",
-      url: "#",
-    },
-    {
-      id: "Customer  Insights",
-      name: "Customer  Insights",
-      icon: "🎨",
-      url: "#",
-    },
-    {
-      id: "Customer Service",
-      name: "Customer Service",
-      icon: "📈",
-      url: "#",
-    },
-    {
-      id: "Contact Center",
-      name: "Contact Center",
-      icon: "📄",
-      url: "#",
-    },
-    {
-      id: "Field Service",
-      name: "Field Service",
-      icon: "🤖",
-      url: "#",
-    },
-    {
-      id: "Supply Chain Management",
-      name: "Supply Chain Management",
-      icon: "📱",
-      url: "#",
-    },
-    {
-      id: "Commerce",
-      name: "Commerce",
-      icon: "⚡",
-      url: "#",
-    },
-    {
-      id: "Finance",
-      name: "Finance",
-      icon: "☁️",
-      url: "#",
-    },
-    {
-      id: "Project Operations",
-      name: "Project Operations",
-      icon: "🔒",
-      url: "#",
-    },
-    {
-      id: "Human Resources",
-      name: "Human Resources",
-      icon: "🏗️",
-      url: "#",
-    },
-    {
-      id: "Business Central",
-      name: "Business Central",
-      icon: "📊",
-      url: "#",
-    },
-    {
-      id: "Azure AI Foundry",
-      name: "Azure AI Foundry",
-      icon: "🔄",
-      url: "#",
-    },
-    {
-      id: "Azure Databricks",
-      name: "Azure Databricks",
-      icon: "💎",
-      url: "#",
-    },
-    {
-      id: "Azure Synapse Analytics",
-      name: "Azure Synapse Analytics",
-      icon: "☁️",
-      url: "#",
-    },
-    {
-      id: "Microsoft Fabric",
-      name: "Microsoft Fabric",
-      icon: "⚡",
-      url: "#",
-    },
-    {
-      id: "Microsoft Power BI",
-      name: "Microsoft Power BI",
-      icon: "🧠",
-      url: "#",
-    },
-    {
-      id: "Microsoft Power Pages",
-      name: "Microsoft Power Pages",
-      icon: "💾",
-      url: "#",
-    },
-    {
-      id: "Microsoft Copilot Studio",
-      name: "Microsoft Copilot Studio",
-      icon: "🤝",
-      url: "#",
-    },
-    {
-      id: "Microsoft Power Apps",
-      name: "Microsoft Power Apps",
-      icon: "❤️",
-      url: "#",
-    },
-    {
-      id: "Microsoft Power Automate",
-      name: "Microsoft Power Automate",
-      icon: "🔍",
-      url: "#",
-    },
-    {
-      id: "Business Suite on Private Cloud",
-      name: "Business Suite on Private Cloud",
-      icon: "🎯",
-      url: "#",
-    },
-    { id: "aem", name: "AEM", icon: "🅰️", url: "/technologies/aem" },
-    {
-      id: "BTP Platform",
-      name: "BTP Platform",
-      icon: "📝",
-      url: "#",
-    },
-    {
-      id: "SAP IBP",
-      name: "SAP IBP",
-      icon: "🛍️",
-      url: "#",
-    },
-    {
-      id: "SAP Merger and Divesture ",
-      name: "SAP Merger and Divesture ",
-      icon: "💧",
-      url: "#",
-    },
-    {
-      id: "SAP Merger and Divesture ",
-      name: "SAP Merger and Divesture ",
-      icon: "💧",
-      url: "#",
-    },
-    {
-      id: "Joule AI",
-      name: "Joule AI",
-      icon: "💧",
-      url: "#",
-    },
-    {
-      id: "Salesforce Sales Cloud",
-      name: "Salesforce Sales Cloud",
-      icon: "💧",
-      url: "#",
-    },
-    {
-      id: "Salesforce Einstein & Analytics",
-      name: "Salesforce Einstein & Analytics",
-      icon: "💧",
-      url: "#",
-    },
-    {
-      id: "Salesforce Field Service  Cloud",
-      name: "Salesforce Field Service  Cloud",
-      icon: "💧",
-      url: "#",
-    },
-    {
-      id: "Salesforce Data Cloud",
-      name: "Salesforce Data Cloud",
-      icon: "💧",
-      url: "#",
-    },
-    {
-      id: "Salesforce Agentforce",
-      name: "Salesforce Agentforce",
-      icon: "💧",
-      url: "#",
-    },
-    {
-      id: "Salesforce Service Cloud",
-      name: "Salesforce Service Cloud",
-      icon: "💧",
-      url: "#",
-    },
-    {
-      id: "Salesforce Marketing Cloud",
-      name: "Salesforce Marketing Cloud",
-      icon: "💧",
-      url: "#",
-    },
-    { id: "Kentico ", name: "Kentico ", icon: "💧", url: "#" },
-    { id: "AEM", name: "AEM", icon: "💧", url: "#" },
-    { id: "Wordpress", name: "Wordpress", icon: "💧", url: "#" },
-    { id: "Shopify", name: "Shopify", icon: "💧", url: "#" },
-    { id: "Drupal", name: "Drupal", icon: "💧", url: "#" },
-  ],
 };
 
 type FilterType = "industries" | "businessOutcomes" | "regions";
 
 type FilterBarProps = {
+  filterlabel: FilterLabelType;
   onFilterChange?: (filters: {
     industries: string[];
     businessOutcomes: string[];
     regions: string[];
   }) => void;
-}
+};
 
 const defaultFilter = {
   industries: [],
   businessOutcomes: [],
   regions: [],
-}
+};
 
-const FilterLabel = ({
-  label,
-  count,
-}: {
-  label: string;
-  count: number
-}) => {
-  return <DropdownMenuTrigger asChild>
-    <Button variant="filter" className="gap-2 bg-transparent">
-      {label}
-      {count > 0 && (
-        <span className="flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-primary rounded-full">
-          {count}
-        </span>
-      )}
-      <ChevronDown className="w-4 h-4 opacity-50 ms-5" />
-    </Button>
-  </DropdownMenuTrigger>
-}
+const FilterLabel = ({ label, count }: { label: string; count: number }) => {
+  return (
+    <DropdownMenuTrigger asChild>
+      <Button variant="filter" className="gap-2 bg-transparent h-12">
+        {label}
+        {count > 0 && (
+          <div className="ml-5">
+            <span className="flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-primary rounded-full">
+              {count}
+            </span>
+          </div>
+        )}
+        <ChevronDown className="w-4 h-4 opacity-50 ms-5" />
+      </Button>
+    </DropdownMenuTrigger>
+  );
+};
 
-export function ClientSuccessFilter({ onFilterChange }: FilterBarProps) {
+export function ClientSuccessFilter({
+  onFilterChange,
+  filterlabel,
+}: FilterBarProps) {
   const { data } = useFilterCaseStudyHook({});
   const [filter, setFilter] = React.useState<{
     industries: string[];
     businessOutcomes: string[];
     regions: string[];
-  }>(defaultFilter)
+  }>(defaultFilter);
 
-  const handleFilterChange = React.useCallback((
-    type: FilterType,
-    value: string,
-    checked: boolean
-  ) => {
-    setFilter((prev) => {
-      const filtered = checked ? [...prev[type], value] : prev[type].filter((id) => id !== value);
-      return {
-        ...prev,
-        [type]: filtered,
-      }
-    })
+  const handleFilterChange = React.useCallback(
+    (type: FilterType, value: string, checked: boolean) => {
+      setFilter((prev) => {
+        const filtered = checked
+          ? [...prev[type], value]
+          : prev[type].filter((id) => id !== value);
+        return {
+          ...prev,
+          [type]: filtered,
+        };
+      });
 
-    onFilterChange?.({
-      industries: filter.industries,
-      businessOutcomes: filter.businessOutcomes,
-      regions: filter.regions,
-    });
-  }, [filter])
+      onFilterChange?.({
+        industries: filter.industries,
+        businessOutcomes: filter.businessOutcomes,
+        regions: filter.regions,
+      });
+    },
+    [filter]
+  );
 
   const handleResetFilter = () => {
-    setFilter(defaultFilter)
+    setFilter(defaultFilter);
     onFilterChange?.({
       industries: [],
       businessOutcomes: [],
@@ -331,7 +117,7 @@ export function ClientSuccessFilter({ onFilterChange }: FilterBarProps) {
         {/* Industry Filter - WITH CHECKBOXES */}
         <DropdownMenu>
           <FilterLabel
-            label={filterData.filterLabels.industry}
+            label={filterlabel?.industry}
             count={filter?.industries?.length}
           />
           <DropdownMenuContent
@@ -369,10 +155,7 @@ export function ClientSuccessFilter({ onFilterChange }: FilterBarProps) {
 
         {/* Service Filter - NO CHECKBOXES - NAVIGATION */}
         <DropdownMenu>
-          <FilterLabel
-            label={filterData.filterLabels.service}
-            count={0}
-          />
+          <FilterLabel label={filterData.filterLabels.service} count={0} />
           <DropdownMenuContent
             className="w-80 max-h-96 overflow-y-auto"
             align="start"
@@ -398,14 +181,8 @@ export function ClientSuccessFilter({ onFilterChange }: FilterBarProps) {
 
         {/* Technology Filter - NO CHECKBOXES - GRID LAYOUT - NAVIGATION */}
         <DropdownMenu>
-          <FilterLabel
-            label={filterData.filterLabels.technology}
-            count={0}
-          />
-          <DropdownMenuContent
-            className="overflow-y-auto"
-            align="start"
-          >
+          <FilterLabel label={filterData.filterLabels.technology} count={0} />
+          <DropdownMenuContent className="overflow-y-auto" align="start">
             <div className="p-4">
               <div className="grid grid-cols-4 gap-3">
                 {data?.technology?.map((tech) => (
@@ -476,7 +253,6 @@ export function ClientSuccessFilter({ onFilterChange }: FilterBarProps) {
                 {filterData.filterLabels.filterByRegion}
               </div>
               <div className="space-y-3">
-
                 {data?.region?.map((region) => (
                   <label
                     key={region.id}

@@ -14,6 +14,7 @@ import AboutMobile from "./mega-menu/_utils/about-mobile";
 import InsightMobile from "./mega-menu/_utils/insight-mobile";
 
 import EcosystemMobile from "./mega-menu/_utils/ecosytem-mobile";
+import type { LayoutType } from "@/types/global-page-types";
 
 export function Navbar({ data }: { data: LayoutType }) {
   // const targetRef = React.useRef<HTMLDivElement>(null);

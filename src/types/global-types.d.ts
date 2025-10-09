@@ -185,6 +185,7 @@ export interface CaseStudyHeroSection {
   title: string;
   description: string;
   image: ImageType;
+  buttonText: string;
 }
 
 export interface CaseStudyTestimonial {
@@ -198,8 +199,85 @@ export interface CaseStudyData {
   documentId: string;
   study: string;
   slug: string;
-
   descriptionSection: CaseStudyDescription[];
   heroSection: CaseStudyHeroSection;
-  testimonials: CaseStudyTestimonial[];
+  testimonials: TestimonialType[];
+  case_industries: { label: string }[];
+  services: { label: string }[];
+  technologies: { label: string }[];
+}
+
+// ✅ Banner section
+export interface BannerSectionType {
+  id: string;
+  title: string;
+  description: string;
+  images: { image: ImageType }[];
+  buttonText: string;
+  searchPlaceholder: string;
+}
+
+// ✅ Customer section
+export interface CustomerValueType {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface CustomerSectionType {
+  id: string;
+  title: string;
+  description: string;
+  customerValues: CustomerValueType[];
+}
+
+// ✅ Filter label section
+export interface FilterLabelType {
+  id: string;
+  industry: string;
+  outcome: string;
+  region: string;
+  resetFilter: string;
+  service: string;
+  technology: string;
+}
+
+// ✅ Partnership section
+export interface PartnerType {
+  id: string;
+  name: string;
+  logo: ImageType;
+}
+
+export interface PartnershipSectionType {
+  id: string;
+  title: string;
+  partner: PartnerType[];
+}
+
+// ✅ Sponsor section
+export interface SponsorSectionType {
+  id: string;
+  title: string;
+  description: string;
+  image: ImageType;
+  buttonText: string;
+}
+
+// ✅ Testimonial section
+export interface TestimonialType {
+  id: string;
+  title: string;
+  description: string;
+}
+
+// ✅ Main Page Type (final combined type)
+export interface CaseStudiesPageType {
+  id: string;
+  banner: BannerSectionType;
+  customerSection: CustomerSectionType;
+  filterLabel: FilterLabelType;
+  partnerSection: PartnershipSectionType;
+  sponser: SponsorSectionType;
+  testimonal: TestimonialType[];
 }
