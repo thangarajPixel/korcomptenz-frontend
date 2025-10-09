@@ -42,7 +42,7 @@ export const getFilterCaseStudies = async (): Promise<FilterDataType> => {
 };
 export const createCaseStudyLead = async (formData: ContactFormData) => {
   const { data } = await http.post(CASE_STUDY_LEAD, { data: formData });
-  await getDownloadService(data?.attachment?.url)
+  data?.attachment?.url && await getDownloadService(data?.attachment?.url)
   return data;
 };
 
