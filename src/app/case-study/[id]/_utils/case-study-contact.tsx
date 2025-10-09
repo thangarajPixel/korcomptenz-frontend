@@ -6,9 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactSchema, type ContactFormData } from '@/utils/validation.schema';
+import { useCaseStudyLeadHook } from "@/services";
+import { errorSet, notify } from "@/utils/helper";
 
 export function ContactForm() {
-  const { control, handleSubmit } = useForm<ContactFormData>({
+  const { control, handleSubmit, setError, formState: { isSubmitting } } = useForm<ContactFormData>({
     mode: "onSubmit",
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -18,12 +20,16 @@ export function ContactForm() {
       phone: "",
       message: "",
     },
-  })
-
-  const handleFormSubmit: SubmitHandler<ContactFormData> = React.useCallback(() => {
-
-
-  }, []);
+  });
+  const { mutateAsync } = useCaseStudyLeadHook();
+  const handleFormSubmit: SubmitHandler<ContactFormData> = React.useCallback(async (data) => {
+    try {
+      const response = await mutateAsync(data);
+      notify(response)
+    } catch (error) {
+      errorSet(error, setError)
+    }
+  }, [mutateAsync]);
 
 
   return (
@@ -57,7 +63,7 @@ export function ContactForm() {
           <Textarea control={control} name="message" placeholder="Type your message/enquiry here.." />
           {/* Submit button */}
           <div className="pt-4">
-            <Button type="submit" size={'xl'} variant={'outline'} className="hover:bg-primary border-primary text-primary hover:text-white" arrow>
+            <Button isLoading={isSubmitting} type="submit" size={'xl'} variant={'outline'} className="hover:bg-primary border-primary text-primary hover:text-white" arrow>
               Submit
             </Button>
           </div>

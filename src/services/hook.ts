@@ -1,5 +1,5 @@
 import type { OptionsType } from "@/types/essential-types";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import * as PAGE from "./page";
 
 export const useCaseStudiesHook = ({
@@ -23,5 +23,11 @@ export const useFilterCaseStudyHook = ({
     queryKey: [PAGE.FILTER_CASE_STUDY],
     queryFn: () => PAGE.getFilterCaseStudies(),
     ...options,
+  });
+};
+export const useCaseStudyLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.CASE_STUDY_LEAD],
+    mutationFn: PAGE.createCaseStudyLead,
   });
 };

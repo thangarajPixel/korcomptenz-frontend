@@ -15,6 +15,14 @@ type ImageType = {
   includes?: string;
 };
 
+type ToastPosition =
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'top-center'
+  | 'bottom-center';
+
 type GlobalFieldType = {
   buttonText?: string;
   titleimage?: ImageType;

@@ -13,6 +13,7 @@ const http = axios.create({
 // Add a request interceptor
 http.interceptors.request.use(async (config) => {
   try {
+    // config.headers['content-type'] = 'application/json';
     return config;
   } catch {
     // eslint no-console: "error"
