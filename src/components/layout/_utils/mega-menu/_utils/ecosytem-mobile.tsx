@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight, ChevronLeft, X } from "lucide-react";
+import { ChevronLeft, X } from "lucide-react";
 
 // ---------- Types ----------
 
@@ -78,15 +78,15 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
 };
 
 // ---------- Main Component ----------
-const EcosystemMobile = ({ data }: { data: LayoutType }) => {
+const EcosystemMobile = ({}: { data: LayoutType }) => {
   const [drawer, setDrawer] = useState<DrawerState>({
     isOpen: false,
     menu: null,
   });
 
-  const handleMenuClick = (menu: EcosystemMenuType) => {
-    setDrawer({ isOpen: true, menu });
-  };
+  // const handleMenuClick = (menu: SidebarMenu) => {
+  //   setDrawer({ isOpen: true, menu });
+  // };
 
   const closeDrawer = () => {
     setDrawer({ isOpen: false, menu: null });
@@ -95,7 +95,7 @@ const EcosystemMobile = ({ data }: { data: LayoutType }) => {
   return (
     <>
       {/* Sidebar list */}
-      <div className="px-0">
+      {/* <div className="px-0">
         {data?.ecosystemMenu?.map((ec) => (
           <button
             key={`ecosystem-mobile-${ec?.id}`}
@@ -108,7 +108,7 @@ const EcosystemMobile = ({ data }: { data: LayoutType }) => {
             <ChevronRight className="w-4 h-4 text-primary" />
           </button>
         ))}
-      </div>
+      </div> */}
 
       {/* Drawer */}
       <EcosystemDrawer
