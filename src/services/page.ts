@@ -46,8 +46,10 @@ export const createCaseStudyLead = async (formData: ContactFormData) => {
   return data;
 };
 
-export const getCaseStudyList = async (): Promise<CaseStudiesType> => {
-  const { data } = await http.get(CASE_STUDY);
+export const getCaseStudyList = async ({ params }: { params: { pagination: PaginationType } }): Promise<CaseStudiesType> => {
+  const { data } = await http.get(CASE_STUDY, {
+    params,
+  });
   return data;
 };
 

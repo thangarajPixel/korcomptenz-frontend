@@ -11,7 +11,12 @@ type FormErrors = {
     }>;
   };
 };
-
+export const INITIAL_PAGINATION: PaginationType = {
+  page: 1,
+  pageSize: 10,
+  pageCount: 1,
+  total: 0,
+};
 function isValidJson(jsonString: string) {
   try {
     JSON.parse(jsonString);

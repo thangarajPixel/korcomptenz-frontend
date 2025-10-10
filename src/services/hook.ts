@@ -34,12 +34,14 @@ export const useCaseStudyLeadHook = () => {
 
 export const useCaseStudyListHook = ({
   options,
+  params,
 }: {
   options?: OptionsType<CaseStudiesType>;
+  params: { pagination: PaginationType };
 }) => {
   return useQuery({
-    queryKey: [PAGE.CASE_STUDY],
-    queryFn: () => PAGE.getCaseStudyList(),
+    queryKey: [PAGE.CASE_STUDY, params],
+    queryFn: () => PAGE.getCaseStudyList({ params }),
     ...options,
   });
 };

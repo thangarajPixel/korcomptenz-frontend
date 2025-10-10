@@ -34,7 +34,12 @@ type GlobalFieldType = {
   title?: string;
   subtitle2?: string;
 };
-
+type PaginationType = {
+  page: number;
+  pageSize: number;
+  pageCount: number;
+  total: number | undefined;
+};
 type ApiErrorType = {
   data: null;
   error: {

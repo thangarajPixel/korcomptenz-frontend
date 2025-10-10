@@ -65,12 +65,7 @@ type CaseStudyStickyCardsType = {
 };
 
 type CaseStudiesType = {
-  pagination: {
-    page: number;
-    pageSize: number;
-    pageCount: number;
-    total: number | undefined;
-  };
+  pagination: PaginationType;
   results: CaseStudyData[];
 };
 
