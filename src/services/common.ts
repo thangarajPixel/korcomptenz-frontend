@@ -1,4 +1,4 @@
-import { downloadFileExcel } from "@/utils/helper";
+import { downloadFile } from "@/utils/helper";
 import http from "./http";
 
 const LAYOUT = '/layout';
@@ -8,10 +8,18 @@ export const getLayoutService = async (): Promise<LayoutType> => {
   return data;
 };
 
-export const getDownloadService = async (url: string) => {
-  const response = await http.get(url, {
-    responseType: 'arraybuffer',
-  });
-  await downloadFileExcel(response as never)
-  return response;
+export const getDownloadService = async (attachment: ImageType) => {
+  try {
+    const response = await http.get(attachment.url, {
+      responseType: 'arraybuffer',
+    });
+    await downloadFile({
+      name: attachment.name,
+      bufferResponse: response.data,
+      type: attachment.mime || 'application/octet-stream',
+    });
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Download error:', error);
+  }
 };

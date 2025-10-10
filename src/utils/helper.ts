@@ -136,16 +136,34 @@ export const errorSet = <T extends Record<string, never>>(
   }
 };
 
-export async function downloadFileExcel(response: {
-  name: string;
-  bufferResponse: Buffer;
-  type: string;
-}, name?: string) {
-  const responseName = name || String(response?.name).split('=')?.[1]?.split('.')?.[0] || '';
-  const blob = new Blob([response.bufferResponse as never], { type: response.type });
+export async function downloadFile(
+  response: { name: string; bufferResponse: ArrayBuffer; type: string },
+  name?: string
+) {
+  const responseName =
+    name ||
+    response.name?.split('=')?.[1]?.split('.')?.[0] ||
+    response.name ||
+    'download';
+
+  const blob = new Blob([response.bufferResponse], { type: response.type });
   const url = window.URL.createObjectURL(blob);
+
   const a = document.createElement('a');
   a.href = url;
-  a.download = String(responseName).replace('/', '');
+
+  // Ensure clean filename with proper extension
+  const fileName = responseName.replace('/', '').trim() || 'file';
+  const extension =
+    response.type.split('/')[1] ||
+    response.name.split('.').pop() ||
+    'dat';
+  a.download = `${fileName}.${extension}`;
+
+  document.body.appendChild(a);
   a.click();
+
+  // Cleanup
+  document.body.removeChild(a);
+  window.URL.revokeObjectURL(url);
 }
