@@ -9,12 +9,12 @@ import ClientTestimonial from "./client-testimonial";
 const CaseStudies = async ({ data }: { data: CaseStudiesPageType }) => {
   return (
     <div className="flex flex-col gap-16">
-      <ClientSuccessBanner data={data.banner} />
+      <ClientSuccessBanner data={data?.banner} />
       <div className="container-lg">
-        <ClientSuccessFilter filterlabel={data.filterLabel} />
-        <ClientSuccessList sponserdata={data.sponser} />
+        <ClientSuccessFilter filterlabel={data?.filterLabel} />
+        <ClientSuccessList sponserData={data?.sponser} />
       </div>
-      <ClientPartnership data={data.partnerSection} />
+      <ClientPartnership data={data?.partnerSection} />
       <ClientCustomer data={data?.customerSection} />
       <ClientTestimonial data={data?.testimonal} />
     </div>

@@ -44,10 +44,10 @@ export default function ClientTestimonial({
       <div className="relative p-12">
         <div className="space-y-6">
           <h2 className="text-5xl font-semibold text-muted">
-            {currentTestimonial.title}
+            {currentTestimonial?.title}
           </h2>
           <blockquote className="text-6xl text-muted leading-relaxed">
-            {currentTestimonial.description}
+            {currentTestimonial?.description}
           </blockquote>
         </div>
 

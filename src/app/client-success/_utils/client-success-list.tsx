@@ -27,9 +27,9 @@ import { ChevronDown } from "lucide-react";
 import { useCaseStudyListHook } from "@/services";
 
 const ClientSuccessList = ({
-  sponserdata,
+  sponserData,
 }: {
-  sponserdata: SponsorSectionType;
+  sponserData: SponsorSectionType;
 }) => {
   const { data } = useCaseStudyListHook({});
 
@@ -134,7 +134,7 @@ const ClientSuccessList = ({
       <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
         {/* Sticky Card - always full width on small screens, 1/2 on md, 1/3 on lg */}
         <div className="col-span-12 md:col-span-6 lg:col-span-4">
-          <StickyTitleCard data={sponserdata} />
+          {sponserData && <StickyTitleCard data={sponserData} />}
         </div>
 
         {/* Case Study Cards */}
@@ -235,11 +235,10 @@ const ClientSuccessList = ({
                 <DropdownMenuItem
                   key={num}
                   onClick={() => handleItemsPerPageChange(num)}
-                  className={`cursor-pointer ${
-                    itemsPerPage === num
-                      ? "bg-gray-100 text-muted font-normal"
-                      : ""
-                  }`}
+                  className={`cursor-pointer ${itemsPerPage === num
+                    ? "bg-gray-100 text-muted font-normal"
+                    : ""
+                    }`}
                 >
                   {num}
                 </DropdownMenuItem>

@@ -175,7 +175,7 @@ type EcosystemMenuType = {
 
 type NavItemType = {
   label: string;
-  href: HrefType | null;
+  href: string | null;
   hasChild: boolean;
   childKey: string;
   isButton: boolean;
