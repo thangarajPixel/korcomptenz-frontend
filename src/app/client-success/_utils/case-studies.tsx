@@ -5,7 +5,13 @@ import ClientCustomer from "./client-customer";
 import ClientPartnership from "./client-partnership";
 import ClientTestimonial from "./client-testimonial";
 
-const CaseStudies = async ({ data, initialData }: { data: CaseStudiesPageType, initialData: CaseStudiesType }) => {
+const CaseStudies = async ({
+  data,
+  initialData,
+}: {
+  data: CaseStudiesPageType;
+  initialData: CaseStudiesType;
+}) => {
   return (
     <div className="flex flex-col gap-16">
       <ClientSuccessBanner data={data?.banner} />

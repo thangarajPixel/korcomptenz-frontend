@@ -12,47 +12,30 @@ import Link from "next/link";
 import { useFilterCaseStudyHook } from "@/services";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-
-const filterData = {
-  filterLabels: {
-    industry: "Industry",
-    service: "Service",
-    technology: "Technology",
-    businessOutcome: "Business Outcome",
-    region: "Region",
-    clearFilter: "Clear Filter",
-    popular: "Popular",
-    filterByIndustry: "Filter by Industry",
-    filterByService: "Filter by Service",
-    filterByTechnology: "Filter by Technology",
-    filterByBusinessOutcome: "Filter by Business Outcome",
-    filterByRegion: "Filter by Region",
-  },
-};
-
-type FilterType = "industries" | "businessOutcomes" | "regions";
+type FilterType = "industries" | "businessOutcomes" | "region";
 
 type FilterBarProps = {
-  filterlabel: FilterLabelType;
+  filterlabel: FilterLabelType[];
   onFilterChange?: (filters: {
     industries: string[];
     businessOutcomes: string[];
-    regions: string[];
+    region: string[];
   }) => void;
+  popularFilter?: PopularFilterType;
 };
 
 const defaultFilter = {
   industries: [],
   businessOutcomes: [],
-  regions: [],
+  region: [],
 };
 
-const FilterLabel = ({ label, count }: { label: string; count: number }) => {
+const FilterLabel = ({ label, count }: { label: string; count?: number }) => {
   return (
     <DropdownMenuTrigger asChild>
       <Button variant="filter" className="gap-2 bg-transparent h-12">
         {label}
-        {count > 0 && (
+        {typeof count === "number" && count > 0 && (
           <div className="ml-5">
             <span className="flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-primary rounded-full">
               {count}
@@ -68,12 +51,14 @@ const FilterLabel = ({ label, count }: { label: string; count: number }) => {
 export function ClientSuccessFilter({
   onFilterChange,
   filterlabel,
+  popularFilter,
 }: FilterBarProps) {
   const { data } = useFilterCaseStudyHook({});
+
   const [filter, setFilter] = React.useState<{
     industries: string[];
     businessOutcomes: string[];
-    regions: string[];
+    region: string[];
   }>(defaultFilter);
 
   const handleFilterChange = React.useCallback(
@@ -91,7 +76,7 @@ export function ClientSuccessFilter({
       onFilterChange?.({
         industries: filter.industries,
         businessOutcomes: filter.businessOutcomes,
-        regions: filter.regions,
+        region: filter.region,
       });
     },
     [filter]
@@ -102,179 +87,81 @@ export function ClientSuccessFilter({
     onFilterChange?.({
       industries: [],
       businessOutcomes: [],
-      regions: [],
+      region: [],
     });
   };
 
   const hasActiveFilters =
     filter.industries.length > 0 ||
     filter.businessOutcomes.length > 0 ||
-    filter.regions.length > 0;
+    filter.region.length > 0;
 
   return (
     <div className="flex items-center gap-3 lg:py-4  bg-background">
       <div className="flex items-center gap-3 flex-1 flex-wrap">
-        {/* Industry Filter - WITH CHECKBOXES */}
-        <DropdownMenu>
-          <FilterLabel
-            label={filterlabel?.industry}
-            count={filter?.industries?.length}
-          />
-          <DropdownMenuContent
-            className="w-80 max-h-96 overflow-y-auto"
-            align="start"
-          >
-            <div className="p-3">
-              <div className="text-sm font-medium mb-3 text-muted-foreground">
-                {filterData.filterLabels.filterByIndustry}
+        {filterlabel.map((label) => (
+          <DropdownMenu key={label?.filterKey}>
+            <FilterLabel
+              label={label.label}
+              count={
+                label.isMultiple
+                  ? filter?.[label?.filterKey as FilterType]?.length ?? 0
+                  : undefined
+              }
+            />
+            <DropdownMenuContent className="overflow-y-auto" align="start">
+              <div className="p-4">
+                {label.isDesignedDropdown ? (
+                  // ✅ Custom grid layout for designed dropdowns (e.g., Technology)
+                  <div className="grid grid-cols-4 gap-3">
+                    {data?.[label.filterKey]?.map((tech) => (
+                      <Link
+                        key={tech.id}
+                        href="#"
+                        className="flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md text-lg leading-6.5 transition-colors"
+                      >
+                        <span className="text-2xl flex-shrink-0">
+                          <KorcomptenzImage
+                            src={tech.image}
+                            width={26}
+                            height={22}
+                          />
+                        </span>
+                        <span className="text-left truncate">{tech.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  // ✅ Default checkbox list layout
+                  <div className="space-y-3">
+                    {data?.[label.filterKey]?.map((item) => (
+                      <label
+                        key={item.id}
+                        className="flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors"
+                      >
+                        {label.isMultiple && (
+                          <Checkbox
+                            checked={filter?.[
+                              label.filterKey as FilterType
+                            ]?.includes(item.id)}
+                            onCheckedChange={(checked) =>
+                              handleFilterChange(
+                                label.filterKey as FilterType,
+                                item.id,
+                                checked as boolean
+                              )
+                            }
+                          />
+                        )}
+                        <span className="text-lg">{item.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                )}
               </div>
-              <div className="space-y-3">
-                {data?.industries?.map((industry) => (
-                  <label
-                    key={industry.id}
-                    className="flex items-center gap-3 cursor-pointer hover:bg-accent/50  rounded-md transition-colors"
-                  >
-                    <Checkbox
-                      checked={filter.industries.includes(industry.id)}
-                      onCheckedChange={(checked) =>
-                        handleFilterChange(
-                          "industries",
-                          industry.id,
-                          checked as boolean
-                        )
-                      }
-                    />
-
-                    <span className="text-lg">{industry.label}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-          </DropdownMenuContent>
-        </DropdownMenu>
-
-        {/* Service Filter - NO CHECKBOXES - NAVIGATION */}
-        <DropdownMenu>
-          <FilterLabel label={filterData.filterLabels.service} count={0} />
-          <DropdownMenuContent
-            className="w-80 max-h-96 overflow-y-auto"
-            align="start"
-          >
-            <div className="p-3">
-              <div className="text-sm font-medium mb-3 text-muted-foreground">
-                {filterData.filterLabels.filterByService}
-              </div>
-              <div className="space-y-2">
-                {data?.service?.map((service) => (
-                  <Link
-                    key={service.id}
-                    href="#"
-                    className="flex items-center gap-3 cursor-pointer hover:bg-accent/50  rounded-md text-lg leading-6.5"
-                  >
-                    {service.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </DropdownMenuContent>
-        </DropdownMenu>
-
-        {/* Technology Filter - NO CHECKBOXES - GRID LAYOUT - NAVIGATION */}
-        <DropdownMenu>
-          <FilterLabel label={filterData.filterLabels.technology} count={0} />
-          <DropdownMenuContent className="overflow-y-auto" align="start">
-            <div className="p-4">
-              <div className="grid grid-cols-4 gap-3">
-                {data?.technology?.map((tech) => (
-                  <Link
-                    key={tech.id}
-                    href="#"
-                    className="flex items-center gap-3 cursor-pointer hover:bg-accent/50  rounded-md text-lg leading-6.5"
-                  >
-                    <span className="text-2xl flex-shrink-0">
-                      <KorcomptenzImage
-                        src={tech.image}
-                        width={26}
-                        height={22}
-                      />
-                    </span>
-                    <span className="text-left truncate">{tech.label}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </DropdownMenuContent>
-        </DropdownMenu>
-
-        <DropdownMenu>
-          <FilterLabel
-            label={filterData.filterLabels.businessOutcome}
-            count={filter.businessOutcomes.length}
-          />
-
-          <DropdownMenuContent className="w-80" align="start">
-            <div className="p-3">
-              <div className="text-sm font-medium mb-3 text-muted-foreground">
-                {filterData.filterLabels.filterByBusinessOutcome}
-              </div>
-              <div className="space-y-3">
-                {data?.businessOutcomes.map((outcome) => (
-                  <label
-                    key={outcome.id}
-                    className="flex items-center gap-3 cursor-pointer hover:bg-accent/50  rounded-md transition-colors"
-                  >
-                    <Checkbox
-                      checked={filter.businessOutcomes.includes(outcome.id)}
-                      onCheckedChange={(checked) =>
-                        handleFilterChange(
-                          "businessOutcomes",
-                          outcome.id,
-                          checked as boolean
-                        )
-                      }
-                    />
-                    <span className="text-lg">{outcome?.label}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-          </DropdownMenuContent>
-        </DropdownMenu>
-
-        {/* Region Filter - WITH CHECKBOXES */}
-        <DropdownMenu>
-          <FilterLabel
-            label={filterData.filterLabels.region}
-            count={filter.regions.length}
-          />
-          <DropdownMenuContent className="w-80" align="start">
-            <div className="p-3">
-              <div className="text-sm font-medium mb-3 text-muted-foreground">
-                {filterData.filterLabels.filterByRegion}
-              </div>
-              <div className="space-y-3">
-                {data?.region?.map((region) => (
-                  <label
-                    key={region.id}
-                    className="flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors"
-                  >
-                    <Checkbox
-                      checked={filter.regions.includes(region.id)}
-                      onCheckedChange={(checked) =>
-                        handleFilterChange(
-                          "regions",
-                          region.id,
-                          checked as boolean
-                        )
-                      }
-                    />
-                    <span className="text-lg">{region.label}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ))}
 
         {/* Clear Filter Button */}
         {hasActiveFilters && (
@@ -283,7 +170,7 @@ export function ClientSuccessFilter({
             onClick={handleResetFilter}
             className="text-muted-foreground hover:text-foreground"
           >
-            {filterData.filterLabels.clearFilter}
+            {popularFilter?.resetButtonText || "reset"}
           </Button>
         )}
       </div>
@@ -292,22 +179,18 @@ export function ClientSuccessFilter({
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="gap-2 bg-transparent text-lg">
-            {filterData.filterLabels.popular}
+            {popularFilter?.label}
             <ChevronDown className="w-4 h-4 opacity-50" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <div className="p-2 space-y-1">
-            <button className="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-accent transition-colors">
-              {filterData.filterLabels.popular}
-            </button>
-            <button className="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-accent transition-colors">
-              Newest
-            </button>
-            <button className="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-accent transition-colors">
-              Oldest
-            </button>
-          </div>
+          {popularFilter?.popularFilterList.map((item) => (
+            <div className="p-2 space-y-1">
+              <button className="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-accent transition-colors">
+                {item.label}
+              </button>
+            </div>
+          ))}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

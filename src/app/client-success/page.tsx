@@ -6,7 +6,10 @@ import { INITIAL_PAGINATION } from "@/utils/helper";
 
 const getCaseStudiesPageCache = cache(getCaseStudiesPage);
 const Page = async () => {
-  const [data, initialData] = await Promise.all([getCaseStudiesPageCache(), getCaseStudyList({ params: { pagination: INITIAL_PAGINATION } })]);
+  const [data, initialData] = await Promise.all([
+    getCaseStudiesPageCache(),
+    getCaseStudyList({ params: { pagination: INITIAL_PAGINATION } }),
+  ]);
 
   return <CaseStudies data={data} initialData={initialData} />;
 };

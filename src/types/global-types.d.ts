@@ -244,18 +244,6 @@ type CustomerSectionType = {
   customerValues: CustomerValueType[];
 };
 
-// ✅ Filter label section
-type FilterLabelType = {
-  id: string;
-  industry: string;
-  outcome: string;
-  region: string;
-  resetFilter: string;
-  service: string;
-  technology: string;
-};
-
-// ✅ Partnership section
 type PartnerType = {
   id: string;
   name: string;
@@ -282,4 +270,23 @@ type TestimonialType = {
   id: string;
   title: string;
   description: string;
+};
+
+type PopularFilterType = {
+  id: string;
+  label: string;
+  resetButtonText: string;
+  popularFilterList: {
+    id: string;
+    label: string;
+    sort: string;
+  }[];
+};
+
+type FilterLabelType = {
+  label: string;
+  isMultiple: boolean;
+  filterKey: keyof FilterDataType;
+  childTitle: string;
+  isDesignedDropdown: boolean;
 };

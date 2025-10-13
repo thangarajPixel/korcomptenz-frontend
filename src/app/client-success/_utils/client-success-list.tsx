@@ -9,39 +9,46 @@ import { INITIAL_PAGINATION } from "@/utils/helper";
 import { ClientSuccessFilter } from "./client-success-filter";
 
 const ClientSuccessList = ({
-  data: { sponser, filterLabel },
+  data: { sponser, filterLabel, popularFilter },
   initialData,
 }: {
   data: CaseStudiesPageType;
   initialData: CaseStudiesType;
 }) => {
-  const [pagination, setPagination] = useState<PaginationType>(INITIAL_PAGINATION)
+  const [pagination, setPagination] = useState<PaginationType>({
+    ...INITIAL_PAGINATION,
+    pageCount: initialData?.pagination.pageCount || 1,
+    total: initialData?.pagination.total || 0,
+  });
   const { data } = useCaseStudyListHook({
-    params: { pagination }, options: {
-      initialData
-    }
+    params: { pagination },
+    options: {
+      initialData,
+    },
   });
 
   const handlePageChange = (page: number) => {
     window.scrollTo({ top: 750, behavior: "smooth" });
     setPagination((prev) => ({
       ...prev,
-      page: page
-    }))
+      page: page,
+    }));
   };
 
   const handleItemsPerPageChange = (value: number) => {
     setPagination((prev) => ({
       ...prev,
       pageSize: value,
-      page: 1
-    }))
+      page: 1,
+    }));
   };
-
 
   return (
     <div className="container-lg">
-      <ClientSuccessFilter filterlabel={filterLabel} />
+      <ClientSuccessFilter
+        filterlabel={filterLabel}
+        popularFilter={popularFilter}
+      />
       <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
         {/* Sticky Card - always full width on small screens, 1/2 on md, 1/3 on lg */}
         <div className="col-span-12 md:col-span-6 lg:col-span-4">
@@ -58,11 +65,13 @@ const ClientSuccessList = ({
           </div>
         ))}
       </div>
-      {pagination && <PaginationSection
-        pagination={pagination}
-        handlePageChange={handlePageChange}
-        handleItemsPerPageChange={handleItemsPerPageChange}
-      />}
+      {pagination && (
+        <PaginationSection
+          pagination={pagination}
+          handlePageChange={handlePageChange}
+          handleItemsPerPageChange={handleItemsPerPageChange}
+        />
+      )}
     </div>
   );
 };

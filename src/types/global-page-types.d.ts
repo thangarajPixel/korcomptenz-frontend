@@ -72,25 +72,40 @@ type CaseStudiesType = {
 type BusinessOutcomeFilterType = {
   label: string;
   id: string;
+  childTitle: string;
+  isDesignedDropdown: boolean;
+  isMultiple: boolean;
 };
 type IndustriesFilterType = {
   label: string;
   id: string;
+  childTitle: string;
+  isDesignedDropdown: boolean;
+  isMultiple: boolean;
 };
 type RegionFilterType = {
   label: string;
   id: string;
+  childTitle: string;
+  isDesignedDropdown: boolean;
+  isMultiple: boolean;
 };
 
 type ServiceFilterType = {
   label: string;
   id: string;
+  childTitle: string;
+  isDesignedDropdown: boolean;
+  isMultiple: boolean;
 };
 
 type TechnologyFilterType = {
   label: string;
   id: string;
   image: ImageType;
+  childTitle: string;
+  isDesignedDropdown: boolean;
+  isMultiple: boolean;
 };
 
 type FilterDataType = {
@@ -464,8 +479,9 @@ type CaseStudiesPageType = {
   id: string;
   banner: ClientSuccessBannerSectionType;
   customerSection: CustomerSectionType;
-  filterLabel: FilterLabelType;
+  filterLabel: FilterLabelType[];
   partnerSection: PartnershipSectionType;
   sponser: SponsorSectionType;
   testimonal: TestimonialType[];
+  popularFilter: PopularFilterType;
 };

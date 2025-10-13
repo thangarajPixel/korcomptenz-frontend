@@ -1,8 +1,24 @@
-import React from 'react'
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuItem } from '../ui/dropdown-menu';
-import { PaginationItem, PaginationLink, PaginationEllipsis, Pagination, PaginationContent, PaginationFirst, PaginationPrevious, PaginationNext, PaginationLast } from '../ui/pagination';
-import { ChevronDown } from 'lucide-react';
-import { Button } from '../ui/button';
+import React from "react";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuSeparator,
+  DropdownMenuItem,
+} from "../ui/dropdown-menu";
+import {
+  PaginationItem,
+  PaginationLink,
+  PaginationEllipsis,
+  Pagination,
+  PaginationContent,
+  PaginationFirst,
+  PaginationPrevious,
+  PaginationNext,
+  PaginationLast,
+} from "../ui/pagination";
+import { ChevronDown } from "lucide-react";
+import { Button } from "../ui/button";
 
 const PaginationSection = ({
   pagination,
@@ -13,7 +29,6 @@ const PaginationSection = ({
   handlePageChange: (page: number) => void;
   handleItemsPerPageChange: (itemsPerPage: number) => void;
 }) => {
-
   const renderPaginationItems = () => {
     const items = [];
 
@@ -60,7 +75,10 @@ const PaginationSection = ({
         </PaginationItem>
       );
 
-      if (i === pagination?.page + 1 && pagination?.page < pagination.pageCount - 2) {
+      if (
+        i === pagination?.page + 1 &&
+        pagination?.page < pagination.pageCount - 2
+      ) {
         items.push(
           <PaginationItem key="ellipsis-end">
             <PaginationEllipsis />
@@ -88,6 +106,7 @@ const PaginationSection = ({
 
     return items;
   };
+
   return (
     <div className="flex justify-between items-center">
       <div>
@@ -175,10 +194,11 @@ const PaginationSection = ({
               <DropdownMenuItem
                 key={`pagination-dropdown-${num}`}
                 onClick={() => handleItemsPerPageChange(num)}
-                className={`cursor-pointer ${pagination?.pageSize === num
-                  ? "bg-gray-100 text-muted font-normal"
-                  : ""
-                  }`}
+                className={`cursor-pointer ${
+                  pagination?.pageSize === num
+                    ? "bg-gray-100 text-muted font-normal"
+                    : ""
+                }`}
               >
                 {num}
               </DropdownMenuItem>
@@ -188,7 +208,7 @@ const PaginationSection = ({
         <span>of {pagination?.total} entries</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PaginationSection
+export default PaginationSection;
