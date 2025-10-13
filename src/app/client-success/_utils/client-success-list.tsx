@@ -7,6 +7,7 @@ import { useCaseStudyListHook } from "@/services";
 import PaginationSection from "@/components/pagination-section";
 import { INITIAL_PAGINATION } from "@/utils/helper";
 import { ClientSuccessFilter } from "./client-success-filter";
+import { useParams } from "next/navigation";
 
 const ClientSuccessList = ({
   data: { sponser, filterLabel, popularFilter },
@@ -15,13 +16,23 @@ const ClientSuccessList = ({
   data: CaseStudiesPageType;
   initialData: CaseStudiesType;
 }) => {
+  const { slug } = useParams();
+  const [filter, setFilter] = useState<{
+    industries: string[];
+    businessOutcomes: string[];
+    region: string[];
+  }>({
+    industries: [],
+    businessOutcomes: [],
+    region: [],
+  });
   const [pagination, setPagination] = useState<PaginationType>({
     ...INITIAL_PAGINATION,
     pageCount: initialData?.pagination.pageCount || 1,
     total: initialData?.pagination.total || 0,
   });
   const { data } = useCaseStudyListHook({
-    params: { pagination },
+    params: { pagination, filter, slug: slug as string },
     options: {
       initialData,
     },
@@ -46,8 +57,9 @@ const ClientSuccessList = ({
   return (
     <div className="container-lg">
       <ClientSuccessFilter
-        filterlabel={filterLabel}
+        filterLabel={filterLabel}
         popularFilter={popularFilter}
+        onFilterChange={setFilter}
       />
       <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
         {/* Sticky Card - always full width on small screens, 1/2 on md, 1/3 on lg */}

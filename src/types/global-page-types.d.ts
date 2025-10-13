@@ -76,44 +76,23 @@ type BusinessOutcomeFilterType = {
   isDesignedDropdown: boolean;
   isMultiple: boolean;
 };
-type IndustriesFilterType = {
-  label: string;
-  id: string;
-  childTitle: string;
-  isDesignedDropdown: boolean;
-  isMultiple: boolean;
-};
-type RegionFilterType = {
-  label: string;
-  id: string;
-  childTitle: string;
-  isDesignedDropdown: boolean;
-  isMultiple: boolean;
-};
 
-type ServiceFilterType = {
-  label: string;
-  id: string;
-  childTitle: string;
-  isDesignedDropdown: boolean;
-  isMultiple: boolean;
-};
-
-type TechnologyFilterType = {
+type FilterListType = {
   label: string;
   id: string;
   image: ImageType;
   childTitle: string;
   isDesignedDropdown: boolean;
   isMultiple: boolean;
+  slug: string;
 };
 
 type FilterDataType = {
-  businessOutcomes: BusinessOutcomeType[];
-  industries: IndustriesFilterType[];
-  region: RegionFilterType[];
-  service: ServiceFilterType[];
-  technology: TechnologyFilterType[];
+  businessOutcomes: FilterListType[];
+  industries: FilterListType[];
+  region: FilterListType[];
+  service: FilterListType[];
+  technology: FilterListType[];
 };
 
 type InsightsSectionType = {

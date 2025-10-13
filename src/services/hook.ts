@@ -37,7 +37,13 @@ export const useCaseStudyListHook = ({
   params,
 }: {
   options?: OptionsType<CaseStudiesType>;
-  params: { pagination: PaginationType };
+  params: {
+    pagination: PaginationType;
+    filter: {
+      [key: string]: string[];
+    };
+    slug?: string;
+  };
 }) => {
   return useQuery({
     queryKey: [PAGE.CASE_STUDY, params],

@@ -1,17 +1,8 @@
-import React, { cache } from "react";
+import React from "react";
+import ClientSuccessPage from "./_utils/client-success-page";
 
-import CaseStudies from "./_utils/case-studies";
-import { getCaseStudiesPage, getCaseStudyList } from "@/services";
-import { INITIAL_PAGINATION } from "@/utils/helper";
-
-const getCaseStudiesPageCache = cache(getCaseStudiesPage);
 const Page = async () => {
-  const [data, initialData] = await Promise.all([
-    getCaseStudiesPageCache(),
-    getCaseStudyList({ params: { pagination: INITIAL_PAGINATION } }),
-  ]);
-
-  return <CaseStudies data={data} initialData={initialData} />;
+  return <ClientSuccessPage />;
 };
 
 export default Page;

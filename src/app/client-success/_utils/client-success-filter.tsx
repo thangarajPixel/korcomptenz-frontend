@@ -11,11 +11,12 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import { useFilterCaseStudyHook } from "@/services";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { cn } from "@/lib/utils";
 
 type FilterType = "industries" | "businessOutcomes" | "region";
 
 type FilterBarProps = {
-  filterlabel: FilterLabelType[];
+  filterLabel: FilterLabelType[];
   onFilterChange?: (filters: {
     industries: string[];
     businessOutcomes: string[];
@@ -50,7 +51,7 @@ const FilterLabel = ({ label, count }: { label: string; count?: number }) => {
 
 export function ClientSuccessFilter({
   onFilterChange,
-  filterlabel,
+  filterLabel,
   popularFilter,
 }: FilterBarProps) {
   const { data } = useFilterCaseStudyHook({});
@@ -67,16 +68,12 @@ export function ClientSuccessFilter({
         const filtered = checked
           ? [...prev[type], value]
           : prev[type].filter((id) => id !== value);
-        return {
+        const filterData = {
           ...prev,
           [type]: filtered,
         };
-      });
-
-      onFilterChange?.({
-        industries: filter.industries,
-        businessOutcomes: filter.businessOutcomes,
-        region: filter.region,
+        onFilterChange?.(filterData);
+        return filterData;
       });
     },
     [filter]
@@ -99,7 +96,7 @@ export function ClientSuccessFilter({
   return (
     <div className="flex items-center gap-3 lg:py-4  bg-background">
       <div className="flex items-center gap-3 flex-1 flex-wrap">
-        {filterlabel.map((label) => (
+        {filterLabel.map((label) => (
           <DropdownMenu key={label?.filterKey}>
             <FilterLabel
               label={label.label}
@@ -111,22 +108,22 @@ export function ClientSuccessFilter({
             />
             <DropdownMenuContent className="overflow-y-auto" align="start">
               <div className="p-4">
-                {label.isDesignedDropdown ? (
+                {!label.isMultiple ? (
                   // ✅ Custom grid layout for designed dropdowns (e.g., Technology)
-                  <div className="grid grid-cols-4 gap-3">
+                  <div className={label.isDesignedDropdown ? "grid grid-cols-4 gap-3" : "space-y-3"}>
                     {data?.[label.filterKey]?.map((tech) => (
                       <Link
-                        key={tech.id}
-                        href="#"
-                        className="flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md text-lg leading-6.5 transition-colors"
+                        key={`${label.filterKey}-${tech.id}`}
+                        href={`/client-success/${tech.slug}`}
+                        className={cn("flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors", label.isDesignedDropdown && "text-lg leading-6.5")}
                       >
-                        <span className="text-2xl flex-shrink-0">
+                        {label.isDesignedDropdown && <span className="text-2xl flex-shrink-0">
                           <KorcomptenzImage
                             src={tech.image}
                             width={26}
                             height={22}
                           />
-                        </span>
+                        </span>}
                         <span className="text-left truncate">{tech.label}</span>
                       </Link>
                     ))}
