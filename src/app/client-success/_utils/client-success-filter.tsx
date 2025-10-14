@@ -18,9 +18,7 @@ type FilterType = "industries" | "businessOutcomes" | "region";
 type FilterBarProps = {
   filterLabel: FilterLabelType[];
   onFilterChange?: (filters: {
-    industries: string[];
-    businessOutcomes: string[];
-    region: string[];
+    [key: string]: string[];
   }) => void;
   popularFilter?: PopularFilterType;
 };

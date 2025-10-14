@@ -4,8 +4,10 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const ClientSuccessBanner = ({
   data,
+  handleFilterChange,
 }: {
   data: ClientSuccessBannerSectionType;
+  handleFilterChange: (filters: { [key: string]: string[] }) => void;
 }) => {
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
@@ -21,15 +23,15 @@ const ClientSuccessBanner = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* Left: Heading, copy, search */}
           <div className="space-y-6 md:space-y-8">
-            <h1 className="text-balance font-semibold tracking-tight text-foreground text-6xl md:text-9xl leading-tight">
+            <h4 className="text-balance font-semibold tracking-tight text-foreground text-6xl md:text-9xl leading-tight">
               {data?.title}
-            </h1>
+            </h4>
 
             <p className="text-pretty text-foreground text-xl md:text-3xl leading-relaxed">
               {data?.description}
             </p>
 
-            <SearchChips />
+            <SearchChips onChange={handleFilterChange} />
           </div>
 
           {/* Right: Image collage */}

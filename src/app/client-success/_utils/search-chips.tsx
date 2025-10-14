@@ -1,6 +1,5 @@
-"use client"
 
-import { useState } from "react"
+import React from "react"
 import { cn } from "@/lib/utils"
 import { SearchIcon } from "../../../../public/svg/all-svg"
 
@@ -11,18 +10,27 @@ type Chip = {
 }
 
 const initialChips: Chip[] = [
-  { id: "d365", label: "Dynamics 365", selected: true },
+  { id: "d365", label: "Dynamics 365" },
   { id: "bc", label: "Business Central" },
   { id: "finops", label: "Finance & Operation" },
   { id: "supply", label: "Supply Chain" },
 ]
 
-export default function SearchChips() {
-  const [chips, setChips] = useState<Chip[]>(initialChips)
+export default function SearchChips({ onChange }: { onChange: (filters: { [key: string]: string[] }) => void }) {
+  const [chips, setChips] = React.useState<Chip[]>(initialChips)
 
-  const toggle = (id: string) => {
-    setChips((prev) => prev.map((c) => (c.id === id ? { ...c, selected: !c.selected } : c)))
-  }
+  const toggle = React.useCallback((id: string) => {
+    setChips((prev) => {
+      const updatedChips = prev.map((c) => (c.id === id ? { ...c, selected: !c.selected } : c))
+      onChange(updatedChips.reduce((acc, chip) => {
+        if (chip.selected) {
+          acc[chip.id] = [chip.id]
+        }
+        return acc
+      }, {} as { [key: string]: string[] }))
+      return updatedChips
+    })
+  }, [onChange])
 
   const selected = chips.filter((c) => c.selected)
   const visibleSelected = selected.slice(0, 1)
@@ -73,7 +81,7 @@ export default function SearchChips() {
 
           {/* Search icon button */}
           <button
-            type="submit"
+            // type="submit"
             className="inline-flex items-center justify-center rounded-full text-foreground  size-10"
             aria-label="Search"
           >

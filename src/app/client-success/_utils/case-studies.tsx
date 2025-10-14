@@ -1,5 +1,4 @@
 import React from "react";
-import ClientSuccessBanner from "./client-success-banner";
 import ClientSuccessList from "./client-success-list";
 import ClientCustomer from "./client-customer";
 import ClientPartnership from "./client-partnership";
@@ -14,7 +13,6 @@ const CaseStudies = async ({
 }) => {
   return (
     <div className="flex flex-col gap-16">
-      <ClientSuccessBanner data={data?.banner} />
       <ClientSuccessList data={data} initialData={initialData} />
       <ClientPartnership data={data?.partnerSection} />
       <ClientCustomer data={data?.customerSection} />

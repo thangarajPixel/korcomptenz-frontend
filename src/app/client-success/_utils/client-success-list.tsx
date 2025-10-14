@@ -8,10 +8,10 @@ import PaginationSection from "@/components/pagination-section";
 import { INITIAL_PAGINATION } from "@/utils/helper";
 import { ClientSuccessFilter } from "./client-success-filter";
 import { useParams } from "next/navigation";
-import { CaseStudyCardSkeleton } from "@/app/case-study/[id]/_utils/loader";
-
+import { CaseStudyCardSkeleton } from "./case-study-skeleton";
+import ClientSuccessBanner from "./client-success-banner";
 const ClientSuccessList = ({
-  data: { sponser, filterLabel, popularFilter },
+  data: { sponser, filterLabel, popularFilter, banner },
   initialData,
 }: {
   data: CaseStudiesPageType;
@@ -39,6 +39,11 @@ const ClientSuccessList = ({
     },
   });
 
+  const handleFilterChange = React.useCallback((filters: {
+    [key: string]: string[];
+  }) => {
+    setFilter(filters as { industries: string[]; businessOutcomes: string[]; region: string[]; });
+  }, [filter]);
   const handlePageChange = (page: number) => {
     window.scrollTo({ top: 750, behavior: "smooth" });
     setPagination((prev) => ({
@@ -46,7 +51,6 @@ const ClientSuccessList = ({
       page: page,
     }));
   };
-
   const handleItemsPerPageChange = (value: number) => {
     setPagination((prev) => ({
       ...prev,
@@ -56,46 +60,50 @@ const ClientSuccessList = ({
   };
 
   return (
-    <div className="container-lg">
-      <ClientSuccessFilter
-        filterLabel={filterLabel}
-        popularFilter={popularFilter}
-        onFilterChange={setFilter}
-      />
-      <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
-        <div className="col-span-12 md:col-span-6 lg:col-span-4">
-          {sponser && <StickyTitleCard data={sponser} />}
-        </div>
-
-        {isLoading ? (
-          Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className="col-span-12 md:col-span-6 lg:col-span-4">
-              <CaseStudyCardSkeleton />
-            </div>
-          ))
-        ) : data?.results?.length ? (
-          data.results.map((item) => (
-            <div
-              key={item.id}
-              className="col-span-12 md:col-span-6 lg:col-span-4"
-            >
-              <CaseStudyCard data={item} />
-            </div>
-          ))
-        ) : (
-          <div className="col-span-12 text-center py-10 text-gray-500 text-lg">
-            No case studies found
+    <React.Fragment>
+      <ClientSuccessBanner data={banner} handleFilterChange={handleFilterChange} />
+      <div className="container-lg">
+        <ClientSuccessFilter
+          filterLabel={filterLabel}
+          popularFilter={popularFilter}
+          onFilterChange={handleFilterChange}
+        />
+        <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            {sponser && <StickyTitleCard data={sponser} />}
           </div>
+
+          {isLoading ? (
+            Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="col-span-12 md:col-span-6 lg:col-span-4">
+                <CaseStudyCardSkeleton />
+              </div>
+            ))
+          ) : data?.results?.length ? (
+            data.results.map((item) => (
+              <div
+                key={item.id}
+                className="col-span-12 md:col-span-6 lg:col-span-4"
+              >
+                <CaseStudyCard data={item} />
+              </div>
+            ))
+          ) : (
+            <div className="col-span-8  text-center py-10 text-gray-500 text-lg">
+              No case studies found
+            </div>
+          )}
+        </div>
+        {pagination && (
+          <PaginationSection
+            pagination={pagination}
+            handlePageChange={handlePageChange}
+            handleItemsPerPageChange={handleItemsPerPageChange}
+          />
         )}
       </div>
-      {pagination && (
-        <PaginationSection
-          pagination={pagination}
-          handlePageChange={handlePageChange}
-          handleItemsPerPageChange={handleItemsPerPageChange}
-        />
-      )}
-    </div>
+    </React.Fragment>
+
   );
 };
 
