@@ -11,7 +11,7 @@ const CaseStudies = async ({
 }: {
   data: CaseStudiesPageType;
   initialData: CaseStudiesType;
-  search?: CaseStudiesPageType;
+  search: FilterListType[];
 }) => {
   return (
     <div className="flex flex-col gap-16">
