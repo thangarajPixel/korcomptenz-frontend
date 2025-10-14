@@ -20,9 +20,9 @@ export const INITIAL_PAGINATION: PaginationType = {
 function isValidJson(jsonString: string) {
   try {
     JSON.parse(jsonString);
-    return true; // Parsing successful, string is valid JSON
+    return true;
   } catch {
-    return false; // Parsing failed, string is not valid JSON
+    return false;
   }
 }
 export const handleErrorMessage = (error: Error) =>
@@ -91,7 +91,6 @@ export function notify({
       break;
 
     default:
-      // Handles cases where success is undefined (e.g., errors === true)
       if (typeof errorObj === "object" && errorObj !== null) {
         for (const key in errorObj) {
           const value = errorObj[key];
@@ -127,7 +126,7 @@ export const errorSet = <T extends Record<string, never>>(
   const error = err as FormErrors;
   if (error?.details?.errors) {
     error.details.errors.forEach(({ path, message }) => {
-      const field = path[0]; // Extract field name from path array
+      const field = path[0];
       setError(field as never, {
         type: "validate",
         message,
@@ -147,28 +146,24 @@ export async function downloadFile(
 ) {
   const responseName =
     name ||
-    response.name?.split('=')?.[1]?.split('.')?.[0] ||
+    response.name?.split("=")?.[1]?.split(".")?.[0] ||
     response.name ||
-    'download';
+    "download";
 
   const blob = new Blob([response.bufferResponse], { type: response.type });
   const url = window.URL.createObjectURL(blob);
 
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
 
-  // Ensure clean filename with proper extension
-  const fileName = responseName.replace('/', '').trim() || 'file';
+  const fileName = responseName.replace("/", "").trim() || "file";
   const extension =
-    response.type.split('/')[1] ||
-    response.name.split('.').pop() ||
-    'dat';
+    response.type.split("/")[1] || response.name.split(".").pop() || "dat";
   a.download = `${fileName}.${extension}`;
 
   document.body.appendChild(a);
   a.click();
 
-  // Cleanup
   document.body.removeChild(a);
   window.URL.revokeObjectURL(url);
 }

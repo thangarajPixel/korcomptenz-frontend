@@ -25,7 +25,7 @@ type ToastPosition =
 
 type GlobalFieldType = {
   buttonText?: string;
-  titleimage?: ImageType;
+  logo?: ImageType;
   description?: string;
   image?: ImageType;
   link?: string;

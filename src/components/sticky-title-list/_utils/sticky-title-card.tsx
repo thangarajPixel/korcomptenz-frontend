@@ -3,16 +3,16 @@ import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
-  const { title, description, image, buttonText, titleimage } = data;
+  const { title, description, image, buttonText, logo } = data;
 
   return (
     <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px] ">
       {/* Content */}
       <div className="flex flex-row gap-4">
         <div className="flex flex-col justify-start  p-8 ">
-          {titleimage && (
+          {logo && (
             <div>
-              <KorcomptenzImage src={titleimage} width={172} height={172} />
+              <KorcomptenzImage src={logo} width={172} height={172} />
             </div>
           )}
 

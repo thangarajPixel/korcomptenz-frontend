@@ -8,6 +8,7 @@ import PaginationSection from "@/components/pagination-section";
 import { INITIAL_PAGINATION } from "@/utils/helper";
 import { ClientSuccessFilter } from "./client-success-filter";
 import { useParams } from "next/navigation";
+import { CaseStudyCardSkeleton } from "@/app/case-study/[id]/_utils/loader";
 
 const ClientSuccessList = ({
   data: { sponser, filterLabel, popularFilter },
@@ -31,7 +32,7 @@ const ClientSuccessList = ({
     pageCount: initialData?.pagination.pageCount || 1,
     total: initialData?.pagination.total || 0,
   });
-  const { data } = useCaseStudyListHook({
+  const { data, isLoading } = useCaseStudyListHook({
     params: { pagination, filter, slug: slug as string },
     options: {
       initialData,
@@ -62,20 +63,30 @@ const ClientSuccessList = ({
         onFilterChange={setFilter}
       />
       <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
-        {/* Sticky Card - always full width on small screens, 1/2 on md, 1/3 on lg */}
         <div className="col-span-12 md:col-span-6 lg:col-span-4">
           {sponser && <StickyTitleCard data={sponser} />}
         </div>
 
-        {/* Case Study Cards */}
-        {data?.results?.map((item) => (
-          <div
-            key={item.id}
-            className="col-span-12 md:col-span-6 lg:col-span-4"
-          >
-            <CaseStudyCard data={item} />
+        {isLoading ? (
+          Array.from({ length: 5 }).map((_, i) => (
+            <div key={i} className="col-span-12 md:col-span-6 lg:col-span-4">
+              <CaseStudyCardSkeleton />
+            </div>
+          ))
+        ) : data?.results?.length ? (
+          data.results.map((item) => (
+            <div
+              key={item.id}
+              className="col-span-12 md:col-span-6 lg:col-span-4"
+            >
+              <CaseStudyCard data={item} />
+            </div>
+          ))
+        ) : (
+          <div className="col-span-12 text-center py-10 text-gray-500 text-lg">
+            No case studies found
           </div>
-        ))}
+        )}
       </div>
       {pagination && (
         <PaginationSection
