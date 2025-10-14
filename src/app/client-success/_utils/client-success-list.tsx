@@ -13,9 +13,11 @@ import ClientSuccessBanner from "./client-success-banner";
 const ClientSuccessList = ({
   data: { sponser, filterLabel, popularFilter, banner },
   initialData,
+  search,
 }: {
   data: CaseStudiesPageType;
   initialData: CaseStudiesType;
+  search: FilterListType[];
 }) => {
   const { slug } = useParams();
   const [filter, setFilter] = useState<{
@@ -69,11 +71,13 @@ const ClientSuccessList = ({
   return (
     <React.Fragment>
       <ClientSuccessBanner
+        search={search}
         data={banner}
         handleFilterChange={handleFilterChange}
       />
       <div className="container-lg">
         <ClientSuccessFilter
+
           filterLabel={filterLabel}
           popularFilter={popularFilter}
           onFilterChange={handleFilterChange}

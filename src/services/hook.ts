@@ -57,7 +57,7 @@ export const useCaseStudySearchHook = ({
   options,
 }: {
   search?: string;
-  options?: OptionsType<CaseStudiesPageType>;
+  options?: OptionsType<(FilterListType & { from?: string })[]>;
 }) => {
   return useQuery({
     queryKey: [PAGE.FILTER_CASE_STUDY, search],

@@ -1,4 +1,4 @@
-import { getCaseStudiesPage, getCaseStudyList } from '@/services';
+import { getCaseStudiesPage, getCaseStudyList, getCaseStudySearchPage } from '@/services';
 import { INITIAL_PAGINATION } from '@/utils/helper';
 import React, { cache } from 'react'
 import CaseStudies from './case-studies';
@@ -6,12 +6,13 @@ import CaseStudies from './case-studies';
 const getCaseStudiesPageCache = cache(getCaseStudiesPage);
 
 const ClientSuccessPage = async ({ slug }: { slug?: string }) => {
-  const [data, initialData] = await Promise.all([
+  const [data, initialData, search] = await Promise.all([
     getCaseStudiesPageCache(),
     getCaseStudyList({ params: { pagination: INITIAL_PAGINATION, slug } }),
+    getCaseStudySearchPage({}),
   ]);
 
-  return <CaseStudies data={data} initialData={initialData} />;
+  return <CaseStudies data={data} initialData={initialData} search={search} />;
 }
 
 export default ClientSuccessPage

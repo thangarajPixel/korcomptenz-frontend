@@ -5,9 +5,11 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 const ClientSuccessBanner = ({
   data,
   handleFilterChange,
+  search,
 }: {
   data: ClientSuccessBannerSectionType;
   handleFilterChange: (filters: { [key: string]: string[] }) => void;
+  search?: FilterListType[];
 }) => {
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
@@ -31,7 +33,7 @@ const ClientSuccessBanner = ({
               {data?.description}
             </p>
 
-            <SearchChips onChange={handleFilterChange} />
+            <SearchChips onChange={handleFilterChange} search={search} />
           </div>
 
           {/* Right: Image collage */}

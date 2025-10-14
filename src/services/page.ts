@@ -67,7 +67,7 @@ export const getCaseStudySearchPage = async ({
   search = "",
 }: {
   search?: string;
-}): Promise<CaseStudiesPageType> => {
+}): Promise<FilterListType[]> => {
   const { data } = await http.get(CASE_STUDY_SEARCH, { params: { search } });
   return data;
 };
