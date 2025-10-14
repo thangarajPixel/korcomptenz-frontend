@@ -6,7 +6,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
   const { title, description, image, buttonText, logo } = data;
 
   return (
-    <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px] ">
+    <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px]">
       {/* Content */}
       <div className="flex flex-row gap-4">
         <div className="flex flex-col justify-start  p-8 ">
