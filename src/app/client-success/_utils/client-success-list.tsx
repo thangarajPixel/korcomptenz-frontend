@@ -39,11 +39,18 @@ const ClientSuccessList = ({
     },
   });
 
-  const handleFilterChange = React.useCallback((filters: {
-    [key: string]: string[];
-  }) => {
-    setFilter(filters as { industries: string[]; businessOutcomes: string[]; region: string[]; });
-  }, [filter]);
+  const handleFilterChange = React.useCallback(
+    (filters: { [key: string]: string[] }) => {
+      setFilter(
+        filters as {
+          industries: string[];
+          businessOutcomes: string[];
+          region: string[];
+        }
+      );
+    },
+    [filter]
+  );
   const handlePageChange = (page: number) => {
     window.scrollTo({ top: 750, behavior: "smooth" });
     setPagination((prev) => ({
@@ -61,7 +68,10 @@ const ClientSuccessList = ({
 
   return (
     <React.Fragment>
-      <ClientSuccessBanner data={banner} handleFilterChange={handleFilterChange} />
+      <ClientSuccessBanner
+        data={banner}
+        handleFilterChange={handleFilterChange}
+      />
       <div className="container-lg">
         <ClientSuccessFilter
           filterLabel={filterLabel}
@@ -103,7 +113,6 @@ const ClientSuccessList = ({
         )}
       </div>
     </React.Fragment>
-
   );
 };
 

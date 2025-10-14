@@ -6,6 +6,7 @@ const HOME = "/home";
 const GLOBAL_PAGE = "/page";
 const CASE_STUDIES_PAGE = "/case-study-list";
 export const CASE_STUDY = "/case-studies";
+const CASE_STUDY_SEARCH = "/case-study-search?search";
 
 export const FILTER_CASE_STUDY = "/case-study-filter";
 export const CASE_STUDY_LEAD = "/case-study-leads";
@@ -42,11 +43,15 @@ export const getFilterCaseStudies = async (): Promise<FilterDataType> => {
 };
 export const createCaseStudyLead = async (formData: ContactFormData) => {
   const { data } = await http.post(CASE_STUDY_LEAD, { data: formData });
-  data?.attachment?.url && await getDownloadService(data?.attachment)
+  data?.attachment?.url && (await getDownloadService(data?.attachment));
   return data;
 };
 
-export const getCaseStudyList = async ({ params }: { params: { pagination: PaginationType, slug?: string } }): Promise<CaseStudiesType> => {
+export const getCaseStudyList = async ({
+  params,
+}: {
+  params: { pagination: PaginationType; slug?: string };
+}): Promise<CaseStudiesType> => {
   const { data } = await http.get(CASE_STUDY, {
     params,
   });
@@ -55,5 +60,14 @@ export const getCaseStudyList = async ({ params }: { params: { pagination: Pagin
 
 export const getCaseStudiesPage = async (): Promise<CaseStudiesPageType> => {
   const { data } = await http.get(CASE_STUDIES_PAGE);
+  return data;
+};
+
+export const getCaseStudySearchPage = async ({
+  search = "",
+}: {
+  search?: string;
+}): Promise<CaseStudiesPageType> => {
+  const { data } = await http.get(CASE_STUDY_SEARCH, { params: { search } });
   return data;
 };

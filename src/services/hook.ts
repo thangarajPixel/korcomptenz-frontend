@@ -51,3 +51,17 @@ export const useCaseStudyListHook = ({
     ...options,
   });
 };
+
+export const useCaseStudySearchHook = ({
+  search,
+  options,
+}: {
+  search?: string;
+  options?: OptionsType<CaseStudiesPageType>;
+}) => {
+  return useQuery({
+    queryKey: [PAGE.FILTER_CASE_STUDY, search],
+    queryFn: () => PAGE.getCaseStudySearchPage({ search }),
+    ...options,
+  });
+};
