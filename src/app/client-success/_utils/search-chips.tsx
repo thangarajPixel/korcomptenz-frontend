@@ -122,7 +122,10 @@ export default function SearchChips({
           {value && (
             <button
               type="button"
-              onClick={() => setValue("")}
+              onClick={() => {
+                setValue("");
+                onSearch?.("");
+              }}
               className="inline-flex items-center justify-center rounded-full text-muted-foreground size-8 hover:bg-accent transition"
               aria-label="Clear search"
             >
