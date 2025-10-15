@@ -140,7 +140,7 @@ export default function SearchChips({
                 onSearch?.(value.trim());
               }
             }}
-            className="inline-flex items-center justify-center rounded-full text-foreground size-10 hover:bg-accent transition"
+            className="inline-flex items-center justify-center rounded-full text-foreground size-10 hover:bg-accent transition  cursor-pointer"
             aria-label="Search"
           >
             <SearchIcon />
