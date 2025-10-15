@@ -32,6 +32,7 @@ const ClientSuccessList = ({
   });
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [sort, setSort] = useState("createdAt:desc");
   const [pagination, setPagination] = useState<PaginationType>({
     ...INITIAL_PAGINATION,
     pageCount: initialData?.pagination.pageCount || 1,
@@ -44,6 +45,7 @@ const ClientSuccessList = ({
       filter,
       slug: slug as string,
       search: searchTerm,
+      sort: [sort],
     },
     options: {
       initialData,
@@ -104,6 +106,7 @@ const ClientSuccessList = ({
           filterLabel={filterLabel}
           popularFilter={popularFilter}
           onFilterChange={handleFilterChange}
+          onSortChange={setSort}
         />
         <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
           <div className="col-span-12 md:col-span-6 lg:col-span-4">

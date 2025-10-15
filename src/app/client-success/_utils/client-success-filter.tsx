@@ -21,6 +21,7 @@ type FilterBarProps = {
     [key: string]: string[];
   }) => void;
   popularFilter?: PopularFilterType;
+  onSortChange?: (sort: string) => void;
 };
 
 const defaultFilter = {
@@ -51,6 +52,7 @@ export function ClientSuccessFilter({
   onFilterChange,
   filterLabel,
   popularFilter,
+  onSortChange,
 }: FilterBarProps) {
   const { data } = useFilterCaseStudyHook({});
 
@@ -180,11 +182,12 @@ export function ClientSuccessFilter({
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           {popularFilter?.popularFilterList.map((item) => (
-            <div className="p-2 space-y-1">
-              <button className="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-accent transition-colors">
-                {item.label}
-              </button>
-            </div>
+            <button
+              className="w-full text-left px-3 py-2 cursor-pointer rounded-md text-sm hover:bg-accent transition-colors"
+              onClick={() => onSortChange?.(item.sort)}
+            >
+              {item.label}
+            </button>
           ))}
         </DropdownMenuContent>
       </DropdownMenu>

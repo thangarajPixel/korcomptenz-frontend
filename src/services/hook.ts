@@ -44,6 +44,7 @@ export const useCaseStudyListHook = ({
     };
     search?: string;
     slug?: string;
+    sort?: string[];
   };
 }) => {
   return useQuery({
