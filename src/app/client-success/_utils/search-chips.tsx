@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { SearchIcon } from "../../../../public/svg/all-svg";
 import { useCaseStudySearchHook } from "@/services";
 import { useDebounce } from "@uidotdev/usehooks";
+import { X as XIcon } from "lucide-react";
 
 export default function SearchChips({
   onChange,
@@ -118,7 +119,16 @@ export default function SearchChips({
               }
             }}
           />
-
+          {value && (
+            <button
+              type="button"
+              onClick={() => setValue("")}
+              className="inline-flex items-center justify-center rounded-full text-muted-foreground size-8 hover:bg-accent transition"
+              aria-label="Clear search"
+            >
+              <XIcon size={18} />
+            </button>
+          )}
           {/* Search icon button */}
           <button
             type="button"
