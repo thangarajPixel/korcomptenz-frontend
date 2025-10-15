@@ -17,7 +17,7 @@ const StretchableSectionCard = ({
     <div
       {...props}
       className={cn(`bg-light-gray rounded-4xl relative overflow-hidden min-h-80 flex flex-row  transition-all duration-1000 ease-out  
-        ${open ? "lg:flex-[2] transform scale-[1.02]" : "lg:flex-1"}`, props.className)}
+        ${open ? "lg:flex-[2] transform" : "lg:flex-1"}`, props.className)}
     >
       <div className='pl-8 py-8 lg:pl-10 lg:py-10 flex flex-col '>
         <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-auto">{data?.title}</h2>

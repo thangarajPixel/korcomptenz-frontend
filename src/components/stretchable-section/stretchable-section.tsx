@@ -19,7 +19,7 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
           <CardSwiper disableAutoSlide>
             {item?.list?.map((value) => (
               <StretchableSectionCard
-                key={`stretchable-section-card-${value?.title?.toLowerCase()}`}
+                key={`stretchable-section-card-${value?.id}`}
                 open={true}
                 props={{
                   className: "embla__custom_slide"
@@ -29,18 +29,23 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
               />
             ))}
           </CardSwiper>
-        ) : (item?.list?.map((value) => (
-          <StretchableSectionCard
-            key={`stretchable-section-card-${value?.title?.toLowerCase()}`}
-            open={hoveredCard === value?.title?.toLowerCase()}
-            props={{
-              onMouseEnter: () => setHoveredCard(value?.title?.toLowerCase()),
-              onMouseLeave: () => setHoveredCard(defaultCard)
-            }}
-            image={item?.image}
-            data={value}
-          />
-        )))}
+        ) : (
+          <div className="flex flex-wrap justify-center gap-4">
+            {item?.list?.map((value) => (
+              <StretchableSectionCard
+                key={`stretchable-section-card-${value?.title?.toLowerCase()}`}
+                open={hoveredCard === value?.title?.toLowerCase()}
+                props={{
+                  className: 'flex-grow lg:basis-1/4 md:basis-1/3 sm:basis-1/2 basis-full',
+                  onMouseEnter: () => setHoveredCard(value?.title?.toLowerCase()),
+                  onMouseLeave: () => setHoveredCard(defaultCard)
+                }}
+                image={item?.image}
+                data={value}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

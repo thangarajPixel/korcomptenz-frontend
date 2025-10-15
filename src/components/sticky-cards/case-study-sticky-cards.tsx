@@ -8,9 +8,9 @@ export default function CaseStudyStickyCards({
 }) {
   const componentProps: StickyCardsType = {
     ...stickyCards,
-    list: stickyCards.list.map((item) => ({
+    list: stickyCards.list.map((item, index) => ({
       ...item,
-      specificId: item.id,
+      specificId: (index + 1).toString().padStart(3, '0'),
       title: item.heroSection.title,
       description: item.heroSection.description,
       buttonText: 'Korcomptenz',
