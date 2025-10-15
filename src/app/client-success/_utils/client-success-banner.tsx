@@ -13,9 +13,6 @@ const ClientSuccessBanner = ({
   onSearch?: (search: string) => void;
   search?: FilterListType[];
 }) => {
-  const handleSearch = (term: string) => {
-    onSearch?.(term);
-  };
 
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
@@ -42,7 +39,7 @@ const ClientSuccessBanner = ({
             <SearchChips
               onChange={handleFilterChange}
               search={search}
-              onSearch={handleSearch}
+              onSearch={onSearch}
             />
           </div>
 

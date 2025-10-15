@@ -10,6 +10,7 @@ import { ClientSuccessFilter } from "./client-success-filter";
 import { useParams } from "next/navigation";
 import { CaseStudyCardSkeleton } from "./case-study-skeleton";
 import ClientSuccessBanner from "./client-success-banner";
+
 const ClientSuccessList = ({
   data: { sponser, filterLabel, popularFilter, banner },
   initialData,
@@ -31,16 +32,12 @@ const ClientSuccessList = ({
   });
 
   const [searchTerm, setSearchTerm] = useState("");
-
-  const handleSearch = (term: string) => {
-    setSearchTerm(term);
-  };
-
   const [pagination, setPagination] = useState<PaginationType>({
     ...INITIAL_PAGINATION,
     pageCount: initialData?.pagination.pageCount || 1,
     total: initialData?.pagination.total || 0,
   });
+
   const { data, isLoading } = useCaseStudyListHook({
     params: {
       pagination,
@@ -53,6 +50,14 @@ const ClientSuccessList = ({
     },
   });
 
+  const handleSearch = React.useCallback((term: string) => {
+    setSearchTerm(term);
+    setPagination((prev) => ({
+      ...prev,
+      page: 1,
+    }));
+  }, [pagination]);
+
   const handleFilterChange = React.useCallback(
     (filters: { [key: string]: string[] }) => {
       setFilter(
@@ -62,23 +67,29 @@ const ClientSuccessList = ({
           region: string[];
         }
       );
+      setPagination((prev) => ({
+        ...prev,
+        page: 1,
+      }));
     },
     [filter]
   );
-  const handlePageChange = (page: number) => {
+
+  const handlePageChange = React.useCallback((page: number) => {
     window.scrollTo({ top: 750, behavior: "smooth" });
     setPagination((prev) => ({
       ...prev,
       page: page,
     }));
-  };
-  const handleItemsPerPageChange = (value: number) => {
+  }, [pagination]);
+
+  const handleItemsPerPageChange = React.useCallback((value: number) => {
     setPagination((prev) => ({
       ...prev,
       pageSize: value,
       page: 1,
     }));
-  };
+  }, [pagination]);
 
   return (
     <React.Fragment>

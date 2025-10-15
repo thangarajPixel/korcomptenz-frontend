@@ -42,10 +42,7 @@ export const useCaseStudyListHook = ({
     filter: {
       [key: string]: string[];
     };
-    search: {
-      [key: string]: string[];
-    };
-
+    search?: string;
     slug?: string;
   };
 }) => {
