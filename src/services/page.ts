@@ -6,7 +6,7 @@ const HOME = "/home";
 const GLOBAL_PAGE = "/page";
 const CASE_STUDIES_PAGE = "/case-study-list";
 export const CASE_STUDY = "/case-studies";
-const CASE_STUDY_SEARCH = "/case-study-search?search";
+const CASE_STUDY_SEARCH = "/case-study-search";
 
 export const FILTER_CASE_STUDY = "/case-study-filter";
 export const CASE_STUDY_LEAD = "/case-study-leads";

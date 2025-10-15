@@ -6,11 +6,17 @@ const ClientSuccessBanner = ({
   data,
   handleFilterChange,
   search,
+  onSearch,
 }: {
   data: ClientSuccessBannerSectionType;
   handleFilterChange: (filters: { [key: string]: string[] }) => void;
+  onSearch?: (search: string) => void;
   search?: FilterListType[];
 }) => {
+  const handleSearch = (term: string) => {
+    onSearch?.(term);
+  };
+
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
       <div className="absolute inset-0">
@@ -33,7 +39,11 @@ const ClientSuccessBanner = ({
               {data?.description}
             </p>
 
-            <SearchChips onChange={handleFilterChange} search={search} />
+            <SearchChips
+              onChange={handleFilterChange}
+              search={search}
+              onSearch={handleSearch}
+            />
           </div>
 
           {/* Right: Image collage */}

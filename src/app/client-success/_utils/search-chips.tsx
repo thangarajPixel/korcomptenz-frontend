@@ -1,20 +1,31 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { SearchIcon } from "../../../../public/svg/all-svg";
 import { useCaseStudySearchHook } from "@/services";
+import { useDebounce } from "@uidotdev/usehooks";
 
 export default function SearchChips({
   onChange,
   search,
+  onSearch,
 }: {
   onChange: (filters: { [key: string]: string[] }) => void;
+  onSearch?: (search: string) => void;
   search?: FilterListType[];
 }) {
-  const [chips, setChips] = React.useState<(FilterListType & { from?: string })[]>([]);
+  const [value, setValue] = useState("");
+
+  const [chips, setChips] = React.useState<
+    (FilterListType & { from?: string })[]
+  >([]);
+  const debouncedSearchTerm = useDebounce(value, 1000);
   const { data } = useCaseStudySearchHook({
     options: {
-      initialData: search
-    }
+      initialData: search,
+    },
+    search: debouncedSearchTerm,
   });
 
   const handleToggle = React.useCallback(
@@ -42,7 +53,9 @@ export default function SearchChips({
     [onChange]
   );
 
-  const nonSelectedChips = data?.filter((c) => !chips?.some((chip) => chip.id === c.id && chip.from === c.from));
+  const nonSelectedChips = data?.filter(
+    (c) => !chips?.some((chip) => chip.id === c.id && chip.from === c.from)
+  );
 
   return (
     <div className="space-y-4">
@@ -53,50 +66,68 @@ export default function SearchChips({
         </label>
         <div className="flex items-center gap-3 bg-card border border-input rounded-2xl px-4 md:px-6 py-3 md:py-4">
           {/* Active chips inside the search field (limit to 1 + summary) */}
-          {chips?.[0] && (<div className="flex items-center gap-2">
-            <button
-              key={`${chips?.[0]?.id}-${chips?.[0]?.from}-item-search-list`}
-              type="button"
-              onClick={() => handleToggle(chips?.[0])}
-              className="whitespace-nowrap inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm cursor-pointer"
-              // aria-pressed={chips?.[0]?.selected}
-              aria-label={`${chips?.[0]?.label} selected. Remove`}
-            >
-              {chips?.[0]?.label}
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
+          {chips?.[0] && (
+            <div className="flex items-center gap-2">
+              <button
+                key={`${chips?.[0]?.id}-${chips?.[0]?.from}-item-search-list`}
+                type="button"
+                onClick={() => handleToggle(chips?.[0])}
+                className="whitespace-nowrap inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm cursor-pointer"
+                // aria-pressed={chips?.[0]?.selected}
+                aria-label={`${chips?.[0]?.label} selected. Remove`}
               >
-                <path
-                  d="M6 6l8 8M14 6l-8 8"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-            {(chips?.length && chips?.length > 1) && (
-              <span
-                className="whitespace-nowrap inline-flex items-center rounded-full border border-input bg-primary text-primary-foreground px-3 py-1.5 text-sm cursor-pointer"
-                aria-label={`${chips?.length - 1} more selected`}
-              >
-                +{chips?.length - 1} selected
-              </span>
-            )}
-          </div>)}
+                {chips?.[0]?.label}
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M6 6l8 8M14 6l-8 8"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
+              {chips?.length && chips?.length > 1 && (
+                <span
+                  className="whitespace-nowrap inline-flex items-center rounded-full border border-input bg-primary text-primary-foreground px-3 py-1.5 text-sm cursor-pointer"
+                  aria-label={`${chips?.length - 1} more selected`}
+                >
+                  +{chips?.length - 1} selected
+                </span>
+              )}
+            </div>
+          )}
 
           <input
             id="search"
             placeholder="Search"
             className="min-w-0 flex-1 bg-transparent outline-none text-base md:text-lg placeholder:text-foreground"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                if (value.trim()) {
+                  onSearch?.(value.trim());
+                }
+              }
+            }}
           />
 
           {/* Search icon button */}
           <button
-            className="inline-flex items-center justify-center rounded-full text-foreground  size-10"
+            type="button"
+            onClick={() => {
+              if (value.trim()) {
+                onSearch?.(value.trim());
+              }
+            }}
+            className="inline-flex items-center justify-center rounded-full text-foreground size-10 hover:bg-accent transition"
             aria-label="Search"
           >
             <SearchIcon />
@@ -106,7 +137,7 @@ export default function SearchChips({
 
       {/* Suggested chips */}
       <div className="flex flex-wrap items-center gap-3">
-        {nonSelectedChips?.map((c) => (
+        {nonSelectedChips?.slice(0, 5)?.map((c) => (
           <button
             key={`${c.id}-${c.from}-item-list`}
             type="button"
@@ -115,7 +146,9 @@ export default function SearchChips({
               "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm cursor-pointer",
               "border border-input bg-primary text-primary-foreground "
             )}
-            aria-pressed={chips?.some((chip) => chip.id === c.id && chip.from === c.from)}
+            aria-pressed={chips?.some(
+              (chip) => chip.id === c.id && chip.from === c.from
+            )}
           >
             {c.label}
             {/* Plus icon */}

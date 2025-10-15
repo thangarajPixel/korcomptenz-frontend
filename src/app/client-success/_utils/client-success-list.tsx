@@ -29,13 +29,25 @@ const ClientSuccessList = ({
     businessOutcomes: [],
     region: [],
   });
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (term: string) => {
+    setSearchTerm(term);
+  };
+
   const [pagination, setPagination] = useState<PaginationType>({
     ...INITIAL_PAGINATION,
     pageCount: initialData?.pagination.pageCount || 1,
     total: initialData?.pagination.total || 0,
   });
   const { data, isLoading } = useCaseStudyListHook({
-    params: { pagination, filter, slug: slug as string },
+    params: {
+      pagination,
+      filter,
+      slug: slug as string,
+      search: searchTerm,
+    },
     options: {
       initialData,
     },
@@ -74,10 +86,10 @@ const ClientSuccessList = ({
         search={search}
         data={banner}
         handleFilterChange={handleFilterChange}
+        onSearch={handleSearch}
       />
       <div className="container-lg">
         <ClientSuccessFilter
-
           filterLabel={filterLabel}
           popularFilter={popularFilter}
           onFilterChange={handleFilterChange}
