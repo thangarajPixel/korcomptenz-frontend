@@ -3,7 +3,6 @@ import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
-  DropdownMenuSeparator,
   DropdownMenuItem,
 } from "../ui/dropdown-menu";
 import {
@@ -19,6 +18,7 @@ import {
 } from "../ui/pagination";
 import { ChevronDown } from "lucide-react";
 import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 const PaginationSection = ({
   pagination,
@@ -189,16 +189,13 @@ const PaginationSection = ({
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-24">
-            <DropdownMenuSeparator />
             {[5, 10, 20, 50].map((num) => (
               <DropdownMenuItem
                 key={`pagination-dropdown-${num}`}
                 onClick={() => handleItemsPerPageChange(num)}
-                className={`cursor-pointer ${
+                className={cn(`cursor-pointer`,
                   pagination?.pageSize === num
-                    ? "bg-gray-100 text-muted font-normal"
-                    : ""
-                }`}
+                  && "bg-gray-100 text-muted font-normal")}
               >
                 {num}
               </DropdownMenuItem>
