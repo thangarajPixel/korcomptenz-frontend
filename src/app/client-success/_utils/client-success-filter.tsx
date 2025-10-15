@@ -183,6 +183,7 @@ export function ClientSuccessFilter({
         <DropdownMenuContent align="end">
           {popularFilter?.popularFilterList.map((item) => (
             <button
+              key={`sort-${item.id}`}
               className="w-full text-left px-3 py-2 cursor-pointer rounded-md text-sm hover:bg-accent transition-colors"
               onClick={() => onSortChange?.(item.sort)}
             >
