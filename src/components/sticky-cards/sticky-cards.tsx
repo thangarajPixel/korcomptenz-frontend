@@ -93,7 +93,7 @@ export default function StickyCards({
                 </div>
 
                 {/* Visual Section */}
-                <div
+                {card?.image && <div
                   className={cn(
                     "relative overflow-hidden h-full order-1 md:h-auto md:w-96 md:flex-shrink-0 md:order-none"
                   )}
@@ -104,7 +104,7 @@ export default function StickyCards({
                     width={1000}
                     height={1000}
                   />
-                </div>
+                </div>}
               </Card>
             </div>
           </div>

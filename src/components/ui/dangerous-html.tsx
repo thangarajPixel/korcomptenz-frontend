@@ -1,9 +1,10 @@
 import React from 'react'
 import "./ui.css";
+import { cn } from '@/lib/utils';
 
-const DangerousHtml = ({ html }: { html: string }) => {
+const DangerousHtml = ({ html, className }: { html: string, className?: string }) => {
   return (
-    <div className="rich-text" dangerouslySetInnerHTML={{ __html: html }} />
+    <div className={cn("rich-text", className)} dangerouslySetInnerHTML={{ __html: html }} />
   )
 }
 

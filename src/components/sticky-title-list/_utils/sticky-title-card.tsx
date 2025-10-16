@@ -1,6 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import DangerousHtml from "@/components/ui/dangerous-html";
+import { cn } from "@/lib/utils";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
   const { title, description, image, buttonText, logo } = data;
@@ -19,9 +21,9 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           <h3 className=" text-foreground text-6xl md:text-7xl font-bold leading-tight">
             {title}
           </h3>
-          <p className="text-foreground text-md pr-10  md:text-lg leading-4xl mb-8 max-w-xs">
-            {description}
-          </p>
+          {description && (
+            <DangerousHtml html={description} className={cn(image?.url && "text-foreground text-md pr-10  md:text-lg leading-4xl mb-8 max-w-xs")} />
+          )}
 
           {buttonText && (
             <Button
@@ -35,32 +37,31 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
         </div>
 
         {/*Desktop Button */}
-        <div className="hidden lg:flex -ml-10 pt-10  pb-0 ">
-          {/* Illustration */}
-          {image && (
+        {image && (
+          <div className="hidden lg:flex -ml-10 pt-10  pb-0 ">
+            {/* Illustration */}
             <div className="flex absolute -right-0 -bottom-0 justify-end items-end">
               <KorcomptenzImage
-                className={`w-full object-cover p-0 ${
-                  image?.height > 300
-                    ? "h-[300px]"
-                    : image?.height >= 200
+                className={`w-full object-cover p-0 ${image?.height > 300
+                  ? "h-[300px]"
+                  : image?.height >= 200
                     ? "h-[200px]"
                     : image?.height >= 100
-                    ? "h-[150px]"
-                    : "h-[90px]"
-                }`}
+                      ? "h-[150px]"
+                      : "h-[90px]"
+                  }`}
                 width={image?.width}
                 height={image?.height}
                 src={image}
               />
             </div>
-          )}
-        </div>
+          </div>
+        )}
         {/*Mobile Button */}
       </div>
-      <div className="relative lg:hidden ">
-        {/* Illustration */}
-        {image && (
+      {image && (
+        <div className="relative lg:hidden ">
+          {/* Illustration */}
           <div className="flex absolute -right-0 -bottom-0 justify-end items-end  ">
             <KorcomptenzImage
               className="w-full object-cover p-0"
@@ -69,8 +70,8 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               src={image}
             />
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
