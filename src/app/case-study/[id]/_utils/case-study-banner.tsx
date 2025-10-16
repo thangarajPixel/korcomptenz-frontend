@@ -2,7 +2,6 @@
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-
 export function CaseStudyBanner({ data }: { data: CaseStudyHeroSection }) {
   return (
     <section
@@ -12,7 +11,10 @@ export function CaseStudyBanner({ data }: { data: CaseStudyHeroSection }) {
       <div className="flex flex-col md:flex-row  ">
         {/* Left Content */}
         <div className="bg-[#C7D7CA] flex-1 p-8 md:p-12 flex flex-col rounded-l-[50px] ">
-          <p className="text-xl font-medium text-gray-800 mt-4">{data.title}</p>
+          <p className="text-xl font-medium text-gray-800 mt-4">
+            {" "}
+            {data?.study}Manufacturing
+          </p>
 
           <span className="text-9xl  text-custom-gray-9 mt-4  font-semibold  max-w-md ">
             {data.title}

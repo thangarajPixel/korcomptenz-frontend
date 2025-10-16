@@ -199,6 +199,7 @@ type CaseStudyHeroSection = {
   description: string;
   image: ImageType;
   buttonText: string;
+  study: string;
 };
 
 type CaseStudyTestimonial = {
