@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { X } from "lucide-react"
 
 
-interface VideoPopupProps {
+type VideoPopupProps = {
   isOpen: boolean
   onClose: () => void
   videoSrc: string
