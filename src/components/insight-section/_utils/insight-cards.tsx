@@ -8,7 +8,7 @@ export type InsightCardType = {
   id: string;
   title: string;
   image: ImageType;
-  alt: string;
+  description?: string;
   className?: string;
   category: string;
 };
@@ -16,6 +16,7 @@ export type InsightCardType = {
 export function InsightCard({
   title,
   image,
+  description,
   className,
   category,
 }: InsightCardType) {
@@ -50,6 +51,11 @@ export function InsightCard({
       <p className="mt-4 left-0 top-0 max-w-fit text-start lg:text-5xl text-3xl  font-semibold leading-7 lg:leading-10 ">
         {title}
       </p>
+      {description && (
+        <p className="mt-4 left-0 top-0 max-w-fit text-start lg:text-5xl text-3xl  font-semibold leading-7 lg:leading-10 ">
+          {description}
+        </p>
+      )}
     </motion.article>
   );
 }

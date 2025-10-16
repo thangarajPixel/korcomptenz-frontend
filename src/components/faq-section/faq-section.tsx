@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../ui/accordion";
+import DangerousHtml from "../ui/dangerous-html";
 
 const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
   const [activeId, setActiveId] = useState<number | null>(null);
@@ -34,7 +35,7 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
               <ChevronDownIcon className="size-10 p-2 text-white rounded-full bg-primary pointer-events-none  shrink-0 translate-y-0.5 transition-transform duration-200" />
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
-              <p className="mt-2 text-lg text-answer-color">{item?.description}</p>
+              {item?.description && <DangerousHtml className="mt-2 text-lg text-answer-color" html={item?.description} />}
             </AccordionContent>
           </AccordionItem>
         ))}

@@ -6,16 +6,18 @@ export default function CaseStudyStickyCards({
 }: {
   stickyCards: CaseStudyStickyCardsType;
 }) {
-  const componentProps: StickyCardsType = {
+
+  const compileData: StickyCardsType = {
     ...stickyCards,
     list: stickyCards.list.map((item, index) => ({
       ...item,
       specificId: (index + 1).toString().padStart(3, '0'),
       title: item.heroSection.title,
       description: item.heroSection.description,
-      buttonText: 'Korcomptenz',
+      buttonText: item.heroSection?.buttonText,
+      link: `/case-study/${item.slug}`,
       image: item.heroSection.image,
     })),
   };
-  return <StickyCards stickyCards={componentProps} />;
+  return <StickyCards stickyCards={compileData} />;
 }

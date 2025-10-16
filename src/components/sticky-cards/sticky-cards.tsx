@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "../korcomptenz-image";
+import Link from "next/link";
+import { useMobile } from "@/utils/custom-hooks";
 
 export default function StickyCards({
   className,
@@ -13,6 +15,7 @@ export default function StickyCards({
   className?: string;
   stickyCards: StickyCardsType;
 }) {
+  const isMobile = useMobile()
   const cardData = stickyCards?.list;
 
   return (
@@ -27,13 +30,15 @@ export default function StickyCards({
           </h1>
 
           {stickyCards?.buttonText && (
-            <Button
-              className="hidden sm:inline-flex variant:default text-4xl"
-              size="xl"
-            >
-              {stickyCards?.buttonText}
-              <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
-            </Button>
+            <Link href={stickyCards?.link || '/'}>
+              <Button
+                className="hidden sm:inline-flex variant:default text-4xl"
+                size="xl"
+              >
+                {stickyCards?.buttonText}
+                <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
+              </Button>
+            </Link>
           )}
         </div>
         {cardData?.map((card, index) => (
@@ -68,28 +73,15 @@ export default function StickyCards({
                       {card?.description}
                     </p>
                   </div>
-
-                  {/* Mobile / sm / md */}
-                  <div className="block lg:hidden">
-                    <Button
-                      className="mt-3 mb-3 text-xs px-2 rounded-full
-               bg-white text-primary border border-primary h-[44px] w-[155px]"
-                    >
-                      {card?.buttonText}
-                      <ChevronRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-
-                  {/* LG and above */}
-                  <div className="hidden lg:block">
+                  <Link href={card?.link || '/'}>
                     <Button
                       size="xl"
-                      className="mt-3 mb-3 w-fit text-4xl px-6 rounded-full"
+                      className={cn("mt-3 mb-3 rounded-full ", !isMobile ? "w-fit text-4xl px-6" : " text-xs px-2  bg-white text-primary border border-primary h-[44px] w-[155px]")}
+                      arrow={true}
                     >
                       {card?.buttonText}
-                      <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
-                  </div>
+                  </Link>
                 </div>
 
                 {/* Visual Section */}

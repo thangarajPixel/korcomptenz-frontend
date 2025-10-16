@@ -38,12 +38,14 @@ type InspireSectionType = {
 type StickyCardsType = {
   title: string;
   buttonText: string;
+  link: string;
   list: {
     id: string;
     specificId: string;
     title: string;
     description: string;
     buttonText: string;
+    link?: string;
     image: ImageType;
   }[];
 };
@@ -58,6 +60,7 @@ type CaseStudyStickyCardsType = {
       title: string;
       description: string;
       image: ImageType;
+      buttonText: string;
     };
     slug: string;
     study: string;
