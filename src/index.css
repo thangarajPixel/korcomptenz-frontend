@@ -333,6 +333,6 @@ body {
 .rich-text span {
   @apply !font-sans !text-md md:!text-lg !text-foreground;
 }
-.rich-text a {
-  @apply !font-sans !text-md md:!text-lg !text-pri;
+.rich-text u {
+  @apply !font-sans !text-md md:!text-lg !text-primary;
 }
