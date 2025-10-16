@@ -27,7 +27,7 @@ export const getCaseStudyService = async ({
   slug,
 }: {
   slug: string;
-}): Promise<CaseStudyData> => {
+}): Promise<CaseStudySingleData> => {
   const { data } = await http.get(CASE_STUDY + "/" + slug);
   return data;
 };

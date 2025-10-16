@@ -315,3 +315,24 @@ body {
 .embla__custom_slide1 {
   @apply flex-[0_0_100%] lg:flex-[0_0_50%] min-w-0;
 }
+.rich-text {
+  @apply !font-sans;
+}
+
+.rich-text ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+.rich-text li {
+  margin-bottom: 0.25rem;
+}
+
+.rich-text a {
+  @apply !text-primary;
+}
+.rich-text span {
+  @apply !font-sans !text-md md:!text-lg !text-foreground;
+}
+.rich-text a {
+  @apply !font-sans !text-md md:!text-lg !text-pri;
+}

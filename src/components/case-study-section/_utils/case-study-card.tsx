@@ -17,16 +17,16 @@ export function CaseStudyCard({ data }: { data: CaseStudyData }) {
       <motion.div className="relative  rounded-4xl">
         <div className="absolute left-3 top-3 flex flex-wrap gap-2 z-10">
           {/* Industry chip */}
-          {data?.case_industries.length > 0 && (
+          {data?.case_industries?.length > 0 && (
             <span className="rounded-full px-4 py-1 text-sm font-medium text-white bg-secondary">
-              {data.case_industries
+              {data?.case_industries
                 .map((industry) => industry.label)
                 .join(", ")}
             </span>
           )}
 
           {/* Service + Technology chip */}
-          {(data?.services.length > 0 || data?.technologies.length > 0) && (
+          {(data?.services?.length > 0 || data?.technologies?.length > 0) && (
             <span className="rounded-full px-4 py-1 text-sm font-medium text-white bg-primary">
               {[...data.services, ...data.technologies]
                 .map((item) => item.label)

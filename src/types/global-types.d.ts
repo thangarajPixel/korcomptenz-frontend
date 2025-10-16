@@ -220,7 +220,10 @@ type CaseStudyData = {
   services: { label: string }[];
   technologies: { label: string }[];
 };
-
+type CaseStudySingleData = {
+  caseStudy: CaseStudyData;
+  relatedCaseStudies: CaseStudyData[];
+};
 // ✅ Banner section
 type ClientSuccessBannerSectionType = {
   id: string;
