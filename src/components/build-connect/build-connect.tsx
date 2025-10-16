@@ -2,6 +2,7 @@ import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import DangerousHtml from "../ui/dangerous-html";
 
 const BuildConnect = ({
   buildData,
@@ -17,9 +18,10 @@ const BuildConnect = ({
         <h1 className="text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
           {buildData?.title}
         </h1>
-        <p className="text-md md:text-2xl text-foreground leading-7 break-words">
-          {buildData?.description}
-        </p>
+        <DangerousHtml
+          html={buildData?.description}
+          className="text-md md:text-2xl text-foreground leading-7 break-words"
+        />
         {buildData?.descriptionButtonText && (
           <Link href={buildData?.descriptionButtonLink || '#'}>
             <Button size="xl" className="items-center" arrow={true}>
