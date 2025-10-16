@@ -272,7 +272,8 @@ type BuildConnectSectionType = {
   mobileImage: ImageType;
   imageCaption: string;
   buttonText: string;
-  alt: string;
+  descriptionButtonText: string;
+  descriptionButtonLink: string;
 };
 
 type TechPartnerSectionType = {

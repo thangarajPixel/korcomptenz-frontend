@@ -9,13 +9,21 @@ const InspireSection = ({ inspireSection }: { inspireSection: InspireSectionType
   const cards = inspireSection?.list;
   const distributeCards = React.useCallback(() => {
     const len = cards?.length;
-    if (len === 2) return { left: [cards?.[0]], center: [cards?.[1]], right: [] };
-    if (len === 3) return { left: [cards?.[0]], center: [cards?.[1]], right: [cards?.[2]] };
-    if (len === 4) return { left: [cards?.[0]], center: [cards?.[1]], right: cards?.slice(2) };
-    if (len === 5) return { left: cards?.slice(0, 2), center: [cards?.[2]], right: cards?.slice(3) };
-    // fallback: try to balance
-    const mid = Math.floor((len || 0) / 2);
-    return { left: cards?.slice(0, mid), center: [cards[mid]], right: cards?.slice(mid + 1) };
+    switch (len) {
+      case 2:
+        return { left: [cards?.[0]], center: [cards?.[1]], right: [] };
+      case 3:
+        return { left: [cards?.[0]], center: [cards?.[1]], right: [cards?.[2]] };
+      case 4:
+        return { left: [cards?.[0]], center: [cards?.[1]], right: cards?.slice(2) };
+      case 5:
+        return { left: cards?.slice(0, 2), center: [cards?.[2]], right: cards?.slice(3) };
+      case 6:
+        return { left: cards?.slice(0, 2), center: cards?.slice(2, 4), right: cards?.slice(4) };
+      default:
+        const mid = Math.floor((len || 0) / 2);
+        return { left: cards?.slice(0, mid), center: [cards[mid]], right: cards?.slice(mid + 1) };
+    }
   }, [cards]);
 
   const { left, center, right } = distributeCards();
@@ -32,13 +40,13 @@ const InspireSection = ({ inspireSection }: { inspireSection: InspireSectionType
             <h1 className="text-6xl font-bold text-custom-gray mb-6 text-balance">
               {inspireSection?.title}
             </h1>
-            <Button
+            {inspireSection?.buttonText && <Button
               size="xl"
               arrow={true}
               className="variant:default lg:px-4 xl:px-8 py-2 text-4xl rounded-full inline-flex"
             >
               {inspireSection?.buttonText}
-            </Button>
+            </Button>}
           </div>
           {center?.map((card) => <InspireSectionCard key={`inspire-section-${card.id}`} card={card} />)}
         </div>

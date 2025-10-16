@@ -1,6 +1,7 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const BuildConnect = ({
   buildData,
@@ -19,6 +20,13 @@ const BuildConnect = ({
         <p className="text-md md:text-2xl text-foreground leading-7 break-words">
           {buildData?.description}
         </p>
+        {buildData?.descriptionButtonText && (
+          <Link href={buildData?.descriptionButtonLink || '#'}>
+            <Button size="xl" className="items-center" arrow={true}>
+              {buildData?.descriptionButtonText || "Watch Now"}
+            </Button>
+          </Link>
+        )}
       </div>
       <div className="p-5 hidden lg:block">
         <KorcomptenzImage
@@ -52,7 +60,7 @@ const BuildConnect = ({
           </div>
         )}
       </div>
-    </section>
+    </section >
   );
 };
 
