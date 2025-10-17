@@ -10,10 +10,10 @@ export function CaseStudyBanner({ data }: { data: CaseStudyHeroSection }) {
     >
       <div className="flex flex-col md:flex-row  ">
         {/* Left Content */}
-        <div className="bg-[#C7D7CA] flex-1 p-8 md:p-12 flex flex-col rounded-l-[50px] ">
+        <div className="bg-[#C7D7CA] flex-1 p-8 md:p-12 flex flex-col rounded-4xl rounded-l-4xl md:rounded-l-4xl md:rounded-none">
           <p className="text-xl font-medium text-gray-800 mt-4">
             {" "}
-            {data?.study}Manufacturing
+            {data?.study}
           </p>
 
           <span className="text-9xl  text-custom-gray-9 mt-4  font-semibold  max-w-md ">
@@ -24,12 +24,12 @@ export function CaseStudyBanner({ data }: { data: CaseStudyHeroSection }) {
           </p>
         </div>
         {/* Right Image */}
-        <div className="relative flex-1 rounded-r-[50px]">
+        <div className="relative flex-1 rounded-4xl rounded-r-4xl md:rounded-r-4xl md:rounded-none">
           <KorcomptenzImage
             src={data?.image}
             width={800}
             height={512}
-            className="object-cover w-full h-full rounded-r-[50px]"
+            className="object-cover w-full h-full rounded-4xl rounded-r-4xl md:rounded-r-4xl md:rounded-none"
           />
         </div>
       </div>

@@ -258,11 +258,10 @@ type DemonstrationSectionType = {
   buttonText: string;
   buttonlink: string;
   list: {
-    id: number;
+    id: string;
     type: string;
     image: ImageType;
     title: string;
-    alt: ImageType;
     description: string;
     buttonText: string;
     buttonLink: string;

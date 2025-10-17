@@ -21,7 +21,7 @@ const CaseStudy = ({ data }: { data: CaseStudySingleData }) => {
           id="insights-heading"
           className="text-pretty lg:text-7xl text-6xl font-semibold text-primary break-words md:text-7xl "
         >
-          Explore more success stories
+          {data?.caseStudy?.relatedCase?.title || "Explore more success stories"}
         </h2>
         <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
           {data?.relatedCaseStudies?.length > 0 && (
@@ -38,7 +38,7 @@ const CaseStudy = ({ data }: { data: CaseStudySingleData }) => {
               size="xl"
               arrow={true}
             >
-              View all case studies
+              {data?.caseStudy?.relatedCase?.buttonText || "View all case studies"}
             </Button>
           </Link>
         </div>

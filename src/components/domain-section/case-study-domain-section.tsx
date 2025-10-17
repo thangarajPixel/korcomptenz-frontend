@@ -1,25 +1,26 @@
 import React from "react";
 
-import DomainSection from "./domain-section";
+import DemonstrateSection from "../demonstrate-section";
 
 const CaseStudyDomainSection = ({
   domainData,
 }: {
   domainData: CaseStudyStickyCardsType;
 }) => {
-  const componentProps: DomainSectionType = {
+  const componentProps: DemonstrationSectionType = {
     ...domainData,
-    slides: domainData.list.map((item) => ({
+    list: domainData.list.map((item) => ({
       ...item,
       image: item.heroSection.image,
-      type: '',
-      buttonText: 'Korcomptenz',
+      buttonText: item.heroSection.buttonText,
       title: item.heroSection.title,
       description: item.heroSection.description,
+      buttonLink: item.heroSection.buttonText,
+      type: ""
     })),
-    description: ""
+    buttonlink: domainData.link,
   };
-  return <DomainSection domainData={componentProps} />;
+  return <DemonstrateSection data={componentProps} />;
 };
 
 export default CaseStudyDomainSection;

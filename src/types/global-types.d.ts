@@ -219,6 +219,10 @@ type CaseStudyData = {
   case_industries: { label: string }[];
   services: { label: string }[];
   technologies: { label: string }[];
+  relatedCase: {
+    title: string;
+    buttonText: string;
+  };
 };
 type CaseStudySingleData = {
   caseStudy: CaseStudyData;
