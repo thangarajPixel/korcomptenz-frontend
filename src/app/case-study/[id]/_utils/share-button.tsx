@@ -1,0 +1,120 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { Share2, Copy } from "lucide-react";
+import KorcomptenzImage from "@/components/korcomptenz-image";
+import { Button } from "@/components/ui/button";
+
+interface SocialLink {
+  id: string;
+  name: string;
+  buildUrl: (pageUrl: string) => string;
+  icon: string;
+}
+
+const defaultSocialLinks: SocialLink[] = [
+  {
+    id: "linkedin",
+    name: "LinkedIn",
+    buildUrl: (pageUrl: string) =>
+      `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
+        pageUrl
+      )}`,
+    icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/linkdin_d3537075b7.svg?updatedAt=2025-09-24T06%3A06%3A02.971Z",
+  },
+  {
+    id: "twitter",
+    name: "Twitter",
+    buildUrl: (pageUrl: string) =>
+      `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}`,
+    icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/x_b3ad0f3de3.svg?updatedAt=2025-09-24T06%3A06%3A02.959Z",
+  },
+  {
+    id: "facebook",
+    name: "Facebook",
+    buildUrl: (pageUrl: string) =>
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        pageUrl
+      )}`,
+    icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/fb_99921a527c.svg?updatedAt=2025-09-24T06%3A06%3A02.926Z",
+  },
+];
+
+export function ShareButton() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const pageUrl =
+    typeof window !== "undefined"
+      ? window.location.href
+      : "https://www.korcomptenz.com/";
+
+  const handleCopyLink = async () => {
+    await navigator.clipboard.writeText(pageUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <div className="relative inline-block mb-10">
+      {/* Share Trigger Button */}
+      <Button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Share"
+        className="flex items-center h-16 w-32 justify-center p-3 bg-white border-2 border-teal-500 text-teal-600 rounded-full hover:bg-teal-50 transition-colors duration-200"
+      >
+        Share <Share2 size={20} className="ms-2" />
+      </Button>
+
+      {/* Social Menu */}
+      {isOpen && (
+        <>
+          <div className="absolute top-full mt-3 left-0 p-3 z-50 min-w-max">
+            <div className="flex gap-3">
+              {defaultSocialLinks.map((link) => (
+                <Link
+                  key={link.id}
+                  href={link.buildUrl(pageUrl)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={link.name}
+                  aria-label={`Share on ${link.name}`}
+                  className="flex items-center justify-center w-10 h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
+                >
+                  <KorcomptenzImage src={link.icon} width={25} height={25} />
+                </Link>
+              ))}
+
+              {/* Copy Link Button */}
+              <button
+                onClick={handleCopyLink}
+                className="flex items-center justify-center w-10 h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
+                title="Copy link"
+                aria-label="Copy link"
+              >
+                <Copy
+                  size={20}
+                  className={copied ? "text-green-600" : "text-gray-700"}
+                />
+              </button>
+            </div>
+
+            {/* Copy Feedback */}
+            {copied && (
+              <p className="text-xs text-green-600 mt-2 text-center">
+                Link copied!
+              </p>
+            )}
+          </div>
+
+          {/* Overlay click to close */}
+          <div
+            className="fixed inset-0 z-40 cursor-pointer"
+            onClick={() => setIsOpen(false)}
+          />
+        </>
+      )}
+    </div>
+  );
+}
