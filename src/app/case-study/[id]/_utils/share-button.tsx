@@ -79,7 +79,6 @@ export function ShareButton() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={link.name}
-                  aria-label={`Share on ${link.name}`}
                   className="flex items-center justify-center w-10 h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
                 >
                   <KorcomptenzImage src={link.icon} width={25} height={25} />
@@ -95,14 +94,14 @@ export function ShareButton() {
               >
                 <Copy
                   size={20}
-                  className={copied ? "text-green-600" : "text-gray-700"}
+                  className={copied ? "text-primary" : "text-gray-700"}
                 />
               </button>
             </div>
 
             {/* Copy Feedback */}
             {copied && (
-              <p className="text-xs text-green-600 mt-2 text-center">
+              <p className="text-xs text-primary mt-2 text-center">
                 Link copied!
               </p>
             )}
