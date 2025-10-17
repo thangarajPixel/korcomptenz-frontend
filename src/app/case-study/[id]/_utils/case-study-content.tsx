@@ -2,52 +2,28 @@
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import DangerousHtml from "@/components/ui/dangerous-html";
+import { cn } from "@/lib/utils";
+import React from "react";
 
 export default function CaseStudyContent({
   data,
 }: {
-  data: CaseStudyDescription[];
+  data: CaseStudyData;
 }) {
-  const Rightdata = {
-    rightImage: {
-      sections: [
-        {
-          items: [
-            {
-              icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/linkdin_d3537075b7.svg?updatedAt=2025-09-24T06%3A06%3A02.971Z",
-              label: "HQ",
-              value: "United States",
-            },
-          ],
-          divider: true,
-        },
-        {
-          items: [
-            {
-              icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/linkdin_d3537075b7.svg?updatedAt=2025-09-24T06%3A06%3A02.971Z",
-              label: "Service",
-              value: "Enterprise Applications",
-            },
-            {
-              icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/linkdin_d3537075b7.svg?updatedAt=2025-09-24T06%3A06%3A02.971Z",
-              label: "Industry",
-              value: "Finance",
-            },
-          ],
-          divider: true,
-        },
-        {
-          items: [
-            {
-              icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/linkdin_d3537075b7.svg?updatedAt=2025-09-24T06%3A06%3A02.971Z",
-              label: "Technology",
-              value: "Salesforce",
-            },
-          ],
-        },
-      ],
-    },
-  };
+  const handleDescription = React.useCallback((descriptionKey: CaseStudyData['rightSection'][number]["descripitionKey"]) => {
+    switch (descriptionKey) {
+      case "region":
+        return data?.regions?.map((item) => item.label).join(", ");
+      case "service":
+        return data?.services?.map((item) => item.label).join(", ");
+      case "technology":
+        return data?.technologies?.map((item) => item.label).join(", ");
+      case "industry":
+        return data?.case_industries?.map((item) => item.label).join(", ");
+      default:
+        return "";
+    }
+  }, [data])
 
   return (
     <main className="container-md">
@@ -57,7 +33,7 @@ export default function CaseStudyContent({
           {/* LEFT: One section only (title + description text) */}
           <div className="md:basis-1/2 md:pr-2 overflow-y-auto">
             <article>
-              {data?.map((item, index) => (
+              {data?.descriptionSection?.map((item, index) => (
                 <section
                   aria-labelledby="content-title"
                   className="space-y-4 py-5"
@@ -79,35 +55,33 @@ export default function CaseStudyContent({
           {/* RIGHT: Static image exactly like provided */}
           <div className="md:basis-1/2 md:pl-2 flex justify-end items-start">
             <div className="bg-[#5A36E9] text-white rounded-[25px] p-8 w-full max-w-sm">
-              {Rightdata?.rightImage?.sections?.map((section, sectionIndex) => (
-                <div key={sectionIndex} className="mb-6 last:mb-0">
+              {data?.rightSection?.map((section, sectionIndex) => (
+                <div key={`right-section-${section?.id}`} className="mb-6 last:mb-0">
                   <div
-                    className={`grid ${
-                      section.items.length > 1
-                        ? "grid-cols-2 gap-6"
-                        : "grid-cols-1 gap-0"
-                    }`}
+                    className={cn(`grid 
+                      ${(sectionIndex === 0 || ((data?.rightSection.length === sectionIndex + 1) ? !(sectionIndex % 2 === 0) : false))
+                        ? "grid-cols-1 gap-6"
+                        : "grid-cols-2 gap-6"
+                      }
+                      `)}
                   >
-                    {section?.items?.map((item, itemIndex) => (
-                      <div key={itemIndex} className="flex flex-col space-y-1">
-                        <div className="grid items-center gap-2">
-                          <KorcomptenzImage
-                            src={item.icon}
-                            width={20}
-                            height={20}
-                          />
-                          <h3 className="text-5xl font-semibold">
-                            {item.label}
-                          </h3>
-                        </div>
-                        <p className="text-lg text-white/80">{item.value}</p>
+                    <div className="flex flex-col space-y-1">
+                      <div className="grid items-center gap-2">
+                        <KorcomptenzImage
+                          src={section.icon}
+                          width={20}
+                          height={20}
+                        />
+                        <h3 className="text-5xl font-semibold">
+                          {section.title}
+                        </h3>
                       </div>
-                    ))}
+                      <p className="text-lg text-white/80">
+                        {section.isCustomDescripition ? section?.descripition : handleDescription(section.descripitionKey)}
+                      </p>
+                    </div>
                   </div>
-
-                  {section.divider && (
-                    <div className="border-t border-white/30 mt-6 pt-6"></div>
-                  )}
+                  {((sectionIndex === 0 || ((data?.rightSection.length === sectionIndex + 1) ? !(sectionIndex % 2 === 0) : false)) && <div className="border-t border-white/30 mt-6 pt-6" />)}
                 </div>
               ))}
             </div>

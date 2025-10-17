@@ -9,11 +9,10 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 const CaseStudy = ({ data }: { data: CaseStudySingleData }) => {
-
   return (
     <React.Fragment>
       <CaseStudyBanner data={data?.caseStudy?.heroSection} />
-      <CaseStudyContent data={data?.caseStudy?.descriptionSection} />
+      <CaseStudyContent data={data?.caseStudy} />
       <ClientTestimonial data={data?.caseStudy?.testimonials} />
       <div className={cn("h-1 container-md my-20 bg-primary ")} />
       <div className="container-md">

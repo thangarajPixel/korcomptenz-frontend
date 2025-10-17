@@ -219,6 +219,15 @@ type CaseStudyData = {
   case_industries: { label: string }[];
   services: { label: string }[];
   technologies: { label: string }[];
+  regions: { label: string }[];
+  rightSection: {
+    id: string;
+    title: string;
+    descripitionKey: "region" | "service" | "technology" | "industry";
+    icon: ImageType;
+    isCustomDescripition: boolean;
+    descripition?: string;
+  }[];
   relatedCase: {
     title: string;
     buttonText: string;
