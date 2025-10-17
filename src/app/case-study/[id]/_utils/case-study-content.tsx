@@ -2,7 +2,6 @@
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import DangerousHtml from "@/components/ui/dangerous-html";
-import { cn } from "@/lib/utils";
 import React from "react";
 
 export default function CaseStudyContent({
@@ -55,35 +54,48 @@ export default function CaseStudyContent({
           {/* RIGHT: Static image exactly like provided */}
           <div className="md:basis-1/2 md:pl-2 flex justify-end items-start">
             <div className="bg-[#5A36E9] text-white rounded-[25px] p-8 w-full max-w-sm">
-              {data?.rightSection?.map((section, sectionIndex) => (
-                <div key={`right-section-${section?.id}`} className="mb-6 last:mb-0">
-                  <div
-                    className={cn(`grid 
-                      ${(sectionIndex === 0 || ((data?.rightSection.length === sectionIndex + 1) ? !(sectionIndex % 2 === 0) : false))
-                        ? "grid-cols-1 gap-6"
-                        : "grid-cols-2 gap-6"
-                      }
-                      `)}
-                  >
-                    <div className="flex flex-col space-y-1">
-                      <div className="grid items-center gap-2">
-                        <KorcomptenzImage
-                          src={section.icon}
-                          width={20}
-                          height={20}
-                        />
-                        <h3 className="text-5xl font-semibold">
-                          {section.title}
-                        </h3>
-                      </div>
-                      <p className="text-lg text-white/80">
-                        {section.isCustomDescripition ? section?.descripition : handleDescription(section.descripitionKey)}
-                      </p>
+              {data?.rightSection?.length && (() => {
+                const items = data?.rightSection || [];
+                const rows: CaseStudyData['rightSection'][] = [];
+
+                // Split into rows: 1 in first row, then 2 in second, then handle remaining
+                if (items.length > 0) {
+                  // First row → 1 item
+                  rows.push([items[0]]);
+                  // Second row → next 2 items if available
+                  if (items.length > 1) rows.push(items.slice(1, 3));
+                  // Remaining items (last row)
+                  if (items.length > 3) rows.push(items.slice(3));
+                }
+
+                return rows.map((row, rowIndex) => (
+                  <div key={`row-${rowIndex}`} className="mb-6 last:mb-0">
+                    <div
+                      className={`grid ${row.length === 1 ? "grid-cols-1" : "grid-cols-2"
+                        } gap-6`}
+                    >
+                      {row.map(section => (
+                        <div key={section?.id} className="flex flex-col space-y-1">
+                          <div className="grid items-center gap-2">
+                            <KorcomptenzImage src={section.icon} width={20} height={20} />
+                            <h3 className="text-5xl font-semibold">{section.title}</h3>
+                          </div>
+                          <p className="text-lg text-white/80">
+                            {section.isCustomDescripition
+                              ? section?.descripition
+                              : handleDescription(section.descripitionKey)}
+                          </p>
+                        </div>
+                      ))}
                     </div>
+
+                    {/* Divider between rows */}
+                    {rowIndex !== rows.length - 1 && (
+                      <div className="border-t border-white/30 mt-6 pt-6" />
+                    )}
                   </div>
-                  {((sectionIndex === 0 || ((data?.rightSection.length === sectionIndex + 1) ? !(sectionIndex % 2 === 0) : false)) && <div className="border-t border-white/30 mt-6 pt-6" />)}
-                </div>
-              ))}
+                ));
+              })()}
             </div>
           </div>
         </div>
