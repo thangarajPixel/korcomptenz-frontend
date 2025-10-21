@@ -51,10 +51,10 @@ export default function InsightsSection({
           >
             {insights?.list.map((item, index) => (
               <InsightCard
-                key={item.id}
                 {...item}
+                key={`insights-item-${item.id}`}
                 className={cn(
-                  "relative",
+                  "relative ",
                   (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] "
                 )}
               />

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import DangerousHtml from "@/components/ui/dangerous-html";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
@@ -59,7 +59,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           {/* Illustration */}
           <div className="flex absolute -right-0 -bottom-0 justify-end items-end  ">
             <KorcomptenzImage
-              className="w-full object-cover p-0"
+              className="w-full object-cover p-0 h-28"
               width={image?.width}
               height={image?.height}
               src={image}

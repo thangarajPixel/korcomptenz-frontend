@@ -11,14 +11,14 @@ const StickyTitleList = ({
       <div className="w-full px-0 ">
         <div className="flex flex-col lg:flex-row  gap-8 ">
           {/* Left Sidebar - Title */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full lg:w-1/2">
             <div className={`lg:sticky lg:top-28`}>
               <h2 className="text-6xl  md:text-9xl font-bold text-gray-900 ">
                 {salesforceServices?.title}
               </h2>
             </div>
           </div>
-          <div className="space-y-6 w-full md:w-1/2">
+          <div className="space-y-6 w-full lg:w-1/2">
             {salesforceServices?.list?.map((service) => (
               <StickyTitleCard key={`sticky-title-card-${service?.id}`} data={service} />
             ))}

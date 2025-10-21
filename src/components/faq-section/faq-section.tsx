@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../ui/accordion";
-import DangerousHtml from "../ui/dangerous-html";
+import {DangerousHtml} from "../ui/dangerous-html";
 
 const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
   const [activeId, setActiveId] = useState<number | null>(null);

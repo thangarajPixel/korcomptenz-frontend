@@ -1,7 +1,7 @@
 "use client";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import DangerousHtml from "@/components/ui/dangerous-html";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 import React from "react";
 import { ShareButton } from "./share-button";
 
@@ -56,7 +56,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
           {/* RIGHT: Static image exactly like provided */}
           <div className="md:basis-1/2 md:pl-2  lg:justify-end justify-center items-start grid">
             <div className="bg-[#5A36E9] text-white rounded-[25px] p-8 w-full max-w-sm">
-              {data?.rightSection?.length &&
+              {!!data?.rightSection?.length &&
                 (() => {
                   const items = data?.rightSection || [];
                   const rows: CaseStudyData["rightSection"][] = [];
@@ -73,9 +73,8 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                   return rows.map((row, rowIndex) => (
                     <div key={`row-${rowIndex}`} className="mb-6 last:mb-0">
                       <div
-                        className={`grid ${
-                          row.length === 1 ? "grid-cols-1" : "grid-cols-2"
-                        } gap-6`}
+                        className={`grid ${row.length === 1 ? "grid-cols-1" : "grid-cols-2"
+                          } gap-6`}
                       >
                         {row.map((section) => (
                           <div

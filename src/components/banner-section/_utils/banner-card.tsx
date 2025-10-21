@@ -44,9 +44,9 @@ const BannerCard = ({
             </p>
             {data?.buttonText && (
               <Button
-                size="lg"
+                size="xl"
                 arrow={true}
-                className="variant:default px-8 py-2 text-4xl rounded-full "
+                className="hover:bg-transparent "
               >
                 {data?.buttonText}
               </Button>
