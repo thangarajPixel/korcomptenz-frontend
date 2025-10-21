@@ -54,14 +54,13 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
           </div>
 
           {/* RIGHT: Static image exactly like provided */}
-          <div className="md:basis-1/2 md:pl-2  justify-end items-start grid">
+          <div className="md:basis-1/2 md:pl-2  lg:justify-end justify-center items-start grid">
             <div className="bg-[#5A36E9] text-white rounded-[25px] p-8 w-full max-w-sm">
               {data?.rightSection?.length &&
                 (() => {
                   const items = data?.rightSection || [];
                   const rows: CaseStudyData["rightSection"][] = [];
 
-                  // Split into rows: 1 in first row, then 2 in second, then handle remaining
                   if (items.length > 0) {
                     // First row → 1 item
                     rows.push([items[0]]);
@@ -83,11 +82,11 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                             key={section?.id}
                             className="flex flex-col space-y-1"
                           >
-                            <div className="grid items-center gap-2">
+                            <div className="grid items-center gap-5">
                               <KorcomptenzImage
                                 src={section.icon}
-                                width={50}
-                                height={50}
+                                width={40}
+                                height={40}
                               />
                               <h3 className="text-5xl font-semibold">
                                 {section.title}
