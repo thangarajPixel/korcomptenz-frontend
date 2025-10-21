@@ -5,7 +5,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 export function CaseStudyBanner({ data }: { data: CaseStudyHeroSection }) {
   return (
     <section
-      className="container-md rounded-2xl overflow-hidden py-12"
+      className="container-md rounded-2xl overflow-hidden py-12 "
       aria-label="Case Study Banner"
     >
       <div className="flex flex-col md:flex-row  ">
@@ -16,10 +16,10 @@ export function CaseStudyBanner({ data }: { data: CaseStudyHeroSection }) {
             {data?.study}
           </p>
 
-          <span className="text-9xl  text-custom-gray-9 mt-4  font-semibold  max-w-md ">
+          <span className="text-7xl  text-custom-gray-9 mt-4  font-semibold  max-w-md leading-12 ">
             {data.title}
           </span>
-          <p className="mt-4 text-5xl font-semibold  text-gray-700 ">
+          <p className="mt-4 text-3xl font-normal  text-gray-700 ">
             {data.description}
           </p>
         </div>

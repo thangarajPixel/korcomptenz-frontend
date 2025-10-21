@@ -86,8 +86,8 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                             <div className="grid items-center gap-2">
                               <KorcomptenzImage
                                 src={section.icon}
-                                width={20}
-                                height={20}
+                                width={50}
+                                height={50}
                               />
                               <h3 className="text-5xl font-semibold">
                                 {section.title}

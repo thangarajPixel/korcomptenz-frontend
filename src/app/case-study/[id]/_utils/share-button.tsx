@@ -1,19 +1,44 @@
 "use client";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Share2, Copy } from "lucide-react";
-import KorcomptenzImage from "@/components/korcomptenz-image";
+
 import { Button } from "@/components/ui/button";
+import {
+  FacebookIcon,
+  InstragramIcon,
+  LinkedInIcon,
+  TwitterIcon,
+  YoutubeIcon,
+} from "../../../../../public/svg/all-svg";
 
 interface SocialLink {
   id: string;
   name: string;
   buildUrl: (pageUrl: string) => string;
-  icon: string;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 const defaultSocialLinks: SocialLink[] = [
+  {
+    id: "instragram",
+    name: "Instragram",
+    buildUrl: (pageUrl: string) =>
+      `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
+        pageUrl
+      )}`,
+    icon: InstragramIcon,
+  },
+  {
+    id: "youtube",
+    name: "Youtube",
+    buildUrl: (pageUrl: string) =>
+      `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
+        pageUrl
+      )}`,
+    icon: YoutubeIcon,
+  },
+
   {
     id: "linkedin",
     name: "LinkedIn",
@@ -21,14 +46,14 @@ const defaultSocialLinks: SocialLink[] = [
       `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
         pageUrl
       )}`,
-    icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/linkdin_d3537075b7.svg?updatedAt=2025-09-24T06%3A06%3A02.971Z",
+    icon: LinkedInIcon,
   },
   {
     id: "twitter",
     name: "Twitter",
     buildUrl: (pageUrl: string) =>
       `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}`,
-    icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/x_b3ad0f3de3.svg?updatedAt=2025-09-24T06%3A06%3A02.959Z",
+    icon: TwitterIcon,
   },
   {
     id: "facebook",
@@ -37,7 +62,7 @@ const defaultSocialLinks: SocialLink[] = [
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
         pageUrl
       )}`,
-    icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/fb_99921a527c.svg?updatedAt=2025-09-24T06%3A06%3A02.926Z",
+    icon: FacebookIcon,
   },
 ];
 
@@ -81,7 +106,7 @@ export function ShareButton() {
                   title={link.name}
                   className="flex items-center justify-center w-10 h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
                 >
-                  <KorcomptenzImage src={link.icon} width={25} height={25} />
+                  <link.icon />
                 </Link>
               ))}
 
