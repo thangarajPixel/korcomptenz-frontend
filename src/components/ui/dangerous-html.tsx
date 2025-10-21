@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 
 export const DangerousHtml = React.memo(
   ({ html, className }: { html: string; className?: string }) => {
-    const [cleanHtml, setCleanHtml] = React.useState(html)
+    const [cleanHtml, setCleanHtml] = React.useState("Loading...")
 
     React.useEffect(() => {
       let active = true
