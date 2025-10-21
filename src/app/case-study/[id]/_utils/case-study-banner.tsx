@@ -24,12 +24,12 @@ export function CaseStudyBanner({ data }: { data: CaseStudyHeroSection }) {
           </p>
         </div>
         {/* Right Image */}
-        <div className="relative flex-1 rounded-4xl rounded-r-4xl md:rounded-r-4xl md:rounded-none">
+        <div className="relative flex-1    ">
           <KorcomptenzImage
             src={data?.image}
             width={800}
             height={512}
-            className="object-cover w-full h-full rounded-4xl rounded-r-4xl md:rounded-r-4xl md:rounded-none"
+            className="object-cover size-full  rounded-4xl  md:rounded-none  rounded-r-4xl md:rounded-r-4xl  "
           />
         </div>
       </div>

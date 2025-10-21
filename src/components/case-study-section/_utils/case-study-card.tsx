@@ -35,12 +35,12 @@ export function CaseStudyCard({ data }: { data: CaseStudyData }) {
           )}
         </div>
 
-        <div className="relative  w-full rounded-4xl">
+        <div className="relative  w-full rounded-4xl h-80">
           <KorcomptenzImage
             src={data?.heroSection?.image}
             height={431}
             width={323}
-            className=" size-full rounded-4xl"
+            className="size-full object-cover rounded-4xl"
             priority={false}
           />
         </div>
