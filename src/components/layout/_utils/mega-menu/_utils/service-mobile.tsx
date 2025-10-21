@@ -3,16 +3,23 @@
 import { useState } from "react";
 import { ChevronRight, ArrowLeft, X, ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface ChildItem {
   title: string;
   type: "light" | "dark";
+  href?: {
+    slug: string;
+  };
 }
 
 interface ServiceItem {
   title: string;
   side: "left" | "right";
   child: readonly ChildItem[];
+  href?: {
+    slug: string;
+  };
 }
 
 interface Service {
@@ -144,34 +151,90 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
             <div className="h-full overflow-y-auto bg-white">
               <div className="divide-y divide-gray-100">
                 {serviceDrawer?.service?.items?.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={() =>
-                      handleSubmenuClick(item, serviceDrawer?.service?.title || '')
-                    }
-                    className="w-full text-left border-b border-primary"
-                  >
-                    <div className="text-lg font-normal text-primary py-2 px-4 leading-6.5">
-                      {item?.title}
-                    </div>
+                  <div key={index} className="border-b border-primary">
+                    {/* 🔹 Parent Link */}
+                    <Link
+                      href={item?.href?.slug ? `/${item.href.slug}` : "#"}
+                      onClick={(e) => {
+                        e.preventDefault(); // stop default navigation
+                        handleSubmenuClick(
+                          item,
+                          serviceDrawer?.service?.title || ""
+                        );
+                      }}
+                      className="w-full block text-left"
+                    >
+                      <div className="text-lg font-normal text-primary py-2 px-4 leading-6.5">
+                        {item?.title}
+                      </div>
+                    </Link>
+
+                    {/* 🔹 Child Links */}
                     {item?.child?.length > 0 && (
                       <div className="space-y-1 mt-2">
-                        {item?.child?.map((childItem, childIndex) => (
-                          <div
+                        {item.child.map((childItem, childIndex) => (
+                          <Link
                             key={`ng-sub-${childIndex}`}
+                            href={
+                              childItem?.href?.slug
+                                ? `/${childItem.href.slug}`
+                                : "#"
+                            }
                             className={cn(
-                              `text-lg px-4 rounded`,
+                              "block text-lg px-4 rounded transition-colors",
                               childItem?.type === "light" &&
-                              "text-custom-gray-4 ps-7",
-                              childItem?.type === "dark" && "text-black mb-1"
+                                "text-custom-gray-4 ps-7 hover:text-primary",
+                              childItem?.type === "dark" &&
+                                "text-black mb-1 hover:text-primary"
                             )}
                           >
                             {childItem?.title}
-                          </div>
+                          </Link>
                         ))}
                       </div>
                     )}
-                  </button>
+                  </div>
+                ))}
+                {serviceDrawer?.service?.items?.map((item, index) => (
+                  <div key={index} className="border-b border-primary">
+                    {/* 🔹 Parent Link */}
+                    <Link
+                      href={item?.href?.slug || "#"}
+                      onClick={(e) => {
+                        e.preventDefault(); // stop default navigation
+                        handleSubmenuClick(
+                          item,
+                          serviceDrawer?.service?.title || ""
+                        );
+                      }}
+                      className="w-full block text-left"
+                    >
+                      <div className="text-lg font-normal text-primary py-2 px-4 leading-6.5">
+                        {item?.title}
+                      </div>
+                    </Link>
+
+                    {/* 🔹 Child Links */}
+                    {item?.child?.length > 0 && (
+                      <div className="space-y-1 mt-2">
+                        {item.child.map((childItem, childIndex) => (
+                          <Link
+                            key={`ng-sub-${childIndex}`}
+                            href={childItem?.href?.slug || "#"}
+                            className={cn(
+                              "block text-lg px-4 rounded transition-colors",
+                              childItem?.type === "light" &&
+                                "text-custom-gray-4 ps-7 hover:text-primary",
+                              childItem?.type === "dark" &&
+                                "text-black mb-1 hover:text-primary"
+                            )}
+                          >
+                            {childItem?.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>

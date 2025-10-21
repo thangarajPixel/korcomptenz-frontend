@@ -85,18 +85,24 @@ type CompanyType = {
 type ServicesMenuProps = {
   id: string;
   title: string;
-  href?: HrefType | null;
+  href?: {
+    slug: string;
+  };
   image: ImageType;
   items: {
     id: number;
     title: string;
     side: "left" | "right";
-    href?: HrefType | null;
+    href?: {
+      slug: string;
+    };
     child: {
       id: number;
       title: string;
       type: "dark" | "light";
-      href?: HrefType | null;
+      href?: {
+        slug: string;
+      };
     }[];
   }[];
 };

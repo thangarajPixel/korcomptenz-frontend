@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import Link from "next/link";
 
 const ServicesMenu = ({ data }: { data: LayoutType }) => {
   const [activeServiceSection, setActiveServiceSection] = useState(
@@ -20,9 +21,10 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                 key={`service-section-${section?.id}`}
                 onClick={() => setActiveServiceSection(section)}
                 className={`w-full text-left text-custom-gray-4 py-3 
-                  rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${activeServiceSection?.id === section?.id
-                    ? "text-primary"
-                    : ""
+                  rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${
+                    activeServiceSection?.id === section?.id
+                      ? "text-primary"
+                      : ""
                   }`}
               >
                 <span className="text-lg font-normal leading-1">
@@ -56,24 +58,32 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                     className="group"
                   >
                     <div className="px-5 mb-6">
-                      <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
-                        <span className="border-b-2 border-transparent group-hover:border-primary">
-                          {item?.title}
-                        </span>
-                        <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
-                      </h4>
+                      <Link href={item?.href?.slug || "#"}>
+                        <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
+                          <span className="border-b-2 border-transparent group-hover:border-primary">
+                            {item?.title}
+                          </span>
+                          <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
+                        </h4>
+                      </Link>
                       {item?.child && item?.child?.length > 0 && (
                         <div className="space-y-2">
                           {item?.child?.map((sub) => (
-                            <div
+                            <Link
                               key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
-                              className={`text-sm leading-5 cursor-pointer ${sub?.type === "dark"
-                                ? "font-normal text-black"
-                                : "text-gray-500"
-                                }`}
+                              href={sub?.href?.slug || "#"}
                             >
-                              {sub?.title}
-                            </div>
+                              <div
+                                key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
+                                className={`text-sm leading-5 cursor-pointer ${
+                                  sub?.type === "dark"
+                                    ? "font-normal text-black"
+                                    : "text-gray-500"
+                                }`}
+                              >
+                                {sub?.title}
+                              </div>
+                            </Link>
                           ))}
                         </div>
                       )}
@@ -95,24 +105,33 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                     className="group"
                   >
                     <div className="px-5 lg:mb-6">
-                      <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
-                        <span className="border-b-2 border-transparent group-hover:border-primary">
-                          {item?.title}
-                        </span>
-                        <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
-                      </h4>
+                      {" "}
+                      <Link href={item?.href?.slug || "#"}>
+                        <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
+                          <span className="border-b-2 border-transparent group-hover:border-primary">
+                            {item?.title}
+                          </span>
+                          <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
+                        </h4>
+                      </Link>
                       {item?.child && item?.child?.length > 0 && (
                         <div className="space-y-2">
                           {item?.child?.map((sub) => (
-                            <div
-                              key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}-sub-${sub?.id}`}
-                              className={`text-sm leading-5 ${sub?.type === "dark"
-                                ? "font-normal text-black"
-                                : "text-gray-500"
-                                }`}
+                            <Link
+                              key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
+                              href={sub?.href?.slug || "#"}
                             >
-                              {sub?.title}
-                            </div>
+                              <div
+                                key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}-sub-${sub?.id}`}
+                                className={`text-sm leading-5 ${
+                                  sub?.type === "dark"
+                                    ? "font-normal text-black"
+                                    : "text-gray-500"
+                                }`}
+                              >
+                                {sub?.title}
+                              </div>
+                            </Link>
                           ))}
                         </div>
                       )}
