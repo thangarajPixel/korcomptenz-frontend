@@ -6,7 +6,7 @@ import Link from "next/link";
 const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
   return (
     <section
-      className="bg-foreground py-16  lg:h-[600px] "
+      className="bg-custom-black py-16  lg:h-[600px] "
       data-debug={"home.schedule-call"}
     >
       <div className="container-md">

@@ -10,7 +10,7 @@ import FooterDescription from "./footer-description";
 
 export const Footer = ({ data }: { data: LayoutType }) => {
   return (
-    <footer className="bg-foreground text-white mt-8">
+    <footer className="bg-foreground text-white">
       <div className="container-md py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Company Info */}

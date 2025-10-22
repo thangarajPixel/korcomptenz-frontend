@@ -11,8 +11,8 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
     <div className="flex min-h-svh  flex-col">
       <Header data={response} />
       <main className="flex-1">{children}</main>
-      <ScrollTopButton />
       <Footer data={response} />
+      <ScrollTopButton />
     </div>
   );
 };
