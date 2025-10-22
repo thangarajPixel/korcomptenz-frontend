@@ -119,6 +119,7 @@ export function ShareButton() {
               >
                 <LinkIcon
                   size={20}
+                  strokeWidth={3}
                   className={"text-primary"}
                 />
               </button>
