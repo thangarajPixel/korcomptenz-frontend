@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import './ui.css'
 import { cn } from '@/lib/utils'
 
 export const DangerousHtml = React.memo(
