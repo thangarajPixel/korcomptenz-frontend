@@ -447,7 +447,7 @@ type PagesListType = {
 };
 
 type LayoutType = {
-  scheduleCall: ScheduleCallType;
+  // scheduleCall: ScheduleCallType;
   company: CompanyType;
   industriesMenu: IndustriesMenuType[];
   serviceMenu: ServicesMenuProps[];
