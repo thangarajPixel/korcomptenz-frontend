@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { ChevronRight } from "lucide-react";
 
-import ScheduleCall from "@/components/layout/_utils/schedule";
+// import ScheduleCall from "@/components/layout/_utils/schedule";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import FooterTitle from "./footer-title";
 import FooterDescription from "./footer-description";
@@ -12,7 +12,7 @@ import FooterDescription from "./footer-description";
 export const Footer = ({ data }: { data: LayoutType }) => {
   return (
     <footer className="bg-foreground text-white mt-8">
-      <ScheduleCall scheduleCall={data?.scheduleCall} />
+      {/* <ScheduleCall scheduleCall={data?.scheduleCall} /> */}
 
       <div className="container-md py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
@@ -246,11 +246,10 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
           <Link
             key={`policy-${policy?.id}`}
             href={policy?.href || "#"}
-            className={`text-custom-gray-2 text-xs mx-2 ${
-              i < data?.company?.policy?.length - 1
+            className={`text-custom-gray-2 text-xs mx-2 ${i < data?.company?.policy?.length - 1
                 ? "border-r pr-2 border-custom-gray-3"
                 : ""
-            }`}
+              }`}
           >
             {policy?.label}
           </Link>
