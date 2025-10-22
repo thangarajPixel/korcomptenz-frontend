@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Share2, Copy } from "lucide-react";
+import { Share2, Link as LinkIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -117,9 +117,9 @@ export function ShareButton() {
                 title="Copy link"
                 aria-label="Copy link"
               >
-                <Copy
+                <LinkIcon
                   size={20}
-                  className={copied ? "text-primary" : "text-gray-700"}
+                  className={"text-primary"}
                 />
               </button>
             </div>
