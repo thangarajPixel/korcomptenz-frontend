@@ -9,7 +9,7 @@ import {
   InstragramIcon,
   LinkedInIcon,
   TwitterIcon,
-  YoutubeIcon,
+  WhatAppIcon,
 } from "../../../../../public/svg/all-svg";
 
 interface SocialLink {
@@ -30,13 +30,11 @@ const defaultSocialLinks: SocialLink[] = [
     icon: InstragramIcon,
   },
   {
-    id: "youtube",
-    name: "Youtube",
+    id: "whatapp",
+    name: "Whatapp",
     buildUrl: (pageUrl: string) =>
-      `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
-        pageUrl
-      )}`,
-    icon: YoutubeIcon,
+      `https://api.whatsapp.com/send?text=${encodeURIComponent(pageUrl)}`,
+    icon: WhatAppIcon,
   },
 
   {
