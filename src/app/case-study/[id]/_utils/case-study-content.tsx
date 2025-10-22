@@ -32,7 +32,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
         {/* Layout: stack on mobile, 50/50 split on md+ */}
         <div className="flex h-full flex-col md:flex-row gap-8">
           {/* LEFT: One section only (title + description text) */}
-          <div className="md:basis-1/2 md:pr-2 overflow-y-auto">
+          <div className="flex-1">
             <article>
               {data?.descriptionSection?.map((item, index) => (
                 <section
@@ -54,7 +54,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
           </div>
 
           {/* RIGHT: Static image exactly like provided */}
-          <div className="md:basis-1/2 md:pl-2  lg:justify-end justify-center items-start grid">
+          <div className=" lg:justify-end justify-center items-start grid">
             <div className="bg-[#5A36E9] text-white rounded-[25px] p-8 w-full max-w-sm">
               {!!data?.rightSection?.length &&
                 (() => {
