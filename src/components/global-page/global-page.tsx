@@ -155,13 +155,7 @@ const GlobalPage = (props: Props) => {
             techData={item}
           />
         );
-      case "home.schedule-call":
-        return (
-          <ScheduleCall
-            key={`schedule-call-${item?.__component}-${item?.id}`}
-            scheduleCall={item}
-          />
-        );
+
       case "page-componets.stretchable-section":
         return (
           <StretchableSection
@@ -181,6 +175,13 @@ const GlobalPage = (props: Props) => {
           <CaseStudyDomainSection
             key={`case-study-domain-section-${item?.__component}-${item?.id}`}
             domainData={item}
+          />
+        );
+      case "home.schedule-call":
+        return (
+          <ScheduleCall
+            key={`schedule-call-${item?.__component}-${item?.id}`}
+            scheduleCall={item}
           />
         );
       default:

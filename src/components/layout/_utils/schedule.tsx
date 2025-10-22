@@ -6,7 +6,7 @@ import Link from "next/link";
 const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
   return (
     <section
-      className="bg-accent-foreground/30 py-16  lg:h-[600px] "
+      className="bg-foreground py-16  lg:h-[600px] "
       data-debug={"home.schedule-call"}
     >
       <div className="container-md">
@@ -29,7 +29,7 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
 
           <div className="flex items-center space-x-2 -mt-25 md:ml-0 ml-30 lg:ml-0 lg:mr-10 lg:mt-10">
             <KorcomptenzImage
-              src={scheduleCall?.image}
+              src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/lets_drive_fdc0c33e0c.png"
               alt="drive"
               className="w-full lg:w-[550px] h-auto rounded-2xl"
               width={1112}
