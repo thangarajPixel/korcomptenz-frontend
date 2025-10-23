@@ -4,13 +4,14 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { DangerousHtml } from "../ui/dangerous-html";
 
-import ContactUs from "../contact-us-section";
+import BookDemoSection from "../book-demo-section";
 
 const BuildConnect = ({
   buildData,
 }: {
   buildData: BuildConnectSectionType;
 }) => {
+
   return (
     <section
       className="container-md my-10 grid grid-cols-1 lg:grid-cols-2"
@@ -75,7 +76,7 @@ const BuildConnect = ({
           className=""
         />
       )}
-      {buildData?.rightSection?.content === "form" && <ContactUs />}
+      {buildData?.rightSection?.content === "form" && <BookDemoSection essential={buildData?.rightSection?.form?.forms[0] as BookDemoFormType} />}
     </section>
   );
 };

@@ -283,6 +283,7 @@ type BuildConnectSectionType = {
       image: ImageType;
       mobileImage: ImageType;
     };
+    form: GlobalFormType;
   };
 };
 
@@ -358,6 +359,48 @@ type GramBannerType = {
   buttonText: string;
   descriptionButtonText: string;
   descriptionButtonLink: string;
+};
+type CaseStudyFormType = {
+  __component: 'form-fields.case-study-form';
+  id: string;
+  title: string;
+  nameLabel: string;
+  organizationLabel: string;
+  emailLabel: string;
+  phoneLabel: string;
+  messageLabel: string;
+  buttonText: string;
+};
+type ContactFormType = {
+  __component: 'form-fields.contact-form';
+  id: string;
+  title: string;
+  nameLabel: string;
+  organizationLabel: string;
+  emailLabel: string;
+  phoneLabel: string;
+  messageLabel: string;
+  buttonText: string;
+};
+type BookDemoFormType = {
+  __component: 'form-fields.book-demo-form';
+  id: string;
+  title: string;
+  nameLabel: string;
+  organizationLabel: string;
+  emailLabel: string;
+  buttonText: string;
+};
+
+type FormMap = {
+  CaseStudyFormType: CaseStudyFormType;
+  ContactFormType: ContactFormType;
+  BookDemoFormType: BookDemoFormType;
+};
+type FormType = keyof FormMap;
+type FormPropsType = FormMap[FormType];
+type GlobalFormType = {
+  forms: FormPropsType[];
 };
 type ComponentPropsMap = {
   SlidingSection: {
@@ -462,6 +505,11 @@ type ComponentPropsMap = {
   GramBanner: GramBannerType & {
     id: string;
     __component: "page-componets.gram-banner";
+  };
+  GlobalForm: {
+    id: string;
+    __component: "form-fields.form";
+    form: GlobalFormType;
   };
 };
 type ComponentType = keyof ComponentPropsMap;

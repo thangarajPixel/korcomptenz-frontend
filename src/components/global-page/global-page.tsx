@@ -21,6 +21,7 @@ import ScheduleCall from "../layout/_utils/schedule";
 import StretchableSection from "../stretchable-section";
 import WhyKorcomptenz from "../why-korcomptenz/why-korcomptenz";
 import GramBanner from "../gram-banner/gram-banner";
+import { GlobalForm } from "../global-form";
 
 type Props = {
   data: ComponentPropsType[];
@@ -198,6 +199,13 @@ const GlobalPage = (props: Props) => {
           <GramBanner
             key={`gram-banner-${item?.__component}-${item?.id}`}
             gramData={item}
+          />
+        );
+      case "form-fields.form":
+        return (
+          <GlobalForm
+            key={`global-form-${item?.__component}-${item?.id}`}
+            form={item?.form}
           />
         );
       default:

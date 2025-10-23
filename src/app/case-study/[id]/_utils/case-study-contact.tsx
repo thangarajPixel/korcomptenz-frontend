@@ -9,7 +9,7 @@ import { contactSchema, type ContactFormData } from "@/utils/validation.schema";
 import { useCaseStudyLeadHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
 
-export function ContactForm({ data }: { data: CaseStudyData }) {
+export function CaseStudyForm({ data }: { data: CaseStudyData }) {
   const {
     control,
     handleSubmit,
@@ -29,9 +29,9 @@ export function ContactForm({ data }: { data: CaseStudyData }) {
   });
   const { mutateAsync } = useCaseStudyLeadHook();
   const handleFormSubmit: SubmitHandler<ContactFormData> = React.useCallback(
-    async (data) => {
+    async (formdata) => {
       try {
-        const response = await mutateAsync(data);
+        const response = await mutateAsync(formdata);
         notify(response);
       } catch (error) {
         errorSet(error, setError);

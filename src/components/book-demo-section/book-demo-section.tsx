@@ -13,7 +13,11 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { useBookADemoHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
 
-const ContactUs = () => {
+const BookDemoSection = ({
+  essential,
+}: {
+  essential: BookDemoFormType;
+}) => {
   const {
     control,
     handleSubmit,
@@ -45,20 +49,20 @@ const ContactUs = () => {
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)}>
       <div className="grid shadow-xl p-10 gap-y-8 w-3/4">
-        <h1 className="text-5xl font-semibold text-center text-foreground">
-          Book a Demo
-        </h1>
+        <h3 className="text-5xl font-semibold text-center text-foreground">
+          {essential?.title || "Book a Demo"}
+        </h3>
         <div className="grid grid-cols-2 md:grid-cols-2 gap-x-2 ">
           <Input
             control={control}
             name="name"
-            placeholder="Full name"
+            placeholder={essential?.nameLabel || "Full name"}
             className="border-2 p-2 rounded-md text-foreground"
           />
           <Input
             control={control}
             name="organization"
-            placeholder="Organization"
+            placeholder={essential?.organizationLabel || "Organization"}
             className="border-2 p-2 rounded-md text-foreground"
           />
         </div>
@@ -68,7 +72,7 @@ const ContactUs = () => {
           <Input
             control={control}
             name="email"
-            placeholder="Email ID"
+            placeholder={essential?.emailLabel || "Email ID"}
             className="border-2 p-2 rounded-md text-foreground"
           />
         </div>
@@ -82,7 +86,7 @@ const ContactUs = () => {
             isLoading={isSubmitting}
             type="submit"
           >
-            Book Now
+            {essential?.buttonText || "Book Now"}
           </Button>
         </div>
       </div>
@@ -90,4 +94,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default BookDemoSection;

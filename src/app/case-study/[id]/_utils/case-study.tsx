@@ -2,7 +2,7 @@ import React from "react";
 import CaseStudyBanner from "./case-study-banner";
 import CaseStudyContent from "./case-study-content";
 import { ClientTestimonial } from "@/app/client-success/_utils";
-import { ContactForm } from "./case-study-contact";
+import { CaseStudyForm } from "./case-study-contact";
 import { CaseStudyCard } from "@/components/case-study-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -44,7 +44,7 @@ const CaseStudy = ({ data }: { data: CaseStudySingleData }) => {
         </div>
       </div>
 
-      <ContactForm data={data?.caseStudy} />
+      <CaseStudyForm data={data?.caseStudy} />
     </React.Fragment>
   );
 };
