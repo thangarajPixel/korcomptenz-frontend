@@ -1,39 +1,50 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { Button } from "../ui/button";
-import Link from "next/link";
+
 import { DangerousHtml } from "../ui/dangerous-html";
 
 const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
   return (
     <section
-      className="container-md my-10 grid grid-cols-1 lg:grid-cols-1"
-      data-debug={"page-componets.build-data"}
+      className={`my-10 grid grid-cols-1 lg:grid-cols-1 ${
+        gramData?.theme === "dark"
+          ? "bg-custom-black container-nav"
+          : gramData?.theme === "light"
+          ? "bg-custom-gray-6 container-nav"
+          : ""
+      }`}
+      data-debug="page-components.build-data"
     >
-      <div className="px-5 space-y-3 ">
-        <h1 className="text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15 text-center">
+      <div
+        className={` space-y-3 container-md p-5 ${
+          gramData?.theme === "default" ? "bg-custom-gray-6 rounded-2xl " : ""
+        }  `}
+      >
+        <h1
+          className={`text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15 text-center px-10 ${
+            gramData?.theme === "dark" ? "text-white" : ""
+          }`}
+        >
           {gramData?.title}
         </h1>
         <DangerousHtml
           html={gramData?.description}
-          className="text-md md:text-2xl text-foreground leading-7 break-words text-center"
-        />
-        {gramData?.descriptionButtonText && (
-          <Link href={gramData?.descriptionButtonLink || "#"}>
-            <Button size="xl" className="items-center" arrow={true}>
-              {gramData?.descriptionButtonText || "Watch Now"}
-            </Button>
-          </Link>
-        )}
-      </div>
-      <div className="p-5 hidden lg:flex  items-center justify-center ">
-        <KorcomptenzImage
-          src={gramData?.image}
-          width={500}
-          height={500}
-          className="w-auto h-auto  "
+          className={`text-md md:text-2xl text-foreground leading-7 break-words text-center px-10  ${
+            gramData?.theme === "dark" ? "text-white" : ""
+          } `}
         />
       </div>
+      {gramData?.image && (
+        <div className="p-5 hidden lg:flex  items-center justify-center ">
+          <KorcomptenzImage
+            src={gramData?.image}
+            width={500}
+            height={500}
+            className="w-auto h-auto  "
+          />
+        </div>
+      )}
       <div className="p-5 lg:hidden ">
         <KorcomptenzImage
           src={gramData?.mobileImage}
