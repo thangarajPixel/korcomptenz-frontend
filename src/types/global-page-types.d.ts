@@ -276,6 +276,14 @@ type BuildConnectSectionType = {
   buttonText: string;
   descriptionButtonText: string;
   descriptionButtonLink: string;
+  rightSection: {
+    content: string;
+    description: string;
+    responsiveImage: {
+      image: ImageType;
+      mobileImage: ImageType;
+    };
+  };
 };
 
 type TechPartnerSectionType = {
@@ -294,6 +302,12 @@ type ScheduleCallType = {
   buttonText: string;
   link: string;
   image: string;
+};
+
+type WhyKorcomptenzType = {
+  title: string;
+  description: string;
+  list: IndustryItem[];
 };
 type CompanyType = {
   id: string;
@@ -333,6 +347,16 @@ type StretchableSectionType = {
     image: ImageType;
     buttonText: string;
   }[];
+};
+type GramBannerType = {
+  title: string;
+  description: string;
+  image: ImageType;
+  mobileImage: ImageType;
+  imageCaption: string;
+  buttonText: string;
+  descriptionButtonText: string;
+  descriptionButtonLink: string;
 };
 type ComponentPropsMap = {
   SlidingSection: {
@@ -429,6 +453,14 @@ type ComponentPropsMap = {
   CaseStudyDomainSection: CaseStudyStickyCardsType & {
     id: string;
     __component: "case-study.case-study-domain-data";
+  };
+  WhyKorcomptenz: WhyKorcomptenzType & {
+    id: string;
+    __component: "page-componets.why-we-are";
+  };
+  GramBanner: GramBannerType & {
+    id: string;
+    __component: "page-componets.gram-banner";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

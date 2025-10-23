@@ -4,6 +4,8 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import { DangerousHtml } from "../ui/dangerous-html";
 
+import ContactUs from "../contact-us-section";
+
 const BuildConnect = ({
   buildData,
 }: {
@@ -23,46 +25,58 @@ const BuildConnect = ({
           className="text-md md:text-2xl text-foreground leading-7 break-words"
         />
         {buildData?.descriptionButtonText && (
-          <Link href={buildData?.descriptionButtonLink || '#'}>
+          <Link href={buildData?.descriptionButtonLink || "#"}>
             <Button size="xl" className="items-center" arrow={true}>
               {buildData?.descriptionButtonText || "Watch Now"}
             </Button>
           </Link>
         )}
       </div>
-      <div className="p-5 hidden lg:block">
-        <KorcomptenzImage
-          src={buildData?.image}
-          width={500}
-          height={500}
-          className="w-full h-auto object-cover"
-        />
-        {buildData?.imageCaption && (
-          <div className="flex flex-col items-center gap-4 lg:mt-5">
-            <p className="text-3xl">{buildData?.imageCaption}</p>
-            <Button size="xl" className="items-center">
-              {buildData?.buttonText || "Watch Now"}
-            </Button>
+      {buildData?.rightSection?.content === "image" && (
+        <div>
+          <div className="p-5 hidden lg:block">
+            <KorcomptenzImage
+              src={buildData?.rightSection?.responsiveImage?.image}
+              width={500}
+              height={500}
+              className="w-full h-auto object-cover"
+            />
+            {buildData?.imageCaption && (
+              <div className="flex flex-col items-center gap-4 lg:mt-5">
+                <p className="text-3xl">{buildData?.imageCaption}</p>
+                <Button size="xl" className="items-center">
+                  {buildData?.buttonText || "Watch Now"}
+                </Button>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-      <div className="p-5 lg:hidden ">
-        <KorcomptenzImage
-          src={buildData?.mobileImage}
-          width={500}
-          height={500}
-          className="w-full h-auto object-cover"
-        />
-        {buildData?.imageCaption && (
-          <div className="flex flex-col items-center gap-2 lg:mt-5">
-            <p className="text-md text-center">{buildData?.imageCaption}</p>
-            <Button className="items-center">
-              {buildData?.buttonText || "Watch Now"}
-            </Button>
+          <div className="p-5 lg:hidden ">
+            <KorcomptenzImage
+              src={buildData?.rightSection?.responsiveImage?.mobileImage}
+              width={500}
+              height={500}
+              className="w-full h-auto object-cover"
+            />
+            {buildData?.imageCaption && (
+              <div className="flex flex-col items-center gap-2 lg:mt-5">
+                <p className="text-md text-center">{buildData?.imageCaption}</p>
+                <Button className="items-center">
+                  {buildData?.buttonText || "Watch Now"}
+                </Button>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </section >
+        </div>
+      )}
+
+      {buildData?.rightSection?.content === "description" && (
+        <DangerousHtml
+          html={buildData?.rightSection?.description}
+          className="bg-custom-gray-5 rounded-2xl p-5"
+        />
+      )}
+      {buildData?.rightSection?.content === "form" && <ContactUs />}
+    </section>
   );
 };
 

@@ -14,14 +14,14 @@ const BannerCard = ({
   return (
     <div className={cn(className)}>
       {/* Desktop view */}
-      <div className="relative w-full md:h-[513px] h-full overflow-hidden rounded-4xl hidden lg:block">
+      <div className="relative w-full md:h-[513px] h-full overflow-hidden rounded-4xl hidden lg:block  ">
         <KorcomptenzImage
           src={data?.image}
           width={1000}
           height={800}
-          className="w-full h-full object-cover rounded-4xl"
+          className="w-full h-full object-cover rounded-4xl "
         />
-
+        <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0)_100%)] z-[5] rounded-4xl" />
         {data?.logo ? (
           <div className=" absolute top-30 left-10 p-4 md:p-8 z-10 w-full h-full flex flex-col gap-6 justify-center items-start">
             <KorcomptenzImage
@@ -35,7 +35,7 @@ const BannerCard = ({
             </p>
           </div>
         ) : (
-          <div className=" absolute top-0 left-10 p-18 z-10 w-5/8 h-full flex flex-col gap-6 justify-center items-start">
+          <div className=" absolute top-0 left-10 p-18 z-10 w-5/8 h-full flex flex-col gap-6 justify-center items-start ">
             <h2 className="text-9xl font-semibold leading-14 text-white mb-4">
               {data?.title}
             </h2>
@@ -43,11 +43,7 @@ const BannerCard = ({
               {data?.description}
             </p>
             {data?.buttonText && (
-              <Button
-                size="xl"
-                arrow={true}
-                className="hover:bg-transparent "
-              >
+              <Button size="xl" arrow={true} className="hover:bg-transparent ">
                 {data?.buttonText}
               </Button>
             )}

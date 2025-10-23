@@ -19,6 +19,8 @@ import BuildConnect from "../build-connect";
 import TechPartner from "../tech-partner-section";
 import ScheduleCall from "../layout/_utils/schedule";
 import StretchableSection from "../stretchable-section";
+import WhyKorcomptenz from "../why-korcomptenz/why-korcomptenz";
+import GramBanner from "../gram-banner/gram-banner";
 
 type Props = {
   data: ComponentPropsType[];
@@ -182,6 +184,20 @@ const GlobalPage = (props: Props) => {
           <ScheduleCall
             key={`schedule-call-${item?.__component}-${item?.id}`}
             scheduleCall={item}
+          />
+        );
+      case "page-componets.why-we-are":
+        return (
+          <WhyKorcomptenz
+            key={`why-we-are-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "page-componets.gram-banner":
+        return (
+          <GramBanner
+            key={`gram-banner-${item?.__component}-${item?.id}`}
+            gramData={item}
           />
         );
       default:

@@ -313,3 +313,11 @@ type FilterLabelType = {
   childTitle: string;
   isDesignedDropdown: boolean;
 };
+
+type IndustryItem = {
+  id: string;
+  title: string;
+  description: string;
+  image: ImageType;
+  buttontext: string;
+};

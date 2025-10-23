@@ -7,7 +7,6 @@ import { CaseStudyCard } from "@/components/case-study-section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import WhyKorcomptenz from "@/components/why-korcomptenz/why-korcomptenz";
 
 const CaseStudy = ({ data }: { data: CaseStudySingleData }) => {
   return (
@@ -44,7 +43,7 @@ const CaseStudy = ({ data }: { data: CaseStudySingleData }) => {
           </Link>
         </div>
       </div>
-      <WhyKorcomptenz />
+
       <ContactForm data={data?.caseStudy} />
     </React.Fragment>
   );

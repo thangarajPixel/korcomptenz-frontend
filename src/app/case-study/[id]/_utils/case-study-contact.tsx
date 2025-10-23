@@ -4,15 +4,18 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { zodResolver } from '@hookform/resolvers/zod';
-import { contactSchema, type ContactFormData } from '@/utils/validation.schema';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { contactSchema, type ContactFormData } from "@/utils/validation.schema";
 import { useCaseStudyLeadHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
 
-
 export function ContactForm({ data }: { data: CaseStudyData }) {
-
-  const { control, handleSubmit, setError, formState: { isSubmitting } } = useForm<ContactFormData>({
+  const {
+    control,
+    handleSubmit,
+    setError,
+    formState: { isSubmitting },
+  } = useForm<ContactFormData>({
     mode: "onSubmit",
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -25,14 +28,17 @@ export function ContactForm({ data }: { data: CaseStudyData }) {
     },
   });
   const { mutateAsync } = useCaseStudyLeadHook();
-  const handleFormSubmit: SubmitHandler<ContactFormData> = React.useCallback(async (data) => {
-    try {
-      const response = await mutateAsync(data);
-      notify(response)
-    } catch (error) {
-      errorSet(error, setError)
-    }
-  }, [mutateAsync]);
+  const handleFormSubmit: SubmitHandler<ContactFormData> = React.useCallback(
+    async (data) => {
+      try {
+        const response = await mutateAsync(data);
+        notify(response);
+      } catch (error) {
+        errorSet(error, setError);
+      }
+    },
+    [mutateAsync]
+  );
 
   return (
     <div className="container-md py-12 px-8">
@@ -59,13 +65,28 @@ export function ContactForm({ data }: { data: CaseStudyData }) {
           </div>
           {/* Row 2: Organization and Phone */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-            <Input control={control} name="organization" placeholder="Organization" />
+            <Input
+              control={control}
+              name="organization"
+              placeholder="Organization"
+            />
             <Input control={control} name="phone" placeholder="Phone Number" />
           </div>
-          <Textarea control={control} name="message" placeholder="Type your message/enquiry here.." />
+          <Textarea
+            control={control}
+            name="message"
+            placeholder="Type your message/enquiry here.."
+          />
           {/* Submit button */}
           <div className="pt-4">
-            <Button isLoading={isSubmitting} type="submit" size={'xl'} variant={'outline'} className="hover:bg-primary border-primary text-primary hover:text-white" arrow>
+            <Button
+              isLoading={isSubmitting}
+              type="submit"
+              size={"xl"}
+              variant={"outline"}
+              className="hover:bg-primary border-primary text-primary hover:text-white"
+              arrow
+            >
               Submit
             </Button>
           </div>
