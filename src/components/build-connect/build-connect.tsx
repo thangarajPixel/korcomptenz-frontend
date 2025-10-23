@@ -72,7 +72,7 @@ const BuildConnect = ({
       {buildData?.rightSection?.content === "description" && (
         <DangerousHtml
           html={buildData?.rightSection?.description}
-          className="bg-custom-gray-5 rounded-2xl p-5"
+          className=""
         />
       )}
       {buildData?.rightSection?.content === "form" && <ContactUs />}
