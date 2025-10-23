@@ -5,7 +5,15 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
-  const { title, description, image, buttonText, logo } = data;
+  const {
+    title,
+    description,
+    image,
+    buttonText,
+    logo,
+    secondaryDescription,
+    mainImage,
+  } = data;
 
   return (
     <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px]">
@@ -22,7 +30,27 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
             {title}
           </h3>
           {description && (
-            <DangerousHtml html={description} className={cn(image?.url && "text-foreground text-md pr-10  md:text-lg leading-4xl mb-8 max-w-xs")} />
+            <DangerousHtml
+              html={description}
+              className={cn(
+                image?.url &&
+                  "text-foreground text-md pr-10  md:text-lg leading-4xl mb-8 max-w-xs"
+              )}
+            />
+          )}
+          {mainImage && (
+            <div className="lg:flex tems-center justify-center mb-5">
+              <KorcomptenzImage src={mainImage} width={400} height={200} />
+            </div>
+          )}
+          {secondaryDescription && (
+            <DangerousHtml
+              html={secondaryDescription}
+              className={cn(
+                image?.url &&
+                  "text-foreground text-md pr-10  md:text-lg leading-4xl mb-8 max-w-xs"
+              )}
+            />
           )}
 
           {buttonText && (
@@ -42,8 +70,15 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
             {/* Illustration */}
             <div className="flex absolute -right-0 -bottom-0 justify-end items-end">
               <KorcomptenzImage
-                className={cn(`w-full object-cover p-0`,
-                  image?.height > 300 ? "size-2/3" : image?.height >= 200 ? "h-[200px]" : image?.height >= 100 ? "h-[150px]" : "h-[90px]",
+                className={cn(
+                  `w-full object-cover p-0`,
+                  image?.height > 300
+                    ? "size-2/3"
+                    : image?.height >= 200
+                    ? "h-[200px]"
+                    : image?.height >= 100
+                    ? "h-[150px]"
+                    : "h-[90px]"
                 )}
                 width={image?.width}
                 height={image?.height}

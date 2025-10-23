@@ -1,6 +1,9 @@
 import { getDownloadService } from "./common";
 import http from "./http";
-import type { ContactFormData } from "@/utils/validation.schema";
+import type {
+  BookADemoFormData,
+  ContactFormData,
+} from "@/utils/validation.schema";
 
 const HOME = "/home";
 const GLOBAL_PAGE = "/page";
@@ -10,6 +13,7 @@ const CASE_STUDY_SEARCH = "/case-study-search";
 
 export const FILTER_CASE_STUDY = "/case-study-filter";
 export const CASE_STUDY_LEAD = "/case-study-leads";
+export const BOOK_DEMO = "/book-demo-leads";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -69,5 +73,10 @@ export const getCaseStudySearchPage = async ({
   search?: string;
 }): Promise<FilterListType[]> => {
   const { data } = await http.get(CASE_STUDY_SEARCH, { params: { search } });
+  return data;
+};
+export const BookADemo = async (formData: BookADemoFormData) => {
+  const { data } = await http.post(BOOK_DEMO, { data: formData });
+
   return data;
 };

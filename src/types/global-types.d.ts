@@ -33,6 +33,8 @@ type GlobalFieldType = {
   subtitle?: string;
   title?: string;
   subtitle2?: string;
+  secondaryDescription?: string;
+  mainImage?: ImageType;
 };
 type PaginationType = {
   page: number;

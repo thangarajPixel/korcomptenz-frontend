@@ -5,10 +5,6 @@ export const contactSchema = z.object({
     .string()
     .min(1, "First name is required")
     .regex(/^[A-Z\s]+$/i, "First name must contain only letters and spaces"),
-  Organization: z
-    .string()
-    .min(1, "First name is required")
-    .regex(/^[A-Z\s]+$/i, "First name must contain only letters and spaces"),
   email: z
     .string()
     .min(1, "Email is required")
@@ -22,4 +18,17 @@ export const contactSchema = z.object({
   organization: z.string().min(1, "Organization is required"),
   caseStudyId: z.string().optional(),
 });
+
+export const bookADemoSchema = z.object({
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+  email: z
+    .string()
+    .min(1, "Email is required")
+    .pipe(z.email("Invalid email address")),
+  organization: z.string().min(1, "Organization is required"),
+});
 export type ContactFormData = z.infer<typeof contactSchema>;
+export type BookADemoFormData = z.infer<typeof bookADemoSchema>;

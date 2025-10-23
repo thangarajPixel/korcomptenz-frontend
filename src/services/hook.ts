@@ -67,3 +67,10 @@ export const useCaseStudySearchHook = ({
     ...options,
   });
 };
+
+export const useBookADemoHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.BOOK_DEMO],
+    mutationFn: PAGE.BookADemo,
+  });
+};

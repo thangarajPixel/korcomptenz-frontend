@@ -15,7 +15,7 @@ export default function StickyCards({
   className?: string;
   stickyCards: StickyCardsType;
 }) {
-  const isMobile = useMobile()
+  const isMobile = useMobile();
   const cardData = stickyCards?.list;
 
   return (
@@ -30,7 +30,7 @@ export default function StickyCards({
           </h1>
 
           {stickyCards?.buttonText && (
-            <Link href={stickyCards?.link || '/'}>
+            <Link href={stickyCards?.link || "/"}>
               <Button
                 className="hidden sm:inline-flex variant:default text-4xl"
                 size="xl"
@@ -73,10 +73,15 @@ export default function StickyCards({
                       {card?.description}
                     </p>
                   </div>
-                  <Link href={card?.link || '/'}>
+                  <Link href={card?.link || "/"}>
                     <Button
                       size="xl"
-                      className={cn("mt-3 mb-3 rounded-full ", !isMobile ? "w-fit text-4xl px-6" : " text-xs px-2  bg-white text-primary border border-primary h-[44px] w-[155px]")}
+                      className={cn(
+                        "mt-3 mb-3 rounded-full ",
+                        !isMobile
+                          ? "w-fit text-4xl px-6"
+                          : " text-xs px-2  bg-white text-primary border border-primary h-[44px] w-[155px]"
+                      )}
                       arrow={true}
                     >
                       {card?.buttonText}
@@ -85,18 +90,20 @@ export default function StickyCards({
                 </div>
 
                 {/* Visual Section */}
-                {card?.image && <div
-                  className={cn(
-                    "relative overflow-hidden h-full order-1 md:h-auto md:w-96 md:flex-shrink-0 md:order-none"
-                  )}
-                >
-                  <KorcomptenzImage
-                    className="w-full h-44 md:h-full object-cover"
-                    src={card?.image}
-                    width={1000}
-                    height={1000}
-                  />
-                </div>}
+                {card?.image && (
+                  <div
+                    className={cn(
+                      "relative overflow-hidden h-full order-1 md:h-auto md:w-96 md:flex-shrink-0 md:order-none"
+                    )}
+                  >
+                    <KorcomptenzImage
+                      className="w-full h-44 md:h-full object-cover"
+                      src={card?.image}
+                      width={1000}
+                      height={1000}
+                    />
+                  </div>
+                )}
               </Card>
             </div>
           </div>
