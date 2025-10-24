@@ -8,22 +8,25 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormData } from "@/utils/validation.schema";
 import { useCaseStudyLeadHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
-
+const defaultValues = {
+  fullName: "",
+  email: "",
+  organization: "",
+  phone: "",
+  message: "",
+};
 export function CaseStudyForm({ data }: { data: CaseStudyData }) {
   const {
     control,
     handleSubmit,
     setError,
+    reset,
     formState: { isSubmitting },
   } = useForm<ContactFormData>({
     mode: "onSubmit",
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      fullName: "",
-      email: "",
-      organization: "",
-      phone: "",
-      message: "",
+      ...defaultValues,
       caseStudyId: String(data.id),
     },
   });
@@ -33,11 +36,12 @@ export function CaseStudyForm({ data }: { data: CaseStudyData }) {
       try {
         const response = await mutateAsync(formdata);
         notify(response);
+        reset({ ...defaultValues, caseStudyId: String(data.id) });
       } catch (error) {
         errorSet(error, setError);
       }
     },
-    [mutateAsync]
+    [mutateAsync, reset]
   );
 
   return (
