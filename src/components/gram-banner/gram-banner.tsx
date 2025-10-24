@@ -9,9 +9,9 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
     <section
       className={`my-10 grid grid-cols-1 lg:grid-cols-1 ${
         gramData?.theme === "dark"
-          ? "bg-custom-black container-nav"
+          ? "bg-custom-black "
           : gramData?.theme === "light"
-          ? "bg-custom-gray-6 container-nav"
+          ? "bg-custom-gray-6 "
           : ""
       }`}
       data-debug="page-components.build-data"
@@ -28,12 +28,20 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         >
           {gramData?.title}
         </h1>
+
         <DangerousHtml
           html={gramData?.description}
           className={`text-md md:text-2xl text-foreground leading-7 break-words text-center px-10  ${
             gramData?.theme === "dark" ? "text-white" : ""
-          } `}
+          }`}
         />
+        {gramData?.buttonText && (
+          <div className="flex justify-center items-center">
+            <Button arrow className="flex items-center justify-center">
+              {gramData?.buttonText}
+            </Button>
+          </div>
+        )}
       </div>
       {gramData?.image && (
         <div className="p-5 hidden lg:flex  items-center justify-center ">
