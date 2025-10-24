@@ -12,38 +12,40 @@ import {
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useBookADemoHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
-
+const defaultValues = {
+  name: "",
+  email: "",
+  organization: "",
+};
 const BookDemoSection = ({
   essential,
 }: {
   essential: BookDemoFormType;
 }) => {
+
+  const { mutateAsync } = useBookADemoHook();
   const {
     control,
     handleSubmit,
     setError,
+    reset,
     formState: { isSubmitting },
   } = useForm<BookADemoFormData>({
     mode: "onSubmit",
     resolver: zodResolver(bookADemoSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      organization: "",
-    },
+    defaultValues,
   });
-  const { mutateAsync } = useBookADemoHook();
   const handleFormSubmit: SubmitHandler<BookADemoFormData> = React.useCallback(
     async (data) => {
       try {
         const response = await mutateAsync(data);
-
         notify(response);
+        reset(defaultValues);
       } catch (error) {
         errorSet(error, setError);
       }
     },
-    [mutateAsync]
+    [mutateAsync, reset]
   );
 
   return (
