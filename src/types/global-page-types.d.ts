@@ -275,6 +275,7 @@ type BuildConnectSectionType = {
   imageCaption: string;
   buttonText: string;
   descriptionButtonText: string;
+  isSwap: boolean;
   descriptionButtonLink: string;
   rightSection: {
     content: string;
