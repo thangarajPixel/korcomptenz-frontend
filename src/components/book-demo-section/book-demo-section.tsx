@@ -56,23 +56,23 @@ const BookDemoSection = ({
           <Input
             control={control}
             name="name"
-            placeholder={essential?.nameLabel || "Full name"}
+            label={essential?.nameLabel || "Full name"}
             className="border-2 p-2 rounded-md text-foreground"
           />
           <Input
             control={control}
             name="organization"
-            placeholder={essential?.organizationLabel || "Organization"}
+            label={essential?.organizationLabel || "Organization"}
             className="border-2 p-2 rounded-md text-foreground"
           />
         </div>
 
-        <div className="grid grid-cols-1  gap-x-12 ">
+        <div className="grid grid-cols-1">
           {" "}
           <Input
             control={control}
             name="email"
-            placeholder={essential?.emailLabel || "Email ID"}
+            label={essential?.emailLabel || "Email ID"}
             className="border-2 p-2 rounded-md text-foreground"
           />
         </div>
