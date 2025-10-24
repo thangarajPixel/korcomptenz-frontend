@@ -13,7 +13,7 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
         <div className="lg:flex flex-row items-center  justify-center lg:gap-8 ">
           {/* Left content */}
           <div className="flex-1 text-center lg:text-left lg:ml-0">
-            <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl font-bold text-custom-green-1 leading-tight mb-20 whitespace-pre-wrap">
+            <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl font-bold text-custom-green-1 leading-tight whitespace-pre-wrap">
               {scheduleCall?.title}
             </h2>
             <Link href={scheduleCall?.link || "#"}>

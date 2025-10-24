@@ -31,14 +31,13 @@ const BenefitSection = ({
                 benefitData?.cards?.length % 2 !== 0 && isLastCard;
               return (
                 <div
-                  key={card?.id}
-                  className={`flex gap-4 ${
-                    isOddNumberOfCards ? "w-full" : "w-1/2"
-                  }`}
+                  key={`benefit-card-item-${card?.id}`}
+                  className={`flex gap-4 ${isOddNumberOfCards ? "w-full" : "w-1/2"
+                    }`}
                 >
                   <div className="md:mx-4 m-2">
                     <p className="text-8xl font-light text-primary w-10 shrink-0 ">
-                      {card?.number}
+                      {card?.number || (index + 1).toString().padStart(2, '0')}
                     </p>
                     <p className="text-black text-xl">{card?.title}</p>
                     <p className="text-foreground text-lg">
