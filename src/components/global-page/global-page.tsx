@@ -22,6 +22,7 @@ import StretchableSection from "../stretchable-section";
 import WhyKorcomptenz from "../why-korcomptenz/why-korcomptenz";
 import GramBanner from "../gram-banner/gram-banner";
 import { GlobalForm } from "../global-form";
+import { ClientPartnership } from "@/app/client-success/_utils";
 
 type Props = {
   data: ComponentPropsType[];
@@ -206,6 +207,13 @@ const GlobalPage = (props: Props) => {
           <GlobalForm
             key={`global-form-${item?.__component}-${item?.id}`}
             form={item?.form}
+          />
+        );
+      case "case-study.partner-section":
+        return (
+          <ClientPartnership
+            key={`partner-section-${item?.__component}-${item?.id}`}
+            data={item}
           />
         );
       default:

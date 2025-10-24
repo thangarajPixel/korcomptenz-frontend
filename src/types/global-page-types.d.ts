@@ -362,7 +362,7 @@ type GramBannerType = {
   descriptionButtonLink: string;
 };
 type CaseStudyFormType = {
-  __component: 'form-fields.case-study-form';
+  __component: "form-fields.case-study-form";
   id: string;
   title: string;
   nameLabel: string;
@@ -373,7 +373,7 @@ type CaseStudyFormType = {
   buttonText: string;
 };
 type ContactFormType = {
-  __component: 'form-fields.contact-form';
+  __component: "form-fields.contact-form";
   id: string;
   title: string;
   nameLabel: string;
@@ -384,7 +384,7 @@ type ContactFormType = {
   buttonText: string;
 };
 type BookDemoFormType = {
-  __component: 'form-fields.book-demo-form';
+  __component: "form-fields.book-demo-form";
   id: string;
   title: string;
   nameLabel: string;
@@ -511,6 +511,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "form-fields.form";
     form: GlobalFormType;
+  };
+  PartnerSection: PartnershipSectionType & {
+    id: string;
+    __component: "case-study.partner-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
