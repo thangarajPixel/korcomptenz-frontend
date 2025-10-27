@@ -15,7 +15,8 @@ const defaultValues = {
   phone: "",
   message: "",
 };
-export function CaseStudyForm({ data }: { data: CaseStudyData }) {
+export function CaseStudyForm({ data, essential: form }: { data: CaseStudyData; essential: CaseStudyPageType }) {
+  const essential = form?.form?.forms?.[0] as CaseStudyFormType
   const {
     control,
     handleSubmit,
@@ -49,14 +50,8 @@ export function CaseStudyForm({ data }: { data: CaseStudyData }) {
       <div className="max-w-2xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h1 className="text-[#2d3748] text-7xl leading-tight mb-2 font-bold">
-            Expert-led Transformations
-          </h1>
-          <h2 className="text-[#2d3748] text-7xl leading-tight mb-2 font-bold">
-            Impact-led Growth
-          </h2>
-          <h3 className="text-[#2d3748] text-7xl leading-tight font-bold">
-            The journey starts here
+          <h3 className="text-[#2d3748] text-7xl leading-tight mb-2 font-bold">
+            {essential?.title}
           </h3>
         </div>
 
@@ -64,22 +59,22 @@ export function CaseStudyForm({ data }: { data: CaseStudyData }) {
         <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
           {/* Row 1: Full name and Email */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-            <Input control={control} name="fullName" placeholder="Full name" />
-            <Input control={control} name="email" placeholder="Email ID" />
+            <Input control={control} name="fullName" placeholder={essential?.nameLabel} />
+            <Input control={control} name="email" placeholder={essential?.emailLabel} />
           </div>
           {/* Row 2: Organization and Phone */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
             <Input
               control={control}
               name="organization"
-              placeholder="Organization"
+              placeholder={essential?.organizationLabel}
             />
-            <Input control={control} name="phone" placeholder="Phone Number" />
+            <Input control={control} name="phone" placeholder={essential?.phoneLabel} />
           </div>
           <Textarea
             control={control}
             name="message"
-            placeholder="Type your message/enquiry here.."
+            placeholder={essential?.messageLabel}
           />
           {/* Submit button */}
           <div className="pt-4">
@@ -91,7 +86,7 @@ export function CaseStudyForm({ data }: { data: CaseStudyData }) {
               className="hover:bg-primary border-primary text-primary hover:text-white"
               arrow
             >
-              Submit
+              {essential?.buttonText}
             </Button>
           </div>
         </form>

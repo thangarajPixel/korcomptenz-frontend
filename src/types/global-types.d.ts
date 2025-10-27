@@ -236,10 +236,7 @@ type CaseStudyData = {
     isCustomDescripition: boolean;
     descripition?: string;
   }[];
-  relatedCase: {
-    title: string;
-    buttonText: string;
-  };
+
 };
 type CaseStudySingleData = {
   caseStudy: CaseStudyData;

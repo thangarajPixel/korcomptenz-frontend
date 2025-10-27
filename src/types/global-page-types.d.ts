@@ -553,3 +553,13 @@ type CaseStudiesPageType = {
   testimonal: TestimonialType[];
   popularFilter: PopularFilterType;
 };
+type CaseStudyPageType = {
+  id: string;
+  study: string;
+  buttonText: string;
+  form: GlobalFormType;
+  relatedCase: {
+    title: string;
+    buttonText: string;
+  };
+};

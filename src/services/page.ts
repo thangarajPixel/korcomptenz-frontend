@@ -10,7 +10,7 @@ const GLOBAL_PAGE = "/page";
 const CASE_STUDIES_PAGE = "/case-study-list";
 export const CASE_STUDY = "/case-studies";
 const CASE_STUDY_SEARCH = "/case-study-search";
-
+const CASE_STUDY_PAGE = "/case-study-page";
 export const FILTER_CASE_STUDY = "/case-study-filter";
 export const CASE_STUDY_LEAD = "/case-study-leads";
 export const BOOK_DEMO = "/book-demo-leads";
@@ -66,6 +66,10 @@ export const getCaseStudiesPage = async (): Promise<CaseStudiesPageType> => {
   const { data } = await http.get(CASE_STUDIES_PAGE);
   return data;
 };
+export const getCaseStudyPage = async (): Promise<CaseStudyPageType> => {
+  const { data } = await http.get(CASE_STUDY_PAGE);
+  return data;
+};
 
 export const getCaseStudySearchPage = async ({
   search = "",
@@ -75,8 +79,7 @@ export const getCaseStudySearchPage = async ({
   const { data } = await http.get(CASE_STUDY_SEARCH, { params: { search } });
   return data;
 };
-export const BookADemo = async (formData: BookADemoFormData) => {
+export const bookADemo = async (formData: BookADemoFormData) => {
   const { data } = await http.post(BOOK_DEMO, { data: formData });
-
   return data;
 };
