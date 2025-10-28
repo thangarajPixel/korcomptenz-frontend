@@ -23,15 +23,16 @@ type ServicesSectionType = {
 type InspireSectionType = {
   title: string;
   buttonText: string;
-
+  link: string
   list: {
     id: string;
     position: string;
     image: ImageType;
-    alt: string;
     title: string;
     order: string;
     description: string;
+    buttonText?: string;
+    link: string
   }[];
 };
 

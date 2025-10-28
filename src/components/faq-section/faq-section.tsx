@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../ui/accordion";
-import {DangerousHtml} from "../ui/dangerous-html";
+import { DangerousHtml } from "../ui/dangerous-html";
+import { cn } from "@/lib/utils";
 
 const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
   const [activeId, setActiveId] = useState<number | null>(null);
@@ -32,7 +33,9 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
               onClick={() => handleToggle(item?.id)}
             >
               <span>{item?.title}</span>
-              <ChevronDownIcon className="size-10 p-2 text-white rounded-full bg-primary pointer-events-none  shrink-0 translate-y-0.5 transition-transform duration-200" />
+              <ChevronDownIcon className={cn("size-10 p-2 text-white rounded-full bg-primary pointer-events-none  shrink-0 translate-y-0.5 transition-transform duration-200 opacity-20",
+                activeId === item?.id && "opacity-100"
+              )} />
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               {item?.description && <DangerousHtml className="mt-2 text-lg text-answer-color" html={item?.description} />}

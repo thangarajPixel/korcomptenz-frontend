@@ -2,8 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
-import { ChevronRight } from "lucide-react";
+import { Button } from "../ui/button"
 import KorcomptenzImage from "../korcomptenz-image";
 import Link from "next/link";
 import { useMobile } from "@/utils/custom-hooks";
@@ -25,18 +24,18 @@ export default function StickyCards({
     >
       <div className="relative container-md ">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-5">
-          <h1 className=" font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
+          <h4 className="font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
             {stickyCards?.title}
-          </h1>
+          </h4>
 
           {stickyCards?.buttonText && (
             <Link href={stickyCards?.link || "/"}>
               <Button
                 className="hidden sm:inline-flex variant:default text-4xl"
                 size="xl"
+                arrow={true}
               >
                 {stickyCards?.buttonText}
-                <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
               </Button>
             </Link>
           )}
@@ -97,7 +96,7 @@ export default function StickyCards({
                     )}
                   >
                     <KorcomptenzImage
-                      className="w-full h-44 md:h-full object-cover"
+                      className="w-full h-full object-cover"
                       src={card?.image}
                       width={1000}
                       height={1000}
@@ -110,9 +109,17 @@ export default function StickyCards({
         ))}
 
         <div className="flex items-center justify-center sm:hidden relative mt-5">
-          <Button size="xl" className="w-full lg:w-fit " arrow={true}>
-            Explore All
-          </Button>
+          {stickyCards?.buttonText && (
+            <Link href={stickyCards?.link || "/"}>
+              <Button
+                className="w-full lg:w-fit "
+                size="xl"
+                arrow={true}
+              >
+                {stickyCards?.buttonText}
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </section>

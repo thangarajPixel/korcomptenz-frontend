@@ -132,7 +132,7 @@ const QuickLinks = ({ data }: { data: LayoutType }) => {
   const links = data?.navItems.filter((item) => !item?.hasChild) || [];
 
   return (
-    <div className="space-y-4 md:mt-5 lg:mt-0 flex flex-col justify-around">
+    <div className="space-y-4 md:mt-5 lg:mt-0 flex flex-col justify-between">
       {links.map((label) => (
         <Link
           key={label.label}

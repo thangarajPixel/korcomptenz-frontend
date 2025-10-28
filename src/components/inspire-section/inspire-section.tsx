@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import InspireSectionCard from "./_utils/inspire-section-card";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const InspireSection = ({ inspireSection }: { inspireSection: InspireSectionType }) => {
 
@@ -40,13 +41,17 @@ const InspireSection = ({ inspireSection }: { inspireSection: InspireSectionType
             <h1 className="text-6xl font-bold text-custom-gray mb-6 text-balance">
               {inspireSection?.title}
             </h1>
-            {inspireSection?.buttonText && <Button
-              size="xl"
-              arrow={true}
-              className="variant:default lg:px-4 xl:px-8 py-2 text-4xl rounded-full inline-flex"
-            >
-              {inspireSection?.buttonText}
-            </Button>}
+            {inspireSection?.buttonText &&
+              <Link href={inspireSection?.link || "#"}>
+                <Button
+                  size="xl"
+                  arrow={true}
+                  className="variant:default lg:px-4 xl:px-8 py-2 text-4xl rounded-full inline-flex"
+                >
+                  {inspireSection?.buttonText}
+                </Button>
+              </Link>
+            }
           </div>
           {center?.map((card) => <InspireSectionCard key={`inspire-section-${card.id}`} card={card} />)}
         </div>
@@ -57,13 +62,16 @@ const InspireSection = ({ inspireSection }: { inspireSection: InspireSectionType
         </div>
       </div>
       <div className="flex lg:hidden justify-center w-full mt-8">
-        <Button
-          size="lg"
-          arrow={true}
-          className="variant:default text-md px-2 py-3 rounded-full w-full inline-flex"
-        >
-          {inspireSection?.buttonText}
-        </Button>
+        {inspireSection?.buttonText &&
+          <Link href={inspireSection?.link || "#"}>
+            <Button
+              size="lg"
+              arrow={true}
+              className="variant:default text-md px-2 py-3 rounded-full w-full inline-flex"
+            >
+              {inspireSection?.buttonText}
+            </Button>
+          </Link>}
       </div>
     </section>
   );
