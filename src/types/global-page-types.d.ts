@@ -70,6 +70,7 @@ type CaseStudyStickyCardsType = {
 type CaseStudiesType = {
   pagination: PaginationType;
   results: CaseStudyData[];
+  sponsor: { sponser: SponsorSectionType };
 };
 
 type BusinessOutcomeFilterType = {

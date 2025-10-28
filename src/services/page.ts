@@ -56,10 +56,10 @@ export const getCaseStudyList = async ({
 }: {
   params: { pagination: PaginationType; slug?: string };
 }): Promise<CaseStudiesType> => {
-  const { data } = await http.get(CASE_STUDY, {
+  const data = await http.get(CASE_STUDY, {
     params,
   });
-  return data;
+  return data as never;
 };
 
 export const getCaseStudiesPage = async (): Promise<CaseStudiesPageType> => {
