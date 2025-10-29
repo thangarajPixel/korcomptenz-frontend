@@ -23,7 +23,7 @@ type ServicesSectionType = {
 type InspireSectionType = {
   title: string;
   buttonText: string;
-  link: string
+  link: string;
   list: {
     id: string;
     position: string;
@@ -32,7 +32,7 @@ type InspireSectionType = {
     order: string;
     description: string;
     buttonText?: string;
-    link: string
+    link: string;
   }[];
 };
 
@@ -143,8 +143,8 @@ type BannerSectionType = {
   imageMobile: ImageType;
   image: ImageType;
   alt: string;
-  logo: ImageType;
-  logoMobile: ImageType;
+  logo?: ImageType;
+  logoMobile?: ImageType;
   altMobile: ImageType;
   title: string;
   description: string;
