@@ -23,7 +23,7 @@ type ServicesSectionType = {
 type InspireSectionType = {
   title: string;
   buttonText: string;
-  link: string
+  link: string;
   list: {
     id: string;
     position: string;
@@ -32,7 +32,7 @@ type InspireSectionType = {
     order: string;
     description: string;
     buttonText?: string;
-    link: string
+    link: string;
   }[];
 };
 
@@ -301,6 +301,7 @@ type TechPartnerSectionType = {
     id: number;
     title: string;
     description: string;
+    buttonText: string;
   }[];
 };
 type ScheduleCallType = {

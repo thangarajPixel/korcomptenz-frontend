@@ -1,7 +1,7 @@
 "use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
-import { X, ChevronRight } from "lucide-react";
+import { X, ChevronRight, Plus, Minus } from "lucide-react";
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -161,50 +161,56 @@ export function Navbar({ data }: { data: LayoutType }) {
                 }`}
                 style={{ transitionDelay: "300ms" }}
               >
-                {data?.navItems.map((item, index) => (
-                  <div key={index}>
-                    <button
-                      onClick={() => toggleExpand(item.label)}
-                      className="w-full flex justify-between items-center px-3 py-3 text-lg font-medium text-muted-foreground border-b-1 border-primary"
-                    >
-                      {item.label}
-                      <ChevronRight
-                        className={`ml-2 h-4 w-4 transition-transform ${
-                          expandedItem === item.label ? "rotate-90" : ""
+                {data?.navItems
+                  ?.filter((item) => !item?.isHideMobile)
+                  .map((item, index) => (
+                    <div key={index}>
+                      <button
+                        onClick={() => toggleExpand(item.label)}
+                        className={`w-full flex justify-between items-center px-3 py-3 text-lg font-medium text-muted-foreground  ${
+                          expandedItem === item.label
+                            ? "text-primary "
+                            : "text-muted-foreground border-b-1 border-primary"
                         }`}
-                      />
-                    </button>
+                      >
+                        {item.label}
+                        {expandedItem === item.label ? (
+                          <Minus className="ml-2 h-4 w-4 transition-all duration-300 " />
+                        ) : (
+                          <Plus className="ml-2 h-4 w-4 transition-all duration-300" />
+                        )}
+                      </button>
 
-                    {/* Accordion Content */}
-                    <AnimatePresence>
-                      {expandedItem === item.label && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="pr-3 pl-3 py-3  rounded-md "
-                        >
-                          {item.label === "Services" && (
-                            <ServicesMobile data={data} />
-                          )}
-                          {item.label === "Industries" && (
-                            <IndustriesMobile data={data} />
-                          )}
-                          {item.label === "Ecosystems" && (
-                            <EcosystemMobile data={data} />
-                          )}
-                          {item.label === "Insights" && (
-                            <InsightMobile data={data} />
-                          )}
-                          {item.label === "About Us" && (
-                            <AboutMobile data={data} />
-                          )}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ))}
+                      {/* Accordion Content */}
+                      <AnimatePresence>
+                        {expandedItem === item.label && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="pr-3 pl-3 py-3  rounded-md "
+                          >
+                            {item.label === "Services" && (
+                              <ServicesMobile data={data} />
+                            )}
+                            {item.label === "Industries" && (
+                              <IndustriesMobile data={data} />
+                            )}
+                            {item.label === "Ecosystems" && (
+                              <EcosystemMobile data={data} />
+                            )}
+                            {item.label === "Insights" && (
+                              <InsightMobile data={data} />
+                            )}
+                            {item.label === "About Us" && (
+                              <AboutMobile data={data} />
+                            )}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ))}
               </div>
 
               {/* Enhanced Mobile CTA buttons */}
@@ -218,7 +224,21 @@ export function Navbar({ data }: { data: LayoutType }) {
               >
                 <div className="flex items-center justify-between pt-4 px-2">
                   {/* Left side - Career | Contact Us */}
-                  <div className="text-xs text-muted space-x-2">
+                  <div className="flex gap-1">
+                    {data?.navItems
+                      ?.filter((item) => item?.isHideMobile)
+                      .map((item, index) => (
+                        <div key={index}>
+                          <Link
+                            href={item.href || "#"}
+                            className="hover:text-primary transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        </div>
+                      ))}
+                  </div>
+                  {/* <div className="text-xs text-muted space-x-2">
                     <Link
                       href="/career"
                       className="hover:text-primary transition-colors"
@@ -232,7 +252,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                     >
                       Contact Us
                     </Link>
-                  </div>
+                  </div> */}
 
                   {/* Right side - Social icons */}
                   <div className="flex space-x-2">
@@ -240,7 +260,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                       <Link
                         key={`social-platform-${social.id}`}
                         href={social?.href || "/"}
-                        className="w-8 h-8 rounded-lg flex items-center justify-center"
+                        className="w-5 h-5 rounded-lg flex items-center justify-center"
                       >
                         <KorcomptenzImage
                           src={social.icon}

@@ -12,30 +12,25 @@ export type InsightCardType = {
   description?: string;
   className?: string;
   category: string;
-  link?: string
+  link?: string;
 };
 
 export function InsightCard(props: InsightCardType) {
-  const {
-    title,
-    image,
-    description,
-    className,
-    category,
-  } = props
+  const { title, image, description, className, category } = props;
 
   return (
-    <Link href={props?.link || '#'}>
+    <Link href={props?.link || "#"}>
       <motion.article
         className={cn(
           "group relative bg-card p-3   transition-colors",
           className
         )}
-      // initial={{ opacity: 0, y: 22 }}
-      // whileInView={{ opacity: 1, y: 0 }}
-      // viewport={{ once: true, amount: 0.3 }}
+        // initial={{ opacity: 0, y: 22 }}
+        // whileInView={{ opacity: 1, y: 0 }}
+        // viewport={{ once: true, amount: 0.3 }}
       >
         <motion.div className="relative rounded-4xl">
+          {}
           <span className=" mx-3 my-5  pointer-events-none absolute  group-hover:text-primary left-3 top-3 z-10 rounded-full bg-white/90 px-5 py-2 text-md font-medium text-black ring-1 ring-gray-200 backdrop-blur">
             {category}
           </span>

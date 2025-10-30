@@ -2,6 +2,7 @@ import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import CardSwiper from "../ui/card-swiper";
 import TechCard from "./_utils/tech-card";
+import { Button } from "../ui/button";
 
 const chunkArray = <T,>(arr: T[], size: number): T[][] => {
   const chunks: T[][] = [];
@@ -18,7 +19,10 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
   const slidesInPairs = chunkArray(techslides, 2);
 
   return (
-    <section data-debug="page-componets.tech-data" className="container-md my-10">
+    <section
+      data-debug="page-componets.tech-data"
+      className="container-md my-10"
+    >
       <div className="bg-secondary rounded-none lg:rounded-4xl grid grid-cols-12">
         {/* Content */}
         <div className="col-span-12 lg:col-span-8 flex flex-col gap-4 p-8 lg:pr-20">
@@ -68,6 +72,12 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
                       <p className="text-sm font-normal text-background">
                         {slide?.description}
                       </p>
+                      <Button
+                        arrow
+                        className="bg-secondary text-sm text-white flex justify-start items-center -ms-4"
+                      >
+                        {slide?.buttonText}
+                      </Button>
                     </div>
                   ))}
                 </div>

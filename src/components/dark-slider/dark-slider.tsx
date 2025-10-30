@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-
 import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
@@ -53,11 +52,12 @@ const DarkSlider = ({
             <p>{manuelSliderData?.descripition}</p>
           )}
 
-          <div className="hidden lg:flex  items-center gap-4">
+          <div className=" lg:flex ms-5 lg:ms-0  items-center gap-4">
             <Button
               size="icon"
-              className={`rounded-full size-14 hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+              className={`rounded-full size-12 hover:bg-primary hover:text-white  ${
+                !prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               onClick={scrollPrev}
               disabled={!prevBtnEnabled}
             >
@@ -65,8 +65,9 @@ const DarkSlider = ({
             </Button>
             <Button
               size="icon"
-              className={`rounded-full size-14 hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+              className={`rounded-full size-12 hover:bg-primary hover:text-white ${
+                !nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               onClick={scrollNext}
               disabled={!nextBtnEnabled}
             >
@@ -81,10 +82,11 @@ const DarkSlider = ({
               {manuelSliderData?.slides?.map((slide, index) => (
                 <div
                   key={slide?.id}
-                  className={`min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${index === manuelSliderData?.slides?.length - 1
+                  className={`min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${
+                    index === manuelSliderData?.slides?.length - 1
                       ? "mr-[100px]"
                       : ""
-                    }`}
+                  }`}
                 >
                   <SliderCard slide={slide} />
                 </div>

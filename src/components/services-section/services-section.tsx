@@ -16,13 +16,16 @@ export function AnimatedTabsHero({
   className?: string;
   content: ServicesSectionType[];
 }) {
-
   const [value, setValue] = React.useState<string>(content?.[0]?.label);
 
-  const activeContent = content?.find((c) => c?.label === value) || content?.[0];
+  const activeContent =
+    content?.find((c) => c?.label === value) || content?.[0];
 
   return (
-    <section className={cn("my- md:my-0", className)} data-debug={"home.services-section"}>
+    <section
+      className={cn("my- md:my-0", className)}
+      data-debug={"home.services-section"}
+    >
       {/* Top rounded segmented tabs */}
       <div className="relative">
         <Tabs
@@ -45,7 +48,10 @@ export function AnimatedTabsHero({
                   "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50 md:text-5xl  text-xs ">{t?.label}</span>
+                <span className="z-50 text-xs md:text-5xl truncate md:whitespace-normal block md:inline-block max-w-[5ch] md:max-w-none">
+                  {t?.label}
+                </span>
+
                 {value === t?.label && (
                   <motion.div
                     layoutId="active-pill"
@@ -82,7 +88,9 @@ export function AnimatedTabsHero({
               <h1 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl">
                 {activeContent?.heading}
               </h1>
-              <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">{activeContent?.description}</p>
+              <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
+                {activeContent?.description}
+              </p>
               <Link href={activeContent?.link}>
                 <Button size="xl" arrow={true}>
                   {activeContent?.buttonText}

@@ -192,6 +192,7 @@ type NavItemType = {
   hasChild: boolean;
   childKey: string;
   isButton: boolean;
+  isHideMobile: boolean;
 }[];
 
 //case study types
@@ -236,7 +237,6 @@ type CaseStudyData = {
     isCustomDescripition: boolean;
     descripition?: string;
   }[];
-
 };
 type CaseStudySingleData = {
   caseStudy: CaseStudyData;
