@@ -12,7 +12,7 @@ import { CaseStudyCardSkeleton } from "./case-study-skeleton";
 import ClientSuccessBanner from "./client-success-banner";
 
 const ClientSuccessList = ({
-  data: { sponser, filterLabel, popularFilter, banner },
+  data: { filterLabel, popularFilter, banner },
   initialData,
   search,
 }: {
@@ -109,9 +109,10 @@ const ClientSuccessList = ({
           onSortChange={setSort}
         />
         <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
-          <div className="col-span-12 md:col-span-6 lg:col-span-4">
-            {sponser && <StickyTitleCard data={sponser} />}
+          {data?.sponsor && <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <StickyTitleCard data={data?.sponsor?.sponser} />
           </div>
+          }
 
           {isLoading ? (
             Array.from({ length: 5 }).map((_, i) => (
