@@ -3,7 +3,7 @@
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-const AboutMenu = ({ data }: { data: LayoutType }) => {
+const AboutMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
   return (
     <div className="bg-white h-[598px] w-full overflow-y-auto overflow-x-hidden">
       <div className="flex h-full">

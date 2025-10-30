@@ -35,6 +35,7 @@ type GlobalFieldType = {
   subtitle2?: string;
   secondaryDescription?: string;
   mainImage?: ImageType;
+  position?: "corner" | "main" | "side";
 };
 type PaginationType = {
   page: number;

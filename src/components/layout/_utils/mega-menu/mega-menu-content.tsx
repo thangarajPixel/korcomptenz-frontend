@@ -9,9 +9,11 @@ import EcosystemMenu from "./_utils/ecosystem-menu";
 const MegaMenuContent = ({
   activeTab,
   data,
+  onClick
 }: {
   activeTab: string;
   data: LayoutType;
+  onClick: () => void;
 }) => {
   return (
     <AnimatePresence mode="wait">
@@ -31,11 +33,11 @@ const MegaMenuContent = ({
               animate={{ opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.3 }}
             >
-              {activeTab === "Services" && <ServicesMenu data={data} />}
-              {activeTab === "Industries" && <IndustriesMenu data={data} />}
-              {activeTab === "Ecosystems" && <EcosystemMenu data={data} />}
-              {activeTab === "Insights" && <InsightsMenu data={data} />}
-              {activeTab === "About Us" && <AboutMenu data={data} />}
+              {activeTab === "Services" && <ServicesMenu data={data} onClick={onClick} />}
+              {activeTab === "Industries" && <IndustriesMenu data={data} onClick={onClick} />}
+              {activeTab === "Ecosystems" && <EcosystemMenu data={data} onClick={onClick} />}
+              {activeTab === "Insights" && <InsightsMenu data={data} onClick={onClick} />}
+              {activeTab === "About Us" && <AboutMenu data={data} onClick={onClick} />}
             </motion.div>
           </div>
         </motion.div>

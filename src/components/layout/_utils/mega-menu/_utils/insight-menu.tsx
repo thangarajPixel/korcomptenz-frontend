@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-const InsightsMenu = ({ data }: { data: LayoutType }) => {
+const InsightsMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
   return (
     <div className="bg-white w-full overflow-x-hidden  overscroll-contain">
       <div className="mx-auto">

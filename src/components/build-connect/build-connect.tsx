@@ -19,7 +19,7 @@ const BuildConnect = ({
           <h3 className=" text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
             {buildData?.title}
           </h3>)}
-        <div className={cn("grid grid-cols-1 lg:grid-cols-2", buildData?.isSwap && "mt-3")}>
+        <div className={cn("grid grid-cols-1 lg:grid-cols-2 gap-x-20", buildData?.isSwap && "mt-3")}>
           <div className={cn("px-5 space-y-3 ", buildData?.isSwap && "order-2")}>
             {!buildData?.isSwap && <h3 className="text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
               {buildData?.title}
@@ -44,7 +44,7 @@ const BuildConnect = ({
                   src={buildData?.rightSection?.responsiveImage?.image}
                   width={500}
                   height={500}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover rounded-4xl"
                 />
                 {buildData?.imageCaption && (
                   <div className="flex flex-col items-center gap-4 lg:mt-5">
@@ -60,7 +60,7 @@ const BuildConnect = ({
                   src={buildData?.rightSection?.responsiveImage?.mobileImage}
                   width={500}
                   height={500}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover rounded-4xl"
                 />
                 {buildData?.imageCaption && (
                   <div className="flex flex-col items-center gap-2 lg:mt-5">
