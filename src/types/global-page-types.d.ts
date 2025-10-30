@@ -37,6 +37,7 @@ type InspireSectionType = {
 };
 
 type StickyCardsType = {
+  __component: string;
   title: string;
   buttonText: string;
   link: string;
@@ -51,6 +52,7 @@ type StickyCardsType = {
   }[];
 };
 type CaseStudyStickyCardsType = {
+  __component: string;
   title: string;
   buttonText: string;
   link: string;

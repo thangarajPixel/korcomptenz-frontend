@@ -19,5 +19,6 @@ export default function CaseStudyStickyCards({
       image: item.heroSection.image,
     })),
   };
+
   return <StickyCards stickyCards={compileData} />;
 }
