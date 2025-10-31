@@ -22,7 +22,7 @@ import StretchableSection from "../stretchable-section";
 import WhyKorcomptenz from "../why-korcomptenz/why-korcomptenz";
 import GramBanner from "../gram-banner/gram-banner";
 import { GlobalForm } from "../global-form";
-import { ClientPartnership } from "@/app/client-success/_utils";
+import { ClientPartnership } from "@/app/(default)/client-success/_utils";
 
 type Props = {
   data: ComponentPropsType[];
