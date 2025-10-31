@@ -353,6 +353,7 @@ type StretchableSectionType = {
     description: string;
     image: ImageType;
     buttonText: string;
+    link: string;
   }[];
 };
 type GramBannerType = {
