@@ -1,4 +1,3 @@
-
 import React from "react";
 import { cache } from "react";
 import { getPageService } from "@/services";
@@ -26,7 +25,7 @@ const Page = async ({ params }: Props) => {
   const data = await getPageServiceCache({ slug });
 
   return (
-    <div className="flex flex-col gap-16 md:gap-32">
+    <div className="flex flex-col gap-16 md:gap-28">
       <GlobalPage data={data?.list} />
     </div>
   );
