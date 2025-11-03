@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import KorcomptenzImage from "../korcomptenz-image"
 
 type TimelineStory = {
   year: number
@@ -59,62 +60,53 @@ const OurStory = () => {
   const [activeYear, setActiveYear] = useState(2025)
   // const activeData = TIMELINE_DATA.find((d) => d.year === activeYear) || TIMELINE_DATA[TIMELINE_DATA.length - 1]
   return (
-    <div className="w-full">
+    <div className="w-full px-2 md:px-0">
       {/* Hero Section */}
-      <div className="relative w-full h-auto ">
+      <div className="relative aspect-[627/500] md:aspect-[1443/696]">
         {/* Background Image with Overlay */}
         <div
-          className="absolute inset-0  "
+          className="absolute inset-0 rounded-4xl md:rounded-none"
           style={{
             backgroundImage: "url(/assets/tempory/f27fd965a14e9cdc20b9e1e1049c0fc2435c4485.png)",
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "right",
             backgroundRepeat: "no-repeat",
             objectFit: "cover"
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30" />
+          <div className="absolute rounded-4xl md:rounded-none inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30" />
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 w-full py-12 md:py-16 lg:py-20">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-start md:gap-12 lg:gap-16">
-
+        <div className="relative z-10 size-full  flex flex-col  justify-center  gap-0 md:gap-12 lg:gap-16 xl:gap-24">
+          <div className="container-md ">
+            <div className="flex flex-row md:items-start md:gap-12 lg:gap-16 h-full">
               {/* Year 2025 - Large Vertical Text */}
               <div className="mb-8 md:mb-0 md:flex md:items-center">
                 <h2
                   className="text-[80px] md:text-[100px] font-bold lg:text-[140px] xl:text-[160px] text-primary leading-[0.85] opacity-50 tracking-tight md:-rotate-0 [writing-mode:vertical-lr] [transform:rotate(180deg)]"
-                // style={{
-                //   // writingMode: 'sideways-lr',
-                //   writingMode: 'vertical-lr',
-                //   transform: 'rotate(180deg)',
-                // }}
                 >
-                  2025
+                  {activeYear}
                 </h2>
               </div>
 
               {/* Content Area */}
-              <div className="flex-1 flex flex-col gap-6 md:gap-8">
+              <div className="flex-1 flex flex-col gap-6 md:gap-8 h-full justify-end">
 
                 {/* Partner Badges */}
                 <div className="flex items-center gap-4 flex-wrap">
-                  {/* <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=120&h=120&fit=crop"
-                    alt="Award Badge"
-                    className="h-16 md:h-20 w-auto object-contain"
+                  <KorcomptenzImage
+                    src="/assets/tempory/Group-33218.png"
+                    alt="Forrester"
+                    width={1000}
+                    height={1000}
+                    className="w-60 h-auto object-contain"
                   />
-                  <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1633419461186-7d40a38105ec?w=200&h=80&fit=crop"
-                    alt="Microsoft Gold Partner"
-                    className="h-12 md:h-14 w-auto object-contain"
-                  /> */}
                 </div>
 
                 {/* Achievement Text */}
-                <div className="text-white">
-                  <p className="text-base md:text-lg lg:text-xl leading-relaxed">
+                <div className="text-white ">
+                  <p className="text-base md:text-lg lg:text-xl leading-relaxed line-clamp-4 md:line-clamp-none">
                     This year, we built with intent- and it showed. ISO spotlighted our strength in AI services.
                     Forrester named us a Notable Vendor for Microsoft Business Applications. And the Stevie Award
                     for Best CSR Strategy — "Empathy-led transformation, impact-led change" — recognized the
@@ -126,41 +118,35 @@ const OurStory = () => {
 
           </div>
           <div className="w-full">
-            <div className="">
-              {/* Timeline Line and Years */}
-              <div className="relative">
-                {/* Horizontal Line */}
-                <div className="h-0.5 bg-primary" />
-
-                {/* Years Container */}
-                <div className="absolute top-[-6px] left-0 right-0 max-w-6xl mx-auto flex justify-between items-start gap-2">
-                  {TIMELINE_DATA.map((item) => (
-                    <button
-                      key={item.year}
-                      onClick={() => setActiveYear(item.year)}
-                      className="flex flex-col items-center group cursor-pointer flex-1"
-                    >
-                      {/* Year Marker */}
-                      <div
-                        className={`w-7 h-4 border border-primary rounded-full mb-4 transition-all duration-300 transform 
+            <div className="relative">
+              <div className="h-0.5 bg-primary" />
+              <div className="absolute top-[-6px] left-0 right-0 container-md flex justify-between items-start gap-2">
+                {TIMELINE_DATA.map((item) => (
+                  <button
+                    key={item.year}
+                    onClick={() => setActiveYear(item.year)}
+                    className="flex flex-col items-center group cursor-pointer flex-1"
+                  >
+                    {/* Year Marker */}
+                    <div
+                      className={`w-7 h-4 border border-primary rounded-full mb-4 transition-all duration-300 transform 
                       ${activeYear === item.year
-                            ? "bg-primary "
-                            : "bg-slate-600 hover:bg-slate-500"
-                          }`}
-                      />
+                          ? "bg-primary "
+                          : "bg-slate-600 hover:bg-slate-500"
+                        }`}
+                    />
 
-                      {/* Year Label */}
-                      <span
-                        className={`text-xs md:text-sm transition-all text-white duration-300 ${activeYear === item.year
-                          ? "text-base md:text-lg"
-                          : "opacity-80"
-                          }`}
-                      >
-                        {item.year}
-                      </span>
-                    </button>
-                  ))}
-                </div>
+                    {/* Year Label */}
+                    <span
+                      className={`text-xs md:text-sm transition-all text-white duration-300 ${activeYear === item.year
+                        ? "text-base md:text-lg"
+                        : "opacity-80"
+                        }`}
+                    >
+                      {item.year}
+                    </span>
+                  </button>
+                ))}
               </div>
             </div>
           </div>

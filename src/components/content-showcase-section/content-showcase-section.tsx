@@ -1,0 +1,26 @@
+import React from 'react'
+import SplitDivider from '../ui/split-divider'
+import ContentShowcaseCard from './_utils/content-showcase-card'
+
+const ContentShowcaseSection = () => {
+  return (
+    <section data-debug="content-showcase-section">
+      <div className="flex flex-col gap-10">
+        <SplitDivider className="lg:gap-28">
+          <h2 className="text-pretty lg:text-7xl text-6xl font-semibold  text-gray-900 break-words  ">
+            News and Events
+          </h2>
+        </SplitDivider>
+
+        {/* Cards Grid */}
+        <div className="container-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <ContentShowcaseCard key={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default ContentShowcaseSection
