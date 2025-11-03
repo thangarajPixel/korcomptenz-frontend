@@ -114,7 +114,7 @@ const MapSection = () => {
     setActiveLocation(activeLocation === locationId ? null : locationId);
   };
   return (
-    <div className="relative mx-auto w-full max-w-6xl">
+    <div className="relative container-md">
       <div className="relative aspect-[2/1] w-full">
         <Image
           src={'/assets/map.png'}
