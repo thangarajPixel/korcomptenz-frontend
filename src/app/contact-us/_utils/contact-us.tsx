@@ -184,6 +184,7 @@ const officesData = [
   },
 ];
 const corporateData = {
+  title: "Corporate Headquarters & Global Offices",
   offices: [
     {
       id: 1,

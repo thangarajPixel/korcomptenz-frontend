@@ -11,6 +11,7 @@ interface OfficeLocation {
 }
 
 interface OfficeCardProps {
+  title:string
   offices: OfficeLocation[];
 }
 
@@ -22,9 +23,8 @@ const ContactUsCorporate = ({
   return (
     <div className="container-md bg-light-gray py-12 px-4">
       <div className=" p-5">
-        {/* Header */}
         <h2 className="text-2xl font-semibold text-foreground mb-8">
-          Corporate Headquarters & Global Offices
+       {corporateData?.title}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 rounded-3xl">
@@ -41,18 +41,12 @@ const ContactUsCorporate = ({
                   />
                 </div>
               </div>
-
-              {/* Country Name */}
               <h3 className="text-center text-4xl font-semibold text-gray-900 mb-3">
                 {corporate?.country}
               </h3>
-
-              {/* Address */}
               <p className="text-center text-lg text-gray-600 mb-4 leading-relaxed">
                 {corporate?.address}
               </p>
-
-              {/* Contact Info */}
               <div className="space-y-1 text-lg text-primary">
                 <p className="text-center">
                   <span className=" font-medium">Phone:</span>{" "}
