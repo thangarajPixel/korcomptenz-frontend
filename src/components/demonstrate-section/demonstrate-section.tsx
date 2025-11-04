@@ -3,13 +3,12 @@ import KorcomptenzImage from "../korcomptenz-image";
 import { ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 
-const DemonstrateSection = ({
-  data,
-}: {
-  data: DemonstrationSectionType;
-}) => {
+const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
   return (
-    <section className="container-md" data-debug={"page-componets.demonstrate-section"}>
+    <section
+      className="container-md"
+      data-debug={"page-componets.demonstrate-section"}
+    >
       <div className="">
         <div className="flex flex-col gap-9 text-start lg:text-center items-start lg:items-center justify-center leading-14  text-foreground  ">
           <h1 className="text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0">
@@ -25,12 +24,12 @@ const DemonstrateSection = ({
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:p-10 ">
           {data?.list?.map((card, index) => {
-
             return (
               <div
                 key={`card-item-demo-${card?.id}`}
-                className={`bg-none flex flex-col gap-4 ${!((index + 1) % 2) ? "lg:mt-10" : ""
-                  }`}
+                className={`bg-none flex flex-col gap-4 ${
+                  !((index + 1) % 2) ? "lg:mt-10" : ""
+                }`}
               >
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
@@ -49,13 +48,14 @@ const DemonstrateSection = ({
                 <p className="text-lg font-normal text-foreground leading-6 break-words">
                   {card?.description}
                 </p>
-
-                <div>
-                  <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors">
-                    {card?.buttonText}
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
+                {card?.buttonText && (
+                  <div>
+                    <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors">
+                      {card?.buttonText}
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
               </div>
             );
           })}

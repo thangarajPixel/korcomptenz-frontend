@@ -14,16 +14,26 @@ const BuildConnect = ({
 }) => {
   return (
     <section data-debug="page-componets.build-data">
-      <div className="container-md my-10 ">
+      <div className="container-md  ">
         {buildData?.isSwap && (
           <h3 className=" text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
             {buildData?.title}
-          </h3>)}
-        <div className={cn("grid grid-cols-1 lg:grid-cols-2 gap-x-20", buildData?.isSwap && "mt-3")}>
-          <div className={cn("px-5 space-y-3 ", buildData?.isSwap && "order-2")}>
-            {!buildData?.isSwap && <h3 className="text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
-              {buildData?.title}
-            </h3>}
+          </h3>
+        )}
+        <div
+          className={cn(
+            "grid grid-cols-1 lg:grid-cols-2 gap-x-20",
+            buildData?.isSwap && "mt-3"
+          )}
+        >
+          <div
+            className={cn("px-5 space-y-3 ", buildData?.isSwap && "order-2")}
+          >
+            {!buildData?.isSwap && (
+              <h3 className="text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
+                {buildData?.title}
+              </h3>
+            )}
             <DangerousHtml
               html={buildData?.description}
               className="text-md md:text-2xl text-foreground leading-7 break-words"
@@ -64,7 +74,9 @@ const BuildConnect = ({
                 />
                 {buildData?.imageCaption && (
                   <div className="flex flex-col items-center gap-2 lg:mt-5">
-                    <p className="text-md text-center">{buildData?.imageCaption}</p>
+                    <p className="text-md text-center">
+                      {buildData?.imageCaption}
+                    </p>
                     <Button className="items-center">
                       {buildData?.buttonText || "Watch Now"}
                     </Button>
@@ -80,7 +92,13 @@ const BuildConnect = ({
               className=""
             />
           )}
-          {buildData?.rightSection?.content === "form" && <BookDemoSection essential={buildData?.rightSection?.form?.forms[0] as BookDemoFormType} />}
+          {buildData?.rightSection?.content === "form" && (
+            <BookDemoSection
+              essential={
+                buildData?.rightSection?.form?.forms[0] as BookDemoFormType
+              }
+            />
+          )}
         </div>
       </div>
     </section>
