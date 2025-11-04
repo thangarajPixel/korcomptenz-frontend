@@ -159,7 +159,6 @@ const GlobalPage = (props: Props) => {
             techData={item}
           />
         );
-
       case "page-componets.stretchable-section":
         return (
           <StretchableSection
