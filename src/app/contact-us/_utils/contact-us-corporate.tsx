@@ -1,20 +1,6 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import React from "react";
 
-interface OfficeLocation {
-  id: number;
-  country: string;
-  icon: string;
-  address: string;
-  phone: string;
-  fax: string;
-}
-
-interface OfficeCardProps {
-  title:string
-  offices: OfficeLocation[];
-}
-
 const ContactUsCorporate = ({
   corporateData,
 }: {
@@ -24,7 +10,7 @@ const ContactUsCorporate = ({
     <div className="container-md bg-light-gray py-12 px-4">
       <div className=" p-5">
         <h2 className="text-2xl font-semibold text-foreground mb-8">
-       {corporateData?.title}
+          {corporateData?.title}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 rounded-3xl">

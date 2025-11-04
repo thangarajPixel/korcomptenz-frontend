@@ -329,3 +329,15 @@ type IndustryItem = {
   image: ImageType;
   buttontext: string;
 };
+
+
+type OfficeLocation ={
+  id: number;
+  country: string;
+  icon: string;
+  address: string;
+  phone: string;
+  fax: string;
+}
+
+

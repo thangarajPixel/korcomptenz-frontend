@@ -394,6 +394,10 @@ type BookDemoFormType = {
   emailLabel: string;
   buttonText: string;
 };
+interface OfficeCardProps {
+  title: string;
+  offices: OfficeLocation[];
+}
 
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
