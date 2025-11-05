@@ -397,6 +397,46 @@ type BookDemoFormType = {
   emailLabel: string;
   buttonText: string;
 };
+type ContentShowcaseSectionType = {
+  title: string;
+  buttontext: string;
+  description: string;
+  list: ShowCaseCardType[];
+};
+type MapSectionType = {
+  buttontext: string;
+  description: string;
+  id: string;
+  tile: string;
+  list: MapDataType[];
+};
+type OurStorySectionType = {
+  id: string;
+  title: string;
+  description: string;
+  list: OurStoryCardType[];
+};
+
+type PeopleShowcaseSectionType = {
+  buttontext: string;
+  description: string;
+  id: string;
+  title: string;
+  list: PeopleShowcaseCardType[];
+};
+
+type StatsSectionType = {
+  buttontext: string;
+  description: string;
+  id: string;
+  title: string;
+  list: StatsCardType[];
+};
+type MediaSliderSectionType = {
+  title: string;
+  id: string;
+  list: MediaSliderCardType[];
+};
 
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
@@ -520,6 +560,30 @@ type ComponentPropsMap = {
   PartnerSection: PartnershipSectionType & {
     id: string;
     __component: "case-study.partner-section";
+  };
+  AboutUsContentShowcaseSection: ContentShowcaseSectionType & {
+    id: string;
+    __component: "about-us.content-showcase-section-list";
+  };
+  AboutUsMapSection: MapSectionType & {
+    id: string;
+    __component: "about-us.map-section-list";
+  };
+  AboutUsOurStorySection: OurStorySectionType & {
+    id: string;
+    __component: "about-us.our-story-list";
+  };
+  PeopleShowcaseSection: PeopleShowcaseSectionType & {
+    id: string;
+    __component: "about-us.people-showcase-list";
+  };
+  AboutUsStatsSection: StatsSectionType & {
+    id: string;
+    __component: "about-us.stats-section";
+  };
+  MediaSliderSection: MediaSliderSectionType & {
+    id: string;
+    __component: "about-us.media-slider-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

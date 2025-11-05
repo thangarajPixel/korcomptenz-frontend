@@ -91,7 +91,7 @@ export function AnimatedTabsHero({
               <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
                 {activeContent?.description}
               </p>
-              <Link href={activeContent?.link}>
+              <Link href={activeContent?.link || "#"}>
                 <Button size="xl" arrow={true}>
                   {activeContent?.buttonText}
                 </Button>

@@ -321,3 +321,57 @@ type IndustryItem = {
   image: ImageType;
   buttontext: string;
 };
+
+type ShowCaseCardType = {
+  buttonText: string;
+  description: string;
+  image: ImageType;
+  title: string;
+  id: string;
+};
+
+type MapDataType = {
+  decription: string;
+  id: number;
+  image: ImageType;
+  title: string;
+  x: number;
+  y: number;
+};
+
+type OurStoryCardType = {
+  description: string;
+  id: string;
+  image: ImageType;
+  title: string;
+  year: number;
+};
+
+type PeopleShowcaseCardType = {
+  buttonText: string;
+  description: string;
+  image: ImageType;
+  title: string;
+  id: string;
+  miniDescription: string;
+  position: string;
+  socialPlatform: {
+    image: ImageType;
+  };
+};
+
+type StatsCardType = {
+  count: number;
+  description: string;
+  id: string;
+  title: string;
+  isIncrement: boolean;
+};
+
+type MediaSliderCardType = {
+  description: string;
+  id: string;
+  image: ImageType;
+  isVideo: boolen;
+  videoLink: string;
+};

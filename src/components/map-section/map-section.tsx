@@ -1,115 +1,111 @@
-'use client';
+"use client";
 
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
+import KorcomptenzImage from "../korcomptenz-image";
 
-type Location = {
-  id: number;
-  name: string;
-  description: string;
-  x: number;
-  y: number;
-  image: string;
-};
-const MapSection = () => {
-  const [activeLocation, setActiveLocation] = React.useState<number | null>(null);
-  const locations: Location[] = [
-    {
-      id: 1,
-      name: 'UAE',
-      description: 'Neem Connect',
-      x: 72,
-      y: 28,
-      image: '/assets/tempory/4ad21517e21620bcd4d9f5fedadce99309f70bd4.png',
-    },
-    {
-      id: 2,
-      name: 'US',
-      description: 'Neem Connect',
-      x: 20,
-      y: 32,
-      image: '/assets/tempory/4d292c43fb8f4e61048c37694258227d464e4551.png',
-    },
-    {
-      id: 4,
-      name: 'US',
-      description: 'Neem Connect',
-      x: 18,
-      y: 29,
-      image: '/assets/tempory/4d292c43fb8f4e61048c37694258227d464e4551.png',
-    },
-    {
-      id: 3,
-      name: 'US',
-      description: 'Neem Connect',
-      x: 9,
-      y: 36,
-      image: '/assets/tempory/4d292c43fb8f4e61048c37694258227d464e4551.png',
-    },
-    {
-      id: 5,
-      name: 'India',
-      description: 'Coimbatore',
-      x: 77.5,
-      y: 47.5,
-      image: '/assets/tempory/9afaeaa0a343634e1218348071057d4d22f80323.png',
-    },
-    {
-      id: 6,
-      name: 'India',
-      description: 'Neem Connect',
-      x: 76,
-      y: 43.5,
-      image: '/assets/tempory/9afaeaa0a343634e1218348071057d4d22f80323.png',
-    },
-    {
-      id: 7,
-      name: 'India',
-      description: 'Neem Connect',
-      x: 79,
-      y: 43.5,
-      image: '/assets/tempory/9afaeaa0a343634e1218348071057d4d22f80323.png',
-    },
-    {
-      id: 8,
-      name: 'Netherlands',
-      description: 'Neem Connect',
-      x: 57,
-      y: 18.5,
-      image: '/assets/tempory/94d292a2c797797d6cd81246220b21c618efc5a4.png',
-    },
-    {
-      id: 9,
-      name: 'Philippines',
-      description: 'Neem Connect',
-      x: 97,
-      y: 54,
-      image: '/assets/tempory/97c6b0ef8a7d05279036655955685e5d0001485f.png',
-    },
-    {
-      id: 10,
-      name: 'Mexico',
-      description: 'Neem Connect',
-      x: 12,
-      y: 48,
-      image: '/assets/tempory/481cc013cbeed078b133d204e9d695b416e4906c.png',
-    }, {
-      id: 11,
-      name: 'Canada',
-      description: 'Neem Connect',
-      x: 29,
-      y: 22,
-      image: '/assets/tempory/cd2183fa1b501189e1b99540a39d1ffb1559c390.png',
-    },
-    {
-      id: 12,
-      name: 'Canada',
-      description: 'Neem Connect',
-      x: 28,
-      y: 26,
-      image: '/assets/tempory/cd2183fa1b501189e1b99540a39d1ffb1559c390.png',
-    },
-  ];
+const MapSection = ({ data }: { data: MapSectionType }) => {
+  const [activeLocation, setActiveLocation] = React.useState<number | null>(
+    null
+  );
+  // const list: Location[] = [
+  //   {
+  //     id: 1,
+  //     name: "UAE",
+  //     description: "Neem Connect",
+  //     x: 72,
+  //     y: 28,
+  //     image: "/assets/tempory/4ad21517e21620bcd4d9f5fedadce99309f70bd4.png",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "US",
+  //     description: "Neem Connect",
+  //     x: 20,
+  //     y: 32,
+  //     image: "/assets/tempory/4d292c43fb8f4e61048c37694258227d464e4551.png",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "US",
+  //     description: "Neem Connect",
+  //     x: 18,
+  //     y: 29,
+  //     image: "/assets/tempory/4d292c43fb8f4e61048c37694258227d464e4551.png",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "US",
+  //     description: "Neem Connect",
+  //     x: 9,
+  //     y: 36,
+  //     image: "/assets/tempory/4d292c43fb8f4e61048c37694258227d464e4551.png",
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "India",
+  //     description: "Coimbatore",
+  //     x: 77.5,
+  //     y: 47.5,
+  //     image: "/assets/tempory/9afaeaa0a343634e1218348071057d4d22f80323.png",
+  //   },
+  //   {
+  //     id: 6,
+  //     name: "India",
+  //     description: "Neem Connect",
+  //     x: 76,
+  //     y: 43.5,
+  //     image: "/assets/tempory/9afaeaa0a343634e1218348071057d4d22f80323.png",
+  //   },
+  //   {
+  //     id: 7,
+  //     name: "India",
+  //     description: "Neem Connect",
+  //     x: 79,
+  //     y: 43.5,
+  //     image: "/assets/tempory/9afaeaa0a343634e1218348071057d4d22f80323.png",
+  //   },
+  //   {
+  //     id: 8,
+  //     name: "Netherlands",
+  //     description: "Neem Connect",
+  //     x: 57,
+  //     y: 18.5,
+  //     image: "/assets/tempory/94d292a2c797797d6cd81246220b21c618efc5a4.png",
+  //   },
+  //   {
+  //     id: 9,
+  //     name: "Philippines",
+  //     description: "Neem Connect",
+  //     x: 97,
+  //     y: 54,
+  //     image: "/assets/tempory/97c6b0ef8a7d05279036655955685e5d0001485f.png",
+  //   },
+  //   {
+  //     id: 10,
+  //     name: "Mexico",
+  //     description: "Neem Connect",
+  //     x: 12,
+  //     y: 48,
+  //     image: "/assets/tempory/481cc013cbeed078b133d204e9d695b416e4906c.png",
+  //   },
+  //   {
+  //     id: 11,
+  //     name: "Canada",
+  //     description: "Neem Connect",
+  //     x: 29,
+  //     y: 22,
+  //     image: "/assets/tempory/cd2183fa1b501189e1b99540a39d1ffb1559c390.png",
+  //   },
+  //   {
+  //     id: 12,
+  //     name: "Canada",
+  //     description: "Neem Connect",
+  //     x: 28,
+  //     y: 26,
+  //     image: "/assets/tempory/cd2183fa1b501189e1b99540a39d1ffb1559c390.png",
+  //   },
+  // ];
   const handleClick = (locationId: number) => {
     setActiveLocation(activeLocation === locationId ? null : locationId);
   };
@@ -117,13 +113,13 @@ const MapSection = () => {
     <div className="relative container-md">
       <div className="relative aspect-[2/1] w-full">
         <Image
-          src={'/assets/map.png'}
+          src={"/assets/map.png"}
           alt="World map"
           fill
           className="object-cover opacity-70"
         />
         <div className="absolute inset-0">
-          {locations.map(location => (
+          {data?.list.map((location) => (
             <div
               key={location.id}
               className="absolute -translate-x-1/2 -translate-y-1/2"
@@ -133,17 +129,17 @@ const MapSection = () => {
                 type="button"
                 onClick={() => handleClick(location.id)}
                 className="group focus:outline-none"
-                aria-label={`Location: ${location.name}`}
+                aria-label={`Location: ${location.title}`}
               >
                 <div
-                  className={`flex size-8 items-center justify-center transition-all duration-200 ${activeLocation === location.id
-                    ? 'scale-125'
-                    : 'group-hover:scale-125'
-                    }`}
+                  className={`flex size-8 items-center justify-center transition-all duration-200 ${
+                    activeLocation === location.id
+                      ? "scale-125"
+                      : "group-hover:scale-125"
+                  }`}
                 >
-                  <Image
-                    src={location.image}
-                    alt={location.name}
+                  <KorcomptenzImage
+                    src={location?.image}
                     width={24}
                     height={32}
                     className="object-cover size-5 sm:size-8"
@@ -202,7 +198,7 @@ const MapSection = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MapSection
+export default MapSection;

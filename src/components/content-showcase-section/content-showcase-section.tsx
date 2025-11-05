@@ -1,8 +1,12 @@
-import React from 'react'
-import SplitDivider from '../ui/split-divider'
-import ContentShowcaseCard from './_utils/content-showcase-card'
+import React from "react";
+import SplitDivider from "../ui/split-divider";
+import ContentShowcaseCard from "./_utils/content-showcase-card";
 
-const ContentShowcaseSection = () => {
+const ContentShowcaseSection = ({
+  data,
+}: {
+  data: ContentShowcaseSectionType;
+}) => {
   return (
     <section data-debug="content-showcase-section">
       <div className="flex flex-col gap-10">
@@ -14,13 +18,13 @@ const ContentShowcaseSection = () => {
 
         {/* Cards Grid */}
         <div className="container-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {Array.from({ length: 3 }).map((_, index) => (
-            <ContentShowcaseCard key={index} />
+          {data?.list?.map((list, index) => (
+            <ContentShowcaseCard key={index} list={list} />
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ContentShowcaseSection
+export default ContentShowcaseSection;
