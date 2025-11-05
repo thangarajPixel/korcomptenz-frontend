@@ -8,7 +8,7 @@
     "check-types": "pnpm -r check-types",
     "dev": "next dev --turbopack --port=4000",
     "build": "next build",
-    "start": "next start -p 3001",
+    "start": "next start -p 3100",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix"
   },
