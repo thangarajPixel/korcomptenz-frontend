@@ -49,7 +49,7 @@ const CareerForm = () => {
         try {
           const response = await mutateAsync(formdata);
           notify(response);
-          reset({ ...defaultValues });
+          // reset({ ...defaultValues });
         } catch (error) {
           errorSet(error, setError);
         }

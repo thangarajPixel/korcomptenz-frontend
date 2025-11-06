@@ -57,8 +57,10 @@ export const createCareerNewLetter = async (
   formData: CareerNewLetterFormData
 ) => {
   const { data } = await http.postForm(CAREER_NEW_LETTER, {
-    data: formData,
-    files: formData.resume,
+    data: {
+      ...formData,
+    },
+    files: formData.resume?.[0],
   });
   return data;
 };
