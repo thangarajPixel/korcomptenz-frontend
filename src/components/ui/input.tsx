@@ -31,7 +31,11 @@ const Input = <D extends FieldValue>({
   });
   return (
     <div className={cn("relative", props.disabled && "cursor-pointer")}>
-      {props.label && <label className="block text-sm font-medium text-gray-700">{props.label}</label>}
+      {props.label && (
+        <label className="block text-sm font-medium text-gray-700">
+          {props.label}
+        </label>
+      )}
       <input
         data-slot="input"
         className={cn(
@@ -44,8 +48,8 @@ const Input = <D extends FieldValue>({
           typeof field.value === "string"
             ? field.value
             : field.value == null
-              ? ""
-              : String(field.value)
+            ? ""
+            : String(field.value)
         }
         onChange={(e) => {
           field.onChange(e.target.value);

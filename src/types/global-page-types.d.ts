@@ -23,7 +23,7 @@ type ServicesSectionType = {
 type InspireSectionType = {
   title: string;
   buttonText: string;
-  link: string
+  link: string;
   list: {
     id: string;
     position: string;
@@ -32,7 +32,7 @@ type InspireSectionType = {
     order: string;
     description: string;
     buttonText?: string;
-    link: string
+    link: string;
   }[];
 };
 
@@ -564,4 +564,10 @@ type CaseStudyPageType = {
     title: string;
     buttonText: string;
   };
+};
+type DepartmentType = {
+  data: {
+    id: number;
+    label: string;
+  }[];
 };

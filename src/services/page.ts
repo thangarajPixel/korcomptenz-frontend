@@ -2,6 +2,7 @@ import { getDownloadService } from "./common";
 import http from "./http";
 import type {
   BookADemoFormData,
+  CareerNewLetterFormData,
   ContactFormData,
 } from "@/utils/validation.schema";
 
@@ -13,7 +14,9 @@ const CASE_STUDY_SEARCH = "/case-study-search";
 const CASE_STUDY_PAGE = "/case-study-page";
 export const FILTER_CASE_STUDY = "/case-study-filter";
 export const CASE_STUDY_LEAD = "/case-study-leads";
+export const CAREER_NEW_LETTER = "/candidate-details";
 export const BOOK_DEMO = "/book-demo-leads";
+export const DEPARTMENT_LIST = "/departments";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -50,6 +53,15 @@ export const createCaseStudyLead = async (formData: ContactFormData) => {
   data?.attachment?.url && (await getDownloadService(data?.attachment));
   return data;
 };
+export const createCareerNewLetter = async (
+  formData: CareerNewLetterFormData
+) => {
+  const { data } = await http.postForm(CAREER_NEW_LETTER, {
+    data: formData,
+    files: formData.resume,
+  });
+  return data;
+};
 
 export const getCaseStudyList = async ({
   params,
@@ -59,6 +71,11 @@ export const getCaseStudyList = async ({
   const data = await http.get(CASE_STUDY, {
     params,
   });
+  return data as never;
+};
+
+export const getDepartmentList = async (): Promise<DepartmentType> => {
+  const data = await http.get(DEPARTMENT_LIST);
   return data as never;
 };
 
