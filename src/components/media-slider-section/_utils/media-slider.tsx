@@ -37,8 +37,8 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
             <CarouselItem key={index} className="aspect-video relative">
               <KorcomptenzImage
                 src={slide.image || "/placeholder.svg"}
-                width={100}
-                height={100}
+                width={slide?.image?.width || 1500}
+                height={slide?.image?.height || 1500}
                 className="w-full h-full "
               />
 
@@ -78,19 +78,19 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
       </Carousel>
       <div className="relative mt-4">
         <div className="overflow-hidden">
-          <div className="flex gap-4">
+          <div className="flex gap-10">
             <CardSwiper disableAutoSlide>
               {data?.list.map((slide, index) => (
                 <button
                   key={slide.id}
                   onClick={() => onThumbClick(index)}
-                  className={`flex-[0_0_40%] md:flex-[0_0_22%] min-w-0 rounded-2xl overflow-hidden transition-all duration-200 `}
+                  className={`flex-[0_0_40%] md:flex-[0_0_22%] min-w-0 rounded-2xl overflow-hidden transition-all duration-200  `}
                 >
                   <KorcomptenzImage
                     src={slide.image}
-                    width={20}
-                    height={20}
-                    className="w-full h-full "
+                    width={slide?.image?.width || 200}
+                    height={slide?.image?.height || 200}
+                    className="w-full h-full ml-5 "
                   />
                 </button>
               ))}

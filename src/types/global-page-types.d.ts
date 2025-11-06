@@ -404,10 +404,10 @@ type ContentShowcaseSectionType = {
   list: ShowCaseCardType[];
 };
 type MapSectionType = {
-  buttontext: string;
+  buttonText: string;
   description: string;
   id: string;
-  tile: string;
+  title: string;
   list: MapDataType[];
 };
 type OurStorySectionType = {

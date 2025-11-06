@@ -36,9 +36,9 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
 
           {buttonText && (
             <Button
-              size="xl"
-              className="flex w-[150px] md:w-[200px] mb-10 mr-4 lg:mb-0"
-              arrow={true}
+              variant="ghost"
+              arrow
+              className="text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px]"
             >
               {buttonText}
             </Button>

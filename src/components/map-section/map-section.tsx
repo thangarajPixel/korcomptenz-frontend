@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import KorcomptenzImage from "../korcomptenz-image";
+import { Button } from "../ui/button";
 
 const MapSection = ({ data }: { data: MapSectionType }) => {
   const [activeLocation, setActiveLocation] = React.useState<number | null>(
@@ -111,6 +112,21 @@ const MapSection = ({ data }: { data: MapSectionType }) => {
   };
   return (
     <div className="relative container-md">
+      <div className="items-center">
+        <h1 className="text-foreground text-center font-semibold text-9xl mb-5">
+          {data?.title}
+        </h1>
+        <p className="text-center text-[#6C6C6C] text-lg max-w-3xl mx-auto mb-5">
+          {data?.description}
+        </p>
+        <Button
+          size="xl"
+          arrow
+          className="variant:default flex items-center justify-center max-w-3xl mx-auto mb-10"
+        >
+          {data?.buttonText}
+        </Button>
+      </div>
       <div className="relative aspect-[2/1] w-full">
         <Image
           src={"/assets/map.png"}
