@@ -5,7 +5,6 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { Button } from "../ui/button";
 import { Upload } from "lucide-react";
 import { useCareerNewLetterHook, useDepartmentListHook } from "@/services";
-
 import { errorSet, notify } from "@/utils/helper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -56,6 +55,7 @@ const CareerForm = () => {
       },
       [mutateAsync, reset]
     );
+
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
       <div className="grid gap-y-8 mt-5">
@@ -91,21 +91,21 @@ const CareerForm = () => {
           <div className="w-full lg:w-[35%]">
             <Input
               control={control}
-              name="phoneNumber"
+              name="phone"
               placeholder="Phone Number"
               className="border-2 p-2 rounded-md text-foreground bg-white w-full placeholder:text-black"
             />
           </div>
 
           {/* Department */}
-          <div className="w-full sm:col-span-2 lg:w-[50%]">
+          <div className="w-full sm:col-span-2 ">
             <ComboboxField
               control={control}
               name="department"
               options={
                 data?.data?.map((item) => ({
                   label: item.label,
-                  value: item.label,
+                  value: item.id,
                 })) || []
               }
               placeholder="Select Department"

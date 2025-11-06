@@ -30,6 +30,7 @@ export const bookADemoSchema = z.object({
     .pipe(z.email("Invalid email address")),
   organization: z.string().min(1, "Organization is required"),
 });
+
 export const CareerNewLetterSchema = z.object({
   name: z
     .string()
@@ -41,13 +42,17 @@ export const CareerNewLetterSchema = z.object({
     .string()
     .min(1, "Mobile number is required")
     .regex(/^\d{1,3}$/, "Enter a valid mobile number"),
-  phoneNumber: z
+  phone: z
     .string()
     .optional()
     .refine((val) => !val || /^\d{10,15}$/.test(val), {
       message: "Enter a valid phone number",
     }),
-  department: z.string().min(1, "Department is required"),
+  department: z.union([
+    z.number().min(1, "Department is required"),
+    z.string().min(1, "Department is required"),
+  ]),
+
   resume: z
     .any()
     .refine((files) => files && files.length > 0, "Resume is required")

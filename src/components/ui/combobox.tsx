@@ -1,9 +1,14 @@
 "use client";
+
 import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
-import { Controller } from "react-hook-form";
+import { Check, ChevronsDown } from "lucide-react";
+import {
+  useController,
+  type Control,
+  type FieldValues,
+  type Path,
+} from "react-hook-form";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -18,82 +23,143 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-interface ComboboxFieldProps {
-  control: never;
-  name: string;
-  options: { label: string; value: string }[];
-  placeholder?: string;
-  className?: string;
+export interface ComboboxOption {
+  label: string;
+  value: string | number;
+  state_code?: string;
 }
 
-export function ComboboxField({
+interface ComboboxFieldProps<T extends FieldValues> {
+  control: Control<T>;
+  name: Path<T>;
+  options?: ComboboxOption[];
+  placeholder?: string;
+  emptyMessage?: string;
+  className?: string;
+  errormessage?: string;
+}
+
+export function ComboboxField<T extends FieldValues>({
   control,
   name,
-  options,
-  placeholder = "Select...",
+  options = [],
+  placeholder = "Select an option...",
+  emptyMessage = "No results found.",
   className,
-}: ComboboxFieldProps) {
+  errormessage,
+}: ComboboxFieldProps<T>) {
   const [open, setOpen] = React.useState(false);
+  const [searchQuery, setSearchQuery] = React.useState("");
+
+  const { field } = useController({ control, name });
+  const selectedOption = options.find(
+    (opt) => String(opt.value) === String(field.value)
+  );
+
+  // Filter options based on search query
+  const filteredOptions = React.useMemo(() => {
+    if (!searchQuery) return options;
+    const searchLower = searchQuery.toLowerCase();
+    return options.filter(
+      (option) =>
+        option.label.toLowerCase().includes(searchLower) ||
+        String(option.value).toLowerCase().includes(searchLower) ||
+        option.state_code?.toLowerCase().includes(searchLower)
+    );
+  }, [options, searchQuery]);
 
   return (
-    <Controller
-      control={control}
-      name={name}
-      render={({ field }) => (
-        <Popover open={open} onOpenChange={setOpen}>
-          <PopoverTrigger asChild>
-            <Button
-              variant="outline"
-              role="combobox"
-              aria-expanded={open}
-              className={cn(
-                "w-full flex items-center justify-between text-left",
-                className
-              )}
-            >
-              <span className="truncate">
-                {field.value
-                  ? options.find((item) => item.value === field.value)?.label
-                  : placeholder}
-              </span>
-              <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-            </Button>
-          </PopoverTrigger>
+    <div className="w-full">
+      <Popover modal open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <button
+            type="button"
+            role="combobox"
+            aria-expanded={open}
+            className={cn(
+              "flex items-center justify-between w-full bg-white border border-primary h-10 px-3 text-base text-left",
+              className
+            )}
+            onClick={() => setOpen(!open)}
+          >
+            <span className="flex-1 truncate text-left text-black">
+              {selectedOption ? selectedOption.label : placeholder}
+            </span>
 
-          <PopoverContent className="w-[200px] p-0">
-            <Command>
-              <CommandInput placeholder="Search..." className="h-9" />
-              <CommandList>
-                <CommandEmpty>No results found.</CommandEmpty>
-                <CommandGroup>
-                  {options.map((item) => (
-                    <CommandItem
-                      key={item.value}
-                      value={item.value}
-                      onSelect={(currentValue) => {
-                        field.onChange(
-                          currentValue === field.value ? "" : currentValue
-                        );
-                        setOpen(false);
-                      }}
-                    >
-                      {item.label}
-                      <Check
-                        className={cn(
-                          "ml-auto",
-                          field.value === item.value
-                            ? "opacity-100"
-                            : "opacity-0"
-                        )}
-                      />
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
-              </CommandList>
-            </Command>
-          </PopoverContent>
-        </Popover>
+            {selectedOption ? (
+              // ❌ Clear icon shown when something is selected
+              <svg
+                onClick={(e) => {
+                  e.stopPropagation(); // prevent dropdown opening
+                  field.onChange(""); // clear value
+                  setSearchQuery("");
+                  setOpen(false);
+                }}
+                xmlns="http://www.w3.org/2000/svg"
+                className="ml-2 size-4 shrink-0 text-gray-500 hover:text-red-500 cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              // ⬇️ Chevron shown normally
+              <ChevronsDown className="ml-2 size-4 shrink-0 opacity-50" />
+            )}
+          </button>
+        </PopoverTrigger>
+
+        <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
+          <Command shouldFilter={false}>
+            <CommandInput
+              placeholder="Search..."
+              value={searchQuery}
+              onValueChange={setSearchQuery}
+              className="h-9"
+            />
+            <CommandList>
+              <CommandEmpty>{emptyMessage}</CommandEmpty>
+              <CommandGroup className="max-h-60 overflow-auto">
+                {filteredOptions.map((option) => (
+                  <CommandItem
+                    key={option.value}
+                    value={String(option.value)}
+                    onSelect={() => {
+                      field.onChange(option.value); // store id in form
+                      setOpen(false);
+                      setSearchQuery("");
+                    }}
+                  >
+                    <Check
+                      className={cn(
+                        "mr-2 h-4 w-4",
+                        String(field.value) === String(option.value)
+                          ? "opacity-100"
+                          : "opacity-0"
+                      )}
+                    />
+                    {option.label}
+                    {option.state_code && (
+                      <span className="ml-2 text-muted-foreground">
+                        ({option.state_code})
+                      </span>
+                    )}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
+      {errormessage && (
+        <p className="mt-1 text-sm text-red-500">{errormessage}</p>
       )}
-    />
+    </div>
   );
 }
