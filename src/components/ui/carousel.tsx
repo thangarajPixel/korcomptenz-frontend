@@ -132,13 +132,15 @@ function Carousel({
   )
 }
 
-function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
+function CarouselContent({ className, firstItemClassName, ...props }: React.ComponentProps<"div"> & {
+  firstItemClassName?: string
+}) {
   const { carouselRef, orientation } = useCarousel()
 
   return (
     <div
       ref={carouselRef}
-      className="overflow-hidden rounded-3xl"
+      className={cn("overflow-hidden rounded-3xl", firstItemClassName)}
       data-slot="carousel-content"
     >
       <div
@@ -175,8 +177,11 @@ function CarouselPrevious({
   className,
   variant = "outline",
   size = "icon",
+  fontSize = "size-6",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & {
+  fontSize?: string
+}) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
@@ -195,7 +200,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeft className="size-6" />
+      <ChevronLeft className={fontSize} />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -205,8 +210,11 @@ function CarouselNext({
   className,
   variant = "outline",
   size = "icon",
+  fontSize = "size-6",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & {
+  fontSize?: string
+}) {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
@@ -225,7 +233,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRight className="size-6" />
+      <ChevronRight className={fontSize} />
       <span className="sr-only">Next slide</span>
     </Button>
   )
