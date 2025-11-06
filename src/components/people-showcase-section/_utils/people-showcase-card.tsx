@@ -1,8 +1,10 @@
+"use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { Button } from "@/components/ui/button";
+
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 import React from "react";
+import { DialogDemo } from "./popup";
 
 const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
   // const data = {
@@ -13,7 +15,7 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
   //   buttonText: "Learn more",
   //   position: "corner",
   // };
-  const { title, miniDescription, image, buttonText } = data;
+  const { title, miniDescription, image, description } = data;
   return (
     <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px]">
       {/* Content */}
@@ -25,7 +27,7 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
           {miniDescription && (
             <div className="flex flex-row gap-4">
               <DangerousHtml
-                html={miniDescription}
+                html={miniDescription || description}
                 className={cn(
                   image &&
                     "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-w-xs"
@@ -33,16 +35,15 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
               />
             </div>
           )}
-
-          {buttonText && (
-            <Button
-              variant="ghost"
-              arrow
-              className="text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px]"
-            >
-              {buttonText}
-            </Button>
-          )}
+          {/* 
+          <Button
+            variant="ghost"
+            arrow
+            className="text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px]"
+          >
+            {buttonText}
+          </Button> */}
+          <DialogDemo data={data} />
         </div>
 
         {/*Desktop Button */}
