@@ -36,7 +36,7 @@ export function AnimatedTabsHero({
           <TabsList
             className={cn(
               "relative lg:h-[80px] md:h-[60px] h-[44px] sm:h-16 grid max-w-5xl grid-cols-5 overflow-hidden rounded-2xl",
-              "bg-secondary p-0 shadow-none border-none !ml-0"
+              "bg-secondary p-0 shadow-none border-none !ml-0 flex w-full"
             )}
           >
             {content?.map((t) => (
