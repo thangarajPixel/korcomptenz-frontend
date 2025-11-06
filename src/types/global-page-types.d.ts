@@ -448,6 +448,23 @@ type FormPropsType = FormMap[FormType];
 type GlobalFormType = {
   forms: FormPropsType[];
 };
+type MasonryGalleryColumnType = {
+  id: string;
+  image: ImageType;
+  isVideo: boolean;
+  videoLink: string | null;
+};
+
+type MasonryGallerySectionType = {
+  id: string;
+  __component: "career.mansonry-gallery-section";
+  title: string;
+  highLightText: string;
+  list: {
+    id: string;
+    column: MasonryGalleryColumnType[];
+  }[];
+};
 type ComponentPropsMap = {
   SlidingSection: {
     id: string;
@@ -584,6 +601,10 @@ type ComponentPropsMap = {
   MediaSliderSection: MediaSliderSectionType & {
     id: string;
     __component: "about-us.media-slider-section";
+  };
+  MasonryGallerySection: MasonryGallerySectionType & {
+    id: string;
+    __component: "career.mansonry-gallery-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

@@ -2,7 +2,8 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel'
 import React from 'react'
 
-const MasonryGallery = () => {
+const MasonryGallery = ({ data }: { data: MasonryGallerySectionType }) => {
+
   return (
     <Carousel className="w-full">
       <div className="flex mb-5  justify-between w-full">
@@ -23,7 +24,51 @@ const MasonryGallery = () => {
         </div>
       </div>
       <CarouselContent firstItemClassName='rounded-none' >
-        <CarouselItem className=" md:basis-1/2 lg:basis-1/3 flex flex-col gap-4">
+        {/* {data?.list?.map((value) => {
+          return (
+            value?.column?.map((item) => {
+              return (
+                <CarouselItem className=" md:basis-1/2 lg:basis-1/3 flex flex-col gap-4">
+                  <div>
+                    <img
+                      className="h-auto max-w-full  object-cover object-center"
+                      src={item?.image?.url}
+                      alt="gallery-photo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      className="h-auto max-w-full  object-cover object-center"
+                      src={item?.image?.url}
+                      alt="gallery-photo"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      className="h-auto max-w-full  object-cover object-center"
+                      src={item?.image?.url}
+                      alt="gallery-photo"
+                    />
+                  </div>
+                </CarouselItem>
+              )
+            })
+          )
+        })} */}
+        {data?.list?.map((value) => (
+          <CarouselItem key={`value-${value?.id}`} className=" md:basis-1/2 lg:basis-1/3 flex flex-col gap-4" >
+            {value?.column?.map((item) => (
+              <div key={`item-${item?.id}`}>
+                <img
+                  className="h-auto max-w-full  object-cover object-center"
+                  src={item?.image?.url}
+                  alt="gallery-photo"
+                />
+              </div>
+            ))}
+          </CarouselItem>
+        ))}
+        {/* <CarouselItem className=" md:basis-1/2 lg:basis-1/3 flex flex-col gap-4">
           <div>
             <img
               className="h-auto max-w-full  object-cover object-center"
@@ -107,7 +152,7 @@ const MasonryGallery = () => {
               alt="gallery-photo"
             />
           </div>
-        </CarouselItem>
+        </CarouselItem> */}
       </CarouselContent>
     </Carousel>
   )

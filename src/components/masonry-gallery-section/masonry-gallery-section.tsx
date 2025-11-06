@@ -1,11 +1,11 @@
 import React from 'react'
 import MasonryGallery from './_utils/masonry-gallery'
 
-const MasonryGallerySection = () => {
+const MasonryGallerySection = ({ data }: { data: MasonryGallerySectionType }) => {
   return (
-    <div className="container-md">
-      <MasonryGallery />
-    </div>
+    <section data-debug={data.__component} className="container-md">
+      <MasonryGallery data={data} />
+    </section>
   )
 }
 

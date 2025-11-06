@@ -29,6 +29,7 @@ import OurStory from "../our-story";
 import PeopleShowcaseSection from "../people-showcase-section";
 import StatsSection from "../stats-section";
 import MediaSliderSection from "../media-slider-section";
+import MasonryGallerySection from "../masonry-gallery-section/masonry-gallery-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -256,7 +257,6 @@ const GlobalPage = (props: Props) => {
             data={item}
           />
         );
-
       case "about-us.media-slider-section":
         return (
           <MediaSliderSection
@@ -264,7 +264,13 @@ const GlobalPage = (props: Props) => {
             data={item}
           />
         );
-
+      case "career.mansonry-gallery-section":
+        return (
+          <MasonryGallerySection
+            key={`mansonry-gallery-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
       default:
         return;
     }
