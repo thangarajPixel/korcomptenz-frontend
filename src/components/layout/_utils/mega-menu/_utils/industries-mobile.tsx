@@ -1,18 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight, ChevronLeft, X } from "lucide-react";
-
+import { Plus, ChevronLeft, X } from "lucide-react";
 
 interface DrawerState {
   isOpen: boolean;
-  industry: IndustriesMenuType['sections'][number] | null;
+  industry: IndustriesMenuType["sections"][number] | null;
 }
 
 interface IndustryDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  industry: IndustriesMenuType['sections'][number] | null;
+  industry: IndustriesMenuType["sections"][number] | null;
 }
 
 const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
@@ -72,7 +71,7 @@ const IndustriesMobile = ({ data }: { data: LayoutType }) => {
     industry: null,
   });
 
-  const openDrawer = (industry: IndustriesMenuType['sections'][number]) => {
+  const openDrawer = (industry: IndustriesMenuType["sections"][number]) => {
     setDrawer({ isOpen: true, industry });
   };
 
@@ -94,7 +93,7 @@ const IndustriesMobile = ({ data }: { data: LayoutType }) => {
                 {section?.title}
               </span>
               {section?.items?.length > 0 && (
-                <ChevronRight className="w-4 h-4 text-primary" />
+                <Plus className="w-4 h-4 text-primary" />
               )}
             </button>
           ))

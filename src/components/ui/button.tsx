@@ -77,7 +77,7 @@ function Button({
           <React.Fragment>
             <span className="relative flex items-center justify-center text-lg  gap-1">
               {children}
-              {arrow && <ChevronRight className="size-4 font-bold" />}
+              {arrow && <ChevronRight className="size-5 font-bold" />}
             </span>
           </React.Fragment>
         )}

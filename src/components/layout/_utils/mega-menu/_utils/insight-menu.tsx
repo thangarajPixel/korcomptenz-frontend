@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-const InsightsMenu = ({ data }: { data: LayoutType }) => {
+const InsightsMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
   return (
     <div className="bg-white w-full overflow-x-hidden  overscroll-contain">
       <div className="mx-auto">
@@ -39,18 +39,20 @@ const InsightsMenu = ({ data }: { data: LayoutType }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <div className="flex items-center justify-between">
+                <div className="group flex items-center justify-between cursor-pointer transition-all duration-300 ease-in-out">
                   <div className="flex-1">
-                    <h3 className="text-5xl font-normal text-custom-gray group-hover:text-primary">
+                    <h3 className="text-5xl font-normal text-custom-gray transition-colors duration-300 ease-in-out group-hover:text-primary">
                       {category?.title}
                     </h3>
                   </div>
                   <div className="ml-4">
                     <div
-                      className="w-10 h-10 bg-primary rounded-full flex items-center justify-center 
-                                hover:bg-white hover:border hover:border-primary transition-colors duration-200"
+                      className="w-10 h-10 rounded-full flex items-center justify-center
+                 bg-primary border border-transparent
+                 transition-all duration-300 ease-in-out
+                 group-hover:bg-white group-hover:border-primary"
                     >
-                      <ChevronRight className="w-5 h-5 text-white hover:text-primary transition-colors duration-200" />
+                      <ChevronRight className="w-5 h-5 text-white transition-all duration-300 ease-in-out group-hover:text-primary" />
                     </div>
                   </div>
                 </div>

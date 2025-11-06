@@ -3,7 +3,7 @@
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-const AboutMenu = ({ data }: { data: LayoutType }) => {
+const AboutMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
   return (
     <div className="bg-white h-[598px] w-full overflow-y-auto overflow-x-hidden">
       <div className="flex h-full">
@@ -26,8 +26,13 @@ const AboutMenu = ({ data }: { data: LayoutType }) => {
                   <h2 className="text-3xl font-normal text-primary mr-3">
                     {data?.aboutMenu?.whoWeAre?.title}
                   </h2>
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                    <ChevronRight className="w-4 h-4 text-white" />
+                  <div
+                    className="group w-8 h-8 rounded-full flex items-center justify-center 
+             bg-primary border border-transparent 
+             transition-all duration-300 ease-in-out 
+             hover:bg-white hover:border-primary cursor-pointer"
+                  >
+                    <ChevronRight className="w-4 h-4 text-white transition-all duration-300 ease-in-out group-hover:text-primary" />
                   </div>
                 </div>
               </div>
@@ -80,8 +85,13 @@ const AboutMenu = ({ data }: { data: LayoutType }) => {
                       {section?.title}
                     </h3>
                   </div>
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                    <ChevronRight className="w-4 h-4 text-white" />
+                  <div
+                    className="group w-8 h-8 rounded-full flex items-center justify-center 
+             bg-primary border border-transparent 
+             transition-all duration-300 ease-in-out 
+             hover:bg-white hover:border-primary cursor-pointer"
+                  >
+                    <ChevronRight className="w-4 h-4 text-white transition-all duration-300 ease-in-out group-hover:text-primary" />
                   </div>
                 </div>
 

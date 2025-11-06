@@ -10,7 +10,7 @@ import {
   LinkedInIcon,
   TwitterIcon,
   WhatAppIcon,
-} from "../../../../../public/svg/all-svg";
+} from "../../../../../../public/svg/all-svg";
 
 interface SocialLink {
   id: string;

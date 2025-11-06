@@ -35,6 +35,7 @@ type GlobalFieldType = {
   subtitle2?: string;
   secondaryDescription?: string;
   mainImage?: ImageType;
+  position?: "corner" | "main" | "side";
 };
 type PaginationType = {
   page: number;
@@ -192,6 +193,7 @@ type NavItemType = {
   hasChild: boolean;
   childKey: string;
   isButton: boolean;
+  isHideMobile: boolean;
 }[];
 
 //case study types
@@ -236,7 +238,6 @@ type CaseStudyData = {
     isCustomDescripition: boolean;
     descripition?: string;
   }[];
-
 };
 type CaseStudySingleData = {
   caseStudy: CaseStudyData;

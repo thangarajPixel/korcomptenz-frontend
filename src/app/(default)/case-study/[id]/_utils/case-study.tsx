@@ -1,7 +1,7 @@
 import React from "react";
 import CaseStudyBanner from "./case-study-banner";
 import CaseStudyContent from "./case-study-content";
-import { ClientTestimonial } from "@/app/client-success/_utils";
+import { ClientTestimonial } from "@/app/(default)/client-success/_utils";
 import { CaseStudyForm } from "./case-study-contact";
 import { CaseStudyCard } from "@/components/case-study-section";
 import { Button } from "@/components/ui/button";

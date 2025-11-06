@@ -321,7 +321,7 @@ body {
 
 .rich-text ul {
   list-style: disc;
-  margin-left: 1.5rem;
+  /* margin-left: 1.5rem; */
 }
 .rich-text li {
   margin-bottom: 0.25rem;
@@ -331,7 +331,7 @@ body {
   @apply !text-primary;
 }
 .rich-text span {
-  @apply !font-sans !text-md md:!text-lg ;
+  @apply !font-sans !text-md md:!text-lg;
 }
 .rich-text u {
   @apply !font-sans !text-md md:!text-lg !text-primary;

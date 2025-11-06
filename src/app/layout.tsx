@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Outfit } from 'next/font/google'
 import "../index.css";
 import Providers from "@/components/providers";
-import Layout from "@/components/layout";
 
 export const dynamic = "force-dynamic";
 
@@ -29,9 +28,7 @@ export default function RootLayout({
         className={`${outfitSans.variable} antialiased`}
       >
         <Providers>
-          <Layout>
-            {children}
-          </Layout>
+          {children}
         </Providers>
       </body>
     </html>

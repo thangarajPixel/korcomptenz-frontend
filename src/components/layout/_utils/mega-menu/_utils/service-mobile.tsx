@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight, ArrowLeft, X, ChevronLeft } from "lucide-react";
+import { ArrowLeft, X, ChevronLeft, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -126,7 +126,7 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
             <span className="text-lg text-custom-gray-4 font-normal">
               {service?.title}
             </span>
-            <ChevronRight className="w-4 h-4 text-primary" />
+            <Plus className="w-4 h-4 text-primary" />
           </button>
         ))}
       </div>

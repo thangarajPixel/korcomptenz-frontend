@@ -19,10 +19,10 @@ export default function StickyCards({
 
   return (
     <section
-      data-debug={"page-componets.sticky-cards-list"}
+      data-debug={stickyCards?.__component}
       className="relative"
     >
-      <div className="relative container-md ">
+      <div className="relative container-md">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-5">
           <h4 className="font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
             {stickyCards?.title}
@@ -45,7 +45,8 @@ export default function StickyCards({
             key={`sticky-card-${card?.id}`}
             className={cn(
               "sm:sticky relative sm:top-48 top-0 ",
-              `z-[${index + 10}] sm:mb-12`
+              `z-[${index + 10}] sm:mb-1`,
+              // index !== cardData.length - 1 ? "mb-[8rem]" : "mb-[0]"
             )}
           >
             <div className="flex items-center justify-center px-4 md:py-0 py-4 lg:py-6">
