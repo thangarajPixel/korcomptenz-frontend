@@ -1,13 +1,11 @@
 "use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-
 import { cn } from "@/lib/utils";
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { DialogDemo } from "./popup";
 
 const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
-
-  const { title, miniDescription, image, buttonText } = data;
+  const { title, miniDescription, image } = data;
   return (
     <div className="relative">
       <div className="bg-light-gray rounded-4xl  overflow-hidden min-h-[307px] h-full">
@@ -26,13 +24,7 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
                 </div>
               )}
             </div>
-            <Button
-              variant="ghost"
-              arrow
-              className="mb-8 ml-8 text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px]"
-            >
-              {buttonText}
-            </Button>
+            <DialogDemo data={data} />
           </div>
 
           {/*Desktop Button */}
@@ -41,10 +33,10 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
               {/* Illustration */}
               <div className="flex absolute bottom-0 right-0 justify-end items-end z-10">
                 <KorcomptenzImage
-                  // w-72
-                  className={cn(`rounded-br-4xl  p-0 h-auto w-54  object-cover`)}
+                  className={cn(
+                    `rounded-br-4xl  p-0 h-auto w-54  object-cover`
+                  )}
                   width={500}
-                  // fill
                   height={500}
                   src={image}
                 />
@@ -55,7 +47,7 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
         </div>
         {image && (
           <div className="relative lg:hidden ">
-            <div className="flex absolute -right-0 -bottom-0 justify-end items-end  ">
+            <div className="flex absolute -right-0 -bottom-0 justify-end items-end ">
               <KorcomptenzImage
                 className="w-full object-cover p-0 h-28"
                 width={500}

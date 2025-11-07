@@ -17,7 +17,7 @@ const ContentShowcaseCard = ({ list }: { list: ShowCaseCardType }) => {
         />
         {/* Content positioned at bottom */}
         <div className="absolute bottom-0 left-0  right-0 p-6 m-3 rounded-2xl bg-white opacity-60">
-          <h2 className="text-2xl font-bold text-black mb-2">{list?.title}</h2>
+          <h2 className="text-2xl font-bold text-black mb-2">{list?.title} </h2>
           <p className="text-sm mb-4 line-clamp-2">{list?.description}</p>
           <Link href="#">
             <Button

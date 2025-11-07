@@ -73,8 +73,9 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                   return rows.map((row, rowIndex) => (
                     <div key={`row-${rowIndex}`} className="mb-6 last:mb-0">
                       <div
-                        className={`grid ${row.length === 1 ? "grid-cols-1" : "grid-cols-2"
-                          } gap-6`}
+                        className={`grid ${
+                          row.length === 1 ? "grid-cols-1" : "grid-cols-2"
+                        } gap-6`}
                       >
                         {row.map((section) => (
                           <div
@@ -83,12 +84,18 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                           >
                             <div className="grid items-center gap-5">
                               <KorcomptenzImage
-                                src={section.icon}
+                                src={
+                                  section?.isPreTitle !== true
+                                    ? section.icon
+                                    : section?.preTitle?.icon
+                                }
                                 width={40}
                                 height={40}
                               />
                               <h3 className="text-5xl font-semibold">
-                                {section.title}
+                                {section?.isPreTitle !== true
+                                  ? section?.title
+                                  : section?.preTitle?.title}
                               </h3>
                             </div>
                             <p className="text-lg text-white/80">

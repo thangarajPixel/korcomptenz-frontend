@@ -10,9 +10,11 @@ const AchievementSection: React.FC<AchievementSectionProps> = ({ data }) => {
 
   return (
     <div className="container-md mt-10">
-      <h1 className="text-center text-foreground text-5xl font-semibold">
-        {data.title}
-      </h1>
+      {data.title && (
+        <h1 className="text-center text-foreground text-5xl font-semibold">
+          {data.title}
+        </h1>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
         {data.list?.map((col, colIndex) => {
@@ -28,7 +30,7 @@ const AchievementSection: React.FC<AchievementSectionProps> = ({ data }) => {
                 <KorcomptenzImage
                   key={item.id || `item-${colIndex}-${itemIndex}`}
                   src={item.image}
-                  width={isSingle ? 800 : 500} // 📏 make it larger when single
+                  width={isSingle ? 800 : 500}
                   height={isSingle ? 800 : 500}
                   className={`object-cover bg-light-gray p-5 rounded-2xl ${
                     isSingle ? "w-full max-w-xl" : ""

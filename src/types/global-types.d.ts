@@ -237,6 +237,11 @@ type CaseStudyData = {
     icon: ImageType;
     isCustomDescripition: boolean;
     descripition?: string;
+    isPreTitle: boolean;
+    preTitle: {
+      icon: ImageType;
+      title: string;
+    };
   }[];
 };
 type CaseStudySingleData = {
@@ -356,8 +361,8 @@ type PeopleShowcaseCardType = {
   miniDescription: string;
   position: string;
   socialPlatform: {
-    image: ImageType;
-  };
+    icon: ImageType;
+  }[];
 };
 
 type StatsCardType = {
