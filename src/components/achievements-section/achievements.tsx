@@ -1,43 +1,46 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 
-const Achievements = () => {
+interface AchievementSectionProps {
+  data: AchievementsType;
+}
+
+const AchievementSection: React.FC<AchievementSectionProps> = ({ data }) => {
+  if (!data) return null;
+
   return (
     <div className="container-md mt-10">
       <h1 className="text-center text-foreground text-5xl font-semibold">
-        {" "}
-        Achievements
+        {data.title}
       </h1>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-        <KorcomptenzImage
-          src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/thumbnail_image_50_608edb7f12.png?updatedAt=2025-11-06T10%3A01%3A54.039Z"
-          width={500}
-          height={500}
-          className="object-cover bg-light-gray p-5 rounded-2xl"
-        />
-        <KorcomptenzImage
-          src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/thumbnail_image_51_6d9cbe2f81.png?updatedAt=2025-11-06T09%3A50%3A08.461Z"
-          width={500}
-          height={500}
-          className="object-cover bg-light-gray p-5 rounded-2xl "
-        />
-        <div className="grid gap-2">
-          <KorcomptenzImage
-            src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/thumbnail_image_52_7872e33bb0.png?updatedAt=2025-11-06T09%3A50%3A08.102Z rounded-2xl"
-            width={500}
-            height={500}
-            className="object-cover bg-light-gray p-5 rounded-2xl"
-          />
-          <KorcomptenzImage
-            src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/thumbnail_image_52_1_ed748b1e82.png?updatedAt=2025-11-06T09%3A50%3A08.364Z"
-            width={500}
-            height={500}
-            className="object-cover bg-light-gray p-5 rounded-2xl"
-          />
-        </div>
+        {data.list?.map((col, colIndex) => {
+          const isSingle = col?.column?.length === 1;
+          return (
+            <div
+              key={`col-${colIndex}`}
+              className={`${colIndex === 2 ? "grid gap-2" : ""} flex flex-col ${
+                isSingle ? "items-center justify-center" : ""
+              }`}
+            >
+              {col.column?.map((item, itemIndex) => (
+                <KorcomptenzImage
+                  key={item.id || `item-${colIndex}-${itemIndex}`}
+                  src={item.image}
+                  width={isSingle ? 800 : 500} // 📏 make it larger when single
+                  height={isSingle ? 800 : 500}
+                  className={`object-cover bg-light-gray p-5 rounded-2xl ${
+                    isSingle ? "w-full max-w-xl" : ""
+                  }`}
+                />
+              ))}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 };
 
-export default Achievements;
+export default AchievementSection;

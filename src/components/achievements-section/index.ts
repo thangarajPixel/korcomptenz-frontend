@@ -1,2 +1,2 @@
-import Achievements from "./achievements";
-export default Achievements;
+import AchievementSection from "./achievements";
+export default AchievementSection;

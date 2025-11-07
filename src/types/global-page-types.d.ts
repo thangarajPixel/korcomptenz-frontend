@@ -465,6 +465,13 @@ type MasonryGallerySectionType = {
     column: MasonryGalleryColumnType[];
   }[];
 };
+
+type AchievementsType = {
+  id: string;
+  title: string;
+  list: AchievementscardType[];
+};
+
 type ComponentPropsMap = {
   SlidingSection: {
     id: string;
@@ -605,6 +612,10 @@ type ComponentPropsMap = {
   MasonryGallerySection: MasonryGallerySectionType & {
     id: string;
     __component: "career.mansonry-gallery-section";
+  };
+  AchievementSection: AchievementsType & {
+    id: string;
+    __component: "about-us.achievement-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

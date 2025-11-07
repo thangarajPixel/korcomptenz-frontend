@@ -30,7 +30,8 @@ import PeopleShowcaseSection from "../people-showcase-section";
 import StatsSection from "../stats-section";
 import MediaSliderSection from "../media-slider-section";
 import MasonryGallerySection from "../masonry-gallery-section/masonry-gallery-section";
-import Achievements from "../achievements-section";
+
+import AchievementSection from "../achievements-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -253,13 +254,10 @@ const GlobalPage = (props: Props) => {
         );
       case "about-us.stats-section":
         return (
-          <div>
-            <StatsSection
-              key={`stats-section-${item?.__component}-${item?.id}`}
-              data={item}
-            />
-            <Achievements />
-          </div>
+          <StatsSection
+            key={`stats-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
         );
       case "about-us.media-slider-section":
         return (
@@ -272,6 +270,13 @@ const GlobalPage = (props: Props) => {
         return (
           <MasonryGallerySection
             key={`mansonry-gallery-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "about-us.achievement-section":
+        return (
+          <AchievementSection
+            key={`achievement-section-${item?.__component}-${item?.id}`}
             data={item}
           />
         );

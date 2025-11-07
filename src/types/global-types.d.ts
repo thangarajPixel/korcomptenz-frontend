@@ -375,3 +375,8 @@ type MediaSliderCardType = {
   isVideo: boolen;
   videoLink: string;
 };
+
+type AchievementscardType = {
+  id: string;
+  column: { id: string; image: ImageType }[];
+};
