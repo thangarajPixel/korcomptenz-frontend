@@ -23,7 +23,6 @@ export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
           {data?.buttonText}
         </Button>
       </DialogTrigger>
-
       <DialogContent
         className="
           w-full 

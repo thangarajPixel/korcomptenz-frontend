@@ -422,6 +422,7 @@ type PeopleShowcaseSectionType = {
   description: string;
   id: string;
   title: string;
+  perRow: number;
   list: PeopleShowcaseCardType[];
 };
 

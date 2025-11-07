@@ -1,6 +1,7 @@
 import React from "react";
 import SplitDivider from "../ui/split-divider";
 import PeopleShowcaseCard from "./_utils/people-showcase-card";
+import { cn } from "@/lib/utils";
 
 const PeopleShowcaseSection = ({
   list,
@@ -17,7 +18,13 @@ const PeopleShowcaseSection = ({
         </SplitDivider>
 
         {/* Cards Grid */}
-        <div className="container-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className={
+          cn(
+            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8",
+            list?.perRow === 2 && "lg:grid-cols-2 container max-w-4xl mx-auto",
+            list?.perRow === 3 && "lg:grid-cols-3 container-md"
+          )
+        }>
           {list?.list.map((data, index) => (
             <PeopleShowcaseCard key={index} data={data} />
           ))}
