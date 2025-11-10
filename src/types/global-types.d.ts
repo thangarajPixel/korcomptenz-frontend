@@ -45,13 +45,16 @@ type PaginationType = {
 };
 type InsightCardType = {
   id: string;
-  title: string;
-  image: ImageType;
-  description?: string;
-  className?: string;
-  category?: string;
-  link?: string;
-}[];
+  list: {
+    id: string;
+    title: string;
+    image: ImageType;
+    description?: string;
+    className?: string;
+    category?: string;
+    link?: string;
+  }[];
+};
 
 type ApiErrorType = {
   data: null;

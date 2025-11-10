@@ -32,6 +32,11 @@ import MediaSliderSection from "../media-slider-section";
 import MasonryGallerySection from "../masonry-gallery-section/masonry-gallery-section";
 
 import AchievementSection from "../achievements-section";
+import {
+  ContactUsInsight,
+  ContactUsNewsletter,
+  ContactUsOffice,
+} from "@/app/contact-us/_utils";
 
 type Props = {
   data: ComponentPropsType[];
@@ -278,6 +283,27 @@ const GlobalPage = (props: Props) => {
           <AchievementSection
             key={`achievement-section-${item?.__component}-${item?.id}`}
             data={item}
+          />
+        );
+      case "contact-us.contact-us-insight-list":
+        return (
+          <ContactUsInsight
+            key={`contact-us-insights-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "contact-us.news-letter":
+        return (
+          <ContactUsNewsletter
+            key={`contact-us-newsletter-${item?.__component}-${item?.id}`}
+            newsletterData={item}
+          />
+        );
+      case "contact-us.our-office":
+        return (
+          <ContactUsOffice
+            key={`contact-us-office-${item?.__component}-${item?.id}`}
+            officesData={item}
           />
         );
       default:

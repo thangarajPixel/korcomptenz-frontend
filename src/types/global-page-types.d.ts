@@ -444,6 +444,18 @@ type MediaSliderSectionType = {
   list: MediaSliderCardType[];
 };
 
+type OfficesDataType = {
+  title: string;
+  country: string;
+  company: string;
+  address: string;
+  phone: string;
+  fax: string;
+  email: string;
+  image: ImageType;
+  subtitle: string;
+};
+
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
   ContactFormType: ContactFormType;
@@ -622,6 +634,18 @@ type ComponentPropsMap = {
   AchievementSection: AchievementsType & {
     id: string;
     __component: "about-us.achievement-section";
+  };
+  contactUsInsightSection: InsightCardType & {
+    id: string;
+    __component: "contact-us.contact-us-insight-list";
+  };
+  contactUsNewsletter: NewsletterData & {
+    id: string;
+    __component: "contact-us.news-letter";
+  };
+  contactUsOffice: OfficesDataType & {
+    id: string;
+    __component: "contact-us.our-office";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

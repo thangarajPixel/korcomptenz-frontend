@@ -5,10 +5,7 @@ interface NewsletterData {
   title: string;
   description: string;
   buttonText: string;
-  image: {
-    src: string;
-    alt: string;
-  };
+  image: ImageType;
 }
 
 const ContactUsNewsletter = ({
@@ -46,7 +43,7 @@ const ContactUsNewsletter = ({
           {/* Image Section - 30% on mobile, 50% on desktop */}
           <div className="relative w-full h-40 md:w-[40%] md:h-auto md:min-h-80">
             <KorcomptenzImage
-              src={newsletterData.image.src || "/placeholder.svg"}
+              src={newsletterData?.image}
               fill
               className="object-cover"
               priority
