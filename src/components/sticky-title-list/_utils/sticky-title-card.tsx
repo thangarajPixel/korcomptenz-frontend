@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
   const {
@@ -35,7 +36,8 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                 html={description}
                 className={cn(
                   image?.url &&
-                  "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-w-xs"
+                  "text-foreground text-md pr-10  md:text-lg leading-4xl z-10 w-full",
+                  (position !== "main") && "max-w-xs"
                 )}
               />
               {position === "side" && image && (
@@ -55,19 +57,21 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               html={secondaryDescription}
               className={cn(
                 image?.url &&
-                "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-w-xs"
+                "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-full"
               )}
             />
           )}
 
           {buttonText && (
-            <Button
-              size="xl"
-              className="flex w-[150px] md:w-[200px] mb-10 mr-4 lg:mb-0"
-              arrow={true}
-            >
-              {buttonText}
-            </Button>
+            <Link href={data?.link || "#"}>
+              <Button
+                size="xl"
+                // className="flex w-[150px] md:w-[200px] mb-10 mr-4 lg:mb-0"
+                arrow={true}
+              >
+                {buttonText}
+              </Button>
+            </Link>
           )}
         </div>
 
@@ -75,7 +79,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
         {position === "corner" && image && (
           <div className="hidden lg:flex pt-10  pb-0 ">
             {/* Illustration */}
-            <div className="flex absolute bottom-0 right-0 justify-end items-end w-[250px] h-[250px] ">
+            <div className="flex absolute bottom-0 right-0 justify-end items-end w-[200px] h-[230px] ">
               <KorcomptenzImage
                 className={cn(
                   ` rounded-tl-4xl  p-0 `,

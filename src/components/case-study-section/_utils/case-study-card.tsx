@@ -47,7 +47,7 @@ export function CaseStudyCard({ data }: { data: CaseStudyData }) {
       </motion.div>
 
       <h2 className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black ">
-        {data?.heroSection?.title}
+        {data?.title || data?.heroSection?.title}
       </h2>
       <p className="text-lg text-black font-normal mb-5 mt-5 line-clamp-3 ">
         {data?.heroSection?.description}

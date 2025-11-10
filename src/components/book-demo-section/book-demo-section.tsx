@@ -81,11 +81,11 @@ const BookDemoSection = ({
           />
         </div>
         {/* Submit button */}
-        <div className="pt-4">
+        <div className="pt-2 flex justify-center ">
           <Button
             size={"lg"}
-            variant={"outline"}
-            className="hover:bg-secondary border-secondary text-secondary hover:text-white"
+            variant={"secondary"}
+            className="rounded-sm"
             arrow
             isLoading={isSubmitting}
             type="submit"
