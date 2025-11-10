@@ -23,6 +23,15 @@ import WhyKorcomptenz from "../why-korcomptenz/why-korcomptenz";
 import GramBanner from "../gram-banner/gram-banner";
 import { GlobalForm } from "../global-form";
 import { ClientPartnership } from "@/app/(default)/client-success/_utils";
+import ContentShowcaseSection from "../content-showcase-section";
+import MapSection from "../map-section";
+import OurStory from "../our-story";
+import PeopleShowcaseSection from "../people-showcase-section";
+import StatsSection from "../stats-section";
+import MediaSliderSection from "../media-slider-section";
+import MasonryGallerySection from "../masonry-gallery-section/masonry-gallery-section";
+
+import AchievementSection from "../achievements-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -159,7 +168,6 @@ const GlobalPage = (props: Props) => {
             techData={item}
           />
         );
-
       case "page-componets.stretchable-section":
         return (
           <StretchableSection
@@ -213,6 +221,62 @@ const GlobalPage = (props: Props) => {
         return (
           <ClientPartnership
             key={`partner-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "about-us.content-showcase-section-list":
+        return (
+          <ContentShowcaseSection
+            key={`content-showcase-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "about-us.map-section-list":
+        return (
+          <MapSection
+            key={`map-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "about-us.our-story-list":
+        return (
+          <OurStory
+            key={`our-story-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "about-us.people-showcase-list":
+        return (
+          <PeopleShowcaseSection
+            key={`people-showcase-section-${item?.__component}-${item?.id}`}
+            list={item}
+          />
+        );
+      case "about-us.stats-section":
+        return (
+          <StatsSection
+            key={`stats-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "about-us.media-slider-section":
+        return (
+          <MediaSliderSection
+            key={`media-slider-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "career.mansonry-gallery-section":
+        return (
+          <MasonryGallerySection
+            key={`mansonry-gallery-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "about-us.achievement-section":
+        return (
+          <AchievementSection
+            key={`achievement-section-${item?.__component}-${item?.id}`}
             data={item}
           />
         );

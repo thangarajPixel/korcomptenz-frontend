@@ -36,7 +36,7 @@ export function AnimatedTabsHero({
           <TabsList
             className={cn(
               "relative lg:h-[80px] md:h-[60px] h-[44px] sm:h-16 grid max-w-5xl grid-cols-5 overflow-hidden rounded-2xl",
-              "bg-secondary p-0 shadow-none border-none !ml-0"
+              "bg-secondary p-0 shadow-none border-none !ml-0 flex w-full"
             )}
           >
             {content?.map((t) => (
@@ -48,7 +48,7 @@ export function AnimatedTabsHero({
                   "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50 text-xs md:text-5xl truncate md:whitespace-normal block md:inline-block max-w-[5ch] md:max-w-none">
+                <span className="z-50 text-xs md:text-5xl truncate md:whitespace-normal block md:inline-block max-w-[5ch] md:max-w-none leading-normal">
                   {t?.label}
                 </span>
 
@@ -91,7 +91,7 @@ export function AnimatedTabsHero({
               <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
                 {activeContent?.description}
               </p>
-              <Link href={activeContent?.link}>
+              <Link href={activeContent?.link || "#"}>
                 <Button size="xl" arrow={true}>
                   {activeContent?.buttonText}
                 </Button>
