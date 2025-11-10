@@ -17,7 +17,7 @@ const buttonVariants = cva(
         outline:
           "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+          "bg-secondary text-white shadow-xs hover:bg-secondary/80",
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
@@ -77,7 +77,7 @@ function Button({
           <React.Fragment>
             <span className="relative flex items-center justify-center text-lg  gap-1">
               {children}
-              {arrow && <ChevronRight className="size-4 font-bold" />}
+              {arrow && <ChevronRight className="size-5 font-bold" />}
             </span>
           </React.Fragment>
         )}

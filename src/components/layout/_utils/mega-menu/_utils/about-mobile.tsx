@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import { Plus, ChevronLeft } from "lucide-react";
 
 interface IndustryDrawerProps {
   isOpen: boolean;
@@ -45,7 +45,10 @@ const AboutDrawer = ({ isOpen, onClose, data }: IndustryDrawerProps) => {
         {/* Accordion list */}
         <div className="h-full bg-white p-4 text-lg text-gray-700">
           {data?.aboutMenu?.navigationItems?.map((item) => (
-            <div key={`about-mobile-${item?.id}`} className="border-b border-gray-100">
+            <div
+              key={`about-mobile-${item?.id}`}
+              className="border-b border-gray-100"
+            >
               <button
                 onClick={() => toggleAccordion(item?.id)}
                 className="w-full flex items-center justify-between py-3 text-lg text-primary"
@@ -74,7 +77,7 @@ const AboutMobile = ({ data }: { data: LayoutType }) => {
           <span className="text-lg text-custom-gray-4 font-normal">
             {data?.aboutMenu?.whoWeAre?.title}
           </span>
-          <ChevronRight className="w-4 h-4 text-primary" />
+          <Plus className="w-4 h-4 text-primary" />
         </button>
 
         {/* Sidebar Sections (static, no drawer) */}

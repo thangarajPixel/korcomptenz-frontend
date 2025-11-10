@@ -47,7 +47,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                     {item.title}
                   </h2>
 
-                  <DangerousHtml html={item.description} />
+                  <DangerousHtml html={item.description} className=" [&_ul]:ml-6" />
                 </section>
               ))}
             </article>
@@ -83,12 +83,18 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                           >
                             <div className="grid items-center gap-5">
                               <KorcomptenzImage
-                                src={section.icon}
+                                src={
+                                  section?.isPreTitle !== true
+                                    ? section.icon
+                                    : section?.preTitle?.icon
+                                }
                                 width={40}
                                 height={40}
                               />
                               <h3 className="text-5xl font-semibold">
-                                {section.title}
+                                {section?.isPreTitle !== true
+                                  ? section?.title
+                                  : section?.preTitle?.title}
                               </h3>
                             </div>
                             <p className="text-lg text-white/80">

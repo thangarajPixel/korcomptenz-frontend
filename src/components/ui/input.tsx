@@ -13,6 +13,7 @@ type InputProps<D extends FieldValue> = UseControllerProps<D> &
   > & {
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
     label?: string;
+    required?: boolean;
   };
 const Input = <D extends FieldValue>({
   control,
@@ -29,9 +30,10 @@ const Input = <D extends FieldValue>({
     control,
     defaultValue,
   });
+  const { required, ...rest } = props
   return (
     <div className={cn("relative", props.disabled && "cursor-pointer")}>
-      {props.label && <label className="block text-sm font-medium text-gray-700">{props.label}</label>}
+      {props.label && <label className="block text-sm font-medium text-gray-700">{props.label} {required && <span className="text-destructive">*</span>}</label>}
       <input
         data-slot="input"
         className={cn(
@@ -39,7 +41,7 @@ const Input = <D extends FieldValue>({
           className
         )}
         {...field}
-        {...props}
+        {...rest}
         value={
           typeof field.value === "string"
             ? field.value

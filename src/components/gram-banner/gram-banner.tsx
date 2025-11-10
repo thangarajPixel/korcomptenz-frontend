@@ -18,12 +18,12 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
       data-debug="page-components.build-data"
     >
       <div
-        className={` space-y-3 container-md p-5 ${
+        className={` space-y-3 container-md lg:p-5 ${
           gramData?.theme === "default" ? "bg-custom-gray-6 rounded-2xl " : ""
         }  `}
       >
         <h3
-          className={`text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15 text-center px-10 ${
+          className={`text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15 text-center lg:px-10 ${
             gramData?.theme === "dark" ? "text-white" : ""
           }`}
         >
@@ -33,7 +33,7 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         <DangerousHtml
           html={gramData?.description}
           className={cn(
-            `text-md md:text-2xl text-foreground leading-7 break-words text-center px-10 `,
+            `text-md md:text-2xl text-foreground leading-7 break-words text-center lg:px-10 `,
             gramData?.theme === "dark" && "[&>span]:!text-white "
           )}
         />

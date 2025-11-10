@@ -1,21 +1,24 @@
-
+"use client";
 import { Button } from "@/components/ui/button";
-
+import { useState } from "react";
 import KorcomptenzImage from "../korcomptenz-image";
+import { cn } from "@/lib/utils";
 
 export default function Opportunities({
   careers,
 }: {
   careers: OpportunitiesType;
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <section className="bg-white container-md" data-debug={"home.opportunity"}>
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center group">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Image with geometric elements */}
           <div className="relative">
             {/* Blue geometric arrows */}
-            <div className="absolute top-8 left-6 z-10 group-hover:left-24 transition-all duration-1000">
+            <div className={cn("absolute top-8 z-10 transition-all duration-1000", isHovered ? "left-24" : "left-6")}>
               <div className="flex space-x-1 w-72">
                 <KorcomptenzImage
                   src={careers?.arrowImage}
@@ -40,7 +43,7 @@ export default function Opportunities({
           {/* Right side - Content */}
           <div className="space-y-8 mx-auto">
             {/* Desktop heading */}
-            <div className="relative hidden lg:block group-hover:-translate-x-5 group-hover:scale-102 transition-all">
+            <div className={cn("relative hidden lg:block transition-all", isHovered && "-translate-x-5 scale-102")}>
               <div className="text-5xl lg:text-9xl font-bold leading-tight w-full">
                 <div className="flex flex-row items-center justify-between">
                   <span className="text-custom-black lg:-ml-56 text-4xl lg:text-7xl font-semibold lg:me-20">
@@ -90,7 +93,7 @@ export default function Opportunities({
             </div>
 
             {/* Mobile heading */}
-            <div className="relative transition-all duration-500 group-hover:-translate-x-5 group-hover:scale-105 lg:hidden">
+            <div className={cn("relative transition-all duration-500 lg:hidden", isHovered && "-translate-x-5 scale-105")}>
               <div className="text-5xl font-bold leading-tight w-full ">
                 <div className="flex flex-row items-center justify-between">
                   <span className="text-custom-black text-5xl font-semibold">
@@ -148,6 +151,8 @@ export default function Opportunities({
               variant="default"
               size="xl"
               className="text-lg lg:ms-[-30px]"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
               {careers?.buttonText}
             </Button>

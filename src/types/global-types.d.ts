@@ -35,6 +35,7 @@ type GlobalFieldType = {
   subtitle2?: string;
   secondaryDescription?: string;
   mainImage?: ImageType;
+  position?: "corner" | "main" | "side";
 };
 type PaginationType = {
   page: number;
@@ -202,6 +203,7 @@ type NavItemType = {
   hasChild: boolean;
   childKey: string;
   isButton: boolean;
+  isHideMobile: boolean;
 }[];
 
 //case study types
@@ -229,6 +231,7 @@ type CaseStudyTestimonial = {
 type CaseStudyData = {
   id: string;
   documentId: string;
+  title: string;
   study: string;
   slug: string;
   descriptionSection: CaseStudyDescription[];
@@ -245,6 +248,11 @@ type CaseStudyData = {
     icon: ImageType;
     isCustomDescripition: boolean;
     descripition?: string;
+    isPreTitle: boolean;
+    preTitle: {
+      icon: ImageType;
+      title: string;
+    };
   }[];
 };
 type CaseStudySingleData = {
@@ -330,14 +338,70 @@ type IndustryItem = {
   buttontext: string;
 };
 
-
-type OfficeLocation ={
+type OfficeLocation = {
   id: number;
   country: string;
   icon: string;
   address: string;
   phone: string;
   fax: string;
-}
+};
 
+type ShowCaseCardType = {
+  buttonText: string;
+  description: string;
+  image: ImageType;
+  title: string;
+  id: string;
+};
 
+type MapDataType = {
+  decription: string;
+  id: number;
+  image: ImageType;
+  title: string;
+  x: number;
+  y: number;
+};
+
+type OurStoryCardType = {
+  description: string;
+  id: string;
+  image: ImageType;
+  title: string;
+  year: number;
+};
+
+type PeopleShowcaseCardType = {
+  buttonText: string;
+  description: string;
+  image: ImageType;
+  title: string;
+  id: string;
+  miniDescription: string;
+  position: string;
+  socialPlatform: {
+    icon: ImageType;
+  }[];
+};
+
+type StatsCardType = {
+  count: number;
+  description: string;
+  id: string;
+  title: string;
+  isIncrement: boolean;
+};
+
+type MediaSliderCardType = {
+  description: string;
+  id: string;
+  image: ImageType;
+  isVideo: boolean;
+  videoLink: string | null;
+};
+
+type AchievementscardType = {
+  id: string;
+  column: { id: string; image: ImageType }[];
+};

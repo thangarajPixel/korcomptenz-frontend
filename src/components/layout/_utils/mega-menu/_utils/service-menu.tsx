@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import Link from "next/link";
 
-const ServicesMenu = ({ data }: { data: LayoutType }) => {
+const ServicesMenu = ({ data, onClick }: { data: LayoutType; onClick: () => void }) => {
   const [activeServiceSection, setActiveServiceSection] = useState(
     data?.serviceMenu[0]
   );
@@ -21,10 +21,9 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                 key={`service-section-${section?.id}`}
                 onClick={() => setActiveServiceSection(section)}
                 className={`w-full text-left text-custom-gray-4 py-3 
-                  rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${
-                    activeServiceSection?.id === section?.id
-                      ? "text-primary"
-                      : ""
+                  rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${activeServiceSection?.id === section?.id
+                    ? "text-primary"
+                    : ""
                   }`}
               >
                 <span className="text-lg font-normal leading-1">
@@ -58,7 +57,7 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                     className="group"
                   >
                     <div className="px-5 mb-6">
-                      <Link href={item?.href?.slug || "#"}>
+                      <Link href={item?.href?.slug || "#"} onClick={onClick}>
                         <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
                           <span className="border-b-2 border-transparent group-hover:border-primary">
                             {item?.title}
@@ -72,14 +71,14 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                             <Link
                               key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
                               href={sub?.href?.slug || "#"}
+                              onClick={onClick}
                             >
                               <div
                                 key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
-                                className={`text-sm leading-5 cursor-pointer ${
-                                  sub?.type === "dark"
-                                    ? "font-normal text-black"
-                                    : "text-gray-500"
-                                }`}
+                                className={`text-sm leading-5 cursor-pointer ${sub?.type === "dark"
+                                  ? "font-normal text-black"
+                                  : "text-gray-500"
+                                  }`}
                               >
                                 {sub?.title}
                               </div>
@@ -106,7 +105,7 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                   >
                     <div className="px-5 lg:mb-6">
                       {" "}
-                      <Link href={item?.href?.slug || "#"}>
+                      <Link href={item?.href?.slug || "#"} onClick={onClick}>
                         <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
                           <span className="border-b-2 border-transparent group-hover:border-primary">
                             {item?.title}
@@ -120,14 +119,14 @@ const ServicesMenu = ({ data }: { data: LayoutType }) => {
                             <Link
                               key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
                               href={sub?.href?.slug || "#"}
+                              onClick={onClick}
                             >
                               <div
                                 key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}-sub-${sub?.id}`}
-                                className={`text-sm leading-5 ${
-                                  sub?.type === "dark"
-                                    ? "font-normal text-black"
-                                    : "text-gray-500"
-                                }`}
+                                className={`text-sm leading-5 ${sub?.type === "dark"
+                                  ? "font-normal text-black"
+                                  : "text-gray-500"
+                                  }`}
                               >
                                 {sub?.title}
                               </div>

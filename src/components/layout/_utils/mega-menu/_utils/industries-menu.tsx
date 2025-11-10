@@ -4,7 +4,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const IndustriesMenu = ({ data }: { data: LayoutType }) => {
+const IndustriesMenu = ({ data, onClick }: { data: LayoutType; onClick: () => void }) => {
   return (
     <div className="bg-white  w-full">
       <div className="w-full">
@@ -40,7 +40,7 @@ const IndustriesMenu = ({ data }: { data: LayoutType }) => {
                       }`}
                   >
                     {" "}
-                    <Link href={section.href?.slug || "/"}>
+                    <Link href={section.href?.slug || "/"} onClick={onClick}>
                       <h3 className="text-lg font-normal text-primary leading-6.5 mb-4 whitespace-break-spaces">
                         {section.title}
                       </h3>
@@ -62,6 +62,7 @@ const IndustriesMenu = ({ data }: { data: LayoutType }) => {
                           >
                             <Link
                               href={item.href?.slug || "/"}
+                              onClick={onClick}
                               className="text-lg text-gray-700 font-medium hover:text-primary transition-colors"
                             >
                               {item?.title}

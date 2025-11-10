@@ -37,6 +37,7 @@ type InspireSectionType = {
 };
 
 type StickyCardsType = {
+  __component: string;
   title: string;
   buttonText: string;
   link: string;
@@ -51,6 +52,7 @@ type StickyCardsType = {
   }[];
 };
 type CaseStudyStickyCardsType = {
+  __component: string;
   title: string;
   buttonText: string;
   link: string;
@@ -299,6 +301,7 @@ type TechPartnerSectionType = {
     id: number;
     title: string;
     description: string;
+    buttonText: string;
   }[];
 };
 type ScheduleCallType = {
@@ -350,6 +353,7 @@ type StretchableSectionType = {
     description: string;
     image: ImageType;
     buttonText: string;
+    link: string;
   }[];
 };
 type GramBannerType = {
@@ -398,6 +402,47 @@ interface OfficeCardProps {
   title: string;
   offices: OfficeLocation[];
 }
+type ContentShowcaseSectionType = {
+  title: string;
+  buttontext: string;
+  description: string;
+  list: ShowCaseCardType[];
+};
+type MapSectionType = {
+  buttonText: string;
+  description: string;
+  id: string;
+  title: string;
+  list: MapDataType[];
+};
+type OurStorySectionType = {
+  id: string;
+  title: string;
+  description: string;
+  list: OurStoryCardType[];
+};
+
+type PeopleShowcaseSectionType = {
+  buttontext: string;
+  description: string;
+  id: string;
+  title: string;
+  perRow: number;
+  list: PeopleShowcaseCardType[];
+};
+
+type StatsSectionType = {
+  buttontext: string;
+  description: string;
+  id: string;
+  title: string;
+  list: StatsCardType[];
+};
+type MediaSliderSectionType = {
+  title: string;
+  id: string;
+  list: MediaSliderCardType[];
+};
 
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
@@ -409,6 +454,30 @@ type FormPropsType = FormMap[FormType];
 type GlobalFormType = {
   forms: FormPropsType[];
 };
+type MasonryGalleryColumnType = {
+  id: string;
+  image: ImageType;
+  isVideo: boolean;
+  videoLink: string | null;
+};
+
+type MasonryGallerySectionType = {
+  id: string;
+  __component: "career.mansonry-gallery-section";
+  title: string;
+  highLightText: string;
+  list: {
+    id: string;
+    column: MasonryGalleryColumnType[];
+  }[];
+};
+
+type AchievementsType = {
+  id: string;
+  title: string;
+  list: AchievementscardType[];
+};
+
 type ComponentPropsMap = {
   SlidingSection: {
     id: string;
@@ -521,6 +590,38 @@ type ComponentPropsMap = {
   PartnerSection: PartnershipSectionType & {
     id: string;
     __component: "case-study.partner-section";
+  };
+  AboutUsContentShowcaseSection: ContentShowcaseSectionType & {
+    id: string;
+    __component: "about-us.content-showcase-section-list";
+  };
+  AboutUsMapSection: MapSectionType & {
+    id: string;
+    __component: "about-us.map-section-list";
+  };
+  AboutUsOurStorySection: OurStorySectionType & {
+    id: string;
+    __component: "about-us.our-story-list";
+  };
+  PeopleShowcaseSection: PeopleShowcaseSectionType & {
+    id: string;
+    __component: "about-us.people-showcase-list";
+  };
+  AboutUsStatsSection: StatsSectionType & {
+    id: string;
+    __component: "about-us.stats-section";
+  };
+  MediaSliderSection: MediaSliderSectionType & {
+    id: string;
+    __component: "about-us.media-slider-section";
+  };
+  MasonryGallerySection: MasonryGallerySectionType & {
+    id: string;
+    __component: "career.mansonry-gallery-section";
+  };
+  AchievementSection: AchievementsType & {
+    id: string;
+    __component: "about-us.achievement-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

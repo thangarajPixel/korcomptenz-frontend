@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import React, { useState } from "react";
 
-const EcosystemMenu = ({ data }: { data: LayoutType }) => {
+const EcosystemMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
   const [activeSideBar, setActiveSideBar] = useState(data?.ecosystemMenu[0]);
   return (
     <div className="grid grid-cols-24 ">
@@ -16,11 +16,10 @@ const EcosystemMenu = ({ data }: { data: LayoutType }) => {
               <div
                 key={`ecosystem-menu-${item?.id}`}
                 onClick={() => setActiveSideBar(item)}
-                className={`w-full group ${
-                  activeSideBar?.id === item?.id
+                className={`w-full group ${activeSideBar?.id === item?.id
                     ? "border-b-2 border-primary"
                     : "border-b-2 border-transparent hover:border-primary"
-                }`}
+                  }`}
               >
                 <h4 className="relative font-medium text-3xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
                   <span>{item?.menu}</span>
@@ -55,9 +54,8 @@ const EcosystemMenu = ({ data }: { data: LayoutType }) => {
               {activeSideBar?.item?.child?.map((childItem, childIndex) => (
                 <div key={`ecosystem-menu-${childIndex}`}>
                   <span
-                    className={` ${
-                      childItem.type === "Dark" ? "text-black" : " text-primary"
-                    }`}
+                    className={` ${childItem.type === "Dark" ? "text-black" : " text-primary"
+                      }`}
                   >
                     {childItem?.title}
                   </span>
