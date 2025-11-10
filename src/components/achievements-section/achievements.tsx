@@ -16,26 +16,31 @@ const AchievementSection: React.FC<AchievementSectionProps> = ({ data }) => {
         </h1>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {data.list?.map((col, colIndex) => {
           const isSingle = col?.column?.length === 1;
+
           return (
             <div
               key={`col-${colIndex}`}
-              className={`${colIndex === 2 ? "grid gap-2" : ""} flex flex-col ${
-                isSingle ? "items-center justify-center" : ""
+              className={`flex flex-col ${
+                isSingle ? "justify-center" : "gap-4"
               }`}
             >
               {col.column?.map((item, itemIndex) => (
-                <KorcomptenzImage
+                <div
                   key={item.id || `item-${colIndex}-${itemIndex}`}
-                  src={item.image}
-                  width={isSingle ? 800 : 500}
-                  height={isSingle ? 800 : 500}
-                  className={`object-cover bg-light-gray p-5 rounded-2xl ${
-                    isSingle ? "w-full max-w-xl" : ""
+                  className={`bg-[#F2F7F6] rounded-2xl flex items-center justify-center p-5 ${
+                    isSingle ? "h-[320px]" : "h-[150px]"
                   }`}
-                />
+                >
+                  <KorcomptenzImage
+                    src={item.image}
+                    width={isSingle ? 700 : 500}
+                    height={isSingle ? 700 : 300}
+                    className={`object-contain w-full h-full`}
+                  />
+                </div>
               ))}
             </div>
           );

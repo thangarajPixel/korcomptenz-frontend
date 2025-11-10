@@ -221,6 +221,7 @@ type CaseStudyTestimonial = {
 type CaseStudyData = {
   id: string;
   documentId: string;
+  title: string;
   study: string;
   slug: string;
   descriptionSection: CaseStudyDescription[];
@@ -377,8 +378,8 @@ type MediaSliderCardType = {
   description: string;
   id: string;
   image: ImageType;
-  isVideo: boolen;
-  videoLink: string;
+  isVideo: boolean;
+  videoLink: string | null;
 };
 
 type AchievementscardType = {
