@@ -32,6 +32,7 @@ import MediaSliderSection from "../media-slider-section";
 import MasonryGallerySection from "../masonry-gallery-section/masonry-gallery-section";
 
 import AchievementSection from "../achievements-section";
+import NotFound from "../not-found";
 
 type Props = {
   data: ComponentPropsType[];
@@ -277,6 +278,13 @@ const GlobalPage = (props: Props) => {
         return (
           <AchievementSection
             key={`achievement-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "not-found.not-found":
+        return (
+          <NotFound
+            key={`not-found-${item?.__component}-${item?.id}`}
             data={item}
           />
         );

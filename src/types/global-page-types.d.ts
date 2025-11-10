@@ -473,6 +473,14 @@ type AchievementsType = {
   title: string;
   list: AchievementscardType[];
 };
+type NotFoundType = {
+  id: string;
+  __component: "not-found.not-found";
+  title: string;
+  description: string;
+  image: ImageType;
+  buttonText: string;
+};
 
 type ComponentPropsMap = {
   SlidingSection: {
@@ -618,6 +626,10 @@ type ComponentPropsMap = {
   AchievementSection: AchievementsType & {
     id: string;
     __component: "about-us.achievement-section";
+  };
+  NotFound: NotFoundType & {
+    id: string;
+    __component: "not-found.not-found";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
