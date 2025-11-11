@@ -30,7 +30,6 @@ import PeopleShowcaseSection from "../people-showcase-section";
 import StatsSection from "../stats-section";
 import MediaSliderSection from "../media-slider-section";
 import MasonryGallerySection from "../masonry-gallery-section/masonry-gallery-section";
-
 import AchievementSection from "../achievements-section";
 import NotFound from "../not-found";
 
