@@ -12,7 +12,7 @@ export async function generateMetadata({
   params,
 }: Props) {
   const { id: slug } = await params;
-  const data = await getCaseStudySingleCache({ slug })
+  const data = await getCaseStudySingleCache({ slug });
   return {
     title: data?.caseStudy?.seo?.title || slug,
     description: data?.caseStudy?.seo?.description || "",
