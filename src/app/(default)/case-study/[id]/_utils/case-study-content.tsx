@@ -57,7 +57,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
           </div>
 
           {/* RIGHT: Static image exactly like provided */}
-          <div className="  ">
+          <div>
             <div className="bg-[#5A36E9] text-white rounded-[25px] p-8 w-full max-w-sm">
               {!!data?.rightSection?.length &&
                 (() => {
@@ -76,9 +76,8 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                   return rows.map((row, rowIndex) => (
                     <div key={`row-${rowIndex}`} className="mb-6 last:mb-0">
                       <div
-                        className={`grid ${
-                          row.length === 1 ? "grid-cols-1" : "grid-cols-2"
-                        } gap-6`}
+                        className={`grid ${row.length === 1 ? "grid-cols-1" : "grid-cols-2"
+                          } gap-6`}
                       >
                         {row.map((section) => (
                           <div
