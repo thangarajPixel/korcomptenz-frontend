@@ -8,6 +8,16 @@ type Props = {
 
 const getCaseStudySingleCache = cache(getCaseStudyService);
 
+export async function generateMetadata({
+  params,
+}: Props) {
+  const { id: slug } = await params;
+  const data = await getCaseStudySingleCache({ slug })
+  return {
+    title: data?.caseStudy?.seo?.title || slug,
+    description: data?.caseStudy?.seo?.description || "",
+  }
+}
 const Page = async ({ params }: Props) => {
   const { id: slug } = await params;
   const [data, essential] = await Promise.all([

@@ -222,6 +222,7 @@ type CaseStudyData = {
   id: string;
   documentId: string;
   title: string;
+  seo: SeoType;
   study: string;
   slug: string;
   descriptionSection: CaseStudyDescription[];
