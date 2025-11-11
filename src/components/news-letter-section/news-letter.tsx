@@ -10,10 +10,8 @@ interface NewsletterData {
   title: string;
   description: string;
   buttonText: string;
-  image: {
-    src: string;
-    alt: string;
-  };
+  isForm?: boolean;
+  image: ImageType;
 }
 
 const ContactUsNewsletter = ({
@@ -21,6 +19,7 @@ const ContactUsNewsletter = ({
 }: {
   newsletterData: NewsletterData;
 }) => {
+
   return (
     <div className="container-md px-4 py-8 md:py-12">
       <div className="">
@@ -47,13 +46,13 @@ const ContactUsNewsletter = ({
                 </Button>
               </div>
             )}
-            <CareerForm />
+            {newsletterData?.isForm && <CareerForm />}
           </div>
 
           {/* Image Section - 30% on mobile, 50% on desktop */}
           <div className="relative w-full h-40 md:w-[40%] md:h-auto md:min-h-80">
             <KorcomptenzImage
-              src={newsletterData.image.src || "/placeholder.svg"}
+              src={newsletterData.image}
               fill
               className="object-cover"
               priority

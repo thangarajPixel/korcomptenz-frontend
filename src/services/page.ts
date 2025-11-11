@@ -18,15 +18,18 @@ export const CASE_STUDY_LEAD = "/case-study-leads";
 export const CAREER_NEW_LETTER = "/candidate-details";
 export const BOOK_DEMO = "/book-demo-leads";
 export const DEPARTMENT_LIST = "/departments";
+export const CAREER = "/career";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
   return data;
 };
+
 export const getAboutUs = async (): Promise<PagesListType> => {
   const { data } = await http.get(ABOUT_US);
   return data;
 };
+
 export const getPageService = async ({
   slug,
 }: {
@@ -35,6 +38,7 @@ export const getPageService = async ({
   const { data } = await http.get(GLOBAL_PAGE, { params: { slug } });
   return data;
 };
+
 export const getCaseStudyService = async ({
   slug,
 }: {
@@ -53,11 +57,13 @@ export const getFilterCaseStudies = async (): Promise<FilterDataType> => {
   const { data } = await http.get(FILTER_CASE_STUDY);
   return data;
 };
+
 export const createCaseStudyLead = async (formData: ContactFormData) => {
   const { data } = await http.post(CASE_STUDY_LEAD, { data: formData });
   data?.attachment?.url && (await getDownloadService(data?.attachment));
   return data;
 };
+
 export const createCareerNewLetter = async (
   formData: CareerNewLetterFormData
 ) => {
@@ -90,6 +96,7 @@ export const getCaseStudiesPage = async (): Promise<CaseStudiesPageType> => {
   const { data } = await http.get(CASE_STUDIES_PAGE);
   return data;
 };
+
 export const getCaseStudyPage = async (): Promise<CaseStudyPageType> => {
   const { data } = await http.get(CASE_STUDY_PAGE);
   return data;
@@ -103,7 +110,13 @@ export const getCaseStudySearchPage = async ({
   const { data } = await http.get(CASE_STUDY_SEARCH, { params: { search } });
   return data;
 };
+
 export const bookADemo = async (formData: BookADemoFormData) => {
   const { data } = await http.post(BOOK_DEMO, { data: formData });
+  return data;
+};
+
+export const getCareer = async (): Promise<PagesListType> => {
+  const { data } = await http.get(CAREER);
   return data;
 };
