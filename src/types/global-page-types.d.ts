@@ -151,6 +151,7 @@ type BannerSectionType = {
   title: string;
   description: string;
   buttonText: string;
+  bannerCaption: string;
 };
 
 type SapSectionType = {
@@ -473,6 +474,11 @@ type AchievementsType = {
   title: string;
   list: AchievementscardType[];
 };
+type DemoListType = {
+  id: string;
+  list: DemoList[];
+};
+
 type NotFoundType = {
   id: string;
   __component: "not-found.not-found";
@@ -518,6 +524,12 @@ type ComponentPropsMap = {
     __component: "page-componets.banner-section-list";
     list: BannerSectionType[];
   };
+  DemoBannerSection: {
+    id: string;
+    __component: "demo-page.demo-banner-list";
+    list: BannerSectionType[];
+  };
+
   SapSection: SapSectionType & {
     id: string;
     __component: "page-componets.sap-section-data";
@@ -626,6 +638,10 @@ type ComponentPropsMap = {
   AchievementSection: AchievementsType & {
     id: string;
     __component: "about-us.achievement-section";
+  };
+  DemoListSection: DemoListType & {
+    id: string;
+    __component: "demo-page.demo-list";
   };
   NotFound: NotFoundType & {
     id: string;

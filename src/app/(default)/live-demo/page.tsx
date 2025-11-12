@@ -1,12 +1,14 @@
-import React from 'react'
-import LiveDemoList from './_utils/live-demo-list'
+import React, { cache } from "react";
+import GlobalPage from "@/components/global-page";
+import { getDemoPage } from "@/services";
 
-const Page = () => {
+const getDemoCache = cache(getDemoPage);
+
+export default async function DemoPage() {
+  const data = await getDemoCache();
   return (
-    <div>
-      <LiveDemoList />
+    <div className="flex flex-col gap-16 md:gap-32">
+      <GlobalPage data={data?.list} />
     </div>
-  )
+  );
 }
-
-export default Page

@@ -15,15 +15,13 @@ const CASE_STUDY_PAGE = "/case-study-page";
 export const FILTER_CASE_STUDY = "/case-study-filter";
 export const CASE_STUDY_LEAD = "/case-study-leads";
 export const BOOK_DEMO = "/book-demo-leads";
+export const DEMO_PAGE = "/demo-list";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
   return data;
 };
-export const getAboutUs = async (): Promise<PagesListType> => {
-  const { data } = await http.get(ABOUT_US);
-  return data;
-};
+
 export const getPageService = async ({
   slug,
 }: {
@@ -86,5 +84,17 @@ export const getCaseStudySearchPage = async ({
 };
 export const bookADemo = async (formData: BookADemoFormData) => {
   const { data } = await http.post(BOOK_DEMO, { data: formData });
+  return data;
+};
+
+// About Us Page Service
+export const getAboutUs = async (): Promise<PagesListType> => {
+  const { data } = await http.get(ABOUT_US);
+  return data;
+};
+
+// Live Demo Page Service
+export const getDemoPage = async (): Promise<PagesListType> => {
+  const { data } = await http.get(DEMO_PAGE);
   return data;
 };
