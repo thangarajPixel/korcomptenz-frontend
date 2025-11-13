@@ -19,6 +19,7 @@ export const CAREER_NEW_LETTER = "/candidate-details";
 export const BOOK_DEMO = "/book-demo-leads";
 export const DEPARTMENT_LIST = "/departments";
 export const CAREER = "/career";
+export const CONTACT_US = "/contact-us";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -118,5 +119,9 @@ export const bookADemo = async (formData: BookADemoFormData) => {
 
 export const getCareer = async (): Promise<PagesListType> => {
   const { data } = await http.get(CAREER);
+  return data;
+};
+export const getContactUs = async (): Promise<PagesListType> => {
+  const { data } = await http.get(CONTACT_US);
   return data;
 };

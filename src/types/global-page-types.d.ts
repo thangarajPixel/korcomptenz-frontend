@@ -145,8 +145,8 @@ type BannerSectionType = {
   imageMobile: ImageType;
   image: ImageType;
   alt: string;
-  logo: ImageType;
-  logoMobile: ImageType;
+  logo?: ImageType;
+  logoMobile?: ImageType;
   altMobile: ImageType;
   title: string;
   description: string;
@@ -398,6 +398,10 @@ type BookDemoFormType = {
   emailLabel: string;
   buttonText: string;
 };
+interface OfficeCardProps {
+  title: string;
+  offices: OfficeLocation[];
+}
 type ContentShowcaseSectionType = {
   title: string;
   buttontext: string;
@@ -438,6 +442,18 @@ type MediaSliderSectionType = {
   title: string;
   id: string;
   list: MediaSliderCardType[];
+};
+
+type OfficesDataType = {
+  title: string;
+  country: string;
+  company: string;
+  address: string;
+  phone: string;
+  fax: string;
+  email: string;
+  image: ImageType;
+  subtitle: string;
 };
 
 type FormMap = {
@@ -659,6 +675,18 @@ type ComponentPropsMap = {
   NotFound: NotFoundType & {
     id: string;
     __component: "not-found.not-found";
+    contactUsInsightSection: InsightCardType & {
+      id: string;
+      __component: "contact-us.contact-us-insight-list";
+    };
+    contactUsNewsletter: NewsletterData & {
+      id: string;
+      __component: "contact-us.news-letter";
+    };
+    contactUsOffice: OfficesDataType & {
+      id: string;
+      __component: "contact-us.our-office";
+    };
   };
 };
 type ComponentType = keyof ComponentPropsMap;

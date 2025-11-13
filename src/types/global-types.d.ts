@@ -2,7 +2,7 @@ type ImageType = {
   height: number;
   width: number;
   caption?: string;
-  alternativeText?: string;
+  alternativeText?: string | null;
   url: string;
   name: string;
   id: string;
@@ -43,6 +43,19 @@ type PaginationType = {
   pageCount: number;
   total: number | undefined;
 };
+type InsightCardType = {
+  id: string;
+  list: {
+    id: string;
+    title: string;
+    image: ImageType;
+    description?: string;
+    className?: string;
+    category?: string;
+    link?: string;
+  }[];
+};
+
 type ApiErrorType = {
   data: null;
   error: {
@@ -327,6 +340,15 @@ type IndustryItem = {
   description: string;
   image: ImageType;
   buttontext: string;
+};
+
+type OfficeLocation = {
+  id: number;
+  country: string;
+  icon: string;
+  address: string;
+  phone: string;
+  fax: string;
 };
 
 type ShowCaseCardType = {

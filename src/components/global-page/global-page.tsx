@@ -35,6 +35,7 @@ import NotFound from "../not-found";
 import PanchatattvaSection from "../panchatattva-section";
 import OpenJobs from "../open-jobs";
 import { ContactUsNewsletter } from "../news-letter-section";
+import { ContactUsOffice } from "@/app/contact-us/_utils";
 
 type Props = {
   data: ComponentPropsType[];
@@ -307,11 +308,17 @@ const GlobalPage = (props: Props) => {
       case "contact-us.news-letter":
         return (
           <ContactUsNewsletter
-            key={`news-letter-${item?.__component}-${item?.id}`}
+            key={`contact-us-newsletter-${item?.__component}-${item?.id}`}
             newsletterData={item}
           />
         );
-
+      case "contact-us.our-office":
+        return (
+          <ContactUsOffice
+            key={`contact-us-office-${item?.__component}-${item?.id}`}
+            officesData={item}
+          />
+        );
       default:
         return;
     }
