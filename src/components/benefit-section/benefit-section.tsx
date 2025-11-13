@@ -12,7 +12,7 @@ const BenefitSection = ({
       data-debug={"page-componets.benefit-data"}
     >
       <div>
-        <h4 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 text-balance w-full lg:w-1/2">
+        <h4 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 text-balance w-full">
           {benefitData?.title}
         </h4>
         <div className="flex flex-wrap lg:flex-nowrap lg:flex-row md:p-6 gap-10">
