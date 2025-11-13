@@ -333,7 +333,10 @@ type FilterLabelType = {
   childTitle: string;
   isDesignedDropdown: boolean;
 };
-
+type ButtonType = {
+  buttonText: string;
+  buttonLink: string
+}
 type IndustryItem = {
   id: string;
   title: string;
@@ -345,7 +348,7 @@ type IndustryItem = {
 type OfficeLocation = {
   id: number;
   country: string;
-  icon: string;
+  image: ImageType;
   address: string;
   phone: string;
   fax: string;

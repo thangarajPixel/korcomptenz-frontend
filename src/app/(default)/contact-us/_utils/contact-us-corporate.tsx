@@ -14,14 +14,13 @@ const ContactUsCorporate = ({
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 rounded-3xl">
-          {corporateData?.offices.map((corporate, index) => (
+          {corporateData?.list.map((corporate, index) => (
             <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               {/* Icon */}
               <div className="flex justify-center mb-4">
                 <div className="text-4xl" key={index}>
                   <KorcomptenzImage
-                    src={corporate?.icon}
-                    alt=""
+                    src={corporate?.image}
                     width={50}
                     height={50}
                   />

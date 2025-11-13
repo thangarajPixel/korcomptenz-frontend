@@ -6,13 +6,6 @@ import React from "react";
 
 import CareerForm from "./career-form";
 
-interface NewsletterData {
-  title: string;
-  description: string;
-  buttonText: string;
-  isForm?: boolean;
-  image: ImageType;
-}
 
 const ContactUsNewsletter = ({
   newsletterData,

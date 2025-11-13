@@ -398,9 +398,9 @@ type BookDemoFormType = {
   emailLabel: string;
   buttonText: string;
 };
-interface OfficeCardProps {
+type OfficeCardProps = {
   title: string;
-  offices: OfficeLocation[];
+  list: OfficeLocation[];
 }
 type ContentShowcaseSectionType = {
   title: string;
@@ -444,6 +444,14 @@ type MediaSliderSectionType = {
   list: MediaSliderCardType[];
 };
 
+type NewsletterData = {
+  title: string;
+  description: string;
+  buttonText: string;
+  isForm?: boolean;
+  image: ImageType;
+}
+
 type OfficesDataType = {
   title: string;
   country: string;
@@ -483,7 +491,10 @@ type MasonryGallerySectionType = {
     column: MasonryGalleryColumnType[];
   }[];
 };
-
+type FixedFooter = {
+  description: string;
+  buttons: ButtonType[]
+}
 type AchievementsType = {
   id: string;
   title: string;
@@ -668,26 +679,30 @@ type ComponentPropsMap = {
     id: string;
     __component: "career.open-jobs";
   };
-  ContactUsSection: newsletterData & {
+  ContactUsNewsletter: NewsletterData & {
     id: string;
     __component: "contact-us.news-letter";
   };
   NotFound: NotFoundType & {
     id: string;
     __component: "not-found.not-found";
-    contactUsInsightSection: InsightCardType & {
-      id: string;
-      __component: "contact-us.contact-us-insight-list";
-    };
-    contactUsNewsletter: NewsletterData & {
-      id: string;
-      __component: "contact-us.news-letter";
-    };
-    contactUsOffice: OfficesDataType & {
-      id: string;
-      __component: "contact-us.our-office";
-    };
   };
+  contactUsInsightSection: InsightCardType & {
+    id: string;
+    __component: "contact-us.contact-us-insight-list";
+  };
+  ContactUsCorporate: OfficeCardProps & {
+    id: string;
+    __component: "contact-us.office-location-list";
+  }
+  contactUsOffice: OfficesDataType & {
+    id: string;
+    __component: "contact-us.our-office";
+  };
+  FixedFooter: FixedFooter & {
+    id: string;
+    __component: "contact-us.fixed-section";
+  }
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
