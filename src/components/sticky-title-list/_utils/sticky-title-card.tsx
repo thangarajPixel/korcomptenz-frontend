@@ -37,7 +37,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                 className={cn(
                   image?.url &&
                   "text-foreground text-md pr-10  md:text-lg leading-4xl z-10 w-full",
-                  (position !== "main") && "max-w-xs"
+                  position !== "main" && "lg:max-w-xs max-w-none"
                 )}
               />
               {position === "side" && image && (
@@ -47,6 +47,9 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               )}
             </div>
           )}
+
+
+
           {position === "main" && image && (
             <div className="flex items-center justify-center ">
               <KorcomptenzImage src={image} className=" object-contain max-h-60" width={400} height={200} />

@@ -25,7 +25,7 @@ const Page = async ({ params }: Props) => {
   const data = await getPageServiceCache({ slug });
 
   return (
-    <div className="flex flex-col gap-16 md:gap-28">
+    <div className="flex flex-col  lg:gap-28">
       <GlobalPage data={data?.list} />
     </div>
   );

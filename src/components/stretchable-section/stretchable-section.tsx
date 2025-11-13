@@ -11,7 +11,7 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
 
   return (
     <section data-debug="page-componets.stretchable-section" className="container-md">
-      <h4 className="text-4xl lg:text-6xl font-bold text-foreground mb-12 lg:mb-16 max-w-4xl text-balance">
+      <h4 className="text-4xl lg:text-6xl font-bold text-foreground mb-12  lg:mb-16  text-balance">
         {item?.title}
       </h4>
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-4">

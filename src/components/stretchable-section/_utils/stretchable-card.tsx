@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import KorcomptenzImage from '@/components/korcomptenz-image'
 import { cn } from '@/lib/utils'
 import Link from 'next/link';
+import { DangerousHtml } from '@/components/ui/dangerous-html';
 
 const StretchableSectionCard = ({
   open,
@@ -30,9 +31,13 @@ const StretchableSectionCard = ({
             }`}
 
         >
-          <p className="text-gray-700 text-lg mb-8 flex-grow">
+          <DangerousHtml
+          html={data?.description}
+          className="text-gray-700 text-lg mb-8 flex-grow"
+          />
+          {/* <p className="text-gray-700 text-lg mb-8 flex-grow">
             {data?.description}
-          </p>
+          </p> */}
         </div>
         <div
           className={`transition-all duration-1000 ease-out z-10`}
