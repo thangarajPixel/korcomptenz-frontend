@@ -80,7 +80,7 @@ export const createCareerNewLetter = async (
 export const getCaseStudyList = async ({
   params,
 }: {
-  params: { pagination: PaginationType; slug?: string };
+  params: { pagination: PaginationType; slug?: string; sort?: string[] };
 }): Promise<CaseStudiesType> => {
   const data = await http.get(CASE_STUDY, {
     params,

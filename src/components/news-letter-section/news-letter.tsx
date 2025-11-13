@@ -14,7 +14,7 @@ const ContactUsNewsletter = ({
 }) => {
 
   return (
-    <div className="container-md px-4 py-8 md:py-12">
+    <section data-debug={'contact-us.news-letter'} className="container-md ">
       <div className="">
         {/* Mobile Layout: Content Top (70%), Image Bottom (30%) */}
         <div className="flex flex-col md:flex-row md:gap-0 md:rounded-3xl md:overflow-hidden ">
@@ -53,7 +53,7 @@ const ContactUsNewsletter = ({
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

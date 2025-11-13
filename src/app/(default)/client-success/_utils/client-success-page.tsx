@@ -8,7 +8,7 @@ const getCaseStudiesPageCache = cache(getCaseStudiesPage);
 const ClientSuccessPage = async ({ slug }: { slug?: string }) => {
   const [data, initialData, search] = await Promise.all([
     getCaseStudiesPageCache(),
-    getCaseStudyList({ params: { pagination: INITIAL_PAGINATION, slug } }),
+    getCaseStudyList({ params: { pagination: INITIAL_PAGINATION, sort: ['createdAt:desc'], slug } }),
     getCaseStudySearchPage({}),
   ]);
 

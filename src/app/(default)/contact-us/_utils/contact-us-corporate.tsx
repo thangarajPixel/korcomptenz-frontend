@@ -7,8 +7,9 @@ const ContactUsCorporate = ({
   corporateData: OfficeCardProps;
 }) => {
   return (
-    <div className="container-md bg-light-gray py-12 px-4">
-      <div className=" p-5">
+    <div className="container-md ">
+      <div className="rounded-2xl bg-light-gray py-12 px-4">
+
         <h2 className="text-2xl font-semibold text-foreground mb-8">
           {corporateData?.title}
         </h2>
@@ -46,6 +47,7 @@ const ContactUsCorporate = ({
           ))}
         </div>
       </div>
+
     </div>
   );
 };

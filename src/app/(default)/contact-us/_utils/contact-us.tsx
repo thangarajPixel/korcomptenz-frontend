@@ -8,7 +8,7 @@ export default async function ContactUsPage() {
   const data = await getContactUsCache();
 
   return (
-    <div className="flex flex-col gap-16 md:gap-32">
+    <div className="flex flex-col gap-16">
       <GlobalPage data={data?.list} />
     </div>
   );
