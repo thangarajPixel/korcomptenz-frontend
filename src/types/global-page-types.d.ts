@@ -145,8 +145,8 @@ type BannerSectionType = {
   imageMobile: ImageType;
   image: ImageType;
   alt: string;
-  logo: ImageType;
-  logoMobile: ImageType;
+  logo?: ImageType;
+  logoMobile?: ImageType;
   altMobile: ImageType;
   title: string;
   description: string;
@@ -398,6 +398,10 @@ type BookDemoFormType = {
   emailLabel: string;
   buttonText: string;
 };
+interface OfficeCardProps {
+  title: string;
+  offices: OfficeLocation[];
+}
 type ContentShowcaseSectionType = {
   title: string;
   buttontext: string;
@@ -440,6 +444,18 @@ type MediaSliderSectionType = {
   list: MediaSliderCardType[];
 };
 
+type OfficesDataType = {
+  title: string;
+  country: string;
+  company: string;
+  address: string;
+  phone: string;
+  fax: string;
+  email: string;
+  image: ImageType;
+  subtitle: string;
+};
+
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
   ContactFormType: ContactFormType;
@@ -480,6 +496,23 @@ type NotFoundType = {
   description: string;
   image: ImageType;
   buttonText: string;
+};
+
+type PanchatattvaSectionType = {
+  id: string;
+  description: string;
+  descriptionTitle: string;
+  image: ImageType;
+  title: string;
+  titleDescription: string;
+  videoLink: string | null;
+  mainImage: ImageType;
+};
+
+type OpenJobsType = {
+  id: string;
+  title: string;
+  iframeLink: string;
 };
 
 type ComponentPropsMap = {
@@ -627,9 +660,33 @@ type ComponentPropsMap = {
     id: string;
     __component: "about-us.achievement-section";
   };
+  PanPanchatattvaSection: PanchatattvaSectionType & {
+    id: string;
+    __component: "career.career-build-data";
+  };
+  OpenJobsSection: OpenJobsType & {
+    id: string;
+    __component: "career.open-jobs";
+  };
+  ContactUsSection: newsletterData & {
+    id: string;
+    __component: "contact-us.news-letter";
+  };
   NotFound: NotFoundType & {
     id: string;
     __component: "not-found.not-found";
+    contactUsInsightSection: InsightCardType & {
+      id: string;
+      __component: "contact-us.contact-us-insight-list";
+    };
+    contactUsNewsletter: NewsletterData & {
+      id: string;
+      __component: "contact-us.news-letter";
+    };
+    contactUsOffice: OfficesDataType & {
+      id: string;
+      __component: "contact-us.our-office";
+    };
   };
 };
 type ComponentType = keyof ComponentPropsMap;
@@ -677,4 +734,10 @@ type CaseStudyPageType = {
     title: string;
     buttonText: string;
   };
+};
+type DepartmentType = {
+  data: {
+    id: number;
+    label: string;
+  }[];
 };

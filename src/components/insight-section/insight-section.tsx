@@ -14,14 +14,16 @@ export default function InsightsSection({
 }) {
   return (
     <section data-debug={"page-componets.insights-section"}>
-      <SplitDivider>
-        <motion.h2
-          id="insights-heading"
-          className="text-pretty lg:text-9xl text-6xl font-semibold text-gray-900 break-words md:text-7xl "
-        >
-          {insights?.title}
-        </motion.h2>
-      </SplitDivider>
+      {insights?.title && (
+        <SplitDivider>
+          <motion.h2
+            id="insights-heading"
+            className="text-pretty lg:text-9xl text-6xl font-semibold text-gray-900 break-words md:text-7xl "
+          >
+            {insights?.title}
+          </motion.h2>
+        </SplitDivider>
+      )}
       <div aria-labelledby="insights-heading" className="container-md mt-7">
         <div className="flex flex-col items-center gap-6 text-center md:gap-8">
           <InsightsMobileCarousel items={insights?.list} />

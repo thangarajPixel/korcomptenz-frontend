@@ -12,7 +12,10 @@ const outfitSans = Outfit({
 
 
 export const metadata: Metadata = {
-  title: "korcomptenz-frontend",
+  title: {
+    default: "korcomptenz",
+    template: ''
+  },
   description: "korcomptenz-frontend",
 };
 
