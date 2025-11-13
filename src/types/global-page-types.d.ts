@@ -105,7 +105,7 @@ type FilterDataType = {
 type InsightsSectionType = {
   title: string;
   buttontext: string;
-  buttonHref: string;
+  buttonLink: string;
   list: {
     id: string;
     title: string;
