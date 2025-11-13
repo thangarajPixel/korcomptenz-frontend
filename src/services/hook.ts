@@ -31,6 +31,18 @@ export const useCaseStudyLeadHook = () => {
     mutationFn: PAGE.createCaseStudyLead,
   });
 };
+export const useCareerNewLetterHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.CAREER_NEW_LETTER],
+    mutationFn: PAGE.createCareerNewLetter,
+  });
+};
+export const useDepartmentListHook = () => {
+  return useQuery({
+    queryKey: [PAGE.CASE_STUDY],
+    queryFn: () => PAGE.getDepartmentList(),
+  });
+};
 
 export const useCaseStudyListHook = ({
   options,

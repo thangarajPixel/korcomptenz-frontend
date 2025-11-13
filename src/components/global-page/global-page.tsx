@@ -32,6 +32,9 @@ import MediaSliderSection from "../media-slider-section";
 import MasonryGallerySection from "../masonry-gallery-section/masonry-gallery-section";
 import AchievementSection from "../achievements-section";
 import NotFound from "../not-found";
+import PanchatattvaSection from "../panchatattva-section";
+import OpenJobs from "../open-jobs";
+import { ContactUsNewsletter } from "../news-letter-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -287,6 +290,28 @@ const GlobalPage = (props: Props) => {
             data={item}
           />
         );
+      case "career.career-build-data":
+        return (
+          <PanchatattvaSection
+            key={`build-connect-${item?.__component}-${item?.id}`}
+            buildData={item}
+          />
+        );
+      case "career.open-jobs":
+        return (
+          <OpenJobs
+            key={`open-jobs-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "contact-us.news-letter":
+        return (
+          <ContactUsNewsletter
+            key={`news-letter-${item?.__component}-${item?.id}`}
+            newsletterData={item}
+          />
+        );
+
       default:
         return;
     }

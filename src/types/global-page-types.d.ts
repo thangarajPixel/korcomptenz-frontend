@@ -482,6 +482,23 @@ type NotFoundType = {
   buttonText: string;
 };
 
+type PanchatattvaSectionType = {
+  id: string;
+  description: string;
+  descriptionTitle: string;
+  image: ImageType;
+  title: string;
+  titleDescription: string;
+  videoLink: string | null;
+  mainImage: ImageType;
+};
+
+type OpenJobsType = {
+  id: string;
+  title: string;
+  iframeLink: string;
+};
+
 type ComponentPropsMap = {
   SlidingSection: {
     id: string;
@@ -627,6 +644,18 @@ type ComponentPropsMap = {
     id: string;
     __component: "about-us.achievement-section";
   };
+  PanPanchatattvaSection: PanchatattvaSectionType & {
+    id: string;
+    __component: "career.career-build-data";
+  };
+  OpenJobsSection: OpenJobsType & {
+    id: string;
+    __component: "career.open-jobs";
+  };
+  ContactUsSection: newsletterData & {
+    id: string;
+    __component: "contact-us.news-letter";
+  };
   NotFound: NotFoundType & {
     id: string;
     __component: "not-found.not-found";
@@ -677,4 +706,10 @@ type CaseStudyPageType = {
     title: string;
     buttonText: string;
   };
+};
+type DepartmentType = {
+  data: {
+    id: number;
+    label: string;
+  }[];
 };

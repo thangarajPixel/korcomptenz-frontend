@@ -16,8 +16,14 @@ const defaultValues = {
   phone: "",
   message: "",
 };
-export function CaseStudyForm({ data, essential: form }: { data: CaseStudyData; essential: CaseStudyPageType }) {
-  const essential = form?.form?.forms?.[0] as CaseStudyFormType
+export function CaseStudyForm({
+  data,
+  essential: form,
+}: {
+  data: CaseStudyData;
+  essential: CaseStudyPageType;
+}) {
+  const essential = form?.form?.forms?.[0] as CaseStudyFormType;
   const {
     control,
     handleSubmit,
@@ -60,8 +66,16 @@ export function CaseStudyForm({ data, essential: form }: { data: CaseStudyData; 
         <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
           {/* Row 1: Full name and Email */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-            <Input control={control} name="fullName" placeholder={essential?.nameLabel} />
-            <Input control={control} name="email" placeholder={essential?.emailLabel} />
+            <Input
+              control={control}
+              name="fullName"
+              placeholder={essential?.nameLabel}
+            />
+            <Input
+              control={control}
+              name="email"
+              placeholder={essential?.emailLabel}
+            />
           </div>
           {/* Row 2: Organization and Phone */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
@@ -70,7 +84,11 @@ export function CaseStudyForm({ data, essential: form }: { data: CaseStudyData; 
               name="organization"
               placeholder={essential?.organizationLabel}
             />
-            <Input control={control} name="phone" placeholder={essential?.phoneLabel} />
+            <Input
+              control={control}
+              name="phone"
+              placeholder={essential?.phoneLabel}
+            />
           </div>
           <Textarea
             control={control}
