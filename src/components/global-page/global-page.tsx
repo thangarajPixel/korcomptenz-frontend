@@ -35,8 +35,13 @@ import NotFound from "../not-found";
 import PanchatattvaSection from "../panchatattva-section";
 import OpenJobs from "../open-jobs";
 import { ContactUsNewsletter } from "../news-letter-section";
-import { ContactUsCorporate, ContactUsInsight, ContactUsOffice } from "@/app/(default)/contact-us/_utils";
+import {
+  ContactUsCorporate,
+  ContactUsInsight,
+  ContactUsOffice,
+} from "@/app/(default)/contact-us/_utils";
 import FixedFooter from "../fixed-footer";
+import ContactUsForm from "@/app/(default)/contact-us/_utils/contact-us-form-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -338,6 +343,14 @@ const GlobalPage = (props: Props) => {
         return (
           <FixedFooter
             key={`contact-us-fixed-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      }
+      case "contact-us.contact-us-form-section": {
+        return (
+          <ContactUsForm
+            key={`contact-us-form-${item?.__component}-${item?.id}`}
             data={item}
           />
         );

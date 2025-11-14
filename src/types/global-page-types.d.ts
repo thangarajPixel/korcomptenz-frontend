@@ -401,7 +401,7 @@ type BookDemoFormType = {
 type OfficeCardProps = {
   title: string;
   list: OfficeLocation[];
-}
+};
 type ContentShowcaseSectionType = {
   title: string;
   buttontext: string;
@@ -450,7 +450,7 @@ type NewsletterData = {
   buttonText: string;
   isForm?: boolean;
   image: ImageType;
-}
+};
 
 type OfficesDataType = {
   title: string;
@@ -463,11 +463,26 @@ type OfficesDataType = {
   image: ImageType;
   subtitle: string;
 };
+type ContactUsFormType = {
+  __component: "form-fields.contact-us-form";
+  id: string;
+  buttonText: string;
+  companyLabel: string;
+  emailLabel: string;
+  firstNameLabel: string;
+  lastNameLabel: string;
+  messageLabel: string;
+  phoneLabel: string;
+  serviceLabel: string;
+  technologyLabel: string;
+  list: { id: string; description: string }[];
+};
 
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
   ContactFormType: ContactFormType;
   BookDemoFormType: BookDemoFormType;
+  ContactUsFormType: ContactUsFormType;
 };
 type FormType = keyof FormMap;
 type FormPropsType = FormMap[FormType];
@@ -493,8 +508,8 @@ type MasonryGallerySectionType = {
 };
 type FixedFooter = {
   description: string;
-  buttons: ButtonType[]
-}
+  buttons: ButtonType[];
+};
 type AchievementsType = {
   id: string;
   title: string;
@@ -524,6 +539,16 @@ type OpenJobsType = {
   id: string;
   title: string;
   iframeLink: string;
+};
+
+type ContactUsFormSectionType = {
+  id: string;
+  title: string;
+  images: {
+    id: string;
+    image: ImageType;
+  }[];
+  form: { forms: FormPropsType[] };
 };
 
 type ComponentPropsMap = {
@@ -694,7 +719,7 @@ type ComponentPropsMap = {
   ContactUsCorporate: OfficeCardProps & {
     id: string;
     __component: "contact-us.office-location-list";
-  }
+  };
   contactUsOffice: OfficesDataType & {
     id: string;
     __component: "contact-us.our-office";
@@ -702,7 +727,11 @@ type ComponentPropsMap = {
   FixedFooter: FixedFooter & {
     id: string;
     __component: "contact-us.fixed-section";
-  }
+  };
+  ContactUsForm: ContactUsFormSectionType & {
+    id: string;
+    __component: "contact-us.contact-us-form-section";
+  };
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
@@ -755,4 +784,16 @@ type DepartmentType = {
     id: number;
     label: string;
   }[];
+};
+
+type CaseStudyEssentialType = {
+  data: {
+    service: ServiceType[];
+    technology: ServiceType[];
+  };
+};
+type ServiceType = {
+  id: string;
+  label: string;
+  slug: string;
 };

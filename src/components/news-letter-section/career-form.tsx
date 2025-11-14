@@ -58,7 +58,7 @@ const CareerForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
-      <div className="grid gap-y-8 mt-5">
+      <div className="grid gap-y-8">
         {/* Name + Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Input

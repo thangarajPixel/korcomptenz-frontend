@@ -86,3 +86,17 @@ export const useBookADemoHook = () => {
     mutationFn: PAGE.bookADemo,
   });
 };
+
+export const useCaseStudyEssentialHook = () => {
+  return useQuery({
+    queryKey: [PAGE.CASE_STUDY_ESSENTIAL_LIST],
+    queryFn: () => PAGE.getCaseStudyEssentialList(),
+  });
+};
+
+export const useContactUsLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.CONTACT_US_LEAD],
+    mutationFn: PAGE.createContactUsLead,
+  });
+};
