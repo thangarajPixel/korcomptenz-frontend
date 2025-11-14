@@ -23,12 +23,14 @@ const TechCard = ({
         <p className="text-sm lg:text-lg text-background">
           {data?.description}
         </p>
-        <Button
-          arrow
-          className="bg-secondary text-white flex justify-start items-center -ms-4"
-        >
-          {data?.buttonText}
-        </Button>
+        {data?.buttonText && (
+          <Button
+            arrow
+            className="bg-secondary text-white flex justify-start items-center -ms-4"
+          >
+            {data?.buttonText}
+          </Button>
+        )}
       </div>
     </section>
   );

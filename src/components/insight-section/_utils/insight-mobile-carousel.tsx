@@ -1,11 +1,14 @@
-"use client"
+"use client";
 
-import useEmblaCarousel from "embla-carousel-react"
-import { InsightCard, type InsightCardType } from "./insight-cards"
-import { cn } from "@/lib/utils"
+import useEmblaCarousel from "embla-carousel-react";
+import { InsightCard } from "./insight-cards";
+import { cn } from "@/lib/utils";
 
-
-export default function InsightsMobileCarousel({ items }: { items: InsightCardType[] }) {
+export default function InsightsMobileCarousel({
+  items,
+}: {
+  items: InsightsMobileCarouselType[];
+}) {
   const [emblaRef] = useEmblaCarousel({
     align: "start",
     dragFree: true,
@@ -13,20 +16,22 @@ export default function InsightsMobileCarousel({ items }: { items: InsightCardTy
     loop: true,
     // watchSlides: true,
     // slides: 'always',
-  })
-
+  });
 
   return (
     <div className="block md:hidden w-full">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex gap-4 pl-4">
           {items?.map((item) => (
-            <div key={item?.title} className={cn("min-w-[78%] max-w-[78%] pr-1 relative")}>
+            <div
+              key={item?.title}
+              className={cn("min-w-[78%] max-w-[78%] pr-1 relative")}
+            >
               <InsightCard {...item} />
             </div>
           ))}
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -106,13 +106,7 @@ type InsightsSectionType = {
   title: string;
   buttontext: string;
   buttonLink: string;
-  list: {
-    id: string;
-    title: string;
-    category: string;
-    image: imageType;
-    alt: string;
-  }[];
+  list: InsightsMobileCarouselType[];
 };
 
 type OpportunitiesType = {

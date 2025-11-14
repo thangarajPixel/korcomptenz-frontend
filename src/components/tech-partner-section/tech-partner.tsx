@@ -72,12 +72,14 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
                       <p className="text-sm font-normal text-background">
                         {slide?.description}
                       </p>
-                      <Button
-                        arrow
-                        className="bg-secondary text-sm text-white flex justify-start items-center -ms-4"
-                      >
-                        {slide?.buttonText}
-                      </Button>
+                      {slide?.buttonText && (
+                        <Button
+                          arrow
+                          className="bg-secondary text-sm text-white flex justify-start items-center -ms-4"
+                        >
+                          {slide?.buttonText}
+                        </Button>
+                      )}
                     </div>
                   ))}
                 </div>

@@ -335,8 +335,8 @@ type FilterLabelType = {
 };
 type ButtonType = {
   buttonText: string;
-  buttonLink: string
-}
+  buttonLink: string;
+};
 type IndustryItem = {
   id: string;
   title: string;
@@ -411,4 +411,23 @@ type MediaSliderCardType = {
 type AchievementscardType = {
   id: string;
   column: { id: string; image: ImageType }[];
+};
+// type InsightCardType = {
+//   id: string;
+//   title: string;
+//   image: ImageType;
+//   description?: string;
+//   className?: string;
+//   category?: string;
+//   link?: string;
+//   buttonText?: string;
+// };
+
+type InsightsMobileCarouselType = {
+  category: string;
+  description: string;
+  id: string;
+  image: ImageType;
+  link: string;
+  title: string;
 };
