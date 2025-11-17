@@ -13,7 +13,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
     buttonText,
     logo,
     secondaryDescription,
-    position = "corner"
+    position = "corner",
   } = data;
 
   return (
@@ -36,20 +36,30 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                 html={description}
                 className={cn(
                   image?.url &&
-                  "text-foreground text-md pr-10  md:text-lg leading-4xl z-10 w-full",
-                  (position !== "main") && "max-w-xs"
+                    "text-foreground text-md pr-10  md:text-lg leading-4xl z-10 w-full [&>ul]:ml-7",
+                  position !== "main" && "max-w-xs"
                 )}
               />
               {position === "side" && image && (
                 <div className="flex items-center justify-center ">
-                  <KorcomptenzImage src={image} className="object-contain max-h-60" width={400} height={200} />
+                  <KorcomptenzImage
+                    src={image}
+                    className="object-contain max-h-60"
+                    width={400}
+                    height={200}
+                  />
                 </div>
               )}
             </div>
           )}
           {position === "main" && image && (
             <div className="flex items-center justify-center ">
-              <KorcomptenzImage src={image} className=" object-contain max-h-60" width={400} height={200} />
+              <KorcomptenzImage
+                src={image}
+                className=" object-contain max-h-60"
+                width={400}
+                height={200}
+              />
             </div>
           )}
           {secondaryDescription && (
@@ -57,7 +67,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               html={secondaryDescription}
               className={cn(
                 image?.url &&
-                "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-full"
+                  "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-full"
               )}
             />
           )}
@@ -82,7 +92,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
             <div className="flex absolute bottom-0 right-0 justify-end items-end w-[200px] h-[230px] ">
               <KorcomptenzImage
                 className={cn(
-                  ` rounded-tl-4xl  p-0 `,
+                  ` rounded-tl-4xl  p-0 `
                   // image?.height > 300
                   //   ? "size-2/3"
                   //   : image?.height >= 200

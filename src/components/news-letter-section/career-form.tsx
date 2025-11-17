@@ -41,14 +41,13 @@ const CareerForm = () => {
   const { mutateAsync } = useCareerNewLetterHook();
 
   const { data } = useDepartmentListHook();
-
   const handleFormSubmit: SubmitHandler<CareerNewLetterFormData> =
     React.useCallback(
       async (formdata) => {
         try {
           const response = await mutateAsync(formdata);
           notify(response);
-          // reset({ ...defaultValues });
+          reset({ ...defaultValues });
         } catch (error) {
           errorSet(error, setError);
         }
@@ -104,6 +103,7 @@ const CareerForm = () => {
               name="department"
               options={
                 data?.data?.map((item) => ({
+                  ...item,
                   label: item.label,
                   value: item.id,
                 })) || []

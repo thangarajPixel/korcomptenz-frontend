@@ -27,6 +27,7 @@ export interface ComboboxOption {
   label: string;
   value: string | number;
   state_code?: string;
+  documentId?: string;
 }
 
 interface ComboboxFieldProps<T extends FieldValues> {
@@ -50,10 +51,9 @@ export function ComboboxField<T extends FieldValues>({
 }: ComboboxFieldProps<T>) {
   const [open, setOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState("");
-
   const { field } = useController({ control, name });
   const selectedOption = options.find(
-    (opt) => String(opt.value) === String(field.value)
+    (opt) => String(opt.value) === String(field?.value?.[0]?.id)
   );
 
   // Filter options based on search query
@@ -131,7 +131,13 @@ export function ComboboxField<T extends FieldValues>({
                     key={option.value}
                     value={String(option.value)}
                     onSelect={() => {
-                      field.onChange(option.value); // store id in form
+                      field.onChange([
+                        {
+                          id: option?.value,
+                          documentId: option?.documentId,
+                          isTempory: true,
+                        },
+                      ]); // store id in form
                       setOpen(false);
                       setSearchQuery("");
                     }}

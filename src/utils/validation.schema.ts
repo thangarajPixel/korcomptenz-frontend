@@ -48,10 +48,7 @@ export const CareerNewLetterSchema = z.object({
     .refine((val) => !val || /^\d{10,15}$/.test(val), {
       message: "Enter a valid phone number",
     }),
-  department: z.union([
-    z.number().min(1, "Department is required"),
-    z.string().min(1, "Department is required"),
-  ]),
+  department: z.any(),
 
   resume: z
     .any()
@@ -87,9 +84,9 @@ export const ContactUsFormSchema = z.object({
     .max(15, "Phone number can't exceed 15 digits")
     .regex(/^\d+$/, "Phone number must contain only digits"),
 
-  service: z.number().min(1, "Please select a service"),
+  service: z.any(),
 
-  technology: z.number().min(1, "Please select a technology"),
+  technology: z.any(),
 
   message: z.string().min(1, "Message is required"),
 });
