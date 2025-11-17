@@ -10,11 +10,11 @@ export default function ContactUsForm({
   data: ContactUsFormSectionType;
 }) {
   return (
-    <main
-      className="min-h-screen container-md"
-      style={{ backgroundColor: "#e8f5f0" }}
+    <section
+      className="bg-[#e8f5f0]"
+      data-debug='contact-us.contact-us-form-section'
     >
-      <div className="max-w-7xl mx-auto px-4 py-12 lg:py-16">
+      <div className="container-md  py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Left side - Responsive Logo Grid */}
           <div>
@@ -41,6 +41,6 @@ export default function ContactUsForm({
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }
