@@ -11,6 +11,7 @@
     "start": "next start --port=3100",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix"
+     
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
