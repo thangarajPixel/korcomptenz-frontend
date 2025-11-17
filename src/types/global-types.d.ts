@@ -148,6 +148,7 @@ type InsightsDataType = {
     title: string;
     description: string;
     href: HrefType | null;
+    link: string | null;
   }[];
 };
 
