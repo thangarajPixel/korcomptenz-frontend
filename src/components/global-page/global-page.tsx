@@ -42,6 +42,8 @@ import {
 } from "@/app/(default)/contact-us/_utils";
 import FixedFooter from "../fixed-footer";
 import ContactUsForm from "@/app/(default)/contact-us/_utils/contact-us-form-section";
+import DemoBannerSection from "../demo-banner-section";
+import LiveDemoList from "@/app/(default)/live-demo/_utils/live-demo-list";
 
 type Props = {
   data: ComponentPropsType[];
@@ -104,6 +106,13 @@ const GlobalPage = (props: Props) => {
       case "page-componets.banner-section-list":
         return (
           <BannerSection
+            key={`banner-${item?.__component}-${item?.id}`}
+            BannerSectionData={item?.list}
+          />
+        );
+      case "demo-page.demo-banner-list":
+        return (
+          <DemoBannerSection
             key={`banner-${item?.__component}-${item?.id}`}
             BannerSectionData={item?.list}
           />
@@ -287,6 +296,13 @@ const GlobalPage = (props: Props) => {
         return (
           <AchievementSection
             key={`achievement-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "demo-page.demo-list":
+        return (
+          <LiveDemoList
+            key={`live-demo-list-${item?.__component}-${item?.id}`}
             data={item}
           />
         );

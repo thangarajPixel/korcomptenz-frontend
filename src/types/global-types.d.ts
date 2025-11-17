@@ -431,3 +431,19 @@ type InsightsMobileCarouselType = {
   link: string;
   title: string;
 };
+
+type DemoList = {
+  id: string;
+  title: string;
+  item: BookDemoListType[];
+  length: number;
+};
+type BookDemoListType = {
+  buttonLink: string | null;
+  buttonText: string;
+  date: string;
+  description: string;
+  id: string;
+
+  title: string;
+};

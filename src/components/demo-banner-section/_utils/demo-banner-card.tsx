@@ -42,7 +42,7 @@ const DemoBannerCard = ({
               </>
             ) : (
               <>
-                <h2 className="text-4xl md:text-8xl max-w-2xl font-semibold text-white leading-16 ">
+                <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
                   {data.title}
                 </h2>
                 <p className="text-base md:text-xl text-white max-w-xl leading-relaxed ">
@@ -57,6 +57,9 @@ const DemoBannerCard = ({
                     {data.buttonText}
                   </Button>
                 )}
+                <p className="text-base md:text-lg text-white max-w-xl leading-relaxed mb-5 ">
+                  {data?.bannerCaption}
+                </p>
               </>
             )}
           </div>
@@ -64,7 +67,7 @@ const DemoBannerCard = ({
       </div>
 
       {/* Mobile View */}
-      <div className="lg:hidden w-full h-auto overflow-hidden rounded-4xl">
+      <div className="lg:hidden w-full h-auto overflow-hidden ">
         <KorcomptenzImage
           src={data?.imageMobile || data?.image}
           width={1000}

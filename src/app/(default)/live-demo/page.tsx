@@ -1,12 +1,22 @@
-import React from 'react'
-import LiveDemoList from './_utils/live-demo-list'
+import React, { cache } from "react";
+import GlobalPage from "@/components/global-page";
+import { getDemoPage } from "@/services";
+// import DemoPartnership from "./_utils/demo-partnership";
+// import DemoExperts from "./_utils/demo-experts";
+// import DemoWhyAttend from "./_utils/demo-why-attend";
+// import DemoOpportunities from "./_utils/demo-opportunities";
 
-const Page = () => {
+const getDemoCache = cache(getDemoPage);
+
+export default async function DemoPage() {
+  const data = await getDemoCache();
   return (
-    <div>
-      <LiveDemoList />
+    <div className="flex flex-col gap-16 md:gap-32">
+      <GlobalPage data={data?.list} />
+      {/* <DemoPartnership />
+      <DemoExperts />
+      <DemoWhyAttend />
+      <DemoOpportunities /> */}
     </div>
-  )
+  );
 }
-
-export default Page

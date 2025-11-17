@@ -23,6 +23,7 @@ export const CAREER = "/career";
 export const CONTACT_US = "/contact-us";
 export const CASE_STUDY_ESSENTIAL_LIST = "/case-study-essential";
 export const CONTACT_US_LEAD = "/contact-us-leads";
+export const DEMO_PAGE = "/demo-list";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -137,5 +138,11 @@ export const getCaseStudyEssentialList =
 
 export const createContactUsLead = async (formData: ContactUsFormSchema) => {
   const { data } = await http.post(CONTACT_US_LEAD, { data: formData });
+  return data;
+};
+
+export const getDemoPage = async (): Promise<PagesListType> => {
+  const { data } = await http.get(DEMO_PAGE);
+
   return data;
 };
