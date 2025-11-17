@@ -1,5 +1,3 @@
-import KorcomptenzImage from "@/components/korcomptenz-image";
-
 const data = {
   title: "Who Should Attend?",
   partner: [
@@ -35,12 +33,12 @@ export default function DemoExperts() {
             key={index}
             className="flex flex-col items-center text-center space-y-4"
           >
-            <KorcomptenzImage
+            {/* <KorcomptenzImage
               src={partner?.logo}
               width={200}
               height={200}
               className="object-contain"
-            />
+            /> */}
             <h2 className="text-2xl font-semibold text-black">
               {partner?.name}
             </h2>
