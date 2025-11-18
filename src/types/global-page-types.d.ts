@@ -554,6 +554,26 @@ type ContactUsFormSectionType = {
   form: { forms: FormPropsType[] };
 };
 
+type OpportunitiesSectionType = {
+  arrowImage: ImageType;
+  bannerImage: ImageType;
+  id: string;
+  title: string;
+  list: OpportunitiesCardType[];
+};
+
+type ExpertsSectionType = {
+  id: string;
+  title: string;
+  list: ExpertsCardType[];
+};
+
+type DemoWhyAttendSectionType = {
+  id: string;
+  title: string;
+  list: DemoWhyAttendCardType[];
+};
+
 type ComponentPropsMap = {
   SlidingSection: {
     id: string;
@@ -744,6 +764,22 @@ type ComponentPropsMap = {
   ContactUsForm: ContactUsFormSectionType & {
     id: string;
     __component: "contact-us.contact-us-form-section";
+  };
+  DemoPartnershipSection: DemoPartnershipSectionType & {
+    id: string;
+    __component: "demo-page.demo-partnership";
+  };
+  DemoExpertsSection: ExpertsSectionType & {
+    id: string;
+    __component: "demo-page.experts-section";
+  };
+  DemoWhyAttendSection: DemoWhyAttendSectionType & {
+    id: string;
+    __component: "demo-page.demo-demonstration";
+  };
+  DemoOpportunitiesSection: OpportunitiesSectionType & {
+    id: string;
+    __component: "demo-page.demo-opportunity";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

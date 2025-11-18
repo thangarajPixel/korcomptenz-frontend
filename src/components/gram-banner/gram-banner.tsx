@@ -39,7 +39,11 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         />
         {gramData?.buttonText && (
           <div className="flex justify-center items-center">
-            <Button arrow className="flex items-center justify-center">
+            <Button
+              size="xl"
+              arrow
+              className="flex items-center justify-center"
+            >
               {gramData?.buttonText}
             </Button>
           </div>
