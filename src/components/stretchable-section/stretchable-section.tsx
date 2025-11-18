@@ -30,7 +30,7 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
             ))}
           </CardSwiper>
         ) : (
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 w-full">
             {item?.list?.map((value) => (
               <StretchableSectionCard
                 key={`stretchable-section-card-${value?.title?.toLowerCase()}`}

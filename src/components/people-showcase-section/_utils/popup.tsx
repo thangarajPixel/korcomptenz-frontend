@@ -44,28 +44,25 @@ export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
             flex-col md:flex-row
             items-stretch
             justify-start
-            fixed
-            top-1/2 left-1/2
-            -translate-x-1/2 -translate-y-1/2
-            border border-gray-200
-            overflow-hidden
+            h-11/12 md:h-auto
+           
           "
         >
           {/* Close Button (floating, top-right) */}
           {data?.socialPlatform?.map((platform) => (
-            <button className="absolute lg:top-4 lg:right-18  w-9 h-9 flex items-center justify-center ">
+            <button className="absolute lg:top-4 lg:right-18  w-9 h-9 flex items-center cursor-pointer  justify-center ">
               <KorcomptenzImage src={platform?.icon} width={32} height={32} />
             </button>
           ))}
 
           {/* Left Image */}
-          <div className="relative w-full md:w-auto p-2 flex-shrink-0">
+          <div className="relative h-1/4 md:h-auto w-full md:w-1/4 p-2 flex-shrink-0">
             {data?.image ? (
               <KorcomptenzImage
                 src={data.image}
-                width={400}
-                height={480}
-                className="object-cover w-full h-full"
+                width={1000}
+                height={1000}
+                className="object-contain md:object-cover  size-full"
               />
             ) : (
               <div className="h-full w-full bg-muted flex items-center justify-center text-muted-foreground">
@@ -75,13 +72,13 @@ export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
           </div>
 
           {/* Right Content */}
-          <div className="p-6 md:p-10 text-left h-full w-full">
+          <div className="p-6 md:p-10 text-left h-full w-full overflow-y-auto">
             <DialogHeader>
               <DialogTitle className="text-primary font-semibold text-2xl md:text-[22px] leading-tight mb-4">
                 {data?.title}
                 <p className="text-foreground text-md">{data?.position}</p>
               </DialogTitle>
-              <DialogDescription asChild>
+              <DialogDescription asChild className="">
                 <div className="text-[#333] text-base leading-relaxed space-y-4">
                   <DangerousHtml html={data?.description} />
                 </div>

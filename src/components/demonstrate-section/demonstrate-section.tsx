@@ -11,9 +11,9 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
     >
       <div className="">
         <div className="flex flex-col gap-9 text-start lg:text-center items-start lg:items-center justify-center leading-14  text-foreground  ">
-          <h1 className="text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0">
+          <h5 className="text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0">
             {data?.title}
-          </h1>
+          </h5>
           <Button
             size="xl"
             arrow={true}
@@ -27,16 +27,15 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
             return (
               <div
                 key={`card-item-demo-${card?.id}`}
-                className={`bg-none flex flex-col gap-4 ${
-                  !((index + 1) % 2) ? "lg:mt-10" : ""
-                }`}
+                className={`bg-none flex flex-col gap-4 ${!((index + 1) % 2) ? "lg:mt-10" : ""
+                  }`}
               >
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
                     src={card?.image}
                     width={500}
                     height={500}
-                    className="object-cover w-full h-full "
+                    className="object-cover w-full h-full rounded-4xl "
                   />
                 </div>
                 <div>

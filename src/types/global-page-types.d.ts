@@ -105,14 +105,8 @@ type FilterDataType = {
 type InsightsSectionType = {
   title: string;
   buttontext: string;
-  buttonHref: string;
-  list: {
-    id: string;
-    title: string;
-    category: string;
-    image: imageType;
-    alt: string;
-  }[];
+  buttonLink: string;
+  list: InsightsMobileCarouselType[];
 };
 
 type OpportunitiesType = {
@@ -151,6 +145,7 @@ type BannerSectionType = {
   title: string;
   description: string;
   buttonText: string;
+  bannerCaption: string;
 };
 
 type SapSectionType = {
@@ -398,10 +393,10 @@ type BookDemoFormType = {
   emailLabel: string;
   buttonText: string;
 };
-interface OfficeCardProps {
+type OfficeCardProps = {
   title: string;
-  offices: OfficeLocation[];
-}
+  list: OfficeLocation[];
+};
 type ContentShowcaseSectionType = {
   title: string;
   buttontext: string;
@@ -444,6 +439,14 @@ type MediaSliderSectionType = {
   list: MediaSliderCardType[];
 };
 
+type NewsletterData = {
+  title: string;
+  description: string;
+  buttonText: string;
+  isForm?: boolean;
+  image: ImageType;
+};
+
 type OfficesDataType = {
   title: string;
   country: string;
@@ -455,11 +458,26 @@ type OfficesDataType = {
   image: ImageType;
   subtitle: string;
 };
+type ContactUsFormType = {
+  __component: "form-fields.contact-us-form";
+  id: string;
+  buttonText: string;
+  companyLabel: string;
+  emailLabel: string;
+  firstNameLabel: string;
+  lastNameLabel: string;
+  messageLabel: string;
+  phoneLabel: string;
+  serviceLabel: string;
+  technologyLabel: string;
+  list: { id: string; description: string }[];
+};
 
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
   ContactFormType: ContactFormType;
   BookDemoFormType: BookDemoFormType;
+  ContactUsFormType: ContactUsFormType;
 };
 type FormType = keyof FormMap;
 type FormPropsType = FormMap[FormType];
@@ -483,12 +501,20 @@ type MasonryGallerySectionType = {
     column: MasonryGalleryColumnType[];
   }[];
 };
-
+type FixedFooter = {
+  description: string;
+  buttons: ButtonType[];
+};
 type AchievementsType = {
   id: string;
   title: string;
   list: AchievementscardType[];
 };
+type DemoListType = {
+  id: string;
+  list: DemoList[];
+};
+
 type NotFoundType = {
   id: string;
   __component: "not-found.not-found";
@@ -513,6 +539,16 @@ type OpenJobsType = {
   id: string;
   title: string;
   iframeLink: string;
+};
+
+type ContactUsFormSectionType = {
+  id: string;
+  title: string;
+  images: {
+    id: string;
+    image: ImageType;
+  }[];
+  form: { forms: FormPropsType[] };
 };
 
 type ComponentPropsMap = {
@@ -551,6 +587,12 @@ type ComponentPropsMap = {
     __component: "page-componets.banner-section-list";
     list: BannerSectionType[];
   };
+  DemoBannerSection: {
+    id: string;
+    __component: "demo-page.demo-banner-list";
+    list: BannerSectionType[];
+  };
+
   SapSection: SapSectionType & {
     id: string;
     __component: "page-componets.sap-section-data";
@@ -668,25 +710,37 @@ type ComponentPropsMap = {
     id: string;
     __component: "career.open-jobs";
   };
-  ContactUsSection: newsletterData & {
+  ContactUsNewsletter: NewsletterData & {
     id: string;
     __component: "contact-us.news-letter";
+  };
+  DemoListSection: DemoListType & {
+    id: string;
+    __component: "demo-page.demo-list";
   };
   NotFound: NotFoundType & {
     id: string;
     __component: "not-found.not-found";
-    contactUsInsightSection: InsightCardType & {
-      id: string;
-      __component: "contact-us.contact-us-insight-list";
-    };
-    contactUsNewsletter: NewsletterData & {
-      id: string;
-      __component: "contact-us.news-letter";
-    };
-    contactUsOffice: OfficesDataType & {
-      id: string;
-      __component: "contact-us.our-office";
-    };
+  };
+  contactUsInsightSection: InsightCardType & {
+    id: string;
+    __component: "contact-us.contact-us-insight-list";
+  };
+  ContactUsCorporate: OfficeCardProps & {
+    id: string;
+    __component: "contact-us.office-location-list";
+  };
+  contactUsOffice: OfficesDataType & {
+    id: string;
+    __component: "contact-us.our-office";
+  };
+  FixedFooter: FixedFooter & {
+    id: string;
+    __component: "contact-us.fixed-section";
+  };
+  ContactUsForm: ContactUsFormSectionType & {
+    id: string;
+    __component: "contact-us.contact-us-form-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
@@ -740,4 +794,16 @@ type DepartmentType = {
     id: number;
     label: string;
   }[];
+};
+
+type CaseStudyEssentialType = {
+  data: {
+    service: ServiceType[];
+    technology: ServiceType[];
+  };
+};
+type ServiceType = {
+  id: string;
+  label: string;
+  slug: string;
 };

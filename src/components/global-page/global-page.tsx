@@ -35,7 +35,15 @@ import NotFound from "../not-found";
 import PanchatattvaSection from "../panchatattva-section";
 import OpenJobs from "../open-jobs";
 import { ContactUsNewsletter } from "../news-letter-section";
-import { ContactUsInsight, ContactUsOffice } from "@/app/contact-us/_utils";
+import {
+  ContactUsCorporate,
+  ContactUsInsight,
+  ContactUsOffice,
+} from "@/app/(default)/contact-us/_utils";
+import FixedFooter from "../fixed-footer";
+import ContactUsForm from "@/app/(default)/contact-us/_utils/contact-us-form-section";
+import DemoBannerSection from "../demo-banner-section";
+import LiveDemoList from "@/app/(default)/live-demo/_utils/live-demo-list";
 
 type Props = {
   data: ComponentPropsType[];
@@ -98,6 +106,13 @@ const GlobalPage = (props: Props) => {
       case "page-componets.banner-section-list":
         return (
           <BannerSection
+            key={`banner-${item?.__component}-${item?.id}`}
+            BannerSectionData={item?.list}
+          />
+        );
+      case "demo-page.demo-banner-list":
+        return (
+          <DemoBannerSection
             key={`banner-${item?.__component}-${item?.id}`}
             BannerSectionData={item?.list}
           />
@@ -284,6 +299,13 @@ const GlobalPage = (props: Props) => {
             data={item}
           />
         );
+      case "demo-page.demo-list":
+        return (
+          <LiveDemoList
+            key={`live-demo-list-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
       case "not-found.not-found":
         return (
           <NotFound
@@ -328,11 +350,27 @@ const GlobalPage = (props: Props) => {
         );
       case "contact-us.office-location-list":
         return (
-          <ContactUsOfficeLocation
-            key={`contact-us-office-location-${item?.__component}-${item?.id}`}
+          <ContactUsCorporate
+            key={`contact-us-corporate-${item?.__component}-${item?.id}`}
+            corporateData={item}
+          />
+        );
+      case "contact-us.fixed-section": {
+        return (
+          <FixedFooter
+            key={`contact-us-fixed-section-${item?.__component}-${item?.id}`}
             data={item}
           />
         );
+      }
+      case "contact-us.contact-us-form-section": {
+        return (
+          <ContactUsForm
+            key={`contact-us-form-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      }
       default:
         return;
     }

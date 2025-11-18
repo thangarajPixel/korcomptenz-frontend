@@ -7,9 +7,11 @@ import React from "react";
 const BannerCard = ({
   data,
   className,
+  isFirst = false,
 }: {
   data: BannerSectionType;
   className?: string;
+  isFirst?: boolean;
 }) => {
   return (
     <div className={cn(className)}>
@@ -33,12 +35,19 @@ const BannerCard = ({
             <p className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md">
               {data?.description}
             </p>
+            {data?.buttonText && (
+              <Button size="xl" arrow={true} className="hover:bg-transparent ">
+                {data?.buttonText}
+              </Button>
+            )}
           </div>
         ) : (
-          <div className=" absolute top-0 left-10 p-18 z-10 w-5/8 h-full flex flex-col gap-6 justify-center items-start ">
-            <h2 className="text-9xl font-semibold leading-14 text-white mb-4">
+          <div className={cn(" absolute top-0 left-10 p-18 z-10 w-5/8 h-full flex flex-col gap-6 justify-center items-start ")}>
+            {!isFirst ? <h2 className="text-9xl font-semibold leading-14 text-white mb-4">
               {data?.title}
-            </h2>
+            </h2> : <h1 className="text-9xl font-semibold leading-14 text-white mb-4">
+              {data?.title}
+            </h1>}
             <p className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md">
               {data?.description}
             </p>

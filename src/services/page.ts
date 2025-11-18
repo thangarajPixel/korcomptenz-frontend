@@ -4,6 +4,7 @@ import type {
   BookADemoFormData,
   CareerNewLetterFormData,
   ContactFormData,
+  ContactUsFormSchema,
 } from "@/utils/validation.schema";
 
 const HOME = "/home";
@@ -20,6 +21,9 @@ export const BOOK_DEMO = "/book-demo-leads";
 export const DEPARTMENT_LIST = "/departments";
 export const CAREER = "/career";
 export const CONTACT_US = "/contact-us";
+export const CASE_STUDY_ESSENTIAL_LIST = "/case-study-essential";
+export const CONTACT_US_LEAD = "/contact-us-leads";
+export const DEMO_PAGE = "/demo-list";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -80,7 +84,7 @@ export const createCareerNewLetter = async (
 export const getCaseStudyList = async ({
   params,
 }: {
-  params: { pagination: PaginationType; slug?: string };
+  params: { pagination: PaginationType; slug?: string; sort?: string[] };
 }): Promise<CaseStudiesType> => {
   const data = await http.get(CASE_STUDY, {
     params,
@@ -123,5 +127,22 @@ export const getCareer = async (): Promise<PagesListType> => {
 };
 export const getContactUs = async (): Promise<PagesListType> => {
   const { data } = await http.get(CONTACT_US);
+  return data;
+};
+
+export const getCaseStudyEssentialList =
+  async (): Promise<CaseStudyEssentialType> => {
+    const data = await http.get(CASE_STUDY_ESSENTIAL_LIST);
+    return data as never;
+  };
+
+export const createContactUsLead = async (formData: ContactUsFormSchema) => {
+  const { data } = await http.post(CONTACT_US_LEAD, { data: formData });
+  return data;
+};
+
+export const getDemoPage = async (): Promise<PagesListType> => {
+  const { data } = await http.get(DEMO_PAGE);
+
   return data;
 };

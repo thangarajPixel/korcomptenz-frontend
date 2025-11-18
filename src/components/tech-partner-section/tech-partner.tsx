@@ -28,9 +28,9 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
         <div className="col-span-12 lg:col-span-8 flex flex-col gap-4 p-8 lg:pr-20">
           {/* Heading */}
           <div className="lg:pr-20">
-            <h1 className="text-6xl md:text-9xl border-b-4 border-custom-white-1 leading-10 lg:leading-16 pb-8 font-semibold text-background">
+            <h5 className="text-6xl md:text-9xl border-b-4 border-custom-white-1 leading-10 lg:leading-16 pb-8 font-semibold text-background">
               {heading}
-            </h1>
+            </h5>
           </div>
 
           {/* Desktop Swiper */}
@@ -66,18 +66,20 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
                       key={`tech-card-${slide?.id}`}
                       className="flex flex-col gap-2"
                     >
-                      <h1 className="text-2xl font-normal text-background">
+                      <h5 className="text-2xl font-normal text-background">
                         {slide?.title}
-                      </h1>
+                      </h5>
                       <p className="text-sm font-normal text-background">
                         {slide?.description}
                       </p>
-                      <Button
-                        arrow
-                        className="bg-secondary text-sm text-white flex justify-start items-center -ms-4"
-                      >
-                        {slide?.buttonText}
-                      </Button>
+                      {slide?.buttonText && (
+                        <Button
+                          arrow
+                          className="bg-secondary text-sm text-white flex justify-start items-center -ms-4"
+                        >
+                          {slide?.buttonText}
+                        </Button>
+                      )}
                     </div>
                   ))}
                 </div>

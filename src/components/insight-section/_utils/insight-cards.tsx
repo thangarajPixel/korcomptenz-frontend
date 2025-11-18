@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Link from "next/link";
 
-type InsightCardType = {
+interface InsightCardType {
   id: string;
   title: string;
   image: ImageType;
@@ -15,7 +15,7 @@ type InsightCardType = {
   category?: string;
   link?: string;
   buttonText?: string;
-};
+}
 
 export function InsightCard(props: InsightCardType) {
   const { title, image, description, className, category, buttonText } = props;

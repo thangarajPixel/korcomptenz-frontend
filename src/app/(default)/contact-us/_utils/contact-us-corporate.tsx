@@ -7,21 +7,23 @@ const ContactUsCorporate = ({
   corporateData: OfficeCardProps;
 }) => {
   return (
-    <div className="container-md bg-light-gray py-12 px-4">
-      <div className=" p-5">
+    <div className="container-md ">
+      <div className="rounded-2xl bg-light-gray py-12 px-4">
         <h2 className="text-2xl font-semibold text-foreground mb-8">
           {corporateData?.title}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 rounded-3xl">
-          {corporateData?.offices.map((corporate, index) => (
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          {corporateData?.list.map((corporate, index) => (
+            <div
+              className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+              key={index}
+            >
               {/* Icon */}
               <div className="flex justify-center mb-4">
-                <div className="text-4xl" key={index}>
+                <div className="text-4xl">
                   <KorcomptenzImage
-                    src={corporate?.icon}
-                    alt=""
+                    src={corporate?.image}
                     width={50}
                     height={50}
                   />

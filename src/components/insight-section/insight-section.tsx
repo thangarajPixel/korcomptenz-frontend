@@ -34,7 +34,7 @@ export default function InsightsSection({
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.4, delay: 0.05 }}
           >
-            <Link href="#">
+            <Link href={insights?.buttonLink || "#"}>
               <Button
                 size="xl"
                 arrow={true}

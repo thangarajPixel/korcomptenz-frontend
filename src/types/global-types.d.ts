@@ -148,6 +148,7 @@ type InsightsDataType = {
     title: string;
     description: string;
     href: HrefType | null;
+    link: string | null;
   }[];
 };
 
@@ -333,7 +334,10 @@ type FilterLabelType = {
   childTitle: string;
   isDesignedDropdown: boolean;
 };
-
+type ButtonType = {
+  buttonText: string;
+  buttonLink: string;
+};
 type IndustryItem = {
   id: string;
   title: string;
@@ -345,7 +349,7 @@ type IndustryItem = {
 type OfficeLocation = {
   id: number;
   country: string;
-  icon: string;
+  image: ImageType;
   address: string;
   phone: string;
   fax: string;
@@ -408,4 +412,39 @@ type MediaSliderCardType = {
 type AchievementscardType = {
   id: string;
   column: { id: string; image: ImageType }[];
+};
+// type InsightCardType = {
+//   id: string;
+//   title: string;
+//   image: ImageType;
+//   description?: string;
+//   className?: string;
+//   category?: string;
+//   link?: string;
+//   buttonText?: string;
+// };
+
+type InsightsMobileCarouselType = {
+  category: string;
+  description: string;
+  id: string;
+  image: ImageType;
+  link: string;
+  title: string;
+};
+
+type DemoList = {
+  id: string;
+  title: string;
+  item: BookDemoListType[];
+  length: number;
+};
+type BookDemoListType = {
+  buttonLink: string | null;
+  buttonText: string;
+  date: string;
+  description: string;
+  id: string;
+
+  title: string;
 };

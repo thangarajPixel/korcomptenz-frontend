@@ -13,13 +13,13 @@ const WeAreKorcomptenzSection = ({
     <section className="container-md" data-debug="home.we-are-korcomptenz">
       <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-32 items-start mb-10 md:mb-16">
         <div className="lg:w-full">
-          <h1 className="text-6xl md:text-8xl font-bold leading-tight">
+          <h5 className="text-6xl md:text-8xl font-bold leading-tight">
             {weAreKorcomptenzData?.titleH1}
             <br />
             <span className="text-6xl md:text-7xl font-semibold">
               {weAreKorcomptenzData?.titleSpan}
             </span>
-          </h1>
+          </h5>
         </div>
         <div className="space-y-5">
           <p className="font-outfit font-normal text-md md:text-4xl leading-[24px] md:leading-[34px] tracking-[0%] text-pretty ">

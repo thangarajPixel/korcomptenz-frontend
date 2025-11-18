@@ -3,11 +3,11 @@ import React from "react";
 
 const ContactUsInsight = ({ data }: { data: InsightCardType }) => {
   return (
-    <div className="container-md grid-col-1 lg:grid-cols-3 gap-6 md:grid rounded-4xl">
+    <section data-debug={'contact-us.contact-us-insight-list'} className="container-md grid-col-1 lg:grid-cols-3 gap-6 md:grid">
       {data?.list.map((item) => (
         <InsightCard key={item.id} {...item} />
       ))}
-    </div>
+    </section>
   );
 };
 

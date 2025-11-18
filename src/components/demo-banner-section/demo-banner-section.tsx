@@ -10,17 +10,18 @@ const DemoBannerSection = ({
   return (
     <section
       className="w-full"
-      data-debug={"page-componets.banner-section-list"}
+      data-debug={"demo-page.demo-banner-list"}
     >
       {BannerSectionData?.length < 2 ? (
-        <DemoBannerCard data={BannerSectionData[0]} />
+        <DemoBannerCard data={BannerSectionData[0]} isFirst />
       ) : (
         <CardSwiper>
-          {BannerSectionData?.map((data) => (
+          {BannerSectionData?.map((data, index) => (
             <DemoBannerCard
               key={`banner-card-${data?.id}`}
               data={data}
               className="embla__custom_slide"
+              isFirst={index === 0}
             />
           ))}
         </CardSwiper>

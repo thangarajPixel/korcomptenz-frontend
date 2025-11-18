@@ -113,9 +113,9 @@ const MapSection = ({ data }: { data: MapSectionType }) => {
   return (
     <div className="relative container-md">
       <div className="items-center">
-        <h1 className="text-foreground text-center font-semibold text-9xl mb-5">
+        <h5 className="text-foreground text-center font-semibold text-9xl mb-5">
           {data?.title}
-        </h1>
+        </h5>
         <p className="text-center text-[#6C6C6C] text-lg max-w-3xl mx-auto mb-5">
           {data?.description}
         </p>
@@ -148,11 +148,10 @@ const MapSection = ({ data }: { data: MapSectionType }) => {
                 aria-label={`Location: ${location.title}`}
               >
                 <div
-                  className={`flex size-8 items-center justify-center transition-all duration-200 ${
-                    activeLocation === location.id
+                  className={`flex size-8 items-center justify-center transition-all duration-200 ${activeLocation === location.id
                       ? "scale-125"
                       : "group-hover:scale-125"
-                  }`}
+                    }`}
                 >
                   <KorcomptenzImage
                     src={location?.image}

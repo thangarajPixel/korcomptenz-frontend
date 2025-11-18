@@ -18,7 +18,7 @@ const defaultValues = {
   email: "",
   phoneNumber: "",
   mobile: "",
-  department: "",
+  department: null,
   resume: "",
 };
 
@@ -41,14 +41,22 @@ const CareerForm = () => {
   const { mutateAsync } = useCareerNewLetterHook();
 
   const { data } = useDepartmentListHook();
-
   const handleFormSubmit: SubmitHandler<CareerNewLetterFormData> =
     React.useCallback(
       async (formdata) => {
+        const careerdata = {
+          name: formdata.name,
+          email: formdata.email,
+          department: formdata.department,
+          resume: formdata.resume,
+          phone: `${formdata.mobile}-${formdata.phone}`,
+        };
+
         try {
-          const response = await mutateAsync(formdata);
+          const response = await mutateAsync(careerdata);
           notify(response);
-          // reset({ ...defaultValues });
+          reset({ ...defaultValues });
+          setFileName("");
         } catch (error) {
           errorSet(error, setError);
         }
@@ -58,7 +66,7 @@ const CareerForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
-      <div className="grid gap-y-8 mt-5">
+      <div className="grid gap-y-8">
         {/* Name + Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Input
@@ -104,6 +112,7 @@ const CareerForm = () => {
               name="department"
               options={
                 data?.data?.map((item) => ({
+                  ...item,
                   label: item.label,
                   value: item.id,
                 })) || []
