@@ -257,6 +257,7 @@ type DemonstrationSectionType = {
   title: string;
   buttonText: string;
   link: string;
+  description: string;
   list: {
     id: string;
     type: string;

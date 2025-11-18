@@ -3,6 +3,7 @@ import KorcomptenzImage from "../korcomptenz-image";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import ButtonLink from "../ui/button-link";
+import { cn } from "@/lib/utils";
 
 const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
   return (
@@ -12,9 +13,14 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
     >
       <div className="">
         <div className="flex flex-col gap-9 text-start lg:text-center items-start lg:items-center justify-center leading-14  text-foreground  ">
-          <h5 className="text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0">
+          <h5 className={cn("text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0", data?.description && "mb-0")}>
             {data?.title}
           </h5>
+          {data?.description &&
+            <p className="text-lg font-normal text-foreground leading-6 whitespace-pre-wrap">
+              {data?.description}
+            </p>
+          }
           <ButtonLink
             href={data?.link || "#"}
             buttonProps={{

@@ -27,9 +27,9 @@ export function InsightCard(props: InsightCardType) {
           "group relative bg-card p-3   transition-colors",
           className
         )}
-        // initial={{ opacity: 0, y: 22 }}
-        // whileInView={{ opacity: 1, y: 0 }}
-        // viewport={{ once: true, amount: 0.3 }}
+      // initial={{ opacity: 0, y: 22 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // viewport={{ once: true, amount: 0.3 }}
       >
         <motion.div className="relative rounded-4xl">
           {category && (
