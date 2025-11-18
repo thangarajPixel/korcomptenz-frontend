@@ -38,7 +38,7 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
   });
 
   return (
-    <>
+    <React.Fragment>
       <div className="w-full max-w-6xl mx-auto px-4 py-8">
         <Carousel className="w-full " setApi={setApi}>
           <CarouselContent>
@@ -50,14 +50,14 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
                   height={slide?.image?.height || 1500}
                   className="w-full h-full "
                 />
-
-                <div className="absolute inset-0 bottom-0 sm:bottom-4 flex items-end justify-center">
-                  <div className="bg-primary opacity-80 p-8 w-full sm:w-3/4 rounded-md">
-                    <h2 className="text-white text-center text-2xl md:text-3xl font-semibold text-balance">
-                      {slide.description}
-                    </h2>
-                  </div>
-                </div>
+                {slide?.description && (
+                  <div className="absolute inset-0 bottom-0 sm:bottom-4 flex items-end justify-center">
+                    <div className="bg-primary opacity-80 p-8 w-full sm:w-3/4 rounded-md">
+                      <h2 className="text-white text-center text-2xl md:text-3xl font-semibold text-balance">
+                        {slide.description}
+                      </h2>
+                    </div>
+                  </div>)}
 
                 {/* Play icon if needed */}
                 {slide?.isVideo && (
@@ -125,7 +125,7 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
           videoSrc={isVideoOpen.link || ""}
         />
       )}
-    </>
+    </React.Fragment>
   );
 };
 

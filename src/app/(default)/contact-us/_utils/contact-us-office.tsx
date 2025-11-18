@@ -13,18 +13,16 @@ const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
         </div>
 
         {/* Main Content - 50/50 Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
           {/* Image Section - Top on Mobile, Left on Desktop */}
-          <div className="flex items-center justify-center order-1 md:order-2">
-            <div className="w-full overflow-auto ">
-              <div className="relative w-full aspect-square md:aspect-auto md:h-96">
-                <KorcomptenzImage
-                  src={officesData?.image}
-                  fill
-                  className="object-obtain"
-                  priority
-                />
-              </div>
+          <div className="flex  md:col-span-2 order-1 md:order-2">
+            <div className="size-auto">
+              <KorcomptenzImage
+                src={officesData?.image}
+                width={1500}
+                height={1500}
+                className="object-contain"
+              />
             </div>
           </div>
 
