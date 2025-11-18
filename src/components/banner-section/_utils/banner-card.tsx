@@ -37,33 +37,43 @@ const BannerCard = ({
             </p>
             {data?.buttonText && (
               <ButtonLink
-                href={data?.link}
+                href={data?.link || "#"}
                 buttonProps={{
-
                   arrow: true,
-                  className: "hover:bg-transparent "
-                }}>
+                  className: "hover:bg-transparent ",
+                }}
+              >
                 {data?.buttonText}
               </ButtonLink>
             )}
           </div>
         ) : (
-          <div className={cn(" absolute top-0 left-10 p-18 z-10 w-5/8 h-full flex flex-col gap-6 justify-center items-start ")}>
-            {!isFirst ? <h2 className="text-9xl font-semibold leading-14 text-white mb-4">
-              {data?.title}
-            </h2> : <h1 className="text-9xl font-semibold leading-14 text-white mb-4">
-              {data?.title}
-            </h1>}
+          <div
+            className={cn(
+              " absolute top-0 left-10 p-18 z-10 w-5/8 h-full flex flex-col gap-6 justify-center items-start "
+            )}
+          >
+            {!isFirst ? (
+              <h2 className="text-9xl font-semibold leading-14 text-white mb-4">
+                {data?.title}
+              </h2>
+            ) : (
+              <h1 className="text-9xl font-semibold leading-14 text-white mb-4">
+                {data?.title}
+              </h1>
+            )}
             <p className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md">
               {data?.description}
             </p>
             {data?.buttonText && (
-              <ButtonLink href={data?.link}
+              <ButtonLink
+                href={data?.link || "#"}
                 buttonProps={{
                   arrow: true,
                   size: "xl",
-                  className: "hover:bg-transparent "
-                }}>
+                  className: "hover:bg-transparent ",
+                }}
+              >
                 {data?.buttonText}
               </ButtonLink>
             )}
@@ -98,11 +108,11 @@ const BannerCard = ({
         </p>
         {data?.buttonText && (
           <ButtonLink
-            href={data?.link}
+            href={data?.link || "#"}
             buttonProps={{
               size: "lg",
               arrow: true,
-              className: "variant:default px-8 py-8 text-4xl rounded-full "
+              className: "variant:default px-8 py-8 text-4xl rounded-full ",
             }}
           >
             {data?.buttonText}

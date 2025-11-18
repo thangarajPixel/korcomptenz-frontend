@@ -146,7 +146,7 @@ type BannerSectionType = {
   description: string;
   buttonText: string;
   bannerCaption: string;
-  link: string;
+  link: string | null;
 };
 
 type SapSectionType = {

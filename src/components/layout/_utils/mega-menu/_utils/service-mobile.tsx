@@ -195,47 +195,6 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
                     )}
                   </div>
                 ))}
-                {serviceDrawer?.service?.items?.map((item, index) => (
-                  <div key={index} className="border-b border-primary">
-                    {/* 🔹 Parent Link */}
-                    <Link
-                      href={item?.href?.slug || "#"}
-                      onClick={(e) => {
-                        e.preventDefault(); // stop default navigation
-                        handleSubmenuClick(
-                          item,
-                          serviceDrawer?.service?.title || ""
-                        );
-                      }}
-                      className="w-full block text-left"
-                    >
-                      <div className="text-lg font-normal text-primary py-2 px-4 leading-6.5">
-                        {item?.title}
-                      </div>
-                    </Link>
-
-                    {/* 🔹 Child Links */}
-                    {item?.child?.length > 0 && (
-                      <div className="space-y-1 mt-2">
-                        {item.child.map((childItem, childIndex) => (
-                          <Link
-                            key={`ng-sub-${childIndex}`}
-                            href={childItem?.href?.slug || "#"}
-                            className={cn(
-                              "block text-lg px-4 rounded transition-colors",
-                              childItem?.type === "light" &&
-                                "text-custom-gray-4 ps-7 hover:text-primary",
-                              childItem?.type === "dark" &&
-                                "text-black mb-1 hover:text-primary"
-                            )}
-                          >
-                            {childItem?.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
               </div>
             </div>
           </div>
