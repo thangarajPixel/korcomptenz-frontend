@@ -1,5 +1,5 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { Button } from "@/components/ui/button";
+import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 
 import React from "react";
@@ -36,9 +36,15 @@ const BannerCard = ({
               {data?.description}
             </p>
             {data?.buttonText && (
-              <Button size="xl" arrow={true} className="hover:bg-transparent ">
+              <ButtonLink
+                href={data?.link}
+                buttonProps={{
+
+                  arrow: true,
+                  className: "hover:bg-transparent "
+                }}>
                 {data?.buttonText}
-              </Button>
+              </ButtonLink>
             )}
           </div>
         ) : (
@@ -52,9 +58,14 @@ const BannerCard = ({
               {data?.description}
             </p>
             {data?.buttonText && (
-              <Button size="xl" arrow={true} className="hover:bg-transparent ">
+              <ButtonLink href={data?.link}
+                buttonProps={{
+                  arrow: true,
+                  size: "xl",
+                  className: "hover:bg-transparent "
+                }}>
                 {data?.buttonText}
-              </Button>
+              </ButtonLink>
             )}
           </div>
         )}
@@ -86,13 +97,16 @@ const BannerCard = ({
           {data?.description}
         </p>
         {data?.buttonText && (
-          <Button
-            size="lg"
-            arrow={true}
-            className="variant:default px-8 py-8 text-4xl rounded-full "
+          <ButtonLink
+            href={data?.link}
+            buttonProps={{
+              size: "lg",
+              arrow: true,
+              className: "variant:default px-8 py-8 text-4xl rounded-full "
+            }}
           >
             {data?.buttonText}
-          </Button>
+          </ButtonLink>
         )}
       </div>
     </div>

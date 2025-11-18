@@ -146,6 +146,7 @@ type BannerSectionType = {
   description: string;
   buttonText: string;
   bannerCaption: string;
+  link: string;
 };
 
 type SapSectionType = {
@@ -273,6 +274,7 @@ type BuildConnectSectionType = {
   mobileImage: ImageType;
   imageCaption: string;
   buttonText: string;
+  link: string;
   descriptionButtonText: string;
   isSwap: boolean;
   descriptionButtonLink: string;

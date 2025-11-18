@@ -4,9 +4,8 @@ import CaseStudyContent from "./case-study-content";
 import { ClientTestimonial } from "@/app/(default)/client-success/_utils";
 import { CaseStudyForm } from "./case-study-contact";
 import { CaseStudyCard } from "@/components/case-study-section";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import ButtonLink from "@/components/ui/button-link";
 
 const CaseStudy = ({ data, essential }: { data: CaseStudySingleData; essential: CaseStudyPageType }) => {
   return (
@@ -35,12 +34,12 @@ const CaseStudy = ({ data, essential }: { data: CaseStudySingleData; essential: 
             ))}
         </div>
         <div className="flex justify-center">
-          <Link href="/client-success">
-            <Button size="xl" arrow={true}>
-              {essential?.relatedCase?.buttonText ||
-                "View all case studies"}
-            </Button>
-          </Link>
+          <ButtonLink href="/client-success" buttonProps={{
+            size: "xl", arrow: true
+          }}>
+            {essential?.relatedCase?.buttonText ||
+              "View all case studies"}
+          </ButtonLink>
         </div>
       </div>
 

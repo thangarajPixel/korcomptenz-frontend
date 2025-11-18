@@ -1,11 +1,10 @@
 "use client";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { Button } from "@/components/ui/button";
+import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 
 import { motion } from "motion/react";
-import Link from "next/link";
 
 export function CaseStudyCard({ data }: { data: CaseStudyData }) {
   return (
@@ -52,15 +51,15 @@ export function CaseStudyCard({ data }: { data: CaseStudyData }) {
       <p className="text-lg text-black font-normal mb-5 mt-5 line-clamp-3 ">
         {data?.heroSection?.description}
       </p>
-      <Link href={`/case-study/${data?.slug}`}>
-        <Button
-          variant="ghost"
-          arrow
-          className="text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px]"
-        >
-          {data?.heroSection?.buttonText}
-        </Button>
-      </Link>
+      <ButtonLink
+        href={`/case-study/${data?.slug}`}
+        buttonProps={{
+          arrow: true,
+          variant: "ghost",
+          className: "text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px]"
+        }}>
+        {data?.heroSection?.buttonText}
+      </ButtonLink>
     </motion.article>
   );
 }

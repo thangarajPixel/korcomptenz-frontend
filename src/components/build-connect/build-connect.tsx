@@ -1,11 +1,11 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { Button } from "../ui/button";
-import Link from "next/link";
 import { DangerousHtml } from "../ui/dangerous-html";
 
 import BookDemoSection from "../book-demo-section";
 import { cn } from "@/lib/utils";
+import ButtonLink from "../ui/button-link";
 
 const BuildConnect = ({
   buildData,
@@ -39,11 +39,15 @@ const BuildConnect = ({
               className="text-md md:text-2xl text-foreground leading-7 break-words"
             />
             {buildData?.descriptionButtonText && (
-              <Link href={buildData?.descriptionButtonLink || "#"}>
-                <Button size="xl" className="items-center" arrow={true}>
-                  {buildData?.descriptionButtonText || "Watch Now"}
-                </Button>
-              </Link>
+              <ButtonLink
+                href={buildData?.descriptionButtonLink || "#"}
+                buttonProps={{
+                  size: "xl",
+                  arrow: true,
+                  className: "items-center"
+                }}>
+                {buildData?.descriptionButtonText || "Watch Now"}
+              </ButtonLink>
             )}
           </div>
 
@@ -59,9 +63,16 @@ const BuildConnect = ({
                 {buildData?.imageCaption && (
                   <div className="flex flex-col items-center gap-4 lg:mt-5">
                     <p className="text-3xl">{buildData?.imageCaption}</p>
-                    <Button size="xl" className="items-center">
+                    <ButtonLink
+                      href={buildData?.link || "#"}
+                      buttonProps={{
+                        size: "xl",
+                        arrow: true,
+                        className: "items-center"
+                      }}>
                       {buildData?.buttonText || "Watch Now"}
-                    </Button>
+                    </ButtonLink>
+
                   </div>
                 )}
               </div>
