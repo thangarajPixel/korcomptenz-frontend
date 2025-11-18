@@ -1,7 +1,8 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { ChevronRight } from "lucide-react";
-import { Button } from "../ui/button";
+import Link from "next/link";
+import ButtonLink from "../ui/button-link";
 
 const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
   return (
@@ -14,13 +15,16 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
           <h5 className="text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0">
             {data?.title}
           </h5>
-          <Button
-            size="xl"
-            arrow={true}
-            className="hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full "
+          <ButtonLink
+            href={data?.link || "#"}
+            buttonProps={{
+              size: "xl",
+              arrow: true,
+              className: "hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full "
+            }}
           >
             {data?.buttonText}
-          </Button>
+          </ButtonLink>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:p-10 ">
           {data?.list?.map((card, index) => {
@@ -48,24 +52,27 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                   {card?.description}
                 </p>
                 {card?.buttonText && (
-                  <div>
+                  <Link href={card?.buttonLink || "#"}>
                     <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors">
                       {card?.buttonText}
                       <ChevronRight className="w-4 h-4" />
                     </button>
-                  </div>
+                  </Link>
                 )}
               </div>
             );
           })}
         </div>
-        <Button
-          size="xl"
-          arrow={true}
-          className=" w-full lg:hidden variant:default px-8 py-2 text-4xl rounded-full mt-10"
+        <ButtonLink
+          href={data?.link || "#"}
+          buttonProps={{
+            size: "xl",
+            arrow: true,
+            className: " w-full lg:hidden variant:default px-8 py-2 text-4xl rounded-full mt-10"
+          }}
         >
           {data?.buttonText}
-        </Button>
+        </ButtonLink>
       </div>
     </section>
   );
