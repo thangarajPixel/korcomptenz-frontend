@@ -21,7 +21,7 @@ const BenefitSection = ({
               src={benefitData?.image}
               width={500}
               height={500}
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover rounded-4xl"
             />
           </div>
           <div className="lg:w-1/2 w-full flex flex-wrap">
