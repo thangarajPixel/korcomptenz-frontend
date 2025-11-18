@@ -44,6 +44,10 @@ import FixedFooter from "../fixed-footer";
 import ContactUsForm from "@/app/(default)/contact-us/_utils/contact-us-form-section";
 import DemoBannerSection from "../demo-banner-section";
 import LiveDemoList from "@/app/(default)/live-demo/_utils/live-demo-list";
+import DemoPartnership from "@/app/(default)/live-demo/_utils/demo-partnership";
+import DemoExperts from "@/app/(default)/live-demo/_utils/demo-experts";
+import DemoOpportunities from "@/app/(default)/live-demo/_utils/demo-opportunities";
+import DemoWhyAttend from "@/app/(default)/live-demo/_utils/demo-why-attend";
 
 type Props = {
   data: ComponentPropsType[];
@@ -371,6 +375,34 @@ const GlobalPage = (props: Props) => {
           />
         );
       }
+      case "demo-page.demo-partnership":
+        return (
+          <DemoPartnership
+            key={`demo-partnership-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "demo-page.experts-section":
+        return (
+          <DemoExperts
+            key={`demo-experts-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "demo-page.demo-opportunity":
+        return (
+          <DemoOpportunities
+            key={`demo-opportunities-${item?.__component}-${item?.id}`}
+            whyAttendData={item}
+          />
+        );
+      case "demo-page.demo-demonstration":
+        return (
+          <DemoWhyAttend
+            key={`demo-demonstration-${item?.__component}-${item?.id}`}
+            whyAttendData={item}
+          />
+        );
       default:
         return;
     }

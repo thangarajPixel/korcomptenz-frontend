@@ -293,11 +293,15 @@ type PartnerType = {
   name: string;
   logo: ImageType;
 };
-
 type PartnershipSectionType = {
   id: string;
   title: string;
   partner: PartnerType[];
+};
+type DemoPartnershipSectionType = {
+  id: string;
+  title: string;
+  list: PartnerType[];
 };
 
 // ✅ Sponsor section
@@ -447,4 +451,21 @@ type BookDemoListType = {
   id: string;
 
   title: string;
+};
+
+type ExpertsCardType = {
+  id: string;
+  title: string;
+  image: ImageType;
+  description: string;
+};
+
+type OpportunitiesCardType = {
+  id: string;
+  description: string;
+};
+
+type DemoWhyAttendCardType = {
+  id: string;
+  description: string;
 };

@@ -6,7 +6,7 @@ export default function ClientPartnership({
   data: PartnershipSectionType;
 }) {
   return (
-    <section className="container-lg">
+    <section className="container-md">
       <h1 className="text-7xl  font-semibold text-foreground mb-12 text-balance">
         {data?.title}
       </h1>
