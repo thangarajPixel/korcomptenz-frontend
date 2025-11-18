@@ -17,7 +17,7 @@ export default function SlidingSection({
 
   return (
     <CardSwiper data-debug={"home.hero-section-one"}>
-      {slides?.map((slide) => (
+      {slides?.map((slide, index) => (
         <div
           key={`sliding-section-${slide?.id}`}
           className="embla__custom_slide"
@@ -43,16 +43,18 @@ export default function SlidingSection({
                 <div className="max-w-2xl text-white">
                   <div
                     className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide?.subtitle
-                        ? "text-4xl md:text-9xl"
-                        : "text-lg md:text-7xl font-medium"
+                      ? "text-4xl md:text-9xl"
+                      : "text-lg md:text-7xl font-medium"
                       }`}
                   >
                     {slide?.subtitle || slide?.subtitle2}
                   </div>
-
-                  <h2 className="text-6xl md:text-7xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
-                    {slide?.title}
-                  </h2>
+                  {
+                    index === 0 ? <h1 className="text-6xl md:text-7xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
+                      {slide?.title}
+                    </h1> : <h5 className="text-6xl md:text-7xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
+                      {slide?.title}
+                    </h5>}
                   {!slide?.description && <div className="h-0 md:h-16 " />}
                   <p className="text-3xl md:text-5xl mb-8 leading-tight  text-pretty">
                     {slide?.description}

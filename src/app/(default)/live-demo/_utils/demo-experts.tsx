@@ -17,16 +17,15 @@ const data = {
 export default function DemoExperts() {
   return (
     <section className="container-md rounded-4xl p-8">
-      <h1 className="text-7xl font-semibold mb-12 text-balance text-center text-black">
+      <h5 className="text-7xl font-semibold mb-12 text-balance text-center text-black">
         {data?.title}
-      </h1>
+      </h5>
 
       <div
-        className={`grid gap-12 justify-items-center ${
-          data?.partner?.length === 1
+        className={`grid gap-12 justify-items-center ${data?.partner?.length === 1
             ? "grid-cols-1 justify-center mx-auto max-w-3xl"
             : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-        }`}
+          }`}
       >
         {data?.partner?.map((partner, index) => (
           <div

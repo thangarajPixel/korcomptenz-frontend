@@ -7,9 +7,9 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
       <div className="grid grid-cols-24">
         {/* Left Content */}
         <div className="space-y-8 col-span-24 lg:col-span-10  mb-5 lg:mb-0">
-          <h1 className="text-6xl md:text-9xl font-bold text-foreground leading-tight">
+          <h5 className="text-6xl md:text-9xl font-bold text-foreground leading-tight">
             {sapSectionData?.heading}
-          </h1>
+          </h5>
           <p className="text-md md:text-lg text-foreground leading-4xl ">
             {sapSectionData?.description}
           </p>

@@ -6,9 +6,11 @@ import React from "react";
 const DemoBannerCard = ({
   data,
   className,
+  isFirst = false,
 }: {
   data: BannerSectionType;
   className?: string;
+  isFirst?: boolean;
 }) => {
   return (
     <div className={cn("relative w-full overflow-hidden", className)}>
@@ -28,39 +30,37 @@ const DemoBannerCard = ({
         {/* ✅ Centered + Responsive container */}
         <div className="absolute inset-0 z-10 flex items-center py-10">
           <div className="container-md  flex flex-col gap-2 px-6 md:px-10 ">
-            {data?.logo ? (
-              <>
-                <KorcomptenzImage
-                  src={data.logo}
-                  width={300}
-                  height={200}
-                  className="w-32 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
-                />
-                <p className="text-base md:text-lg text-white max-w-lg leading-relaxed">
-                  {data.description}
-                </p>
-              </>
-            ) : (
-              <>
-                <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
-                  {data.title}
-                </h2>
-                <p className="text-base md:text-xl text-white max-w-xl leading-relaxed ">
-                  {data.description}
-                </p>
-                {data.buttonText && (
-                  <Button
-                    size="xl"
-                    arrow
-                    className="text-base md:text-lg max-w-xs  hover:bg-transparent transition-transform duration-200"
-                  >
-                    {data.buttonText}
-                  </Button>
-                )}
-                <p className="text-base md:text-lg text-white max-w-xl leading-relaxed mb-5 ">
-                  {data?.bannerCaption}
-                </p>
-              </>
+
+            {data?.logo && <KorcomptenzImage
+              src={data.logo}
+              width={300}
+              height={200}
+              className="w-32 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
+            />}
+            {isFirst ? data.title &&
+              <h1 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
+                {data.title}
+              </h1>
+              : <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
+                {data.title}
+              </h2>}
+            {data.description && <p className="text-base md:text-xl text-white max-w-xl leading-relaxed ">
+              {data.description}
+            </p>
+            }
+            {data.buttonText && (
+              <Button
+                size="xl"
+                arrow
+                className="text-base md:text-lg max-w-xs  hover:bg-transparent transition-transform duration-200"
+              >
+                {data.buttonText}
+              </Button>
+            )}
+            {data?.bannerCaption && (
+              <p className="text-base md:text-lg text-white max-w-xl leading-relaxed mb-5 ">
+                {data?.bannerCaption}
+              </p>
             )}
           </div>
         </div>

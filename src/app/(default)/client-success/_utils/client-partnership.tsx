@@ -7,9 +7,9 @@ export default function ClientPartnership({
 }) {
   return (
     <section className="container-lg">
-      <h1 className="text-7xl  font-semibold text-foreground mb-12 text-balance">
+      <h5 className="text-7xl  font-semibold text-foreground mb-12 text-balance">
         {data?.title}
-      </h1>
+      </h5>
 
       {/* Partner Badges Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">

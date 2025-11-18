@@ -13,7 +13,7 @@ const PanchatattvaSection = ({
     <React.Fragment>
       <div className="container-md  flex flex-col gap-16 ">
         <div className="text-center space-y-5 ">
-          <h1 className="text-8xl font-semibold">{buildData?.title}</h1>
+          <h5 className="text-8xl font-semibold">{buildData?.title}</h5>
           <p className="text-lg px-2">{buildData?.titleDescription}</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 ">

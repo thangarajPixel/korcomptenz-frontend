@@ -36,7 +36,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                 html={description}
                 className={cn(
                   image?.url &&
-                    "text-foreground text-md pr-10  md:text-lg leading-4xl z-10 w-full [&>ul]:ml-7",
+                  "text-foreground text-md   md:text-lg leading-4xl z-10 w-full [&>ul]:ml-7",
                   position !== "main" && "max-w-xs"
                 )}
               />
@@ -67,7 +67,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               html={secondaryDescription}
               className={cn(
                 image?.url &&
-                  "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-full"
+                "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-full"
               )}
             />
           )}

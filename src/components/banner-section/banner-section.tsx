@@ -7,11 +7,11 @@ const BannerSection = ({ BannerSectionData }: { BannerSectionData: BannerSection
   return (
     <section className="container-md mt-10" data-debug={"page-componets.banner-section-list"}>
       {BannerSectionData?.length < 2 ? (
-        <BannerCard data={BannerSectionData[0]} />
+        <BannerCard data={BannerSectionData[0]} isFirst />
       ) : (
         <CardSwiper>
-          {BannerSectionData?.map((data) => (
-            <BannerCard key={`banner-card-${data?.id}`} data={data} className="embla__custom_slide" />
+          {BannerSectionData?.map((data, index) => (
+            <BannerCard key={`banner-card-${data?.id}`} data={data} className="embla__custom_slide" isFirst={index === 0} />
           ))}
         </CardSwiper>
       )}
