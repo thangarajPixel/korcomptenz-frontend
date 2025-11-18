@@ -1,5 +1,15 @@
 import { z } from "zod";
-
+const essential = z
+  .object({
+    connect: z.array(
+      z.object({
+        id: z.number(),
+        documentId: z.string().optional(),
+        isTempory: z.boolean().optional(),
+      })
+    ),
+  })
+  .nullable();
 export const contactSchema = z.object({
   fullName: z
     .string()
@@ -41,14 +51,15 @@ export const CareerNewLetterSchema = z.object({
   mobile: z
     .string()
     .min(1, "Mobile number is required")
-    .regex(/^\d{1,3}$/, "Enter a valid mobile number"),
+    .regex(/^\d{1,3}$/, "Enter a valid mobile number")
+    .optional(),
   phone: z
     .string()
     .optional()
     .refine((val) => !val || /^\d{10,15}$/.test(val), {
       message: "Enter a valid phone number",
     }),
-  department: z.any(),
+  department: essential,
 
   resume: z
     .any()

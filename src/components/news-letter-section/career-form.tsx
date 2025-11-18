@@ -18,7 +18,7 @@ const defaultValues = {
   email: "",
   phoneNumber: "",
   mobile: "",
-  department: "",
+  department: null,
   resume: "",
 };
 
@@ -44,10 +44,19 @@ const CareerForm = () => {
   const handleFormSubmit: SubmitHandler<CareerNewLetterFormData> =
     React.useCallback(
       async (formdata) => {
+        const careerdata = {
+          name: formdata.name,
+          email: formdata.email,
+          department: formdata.department,
+          resume: formdata.resume,
+          phone: `${formdata.mobile}-${formdata.phone}`,
+        };
+
         try {
-          const response = await mutateAsync(formdata);
+          const response = await mutateAsync(careerdata);
           notify(response);
           reset({ ...defaultValues });
+          setFileName("");
         } catch (error) {
           errorSet(error, setError);
         }

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronsDown } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import {
   useController,
   type Control,
@@ -53,7 +53,7 @@ export function ComboboxField<T extends FieldValues>({
   const [searchQuery, setSearchQuery] = React.useState("");
   const { field } = useController({ control, name });
   const selectedOption = options.find(
-    (opt) => String(opt.value) === String(field?.value?.[0]?.id)
+    (opt) => String(opt.value) === String(field?.value?.connect?.[0]?.id)
   );
 
   // Filter options based on search query
@@ -77,7 +77,7 @@ export function ComboboxField<T extends FieldValues>({
             role="combobox"
             aria-expanded={open}
             className={cn(
-              "flex items-center justify-between w-full bg-white border border-primary h-10 px-3 text-base text-left",
+              "flex items-center justify-between w-full bg-white  h-10 px-3 text-base text-left",
               className
             )}
             onClick={() => setOpen(!open)}
@@ -87,11 +87,10 @@ export function ComboboxField<T extends FieldValues>({
             </span>
 
             {selectedOption ? (
-              // ❌ Clear icon shown when something is selected
               <svg
                 onClick={(e) => {
-                  e.stopPropagation(); // prevent dropdown opening
-                  field.onChange(""); // clear value
+                  e.stopPropagation();
+                  field.onChange("");
                   setSearchQuery("");
                   setOpen(false);
                 }}
@@ -110,7 +109,7 @@ export function ComboboxField<T extends FieldValues>({
               </svg>
             ) : (
               // ⬇️ Chevron shown normally
-              <ChevronsDown className="ml-2 size-4 shrink-0 opacity-50" />
+              <ChevronDown className="ml-2 size-4 shrink-0 opacity-50" />
             )}
           </button>
         </PopoverTrigger>
@@ -131,13 +130,16 @@ export function ComboboxField<T extends FieldValues>({
                     key={option.value}
                     value={String(option.value)}
                     onSelect={() => {
-                      field.onChange([
-                        {
-                          id: option?.value,
-                          documentId: option?.documentId,
-                          isTempory: true,
-                        },
-                      ]); // store id in form
+                      field.onChange({
+                        connect: [
+                          {
+                            id: option?.value,
+                            documentId: option?.documentId,
+
+                            isTempory: true,
+                          },
+                        ],
+                      });
                       setOpen(false);
                       setSearchQuery("");
                     }}

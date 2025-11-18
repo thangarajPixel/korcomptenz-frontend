@@ -101,6 +101,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
             name="service"
             options={
               data?.data?.service?.map((item) => ({
+                ...item,
                 label: item.label,
                 value: item.id,
               })) || []
@@ -115,6 +116,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
             name="technology"
             options={
               data?.data?.technology?.map((item) => ({
+                ...item,
                 label: item.label,
                 value: item.id,
               })) || []
