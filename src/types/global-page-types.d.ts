@@ -314,6 +314,7 @@ type ScheduleCallType = {
 type WhyKorcomptenzType = {
   title: string;
   description: string;
+  isPerRowFive: boolean;
   list: IndustryItem[];
 };
 type CompanyType = {
