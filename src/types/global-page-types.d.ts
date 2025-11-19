@@ -286,6 +286,8 @@ type BuildConnectSectionType = {
       image: ImageType;
       mobileImage: ImageType;
     };
+    videoLink: string;
+    videoButtonText: string;
     form: GlobalFormType;
   };
 };
