@@ -366,6 +366,8 @@ type ShowCaseCardType = {
   image: ImageType;
   title: string;
   id: string;
+  buttonLink: string;
+  buttonText: string;
 };
 
 type MapDataType = {
