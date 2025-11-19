@@ -12,14 +12,14 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
         <div className="lg:flex flex-row  lg:gap-8 ">
           {/* Left content */}
           <div className="relative z-20 flex flex-col justify-around lg:ml-0">
-            <div>
+            <div className="space-y-2">
               <p className="text-2xl font-semibold text-custom-green-1">{scheduleCall?.topDescription}</p>
               <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl font-bold text-custom-green-1 leading-tight whitespace-pre-wrap">
                 {scheduleCall?.title}
               </h2>
               <p className="text-2xl font-semibold text-custom-green-1">{scheduleCall?.description}</p>
             </div>
-            <ButtonLink link={scheduleCall?.link || "#"}
+            <ButtonLink link={scheduleCall?.href || "#"}
               buttonProps={{
                 size: "xl",
                 arrow: true,
@@ -39,7 +39,7 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
               height={607}
             />
           </div>
-          <ButtonLink link={scheduleCall?.link || "#"}
+          <ButtonLink link={scheduleCall?.href || "#"}
             buttonProps={{
               size: "xl",
               arrow: true,
