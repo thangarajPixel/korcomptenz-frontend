@@ -309,6 +309,8 @@ type ScheduleCallType = {
   buttonText: string;
   link: string;
   image: string;
+  description: string;
+  topDescription: string;
 };
 
 type WhyKorcomptenzType = {
