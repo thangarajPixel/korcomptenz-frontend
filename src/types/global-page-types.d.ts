@@ -307,7 +307,7 @@ type TechPartnerSectionType = {
 type ScheduleCallType = {
   title: string;
   buttonText: string;
-  href: string;
+  link: string;
   image: string;
   description: string;
   topDescription: string;

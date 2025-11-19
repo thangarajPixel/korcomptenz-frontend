@@ -19,7 +19,7 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
               </h2>
               <p className="text-2xl font-semibold text-custom-green-1">{scheduleCall?.description}</p>
             </div>
-            <ButtonLink link={scheduleCall?.href || "#"}
+            <ButtonLink link={scheduleCall?.link || "#"}
               buttonProps={{
                 size: "xl",
                 arrow: true,
@@ -39,7 +39,7 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
               height={607}
             />
           </div>
-          <ButtonLink link={scheduleCall?.href || "#"}
+          <ButtonLink link={scheduleCall?.link || "#"}
             buttonProps={{
               size: "xl",
               arrow: true,
