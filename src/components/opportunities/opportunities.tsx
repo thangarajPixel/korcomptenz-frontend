@@ -1,8 +1,8 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { cn } from "@/lib/utils";
+import ButtonLink from "../ui/button-link";
 
 export default function Opportunities({
   careers,
@@ -152,22 +152,23 @@ export default function Opportunities({
             <p className="text-3xl text-custom-black leading-[28px] max-w-lg lg:ms-[-30px]">
               {careers?.description}
             </p>
-
-            {/* CTA */}
-            <Button
-              type="button"
-              arrow={true}
-              variant="default"
-              size="xl"
-              className="text-lg lg:ms-[-30px]"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+            <ButtonLink
+              {...careers?.button}
+              buttonProps={{
+                arrow: true,
+                variant: "default",
+                size: "xl",
+                className: "text-lg lg:ms-[-30px]",
+                onMouseEnter: () => setIsHovered(true),
+                onMouseLeave: () => setIsHovered(false)
+              }}
             >
-              {careers?.buttonText}
-            </Button>
+              {careers?.button?.text}
+            </ButtonLink>
+
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }

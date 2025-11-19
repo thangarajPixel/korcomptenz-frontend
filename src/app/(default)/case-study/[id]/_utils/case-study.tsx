@@ -34,7 +34,7 @@ const CaseStudy = ({ data, essential }: { data: CaseStudySingleData; essential: 
             ))}
         </div>
         <div className="flex justify-center">
-          <ButtonLink href="/client-success" buttonProps={{
+          <ButtonLink link="/client-success" buttonProps={{
             size: "xl", arrow: true
           }}>
             {essential?.relatedCase?.buttonText ||

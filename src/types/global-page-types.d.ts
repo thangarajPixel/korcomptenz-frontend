@@ -111,7 +111,7 @@ type InsightsSectionType = {
 
 type OpportunitiesType = {
   description: string;
-  buttonText: string;
+  button: ButtonType;
   profiles: {
     id: number;
     image: ImageType;

@@ -339,8 +339,9 @@ type FilterLabelType = {
   isDesignedDropdown: boolean;
 };
 type ButtonType = {
-  buttonText: string;
-  buttonLink: string;
+  text: string;
+  link: string;
+  isTargetNew?: boolean
 };
 type IndustryItem = {
   id: string;
@@ -360,7 +361,7 @@ type OfficeLocation = {
 };
 
 type ShowCaseCardType = {
-  buttonText: string;
+  text: string;
   description: string;
   image: ImageType;
   title: string;

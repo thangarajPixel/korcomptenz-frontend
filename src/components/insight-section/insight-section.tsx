@@ -34,7 +34,7 @@ export default function InsightsSection({
             transition={{ duration: 0.4, delay: 0.05 }}
           >
             <ButtonLink
-              href={insights?.buttonLink || "#"}
+              link={insights?.buttonLink || "#"}
               buttonProps={{
                 size: "xl",
                 arrow: true,
@@ -70,7 +70,7 @@ export default function InsightsSection({
             className="container-md flex justify-start md:hidden w-full"
           >
             <ButtonLink
-              href={insights?.buttonLink || "#"}
+              link={insights?.buttonLink || "#"}
               buttonProps={{
                 size: "lg",
                 arrow: true,

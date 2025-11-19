@@ -22,7 +22,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
             </p>
           }
           <ButtonLink
-            href={data?.link || "#"}
+            link={data?.link || "#"}
             buttonProps={{
               size: "xl",
               arrow: true,
@@ -70,7 +70,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
           })}
         </div>
         <ButtonLink
-          href={data?.link || "#"}
+          link={data?.link || "#"}
           buttonProps={{
             size: "xl",
             arrow: true,

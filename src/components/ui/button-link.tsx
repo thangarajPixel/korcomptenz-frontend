@@ -3,8 +3,7 @@ import Link from 'next/link'
 import { Button, buttonVariants } from './button'
 import type { VariantProps } from 'class-variance-authority'
 
-const ButtonLink = ({ href, children, buttonProps }: {
-  href: string,
+const ButtonLink = ({ children = "", buttonProps, isTargetNew = false, link = "#" }: Omit<ButtonType, 'text'> & {
   children: React.ReactNode,
   buttonProps?: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
@@ -16,7 +15,7 @@ const ButtonLink = ({ href, children, buttonProps }: {
   VariantProps<typeof buttonVariants>
 }) => {
   return (
-    <Link href={href}>
+    <Link href={link} target={isTargetNew ? '_blank' : undefined} >
       <Button {...buttonProps}>{children}</Button>
     </Link>
   )

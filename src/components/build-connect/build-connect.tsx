@@ -40,7 +40,7 @@ const BuildConnect = ({
             />
             {buildData?.descriptionButtonText && (
               <ButtonLink
-                href={buildData?.descriptionButtonLink || "#"}
+                link={buildData?.descriptionButtonLink || "#"}
                 buttonProps={{
                   size: "xl",
                   arrow: true,
@@ -64,7 +64,7 @@ const BuildConnect = ({
                   <div className="flex flex-col items-center gap-4 lg:mt-5">
                     <p className="text-3xl">{buildData?.imageCaption}</p>
                     <ButtonLink
-                      href={buildData?.link || "#"}
+                      link={buildData?.link || "#"}
                       buttonProps={{
                         size: "xl",
                         arrow: true,

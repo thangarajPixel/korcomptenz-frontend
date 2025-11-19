@@ -52,7 +52,7 @@ export function CaseStudyCard({ data }: { data: CaseStudyData }) {
         {data?.heroSection?.description}
       </p>
       <ButtonLink
-        href={`/case-study/${data?.slug}`}
+        link={`/case-study/${data?.slug}`}
         buttonProps={{
           arrow: true,
           variant: "ghost",

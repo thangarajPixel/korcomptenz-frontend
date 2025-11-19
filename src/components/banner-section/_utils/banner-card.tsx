@@ -37,7 +37,7 @@ const BannerCard = ({
             </p>
             {data?.buttonText && (
               <ButtonLink
-                href={data?.link || "#"}
+                link={data?.link || "#"}
                 buttonProps={{
                   arrow: true,
                   className: "hover:bg-transparent ",
@@ -67,7 +67,7 @@ const BannerCard = ({
             </p>
             {data?.buttonText && (
               <ButtonLink
-                href={data?.link || "#"}
+                link={data?.link || "#"}
                 buttonProps={{
                   arrow: true,
                   size: "xl",
@@ -108,7 +108,7 @@ const BannerCard = ({
         </p>
         {data?.buttonText && (
           <ButtonLink
-            href={data?.link || "#"}
+            link={data?.link || "#"}
             buttonProps={{
               size: "lg",
               arrow: true,
