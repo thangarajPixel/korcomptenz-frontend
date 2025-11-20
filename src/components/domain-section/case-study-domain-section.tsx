@@ -16,9 +16,10 @@ const CaseStudyDomainSection = ({
       title: item.heroSection.title,
       description: item.heroSection.description,
       buttonLink: item.heroSection.buttonText,
-      type: ""
+      type: "",
     })),
     buttonlink: domainData.link,
+    description: "",
   };
   return <DemonstrateSection data={componentProps} />;
 };
