@@ -32,7 +32,7 @@ const SliderCard: React.FC<Props> = ({ slide }) => {
           </h3>
           <DangerousHtml
             html={slide?.description}
-            className="text-gray-300 text-xs md:text-lg leading-relaxed pr-6"
+            className="text-gray-300 text-xs md:text-lg leading-relaxed pr-6 [&>ul]:ml-7"
           />
         </div>
       </div>

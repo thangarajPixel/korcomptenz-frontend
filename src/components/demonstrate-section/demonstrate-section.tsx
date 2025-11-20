@@ -35,16 +35,18 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                 "hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full ",
             }}
           >
-            {data?.link}
+            {data?.butttonText}
           </ButtonLink>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:p-10 ">
           {data?.list?.map((card, index) => {
             return (
-              <Link href={card?.buttonLink || "#"}
+              <Link
+                href={card?.buttonLink || "#"}
                 key={`card-item-demo-${card?.id}`}
-                className={`bg-none flex flex-col group gap-4 ${!((index + 1) % 2) ? "lg:mt-10" : ""
-                  }`}
+                className={`bg-none flex flex-col group gap-4 ${
+                  !((index + 1) % 2) ? "lg:mt-10" : ""
+                }`}
               >
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage

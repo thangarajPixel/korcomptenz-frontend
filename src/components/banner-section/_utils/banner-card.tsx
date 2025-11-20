@@ -34,7 +34,7 @@ const BannerCard = ({
               className="w-20 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
             />
             <DangerousHtml
-              className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
+              className=" text-lg md:text-base md:text-white  mb-4 md:mb-8 max-w-md"
               html={data?.description}
             />
             <div className="flex flex-row  gap-4">
@@ -141,8 +141,9 @@ const BannerCard = ({
             {data?.title}
           </h2>
         )}
+
         <DangerousHtml
-          className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
+          className="text-lg md:text-base [&>span]:!text-black mb-4 md:mb-8 max-w-md"
           html={data?.description}
         />
         <div className="flex flex-row gap-4">
