@@ -1,5 +1,6 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 
 import React from "react";
@@ -32,9 +33,10 @@ const BannerCard = ({
               height={200}
               className="w-20 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
             />
-            <p className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md">
-              {data?.description}
-            </p>
+            <DangerousHtml
+              className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
+              html={data?.description}
+            />
             {data?.buttonText && (
               <ButtonLink
                 link={data?.link || "#"}
