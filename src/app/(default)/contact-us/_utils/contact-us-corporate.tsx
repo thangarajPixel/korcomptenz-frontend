@@ -36,14 +36,18 @@ const ContactUsCorporate = ({
                 {corporate?.address}
               </p>
               <div className="space-y-1 text-lg text-primary">
-                <p className="text-center">
-                  <span className=" font-medium">Phone:</span>{" "}
-                  <span className="">{corporate?.phone}</span>
-                </p>
-                <p className="text-center">
-                  <span className="">Fax:</span>{" "}
-                  <span className="">{corporate?.fax}</span>
-                </p>
+                {corporate?.phone && (
+                  <p className="text-center">
+                    <span className=" font-medium">Phone:</span>{" "}
+                    <span className="">{corporate?.phone}</span>
+                  </p>
+                )}
+                {corporate?.fax && (
+                  <p className="text-center">
+                    <span className="">Fax:</span>{" "}
+                    <span className="">{corporate?.fax}</span>
+                  </p>
+                )}
               </div>
             </div>
           ))}
