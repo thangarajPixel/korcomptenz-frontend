@@ -35,7 +35,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                 "hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full ",
             }}
           >
-            {data?.buttonlink}
+            {data?.link}
           </ButtonLink>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:p-10 ">
@@ -85,7 +85,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
               " w-full lg:hidden variant:default px-8 py-2 text-4xl rounded-full mt-10",
           }}
         >
-          {data?.buttonlink}
+          {data?.link}
         </ButtonLink>
       </div>
     </section>
