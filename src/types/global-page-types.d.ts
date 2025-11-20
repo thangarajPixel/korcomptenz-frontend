@@ -255,7 +255,7 @@ type FaqSectionType = {
 
 type DemonstrationSectionType = {
   title: string;
-
+  butttonText: string;
   link: string;
   description: string;
 

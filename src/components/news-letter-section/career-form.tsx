@@ -131,7 +131,7 @@ const CareerForm = () => {
         {/* Submit button */}
         <div className="pt-4">
           <Button
-            size="lg"
+            size="xl"
             variant="outline"
             className="hover:bg-primary border-primary text-primary hover:text-white"
             arrow

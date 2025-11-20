@@ -85,7 +85,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
               " w-full lg:hidden variant:default px-8 py-2 text-4xl rounded-full mt-10",
           }}
         >
-          {data?.link}
+          {data?.butttonText}
         </ButtonLink>
       </div>
     </section>
