@@ -258,6 +258,7 @@ type DemonstrationSectionType = {
   buttonText: string;
   link: string;
   description: string;
+
   list: {
     id: string;
     type: string;
@@ -291,7 +292,24 @@ type BuildConnectSectionType = {
     form: GlobalFormType;
   };
 };
-
+type DemoBuildConnectSectionType = {
+  title: string;
+  description: string;
+  image: ImageType;
+  mobileImage: ImageType;
+  imageCaption: string;
+  buttonText: string;
+  link: string;
+  descriptionButtonText: string;
+  isSwap: boolean;
+  descriptionButtonLink: string;
+  form: GlobalFormType;
+  item: GlobalFormItemType;
+};
+type GlobalFormItemType = {
+  id: number;
+  documentId?: string;
+};
 type TechPartnerSectionType = {
   heading: string;
   image: string;
@@ -480,12 +498,25 @@ type ContactUsFormType = {
   technologyLabel: string;
   list: { id: string; description: string }[];
 };
+type DemoRequestFormType = {
+  __component: "form-fields.reserve-spot-fields";
+  title: string;
+  id: string;
+  buttonText: string;
+  companyLabel: string;
+  emailLabel: string;
+  nameLabel: string;
+  phoneLabel: string;
+
+  list: { id: string; description: string }[];
+};
 
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
   ContactFormType: ContactFormType;
   BookDemoFormType: BookDemoFormType;
   ContactUsFormType: ContactUsFormType;
+  DemoRequestFormType: DemoRequestFormType;
 };
 type FormType = keyof FormMap;
 type FormPropsType = FormMap[FormType];
@@ -785,6 +816,10 @@ type ComponentPropsMap = {
   DemoOpportunitiesSection: OpportunitiesSectionType & {
     id: string;
     __component: "demo-page.demo-opportunity";
+  };
+  DemoBookDemoForm: DemoBuildConnectSectionType & {
+    id: string;
+    __component: "demo-page.build-demo";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

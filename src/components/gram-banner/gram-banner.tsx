@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
   return (
     <section
-      className={`my-10 grid grid-cols-1 lg:grid-cols-1 ${
+      className={` grid grid-cols-1 lg:grid-cols-1 ${
         gramData?.theme === "dark"
           ? "bg-custom-black "
           : gramData?.theme === "light"
@@ -22,13 +22,15 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
           gramData?.theme === "default" ? "bg-custom-gray-6 rounded-2xl " : ""
         }  `}
       >
-        <h3
-          className={`text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15 text-center lg:px-10 ${
-            gramData?.theme === "dark" ? "text-white" : ""
-          }`}
-        >
-          {gramData?.title}
-        </h3>
+        {gramData?.title && (
+          <h3
+            className={`text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15 text-center lg:px-10 ${
+              gramData?.theme === "dark" ? "text-white" : ""
+            }`}
+          >
+            {gramData?.title}
+          </h3>
+        )}
 
         <DangerousHtml
           html={gramData?.description}
@@ -60,12 +62,15 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         </div>
       )}
       <div className="p-5 lg:hidden ">
-        <KorcomptenzImage
-          src={gramData?.mobileImage}
-          width={500}
-          height={500}
-          className="w-full h-auto object-cover"
-        />
+        {gramData?.mobileImage && (
+          <KorcomptenzImage
+            src={gramData?.mobileImage}
+            width={500}
+            height={500}
+            className="w-full h-auto object-cover"
+          />
+        )}
+
         {gramData?.imageCaption && (
           <div className="flex flex-col items-center gap-2 lg:mt-5">
             <p className="text-md text-center">{gramData?.imageCaption}</p>

@@ -48,11 +48,6 @@ export const CareerNewLetterSchema = z.object({
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
   email: z.string().min(1, "Email is required").email("Invalid email address"),
 
-  mobile: z
-    .string()
-    .min(1, "Mobile number is required")
-    .regex(/^\d{1,3}$/, "Enter a valid mobile number")
-    .optional(),
   phone: z
     .string()
     .optional()
@@ -102,8 +97,30 @@ export const ContactUsFormSchema = z.object({
   message: z.string().min(1, "Message is required"),
 });
 
+export const DemoRequestFormSchema = z.object({
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+  email: z.string().min(1, "Email is required").email("Invalid email address"),
+
+  mobile: z
+    .string()
+    .min(1, "Mobile number is required")
+    .regex(/^\d{1,3}$/, "Enter a valid mobile number")
+    .optional(),
+  phone: z
+    .string()
+    .optional()
+    .refine((val) => !val || /^\d{10,15}$/.test(val), {
+      message: "Enter a valid phone number",
+    }),
+  company: z.string().min(1, "company is required"),
+});
+
 export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
 
 export type ContactFormData = z.infer<typeof contactSchema>;
 export type BookADemoFormData = z.infer<typeof bookADemoSchema>;
 export type CareerNewLetterFormData = z.infer<typeof CareerNewLetterSchema>;
+export type DemoRequestFormSchema = z.infer<typeof DemoRequestFormSchema>;

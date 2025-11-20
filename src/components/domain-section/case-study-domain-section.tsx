@@ -1,5 +1,4 @@
 import React from "react";
-
 import DemonstrateSection from "../demonstrate-section";
 
 const CaseStudyDomainSection = ({
@@ -16,9 +15,10 @@ const CaseStudyDomainSection = ({
       title: item.heroSection.title,
       description: item.heroSection.description,
       buttonLink: item.heroSection.buttonText,
-      type: ""
+      type: "",
     })),
-    buttonlink: domainData.link,
+    link: domainData.link,
+    description: "",
   };
   return <DemonstrateSection data={componentProps} />;
 };

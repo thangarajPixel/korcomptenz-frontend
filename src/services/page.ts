@@ -5,6 +5,7 @@ import type {
   CareerNewLetterFormData,
   ContactFormData,
   ContactUsFormSchema,
+  DemoRequestFormSchema,
 } from "@/utils/validation.schema";
 
 const HOME = "/home";
@@ -24,6 +25,7 @@ export const CONTACT_US = "/contact-us";
 export const CASE_STUDY_ESSENTIAL_LIST = "/case-study-essential";
 export const CONTACT_US_LEAD = "/contact-us-leads";
 export const DEMO_PAGE = "/demo-list";
+export const RESERVE_MY_SPOT = "/reserve-leads";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -144,5 +146,11 @@ export const createContactUsLead = async (formData: ContactUsFormSchema) => {
 export const getDemoPage = async (): Promise<PagesListType> => {
   const { data } = await http.get(DEMO_PAGE);
 
+  return data;
+};
+export const createReserveMySpotLead = async (
+  formData: DemoRequestFormSchema
+) => {
+  const { data } = await http.post(RESERVE_MY_SPOT, { data: formData });
   return data;
 };
