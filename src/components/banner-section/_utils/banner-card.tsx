@@ -37,17 +37,36 @@ const BannerCard = ({
               className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
               html={data?.description}
             />
-            {data?.buttonText && (
-              <ButtonLink
-                link={data?.link || "#"}
-                buttonProps={{
-                  arrow: true,
-                  className: "hover:bg-transparent ",
-                }}
-              >
-                {data?.buttonText}
-              </ButtonLink>
-            )}
+            <div className="flex flex-row  gap-4">
+
+              {data?.buttonText && (
+                <ButtonLink
+                  link={data?.link || "#"}
+                  buttonProps={{
+                    arrow: true,
+                    className: "hover:bg-transparent ",
+                    size: "xl",
+                  }}
+                >
+                  {data?.buttonText}
+                </ButtonLink>
+              )}
+              {data?.secondButton && (
+                <ButtonLink
+                  link={data?.secondLink || "#"}
+                  buttonProps={{
+                    arrow: true,
+                    className: "hover:bg-transparent hover:border hover:border-primary ",
+                    size: "xl",
+                    variant: "white",
+
+                  }}
+                >
+                  {data?.secondButton}
+                </ButtonLink>
+              )}
+            </div>
+
           </div>
         ) : (
           <div
@@ -68,18 +87,34 @@ const BannerCard = ({
               className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
               html={data?.description}
             />
-            {data?.buttonText && (
-              <ButtonLink
-                link={data?.link || "#"}
-                buttonProps={{
-                  arrow: true,
-                  size: "xl",
-                  className: "hover:bg-transparent ",
-                }}
-              >
-                {data?.buttonText}
-              </ButtonLink>
-            )}
+            <div className="flex flex-row gap-4">
+
+              {data?.buttonText && (
+                <ButtonLink
+                  link={data?.link || "#"}
+                  buttonProps={{
+                    arrow: true,
+                    className: "hover:bg-transparent ",
+                    size: "xl",
+                  }}
+                >
+                  {data?.buttonText}
+                </ButtonLink>
+              )}
+              {data?.secondButton && (
+                <ButtonLink
+                  link={data?.secondLink || "#"}
+                  buttonProps={{
+                    arrow: true,
+                    className: "hover:bg-transparent hover:border hover:border-primary ",
+                    size: "xl",
+                    variant: "white",
+                  }}
+                >
+                  {data?.secondButton}
+                </ButtonLink>
+              )}
+            </div>
           </div>
         )}
       </div>
@@ -110,18 +145,32 @@ const BannerCard = ({
           className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
           html={data?.description}
         />
-        {data?.buttonText && (
-          <ButtonLink
-            link={data?.link || "#"}
-            buttonProps={{
-              size: "lg",
-              arrow: true,
-              className: "variant:default px-8 py-8 text-4xl rounded-full ",
-            }}
-          >
-            {data?.buttonText}
-          </ButtonLink>
-        )}
+        <div className="flex flex-row gap-4">
+          {data?.buttonText && (
+            <ButtonLink
+              link={data?.link || "#"}
+              buttonProps={{
+                arrow: true,
+                size: "xl",
+              }}
+            >
+              {data?.buttonText}
+            </ButtonLink>
+          )}
+          {data?.secondButton && (
+            <ButtonLink
+              link={data?.secondLink || "#"}
+              buttonProps={{
+                arrow: true,
+                className: "border border-primary ",
+                size: "xl",
+                variant: "white",
+              }}
+            >
+              {data?.secondButton}
+            </ButtonLink>
+          )}
+        </div>
       </div>
     </div>
   );

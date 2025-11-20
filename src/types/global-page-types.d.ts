@@ -147,6 +147,8 @@ type BannerSectionType = {
   buttonText: string;
   bannerCaption: string;
   link: string | null;
+  secondButton: string;
+  secondLink: string;
 };
 
 type SapSectionType = {
