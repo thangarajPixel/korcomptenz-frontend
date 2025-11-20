@@ -341,7 +341,7 @@ type FilterLabelType = {
 type ButtonType = {
   text: string;
   link: string;
-  isTargetNew?: boolean
+  isTargetNew?: boolean;
 };
 type IndustryItem = {
   id: string;
@@ -366,6 +366,7 @@ type ShowCaseCardType = {
   image: ImageType;
   title: string;
   id: string;
+  buttonText: string;
 };
 
 type MapDataType = {
