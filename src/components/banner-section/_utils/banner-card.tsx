@@ -1,5 +1,6 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 
 import React from "react";
@@ -32,20 +33,40 @@ const BannerCard = ({
               height={200}
               className="w-20 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
             />
-            <p className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md">
-              {data?.description}
-            </p>
-            {data?.buttonText && (
-              <ButtonLink
-                link={data?.link || "#"}
-                buttonProps={{
-                  arrow: true,
-                  className: "hover:bg-transparent ",
-                }}
-              >
-                {data?.buttonText}
-              </ButtonLink>
-            )}
+            <DangerousHtml
+              className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
+              html={data?.description}
+            />
+            <div className="flex flex-row  gap-4">
+
+              {data?.buttonText && (
+                <ButtonLink
+                  link={data?.link || "#"}
+                  buttonProps={{
+                    arrow: true,
+                    className: "hover:bg-transparent ",
+                    size: "xl",
+                  }}
+                >
+                  {data?.buttonText}
+                </ButtonLink>
+              )}
+              {data?.secondButton && (
+                <ButtonLink
+                  link={data?.secondLink || "#"}
+                  buttonProps={{
+                    arrow: true,
+                    className: "hover:bg-transparent hover:border hover:border-primary ",
+                    size: "xl",
+                    variant: "white",
+
+                  }}
+                >
+                  {data?.secondButton}
+                </ButtonLink>
+              )}
+            </div>
+
           </div>
         ) : (
           <div
@@ -62,21 +83,38 @@ const BannerCard = ({
                 {data?.title}
               </h1>
             )}
-            <p className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md">
-              {data?.description}
-            </p>
-            {data?.buttonText && (
-              <ButtonLink
-                link={data?.link || "#"}
-                buttonProps={{
-                  arrow: true,
-                  size: "xl",
-                  className: "hover:bg-transparent ",
-                }}
-              >
-                {data?.buttonText}
-              </ButtonLink>
-            )}
+            <DangerousHtml
+              className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
+              html={data?.description}
+            />
+            <div className="flex flex-row gap-4">
+
+              {data?.buttonText && (
+                <ButtonLink
+                  link={data?.link || "#"}
+                  buttonProps={{
+                    arrow: true,
+                    className: "hover:bg-transparent ",
+                    size: "xl",
+                  }}
+                >
+                  {data?.buttonText}
+                </ButtonLink>
+              )}
+              {data?.secondButton && (
+                <ButtonLink
+                  link={data?.secondLink || "#"}
+                  buttonProps={{
+                    arrow: true,
+                    className: "hover:bg-transparent hover:border hover:border-primary ",
+                    size: "xl",
+                    variant: "white",
+                  }}
+                >
+                  {data?.secondButton}
+                </ButtonLink>
+              )}
+            </div>
           </div>
         )}
       </div>
@@ -103,21 +141,36 @@ const BannerCard = ({
             {data?.title}
           </h2>
         )}
-        <p className="text-lg font-medium text-foreground mb-4 md:mb-8 max-w-md">
-          {data?.description}
-        </p>
-        {data?.buttonText && (
-          <ButtonLink
-            link={data?.link || "#"}
-            buttonProps={{
-              size: "lg",
-              arrow: true,
-              className: "variant:default px-8 py-8 text-4xl rounded-full ",
-            }}
-          >
-            {data?.buttonText}
-          </ButtonLink>
-        )}
+        <DangerousHtml
+          className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
+          html={data?.description}
+        />
+        <div className="flex flex-row gap-4">
+          {data?.buttonText && (
+            <ButtonLink
+              link={data?.link || "#"}
+              buttonProps={{
+                arrow: true,
+                size: "xl",
+              }}
+            >
+              {data?.buttonText}
+            </ButtonLink>
+          )}
+          {data?.secondButton && (
+            <ButtonLink
+              link={data?.secondLink || "#"}
+              buttonProps={{
+                arrow: true,
+                className: "border border-primary ",
+                size: "xl",
+                variant: "white",
+              }}
+            >
+              {data?.secondButton}
+            </ButtonLink>
+          )}
+        </div>
       </div>
     </div>
   );

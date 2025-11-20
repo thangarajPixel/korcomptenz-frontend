@@ -14,7 +14,6 @@ const DarkSlider = ({
     loop: false,
     align: "start",
   });
-
   const [prevBtnEnabled, setPrevBtnEnabled] = React.useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = React.useState(true);
 
@@ -52,7 +51,7 @@ const DarkSlider = ({
             <p>{manuelSliderData?.descripition}</p>
           )}
 
-          <div className=" lg:flex ms-5 lg:ms-0  items-center gap-4">
+          <div className="hidden lg:flex ms-5 lg:ms-0  items-center gap-4">
             <Button
               size="icon"
               className={`rounded-full size-12 hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
@@ -74,15 +73,15 @@ const DarkSlider = ({
           </div>
         </div>
 
-        <section className="col-span-24 lg:col-span-16">
+        <div className="col-span-24 lg:col-span-16">
           <div ref={emblaRef} className="overflow-hidden">
             <div className="flex flex-row gap-6">
               {manuelSliderData?.slides?.map((slide, index) => (
                 <div
                   key={slide?.id}
                   className={`min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${index === manuelSliderData?.slides?.length - 1
-                      ? "mr-[100px]"
-                      : ""
+                    ? "mr-[100px]"
+                    : ""
                     }`}
                 >
                   <SliderCard slide={slide} />
@@ -90,7 +89,27 @@ const DarkSlider = ({
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+      <div className="flex lg:hidden w-full justify-center items-center gap-4 mt-5">
+        <Button
+          size="icon"
+          className={`rounded-full size-12 hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          onClick={scrollPrev}
+          disabled={!prevBtnEnabled}
+        >
+          <ChevronLeft className="size-6" />
+        </Button>
+        <Button
+          size="icon"
+          className={`rounded-full size-12 hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          onClick={scrollNext}
+          disabled={!nextBtnEnabled}
+        >
+          <ChevronRight className="size-6" />
+        </Button>
       </div>
     </section>
   );
