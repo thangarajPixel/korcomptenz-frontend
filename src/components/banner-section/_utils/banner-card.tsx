@@ -106,9 +106,10 @@ const BannerCard = ({
             {data?.title}
           </h2>
         )}
-        <p className="text-lg font-medium text-foreground mb-4 md:mb-8 max-w-md">
-          {data?.description}
-        </p>
+        <DangerousHtml
+          className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
+          html={data?.description}
+        />
         {data?.buttonText && (
           <ButtonLink
             link={data?.link || "#"}
