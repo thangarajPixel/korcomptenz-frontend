@@ -19,10 +19,11 @@ const defaultValues = {
 };
 const BookDemoSection = ({
   essential,
+  item,
 }: {
   essential: BookDemoFormType;
+  item?: GlobalFormItemType;
 }) => {
-
   const { mutateAsync } = useBookADemoHook();
   const {
     control,
@@ -35,10 +36,23 @@ const BookDemoSection = ({
     resolver: zodResolver(bookADemoSchema),
     defaultValues,
   });
+  const demoFrom = {
+    connect: [
+      {
+        id: item?.id,
+        documentId: item?.documentId,
+        isTemporary: true,
+      },
+    ],
+  };
   const handleFormSubmit: SubmitHandler<BookADemoFormData> = React.useCallback(
     async (data) => {
+      const formdata = {
+        ...data,
+        demoFrom,
+      };
       try {
-        const response = await mutateAsync(data);
+        const response = await mutateAsync(formdata);
         notify(response);
         reset(defaultValues);
       } catch (error) {

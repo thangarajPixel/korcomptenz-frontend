@@ -154,9 +154,9 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
                   <div key={index} className="border-b border-primary">
                     {/* 🔹 Parent Link */}
                     <Link
-                      href={item?.href?.slug ? `/${item.href.slug}` : "#"}
+                      href={item?.href?.slug ? `${item.href.slug}` : "#"}
                       onClick={(e) => {
-                        e.preventDefault(); // stop default navigation
+                        e.preventDefault();
                         handleSubmenuClick(
                           item,
                           serviceDrawer?.service?.title || ""
@@ -177,7 +177,7 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
                             key={`ng-sub-${childIndex}`}
                             href={
                               childItem?.href?.slug
-                                ? `/${childItem.href.slug}`
+                                ? `${childItem.href.slug}`
                                 : "#"
                             }
                             className={cn(

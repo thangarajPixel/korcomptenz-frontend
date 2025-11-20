@@ -44,16 +44,8 @@ const CareerForm = () => {
   const handleFormSubmit: SubmitHandler<CareerNewLetterFormData> =
     React.useCallback(
       async (formdata) => {
-        const careerdata = {
-          name: formdata.name,
-          email: formdata.email,
-          department: formdata.department,
-          resume: formdata.resume,
-          phone: `${formdata.mobile}-${formdata.phone}`,
-        };
-
         try {
-          const response = await mutateAsync(careerdata);
+          const response = await mutateAsync(formdata);
           notify(response);
           reset({ ...defaultValues });
           setFileName("");
@@ -86,17 +78,9 @@ const CareerForm = () => {
         {/* Mobile + Phone + Department */}
         <div className="grid gap-4 sm:grid-cols-2 lg:flex">
           {/* Mobile */}
-          <div className="w-full lg:w-[15%]">
-            <Input
-              control={control}
-              name="mobile"
-              placeholder="Mobile"
-              className="border-2 p-2 rounded-md text-foreground bg-white w-full placeholder:text-black"
-            />
-          </div>
 
           {/* Phone Number */}
-          <div className="w-full lg:w-[35%]">
+          <div className="w-full lg:w-[50%]">
             <Input
               control={control}
               name="phone"

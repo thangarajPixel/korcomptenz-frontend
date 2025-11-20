@@ -84,7 +84,7 @@ const ServicesMenu = ({
                             >
                               <div
                                 key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
-                                className={`text-sm leading-5 cursor-pointer ${
+                                className={`text-sm leading-6 cursor-pointer ${
                                   sub?.type === "dark"
                                     ? "font-normal text-black"
                                     : "text-gray-500 pl-2"
@@ -135,7 +135,7 @@ const ServicesMenu = ({
                             >
                               <div
                                 key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}-sub-${sub?.id}`}
-                                className={`text-sm leading-5 ${
+                                className={`text-sm leading-6 ${
                                   sub?.type === "dark"
                                     ? "font-normal text-black"
                                     : "text-gray-500 pl-2"

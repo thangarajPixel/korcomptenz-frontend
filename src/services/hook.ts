@@ -100,3 +100,9 @@ export const useContactUsLeadHook = () => {
     mutationFn: PAGE.createContactUsLead,
   });
 };
+export const useReserveMySpotHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.RESERVE_MY_SPOT],
+    mutationFn: PAGE.createReserveMySpotLead,
+  });
+};

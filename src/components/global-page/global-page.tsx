@@ -48,6 +48,7 @@ import DemoPartnership from "@/app/(default)/live-demo/_utils/demo-partnership";
 import DemoExperts from "@/app/(default)/live-demo/_utils/demo-experts";
 import DemoOpportunities from "@/app/(default)/live-demo/_utils/demo-opportunities";
 import DemoWhyAttend from "@/app/(default)/live-demo/_utils/demo-why-attend";
+import BuildDemo from "../build-connect/build-Demo";
 
 type Props = {
   data: ComponentPropsType[];
@@ -401,6 +402,13 @@ const GlobalPage = (props: Props) => {
           <DemoWhyAttend
             key={`demo-demonstration-${item?.__component}-${item?.id}`}
             whyAttendData={item}
+          />
+        );
+      case "demo-page.build-demo":
+        return (
+          <BuildDemo
+            key={`build-demo-${item?.__component}-${item?.id}`}
+            buildData={item}
           />
         );
       default:
