@@ -92,7 +92,7 @@ export default function LiveDemoList({ data }: { data: DemoListType }) {
                     {item?.description}
                   </p>
                   <a
-                    href="#"
+                    href={item?.buttonLink || "#"}
                     className="text-primary font-semibold text-sm hover:text-primary transition-colors"
                   >
                     {item?.buttonText}

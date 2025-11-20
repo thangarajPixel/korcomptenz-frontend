@@ -13,23 +13,29 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
     >
       <div className="">
         <div className="flex flex-col gap-9 text-start lg:text-center items-start lg:items-center justify-center leading-14  text-foreground  ">
-          <h5 className={cn("text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0", data?.description && "mb-0")}>
+          <h5
+            className={cn(
+              "text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0",
+              data?.description && "mb-0"
+            )}
+          >
             {data?.title}
           </h5>
-          {data?.description &&
+          {data?.description && (
             <p className="text-lg font-normal text-foreground leading-6 whitespace-pre-wrap">
               {data?.description}
             </p>
-          }
+          )}
           <ButtonLink
             link={data?.link || "#"}
             buttonProps={{
               size: "xl",
               arrow: true,
-              className: "hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full "
+              className:
+                "hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full ",
             }}
           >
-            {data?.buttonText}
+            {data?.link}
           </ButtonLink>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:p-10 ">
@@ -72,10 +78,11 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
           buttonProps={{
             size: "xl",
             arrow: true,
-            className: " w-full lg:hidden variant:default px-8 py-2 text-4xl rounded-full mt-10"
+            className:
+              " w-full lg:hidden variant:default px-8 py-2 text-4xl rounded-full mt-10",
           }}
         >
-          {data?.buttonText}
+          {data?.link}
         </ButtonLink>
       </div>
     </section>

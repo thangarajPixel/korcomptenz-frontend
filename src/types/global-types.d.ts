@@ -341,7 +341,7 @@ type FilterLabelType = {
 type ButtonType = {
   text: string;
   link: string;
-  isTargetNew?: boolean
+  isTargetNew?: boolean;
 };
 type IndustryItem = {
   id: string;
