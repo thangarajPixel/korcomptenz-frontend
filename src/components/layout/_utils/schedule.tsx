@@ -29,12 +29,11 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
               {scheduleCall?.buttonText}
             </ButtonLink>
           </div>
-
-          <div className="flex items-center space-x-2 -mt-25 md:ml-0 ml-30 lg:ml-0 lg:mr-10 lg:mt-10">
+          <div className="flex items-center justify-end space-x-2 lg:mt-10">
             <KorcomptenzImage
               src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/lets_drive_fdc0c33e0c.png"
               alt="drive"
-              className="w-full lg:w-[550px] h-auto rounded-2xl"
+              className="w-[200px] lg:w-[550px] h-auto rounded-2xl"
               width={1112}
               height={607}
             />

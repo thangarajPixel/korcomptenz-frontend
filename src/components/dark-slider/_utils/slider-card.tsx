@@ -1,4 +1,5 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 import React from "react";
 
 interface Slide {
@@ -29,10 +30,10 @@ const SliderCard: React.FC<Props> = ({ slide }) => {
           <h3 className="text-white text:medium md:text-6xl font-normal whitespace-pre-wrap pr-6 mb-6">
             {slide?.title}
           </h3>
-
-          <p className="text-gray-300 text-xs md:text-lg leading-relaxed pr-6">
-            {slide?.description}
-          </p>
+          <DangerousHtml
+            html={slide?.description}
+            className="text-gray-300 text-xs md:text-lg leading-relaxed pr-6"
+          />
         </div>
       </div>
     </div>

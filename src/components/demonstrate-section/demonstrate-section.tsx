@@ -41,11 +41,10 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:p-10 ">
           {data?.list?.map((card, index) => {
             return (
-              <div
+              <Link href={card?.buttonLink || "#"}
                 key={`card-item-demo-${card?.id}`}
-                className={`bg-none flex flex-col gap-4 ${
-                  !((index + 1) % 2) ? "lg:mt-10" : ""
-                }`}
+                className={`bg-none flex flex-col group gap-4 ${!((index + 1) % 2) ? "lg:mt-10" : ""
+                  }`}
               >
                 <div className="py-3 md:py-0 rounded-4xl">
                   <KorcomptenzImage
@@ -56,7 +55,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                   />
                 </div>
                 <div>
-                  <p className="lg:text-5xl text-4xl font-semibold text-foreground leading-9">
+                  <p className="lg:text-5xl text-4xl font-semibold text-foreground leading-9 group-hover:text-primary">
                     {card?.title}
                   </p>
                 </div>
@@ -65,14 +64,12 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                   {card?.description}
                 </p>
                 {card?.buttonText && (
-                  <Link href={card?.buttonLink || "#"}>
-                    <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors">
-                      {card?.buttonText}
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </Link>
+                  <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors">
+                    {card?.buttonText}
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
                 )}
-              </div>
+              </Link>
             );
           })}
         </div>

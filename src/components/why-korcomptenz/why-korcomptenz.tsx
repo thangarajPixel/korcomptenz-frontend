@@ -9,7 +9,7 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
     <section data-debug="page-componets.why-we-are" className="container-md">
       {/* Header */}
       <div className="text-center mb-16">
-        <h5 className="text-5xl md:text-5xl font-semibold text-foreground mb-2">
+        <h5 className="text-5xl md:text-6xl font-semibold text-foreground mb-2">
           {data.title}
         </h5>
         <p className="text-xl font-normal text-foreground mb-2">
