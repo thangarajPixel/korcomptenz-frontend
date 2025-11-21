@@ -1,5 +1,7 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
+import ButtonLink from "@/components/ui/button-link";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -30,32 +32,42 @@ const DemoBannerCard = ({
         {/* ✅ Centered + Responsive container */}
         <div className="absolute inset-0 z-10 flex items-center py-10">
           <div className="container-md  flex flex-col gap-2 px-6 md:px-10 ">
-
-            {data?.logo && <KorcomptenzImage
-              src={data.logo}
-              width={300}
-              height={200}
-              className="w-32 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
-            />}
-            {isFirst ? data.title &&
-              <h1 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
+            {data?.logo && (
+              <KorcomptenzImage
+                src={data.logo}
+                width={300}
+                height={200}
+                className="w-32 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
+              />
+            )}
+            {isFirst ? (
+              data.title && (
+                <h1 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
+                  {data.title}
+                </h1>
+              )
+            ) : (
+              <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
                 {data.title}
-              </h1>
-              : <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
-                {data.title}
-              </h2>}
-            {data.description && <p className="text-base md:text-xl text-white max-w-xl leading-relaxed ">
-              {data.description}
-            </p>
-            }
+              </h2>
+            )}
+            {data.description && (
+              <DangerousHtml
+                className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
+                html={data?.description}
+              />
+            )}
             {data.buttonText && (
-              <Button
-                size="xl"
-                arrow
-                className="text-base md:text-lg max-w-xs  hover:bg-transparent transition-transform duration-200"
+              <ButtonLink
+                link={data?.link || "#"}
+                buttonProps={{
+                  arrow: true,
+                  className: "hover:bg-transparent ",
+                  size: "xl",
+                }}
               >
-                {data.buttonText}
-              </Button>
+                {data?.buttonText}
+              </ButtonLink>
             )}
             {data?.bannerCaption && (
               <p className="text-base md:text-lg text-white max-w-xl leading-relaxed mb-5 ">

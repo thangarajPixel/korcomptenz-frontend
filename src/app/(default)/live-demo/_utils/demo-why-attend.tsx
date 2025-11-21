@@ -7,7 +7,7 @@ const DemoWhyAttend = ({
   whyAttendData: DemoWhyAttendSectionType;
 }) => {
   return (
-    <section className="flex items-center justify-center min-h-screen bg-background container-md ">
+    <section className="flex items-center justify-center  bg-background container-md ">
       <div className="w-full">
         <div className="rounded-3xl bg-light-gray px-8 py-12 md:px-12 md:py-16 w-full">
           {/* Header dividers and title */}
