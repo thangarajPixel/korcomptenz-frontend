@@ -12,7 +12,7 @@ const CaseStudyDomainSection = ({
       ...item,
       image: item.heroSection.image,
       buttonText: item.heroSection.buttonText,
-      title: item.heroSection.title,
+      title: item.title || item.heroSection.title,
       description: item.heroSection.description,
       buttonLink: item.heroSection.buttonText,
       type: "",

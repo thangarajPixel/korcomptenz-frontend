@@ -32,8 +32,8 @@ const StretchableSectionCard = ({
 
         >
           <DangerousHtml
-          html={data?.description}
-          className="text-gray-700 text-lg mb-8 flex-grow"
+            html={data?.description}
+            className="text-gray-700 text-base mb-8 flex-grow line-clamp-4 [&>p,&>span]:line-clamp-4"
           />
           {/* <p className="text-gray-700 text-lg mb-8 flex-grow">
             {data?.description}
@@ -55,7 +55,7 @@ const StretchableSectionCard = ({
 
       >
         <div
-          className={`absolute  w-[200px] h-[230px] flex items-end justify-end transition-all duration-1000 ease-out ${open ? "right-0 bottom-0" : "opacity-20  right-4 top-1/2 -translate-y-1/2"
+          className={`absolute  size-[154px] flex items-end justify-end transition-all duration-1000 ease-out ${open ? "right-0 bottom-0" : "opacity-20  right-4 top-1/2 -translate-y-1/2"
             }`}
         >
           <KorcomptenzImage
