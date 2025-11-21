@@ -65,6 +65,7 @@ type CaseStudyStickyCardsType = {
       image: ImageType;
       buttonText: string;
     };
+    title: string;
     slug: string;
     study: string;
   }[];
