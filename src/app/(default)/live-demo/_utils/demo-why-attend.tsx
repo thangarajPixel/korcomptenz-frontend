@@ -1,4 +1,5 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 import React from "react";
 
 const DemoWhyAttend = ({
@@ -37,9 +38,11 @@ const DemoWhyAttend = ({
                   </span>
                 </div>
                 {/* Benefit text */}
-                <p className="text-gray-700 text-lg font-sans leading-relaxed">
-                  {benefit?.description}
-                </p>
+
+                <DangerousHtml
+                  html={benefit?.description}
+                  className="text-gray-700 text-lg font-sans leading-relaxed"
+                />
               </div>
             ))}
           </div>

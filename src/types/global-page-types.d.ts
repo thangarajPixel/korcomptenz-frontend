@@ -288,6 +288,7 @@ type BuildConnectSectionType = {
   rightSection: {
     content: string;
     description: string;
+    isBgGray: boolean;
     responsiveImage: {
       image: ImageType;
       mobileImage: ImageType;
@@ -340,6 +341,7 @@ type WhyKorcomptenzType = {
   title: string;
   description: string;
   isPerRowFive: boolean;
+  isBgGray: boolean;
   list: IndustryItem[];
 };
 type CompanyType = {
@@ -612,6 +614,7 @@ type ExpertsSectionType = {
 type DemoWhyAttendSectionType = {
   id: string;
   title: string;
+  description: string;
   list: DemoWhyAttendCardType[];
 };
 

@@ -154,10 +154,18 @@ const BuildConnect = ({
           )}
 
           {buildData?.rightSection?.content === "description" && (
-            <DangerousHtml
-              html={buildData?.rightSection?.description}
-              className=""
-            />
+            <div
+              className={`${buildData?.rightSection?.isBgGray || ""} ${
+                buildData?.rightSection?.isBgGray
+                  ? "bg-gray-100 p-10 rounded-3xl"
+                  : ""
+              }`}
+            >
+              <DangerousHtml
+                html={buildData?.rightSection?.description}
+                className=""
+              />
+            </div>
           )}
           {buildData?.rightSection?.content === "form" && (
             <BookDemoSection

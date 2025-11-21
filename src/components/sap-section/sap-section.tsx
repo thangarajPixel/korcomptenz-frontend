@@ -26,7 +26,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
                 src={sapSectionData?.imageSection?.image1?.image}
                 width={400}
                 height={300}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover rounded-3xl"
               />
             </div>
             {/* Business Meeting Image 2 */}
@@ -57,7 +57,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
                   src={sapSectionData?.imageSection?.image2?.image}
                   width={600}
                   height={400}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover rounded-3xl"
                 />
               </div>
             </div>

@@ -6,6 +6,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const EcosystemMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
+
   const [activeSideBar, setActiveSideBar] = useState(data?.ecosystemMenu[0]);
   return (
     <div className="grid grid-cols-24 ">
@@ -48,9 +49,11 @@ const EcosystemMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
               {activeSideBar?.item?.description}
             </p>
             <div className="mt-4">
-              <Button size="lg" arrow={true}>
-                {activeSideBar.item?.buttontext}
-              </Button>
+              <Link href={activeSideBar.item?.link}>
+                <Button size="lg" arrow={true}>
+                  {activeSideBar.item?.buttontext}
+                </Button>
+              </Link>
             </div>
             <div className="mt-6 space-y-2 cursor-pointer ">
               {activeSideBar?.item?.child?.map((childItem, childIndex) => (
