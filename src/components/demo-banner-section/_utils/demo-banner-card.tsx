@@ -41,23 +41,23 @@ const DemoBannerCard = ({
               />
             )}
             {isFirst ? (
-              data.title && (
+              data?.title && (
                 <h1 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
-                  {data.title}
+                  {data?.title}
                 </h1>
               )
             ) : (
               <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
-                {data.title}
+                {data?.title}
               </h2>
             )}
-            {data.description && (
+            {data?.description && (
               <DangerousHtml
                 className="text-lg md:text-base text-white my-4  max-w-md"
                 html={data?.description}
               />
             )}
-            {data.buttonText && (
+            {data?.buttonText && (
               <ButtonLink
                 link={data?.link || "#"}
                 buttonProps={{
@@ -98,10 +98,10 @@ const DemoBannerCard = ({
           />
         ) : (
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            {data.title}
+            {data?.title}
           </h2>
         )}
-        {data.description && (
+        {data?.description && (
           <DangerousHtml
             className="text-base md:text-lg text-foreground leading-relaxed max-w-md"
             html={data?.description}
@@ -113,7 +113,7 @@ const DemoBannerCard = ({
             arrow
             className="variant:default px-6 md:px-8 py-6 md:py-8 text-xl md:text-2xl rounded-full"
           >
-            {data.buttonText}
+            {data?.buttonText}
           </Button>
         )}
       </div>

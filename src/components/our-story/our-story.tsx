@@ -8,7 +8,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
   const [activeYear, setActiveYear] = useState(2025);
   // const activeData = TIMELINE_DATA.find((d) => d.year === activeYear) || TIMELINE_DATA[TIMELINE_DATA.length - 1]
   return (
-    <div className="w-full px-2 md:px-0">
+    <section data-debug="about-us.our-story-list" className="w-full px-2 md:px-0">
       {/* Hero Section */}
       <div className="relative aspect-[627/500] md:aspect-[1443/696]">
         {/* Background Image with Overlay */}
@@ -36,7 +36,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
                 </h2>
               </div>{" "}
               {/* Content Area */}
-              <div className="flex-1 flex flex-col  gap-2 lg:gap-6 md:gap-8 h-full lg:justify-end ">
+              <div className="flex-1 flex flex-col overflow-hidden  gap-2 lg:gap-6 md:gap-8 h-full lg:justify-end ">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`active-content-${activeYear}`}
@@ -84,20 +84,18 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
                     {/* Year Marker */}
                     <div
                       className={`w-7 h-4 border border-primary rounded-full mb-4 transition-all duration-300 transform 
-                      ${
-                        activeYear === item.year
+                      ${activeYear === item.year
                           ? "bg-primary "
                           : "bg-slate-600 hover:bg-slate-500"
-                      }`}
+                        }`}
                     />
 
                     {/* Year Label */}
                     <span
-                      className={`text-xs md:text-sm transition-all text-white duration-300 ${
-                        activeYear === item.year
-                          ? "text-base md:text-lg"
-                          : "opacity-80"
-                      }`}
+                      className={`text-xs md:text-sm transition-all text-white duration-300 ${activeYear === item.year
+                        ? "text-base md:text-lg"
+                        : "opacity-80"
+                        }`}
                     >
                       {item.year}
                     </span>
@@ -108,7 +106,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
