@@ -18,7 +18,7 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
               </h3>
               {miniDescription && (
                 <div className="flex flex-row gap-4">
-                  <p className="text-foreground text-md leading-4xl z-10 ">
+                  <p className="text-foreground text-md leading-4xl z-10 whitespace-pre-wrap">
                     {miniDescription}
                   </p>
                 </div>
