@@ -8,8 +8,8 @@ const DemoWhyAttend = ({
 }) => {
   return (
     <section className="flex items-center justify-center min-h-screen bg-background container-md ">
-      <div className="">
-        <div className="rounded-3xl bg-light-gray px-8 py-12 md:px-12 md:py-16">
+      <div className="w-full">
+        <div className="rounded-3xl bg-light-gray px-8 py-12 md:px-12 md:py-16 w-full">
           {/* Header dividers and title */}
           <div className="flex items-center justify-center gap-8 mb-10">
             <div className="flex-1 h-1 bg-gray-400 lg:-ml-12 "></div>

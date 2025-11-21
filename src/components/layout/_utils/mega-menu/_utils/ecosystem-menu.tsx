@@ -2,6 +2,7 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const EcosystemMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
@@ -16,10 +17,11 @@ const EcosystemMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
               <div
                 key={`ecosystem-menu-${item?.id}`}
                 onClick={() => setActiveSideBar(item)}
-                className={`w-full group ${activeSideBar?.id === item?.id
+                className={`w-full group ${
+                  activeSideBar?.id === item?.id
                     ? "border-b-2 border-primary"
                     : "border-b-2 border-transparent hover:border-primary"
-                  }`}
+                }`}
               >
                 <h4 className="relative font-medium text-3xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
                   <span>{item?.menu}</span>
@@ -50,15 +52,20 @@ const EcosystemMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
                 {activeSideBar.item?.buttontext}
               </Button>
             </div>
-            <div className="mt-6 space-y-2 ">
+            <div className="mt-6 space-y-2 cursor-pointer ">
               {activeSideBar?.item?.child?.map((childItem, childIndex) => (
                 <div key={`ecosystem-menu-${childIndex}`}>
-                  <span
-                    className={` ${childItem.type === "Dark" ? "text-black" : " text-primary"
+                  <Link href={childItem?.href?.slug || "#"}>
+                    <span
+                      className={` ${
+                        childItem.type === "Dark"
+                          ? "text-black "
+                          : " text-primary "
                       }`}
-                  >
-                    {childItem?.title}
-                  </span>
+                    >
+                      {childItem?.title}
+                    </span>
+                  </Link>
                   <div className="my-2 flex flex-wrap">
                     {childItem?.description?.map((item, index) => (
                       <p

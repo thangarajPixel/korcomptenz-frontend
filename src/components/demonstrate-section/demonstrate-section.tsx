@@ -26,17 +26,19 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
               {data?.description}
             </p>
           )}
-          <ButtonLink
-            link={data?.link || "#"}
-            buttonProps={{
-              size: "xl",
-              arrow: true,
-              className:
-                "hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full ",
-            }}
-          >
-            {data?.butttonText}
-          </ButtonLink>
+          {data?.butttonText && (
+            <ButtonLink
+              link={data?.link || "#"}
+              buttonProps={{
+                size: "xl",
+                arrow: true,
+                className:
+                  "hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full ",
+              }}
+            >
+              {data?.butttonText}
+            </ButtonLink>
+          )}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:p-10 ">
           {data?.list?.map((card, index) => {

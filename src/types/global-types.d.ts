@@ -197,6 +197,9 @@ type EcosystemMenuType = {
       title: string;
       description: { description: string }[];
       type?: string;
+      href: {
+        slug: string;
+      };
     }[];
   };
 };

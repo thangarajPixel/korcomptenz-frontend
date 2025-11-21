@@ -23,6 +23,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
           <div className="flex flex-col lg:flex-row justify-between gap-6 p-6 lg:p-0">
             <div className="hidden md:block rounded-3xl overflow-hidden w-full lg:w-1/2">
               <KorcomptenzImage
+                src={sapSectionData?.imageSection?.image1?.image}
                 width={400}
                 height={300}
                 className="w-full h-auto object-cover"
