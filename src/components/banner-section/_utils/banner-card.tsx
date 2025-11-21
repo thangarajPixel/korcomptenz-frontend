@@ -24,7 +24,7 @@ const BannerCard = ({
           height={800}
           className="w-full h-full object-cover rounded-4xl "
         />
-        <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0)_100%)] z-[5] rounded-4xl" />
+        <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-[5] rounded-4xl" />
         {data?.logo ? (
           <div className=" absolute top-30 left-10 p-4 md:p-8 z-10 w-full h-full flex flex-col gap-6 justify-center items-start">
             <KorcomptenzImage

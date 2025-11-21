@@ -1,5 +1,6 @@
 "use client";
 
+import KorcomptenzImage from "@/components/korcomptenz-image";
 import {
   Carousel,
   CarouselContent,
@@ -8,6 +9,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import { VideoPopup } from "@/components/video-popup";
+import { cn } from "@/lib/utils";
 import React from "react";
 
 const MasonryGallery = ({ data }: { data: MasonryGallerySectionType }) => {
@@ -20,7 +22,7 @@ const MasonryGallery = ({ data }: { data: MasonryGallerySectionType }) => {
   });
 
   return (
-    <div>
+    <React.Fragment >
       <Carousel className="w-full mb-5">
         <div className="flex mb-5  justify-between w-full">
           <div />
@@ -50,17 +52,20 @@ const MasonryGallery = ({ data }: { data: MasonryGallerySectionType }) => {
               {value?.column?.map((item) => (
                 <div
                   key={`item-${item?.id}`}
-                  onClick={() =>
-                    setIsVideoOpen({
+                  className={cn(item?.isVideo && "cursor-pointer")}
+                  onClick={() => {
+                    item?.isVideo && setIsVideoOpen({
                       open: true,
                       link: item?.videoLink || null,
                     })
                   }
+                  }
                 >
-                  <img
-                    className="h-auto max-w-full  object-cover object-center"
-                    src={item?.image?.url}
-                    alt="gallery-photo"
+                  <KorcomptenzImage
+                    src={item?.image}
+                    className="h-auto max-w-full object-cover object-center"
+                    width={1000}
+                    height={1000}
                   />
                 </div>
               ))}
@@ -77,7 +82,7 @@ const MasonryGallery = ({ data }: { data: MasonryGallerySectionType }) => {
           videoSrc={isVideoOpen.link || ""}
         />
       )}
-    </div>
+    </React.Fragment>
   );
 };
 

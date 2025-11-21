@@ -189,6 +189,7 @@ type LightSliderType = {
 type DarkSliderType = {
   heading: string;
   descripition: string;
+  isSwap: boolean;
   slides: [
     {
       id: number;

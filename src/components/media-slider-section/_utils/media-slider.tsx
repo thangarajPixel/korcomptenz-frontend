@@ -101,13 +101,13 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
                   <button
                     key={slide.id}
                     onClick={() => onThumbClick(index)}
-                    className={`flex-[0_0_40%] md:flex-[0_0_22%] min-w-0 rounded-2xl overflow-hidden transition-all duration-200  `}
+                    className={`flex-[0_0_40%] cursor-pointer  rounded-4xl md:flex-[0_0_22%] min-w-0 rounded-2xl overflow-hidden transition-all duration-200  `}
                   >
                     <KorcomptenzImage
                       src={slide.image}
                       width={slide?.image?.width || 200}
                       height={slide?.image?.height || 200}
-                      className="w-full h-full ml-5 "
+                      className="w-full h-full ml-5 rounded-4xl"
                     />
                   </button>
                 ))}

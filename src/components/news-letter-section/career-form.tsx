@@ -58,7 +58,7 @@ const CareerForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
-      <div className="grid gap-y-8">
+      <div className="grid gap-y-5">
         {/* Name + Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Input
@@ -77,9 +77,6 @@ const CareerForm = () => {
 
         {/* Mobile + Phone + Department */}
         <div className="grid gap-4 sm:grid-cols-2 lg:flex">
-          {/* Mobile */}
-
-          {/* Phone Number */}
           <div className="w-full lg:w-[50%]">
             <Input
               control={control}
@@ -90,7 +87,7 @@ const CareerForm = () => {
           </div>
 
           {/* Department */}
-          <div className="w-full sm:col-span-2 ">
+          <div className="size-full sm:col-span-2 ">
             <ComboboxField
               control={control}
               name="department"
@@ -124,12 +121,12 @@ const CareerForm = () => {
             <span className="text-black text-sm truncate">
               {fileName || "Resume (below 10MB, PDF file) *"}
             </span>
-            <Upload className="text-gray-600 w-5 h-5" />
+            <Upload className="text-gray-600 size-5" />
           </div>
         </div>
 
         {/* Submit button */}
-        <div className="pt-4">
+        <div className="mt-3">
           <Button
             size="xl"
             variant="outline"

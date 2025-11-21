@@ -53,7 +53,7 @@ const DemoBannerCard = ({
             )}
             {data.description && (
               <DangerousHtml
-                className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
+                className="text-lg md:text-base text-white my-4  max-w-md"
                 html={data?.description}
               />
             )}
@@ -101,9 +101,12 @@ const DemoBannerCard = ({
             {data.title}
           </h2>
         )}
-        <p className="text-base md:text-lg text-foreground leading-relaxed max-w-md">
-          {data.description}
-        </p>
+        {data.description && (
+          <DangerousHtml
+            className="text-base md:text-lg text-foreground leading-relaxed max-w-md"
+            html={data?.description}
+          />
+        )}
         {data?.buttonText && (
           <Button
             size="lg"
