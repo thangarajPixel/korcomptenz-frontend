@@ -154,6 +154,7 @@ type BannerSectionType = {
 type SapSectionType = {
   heading: string;
   description: string;
+  image3: ImageType;
   imageSection: {
     image1: { image: ImageType };
     image2: { image: ImageType };
