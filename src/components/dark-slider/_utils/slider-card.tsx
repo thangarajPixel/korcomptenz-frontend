@@ -17,7 +17,7 @@ interface Props {
 const SliderCard: React.FC<Props> = ({ slide }) => {
   return (
     <div className="flex-shrink-0 w-full h-full">
-      <div className="bg-foreground rounded-3xl p-8 min-h-[400px] md:min-h-[476px] h-full w-full flex flex-col justify-between">
+      <div className="bg-foreground rounded-3xl p-8 h-full w-full flex flex-col justify-between">
         <div className="flex flex-col gap-2 md:gap-5">
           <div className="flex justify-end gap-2">
             <KorcomptenzImage

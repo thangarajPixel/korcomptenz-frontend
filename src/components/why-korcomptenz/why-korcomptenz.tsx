@@ -6,7 +6,12 @@ import { DangerousHtml } from "../ui/dangerous-html";
 
 export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
   return (
-    <section data-debug="page-componets.why-we-are" className="container-md">
+    <section
+      data-debug="page-componets.why-we-are"
+      className={`container-md ${
+        data?.isBgGray ? "bg-gray-100 p-10 rounded-3xl" : ""
+      }`}
+    >
       {/* Header */}
       <div className="text-center mb-16">
         <h5 className="text-5xl md:text-6xl font-semibold text-foreground mb-2">
@@ -18,9 +23,17 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
       </div>
 
       {/* Cards Grid */}
-      <div className={cn("grid grid-cols-2 md:grid-cols-5  gap-5 ", data.isPerRowFive ? "md:grid-cols-5" : "md:grid-cols-3")}>
+      <div
+        className={cn(
+          "grid grid-cols-2 md:grid-cols-5  gap-5 ",
+          data.isPerRowFive ? "md:grid-cols-5" : "md:grid-cols-3"
+        )}
+      >
         {data.list.map((card) => (
-          <div className="hover:bg-light-gray rounded-2xl p-5 space-y-3" key={`${card?.id}-${card?.title}`}>
+          <div
+            className="hover:bg-light-gray rounded-2xl p-5 space-y-3"
+            key={`${card?.id}-${card?.title}`}
+          >
             {/* Icon */}
             <div>
               <KorcomptenzImage

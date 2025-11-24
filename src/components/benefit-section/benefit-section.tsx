@@ -1,5 +1,6 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
+import { DangerousHtml } from "../ui/dangerous-html";
 
 const BenefitSection = ({
   benefitData,
@@ -44,9 +45,10 @@ const BenefitSection = ({
                       <p className="text-black text-xl">{card?.title}</p>
                     )}
                     {card?.description && (
-                      <p className="text-foreground text-lg">
-                        {card?.description}
-                      </p>
+                      <DangerousHtml
+                        html={card?.description}
+                        className="text-foreground text-lg"
+                      />
                     )}
                   </div>
                 </div>

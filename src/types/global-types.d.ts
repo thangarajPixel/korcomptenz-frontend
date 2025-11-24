@@ -193,6 +193,7 @@ type EcosystemMenuType = {
     description: string;
     image: ImageType;
     buttontext: string;
+    link: string;
     child: {
       title: string;
       description: { description: string }[];
