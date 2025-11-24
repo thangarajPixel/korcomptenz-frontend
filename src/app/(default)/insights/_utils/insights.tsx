@@ -1,8 +1,6 @@
 import React from "react";
 import InsightsSuccessList from "./insights-success-list";
-import InsightsPartnership from "./insights-partnership";
-import InsightsCustomer from "./insights-customer";
-import InsightsTestimonial from "./insights-testimonial";
+
 
 
 const Insights = async ({
@@ -21,9 +19,7 @@ const Insights = async ({
         initialData={initialData}
         search={search}
       />
-      <InsightsPartnership data={data?.partnerSection} />
-      <InsightsCustomer data={data?.customerSection} />
-      <InsightsTestimonial data={data?.testimonal} />
+    
     </div>
   );
 };
