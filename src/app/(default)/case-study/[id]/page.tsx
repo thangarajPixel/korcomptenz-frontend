@@ -5,7 +5,7 @@ import { getCaseStudyPage, getCaseStudyService } from "@/services";
 type Props = {
   params: Promise<{ id: string }>;
 };
-
+export const dynamic = "force-dynamic";
 const getCaseStudySingleCache = cache(getCaseStudyService);
 
 export async function generateMetadata({
