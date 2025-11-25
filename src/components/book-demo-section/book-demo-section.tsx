@@ -63,7 +63,7 @@ const BookDemoSection = ({
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)}>
-      <div className="grid rounded-4xl shadow-xl p-10 gap-y-8 w-3/4">
+      <div className="grid rounded-4xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-10 gap-y-8 w-3/4">
         <h3 className="text-5xl font-semibold text-center text-foreground">
           {essential?.title || "Book a Demo"}
         </h3>

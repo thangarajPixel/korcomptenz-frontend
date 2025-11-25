@@ -119,7 +119,7 @@ const GlobalPage = (props: Props) => {
         return (
           <DemoBannerSection
             key={`banner-${item?.__component}-${item?.id}`}
-            BannerSectionData={item?.list}
+            item={item}
           />
         );
       case "page-componets.sap-section-data":
