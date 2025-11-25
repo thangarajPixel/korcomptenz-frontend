@@ -30,10 +30,10 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
               />
             </div>
             {/* Business Meeting Image 2 */}
-            <div className="flex flex-col gap-10 w-full lg:w-1/2">
-              <div className="rounded-3xl p-6 text-white flex items-center">
+            <div className="flex flex-col gap-10 w-full lg:w-1/2 ">
+              <div className="bg-secondary rounded-3xl p-6 text-white flex items-center">
                 {sapSectionData?.card ? (
-                  <div className="flex flex-row gap-4 bg-secondary">
+                  <div className="flex flex-row gap-4 bg-secondary ">
                     <div className="text-6xl md:text-8xl font-bold mb-2">
                       {sapSectionData?.card?.value}
                     </div>

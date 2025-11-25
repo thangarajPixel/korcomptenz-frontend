@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Button } from "../ui/button";
-
 import { Input } from "../ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -68,7 +67,7 @@ const BookDemoSection = ({
         <h3 className="text-5xl font-semibold text-center text-foreground">
           {essential?.title || "Book a Demo"}
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-x-2 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 ">
           <Input
             control={control}
             name="name"
@@ -89,7 +88,7 @@ const BookDemoSection = ({
           <Input
             control={control}
             name="email"
-            label={essential?.emailLabel || "Email ID"}
+            label={essential?.emailLabel || "Email"}
             required
             className="border-2 p-2 rounded-md text-foreground"
           />
@@ -99,7 +98,7 @@ const BookDemoSection = ({
           <Button
             size={"lg"}
             variant={"secondary"}
-            className="rounded-sm"
+            className="rounded-2xl border-2 border-secondary hover:border-bg-secondary hover:bg-white hover:text-secondary"
             arrow
             isLoading={isSubmitting}
             type="submit"
