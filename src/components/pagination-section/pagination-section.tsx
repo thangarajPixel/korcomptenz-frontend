@@ -108,7 +108,7 @@ const PaginationSection = ({
   };
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="container flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
       <div>
         <Pagination>
           <PaginationContent>
@@ -193,9 +193,11 @@ const PaginationSection = ({
               <DropdownMenuItem
                 key={`pagination-dropdown-${num}`}
                 onClick={() => handleItemsPerPageChange(num)}
-                className={cn(`cursor-pointer`,
-                  pagination?.pageSize === num
-                  && "bg-gray-100 text-muted font-normal")}
+                className={cn(
+                  `cursor-pointer`,
+                  pagination?.pageSize === num &&
+                    "bg-gray-100 text-muted font-normal"
+                )}
               >
                 {num}
               </DropdownMenuItem>

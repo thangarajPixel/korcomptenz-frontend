@@ -12,7 +12,7 @@ import { useParams } from "next/navigation";
 import InsightsSuccessBanner from "./insights-success-banner";
 import { CaseStudyCardSkeleton } from "../../client-success/_utils/case-study-skeleton";
 import { InsightsSuccessFilter } from "./insights-success-filter";
-
+import InsightNavbar from "./insight-navbar";
 
 const InsightsSuccessList = ({
   data: { filterLabel, popularFilter, banner },
@@ -55,13 +55,16 @@ const InsightsSuccessList = ({
     },
   });
 
-  const handleSearch = React.useCallback((term: string) => {
-    setSearchTerm(term);
-    setPagination((prev) => ({
-      ...prev,
-      page: 1,
-    }));
-  }, [pagination]);
+  const handleSearch = React.useCallback(
+    (term: string) => {
+      setSearchTerm(term);
+      setPagination((prev) => ({
+        ...prev,
+        page: 1,
+      }));
+    },
+    [pagination]
+  );
 
   const handleFilterChange = React.useCallback(
     (filters: { [key: string]: string[] }) => {
@@ -80,21 +83,27 @@ const InsightsSuccessList = ({
     [filter]
   );
 
-  const handlePageChange = React.useCallback((page: number) => {
-    window.scrollTo({ top: 750, behavior: "smooth" });
-    setPagination((prev) => ({
-      ...prev,
-      page: page,
-    }));
-  }, [pagination]);
+  const handlePageChange = React.useCallback(
+    (page: number) => {
+      window.scrollTo({ top: 750, behavior: "smooth" });
+      setPagination((prev) => ({
+        ...prev,
+        page: page,
+      }));
+    },
+    [pagination]
+  );
 
-  const handleItemsPerPageChange = React.useCallback((value: number) => {
-    setPagination((prev) => ({
-      ...prev,
-      pageSize: value,
-      page: 1,
-    }));
-  }, [pagination]);
+  const handleItemsPerPageChange = React.useCallback(
+    (value: number) => {
+      setPagination((prev) => ({
+        ...prev,
+        pageSize: value,
+        page: 1,
+      }));
+    },
+    [pagination]
+  );
 
   return (
     <React.Fragment>
@@ -104,6 +113,7 @@ const InsightsSuccessList = ({
         handleFilterChange={handleFilterChange}
         onSearch={handleSearch}
       />
+      <InsightNavbar />
       <div className="container-lg">
         <InsightsSuccessFilter
           filterLabel={filterLabel}
@@ -112,10 +122,11 @@ const InsightsSuccessList = ({
           onSortChange={setSort}
         />
         <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
-          {data?.sponsor && <div className="col-span-12 md:col-span-6 lg:col-span-4">
-            <StickyTitleCard data={data?.sponsor?.sponser} />
-          </div>
-          }
+          {data?.sponsor && (
+            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+              <StickyTitleCard data={data?.sponsor?.sponser} />
+            </div>
+          )}
 
           {isLoading ? (
             Array.from({ length: 5 }).map((_, i) => (
