@@ -33,17 +33,20 @@ export default function InsightsSection({
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.4, delay: 0.05 }}
           >
-            <ButtonLink
-              link={insights?.buttonLink || "#"}
-              buttonProps={{
-                size: "xl",
-                arrow: true,
-                className:
-                  "variant:default px-8 py-2 text-4xl rounded-full inline-flex",
-              }}
-            >
-              {insights?.buttontext}
-            </ButtonLink>
+            {" "}
+            {insights?.buttontext && (
+              <ButtonLink
+                link={insights?.buttonLink || "#"}
+                buttonProps={{
+                  size: "xl",
+                  arrow: true,
+                  className:
+                    "variant:default px-8 py-2 text-4xl rounded-full inline-flex",
+                }}
+              >
+                {insights?.buttontext}
+              </ButtonLink>
+            )}
           </motion.div>
           <motion.div
             className="hidden w-full grid-cols-3 gap-6 md:grid rounded-4xl"
@@ -70,17 +73,19 @@ export default function InsightsSection({
             transition={{ duration: 0.4, delay: 0.05 }}
             className="container-md flex justify-start md:hidden w-full"
           >
-            <ButtonLink
-              link={insights?.buttonLink || "#"}
-              buttonProps={{
-                size: "lg",
-                arrow: true,
-                className:
-                  "variant:default px-8 py-2 text-4xl rounded-full inline-flex",
-              }}
-            >
-              {insights?.buttontext}
-            </ButtonLink>
+            {insights?.buttontext && (
+              <ButtonLink
+                link={insights?.buttonLink || "#"}
+                buttonProps={{
+                  size: "lg",
+                  arrow: true,
+                  className:
+                    "variant:default px-8 py-2 text-4xl rounded-full inline-flex",
+                }}
+              >
+                {insights?.buttontext}
+              </ButtonLink>
+            )}
           </motion.div>
         </div>
       </div>
