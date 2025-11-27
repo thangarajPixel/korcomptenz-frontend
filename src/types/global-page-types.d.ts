@@ -241,6 +241,7 @@ type DomainSectionType = {
 };
 type BenefitSectionType = {
   title: string;
+  description: string;
   image: ImageType;
   cards: {
     id: number;
