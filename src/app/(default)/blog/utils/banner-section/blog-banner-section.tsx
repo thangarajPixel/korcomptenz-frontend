@@ -1,8 +1,9 @@
 import React from "react";
-import CardSwiper from "../ui/card-swiper";
-import BannerCard from "./_utils/banner-card";
 
-const BannerSection = ({
+import CardSwiper from "@/components/ui/card-swiper";
+import BlogBannerCard from "./_utils/blog-banner-card";
+
+const BlogBannerSection = ({
   BannerSectionData,
 }: {
   BannerSectionData: BannerSectionType[];
@@ -13,11 +14,11 @@ const BannerSection = ({
       data-debug={"page-componets.banner-section-list"}
     >
       {BannerSectionData?.length < 2 ? (
-        <BannerCard data={BannerSectionData[0]} isFirst />
+        <BlogBannerCard data={BannerSectionData[0]} isFirst />
       ) : (
         <CardSwiper>
           {BannerSectionData?.map((data, index) => (
-            <BannerCard
+            <BlogBannerCard
               key={`banner-card-${data?.id}`}
               data={data}
               className="embla__custom_slide"
@@ -30,4 +31,4 @@ const BannerSection = ({
   );
 };
 
-export default BannerSection;
+export default BlogBannerSection;
