@@ -10,14 +10,14 @@ import {
   LinkedInIcon,
   TwitterIcon,
   WhatAppIcon,
-} from "../../../../../../public/svg/all-svg";
+} from "../../../../../../../public/svg/all-svg";
 
-type SocialLink = {
+interface SocialLink {
   id: string;
   name: string;
   buildUrl: (pageUrl: string) => string;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
-};
+}
 
 const defaultSocialLinks: SocialLink[] = [
   {
@@ -85,7 +85,7 @@ export function ShareButton() {
       <Button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Share"
-        className="flex items-center h-16 w-32 justify-center p-3 bg-white border-2 border-teal-500 text-teal-600 rounded-full hover:bg-teal-50 transition-colors duration-200"
+        className="flex items-center  w-32 justify-center p-3 bg-white border-2 border-secondary text-secondary rounded-xl  transition-colors duration-200"
       >
         Share <Share2 size={20} className="ms-2" />
       </Button>
@@ -93,7 +93,7 @@ export function ShareButton() {
       {/* Social Menu */}
       {isOpen && (
         <>
-          <div className="absolute top-full mt-3 left-0 p-3 z-50 min-w-max">
+          <div className="absolute top-full  mt-3 -left-25 p-3 z-50 min-w-max">
             <div className="flex gap-3">
               {defaultSocialLinks.map((link) => (
                 <Link
@@ -104,7 +104,7 @@ export function ShareButton() {
                   title={link.name}
                   className="flex items-center justify-center w-10 h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
                 >
-                  <link.icon />
+                  <link.icon color="black" />
                 </Link>
               ))}
 
@@ -115,11 +115,7 @@ export function ShareButton() {
                 title="Copy link"
                 aria-label="Copy link"
               >
-                <LinkIcon
-                  size={20}
-                  strokeWidth={3}
-                  className={"text-primary"}
-                />
+                <LinkIcon size={20} strokeWidth={3} className={"text-black"} />
               </button>
             </div>
 

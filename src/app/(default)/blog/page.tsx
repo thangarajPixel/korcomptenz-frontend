@@ -1,5 +1,8 @@
 import React from "react";
 import BlogBannerSection from "./utils/banner-section/blog-banner-section";
+import BlogAuthor from "./utils/blog-author";
+import DocumentationLayout from "./utils/blog-content/utils/blog-content";
+import BuildDemo from "./utils/blog-consultation";
 
 const data = {
   id: 1034,
@@ -65,8 +68,11 @@ const data = {
 
 export default async function careerPage() {
   return (
-    <div className="">
+    <div className="gap-10">
       <BlogBannerSection BannerSectionData={data?.list as never} />
+      <BlogAuthor />
+      <DocumentationLayout />
+      <BuildDemo />
     </div>
   );
 }
