@@ -15,7 +15,7 @@ const TechCard = ({
   className?: string;
 }) => {
   return (
-    <section className={cn(className, "p-4 flex flex-col justify-center")}>
+    <section className={cn(className, "p-4 flex flex-col ")}>
       <div className="flex flex-col gap-2">
         <h3 className="text-2xl lg:text-6xl font-normal text-background">
           {data?.title}
@@ -26,7 +26,7 @@ const TechCard = ({
         {data?.buttonText && (
           <Button
             arrow
-            className="bg-secondary text-white flex justify-start items-center -ms-4"
+            className="bg-secondary hover:bg-secondary/80 hover:text-white hover:border-secondary text-white flex justify-start items-center -ms-4"
           >
             {data?.buttonText}
           </Button>
