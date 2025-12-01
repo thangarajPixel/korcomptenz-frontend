@@ -88,6 +88,7 @@ type BusinessOutcomeFilterType = {
 
 type FilterListType = {
   label: string;
+  categoryAllLabel?: string;
   id: string;
   image: ImageType;
   childTitle: string;
@@ -102,6 +103,14 @@ type FilterDataType = {
   region: FilterListType[];
   service: FilterListType[];
   technology: FilterListType[];
+};
+
+type InsightsFilterDataType = {
+  category: FilterListType[];
+  filterData: {
+    service: FilterListType[];
+    technology: FilterListType[];
+  };
 };
 
 type InsightsSectionType = {
@@ -909,6 +918,7 @@ type CaseStudiesPageType = {
   sponser: SponsorSectionType;
   testimonal: TestimonialType[];
   popularFilter: PopularFilterType;
+  categoryAllLabel: string;
 };
 type CaseStudyPageType = {
   id: string;
