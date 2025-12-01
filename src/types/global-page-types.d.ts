@@ -156,6 +156,13 @@ type SapSectionType = {
   heading: string;
   description: string;
   image3: ImageType;
+  isItemOnly: Boolean;
+  itemDescription: string;
+  item: {
+    id: string;
+    content: string;
+    value: string;
+  }[];
   imageSection: {
     image1: { image: ImageType };
     image2: { image: ImageType };
@@ -267,6 +274,7 @@ type DemonstrationSectionType = {
 
   list: {
     id: string;
+    link: string;
     type: string;
     image: ImageType;
     title: string;
@@ -642,6 +650,13 @@ type BannerItemType = {
   list: BannerSectionType[];
 };
 
+type PricingSectionType = {
+  id: number;
+  title: string;
+  subtitle: string;
+  plans: PricingPlanType[];
+};
+
 type ComponentPropsMap = {
   SlidingSection: {
     id: string;
@@ -851,6 +866,10 @@ type ComponentPropsMap = {
   DemoBookDemoForm: DemoBuildConnectSectionType & {
     id: string;
     __component: "demo-page.build-demo";
+  };
+  PricingSection: PricingSectionType & {
+    id: string;
+    __component: "page-componets.pricing-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

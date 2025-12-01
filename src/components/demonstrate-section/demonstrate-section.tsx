@@ -44,7 +44,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
           {data?.list?.map((card, index) => {
             return (
               <Link
-                href={card?.buttonLink || "#"}
+                href={card?.link || "#"}
                 key={`card-item-demo-${card?.id}`}
                 className={`bg-none flex flex-col group gap-4 ${
                   !((index + 1) % 2) ? "lg:mt-10" : ""
@@ -68,7 +68,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                   {card?.description}
                 </p>
                 {card?.buttonText && (
-                  <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors">
+                  <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-80 font-medium transition-colors cursor-pointer">
                     {card?.buttonText}
                     <ChevronRight className="w-4 h-4" />
                   </button>

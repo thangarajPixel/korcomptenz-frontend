@@ -1,4 +1,7 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { cn } from "@/lib/utils";
+
+import { ChevronRight } from "lucide-react";
 
 export default function ClientPartnership({
   data,
@@ -12,20 +15,45 @@ export default function ClientPartnership({
       </h5>
 
       {/* Partner Badges Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
+      <div
+        className={cn(
+          "grid grid-cols-2 md:grid-cols-5  gap-5 ",
+          data?.isPerRowFive ? "md:grid-cols-5" : "md:grid-cols-3"
+        )}
+      >
         {data?.partner?.map((badge) => (
-          <div key={badge.id} className="flex flex-col gap-4">
-            <div className=" relative flex-shrink-0">
-              <KorcomptenzImage
-                src={badge.logo}
-                width={badge?.logo?.width}
-                height={badge?.logo?.height}
-                className="object-contain object-left"
-              />
+          <div
+            key={badge.id}
+            className={cn(
+              "flex flex-col gap-4",
+              data?.isSingleLine
+                ? "flex-row bg-gray-200 py-5 px-6 rounded-3xl justify-between  space-x-10"
+                : "flex-col"
+            )}
+          >
+            <div className="flex">
+              <div className=" relative flex-shrink-0">
+                <KorcomptenzImage
+                  src={badge.logo}
+                  width={badge?.logo?.width}
+                  height={badge?.logo?.height}
+                  className="object-contain object-left"
+                />
+              </div>
+              <p
+                className={cn(
+                  "text-lg leading-relaxed text-foreground font-normal",
+                  data?.isSingleLine && "text-2xl font-bold ml-5"
+                )}
+              >
+                {badge.name}
+              </p>
             </div>
-            <p className="text-lg leading-relaxed text-foreground font-normal">
-              {badge.name}
-            </p>
+            {data?.isSingleLine && (
+              <div className="bg-white rounded-full w-8 h-8 flex items-center justify-center">
+                <ChevronRight className="w-5 h-5" />
+              </div>
+            )}
           </div>
         ))}
       </div>

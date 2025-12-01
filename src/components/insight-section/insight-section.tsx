@@ -11,6 +11,7 @@ export default function InsightsSection({
 }: {
   insights: InsightsSectionType;
 }) {
+ 
   return (
     <section data-debug={"page-componets.insights-section"}>
       {insights?.title && (
