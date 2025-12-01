@@ -6,7 +6,6 @@ import { CaseStudyForm } from "./case-study-contact";
 import { CaseStudyCard } from "@/components/case-study-section";
 import { cn } from "@/lib/utils";
 import ButtonLink from "@/components/ui/button-link";
-import PricingSection from "@/components/pricing-section";
 
 const CaseStudy = ({
   data,
@@ -56,7 +55,6 @@ const CaseStudy = ({
       </div>
 
       <CaseStudyForm data={data?.caseStudy} essential={essential} />
-      <PricingSection />
     </React.Fragment>
   );
 };

@@ -59,6 +59,7 @@ type CaseStudyStickyCardsType = {
   list: {
     id: string;
     heroSection: {
+      link: string;
       id: string;
       title: string;
       description: string;
@@ -276,6 +277,7 @@ type DemonstrationSectionType = {
     id: string;
     link: string;
     type: string;
+    buttonLink: ButtonType;
     image: ImageType;
     title: string;
     description: string;

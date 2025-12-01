@@ -9,15 +9,15 @@ export function PricingCard({ plan }: { plan: PricingPlanType }) {
         "rounded-3xl p-8 flex flex-col items-center justify-center gap-6 transition-all bg-gray-200 hover:bg-gray-300"
       }
     >
-      <h3 className="text-center text-xl font-semibold text-slate-800">
+      <h3 className="text-center text-5xl font-semibold text-slate-800 leading-tight  max-w-sm mx-auto">
         {plan.name}
       </h3>
 
       <div className="text-center">
-        <div className="text-5xl font-bold text-primary mb-2">
+        <div className="text-6xl font-bold text-primary mb-2">
           ${plan.price}
         </div>
-        <p className="text-sm text-emerald-700 font-medium">{plan.billing}</p>
+        <p className="text-sm text-primary font-medium">{plan.billing}</p>
       </div>
 
       <p className="text-center text-slate-700 text-sm leading-relaxed max-w-xs">
@@ -26,8 +26,8 @@ export function PricingCard({ plan }: { plan: PricingPlanType }) {
       <ButtonLink
         link={plan?.button?.link || "#"}
         buttonProps={{
-          variant: "ghost",
-          className: "text-primary hover:text-primary/80",
+          variant: "default",
+          className: "sm:h-16 h-12  px-8 has-[>svg]:px-4",
           arrow: true,
         }}
       >
