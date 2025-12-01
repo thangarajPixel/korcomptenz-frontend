@@ -241,6 +241,7 @@ type DomainSectionType = {
 };
 type BenefitSectionType = {
   title: string;
+  description: string;
   image: ImageType;
   cards: {
     id: number;
@@ -618,6 +619,29 @@ type DemoWhyAttendSectionType = {
   list: DemoWhyAttendCardType[];
 };
 
+type DemoBannerDetailsType = {
+  buttonText: string;
+  buttonLink: string;
+  data: string;
+  id: string;
+  title: string;
+  bannerInfo: {
+    id: string;
+    title: string;
+    details: {
+      icon: ImageType;
+      id: string;
+      info: string;
+      isDate: boolean;
+    }[];
+  };
+};
+type BannerItemType = {
+  demoDetails: DemoBannerDetailsType;
+
+  list: BannerSectionType[];
+};
+
 type ComponentPropsMap = {
   SlidingSection: {
     id: string;
@@ -654,10 +678,9 @@ type ComponentPropsMap = {
     __component: "page-componets.banner-section-list";
     list: BannerSectionType[];
   };
-  DemoBannerSection: {
+  DemoBannerSection: BannerItemType & {
     id: string;
     __component: "demo-page.demo-banner-list";
-    list: BannerSectionType[];
   };
 
   SapSection: SapSectionType & {

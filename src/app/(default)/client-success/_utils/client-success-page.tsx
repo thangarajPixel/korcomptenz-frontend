@@ -3,6 +3,7 @@ import { INITIAL_PAGINATION } from '@/utils/helper';
 import React, { cache } from 'react'
 import CaseStudies from './case-studies';
 
+export const dynamic = "force-dynamic";
 const getCaseStudiesPageCache = cache(getCaseStudiesPage);
 
 const ClientSuccessPage = async ({ slug }: { slug?: string }) => {
