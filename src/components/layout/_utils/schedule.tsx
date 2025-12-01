@@ -13,17 +13,23 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
           {/* Left content */}
           <div className="relative z-20 flex flex-col justify-around lg:ml-0">
             <div className="space-y-2">
-              <p className="text-2xl font-semibold text-custom-green-1">{scheduleCall?.topDescription}</p>
+              <p className="text-2xl font-semibold text-custom-green-1">
+                {scheduleCall?.topDescription}
+              </p>
               <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl font-bold text-custom-green-1 leading-tight whitespace-pre-wrap">
                 {scheduleCall?.title}
               </h2>
-              <p className="text-2xl font-semibold text-custom-green-1">{scheduleCall?.description}</p>
+              <p className="text-2xl font-semibold text-custom-green-1">
+                {scheduleCall?.description}
+              </p>
             </div>
-            <ButtonLink link={scheduleCall?.link || "#"}
+            <ButtonLink
+              link={scheduleCall?.link || "#"}
               buttonProps={{
                 size: "xl",
                 arrow: true,
-                className: "text-4xl hidden lg:inline-flex hover:bg-transparent"
+                className:
+                  "text-4xl hidden lg:inline-flex hover:bg-transparent mt-5",
               }}
             >
               {scheduleCall?.buttonText}
@@ -38,11 +44,13 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
               height={607}
             />
           </div>
-          <ButtonLink link={scheduleCall?.link || "#"}
+          <ButtonLink
+            link={scheduleCall?.link || "#"}
             buttonProps={{
               size: "xl",
               arrow: true,
-              className: "text-4xl py-3 lg:hidden hover:bg-transparent lg:mt-48"
+              className:
+                "text-4xl py-3 lg:hidden hover:bg-transparent lg:mt-48",
             }}
           >
             {scheduleCall?.buttonText}

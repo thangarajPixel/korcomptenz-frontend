@@ -114,9 +114,9 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
       </div>
       {position === "corner" && image && (
         <div className="relative lg:hidden ">
-          <div className="flex absolute -right-0 -bottom-0 justify-end items-end  ">
+          <div className="flex   justify-end items-end  ">
             <KorcomptenzImage
-              className="w-full object-cover p-0 h-28"
+              className=" object-cover p-0 w-40"
               width={image?.width}
               height={image?.height}
               src={image}

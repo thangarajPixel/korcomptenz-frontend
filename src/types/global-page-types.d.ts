@@ -59,6 +59,7 @@ type CaseStudyStickyCardsType = {
   list: {
     id: string;
     heroSection: {
+      link: string;
       id: string;
       title: string;
       description: string;
@@ -156,6 +157,13 @@ type SapSectionType = {
   heading: string;
   description: string;
   image3: ImageType;
+  isItemOnly: Boolean;
+  itemDescription: string;
+  item: {
+    id: string;
+    content: string;
+    value: string;
+  }[];
   imageSection: {
     image1: { image: ImageType };
     image2: { image: ImageType };
@@ -241,6 +249,7 @@ type DomainSectionType = {
 };
 type BenefitSectionType = {
   title: string;
+  description: string;
   image: ImageType;
   cards: {
     id: number;
@@ -266,7 +275,9 @@ type DemonstrationSectionType = {
 
   list: {
     id: string;
+    link: string;
     type: string;
+    buttonLink: ButtonType;
     image: ImageType;
     title: string;
     description: string;
@@ -618,6 +629,36 @@ type DemoWhyAttendSectionType = {
   list: DemoWhyAttendCardType[];
 };
 
+type DemoBannerDetailsType = {
+  buttonText: string;
+  buttonLink: string;
+  data: string;
+  id: string;
+  title: string;
+  bannerInfo: {
+    id: string;
+    title: string;
+    details: {
+      icon: ImageType;
+      id: string;
+      info: string;
+      isDate: boolean;
+    }[];
+  };
+};
+type BannerItemType = {
+  demoDetails: DemoBannerDetailsType;
+
+  list: BannerSectionType[];
+};
+
+type PricingSectionType = {
+  id: number;
+  title: string;
+  subtitle: string;
+  plans: PricingPlanType[];
+};
+
 type ComponentPropsMap = {
   SlidingSection: {
     id: string;
@@ -654,10 +695,9 @@ type ComponentPropsMap = {
     __component: "page-componets.banner-section-list";
     list: BannerSectionType[];
   };
-  DemoBannerSection: {
+  DemoBannerSection: BannerItemType & {
     id: string;
     __component: "demo-page.demo-banner-list";
-    list: BannerSectionType[];
   };
 
   SapSection: SapSectionType & {
@@ -828,6 +868,10 @@ type ComponentPropsMap = {
   DemoBookDemoForm: DemoBuildConnectSectionType & {
     id: string;
     __component: "demo-page.build-demo";
+  };
+  PricingSection: PricingSectionType & {
+    id: string;
+    __component: "page-componets.pricing-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
