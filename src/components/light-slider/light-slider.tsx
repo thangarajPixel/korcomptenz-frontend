@@ -5,6 +5,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
+import { DangerousHtml } from "../ui/dangerous-html";
 
 const LightSlider = ({ data }: { data: LightSliderType }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -112,9 +113,11 @@ const LightSlider = ({ data }: { data: LightSliderType }) => {
                         <h3 className="text-4xl mg:text-5xl font-semibold text-foreground">
                           {solution?.title}
                         </h3>
-                        <p className="text-custom-gray-9 text-md md:text-lg leading-relaxed break-words">
-                          {solution?.description}
-                        </p>
+                        <DangerousHtml
+                          html={solution?.description}
+                          className="text-custom-gray-9 text-md md:text-lg leading-relaxed"
+                        />
+
                         {solution?.buttonText && (
                           <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">
                             {solution?.buttonText}

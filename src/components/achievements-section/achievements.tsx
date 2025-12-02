@@ -23,14 +23,16 @@ const AchievementSection: React.FC<AchievementSectionProps> = ({ data }) => {
           return (
             <div
               key={`col-${colIndex}`}
-              className={`flex flex-col ${isSingle ? "justify-center" : "gap-4"
-                }`}
+              className={`flex flex-col ${
+                isSingle ? "justify-center" : "gap-4"
+              }`}
             >
               {col.column?.map((item, itemIndex) => (
                 <div
                   key={item.id || `item-${colIndex}-${itemIndex}`}
-                  className={`bg-[#F2F7F6] rounded-2xl flex items-center justify-center p-5 ${isSingle ? "h-[320px]" : "h-[150px]"
-                    }`}
+                  className={`bg-[#F2F7F6] rounded-2xl flex items-center justify-center p-5 ${
+                    isSingle ? "h-[320px]" : "h-[150px]"
+                  }`}
                 >
                   <KorcomptenzImage
                     src={item.image}

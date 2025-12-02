@@ -49,6 +49,7 @@ import DemoExperts from "@/app/(default)/live-demo/_utils/demo-experts";
 import DemoOpportunities from "@/app/(default)/live-demo/_utils/demo-opportunities";
 import DemoWhyAttend from "@/app/(default)/live-demo/_utils/demo-why-attend";
 import BuildDemo from "../build-connect/build-Demo";
+import PricingSection from "../pricing-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -56,7 +57,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-
+ 
   return data?.map((item) => {
     switch (item?.__component) {
       case "home.hero-section-one":
@@ -119,7 +120,7 @@ const GlobalPage = (props: Props) => {
         return (
           <DemoBannerSection
             key={`banner-${item?.__component}-${item?.id}`}
-            BannerSectionData={item?.list}
+            item={item}
           />
         );
       case "page-componets.sap-section-data":
@@ -409,6 +410,13 @@ const GlobalPage = (props: Props) => {
           <BuildDemo
             key={`build-demo-${item?.__component}-${item?.id}`}
             buildData={item}
+          />
+        );
+      case "page-componets.pricing-section":
+        return (
+          <PricingSection
+            key={`pricing-section-${item?.__component}-${item?.id}`}
+            data={item}
           />
         );
       default:

@@ -300,6 +300,8 @@ type PartnerType = {
 type PartnershipSectionType = {
   id: string;
   title: string;
+  isPerRowFive: boolean;
+  isSingleLine: boolean;
   partner: PartnerType[];
 };
 type DemoPartnershipSectionType = {
@@ -475,4 +477,13 @@ type OpportunitiesCardType = {
 type DemoWhyAttendCardType = {
   id: string;
   description: string;
+};
+
+type PricingPlanType = {
+  billing: string;
+  description: string;
+  id: string;
+  name: string;
+  price: number;
+  button: ButtonType;
 };

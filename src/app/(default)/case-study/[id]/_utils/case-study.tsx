@@ -7,10 +7,19 @@ import { CaseStudyCard } from "@/components/case-study-section";
 import { cn } from "@/lib/utils";
 import ButtonLink from "@/components/ui/button-link";
 
-const CaseStudy = ({ data, essential }: { data: CaseStudySingleData; essential: CaseStudyPageType }) => {
+const CaseStudy = ({
+  data,
+  essential,
+}: {
+  data: CaseStudySingleData;
+  essential: CaseStudyPageType;
+}) => {
   return (
     <React.Fragment>
-      <CaseStudyBanner data={data?.caseStudy?.heroSection} essential={essential} />
+      <CaseStudyBanner
+        data={data?.caseStudy?.heroSection}
+        essential={essential}
+      />
       <CaseStudyContent data={data?.caseStudy} />
       <ClientTestimonial data={data?.caseStudy?.testimonials} />
       <div className={cn("h-1 container-md my-20 bg-primary ")} />
@@ -19,8 +28,7 @@ const CaseStudy = ({ data, essential }: { data: CaseStudySingleData; essential: 
           id="insights-heading"
           className="text-pretty lg:text-7xl text-6xl font-semibold text-primary break-words md:text-7xl "
         >
-          {essential?.relatedCase?.title ||
-            "Explore more success stories"}
+          {essential?.relatedCase?.title || "Explore more success stories"}
         </h2>
         <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
           {data?.relatedCaseStudies?.length > 0 &&
@@ -34,11 +42,14 @@ const CaseStudy = ({ data, essential }: { data: CaseStudySingleData; essential: 
             ))}
         </div>
         <div className="flex justify-center">
-          <ButtonLink link="/client-success" buttonProps={{
-            size: "xl", arrow: true
-          }}>
-            {essential?.relatedCase?.buttonText ||
-              "View all case studies"}
+          <ButtonLink
+            link="/client-success"
+            buttonProps={{
+              size: "xl",
+              arrow: true,
+            }}
+          >
+            {essential?.relatedCase?.buttonText || "View all case studies"}
           </ButtonLink>
         </div>
       </div>

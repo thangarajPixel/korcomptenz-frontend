@@ -8,18 +8,22 @@ import { cn } from "@/lib/utils";
 const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
   return (
     <section
-      className={` grid grid-cols-1 lg:grid-cols-1 ${
+      className={` grid grid-cols-1 lg:grid-cols-1  ${
         gramData?.theme === "dark"
           ? "bg-custom-black "
           : gramData?.theme === "light"
           ? "bg-custom-gray-6 "
+          : gramData?.theme === "default"
+          ? "bg-white"
           : ""
       }`}
       data-debug="page-components.build-data"
     >
       <div
-        className={` space-y-3 container-md lg:p-5 ${
-          gramData?.theme === "default" ? "bg-custom-gray-6 rounded-2xl " : ""
+        className={` space-y-3 container-md p-2 ${
+          gramData?.theme === "default"
+            ? "bg-custom-gray-6 rounded-2xl py-5"
+            : ""
         }  `}
       >
         {gramData?.title && (
@@ -52,12 +56,12 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         )}
       </div>
       {gramData?.image && (
-        <div className="p-5 hidden lg:flex  items-center justify-center ">
+        <div className="p-5 hidden lg:flex items-center justify-center w-full h-full">
           <KorcomptenzImage
             src={gramData?.image}
             width={500}
             height={500}
-            className="w-auto h-auto  "
+            className="w-full h-full object-contain"
           />
         </div>
       )}

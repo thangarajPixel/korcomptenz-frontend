@@ -15,6 +15,9 @@ const BenefitSection = ({
       <h4 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 text-center w-full">
         {benefitData?.title}
       </h4>
+      <p className="text-2xl md:text-4xl font-normal text-foreground mb-6 text-center w-full">
+        {benefitData?.description}
+      </p>
       <div>
         <div className="flex flex-wrap lg:flex-nowrap lg:flex-row md:p-6 gap-10">
           <div className="lg:w-1/2 w-full">
