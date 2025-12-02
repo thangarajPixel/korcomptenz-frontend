@@ -185,7 +185,7 @@ export default function DocumentationLayout(data: InsightBlog) {
         {/* LEFT — PREVIOUS */}
         {data?.data?.previousInsight ? (
           <Link href={`/blog/${data?.data?.previousInsight?.slug}`}>
-            <div className="flex gap-2 text-start">
+            <div className="flex gap-2 items-center justify-end text-end">
               <ChevronLeft
                 size={20}
                 className="text-white bg-primary p-2 rounded-full w-12 h-12 flex items-center justify-center transition-all hover:bg-white hover:text-primary hover:border hover:border-primary"
