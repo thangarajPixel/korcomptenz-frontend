@@ -51,16 +51,16 @@ export function InsightNavbar({
                 "data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
               )}
             >
-              <span className="z-50 text-xs md:text-xl leading-normal">
-                <Link
-                  href={`/insights/#`}
-                  scroll={false}
-                  className="block m-0 p-0"
-                >
+              {" "}
+              <Link
+                href={`/insights/#`}
+                scroll={false}
+                className="block m-0 p-0"
+              >
+                <span className="z-50 text-xs md:text-xl leading-normal">
                   {categoryAllLabel}
-                </Link>
-              </span>
-
+                </span>{" "}
+              </Link>
               {value === categoryAllLabel && (
                 <motion.div
                   layoutId="active-pill"
@@ -85,15 +85,15 @@ export function InsightNavbar({
                 )}
               >
                 {" "}
-                <span className="z-50 text-xs md:text-xl leading-normal">
-                  <Link
-                    key={t?.label}
-                    href={`/insights/${t?.label}`}
-                    scroll={false}
-                  >
+                <Link
+                  key={t?.label}
+                  href={`/insights/${t?.label}`}
+                  scroll={false}
+                >
+                  <span className="z-50 text-xs md:text-xl leading-normal">
                     {t?.label}
-                  </Link>
-                </span>
+                  </span>
+                </Link>
                 {value === t?.label && (
                   <motion.div
                     layoutId="active-pill"

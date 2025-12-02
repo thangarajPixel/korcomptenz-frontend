@@ -17,7 +17,7 @@ export default function BlogContentShowcase({ data }: { data: InsightItem[] }) {
       image: item.heroSection.image,
       text: item.content || "",
       description: item.content || "",
-      buttonLink: `/insights/${item.slug}`,
+      buttonLink: `/blog/${item.slug}`,
       id: item.id,
     })),
   };
