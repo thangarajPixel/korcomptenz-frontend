@@ -15,7 +15,7 @@ interface WhyAttendSectionProps {
 const WhyAttendSection = ({ title, reasons, image }: WhyAttendSectionProps) => {
   return (
     <section className="py-16 bg-white">
-      <div className="border-2 border-[#00A3FF] overflow-hidden">
+      <div className="">
         <div className="grid md:grid-cols-2">
           {/* Left - Image */}
           <div className="relative h-64 md:h-auto min-h-[400px]">

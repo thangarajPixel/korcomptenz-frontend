@@ -7,6 +7,7 @@ import ExpertsSection from "../post-webinar/utils/experts-section/experts-sectio
 import ReserveSeatSection from "./utils/reserve-seat-section";
 import DemonstrateSection from "@/components/demonstrate-section";
 import GallerySection from "../post-webinar/utils/gallery-section/gallery-section";
+import type { title } from "process";
 
 const preWebinarHeroData = {
   title: "Right-Sized ERP: SAP or Microsoft D365 for Teams That Need to Scale Fast",
@@ -14,7 +15,8 @@ const preWebinarHeroData = {
   date: "2025-07-30", // Event date
   time: "11AM - 12 PM EST | 8AM - 9AM PST | 10AM - 11AM CST",
   registerLink: "#register",
-  backgroundImage: "/assets/tempory/header_banner.png",
+  backgroundImage: "/assets/tempory/image_preview.png", // Full background image
+  websitePreviewImage: "/assets/tempory/webinar_preview.png", // Website preview for card
   mobileBackgroundImage: "/assets/tempory/mobile_banner.png",
 };
 
@@ -77,7 +79,7 @@ const demonstrateData = {
       buttonText: "Dive Deeper",
       buttonLink: "/solutions/cloud-migration",
       image: {
-        url: "/assets/tempory/precision-manufacturing-cnc-machine.jpg",
+        url: "/assets/tempory/demon_1.png",
         alternativeText: "Cloud Migration",
         width: 500,
         height: 500,
@@ -92,7 +94,7 @@ const demonstrateData = {
       buttonText: "Dive Deeper",
       buttonLink: "/solutions/ai-automation",
       image: {
-        url: "/assets/tempory/precision-manufacturing-cnc-machine.jpg",
+        url: "/assets/tempory/demon_1.png",
         alternativeText: "AI & Automation",
         width: 500,
         height: 500,
@@ -107,7 +109,7 @@ const demonstrateData = {
       buttonText: "Dive Deeper",
       buttonLink: "/solutions/cybersecurity",
       image: {
-        url: "/assets/tempory/precision-manufacturing-cnc-machine.jpg",
+        url: "/assets/tempory/demon_1.png",
         alternativeText: "Cybersecurity",
         width: 500,
         height: 500,

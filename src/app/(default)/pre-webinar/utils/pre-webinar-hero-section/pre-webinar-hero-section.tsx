@@ -9,7 +9,8 @@ interface PreWebinarHeroSectionProps {
   date: string; // Format: "2025-07-30"
   time: string; // Format: "11:00 AM - 12:00 PM EST | 8:00 AM - 9:00 AM PST | 10:00 AM - 11:00 AM CST"
   registerLink: string;
-  backgroundImage: string;
+  backgroundImage: string; // Full background image
+  websitePreviewImage: string; // Website preview screenshot for the card
   mobileBackgroundImage?: string;
 }
 
@@ -20,6 +21,7 @@ const PreWebinarHeroSection = ({
   time,
   registerLink,
   backgroundImage,
+  websitePreviewImage,
   mobileBackgroundImage,
 }: PreWebinarHeroSectionProps) => {
   const [timeLeft, setTimeLeft] = useState({
@@ -72,7 +74,7 @@ const PreWebinarHeroSection = ({
   };
 
   return (
-    <section className="relative w-full overflow-visible md:pb-16">
+    <section className="relative w-screen overflow-visible md:pb-16">
       {/* Mobile Card Design */}
       <div className="block md:hidden">
         <div className="overflow-hidden">
@@ -93,25 +95,25 @@ const PreWebinarHeroSection = ({
                     <div className="text-2xl font-bold text-gray-900">
                       {timeLeft.days.toString().padStart(2, "0")}
                     </div>
-                    <div className="text-xs text-teal-600 font-medium">Days</div>
+                    <div className="text-xs text-[#229D68] font-medium">Days</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-gray-900">
                       {timeLeft.hours.toString().padStart(2, "0")}
                     </div>
-                    <div className="text-xs text-teal-600 font-medium">Hours</div>
+                    <div className="text-xs text-[#229D68] font-medium">Hours</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-gray-900">
                       {timeLeft.minutes.toString().padStart(2, "0")}
                     </div>
-                    <div className="text-xs text-teal-600 font-medium">Minutes</div>
+                    <div className="text-xs text-[#229D68] font-medium">Minutes</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-gray-900">
                       {timeLeft.seconds.toString().padStart(2, "0")}
                     </div>
-                    <div className="text-xs text-teal-600 font-medium">Seconds</div>
+                    <div className="text-xs text-[#229D68] font-medium">Seconds</div>
                   </div>
                 </div>
               </div>
@@ -126,7 +128,7 @@ const PreWebinarHeroSection = ({
             <p className="text-sm text-gray-600 mb-6">{description}</p>
 
             {/* Date & Time - Teal Background */}
-            <div className="bg-teal-600  p-4 mb-6 space-y-2 text-white">
+            <div className="bg-[#26A17C]  p-4 mb-6 space-y-2 text-white">
               <div className="flex items-center gap-2 text-sm">
                 <Calendar className="w-4 h-4 flex-shrink-0" />
                 <div>
@@ -146,7 +148,7 @@ const PreWebinarHeroSection = ({
             {/* Register Button */}
             <a
               href={registerLink}
-              className="inline-flex items-center gap-2 bg-teal-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 bg-[#26A17C] text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors shadow-lg"
             >
               Register Now
               <span>→</span>
@@ -155,42 +157,43 @@ const PreWebinarHeroSection = ({
         </div>
       </div>
 
-      {/* Desktop Background Image with Teal Overlay */}
-      <div className="hidden md:block relative w-full h-[450px]">
-        <Image
-          src={backgroundImage}
-          alt="Webinar background"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Teal Overlay - Left side only */}
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-600 via-teal-600/90 to-transparent"></div>
+    
+      <div className="hidden md:grid  w-full gap-0 min-h-[500px] lg:min-h-[600px]">
+      
+        <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center h-full w-full">
+        
+          <Image
+            src={backgroundImage}
+            alt="Webinar speaker"
+            fill
+            className="object-cover"
+            priority
+          />
 
-        {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 py-8 md:py-12 h-full flex items-center">
-          <div className="max-w-xl">
-            {/* Title */}
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
+         
+          <div className="relative z-10 max-w-xl">
+        
+            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight">
               {title}
             </h1>
 
-            {/* Description */}
-            <p className="text-sm md:text-base text-white/95 mb-4 md:mb-6 leading-relaxed">
+           
+           
+            <p className="text-base lg:text-lg mb-6 leading-relaxed">
               {description}
             </p>
 
-            {/* Date & Time */}
-            <div className="space-y-2 mb-4 md:mb-6">
-              <div className="flex items-center gap-2 text-white text-sm md:text-base">
-                <Calendar className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+           
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-5 h-5 flex-shrink-0" />
                 <div>
                   <span className="font-medium">Date: </span>
                   <span>{formatDate(date)}</span>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-white text-sm md:text-base">
-                <Clock className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+              <div className="flex items-center gap-2">
+                <Clock className="w-5 h-5 flex-shrink-0" />
                 <div>
                   <span className="font-medium">Time: </span>
                   <span>{time}</span>
@@ -198,16 +201,18 @@ const PreWebinarHeroSection = ({
               </div>
             </div>
 
-            {/* Register Button */}
+            
             <a
               href={registerLink}
-              className="inline-flex items-center gap-2 bg-white text-teal-600 px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg text-sm md:text-base"
+              className="inline-flex items-center gap-2 bg-white text-[#229D68] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg"
             >
               Register Now
               <span>→</span>
             </a>
           </div>
         </div>
+
+    
       </div>
 
       {/* Desktop Countdown Timer - Overlapping white box */}
@@ -218,7 +223,7 @@ const PreWebinarHeroSection = ({
               <div className="text-3xl md:text-5xl font-bold text-gray-900">
                 {timeLeft.days.toString().padStart(2, "0")}
               </div>
-              <div className="text-xs md:text-sm text-teal-600 font-medium mt-1">
+              <div className="text-xs md:text-sm text-[#229D68] font-medium mt-1">
                 Days
               </div>
             </div>
@@ -226,7 +231,7 @@ const PreWebinarHeroSection = ({
               <div className="text-3xl md:text-5xl font-bold text-gray-900">
                 {timeLeft.hours.toString().padStart(2, "0")}
               </div>
-              <div className="text-xs md:text-sm text-teal-600 font-medium mt-1">
+              <div className="text-xs md:text-sm text-[#229D68] font-medium mt-1">
                 Hours
               </div>
             </div>
@@ -234,7 +239,7 @@ const PreWebinarHeroSection = ({
               <div className="text-3xl md:text-5xl font-bold text-gray-900">
                 {timeLeft.minutes.toString().padStart(2, "0")}
               </div>
-              <div className="text-xs md:text-sm text-teal-600 font-medium mt-1">
+              <div className="text-xs md:text-sm text-[#229D68] font-medium mt-1">
                 Minutes
               </div>
             </div>
@@ -242,7 +247,7 @@ const PreWebinarHeroSection = ({
               <div className="text-3xl md:text-5xl font-bold text-gray-900">
                 {timeLeft.seconds.toString().padStart(2, "0")}
               </div>
-              <div className="text-xs md:text-sm text-teal-600 font-medium mt-1">
+              <div className="text-xs md:text-sm text-[#229D68] font-medium mt-1">
                 Seconds
               </div>
             </div>

@@ -101,7 +101,7 @@ const ReserveSeatSection = ({
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
+                      className="w-full px-2 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
                     />
                   </div>
                 </div>
@@ -110,7 +110,7 @@ const ReserveSeatSection = ({
                 <div className="flex justify-center mt-8">
                   <button
                     type="submit"
-                    className="bg-[#5648D8] text-white py-3 px-12 rounded-[15px] font-semibold hover:bg-[#5648D8] transition-colors shadow-lg"
+                    className="bg-[#5648D8] text-white py-3 px-12 rounded-[15px] font-semibold hover:bg-[#5648D8] transition-colors"
                   >
                     {buttonText}
                   </button>
