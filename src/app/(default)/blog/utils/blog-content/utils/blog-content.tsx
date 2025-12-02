@@ -10,6 +10,7 @@ import {
 } from "../../../../../../../public/svg/all-svg";
 import { Link as LinkIcon, ChevronRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 type SocialLink = {
   id: string;
@@ -62,65 +63,8 @@ const defaultSocialLinks: SocialLink[] = [
     icon: FacebookIcon,
   },
 ];
-const data = {
-  title: "When Data Meets Design: The Hidden Power of Visualization Tools",
-  content: [
-    {
-      id: "introduction",
 
-      content:
-        "Data visualization is the process of representing information and data in a graphical or visual format such as charts, graphs, dashboards, and maps. It transforms numbers, tables, and raw datasets into visual formats that we all can process easily. Instead of scrolling through endless spreadsheets, a well-designed visualization reveals patterns, relationships, and outliers at a glance./n With tools like Qlik Sense, Looker, and Grafana, businesses and teams can unlock real-time insights and make smarter, faster decisions.",
-      subsections: [
-        {
-          content:
-            "Data visualization is the process of representing information and data in a graphical or visual format such as charts, graphs, dashboards, and maps. It transforms numbers, tables, and raw datasets into visual formats that we all can process easily. Instead of scrolling through endless spreadsheets, a well-designed visualization reveals patterns, relationships, and outliers at a glance./n With tools like Qlik Sense, Looker, and Grafana, businesses and teams can unlock real-time insights and make smarter, faster decisions.",
-        },
-        {
-          title: "Why Visualization Matters",
-          content:
-            "Here’s a definitive guide to the top ten data visualization tools...",
-        },
-      ],
-    },
-    {
-      id: "which-tool",
-      title: "So, Which One Should You Use?",
-      content:
-        "The choice of visualization tool depends on your specific needs...",
-      subsections: [
-        {
-          title: "Excel – The First Stop on Everyone's Journey",
-          content:
-            "Excel remains the go-to tool for basic data visualization...",
-        },
-        {
-          title: "Advanced Solutions",
-          content:
-            "For more complex needs, enterprise solutions like Tableau, Power BI...",
-        },
-      ],
-    },
-    {
-      id: "final-words",
-      title: "Final Words: Tools Don't Make the Visual, You Do",
-      content:
-        "At the end of the day, the best visualization tool is the one that serves your needs...",
-      subsections: [
-        {
-          title: "Key Takeaways",
-          content: "Invest time in learning your chosen tool thoroughly...",
-        },
-      ],
-    },
-    {
-      id: "cta",
-      title: "Call-To-Action",
-      content: "Ready to transform your data into compelling visuals?...",
-    },
-  ],
-};
-
-export default function DocumentationLayout() {
+export default function DocumentationLayout(data: InsightBlog) {
   const [copied, setCopied] = useState(false);
 
   const pageUrl =
@@ -133,6 +77,16 @@ export default function DocumentationLayout() {
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(
+    data?.data?.insight?.blog?.content,
+    "text/html"
+  );
+
+  const h2Array = Array.from(doc.querySelectorAll("h2")).map((h2) =>
+    h2.textContent.trim()
+  );
 
   return (
     <section className="container-md  py-10">
@@ -150,51 +104,24 @@ export default function DocumentationLayout() {
               Table of Contents
             </h2>
 
-            <ul className="space-y-4 text-sm text-gray-800">
-              <li>
-                • When Data Meets Design: The Hidden Power of Visualization
-                Tools
-              </li>
-              <li>• So, Which One Should You Use?</li>
-              <li>• Final Words: Tools Don't Make the Visual, You Do</li>
-              <li>• Call-To-Action</li>
-            </ul>
+            {h2Array.map((item, index) => (
+              <ul className="space-y-6 text-md text-gray-800" key={index}>
+                <li> • {item}</li>
+              </ul>
+            ))}
           </div>
         </aside>
 
         <main className="flex-1">
           <article className="max-w-4xl">
             <h1 className="text-5xl font-bold text-gray-900 leading-tight mb-10">
-              {data.title}
+              {data?.data?.insight?.title}
             </h1>
 
             <div className="space-y-16">
-              {data.content.map((section) => (
-                <section key={section.id}>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                    {section.title}
-                  </h2>
-
-                  <p className="text-gray-800 leading-relaxed">
-                    {section.content}
-                  </p>
-
-                  {section.subsections && (
-                    <div className="space-y-6 mt-6">
-                      {section.subsections.map((sub, index) => (
-                        <div key={index}>
-                          <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                            {sub.title}
-                          </h3>
-                          <p className="text-gray-700 leading-relaxed">
-                            {sub.content}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </section>
-              ))}
+              <div className="space-y-8">
+                <DangerousHtml html={data?.data?.insight?.blog?.content} />{" "}
+              </div>
             </div>
           </article>
 
@@ -255,10 +182,11 @@ export default function DocumentationLayout() {
       </div>
 
       <div className="flex justify-between mt-24 px-2">
-        <div className="flex gap-2">
-          <ChevronLeft
-            size={20}
-            className="
+        <Link href={`/blog/${data?.data?.nextInsight?.slug}`}>
+          <div className="flex gap-2">
+            <ChevronLeft
+              size={20}
+              className="
   text-white 
   bg-primary p-2
   rounded-full 
@@ -271,24 +199,26 @@ export default function DocumentationLayout() {
   hover:border 
   hover:border-primary
 "
-          />
-          <div className="flex flex-col">
-            <p className="text-lg font-semibold text-foreground">
-              Local SEO for Lawyers: A Step-by-Step Guide to More Clients
-            </p>
-            <p className="text-md text-foreground">Previous</p>
+            />
+            <div className="flex flex-col">
+              <p className="text-lg font-semibold text-foreground">
+                Local SEO for Lawyers: A Step-by-Step Guide to More Clients
+              </p>
+              <p className="text-md text-foreground">Previous</p>
+            </div>
           </div>
-        </div>
-        <div className="flex gap-2">
-          <div className="flex flex-col text-end">
-            <p className="text-lg font-semibold text-foreground">
-              What Is Website Authority & Why Does It Matter?
-            </p>
-            <p className="text-md text-foreground">Right</p>
-          </div>
-          <ChevronRight
-            size={20}
-            className="
+        </Link>
+        <Link href={`/blog/${data?.data?.previousInsight?.slug}`}>
+          <div className="flex gap-2">
+            <div className="flex flex-col text-end">
+              <p className="text-lg font-semibold text-foreground">
+                {data?.data?.nextInsight?.title}
+              </p>
+              <p className="text-md text-foreground">Next</p>
+            </div>
+            <ChevronRight
+              size={20}
+              className="
       text-white 
      bg-primary p-2
   rounded-full 
@@ -301,8 +231,9 @@ export default function DocumentationLayout() {
   hover:border 
   hover:border-primary
 "
-          />
-        </div>
+            />
+          </div>
+        </Link>
       </div>
     </section>
   );

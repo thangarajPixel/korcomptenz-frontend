@@ -7,14 +7,13 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-// import { Checkbox } from "@/components/ui/checkbox";
-// import Link from "next/link";
+import { Checkbox } from "@/components/ui/checkbox";
+
 import { useFilterInsightHook } from "@/services";
-// import KorcomptenzImage from "@/components/korcomptenz-image";
-// import { cn } from "@/lib/utils";
+
 import InsightNavbar from "./insight-navbar";
 
-type FilterType = "industries" | "businessOutcomes" | "region";
+type FilterType = "service" | "technology";
 
 type FilterBarProps = {
   filterLabel: FilterLabelType[];
@@ -25,9 +24,8 @@ type FilterBarProps = {
 };
 
 const defaultFilter = {
-  industries: [],
-  businessOutcomes: [],
-  region: [],
+  service: [],
+  technology: [],
 };
 
 const FilterLabel = ({ label, count }: { label: string; count?: number }) => {
@@ -58,41 +56,37 @@ export function InsightsSuccessFilter({
   const { data } = useFilterInsightHook({});
 
   const [filter, setFilter] = React.useState<{
-    industries: string[];
-    businessOutcomes: string[];
-    region: string[];
+    service: string[];
+    technology: string[];
   }>(defaultFilter);
 
-  // const handleFilterChange = React.useCallback(
-  //   (type: FilterType, value: string, checked: boolean) => {
-  //     setFilter((prev) => {
-  //       const filtered = checked
-  //         ? [...prev[type], value]
-  //         : prev[type].filter((id) => id !== value);
-  //       const filterData = {
-  //         ...prev,
-  //         [type]: filtered,
-  //       };
-  //       onFilterChange?.(filterData);
-  //       return filterData;
-  //     });
-  //   },
-  //   [filter]
-  // );
+  const handleFilterChange = React.useCallback(
+    (type: FilterType, value: string, checked: boolean) => {
+      setFilter((prev) => {
+        const filtered = checked
+          ? [...prev[type], value]
+          : prev[type].filter((id) => id !== value);
+        const filterData = {
+          ...prev,
+          [type]: filtered,
+        };
+        onFilterChange?.(filterData);
+        return filterData;
+      });
+    },
+    [filter]
+  );
 
   const handleResetFilter = () => {
     setFilter(defaultFilter);
     onFilterChange?.({
-      industries: [],
-      businessOutcomes: [],
-      region: [],
+      service: [],
+      technology: [],
     });
   };
 
   const hasActiveFilters =
-    filter.industries.length > 0 ||
-    filter.businessOutcomes.length > 0 ||
-    filter.region.length > 0;
+    filter.technology.length > 0 || filter.service.length > 0;
 
   return (
     <section>
@@ -106,77 +100,35 @@ export function InsightsSuccessFilter({
             <DropdownMenu key={label?.filterKey}>
               <FilterLabel
                 label={label.label}
-                count={
-                  label.isMultiple
-                    ? filter?.[label?.filterKey as FilterType]?.length ?? 0
-                    : undefined
-                }
+                count={filter?.[label?.filterKey as FilterType]?.length ?? 0}
               />
               <DropdownMenuContent className="overflow-y-auto" align="start">
                 <div className="p-4">
-                  {
-                    !label.isMultiple ? (
-                      <div
-                        className={
-                          label.isDesignedDropdown
-                            ? "grid grid-cols-4 gap-3"
-                            : "space-y-3"
-                        }
-                      >
-                        {/* {data?.filterData?.[label.filterKey]?.map((tech) => (
-                        <Link
-                          key={`${label.filterKey}-${tech.id}`}
-                          href={`/insights/${tech.slug}`}
-                          className={cn(
-                            "flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors",
-                            label.isDesignedDropdown && "text-lg leading-6.5"
-                          )}
+                  <div className="space-y-3">
+                    {data?.filterData?.[label.filterKey as FilterType]?.map(
+                      (item) => (
+                        <label
+                          key={item.id}
+                          className="flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors"
                         >
-                          {label.isDesignedDropdown && (
-                            <span className="text-2xl flex-shrink-0">
-                              <KorcomptenzImage
-                                src={tech.image}
-                                width={26}
-                                height={22}
-                              />
-                            </span>
-                          )}
-                          <span className="text-left truncate">
-                            {tech.label}
-                          </span>
-                        </Link>
-                      ))} */}
-                      </div>
-                    ) : null
+                          <Checkbox
+                            checked={filter?.[
+                              label.filterKey as FilterType
+                            ]?.includes(item.id)}
+                            onCheckedChange={(checked) =>
+                              handleFilterChange(
+                                label.filterKey as FilterType,
+                                item.id,
+                                checked as boolean
+                              )
+                            }
+                          />
 
-                    // (
-
-                    //   <div className="space-y-3">
-                    //     {data?.filterData?.[label.filterKey]?.map((item) => (
-                    //       <label
-                    //         key={item.id}
-                    //         className="flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors"
-                    //       >
-                    //         {label.isMultiple && (
-                    //           <Checkbox
-                    //             checked={filter?.[
-                    //               label.filterKey as FilterType
-                    //             ]?.includes(item.id)}
-                    //             onCheckedChange={(checked) =>
-                    //               handleFilterChange(
-                    //                 label.filterKey as FilterType,
-                    //                 item.id,
-                    //                 checked as boolean
-                    //               )
-                    //             }
-                    //           />
-                    //         )}
-                    //         <span className="text-lg">{item.label}</span>
-                    //       </label>
-                    //     ))}
-                    //   </div>
-                    // )
-                  }
+                          <span className="text-lg">{item.label}</span>
+                        </label>
+                      )
+                    )}
+                  </div>
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>

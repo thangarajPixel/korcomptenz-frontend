@@ -113,6 +113,11 @@ type InsightsFilterDataType = {
   };
 };
 
+type InsightfilterListType = {
+  service: FilterListType[];
+  technology: FilterListType[];
+};
+
 type InsightsSectionType = {
   title: string;
   buttontext: string;
@@ -166,7 +171,7 @@ type SapSectionType = {
   heading: string;
   description: string;
   image3: ImageType;
-  isItemOnly: Boolean;
+  isItemOnly: boolean;
   itemDescription: string;
   item: {
     id: string;

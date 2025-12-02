@@ -12,7 +12,7 @@ const ContentShowcaseSection = ({
       <div className="flex flex-col gap-10">
         <SplitDivider className="lg:gap-28">
           <h2 className="text-pretty lg:text-7xl text-6xl font-semibold  text-gray-900 break-words  ">
-            {data?.title || "News and Events"}
+            {data?.title}
           </h2>
         </SplitDivider>
 

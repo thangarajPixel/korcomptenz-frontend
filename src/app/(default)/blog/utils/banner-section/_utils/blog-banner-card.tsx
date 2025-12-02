@@ -8,11 +8,9 @@ import React from "react";
 const BlogBannerCard = ({
   data,
   className,
-  isFirst = false,
 }: {
-  data: BannerSectionType;
+  data: HeroSection;
   className?: string;
-  isFirst?: boolean;
 }) => {
   return (
     <div className={cn(className)}>
@@ -51,20 +49,6 @@ const BlogBannerCard = ({
                   {data?.buttonText}
                 </ButtonLink>
               )}
-              {data?.secondButton && (
-                <ButtonLink
-                  link={data?.secondLink || "#"}
-                  buttonProps={{
-                    arrow: true,
-                    className:
-                      "hover:bg-transparent hover:border hover:border-primary ",
-                    size: "xl",
-                    variant: "white",
-                  }}
-                >
-                  {data?.secondButton}
-                </ButtonLink>
-              )}
             </div>
           </div>
         ) : (
@@ -79,15 +63,10 @@ const BlogBannerCard = ({
               Business Insights
             </p>
             <div className="grid justify-between gap-10">
-              {!isFirst ? (
-                <h2 className="text-7xl font-semibold leading-14 text-white mb-4 max-w-md">
-                  {data?.title}
-                </h2>
-              ) : (
-                <h1 className="text-7xl font-semibold leading-14 text-white mb-4 max-w-md">
-                  {data?.title}
-                </h1>
-              )}
+              <h1 className="text-7xl font-semibold leading-14 text-white mb-4 max-w-md">
+                {data?.title}
+              </h1>
+
               <DangerousHtml
                 className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
                 html={data?.description}
@@ -103,20 +82,6 @@ const BlogBannerCard = ({
                     }}
                   >
                     {data?.buttonText}
-                  </ButtonLink>
-                )}
-                {data?.secondButton && (
-                  <ButtonLink
-                    link={data?.secondLink || "#"}
-                    buttonProps={{
-                      arrow: true,
-                      className:
-                        "hover:bg-transparent hover:border hover:border-primary ",
-                      size: "xl",
-                      variant: "white",
-                    }}
-                  >
-                    {data?.secondButton}
                   </ButtonLink>
                 )}
               </div>
@@ -162,19 +127,6 @@ const BlogBannerCard = ({
               }}
             >
               {data?.buttonText}
-            </ButtonLink>
-          )}
-          {data?.secondButton && (
-            <ButtonLink
-              link={data?.secondLink || "#"}
-              buttonProps={{
-                arrow: true,
-                className: "border border-primary ",
-                size: "xl",
-                variant: "white",
-              }}
-            >
-              {data?.secondButton}
             </ButtonLink>
           )}
         </div>

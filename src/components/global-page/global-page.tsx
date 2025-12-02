@@ -57,7 +57,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
- 
+
   return data?.map((item) => {
     switch (item?.__component) {
       case "home.hero-section-one":

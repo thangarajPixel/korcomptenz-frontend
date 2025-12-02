@@ -177,3 +177,13 @@ export const getInsightsList = async ({
   });
   return data as never;
 };
+
+export const getBlogPage = async ({
+  id,
+}: {
+  id: string;
+}): Promise<InsightResponse> => {
+  const { data } = await http.get(`${INSIGHT}/${id}`);
+
+  return data;
+};

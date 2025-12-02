@@ -18,14 +18,14 @@ const ContentShowcaseCard = ({ list }: { list: ShowCaseCardType }) => {
           <h2 className="text-2xl font-bold text-black mb-2">{list?.title} </h2>
           <p className="text-sm mb-4 line-clamp-2">{list?.description}</p>
           {list?.buttonText && (
-            <ButtonLink link={list?.buttonLink}
+            <ButtonLink
+              link={list?.buttonLink || `/blog/${list?.slug}`}
               buttonProps={{
                 variant: "ghost",
                 className: "text-primary hover:text-primary/80",
                 arrow: true,
               }}
             >
-
               {list?.buttonText}
             </ButtonLink>
           )}

@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-import ConsultationForm from "./consultation-form";
+// import ConsultationForm from "./consultation-form";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-const BuildDemo = () => {
+const BlogBuildDemo = () => {
   return (
     <section data-debug="page-componets.build-data">
       <div className="container-md  ">
@@ -16,11 +16,11 @@ const BuildDemo = () => {
               className="object-cover"
             />
           </div>
-          <ConsultationForm />
+          {/* <ConsultationForm /> */}
         </div>
       </div>
     </section>
   );
 };
 
-export default BuildDemo;
+export default BlogBuildDemo;
