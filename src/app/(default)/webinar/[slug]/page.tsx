@@ -1,20 +1,16 @@
 import React from "react";
 import { notFound } from "next/navigation";
 
-// Pre-webinar components
-import PreWebinarHeroSection from "../../pre-webinar/utils/pre-webinar-hero-section";
-import WhyAttendSection from "../../pre-webinar/utils/why-attend-section";
-import ReserveSeatSection from "../../pre-webinar/utils/reserve-seat-section";
 
-// Post-webinar components
-import WebinarHeroSection from "../../post-webinar/utils/webinar-hero-section";
-import WebinarContentSection from "../../post-webinar/utils/webinar-content-section";
-import DownloadSection from "../../post-webinar/utils/download-section";
+import webinarsData from "@/../public/json/webinars.json";
+import ExpertsSection from "../utils/experts-section";
+import KeyTakeawaysSection from "../utils/key-takeaways-section";
+import PreWebinarHeroSection from "../utils/pre-webinar-hero-section";
+import ReserveSeatSection from "../utils/reserve-seat-section";
+import SummarySection from "../utils/summary-section";
+import WebinarHeroSection from "../utils/webinar-hero-section";
+import WhyAttendSection from "../utils/why-attend-section";
 
-// Shared components
-import SummarySection from "../../post-webinar/utils/summary-section/summary-section";
-import KeyTakeawaysSection from "../../post-webinar/utils/key-takeaways-section/key-takeaways-section";
-import ExpertsSection from "../../post-webinar/utils/experts-section/experts-section";
 import DemonstrateSection from "@/components/demonstrate-section";
 
 interface WebinarPageProps {
@@ -23,9 +19,8 @@ interface WebinarPageProps {
   };
 }
 
-import webinarsData from "@/../public/json/webinars.json";
 
-// Fetch webinar data from static JSON
+
 function getWebinarData(slug: string) {
   const webinars = webinarsData.webinars as Record<string, any>;
   return webinars[slug] || null;
@@ -35,7 +30,7 @@ export default function WebinarPage({ params }: WebinarPageProps) {
   const { slug } = params;
   const webinarData = getWebinarData(slug);
 
-  // If webinar not found, show 404
+
   if (!webinarData) {
     notFound();
   }
@@ -101,11 +96,7 @@ export default function WebinarPage({ params }: WebinarPageProps) {
           />
           <KeyTakeawaysSection takeaways={webinarData.keyTakeaways || []} />
           <ExpertsSection experts={webinarData.experts || []} />
-          {/* {webinarData.downloadSection && (
-            <DownloadSection
-              downloadLink={webinarData.downloadSection.downloadLink}
-            />
-          )} */}
+         
           {webinarData.demonstrateData && (
             <DemonstrateSection data={webinarData.demonstrateData} />
           )}
