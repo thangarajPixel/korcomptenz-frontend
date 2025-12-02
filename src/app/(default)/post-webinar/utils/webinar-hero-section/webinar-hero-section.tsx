@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import { Calendar, Clock } from "lucide-react";
+
 interface WebinarHeroSectionProps {
   title: string;
   description: string;
-  date: string; // Format: "2025-07-30"
-  time: string; // Format: "11:00 AM - 12:00 PM EST | 8:00 AM - 9:00 AM PST | 10:00 AM - 11:00 AM CST"
+  date: string; 
+  time: string; 
   registerLink: string;
-  backgroundImage: string; // Full background image
-  websitePreviewImage: string; // Website preview screenshot for the card
+  backgroundImage: string; 
+  websitePreviewImage: string; 
   mobileBackgroundImage?: string;
   mobileBannerImage: string;
 }
@@ -16,12 +16,9 @@ interface WebinarHeroSectionProps {
 const WebinarHeroSection = ({
   title,
   description,
-  date,
-  time,
-  registerLink,
+
   backgroundImage,
-  websitePreviewImage,
-  mobileBackgroundImage,
+
   mobileBannerImage
 }: WebinarHeroSectionProps) => {
   return (
