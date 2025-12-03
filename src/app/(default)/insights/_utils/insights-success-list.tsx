@@ -1,21 +1,18 @@
 "use client";
 
-import { CaseStudyCard } from "@/components/case-study-section";
 import StickyTitleCard from "@/components/sticky-title-list/_utils/sticky-title-card";
 import React, { useState } from "react";
-import { useCaseStudyListHook } from "@/services";
+import { useInsightsListHook } from "@/services";
 import PaginationSection from "@/components/pagination-section";
 import { INITIAL_PAGINATION } from "@/utils/helper";
-
 import { useParams } from "next/navigation";
-
 import InsightsSuccessBanner from "./insights-success-banner";
 import { CaseStudyCardSkeleton } from "../../client-success/_utils/case-study-skeleton";
 import { InsightsSuccessFilter } from "./insights-success-filter";
-import InsightNavbar from "./insight-navbar";
+import { InsightCard } from "./insights-card";
 
 const InsightsSuccessList = ({
-  data: { filterLabel, popularFilter, banner },
+  data: { filterLabel, popularFilter, banner, categoryAllLabel },
   initialData,
   search,
 }: {
@@ -25,13 +22,11 @@ const InsightsSuccessList = ({
 }) => {
   const { slug } = useParams();
   const [filter, setFilter] = useState<{
-    industries: string[];
-    businessOutcomes: string[];
-    region: string[];
+    service: string[];
+    technology: string[];
   }>({
-    industries: [],
-    businessOutcomes: [],
-    region: [],
+    service: [],
+    technology: [],
   });
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -42,7 +37,7 @@ const InsightsSuccessList = ({
     total: initialData?.pagination.total || 0,
   });
 
-  const { data, isLoading } = useCaseStudyListHook({
+  const { data, isLoading } = useInsightsListHook({
     params: {
       pagination,
       filter,
@@ -70,9 +65,8 @@ const InsightsSuccessList = ({
     (filters: { [key: string]: string[] }) => {
       setFilter(
         filters as {
-          industries: string[];
-          businessOutcomes: string[];
-          region: string[];
+          service: string[];
+          technology: string[];
         }
       );
       setPagination((prev) => ({
@@ -113,10 +107,11 @@ const InsightsSuccessList = ({
         handleFilterChange={handleFilterChange}
         onSearch={handleSearch}
       />
-      <InsightNavbar />
+
       <div className="container-lg">
         <InsightsSuccessFilter
           filterLabel={filterLabel}
+          categoryAllLabel={categoryAllLabel}
           popularFilter={popularFilter}
           onFilterChange={handleFilterChange}
           onSortChange={setSort}
@@ -140,7 +135,7 @@ const InsightsSuccessList = ({
                 key={item.id}
                 className="col-span-12 md:col-span-6 lg:col-span-4"
               >
-                <CaseStudyCard data={item} />
+                <InsightCard data={item} />
               </div>
             ))
           ) : (

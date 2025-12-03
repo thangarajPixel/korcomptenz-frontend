@@ -106,3 +106,37 @@ export const useReserveMySpotHook = () => {
     mutationFn: PAGE.createReserveMySpotLead,
   });
 };
+
+export const useFilterInsightHook = ({
+  options,
+}: {
+  options?: OptionsType<InsightsFilterDataType>;
+}) => {
+  return useQuery({
+    queryKey: [PAGE.FILTER_CASE_STUDY],
+    queryFn: () => PAGE.getInsights(),
+    ...options,
+  });
+};
+
+export const useInsightsListHook = ({
+  options,
+  params,
+}: {
+  options?: OptionsType<CaseStudiesType>;
+  params: {
+    pagination: PaginationType;
+    filter: {
+      [key: string]: string[];
+    };
+    search?: string;
+    slug?: string;
+    sort?: string[];
+  };
+}) => {
+  return useQuery({
+    queryKey: [PAGE.INSIGHT, params],
+    queryFn: () => PAGE.getInsightsList({ params }),
+    ...options,
+  });
+};

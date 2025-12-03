@@ -344,6 +344,13 @@ type FilterLabelType = {
   childTitle: string;
   isDesignedDropdown: boolean;
 };
+type InsightFilterLabelType = {
+  label: string;
+  isMultiple: boolean;
+  filterKey: keyof InsightfilterListType;
+  childTitle: string;
+  isDesignedDropdown: boolean;
+};
 type ButtonType = {
   text: string;
   link: string;
@@ -371,9 +378,10 @@ type ShowCaseCardType = {
   description: string;
   image: ImageType;
   title: string;
-  id: string;
+  id: number;
   buttonLink: string;
   buttonText: string;
+  slug: string;
 };
 
 type MapDataType = {
@@ -486,4 +494,46 @@ type PricingPlanType = {
   name: string;
   price: number;
   button: ButtonType;
+};
+type InsightBlog = {
+  data: InsightResponse;
+};
+type InsightResponse = {
+  insight: InsightItem;
+  previousInsight: InsightItem | null;
+  nextInsight: InsightItem | null;
+  relatedInsight: InsightItem[];
+};
+
+type InsightItem = {
+  id: number;
+  slug: string;
+  title: string;
+  content: string;
+  blog: BlogData;
+  heroSection: HeroSection;
+  seo: SEO | null;
+  faq: string | null;
+};
+type BlogData = {
+  id: number;
+  content: string;
+};
+
+type HeroSection = {
+  id: number;
+  description: string;
+  buttonText: string;
+  image: ImageType;
+  logo: ImageType;
+  link: string;
+  title: string;
+  imageMobile: ImageType;
+  logoMobile: ImageType;
+};
+
+type SEO = {
+  id: number;
+  title?: string;
+  description?: string;
 };

@@ -88,6 +88,7 @@ type BusinessOutcomeFilterType = {
 
 type FilterListType = {
   label: string;
+  categoryAllLabel?: string;
   id: string;
   image: ImageType;
   childTitle: string;
@@ -100,6 +101,19 @@ type FilterDataType = {
   businessOutcomes: FilterListType[];
   industries: FilterListType[];
   region: FilterListType[];
+  service: FilterListType[];
+  technology: FilterListType[];
+};
+
+type InsightsFilterDataType = {
+  category: FilterListType[];
+  filterData: {
+    service: FilterListType[];
+    technology: FilterListType[];
+  };
+};
+
+type InsightfilterListType = {
   service: FilterListType[];
   technology: FilterListType[];
 };
@@ -157,7 +171,7 @@ type SapSectionType = {
   heading: string;
   description: string;
   image3: ImageType;
-  isItemOnly: Boolean;
+  isItemOnly: boolean;
   itemDescription: string;
   item: {
     id: string;
@@ -909,6 +923,7 @@ type CaseStudiesPageType = {
   sponser: SponsorSectionType;
   testimonal: TestimonialType[];
   popularFilter: PopularFilterType;
+  categoryAllLabel: string;
 };
 type CaseStudyPageType = {
   id: string;
