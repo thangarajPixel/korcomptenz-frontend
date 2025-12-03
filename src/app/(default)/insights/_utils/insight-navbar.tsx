@@ -41,7 +41,6 @@ export function InsightNavbar({
             )}
           >
             {/* ⭐ CATEGORY ALL FIRST */}
-
             <TabsTrigger
               key="all"
               value={categoryAllLabel}
@@ -51,50 +50,13 @@ export function InsightNavbar({
                 "data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
               )}
             >
-              {" "}
-              <Link
-                href={`/insights/#`}
-                scroll={false}
-                className="block m-0 p-0"
-              >
+              <Link href={`/insights/#`} scroll={false} className=" z-10">
                 <span className="z-50 text-xs md:text-xl leading-normal">
                   {categoryAllLabel}
                 </span>{" "}
               </Link>
-              {value === categoryAllLabel && (
-                <motion.div
-                  layoutId="active-pill"
-                  transition={{
-                    type: "spring",
-                    stiffness: 120,
-                    damping: 20,
-                  }}
-                  className="absolute inset-0 z-0 bg-secondary-foreground"
-                />
-              )}
-            </TabsTrigger>
-
-            {/* ⭐ MAP ITEMS */}
-            {data?.map((t) => (
-              <TabsTrigger
-                value={t?.label}
-                className={cn(
-                  "relative !cursor-pointer h-full z-10 text-white rounded-none lg:px-6 px-2 py-3 shadow-none border-none text-md sm:text-base font-semibold",
-                  "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary",
-                  "data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
-                )}
-              >
-                {" "}
-                <Link
-                  key={t?.label}
-                  href={`/insights/${t?.label}`}
-                  scroll={false}
-                >
-                  <span className="z-50 text-xs md:text-xl leading-normal">
-                    {t?.label}
-                  </span>
-                </Link>
-                {value === t?.label && (
+              <Link href={`/insights/#`}>
+                {value === categoryAllLabel && (
                   <motion.div
                     layoutId="active-pill"
                     transition={{
@@ -104,7 +66,42 @@ export function InsightNavbar({
                     }}
                     className="absolute inset-0 z-0 bg-secondary-foreground"
                   />
-                )}{" "}
+                )}
+              </Link>
+            </TabsTrigger>
+            {/* ⭐ MAP ITEMS */}
+            {data?.map((t) => (
+              <TabsTrigger
+                key={t?.label}
+                value={t?.label}
+                className={cn(
+                  "relative !cursor-pointer h-full z-10 text-white rounded-none lg:px-6 px-2 py-3 shadow-none border-none text-md sm:text-base font-semibold",
+                  "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary",
+                  "data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
+                )}
+              >
+                <Link
+                  href={`/insights/${t?.label}`}
+                  scroll={false}
+                  className="block m-0 p-0 z-10"
+                >
+                  <span className="z-50 text-xs md:text-xl leading-normal">
+                    {t?.label}
+                  </span>
+                </Link>
+                <Link href={`/insights/${t?.label}`} scroll={false}>
+                  {value === t?.label && (
+                    <motion.div
+                      layoutId="active-pill"
+                      transition={{
+                        type: "spring",
+                        stiffness: 120,
+                        damping: 20,
+                      }}
+                      className="absolute inset-0 z-0 bg-secondary-foreground"
+                    />
+                  )}
+                </Link>
               </TabsTrigger>
             ))}
           </TabsList>

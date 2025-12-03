@@ -138,13 +138,7 @@ export default function DocumentationLayout(data: InsightBlog) {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={link.name}
-                  className="
-          flex items-center justify-center 
-          w-7 h-7 md:w-10 md:h-10       /* smaller on mobile */
-          hover:bg-gray-100 
-          rounded-full 
-          transition-colors duration-150
-        "
+                  className="flex items-center justify-center w-7 h-7 md:w-10 md:h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
                 >
                   <link.icon className="w-3 h-3 md:w-5 md:h-5" color="black" />
                 </Link>
@@ -153,13 +147,7 @@ export default function DocumentationLayout(data: InsightBlog) {
               {/* Copy Link Button */}
               <button
                 onClick={handleCopyLink}
-                className="
-        flex items-center justify-center 
-        w-7 h-7 md:w-10 md:h-10
-        hover:bg-gray-100 
-        rounded-full 
-        transition-colors duration-150
-      "
+                className=" flex items-center justify-center w-7 h-7 md:w-10 md:h-10 hover:bg-gray-100  rounded-full transition-colors duration-150 "
                 title="Copy link"
                 aria-label="Copy link"
               >

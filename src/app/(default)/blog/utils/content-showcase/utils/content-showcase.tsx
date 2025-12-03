@@ -8,12 +8,11 @@ export default function BlogContentShowcase({ data }: { data: InsightItem[] }) {
     title: "",
     buttontext: "",
     description: "",
-
     list: data?.map((item) => ({
       ...item,
       title: item.title || item.heroSection.title,
       buttonText: item.heroSection?.buttonText,
-      link: `/insights/${item.slug}`,
+      link: `/blog/${item.slug}`,
       image: item.heroSection.image,
       text: item.content || "",
       description: item.content || "",
