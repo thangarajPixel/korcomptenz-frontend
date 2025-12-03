@@ -31,7 +31,7 @@ export default function ClientTestimonial({
   const currentTestimonial = data[currentIndex];
 
   return (
-    <Card className="container-md relative bg-[#C9F5FF]">
+    <Card className="container-md mb-5 relative bg-[#C9F5FF]">
       <div className="absolute right-0 top-0 w-36 h-36 ">
         <KorcomptenzImage
           src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/mask_group_f6a2b0c60c.png"
