@@ -13,13 +13,13 @@ const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
           {/* Left content */}
           <div className="relative z-20 flex flex-col justify-around lg:ml-0">
             <div className="space-y-2">
-              <p className="text-2xl font-semibold text-custom-green-1">
+              <p className="text-2xl font-semibold text-custom-green-1 max-w-xl">
                 {scheduleCall?.topDescription}
               </p>
-              <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl font-bold text-custom-green-1 leading-tight whitespace-pre-wrap">
+              <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl  font-bold text-custom-green-1 leading-tight whitespace-pre-wrap">
                 {scheduleCall?.title}
               </h2>
-              <p className="text-2xl font-semibold text-custom-green-1">
+              <p className="text-2xl font-semibold text-custom-green-1 max-w-xl">
                 {scheduleCall?.description}
               </p>
             </div>
