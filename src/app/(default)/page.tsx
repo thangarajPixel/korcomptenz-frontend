@@ -18,7 +18,7 @@ export async function generateMetadata() {
 export default async function Home() {
   const data = await getHomeServiceCache();
   return (
-    <div className={cn("flex flex-col", APP_CONFIG.OVERALL_GAP)}>
+    <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
       <GlobalPage data={data?.list} />
     </div>
   );
