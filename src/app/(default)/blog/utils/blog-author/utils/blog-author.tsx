@@ -11,11 +11,31 @@ const article = {
   date: "September 30, 2025",
   title: "The Future of Web Development",
   aiTools: [
-    { id: 1, name: "Claude", icon: "🤖" },
-    { id: 2, name: "GPT-4", icon: "✨" },
-    { id: 3, name: "Gemini", icon: "🔮" },
-    { id: 4, name: "Perplexity", icon: "🌐" },
-    { id: 5, name: "More", icon: "⚙️" },
+    {
+      id: 1,
+      name: "Claude",
+      icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/Clip_path_group_da6ff639d1.png?updatedAt=2025-12-04T11%3A22%3A02.430Z",
+    },
+    {
+      id: 2,
+      name: "GPT-4",
+      icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/Clip_path_group_1_8ab0534a54.png?updatedAt=2025-12-04T11%3A22%3A02.488Z",
+    },
+    {
+      id: 3,
+      name: "Gemini",
+      icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/Vector_ce867faeb0.png?updatedAt=2025-12-04T11%3A22%3A02.531Z",
+    },
+    {
+      id: 4,
+      name: "Perplexity",
+      icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/grok_ai_1_a29323e083.png?updatedAt=2025-12-04T11%3A22%3A02.448Z",
+    },
+    {
+      id: 5,
+      name: "More",
+      icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/google_ai_1_2c17d8836b.png?updatedAt=2025-12-04T11%3A22%3A02.436Z",
+    },
   ],
 };
 
@@ -61,8 +81,8 @@ export default function BlogAuthor() {
           {/* TEXT */}
           <p
             className="
-    text-sm text-black 
-    text-center md:text-left
+    text-3xl text-black 
+    text-center md:text-left font-medium
   "
           >
             Use AI to summarize this article
@@ -82,13 +102,21 @@ export default function BlogAuthor() {
                 className="
           flex items-center justify-center 
           h-10 w-10 
-          rounded-lg bg-secondary 
+          rounded-lg 
           hover:bg-secondary/80 
           transition-colors
         "
                 title={tool.name}
               >
-                <span className="text-lg">{tool.icon}</span>
+                <span className="text-lg">
+                  {" "}
+                  <Image
+                    src={tool.icon || "/placeholder.svg"}
+                    alt={article.author||""}
+                    width={"30"}
+                    height={"30"}
+                  />
+                </span>
               </button>
             ))}
 
