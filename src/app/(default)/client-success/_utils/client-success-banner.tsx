@@ -13,7 +13,6 @@ const ClientSuccessBanner = ({
   onSearch?: (search: string) => void;
   search?: FilterListType[];
 }) => {
-
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
       <div className="absolute inset-0">
