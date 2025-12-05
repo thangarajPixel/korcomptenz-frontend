@@ -31,6 +31,8 @@ export const FILTER_INSIGHT = "/insight-filter";
 export const INSIGHT = "/insights";
 export const INSIGHT_PAGE = "/insight-page";
 
+export const INSIGHT_SEARCH = "/insight-search";
+
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
   return data;
@@ -191,5 +193,23 @@ export const getBlogPage = async ({
 
 export const getInsightPage = async (): Promise<BlogEssentialType> => {
   const { data } = await http.get(INSIGHT_PAGE);
+  return data;
+};
+
+// export const getInsightSearchPage = async ({
+//   search = "",
+// }: {
+//   search?: string;
+// }): Promise<FilterListType[]> => {
+//   const { data } = await http.get(INSIGHT_SEARCH, { params: { search } });
+//   return data;
+// };
+
+export const getInsightSearchPage = async ({
+  search = "",
+}: {
+  search?: string;
+}): Promise<FilterListType[]> => {
+  const { data } = await http.get(INSIGHT_SEARCH, { params: { search } });
   return data;
 };

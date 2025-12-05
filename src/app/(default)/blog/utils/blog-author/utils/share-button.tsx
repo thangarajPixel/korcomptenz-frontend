@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Share2, Link as LinkIcon } from "lucide-react";
+import { Link as LinkIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -11,6 +11,7 @@ import {
   TwitterIcon,
   WhatAppIcon,
 } from "../../../../../../../public/svg/all-svg";
+import KorcomptenzImage from "@/components/korcomptenz-image";
 
 interface SocialLink {
   id: string;
@@ -85,9 +86,15 @@ export function ShareButton() {
       <Button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Share"
-        className="flex items-center  w-32 justify-center p-3 bg-white border-2 border-secondary text-secondary rounded-xl  transition-colors duration-200"
+        className="flex items-center text-3xl  w-32 justify-center p-3 bg-white  text-secondary rounded-xl  "
       >
-        Share <Share2 size={20} className="ms-2" />
+        Share{" "}
+        <KorcomptenzImage
+          src="/assets/Vector.png"
+          alt="share"
+          width={30}
+          height={30}
+        />
       </Button>
 
       {/* Social Menu */}

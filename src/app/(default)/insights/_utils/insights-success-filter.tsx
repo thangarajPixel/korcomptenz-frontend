@@ -21,6 +21,10 @@ type FilterBarProps = {
   popularFilter?: PopularFilterType;
   onSortChange?: (sort: string) => void;
   categoryAllLabel?: string;
+  category?: {
+    label: string;
+    id: number;
+  }[];
 };
 
 const defaultFilter = {
@@ -51,6 +55,8 @@ export function InsightsSuccessFilter({
   filterLabel,
   popularFilter,
   onSortChange,
+  category,
+
   categoryAllLabel,
 }: FilterBarProps) {
   const { data } = useFilterInsightHook({});
@@ -66,15 +72,24 @@ export function InsightsSuccessFilter({
         const filtered = checked
           ? [...prev[type], value]
           : prev[type].filter((id) => id !== value);
+
         const filterData = {
           ...prev,
           [type]: filtered,
         };
-        onFilterChange?.(filterData);
+
+        // 🔥 Convert keys before sending
+        const mappedFilterData = {
+          services: filterData.service,
+          technologies: filterData.technology,
+        };
+
+        onFilterChange?.(mappedFilterData);
+
         return filterData;
       });
     },
-    [filter]
+    []
   );
 
   const handleResetFilter = () => {
@@ -92,6 +107,7 @@ export function InsightsSuccessFilter({
     <section>
       <InsightNavbar
         data={data?.category ?? []}
+        category={category}
         categoryAllLabel={categoryAllLabel ?? ""}
       />
       <div className="flex items-center gap-3 lg:py-4  bg-background">
