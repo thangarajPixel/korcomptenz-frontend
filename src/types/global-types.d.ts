@@ -243,6 +243,7 @@ type CaseStudyData = {
   seo: SeoType;
   study: string;
   slug: string;
+  content: string;
   descriptionSection: CaseStudyDescription[];
   heroSection: CaseStudyHeroSection;
   testimonials: TestimonialType[];

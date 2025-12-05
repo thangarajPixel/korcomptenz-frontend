@@ -139,8 +139,8 @@ const InsightsSuccessList = ({
               </div>
             ))
           ) : (
-            <div className="col-span-8  text-center py-10 text-gray-500 text-lg">
-              No case studies found
+            <div className="col-span-12  text-center py-10 text-gray-500 text-lg">
+              No Insight found
             </div>
           )}
         </div>
