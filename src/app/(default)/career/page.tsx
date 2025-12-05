@@ -16,7 +16,7 @@ export async function generateMetadata() {
   }
 }
 
-export default async function careerPage() {
+export default async function CareerPage() {
   const data = await getCareerCache();
 
   return (

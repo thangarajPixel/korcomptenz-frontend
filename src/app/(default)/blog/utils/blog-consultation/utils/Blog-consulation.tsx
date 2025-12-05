@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-// import ConsultationForm from "./consultation-form";
+import ConsultationForm from "./consultation-form";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const BlogBuildDemo = () => {
@@ -16,7 +16,7 @@ const BlogBuildDemo = () => {
               className="object-cover"
             />
           </div>
-          {/* <ConsultationForm /> */}
+          <ConsultationForm />
         </div>
       </div>
     </section>

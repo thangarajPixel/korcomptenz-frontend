@@ -503,6 +503,27 @@ type InsightResponse = {
   previousInsight: InsightItem | null;
   nextInsight: InsightItem | null;
   relatedInsight: InsightItem[];
+  author: {
+    image: ImageType;
+    name: string;
+    role: string;
+  };
+  category: {
+    label: string;
+  };
+  heroSection: {
+    buttonText: string;
+    description: string;
+    image: ImageType;
+  };
+  podcast: {
+    description: string;
+    title: string;
+    podcastLink: string;
+    podcastPlatForm: { link: string }[];
+  };
+  slug: string;
+  title: string;
 };
 
 type InsightItem = {
@@ -536,4 +557,36 @@ type SEO = {
   id: number;
   title?: string;
   description?: string;
+};
+
+type PodcastType = {
+  author: {
+    image: ImageType;
+    name: string;
+    role: string;
+  };
+  category: {
+    label: string;
+  };
+  heroSection: {
+    buttonText: string;
+    description: string;
+    image: ImageType;
+  };
+  podcast: {
+    description: string;
+    title: string;
+    podcastLink: string;
+    podcastPlatForm: { link: string }[];
+  };
+  slug: string;
+  title: string;
+};
+
+type BlogEssentialType = {
+  podcastPlatForm: {
+    link: string;
+    label: string;
+    icon: ImageType;
+  }[];
 };

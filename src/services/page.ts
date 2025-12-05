@@ -26,9 +26,10 @@ export const CASE_STUDY_ESSENTIAL_LIST = "/case-study-essential";
 export const CONTACT_US_LEAD = "/contact-us-leads";
 export const DEMO_PAGE = "/demo-list";
 export const RESERVE_MY_SPOT = "/reserve-leads";
-const INSIGHT_PAGE = "/insight-list-page";
+const INSIGHT_LIST_PAGE = "/insight-list-page";
 export const FILTER_INSIGHT = "/insight-filter";
 export const INSIGHT = "/insights";
+export const INSIGHT_PAGE = "/insight-page";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -163,7 +164,7 @@ export const createReserveMySpotLead = async (
 };
 
 export const getInsightsPage = async (): Promise<CaseStudiesPageType> => {
-  const { data } = await http.get(INSIGHT_PAGE);
+  const { data } = await http.get(INSIGHT_LIST_PAGE);
   return data;
 };
 
@@ -185,5 +186,10 @@ export const getBlogPage = async ({
 }): Promise<InsightResponse> => {
   const { data } = await http.get(`${INSIGHT}/${id}`);
 
+  return data;
+};
+
+export const getInsightPage = async (): Promise<BlogEssentialType> => {
+  const { data } = await http.get(INSIGHT_PAGE);
   return data;
 };

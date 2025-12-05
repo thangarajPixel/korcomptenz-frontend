@@ -1,12 +1,14 @@
 "use client";
 import React from "react";
 // import { useForm, type SubmitHandler } from "react-hook-form";
-// import { useContactUsLeadHook } from "@/services";
+// import { useCaseStudyEssentialHook, useContactUsLeadHook } from "@/services";
 // import { errorSet, notify } from "@/utils/helper";
 // import { zodResolver } from "@hookform/resolvers/zod";
 // import { ContactUsFormSchema } from "@/utils/validation.schema";
 
 import { Button } from "@/components/ui/button";
+// import { Textarea } from "@/components/ui/textarea";
+// import { Input } from "@/components/ui/input";
 
 // const defaultValues = {
 //   name: "",
@@ -63,7 +65,7 @@ const ConsultationForm = () => {
           <Input
             control={control}
             name={"firstName"}
-            placeholder={form?.firstNameLabel || "Full name"}
+            placeholder={data?.firstNameLabel || "Full name"}
             className=" p-2 border-2 rounded-md text-black bg-white placeholder:text-black "
           />
         </div>
