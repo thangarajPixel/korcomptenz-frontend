@@ -1,11 +1,14 @@
 import React from "react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
+import { cn } from "@/lib/utils";
 
-const ScheduleCall = ({ scheduleCall }: { scheduleCall: ScheduleCallType }) => {
+const ScheduleCall = ({ scheduleCall, isLastIndex }: { scheduleCall: ScheduleCallType, isLastIndex: boolean }) => {
   return (
     <section
-      className="bg-custom-black py-16  lg:min-h-[600px] "
+      className={cn("bg-custom-black lg:min-h-[600px] ", {
+        "mb-[-40px] md:mb-[-96px]": isLastIndex,
+      })}
       data-debug={"home.schedule-call"}
     >
       <div className="container-md">
