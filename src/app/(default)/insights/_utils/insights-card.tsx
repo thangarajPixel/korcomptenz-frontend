@@ -7,6 +7,19 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 
 export function InsightCard({ data }: { data: CaseStudyData }) {
+  const getLink = () => {
+    switch (data?.content) {
+      case "blog":
+        return `/blog/${data?.slug}`;
+      case "podcast":
+        return `/podcast/${data?.slug}`;
+      case "file":
+        return null; // no link
+      default:
+        return null;
+    }
+  };
+
   return (
     <motion.article
       className={cn(
@@ -52,7 +65,7 @@ export function InsightCard({ data }: { data: CaseStudyData }) {
         {data?.heroSection?.description}
       </p>
       <ButtonLink
-        link={`/blog/${data?.slug}`}
+        link={getLink() || "#"}
         buttonProps={{
           arrow: true,
           variant: "ghost",
@@ -60,7 +73,7 @@ export function InsightCard({ data }: { data: CaseStudyData }) {
             "text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px]",
         }}
       >
-        {data?.heroSection?.buttonText}
+        {data?.content === "file" ? "Download" : data?.heroSection?.buttonText}
       </ButtonLink>
     </motion.article>
   );
