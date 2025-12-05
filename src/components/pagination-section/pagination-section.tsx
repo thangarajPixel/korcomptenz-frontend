@@ -108,7 +108,7 @@ const PaginationSection = ({
   };
 
   return (
-    <div className="container flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+    <div className="container flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-5">
       <div>
         <Pagination>
           <PaginationContent>

@@ -78,6 +78,7 @@ export function InsightNavbar({
             {data?.map((t) => (
               <TabsTrigger
                 value={t?.label}
+                key={t?.id}
                 className={cn(
                   "relative !cursor-pointer h-full z-10 text-white rounded-none lg:px-6 px-2 py-3 shadow-none border-none text-md sm:text-base font-semibold",
                   "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary",
