@@ -33,11 +33,11 @@ const platformsData = [
   },
 ];
 
-export default async function careerPage() {
+export default async function PodcastPage() {
   return (
-    <div className="">
+    <React.Fragment>
       <PodcastSection {...podcastData} />
       <SubscribeSection platforms={platformsData} />
-    </div>
+    </React.Fragment>
   );
 }
