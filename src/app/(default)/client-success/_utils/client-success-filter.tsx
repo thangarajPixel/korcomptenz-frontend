@@ -17,9 +17,7 @@ type FilterType = "industries" | "businessOutcomes" | "region";
 
 type FilterBarProps = {
   filterLabel: FilterLabelType[];
-  onFilterChange?: (filters: {
-    [key: string]: string[];
-  }) => void;
+  onFilterChange?: (filters: { [key: string]: string[] }) => void;
   popularFilter?: PopularFilterType;
   onSortChange?: (sort: string) => void;
 };
@@ -110,20 +108,31 @@ export function ClientSuccessFilter({
               <div className="p-4">
                 {!label.isMultiple ? (
                   // ✅ Custom grid layout for designed dropdowns (e.g., Technology)
-                  <div className={label.isDesignedDropdown ? "grid grid-cols-4 gap-3" : "space-y-3"}>
+                  <div
+                    className={
+                      label.isDesignedDropdown
+                        ? "grid grid-cols-4 gap-3"
+                        : "space-y-3"
+                    }
+                  >
                     {data?.[label.filterKey]?.map((tech) => (
                       <Link
                         key={`${label.filterKey}-${tech.id}`}
                         href={`/client-success/${tech.slug}`}
-                        className={cn("flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors", label.isDesignedDropdown && "text-lg leading-6.5")}
+                        className={cn(
+                          "flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors",
+                          label.isDesignedDropdown && "text-lg leading-6.5"
+                        )}
                       >
-                        {label.isDesignedDropdown && <span className="text-2xl flex-shrink-0">
-                          <KorcomptenzImage
-                            src={tech.image}
-                            width={26}
-                            height={22}
-                          />
-                        </span>}
+                        {label.isDesignedDropdown && (
+                          <span className="text-2xl flex-shrink-0">
+                            <KorcomptenzImage
+                              src={tech.image}
+                              width={26}
+                              height={22}
+                            />
+                          </span>
+                        )}
                         <span className="text-left truncate">{tech.label}</span>
                       </Link>
                     ))}

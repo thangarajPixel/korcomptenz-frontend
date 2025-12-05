@@ -52,13 +52,16 @@ const ClientSuccessList = ({
     },
   });
 
-  const handleSearch = React.useCallback((term: string) => {
-    setSearchTerm(term);
-    setPagination((prev) => ({
-      ...prev,
-      page: 1,
-    }));
-  }, [pagination]);
+  const handleSearch = React.useCallback(
+    (term: string) => {
+      setSearchTerm(term);
+      setPagination((prev) => ({
+        ...prev,
+        page: 1,
+      }));
+    },
+    [pagination]
+  );
 
   const handleFilterChange = React.useCallback(
     (filters: { [key: string]: string[] }) => {
@@ -77,21 +80,27 @@ const ClientSuccessList = ({
     [filter]
   );
 
-  const handlePageChange = React.useCallback((page: number) => {
-    window.scrollTo({ top: 750, behavior: "smooth" });
-    setPagination((prev) => ({
-      ...prev,
-      page: page,
-    }));
-  }, [pagination]);
+  const handlePageChange = React.useCallback(
+    (page: number) => {
+      window.scrollTo({ top: 750, behavior: "smooth" });
+      setPagination((prev) => ({
+        ...prev,
+        page: page,
+      }));
+    },
+    [pagination]
+  );
 
-  const handleItemsPerPageChange = React.useCallback((value: number) => {
-    setPagination((prev) => ({
-      ...prev,
-      pageSize: value,
-      page: 1,
-    }));
-  }, [pagination]);
+  const handleItemsPerPageChange = React.useCallback(
+    (value: number) => {
+      setPagination((prev) => ({
+        ...prev,
+        pageSize: value,
+        page: 1,
+      }));
+    },
+    [pagination]
+  );
 
   return (
     <React.Fragment>
@@ -109,10 +118,11 @@ const ClientSuccessList = ({
           onSortChange={setSort}
         />
         <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
-          {data?.sponsor && <div className="col-span-12 md:col-span-6 lg:col-span-4">
-            <StickyTitleCard data={data?.sponsor?.sponser} />
-          </div>
-          }
+          {data?.sponsor && (
+            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+              <StickyTitleCard data={data?.sponsor?.sponser} />
+            </div>
+          )}
 
           {isLoading ? (
             Array.from({ length: 5 }).map((_, i) => (

@@ -1,6 +1,6 @@
 import {
-  getCaseStudyList,
   getCaseStudySearchPage,
+  getInsightsList,
   getInsightsPage,
 } from "@/services";
 import { INITIAL_PAGINATION } from "@/utils/helper";
@@ -12,7 +12,7 @@ const getInsightsPageCache = cache(getInsightsPage);
 const InsightsSuccessPage = async ({ slug }: { slug?: string }) => {
   const [data, initialData, search] = await Promise.all([
     getInsightsPageCache(),
-    getCaseStudyList({
+    getInsightsList({
       params: {
         pagination: INITIAL_PAGINATION,
         sort: ["createdAt:desc"],
