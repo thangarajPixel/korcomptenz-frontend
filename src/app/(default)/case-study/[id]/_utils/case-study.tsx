@@ -21,7 +21,9 @@ const CaseStudy = ({
         essential={essential}
       />
       <CaseStudyContent data={data?.caseStudy} />
-      <ClientTestimonial data={data?.caseStudy?.testimonials} />
+      {data?.caseStudy?.testimonials?.length > 0 && (
+        <ClientTestimonial data={data?.caseStudy?.testimonials} />
+      )}
       <div className={cn("h-1 container-md my-20 bg-primary ")} />
       <div className="container-md">
         <h2
