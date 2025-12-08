@@ -12,7 +12,7 @@ import { InsightsSuccessFilter } from "./insights-success-filter";
 import { InsightCard } from "./insights-card";
 
 const InsightsSuccessList = ({
-  data: { filterLabel, popularFilter, banner, categoryAllLabel },
+  data: { filterLabel, popularFilter, banner, categoryAllLabel, category },
   initialData,
   search,
 }: {
@@ -111,6 +111,7 @@ const InsightsSuccessList = ({
       <div className="container-lg">
         <InsightsSuccessFilter
           filterLabel={filterLabel}
+          category={category}
           categoryAllLabel={categoryAllLabel}
           popularFilter={popularFilter}
           onFilterChange={handleFilterChange}
@@ -146,7 +147,10 @@ const InsightsSuccessList = ({
         </div>
         {pagination && (
           <PaginationSection
-            pagination={pagination}
+            pagination={{
+              ...pagination,
+              pageCount: data?.pagination.pageCount || pagination.pageCount,
+            }}
             handlePageChange={handlePageChange}
             handleItemsPerPageChange={handleItemsPerPageChange}
           />

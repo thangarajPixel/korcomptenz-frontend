@@ -14,9 +14,14 @@ const scrollbarHide = `
 export function InsightNavbar({
   data,
   categoryAllLabel,
+  category,
 }: {
   data: FilterListType[];
   categoryAllLabel: string;
+  category?: {
+    label: string;
+    id: number;
+  }[];
 }) {
   const pathname = usePathname();
   const currentSlug = pathname.split("/")[2] || categoryAllLabel;
@@ -27,8 +32,10 @@ export function InsightNavbar({
     setValue(currentSlug);
   }, [currentSlug]);
 
+  const tabs = data?.length ? data : category;
+
   return (
-    <section>
+    <section className="py-5">
       <style>{scrollbarHide}</style>
 
       <div className="relative">
@@ -70,7 +77,7 @@ export function InsightNavbar({
               </Link>
             </TabsTrigger>
             {/* ⭐ MAP ITEMS */}
-            {data?.map((t) => (
+            {tabs?.map((t) => (
               <TabsTrigger
                 key={t?.label}
                 value={t?.label}

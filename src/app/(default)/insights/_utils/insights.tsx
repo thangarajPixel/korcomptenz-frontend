@@ -1,8 +1,6 @@
 import React from "react";
 import InsightsSuccessList from "./insights-success-list";
 
-
-
 const Insights = async ({
   data,
   initialData,
@@ -19,7 +17,6 @@ const Insights = async ({
         initialData={initialData}
         search={search}
       />
-    
     </div>
   );
 };

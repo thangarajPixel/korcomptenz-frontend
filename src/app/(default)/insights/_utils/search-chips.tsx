@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { SearchIcon } from "../../../../../public/svg/all-svg";
-import { useCaseStudySearchHook } from "@/services";
+import { useInsightSearchHook } from "@/services";
 import { useDebounce } from "@uidotdev/usehooks";
 import { X as XIcon } from "lucide-react";
 
@@ -22,7 +22,7 @@ export default function SearchChips({
     (FilterListType & { from?: string })[]
   >([]);
   const debouncedSearchTerm = useDebounce(value, 1000);
-  const { data } = useCaseStudySearchHook({
+  const { data } = useInsightSearchHook({
     options: {
       initialData: search,
     },

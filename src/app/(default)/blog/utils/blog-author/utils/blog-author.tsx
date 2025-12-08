@@ -103,8 +103,8 @@ export default function BlogAuthor() {
           flex items-center justify-center 
           h-10 w-10 
           rounded-lg 
-          hover:bg-secondary/80 
-          transition-colors
+       
+       
         "
                 title={tool.name}
               >
@@ -112,7 +112,7 @@ export default function BlogAuthor() {
                   {" "}
                   <Image
                     src={tool.icon || "/placeholder.svg"}
-                    alt={article.author||""}
+                    alt={article.author || ""}
                     width={"30"}
                     height={"30"}
                   />

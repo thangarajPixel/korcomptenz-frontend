@@ -924,6 +924,10 @@ type CaseStudiesPageType = {
   testimonal: TestimonialType[];
   popularFilter: PopularFilterType;
   categoryAllLabel: string;
+  category: {
+    label: string;
+    id: number;
+  }[];
 };
 type CaseStudyPageType = {
   id: string;

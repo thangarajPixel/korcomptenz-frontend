@@ -140,3 +140,17 @@ export const useInsightsListHook = ({
     ...options,
   });
 };
+
+export const useInsightSearchHook = ({
+  search,
+  options,
+}: {
+  search?: string;
+  options?: OptionsType<(FilterListType & { from?: string })[]>;
+}) => {
+  return useQuery({
+    queryKey: [PAGE.INSIGHT_SEARCH, search],
+    queryFn: () => PAGE.getInsightSearchPage({ search }),
+    ...options,
+  });
+};

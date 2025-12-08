@@ -58,7 +58,7 @@ type Props = {
 const GlobalPage = (props: Props) => {
   const { data } = props;
 
-  return data?.map((item) => {
+  return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
         return (
@@ -219,6 +219,7 @@ const GlobalPage = (props: Props) => {
           <ScheduleCall
             key={`schedule-call-${item?.__component}-${item?.id}`}
             scheduleCall={item}
+            isLastIndex={index === data?.length - 1}
           />
         );
       case "page-componets.why-we-are":
