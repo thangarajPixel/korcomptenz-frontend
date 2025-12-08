@@ -1,11 +1,10 @@
 import React, { cache } from "react";
-import { getBlogPage } from "@/services";
-import BlogBannerSection from "../utils/banner-section";
-import BlogAuthor from "../utils/blog-author";
-import DocumentationLayout from "../utils/blog-content";
-
-import BlogContentShowcase from "../utils/content-showcase";
-// import BlogBuildDemo from "../utils/blog-consultation";
+import { getBlogPage, getInsightPage } from "@/services";
+import BlogBannerSection from "../_utils/banner-section";
+import BlogAuthor from "../_utils/blog-author";
+import DocumentationLayout from "../_utils/blog-content";
+import BlogContentShowcase from "../_utils/content-showcase";
+import { GlobalForm } from "@/components/global-form";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -16,14 +15,13 @@ const getBlogPageCache = cache(getBlogPage);
 const Page = async ({ params }: Props) => {
   const { id } = await params;
 
-  const data = await getBlogPageCache({ id });
-
+  const [data, pageLayout] = await Promise.all([getBlogPageCache({ id }), getInsightPage()]);
   return (
     <div className="gap-10">
       <BlogBannerSection BannerSectionData={data?.insight?.heroSection} />
       <BlogAuthor />
       <DocumentationLayout data={data} />
-      {/* <BlogBuildDemo /> */}
+      <GlobalForm form={pageLayout?.form} essential={{ id: data?.insight?.id, documentId: data?.insight?.documentId }} />
       <BlogContentShowcase data={data?.relatedInsight} />
     </div>
   );

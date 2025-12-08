@@ -31,6 +31,12 @@ export const useCaseStudyLeadHook = () => {
     mutationFn: PAGE.createCaseStudyLead,
   });
 };
+export const useFreeConsultationLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.FREE_CONSULTATION_LEAD],
+    mutationFn: PAGE.createFreeConsultationLead,
+  });
+};
 export const useCareerNewLetterHook = () => {
   return useMutation({
     mutationKey: [PAGE.CAREER_NEW_LETTER],

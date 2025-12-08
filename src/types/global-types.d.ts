@@ -530,6 +530,7 @@ type InsightResponse = {
 type InsightItem = {
   id: number;
   slug: string;
+  documentId: string;
   title: string;
   content: string;
   blog: BlogData;
@@ -590,4 +591,12 @@ type BlogEssentialType = {
     label: string;
     icon: ImageType;
   }[];
+};
+
+type InsightPageType = {
+  form: GlobalFormType;
+  blogAiPlatform: SocialPlatformType[];
+  blogSocialPlatform: SocialPlatformType[];
+  relatedCase: string;
+  tableTitle: string;
 };
