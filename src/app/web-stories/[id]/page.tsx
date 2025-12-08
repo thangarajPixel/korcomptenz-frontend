@@ -1,5 +1,5 @@
 import React from "react";
-import StatusCarousel from "./_utils/status-slider";
+import StatusCarousel from "../_utils/status-slider";
 // import StatusCarousel from "./_utils/web-story-slider-section/status-slider";
 
 // const carouselData = [
