@@ -24,6 +24,7 @@ type FilterBarProps = {
   category?: {
     label: string;
     id: number;
+    slug: string;
   }[];
 };
 
@@ -106,7 +107,6 @@ export function InsightsSuccessFilter({
   return (
     <section>
       <InsightNavbar
-        data={data?.category ?? []}
         category={category}
         categoryAllLabel={categoryAllLabel ?? ""}
       />
