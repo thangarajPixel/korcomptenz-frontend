@@ -1,6 +1,7 @@
 import React from "react";
 import SearchChips from "./search-chips";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { cn } from "@/lib/utils";
 
 const InsightsSuccessBanner = ({
   data,
@@ -13,7 +14,7 @@ const InsightsSuccessBanner = ({
   onSearch?: (search: string) => void;
   search?: FilterListType[];
 }) => {
-
+  const imageClassName = "rounded-3xl border border-border object-cover w-full";
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
       <div className="absolute inset-0">
@@ -50,7 +51,7 @@ const InsightsSuccessBanner = ({
 
               <KorcomptenzImage
                 src={data?.images?.[0]?.image}
-                className="rounded-3xl border border-border object-cover w-full h-[200px] md:h-[240px]"
+                className={cn(imageClassName, "h-[200px] md:h-[240px]")}
                 width={1000}
                 height={1000}
               />
@@ -58,8 +59,7 @@ const InsightsSuccessBanner = ({
               {/* Tall right image */}
               <KorcomptenzImage
                 src={data?.images?.[1]?.image}
-                alt="Engineers reviewing production dashboards"
-                className="rounded-3xl border border-border object-cover w-full row-span-2 h-[440px] md:h-[520px]"
+                className={cn(imageClassName, "row-span-2 h-[440px] md:h-[520px]")}
                 width={1000}
                 height={1000}
               />
@@ -67,8 +67,7 @@ const InsightsSuccessBanner = ({
               {/* Bottom left image (large) */}
               <KorcomptenzImage
                 src={data?.images?.[2]?.image}
-                alt="Precision manufacturing on CNC machine"
-                className="rounded-3xl border border-border object-cover w-full h-[260px] md:h-[320px]"
+                className={cn(imageClassName, "h-[260px] md:h-[320px]")}
                 width={1000}
                 height={1000}
               />
