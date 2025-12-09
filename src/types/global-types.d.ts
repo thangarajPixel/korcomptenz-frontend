@@ -13,6 +13,7 @@ type ImageType = {
   ext: string;
   mime: string;
   includes?: string;
+  url?:string;
 };
 
 type ToastPosition =

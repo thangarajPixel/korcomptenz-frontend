@@ -10,9 +10,8 @@ const getBlogPageCache = cache(getBlogPage);
 const Page = async ({ params }: Props) => {
   const { id } = await params;
 
-  const [data] = await Promise.all([
-    getBlogPageCache({ id })
-  ]);
+  const data = await getBlogPageCache({ id });
+
   let compileArray = data?.webStories;
   compileArray.unshift({
     id: 0,
@@ -21,7 +20,7 @@ const Page = async ({ params }: Props) => {
     image: data?.heroSection?.image,
     buttonText: "",
     link: "",
-    buttonLink: ""
+    buttonLink: "",
   });
 
   return <StatusCarousel carouselData={compileArray} />;
