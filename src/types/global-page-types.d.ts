@@ -9,6 +9,7 @@ type SlidingSectionType = {
   buttonAction: string;
   mobile_image: ImageType;
   description?: string;
+  logo?: ImageType;
 };
 
 type ServicesSectionType = {
@@ -557,6 +558,13 @@ type DemoRequestFormType = {
 
   list: { id: string; description: string }[];
 };
+type KorCareImpactDescriptionType = {
+  title: string;
+  description: string;
+  image: ImageType;
+  id: string;
+  roleDescription: string;
+};
 
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
@@ -577,11 +585,18 @@ type MasonryGalleryColumnType = {
   isVideo: boolean;
   videoLink: string | null;
 };
+type KorCareSliderType = {
+  id: string;
+  title: string;
+  isPerRowFive: boolean;
+  list: KorCareSlide[];
+};
 
 type MasonryGallerySectionType = {
   id: string;
   __component: "career.mansonry-gallery-section";
   title: string;
+  isPerRowFour: boolean;
   highLightText: string;
   list: {
     id: string;
@@ -687,6 +702,18 @@ type PricingSectionType = {
   title: string;
   subtitle: string;
   plans: PricingPlanType[];
+};
+
+type KorCareBuildDataType = {
+  image: ImageType;
+  description: string;
+  title: string;
+};
+
+type KorCareImpactHighlightType = {
+  id: string;
+  title: string;
+  list: KorCareHighlightCardType[];
 };
 
 type ComponentPropsMap = {
@@ -907,6 +934,22 @@ type ComponentPropsMap = {
   KorCareBuildData: KorCareBuildDataType & {
     id: string;
     __component: "kor-cares.kor-care-build-data";
+  };
+  KorCareImpactDescription: KorCareImpactDescriptionType & {
+    id: string;
+    __component: "kor-cares.impact-description";
+  };
+  KorCareAward: KorCareAwardType & {
+    id: string;
+    __component: "kor-cares.award";
+  };
+  KorCareSlider: KorCareSliderType & {
+    id: string;
+    __component: "kor-cares.straight-slider";
+  };
+  KorCareImpactHighlight: KorCareImpactHighlightType & {
+    id: string;
+    __component: "kor-cares.impact-highlight";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

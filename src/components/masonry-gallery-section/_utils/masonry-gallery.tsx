@@ -22,7 +22,7 @@ const MasonryGallery = ({ data }: { data: MasonryGallerySectionType }) => {
   });
 
   return (
-    <React.Fragment >
+    <React.Fragment>
       <Carousel className="w-full mb-5">
         <div className="flex mb-5  justify-between w-full">
           <div />
@@ -47,19 +47,22 @@ const MasonryGallery = ({ data }: { data: MasonryGallerySectionType }) => {
           {data?.list?.map((value) => (
             <CarouselItem
               key={`value-${value?.id}`}
-              className=" md:basis-1/2 lg:basis-1/3 flex flex-col gap-4"
+              className={cn(
+                " md:basis-1/2  flex flex-col gap-4",
+                data?.isPerRowFour ? "lg:basis-1/4" : "lg:basis-1/3"
+              )}
             >
               {value?.column?.map((item) => (
                 <div
                   key={`item-${item?.id}`}
                   className={cn(item?.isVideo && "cursor-pointer")}
                   onClick={() => {
-                    item?.isVideo && setIsVideoOpen({
-                      open: true,
-                      link: item?.videoLink || null,
-                    })
-                  }
-                  }
+                    item?.isVideo &&
+                      setIsVideoOpen({
+                        open: true,
+                        link: item?.videoLink || null,
+                      });
+                  }}
                 >
                   <KorcomptenzImage
                     src={item?.image}
