@@ -301,7 +301,9 @@ type DemonstrationSectionType = {
 };
 type BuildConnectSectionType = {
   title: string;
+  thumbnail: ImageType;
   description: string;
+  videoLink: string;
   image: ImageType;
   mobileImage: ImageType;
   imageCaption: string;
@@ -886,6 +888,11 @@ type ComponentPropsMap = {
   PricingSection: PricingSectionType & {
     id: string;
     __component: "page-componets.pricing-section";
+  };
+
+  KorCareBuildData: KorCareBuildDataType & {
+    id: string;
+    __component: "kor-cares.kor-care-build-data";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

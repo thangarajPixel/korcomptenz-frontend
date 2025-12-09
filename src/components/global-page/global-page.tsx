@@ -50,6 +50,7 @@ import DemoOpportunities from "@/app/(default)/live-demo/_utils/demo-opportuniti
 import DemoWhyAttend from "@/app/(default)/live-demo/_utils/demo-why-attend";
 import BuildDemo from "../build-connect/build-Demo";
 import PricingSection from "../pricing-section";
+import KorCareBuildData from "../kor-care-build-data";
 
 type Props = {
   data: ComponentPropsType[];
@@ -418,6 +419,13 @@ const GlobalPage = (props: Props) => {
           <PricingSection
             key={`pricing-section-${item?.__component}-${item?.id}`}
             data={item}
+          />
+        );
+      case "kor-cares.kor-care-build-data":
+        return (
+          <KorCareBuildData
+            key={`kor-care-build-data-${item?.__component}-${item?.id}`}
+            buildData={item}
           />
         );
       default:
