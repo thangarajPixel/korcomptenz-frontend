@@ -525,6 +525,7 @@ type InsightResponse = {
   };
   slug: string;
   title: string;
+  webStories: WebStoriesType[];
 };
 
 type InsightItem = {
@@ -585,18 +586,32 @@ type PodcastType = {
   title: string;
 };
 
-type BlogEssentialType = {
-  podcastPlatForm: {
-    link: string;
-    label: string;
-    icon: ImageType;
-  }[];
-};
-
 type InsightPageType = {
   form: GlobalFormType;
   blogAiPlatform: SocialPlatformType[];
   blogSocialPlatform: SocialPlatformType[];
-  relatedCase: string;
+  relatedCase: RelatedCaseType;
   tableTitle: string;
+  podcastPlatForm: PodcastPlatForm[];
+};
+type PodcastPlatForm = {
+  link: string;
+  icon: ImageType;
+  label: string;
+};
+
+type RelatedCaseType = {
+  id: string;
+  title: string;
+  buttonText: string;
+};
+
+type WebStoriesType = {
+  id: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  image: ImageType;
+  link: string;
+  buttonLink: string;
 };

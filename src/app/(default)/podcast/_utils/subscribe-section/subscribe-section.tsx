@@ -7,7 +7,7 @@ const SubscribeSection = ({
   essential,
 }: {
   data: InsightResponse;
-  essential: BlogEssentialType;
+  essential: PodcastPlatForm[];
 }) => {
   return (
     <section className="pb-10 md:pb-16 bg-white">
@@ -33,7 +33,7 @@ const SubscribeSection = ({
               <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all duration-300 hover:border-gray-300 flex items-center justify-center min-h-[100px] md:min-h-[120px]">
                 <div className="flex flex-col items-center justify-center w-full">
                   <KorcomptenzImage
-                    src={essential?.podcastPlatForm?.[index]?.icon}
+                    src={essential?.[index]?.icon}
                     width={200}
                     height={60}
                     className="object-contain group-hover:scale-105 transition-transform duration-300 max-w-[180px] md:max-w-[200px]"

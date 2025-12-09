@@ -17,7 +17,6 @@ const ReserveSeatSection = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission
-    console.log("Form submitted");
   };
 
   return (

@@ -4,7 +4,10 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { useFreeConsultationLeadHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { freeConsultationLeadSchema, type FreeConsultationLeadSchema } from "@/utils/validation.schema";
+import {
+  freeConsultationLeadSchema,
+  type FreeConsultationLeadSchema,
+} from "@/utils/validation.schema";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,7 +21,13 @@ const defaultValues = {
   department: "",
 };
 
-const ConsultationForm = ({ form, essential }: { form: FreeConsultationFormType; essential?: { id: string | number;[key: string]: unknown } }) => {
+const ConsultationForm = ({
+  form,
+  essential,
+}: {
+  form: FreeConsultationFormType;
+  essential?: { id: string | number; [key: string]: unknown };
+}) => {
   const {
     control,
     handleSubmit,
@@ -30,28 +39,32 @@ const ConsultationForm = ({ form, essential }: { form: FreeConsultationFormType;
     resolver: zodResolver(freeConsultationLeadSchema),
     defaultValues: {
       ...defaultValues,
-      insight: essential?.id ? {
-        connect: [{
-          id: essential.id as number,
-          documentId: essential.documentId as string,
-          isTempory: false,
-        }],
-      } : null,
+      insight: essential?.id
+        ? {
+            connect: [
+              {
+                id: essential.id as number,
+                documentId: essential.documentId as string,
+                isTempory: false,
+              },
+            ],
+          }
+        : null,
     },
   });
   const { mutateAsync } = useFreeConsultationLeadHook();
 
-
   const handleFormSubmit: SubmitHandler<FreeConsultationLeadSchema> =
-    React.useCallback(async (formdata) => {
-      try {
-        const response = await mutateAsync(formdata);
-        notify(response);
-        reset({ ...defaultValues });
-      } catch (error) {
-        errorSet(error, setError);
-      }
-    },
+    React.useCallback(
+      async (formdata) => {
+        try {
+          const response = await mutateAsync(formdata);
+          notify(response);
+          reset({ ...defaultValues });
+        } catch (error) {
+          errorSet(error, setError);
+        }
+      },
       [mutateAsync, reset]
     );
 
@@ -67,7 +80,7 @@ const ConsultationForm = ({ form, essential }: { form: FreeConsultationFormType;
             control={control}
             name={"fullName"}
             placeholder={form?.nameLabel || "Full name"}
-            className=" p-2 border-2 rounded-md text-black bg-white placeholder:text-black "
+            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -75,13 +88,13 @@ const ConsultationForm = ({ form, essential }: { form: FreeConsultationFormType;
             control={control}
             name="email"
             placeholder={form?.emailLabel || "Email"}
-            className=" p-2 border-2 rounded-md text-black bg-white placeholder:text-black "
+            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
           />
           <Input
             control={control}
             name="phone"
             placeholder={form?.phoneLabel || "Phone Number"}
-            className=" p-2 border-2 rounded-md text-black bg-white placeholder:text-black "
+            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -89,13 +102,13 @@ const ConsultationForm = ({ form, essential }: { form: FreeConsultationFormType;
             control={control}
             name="organization"
             placeholder={form?.organizationLabel || "Organization"}
-            className=" p-2 border-2 rounded-md text-black bg-white placeholder:text-black "
+            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
           />
           <Input
             control={control}
             name="location"
             placeholder={form?.locationLabel || "Location"}
-            className=" p-2 rounded-md border-2 text-black bg-white placeholder:text-black "
+            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
           />
         </div>
 
@@ -104,14 +117,14 @@ const ConsultationForm = ({ form, essential }: { form: FreeConsultationFormType;
             control={control}
             name="message"
             placeholder={form?.messageLabel || "Your message"}
-            className=" p-2 rounded-md border-2 text-black bg-white placeholder:text-black "
+            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
           />
         </div>
 
         {/* Submit button */}
         <div className="pt-4">
           <Button
-            size="lg"
+            size="xl"
             variant="outline"
             className="hover:bg-primary border-primary text-primary hover:text-white"
             arrow

@@ -1,6 +1,5 @@
 "use client";
 
-import StickyTitleCard from "@/components/sticky-title-list/_utils/sticky-title-card";
 import React, { useState } from "react";
 import { useInsightsListHook } from "@/services";
 import PaginationSection from "@/components/pagination-section";
@@ -118,12 +117,6 @@ const InsightsSuccessList = ({
           onSortChange={setSort}
         />
         <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
-          {data?.sponsor && (
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <StickyTitleCard data={data?.sponsor?.sponser} />
-            </div>
-          )}
-
           {isLoading ? (
             Array.from({ length: 5 }).map((_, i) => (
               <div key={i} className="col-span-12 md:col-span-6 lg:col-span-4">
