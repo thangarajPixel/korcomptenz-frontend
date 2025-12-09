@@ -7,13 +7,7 @@ import { CaseStudyCard } from "@/components/case-study-section";
 import { cn } from "@/lib/utils";
 import ButtonLink from "@/components/ui/button-link";
 
-const CaseStudy = ({
-  data,
-  essential,
-}: {
-  data: CaseStudySingleData;
-  essential: CaseStudyPageType;
-}) => {
+const CaseStudy = ({ data,essential,}: { data: CaseStudySingleData;essential: CaseStudyPageType;}) => {
   return (
     <React.Fragment>
       <CaseStudyBanner
@@ -21,7 +15,9 @@ const CaseStudy = ({
         essential={essential}
       />
       <CaseStudyContent data={data?.caseStudy} />
-      <ClientTestimonial data={data?.caseStudy?.testimonials} />
+      {data?.caseStudy?.testimonials?.length > 0 && (
+        <ClientTestimonial data={data?.caseStudy?.testimonials} />
+      )}
       <div className={cn("h-1 container-md my-20 bg-primary ")} />
       <div className="container-md">
         <h2

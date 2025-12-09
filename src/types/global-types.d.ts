@@ -13,6 +13,7 @@ type ImageType = {
   ext: string;
   mime: string;
   includes?: string;
+  url?:string;
 };
 
 type ToastPosition =
@@ -240,7 +241,7 @@ type CaseStudyData = {
   id: string;
   documentId: string;
   title: string;
-  seo: SeoType;
+  seo: SEO;
   study: string;
   slug: string;
   content: string;
@@ -525,11 +526,13 @@ type InsightResponse = {
   };
   slug: string;
   title: string;
+  webStories: WebStoriesType[];
 };
 
 type InsightItem = {
   id: number;
   slug: string;
+  documentId: string;
   title: string;
   content: string;
   blog: BlogData;
@@ -584,10 +587,32 @@ type PodcastType = {
   title: string;
 };
 
-type BlogEssentialType = {
-  podcastPlatForm: {
-    link: string;
-    label: string;
-    icon: ImageType;
-  }[];
+type InsightPageType = {
+  form: GlobalFormType;
+  blogAiPlatform: SocialPlatformType[];
+  blogSocialPlatform: SocialPlatformType[];
+  relatedCase: RelatedCaseType;
+  tableTitle: string;
+  podcastPlatForm: PodcastPlatForm[];
+};
+type PodcastPlatForm = {
+  link: string;
+  icon: ImageType;
+  label: string;
+};
+
+type RelatedCaseType = {
+  id: string;
+  title: string;
+  buttonText: string;
+};
+
+type WebStoriesType = {
+  id: number;
+  title: string;
+  description: string;
+  buttonText: string;
+  image: ImageType;
+  link: string;
+  buttonLink: string;
 };

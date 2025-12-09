@@ -371,6 +371,12 @@ type WhyKorcomptenzType = {
   isBgGray: boolean;
   list: IndustryItem[];
 };
+type SocialPlatformType = {
+  id: string;
+  label: string;
+  href: string | null;
+  icon: ImageType;
+};
 type CompanyType = {
   id: string;
   companyName: string;
@@ -381,14 +387,7 @@ type CompanyType = {
   address: string;
   companyLogo: ImageType;
   companyFullLogo: ImageType;
-  socialPlatforms: [
-    {
-      id: string;
-      label: string;
-      href: string | null;
-      icon: ImageType;
-    }
-  ];
+  socialPlatforms: SocialPlatformType[];
 
   policy: {
     id: string;
@@ -432,6 +431,20 @@ type CaseStudyFormType = {
   phoneLabel: string;
   messageLabel: string;
   buttonText: string;
+};
+type FreeConsultationFormType = {
+  __component: "form-fields.free-consultation-form";
+  id: string;
+  title: string;
+  nameLabel: string;
+  organizationLabel: string;
+  emailLabel: string;
+  phoneLabel: string;
+  messageLabel: string;
+  buttonText: string;
+  phoneLabel: string;
+  locationLabel: string;
+  image: ImageType;
 };
 type ContactFormType = {
   __component: "form-fields.contact-form";
@@ -548,6 +561,7 @@ type DemoRequestFormType = {
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
   ContactFormType: ContactFormType;
+  FreeConsultationFormType: FreeConsultationFormType;
   BookDemoFormType: BookDemoFormType;
   ContactUsFormType: ContactUsFormType;
   DemoRequestFormType: DemoRequestFormType;

@@ -11,7 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 import { useFilterInsightHook } from "@/services";
 
-import InsightNavbar from "./insight-navbar";
+import { InsightNavbar } from "./insight-navbar";
 
 type FilterType = "service" | "technology";
 

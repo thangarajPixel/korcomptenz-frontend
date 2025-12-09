@@ -6,6 +6,7 @@ import type {
   ContactFormData,
   ContactUsFormSchema,
   DemoRequestFormSchema,
+  FreeConsultationLeadSchema,
 } from "@/utils/validation.schema";
 
 const HOME = "/home";
@@ -30,8 +31,9 @@ const INSIGHT_LIST_PAGE = "/insight-list-page";
 export const FILTER_INSIGHT = "/insight-filter";
 export const INSIGHT = "/insights";
 export const INSIGHT_PAGE = "/insight-page";
-
+export const FREE_CONSULTATION_LEAD = "/free-consultation-leads";
 export const INSIGHT_SEARCH = "/insight-search";
+const PRIVACY_POLICY = "/privacy-policy";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -187,23 +189,20 @@ export const getBlogPage = async ({
   id: string;
 }): Promise<InsightResponse> => {
   const { data } = await http.get(`${INSIGHT}/${id}`);
-
   return data;
 };
 
-export const getInsightPage = async (): Promise<BlogEssentialType> => {
+export const getInsightPage = async (): Promise<InsightPageType> => {
   const { data } = await http.get(INSIGHT_PAGE);
   return data;
 };
 
-// export const getInsightSearchPage = async ({
-//   search = "",
-// }: {
-//   search?: string;
-// }): Promise<FilterListType[]> => {
-//   const { data } = await http.get(INSIGHT_SEARCH, { params: { search } });
-//   return data;
-// };
+export const createFreeConsultationLead = async (
+  formData: FreeConsultationLeadSchema
+) => {
+  const { data } = await http.post(FREE_CONSULTATION_LEAD, { data: formData });
+  return data;
+};
 
 export const getInsightSearchPage = async ({
   search = "",
@@ -211,5 +210,14 @@ export const getInsightSearchPage = async ({
   search?: string;
 }): Promise<FilterListType[]> => {
   const { data } = await http.get(INSIGHT_SEARCH, { params: { search } });
+  return data;
+};
+
+export const getPrivacyPolicy = async (): Promise<{
+  seo: SEO,
+  title: string,
+  description: CaseStudyDescription[]
+}> => {
+  const { data } = await http.get(PRIVACY_POLICY);
   return data;
 };

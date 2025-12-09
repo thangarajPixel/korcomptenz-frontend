@@ -2,11 +2,17 @@
 
 import ContentShowcaseSection from "@/components/content-showcase-section";
 
-export default function BlogContentShowcase({ data }: { data: InsightItem[] }) {
+export default function BlogContentShowcase({
+  data,
+  relatedCase,
+}: {
+  data: InsightItem[];
+  relatedCase: RelatedCaseType;
+}) {
   const compileData: ContentShowcaseSectionType = {
     ...data,
-    title: "",
-    buttontext: "",
+    title: relatedCase.title,
+    buttontext: relatedCase.buttonText,
     description: "",
     list: data?.map((item) => ({
       ...item,
@@ -21,5 +27,9 @@ export default function BlogContentShowcase({ data }: { data: InsightItem[] }) {
     })),
   };
 
-  return <ContentShowcaseSection data={compileData} />;
+  return (
+    <div className="mb-10">
+      <ContentShowcaseSection data={compileData} />
+    </div>
+  );
 }

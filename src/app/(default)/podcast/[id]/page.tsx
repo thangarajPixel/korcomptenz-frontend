@@ -19,7 +19,7 @@ const Page = async ({ params }: Props) => {
   return (
     <React.Fragment>
       <PodcastSection data={data} />
-      <SubscribeSection data={data} essential={essential} />
+      <SubscribeSection data={data} essential={essential?.podcastPlatForm} />
     </React.Fragment>
   );
 };

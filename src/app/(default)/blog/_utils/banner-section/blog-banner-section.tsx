@@ -5,7 +5,7 @@ import BlogBannerCard from "./_utils/blog-banner-card";
 const BannerSection = ({
   BannerSectionData,
 }: {
-  BannerSectionData: HeroSection;
+  BannerSectionData: InsightItem;
 }) => {
   return (
     <section

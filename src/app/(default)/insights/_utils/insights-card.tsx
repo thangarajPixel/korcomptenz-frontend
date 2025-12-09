@@ -14,7 +14,9 @@ export function InsightCard({ data }: { data: CaseStudyData }) {
       case "podcast":
         return `/podcast/${data?.slug}`;
       case "file":
-        return null; // no link
+        return null;
+      case "web-stories":
+        return `/webstories/${data?.slug}`;
       default:
         return null;
     }
