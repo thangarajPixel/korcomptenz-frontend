@@ -83,9 +83,9 @@ export default function StatusCarousel({
         style={{ backgroundImage: `url(${currentItem.image})` }}
       />
 
-      <div className="absolute inset-0 backdrop-blur-3xl bg-gradient-to-b from-gray-900/70 via-gray-800/60 to-gray-900/80"></div>
+      <div className="absolute inset-0 backdrop-blur-3xl bg-gradient-to-b from-gray-900/70 via-gray-800/60 to-gray-900/80" />
 
-      <div className="absolute inset-0 bg-indigo-950/10"></div>
+      <div className="absolute inset-0 bg-indigo-950/10" />
 
       <div className="relative z-10 lg:max-w-xl w-full mx-auto h-full flex items-center py-0  justify-center px-4">
         <div className="flex items-center md:gap-6 gap-0 max-w-5xl w-full">
@@ -118,8 +118,8 @@ export default function StatusCarousel({
                           i === currentIndex
                             ? `${progress}%`
                             : i < currentIndex
-                            ? "100%"
-                            : "0%",
+                              ? "100%"
+                              : "0%",
                       }}
                     />
                   </div>
@@ -170,7 +170,7 @@ export default function StatusCarousel({
                   <div
                     className="absolute bottom-0 left-0 right-0 text-white "
                     style={{
-                      backgroundColor: "rgba(57, 41, 175, 0.70)",
+                      backgroundColor: currentItem?.id ? "rgba(57, 41, 175, 0.70)" : "",
                       paddingTop: "20px",
 
                       clipPath:
@@ -179,7 +179,7 @@ export default function StatusCarousel({
                   >
                     {/* Main content area with solid bottom */}
                     <div
-                      className=" bg-[rgba(88,28,135,0.85)] "
+                      className={currentItem?.id ? "bg-[rgba(88,28,135,0.85)]" : ""}
                       style={{ paddingTop: "80px" }}
                     >
                       {/* Additional dark overlay for depth */}

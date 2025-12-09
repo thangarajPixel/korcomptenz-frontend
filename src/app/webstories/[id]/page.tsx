@@ -11,15 +11,20 @@ const Page = async ({ params }: Props) => {
   const { id } = await params;
 
   const [data] = await Promise.all([
-    getBlogPageCache({ id }),
-    // getInsightPage(),
+    getBlogPageCache({ id })
   ]);
+  let compileArray = data?.webStories;
+  compileArray.unshift({
+    id: 0,
+    title: data?.title,
+    description: "",
+    image: data?.heroSection?.image,
+    buttonText: "",
+    link: "",
+    buttonLink: ""
+  });
 
-  return (
-    <div>
-      <StatusCarousel carouselData={data?.webStories} />
-    </div>
-  );
+  return <StatusCarousel carouselData={compileArray} />;
 };
 
 export default Page;

@@ -607,7 +607,7 @@ type RelatedCaseType = {
 };
 
 type WebStoriesType = {
-  id: string;
+  id: number;
   title: string;
   description: string;
   buttonText: string;
