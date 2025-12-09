@@ -240,7 +240,7 @@ type CaseStudyData = {
   id: string;
   documentId: string;
   title: string;
-  seo: SeoType;
+  seo: SEO;
   study: string;
   slug: string;
   content: string;
