@@ -87,8 +87,8 @@ export default function StatusCarousel({
 
       <div className="absolute inset-0 bg-indigo-950/10" />
 
-      <div className="relative z-10 lg:max-w-xl w-full mx-auto h-full flex items-center py-0  justify-center px-4">
-        <div className="flex items-center md:gap-6 gap-0 max-w-5xl w-full">
+      <div className="relative z-10 lg:max-w-xl w-full mx-auto h-full flex items-center py-0  justify-center md:px-4">
+        <div className="flex items-center md:gap-6 gap-0 max-w-5xl w-full mx-auto justify-center">
           {/* Left Arrow */}
           <button
             onClick={goToPrevious}
@@ -100,7 +100,7 @@ export default function StatusCarousel({
 
           {/* Card Container */}
           <div
-            className="relative w-full md:flex-1 md:max-w-md h-[80vh] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
+            className="relative w-full md:flex-1 md:max-w-md h-[100vh] md:h-[calc(100vh-50px)] md:rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
             onClick={goToNext}
           >
             {/* Progress Bars */}
@@ -118,8 +118,8 @@ export default function StatusCarousel({
                           i === currentIndex
                             ? `${progress}%`
                             : i < currentIndex
-                              ? "100%"
-                              : "0%",
+                            ? "100%"
+                            : "0%",
                       }}
                     />
                   </div>
@@ -170,7 +170,9 @@ export default function StatusCarousel({
                   <div
                     className="absolute bottom-0 left-0 right-0 text-white "
                     style={{
-                      backgroundColor: currentItem?.id ? "rgba(57, 41, 175, 0.70)" : "",
+                      backgroundColor: currentItem?.id
+                        ? "rgba(57, 41, 175, 0.70)"
+                        : "",
                       paddingTop: "20px",
 
                       clipPath:
@@ -179,7 +181,9 @@ export default function StatusCarousel({
                   >
                     {/* Main content area with solid bottom */}
                     <div
-                      className={currentItem?.id ? "bg-[rgba(88,28,135,0.85)]" : ""}
+                      className={
+                        currentItem?.id ? "bg-[rgba(88,28,135,0.85)]" : ""
+                      }
                       style={{ paddingTop: "80px" }}
                     >
                       {/* Additional dark overlay for depth */}
