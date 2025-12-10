@@ -28,7 +28,7 @@ const ReserveSeatSection = ({
             <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold text-[#313941]  mb-6">
               {title}
             </h2>
-            <p className="text-[#393939] text-[18px] leading-[25px] font-normal">
+            <p className="text-custom-blue-1 text-[18px] leading-[25px] font-normal">
               {description}
             </p>
           </div>

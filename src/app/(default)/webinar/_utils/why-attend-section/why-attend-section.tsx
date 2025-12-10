@@ -1,38 +1,24 @@
 import React from "react";
-import Image from "next/image";
 
-interface Reason {
-  title: string;
-  description: string;
-}
+import { DangerousHtml } from "@/components/ui/dangerous-html";
+import KorcomptenzImage from "@/components/korcomptenz-image";
 
-interface WhyAttendSectionProps {
-  title: string;
-  reasons: Reason[];
-  image: string;
-}
-
-const WhyAttendSection = ({ title, reasons, image }: WhyAttendSectionProps) => {
+const WhyAttendSection = ({ data }: { data: BuildConnectSectionType }) => {
   return (
     <section className="py-16 bg-white">
       <div className="">
         <div className="grid md:grid-cols-2">
           {/* Left - Image */}
           <div className="relative h-64 md:h-auto min-h-[400px]">
-            <Image
-              src={image}
-              alt="Why attend"
-              fill
-              className="object-cover"
-            />
+            <KorcomptenzImage src={data?.image} fill className="object-cover" />
           </div>
 
           {/* Right - Content */}
           <div className="bg-[#E8F4F0] p-8 md:p-12 lg:p-16">
             <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold text-[#313941] mb-6">
-              {title}
+              {data?.title}
             </h2>
-            <ul className="space-y-4">
+            {/* <ul className="space-y-4">
               {reasons.map((reason, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <span className="text-gray-900 font-bold mt-1 flex-shrink-0">
@@ -48,7 +34,11 @@ const WhyAttendSection = ({ title, reasons, image }: WhyAttendSectionProps) => {
                   </div>
                 </li>
               ))}
-            </ul>
+            </ul> */}
+            <DangerousHtml
+              html={data?.description || ""}
+              className="flex items-start gap-3 text-md text-foreground"
+            />
           </div>
         </div>
       </div>

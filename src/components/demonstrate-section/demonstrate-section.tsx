@@ -26,7 +26,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
               {data?.description}
             </p>
           )}
-          {data?.butttonText && (
+          {data?.buttonText && (
             <ButtonLink
               link={data?.link || "#"}
               buttonProps={{
@@ -36,7 +36,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                   "hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full ",
               }}
             >
-              {data?.butttonText}
+              {data?.buttonText}
             </ButtonLink>
           )}
         </div>
@@ -86,7 +86,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
               " w-full lg:hidden variant:default px-8 py-2 text-4xl rounded-full mt-10",
           }}
         >
-          {data?.butttonText}
+          {data?.buttonText}
         </ButtonLink>
       </div>
     </section>

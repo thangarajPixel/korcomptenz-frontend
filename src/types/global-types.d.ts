@@ -501,6 +501,7 @@ type InsightBlog = {
 };
 type InsightResponse = {
   insight: InsightItem;
+  content: string;
   previousInsight: InsightItem | null;
   nextInsight: InsightItem | null;
   relatedInsight: InsightItem[];
@@ -526,6 +527,10 @@ type InsightResponse = {
   slug: string;
   title: string;
   webStories: WebStoriesType[];
+  webinar: WebinarType;
+  preWebinar: {
+    preSummary: BuildConnectSectionType;
+  };
 };
 
 type InsightItem = {
@@ -615,3 +620,17 @@ type WebStoriesType = {
   link: string;
   buttonLink: string;
 };
+
+type WebinarType = {
+  buildData: BuildConnectSectionType;
+  demonstrate: DemonstrationSectionType;
+  expert: WebinarExpertsType;
+  summary: SummaryType;
+};
+type SummaryType = {
+  title: string;
+  description: string;
+  thumbnail?: string;
+};
+
+type WebinarExpertsType = { list: ExpertsCardType[]; title: string };
