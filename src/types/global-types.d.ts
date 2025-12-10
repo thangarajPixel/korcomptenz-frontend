@@ -13,6 +13,7 @@ type ImageType = {
   ext: string;
   mime: string;
   includes?: string;
+  url?: string;
 };
 
 type ToastPosition =
@@ -634,3 +635,20 @@ type SummaryType = {
 };
 
 type WebinarExpertsType = { list: ExpertsCardType[]; title: string };
+type KorCareSlide = {
+  buttonText?: string;
+  description: string;
+  id: number;
+  image: ImageType;
+  title: string;
+  link?: string;
+};
+
+type KorCareHighlightCardType = {
+  id: number;
+  image: ImageType;
+  link?: string;
+  title: string;
+  description: string;
+  buttonText?: string;
+};

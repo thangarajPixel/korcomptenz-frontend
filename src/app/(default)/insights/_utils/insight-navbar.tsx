@@ -11,13 +11,11 @@ const scrollbarHide = `
 `;
 
 export function InsightNavbar({
-  data,
   categoryAllLabel,
   category,
 }: {
-  data: FilterListType[];
   categoryAllLabel: string;
-  category?: { label: string; id: number }[];
+  category?: { label: string; id: number; slug: string }[];
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -29,7 +27,7 @@ export function InsightNavbar({
     setValue(currentSlug);
   }, [currentSlug]);
 
-  const tabs = data?.length ? data : category;
+  const tabs = category;
 
   const goTo = (val: string) => {
     setValue(val);
@@ -77,7 +75,7 @@ export function InsightNavbar({
           {tabs?.map((t) => (
             <TabsTrigger
               key={t?.label}
-              value={t?.label}
+              value={t?.slug}
               className={cn(
                 "relative !cursor-pointer h-full z-10 text-white rounded-none lg:px-6 px-2 py-3 shadow-none border-none text-md sm:text-base font-semibold",
                 "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary",
@@ -88,7 +86,7 @@ export function InsightNavbar({
                 {t?.label}
               </span>
 
-              {value === t?.label && (
+              {value === t?.slug && (
                 <motion.div
                   layoutId="active-pill"
                   transition={{ type: "spring", stiffness: 120, damping: 20 }}

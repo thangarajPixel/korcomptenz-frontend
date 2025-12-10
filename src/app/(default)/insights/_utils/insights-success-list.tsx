@@ -110,7 +110,7 @@ const InsightsSuccessList = ({
       <div className="container-lg">
         <InsightsSuccessFilter
           filterLabel={filterLabel}
-          category={category}
+          category={category as never}
           categoryAllLabel={categoryAllLabel}
           popularFilter={popularFilter}
           onFilterChange={handleFilterChange}

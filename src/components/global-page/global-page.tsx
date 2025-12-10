@@ -50,6 +50,11 @@ import DemoOpportunities from "@/app/(default)/live-demo/_utils/demo-opportuniti
 import DemoWhyAttend from "@/app/(default)/live-demo/_utils/demo-why-attend";
 import BuildDemo from "../build-connect/build-Demo";
 import PricingSection from "../pricing-section";
+import KorCareBuildData from "../kor-care-build-data";
+import KorCareImpactDescription from "../kor-care-impact-description";
+import KorCareAward from "../kor-care-award-section/kor-care-award";
+import KorCareSlider from "../kor-care-slider-section";
+import KorCareImpactHighlight from "../kor-care-impact-highlight";
 
 type Props = {
   data: ComponentPropsType[];
@@ -417,6 +422,41 @@ const GlobalPage = (props: Props) => {
         return (
           <PricingSection
             key={`pricing-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "kor-cares.kor-care-build-data":
+        return (
+          <KorCareBuildData
+            key={`kor-care-build-data-${item?.__component}-${item?.id}`}
+            buildData={item}
+          />
+        );
+      case "kor-cares.impact-description":
+        return (
+          <KorCareImpactDescription
+            key={`impact-description-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "kor-cares.award":
+        return (
+          <KorCareAward
+            key={`kor-care-award-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "kor-cares.straight-slider":
+        return (
+          <KorCareSlider
+            key={`kor-care-slider-${item?.__component}-${item?.id}`}
+            manuelSliderData={item}
+          />
+        );
+      case "kor-cares.impact-highlight":
+        return (
+          <KorCareImpactHighlight
+            key={`kor-care-impact-highlight-${item?.__component}-${item?.id}`}
             data={item}
           />
         );

@@ -102,6 +102,15 @@ export const TwitterIcon = ({ color = "#26a17c" }) => (
   </svg>
 );
 
+export const YouTubeIcon = () => (
+  <svg
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    className="w-12 h-12 text-white ml-1"
+  >
+    <path d="M8 5v14l11-7z" />
+  </svg>
+);
 export const PlayIcon = () => (
   <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
     <path d="M8 5v14l11-7z" />

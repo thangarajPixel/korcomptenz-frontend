@@ -360,3 +360,7 @@ body {
 .rich-text table tbody > tr > td {
   @apply !border !border-custom-gray-5 !py-3 !px-2;
 }
+
+[data-radix-popper-content-wrapper] {
+  z-index: 30 !important;
+}
