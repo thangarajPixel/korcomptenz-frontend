@@ -1,13 +1,12 @@
 "use client"
-import React, { useState } from 'react'
 import StretchableSectionCard from './_utils/stretchable-card'
 import { useMobile } from '@/utils/custom-hooks'
 import CardSwiper from '../ui/card-swiper'
 
 const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
-  const defaultCard = item?.list?.[1]?.title?.toLowerCase() || null;
+  // const defaultCard = item?.list?.[1]?.title?.toLowerCase() || null;
   const isMobile = useMobile();
-  const [hoveredCard, setHoveredCard] = useState<string | null>(defaultCard);
+  // const [hoveredCard, setHoveredCard] = useState<string | null>(defaultCard);
 
   return (
     <section data-debug="page-componets.stretchable-section" className="container-md">
@@ -20,7 +19,7 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
             {item?.list?.map((value) => (
               <StretchableSectionCard
                 key={`stretchable-section-card-${value?.id}`}
-                open={true}
+                // open={true}
                 props={{
                   className: "embla__custom_slide"
                 }}
@@ -34,11 +33,11 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
             {item?.list?.map((value) => (
               <StretchableSectionCard
                 key={`stretchable-section-card-${value?.title?.toLowerCase()}`}
-                open={hoveredCard === value?.title?.toLowerCase()}
+                // open={hoveredCard === value?.title?.toLowerCase()}
                 props={{
                   className: 'flex-grow lg:basis-1/4 md:basis-1/3 sm:basis-1/2 basis-full',
-                  onMouseEnter: () => setHoveredCard(value?.title?.toLowerCase()),
-                  onMouseLeave: () => setHoveredCard(defaultCard)
+                  // onMouseEnter: () => setHoveredCard(value?.title?.toLowerCase()),
+                  // onMouseLeave: () => setHoveredCard(defaultCard)
                 }}
                 image={item?.image}
                 data={value}
