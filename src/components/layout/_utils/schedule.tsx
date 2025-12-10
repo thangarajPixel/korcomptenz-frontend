@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const ScheduleCall = ({ scheduleCall, isLastIndex }: { scheduleCall: ScheduleCallType, isLastIndex: boolean }) => {
   return (
     <section
-      className={cn("bg-custom-black lg:min-h-[600px] ", {
+      className={cn("bg-custom-black lg:min-h-[600px] flex items-center py-4 md:py-0", {
         "mb-[-40px] md:mb-[-96px]": isLastIndex,
       })}
       data-debug={"home.schedule-call"}
