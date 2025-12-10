@@ -3,7 +3,13 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 
-const ScheduleCall = ({ scheduleCall, isLastIndex }: { scheduleCall: ScheduleCallType, isLastIndex: boolean }) => {
+const ScheduleCall = ({
+  scheduleCall,
+  isLastIndex,
+}: {
+  scheduleCall: ScheduleCallType;
+  isLastIndex: boolean;
+}) => {
   return (
     <section
       className={cn("bg-custom-black lg:min-h-[600px] flex items-center py-4 md:py-0", {
@@ -12,7 +18,7 @@ const ScheduleCall = ({ scheduleCall, isLastIndex }: { scheduleCall: ScheduleCal
       data-debug={"home.schedule-call"}
     >
       <div className="container-md">
-        <div className="lg:flex flex-row  lg:gap-8 ">
+        <div className="lg:flex flex-row  lg:gap-8 items-center justify-center min-h-[600px]">
           {/* Left content */}
           <div className="relative z-20 flex flex-col justify-around lg:ml-0">
             <div className="space-y-2">

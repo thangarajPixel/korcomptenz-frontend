@@ -22,7 +22,7 @@ const BuildConnect = ({
     link: null,
   });
   return (
-    <section data-debug="page-componets.build-data">
+    <section data-debug="page-componets.build-data" id="our-mission-and-vision">
       <div className="container-md  ">
         {buildData?.isSwap && (
           <h3 className=" text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">

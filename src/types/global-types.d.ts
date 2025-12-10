@@ -165,11 +165,13 @@ type AboutMenuType = {
     id: number;
     title: string;
     description: string;
+    link: string | null;
   }[];
   sidebarSections: {
     id: number;
     title: string;
     icon: string;
+    link: string | null;
     description: string;
   }[];
 };

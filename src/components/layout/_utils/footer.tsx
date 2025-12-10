@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+
 import { ChevronRight } from "lucide-react";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
@@ -54,7 +54,7 @@ export const Footer = ({ data }: { data: LayoutType }) => {
             items={data?.insightMenu.categories.map((c) => ({
               id: c?.id,
               label: c?.title,
-              href: c?.href?.slug || "#",
+              href: c?.link || "#",
             }))}
           />
 
@@ -136,7 +136,7 @@ const QuickLinks = ({ data }: { data: LayoutType }) => {
       {links.map((label) => (
         <Link
           key={label.label}
-          href="#"
+          href={label?.href || "#"}
           className="flex items-center justify-between group"
         >
           <h3 className="text-primary font-semibold text-3xl transition-all duration-300">
@@ -163,7 +163,7 @@ const AboutSection = ({ data }: { data: LayoutType }) => (
       {data?.aboutMenu?.navigationItems?.map((item) => (
         <li key={item?.id}>
           <Link
-            href="#"
+            href={item?.link || "#"}
             className="text-custom-gray-2 text-lg hover:text-primary transition-all duration-300"
           >
             {item?.title}
@@ -175,7 +175,7 @@ const AboutSection = ({ data }: { data: LayoutType }) => (
     <ul className="space-y-2">
       {data?.aboutMenu?.sidebarSections.map((item) => (
         <li key={item?.id}>
-          <Link href="#" className="font-semibold text-lg">
+          <Link href={item?.link || "#"} className="font-semibold text-lg">
             {item?.title}
           </Link>
         </li>
@@ -203,7 +203,7 @@ const EcosystemSection = ({ data }: { data: LayoutType }) => (
               {item?.child?.map((child, i) => (
                 <li key={i}>
                   <Link
-                    href="#"
+                    href={child?.href?.slug || "#"}
                     className="text-custom-gray-2 text-lg hover:text-primary transition-all duration-300"
                   >
                     {child?.title}
@@ -243,10 +243,11 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
           <Link
             key={`policy-${policy?.id}`}
             href={policy?.href || "#"}
-            className={`text-custom-gray-2 text-xs mx-2 ${i < data?.company?.policy?.length - 1
-              ? "border-r pr-2 border-custom-gray-3"
-              : ""
-              }`}
+            className={`text-custom-gray-2 text-xs mx-2 ${
+              i < data?.company?.policy?.length - 1
+                ? "border-r pr-2 border-custom-gray-3"
+                : ""
+            }`}
           >
             {policy?.label}
           </Link>
