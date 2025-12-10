@@ -4,10 +4,7 @@ import { useMobile } from '@/utils/custom-hooks'
 import CardSwiper from '../ui/card-swiper'
 
 const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
-  // const defaultCard = item?.list?.[1]?.title?.toLowerCase() || null;
   const isMobile = useMobile();
-  // const [hoveredCard, setHoveredCard] = useState<string | null>(defaultCard);
-
   return (
     <section data-debug="page-componets.stretchable-section" className="container-md">
       <h4 className="text-4xl lg:text-6xl font-bold text-foreground mb-12  lg:mb-16  text-balance">
