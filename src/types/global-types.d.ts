@@ -13,7 +13,7 @@ type ImageType = {
   ext: string;
   mime: string;
   includes?: string;
-  url?:string;
+  url?: string;
 };
 
 type ToastPosition =
@@ -615,4 +615,22 @@ type WebStoriesType = {
   image: ImageType;
   link: string;
   buttonLink: string;
+};
+
+type KorCareSlide = {
+  buttonText?: string;
+  description: string;
+  id: number;
+  image: ImageType;
+  title: string;
+  link?: string;
+};
+
+type KorCareHighlightCardType = {
+  id: number;
+  image: ImageType;
+  link?: string;
+  title: string;
+  description: string;
+  buttonText?: string;
 };

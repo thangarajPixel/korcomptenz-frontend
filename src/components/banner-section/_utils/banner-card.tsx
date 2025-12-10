@@ -33,6 +33,9 @@ const BannerCard = ({
               height={200}
               className="w-20 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
             />
+            <h1 className="text-9xl font-semibold leading-14 text-white ">
+              {data?.title}
+            </h1>
             <DangerousHtml
               className=" text-lg md:text-base md:text-white   max-w-md"
               html={data?.description}
