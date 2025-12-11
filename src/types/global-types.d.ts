@@ -252,6 +252,8 @@ type CaseStudyData = {
   services: { label: string }[];
   technologies: { label: string }[];
   regions: { label: string }[];
+  featureImage: ImageType;
+  attachment: ImageType;
   rightSection: {
     id: string;
     title: string;
