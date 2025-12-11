@@ -33,6 +33,7 @@ body {
 
 :root {
   --radius: 0.625rem;
+  --font-weight-bold: 600;
   --background: #ffffff;
   --foreground: #313941;
   --card: oklch(1 0 0);

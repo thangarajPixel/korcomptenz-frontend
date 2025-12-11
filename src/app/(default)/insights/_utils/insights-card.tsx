@@ -3,18 +3,18 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
-
+import React from "react";
 import { motion } from "motion/react";
 
 export function InsightCard({ data }: { data: CaseStudyData }) {
-  const getLink = () => {
+  const getLink = React.useCallback(() => {
     switch (data?.content) {
       case "blog":
         return `/blog/${data?.slug}`;
       case "podcast":
         return `/podcast/${data?.slug}`;
       case "file":
-        return null;
+        return data?.attachment?.url;
       case "web-stories":
         return `/webstories/${data?.slug}`;
       case "post-webinar":
@@ -24,8 +24,7 @@ export function InsightCard({ data }: { data: CaseStudyData }) {
       default:
         return null;
     }
-  };
-
+  }, [data]);
   return (
     <motion.article
       className={cn(
@@ -51,23 +50,23 @@ export function InsightCard({ data }: { data: CaseStudyData }) {
 
         <div className="relative  w-full rounded-4xl h-80">
           <KorcomptenzImage
-            src={data?.heroSection?.image}
+            src={data?.featureImage}
             height={431}
             width={323}
             className="size-full object-cover rounded-4xl"
-            priority={false}
           />
         </div>
       </motion.div>
 
-      <h2 className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black ">
+      <h2 title={data?.title || data?.heroSection?.title} className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black ">
         {data?.title || data?.heroSection?.title}
       </h2>
-      <p className="text-lg text-black font-normal mb-5 mt-5 line-clamp-3 ">
+      <p title={data?.heroSection?.description} className="text-lg text-black font-normal mb-5 mt-5 line-clamp-3 ">
         {data?.heroSection?.description}
       </p>
       <ButtonLink
         link={getLink() || "#"}
+        isTargetNew={!!data?.attachment?.url}
         buttonProps={{
           arrow: true,
           variant: "ghost",
