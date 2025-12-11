@@ -7,11 +7,17 @@ import { CaseStudyCard } from "@/components/case-study-section";
 import { cn } from "@/lib/utils";
 import ButtonLink from "@/components/ui/button-link";
 
-const CaseStudy = ({ data,essential,}: { data: CaseStudySingleData;essential: CaseStudyPageType;}) => {
+const CaseStudy = ({ data, essential, }: { data: CaseStudySingleData; essential: CaseStudyPageType; }) => {
   return (
     <React.Fragment>
       <CaseStudyBanner
-        data={data?.caseStudy?.heroSection}
+        data={{
+          ...data?.caseStudy?.heroSection,
+          title: data?.caseStudy?.heroSection?.title || data?.caseStudy?.title,
+          study: data?.caseStudy?.case_industries
+            .map((industry) => industry.label)
+            .join(", ")
+        }}
         essential={essential}
       />
       <CaseStudyContent data={data?.caseStudy} />
