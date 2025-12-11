@@ -95,7 +95,7 @@ export default function NewsEventListSection({ data }: { data: NewsEventListSect
                   key={`section-button-${section.id}`}
                   onClick={() => handleSectionClick(section.id)}
                   className={cn(
-                    `w-full text-left font-semibold px-4 py-2 text-xl transition-all text-foreground duration-200  hover:text-primary `,
+                    `w-full text-left cursor-pointer font-semibold px-4 py-2 text-xl transition-all text-foreground duration-200  hover:text-primary `,
                     activeSection === `${section.id}` && "text-primary"
                   )}
                 >
