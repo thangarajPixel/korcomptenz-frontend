@@ -316,6 +316,12 @@ type BuildConnectSectionType = {
   rightSection: {
     content: string;
     description: string;
+    customDescription: {
+      id: string;
+
+      description: string;
+    }[];
+
     isBgGray: boolean;
     responsiveImage: {
       image: ImageType;
