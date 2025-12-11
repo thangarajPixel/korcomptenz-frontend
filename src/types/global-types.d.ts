@@ -277,6 +277,22 @@ type CaseStudySingleData = {
   caseStudy: CaseStudyData;
   relatedCaseStudies: CaseStudyData[];
 };
+type EventListType = {
+  id: string;
+  title: string;
+  description: string;
+  image: ImageType;
+  buttonText: string;
+  slug: string;
+};
+type NewsroomListType = {
+  id: string;
+  title: string;
+  description: string;
+  image: ImageType;
+  buttonText: string;
+  slug: string;
+};
 // ✅ Banner section
 type ClientSuccessBannerSectionType = {
   id: string;

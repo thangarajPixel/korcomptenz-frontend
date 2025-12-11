@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { useState, useEffect, useRef } from "react";
 import dayjs from "dayjs";
+import Link from "next/link";
 
 export default function LiveDemoList({ data }: { data: DemoListType }) {
   const [activeSection, setActiveSection] = useState(
@@ -91,12 +92,12 @@ export default function LiveDemoList({ data }: { data: DemoListType }) {
                   <p className="text-gray-600 text-sm mb-2 leading-relaxed">
                     {item?.description}
                   </p>
-                  <a
+                  <Link
                     href={item?.buttonLink || "#"}
                     className="text-primary font-semibold text-sm hover:text-primary transition-colors"
                   >
                     {item?.buttonText}
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>

@@ -9,6 +9,13 @@ type Props = {
 
 const getBlogPageCache = cache(getBlogPage);
 
+// export async function generateMetadata() {
+//   const data = await getBlogPageCache();
+//   return {
+//     title: data?.seo?.title || "Career",
+//     description: data?.seo?.description || "",
+//   }
+// }
 const Page = async ({ params }: Props) => {
   const { id } = await params;
   const [data, essential] = await Promise.all([

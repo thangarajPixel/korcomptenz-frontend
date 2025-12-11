@@ -34,6 +34,8 @@ export const INSIGHT_PAGE = "/insight-page";
 export const FREE_CONSULTATION_LEAD = "/free-consultation-leads";
 export const INSIGHT_SEARCH = "/insight-search";
 const PRIVACY_POLICY = "/privacy-policy";
+export const EVENT_PAGE = "/event-list";
+export const NEWSROOM_PAGE = "/news-list";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -157,6 +159,15 @@ export const createContactUsLead = async (formData: ContactUsFormSchema) => {
 
 export const getDemoPage = async (): Promise<PagesListType> => {
   const { data } = await http.get(DEMO_PAGE);
+
+  return data;
+};
+export const getEventListPage = async (): Promise<PagesListType & { listData: EventListType[] }> => {
+  const { data } = await http.get(EVENT_PAGE);
+
+  return data;
+}; export const getNewsroomPage = async (): Promise<PagesListType & { listData: NewsroomListType[] }> => {
+  const { data } = await http.get(NEWSROOM_PAGE);
 
   return data;
 };
