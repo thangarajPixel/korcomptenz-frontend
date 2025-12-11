@@ -341,7 +341,10 @@ body {
 
 .rich-text table,
 .rich-text .table {
-  @apply !w-full shadow-2xl;
+  @apply !w-full;
+}
+.rich-text table {
+  @apply shadow-2xl;
 }
 .rich-text strong {
   @apply !font-semibold;
