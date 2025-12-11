@@ -339,7 +339,8 @@ body {
   @apply !font-sans !text-md md:!text-lg !text-primary;
 }
 
-.rich-text table {
+.rich-text table,
+.rich-text .table {
   @apply !w-full shadow-2xl;
 }
 .rich-text strong {
