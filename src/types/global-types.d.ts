@@ -636,7 +636,7 @@ type WebinarType = {
 type SummaryType = {
   title: string;
   description: string;
-  thumbnail?: string;
+  thumbnail?: ImageType;
 };
 
 type WebinarExpertsType = { list: ExpertsCardType[]; title: string };
