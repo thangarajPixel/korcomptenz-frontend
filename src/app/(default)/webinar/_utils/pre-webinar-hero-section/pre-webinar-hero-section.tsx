@@ -2,34 +2,17 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Calendar, Clock } from "lucide-react";
+import KorcomptenzImage from "@/components/korcomptenz-image";
 
-interface PreWebinarHeroSectionProps {
-  title: string;
-  description: string;
-  date: string; // Format: "2025-07-30"
-  time: string; // Format: "11:00 AM - 12:00 PM EST | 8:00 AM - 9:00 AM PST | 10:00 AM - 11:00 AM CST"
-  registerLink: string;
-  backgroundImage: string; // Full background image
-  websitePreviewImage: string; // Website preview screenshot for the card
-  mobileBackgroundImage?: string;
-}
-
-const PreWebinarHeroSection = ({
-  title,
-  description,
-  date,
-  time,
-  registerLink,
-  backgroundImage,
-  websitePreviewImage,
-  mobileBackgroundImage,
-}: PreWebinarHeroSectionProps) => {
+const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
   });
+  const date = "2025-12-30";
+  const time = "11AM - 12 PM EST | 8AM - 9AM PST | 10AM - 11AM CST";
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -63,10 +46,14 @@ const PreWebinarHeroSection = ({
     const suffix = (day: number) => {
       if (day > 3 && day < 21) return "th";
       switch (day % 10) {
-        case 1: return "st";
-        case 2: return "nd";
-        case 3: return "rd";
-        default: return "th";
+        case 1:
+          return "st";
+        case 2:
+          return "nd";
+        case 3:
+          return "rd";
+        default:
+          return "th";
       }
     };
 
@@ -80,9 +67,8 @@ const PreWebinarHeroSection = ({
         <div className="overflow-hidden">
           {/* Image with countdown overlay */}
           <div className="relative h-64">
-            <Image
-              src={mobileBackgroundImage || backgroundImage}
-              alt="Webinar background"
+            <KorcomptenzImage
+              src={data?.heroSection?.image}
               fill
               className="object-cover"
               priority
@@ -95,25 +81,33 @@ const PreWebinarHeroSection = ({
                     <div className="text-2xl font-bold text-gray-900">
                       {timeLeft.days.toString().padStart(2, "0")}
                     </div>
-                    <div className="text-xs text-[#229D68] font-medium">Days</div>
+                    <div className="text-xs text-[#229D68] font-medium">
+                      Days
+                    </div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-gray-900">
                       {timeLeft.hours.toString().padStart(2, "0")}
                     </div>
-                    <div className="text-xs text-[#229D68] font-medium">Hours</div>
+                    <div className="text-xs text-[#229D68] font-medium">
+                      Hours
+                    </div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-gray-900">
                       {timeLeft.minutes.toString().padStart(2, "0")}
                     </div>
-                    <div className="text-xs text-[#229D68] font-medium">Minutes</div>
+                    <div className="text-xs text-[#229D68] font-medium">
+                      Minutes
+                    </div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-gray-900">
                       {timeLeft.seconds.toString().padStart(2, "0")}
                     </div>
-                    <div className="text-xs text-[#229D68] font-medium">Seconds</div>
+                    <div className="text-xs text-[#229D68] font-medium">
+                      Seconds
+                    </div>
                   </div>
                 </div>
               </div>
@@ -123,9 +117,11 @@ const PreWebinarHeroSection = ({
           {/* Content */}
           <div className="p-6 mt-4">
             <h1 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
-              {title}
+              {data?.title}
             </h1>
-            <p className="text-sm text-gray-600 mb-6">{description}</p>
+            <p className="text-sm text-gray-600 mb-6">
+              {data?.heroSection?.description}
+            </p>
 
             {/* Date & Time - Teal Background */}
             <div className="bg-[#26A17C]  p-4 mb-6 space-y-2 text-white">
@@ -146,44 +142,36 @@ const PreWebinarHeroSection = ({
             </div>
 
             {/* Register Button */}
-            <a
+            {/* <a
               href={registerLink}
               className="inline-flex items-center gap-2 bg-[#26A17C] text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors shadow-lg"
             >
               Register Now
               <span>→</span>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
 
-    
       <div className="hidden md:grid  w-full gap-0 min-h-[500px] lg:min-h-[600px]">
-      
         <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center h-full w-full">
-        
           <Image
-            src={backgroundImage}
+            src="/assets/tempory/image_preview1.png"
             alt="Webinar speaker"
             fill
             className="object-cover"
             priority
           />
 
-         
           <div className="relative z-10 max-w-xl">
-        
             <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight">
-              {title}
+              {data?.title}
             </h1>
 
-           
-           
             <p className="text-base lg:text-lg mb-6 leading-relaxed">
-              {description}
+              {data?.heroSection?.description}
             </p>
 
-           
             <div className="space-y-2 mb-6">
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5 flex-shrink-0" />
@@ -201,18 +189,15 @@ const PreWebinarHeroSection = ({
               </div>
             </div>
 
-            
-            <a
+            {/* <a
               href={registerLink}
               className="inline-flex items-center gap-2 bg-white text-[#229D68] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg"
             >
               Register Now
               <span>→</span>
-            </a>
+            </a> */}
           </div>
         </div>
-
-    
       </div>
 
       {/* Desktop Countdown Timer - Overlapping white box */}

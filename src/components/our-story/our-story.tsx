@@ -8,7 +8,11 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
   const [activeYear, setActiveYear] = useState(2025);
   // const activeData = TIMELINE_DATA.find((d) => d.year === activeYear) || TIMELINE_DATA[TIMELINE_DATA.length - 1]
   return (
-    <section data-debug="about-us.our-story-list" className="w-full px-2 md:px-0">
+    <section
+      data-debug="about-us.our-story-list"
+      id="our-story"
+      className="w-full px-2 md:px-0"
+    >
       {/* Hero Section */}
       <div className="relative aspect-[627/500] md:aspect-[1443/696]">
         {/* Background Image with Overlay */}
@@ -84,18 +88,20 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
                     {/* Year Marker */}
                     <div
                       className={`w-7 h-4 border border-primary rounded-full mb-4 transition-all duration-300 transform 
-                      ${activeYear === item.year
+                      ${
+                        activeYear === item.year
                           ? "bg-primary "
                           : "bg-slate-600 hover:bg-slate-500"
-                        }`}
+                      }`}
                     />
 
                     {/* Year Label */}
                     <span
-                      className={`text-xs md:text-sm transition-all text-white duration-300 ${activeYear === item.year
-                        ? "text-base md:text-lg"
-                        : "opacity-80"
-                        }`}
+                      className={`text-xs md:text-sm transition-all text-white duration-300 ${
+                        activeYear === item.year
+                          ? "text-base md:text-lg"
+                          : "opacity-80"
+                      }`}
                     >
                       {item.year}
                     </span>
