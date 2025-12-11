@@ -115,6 +115,7 @@ type ServicesMenuProps = {
     };
     child: {
       id: number;
+      attachment: ImageType;
       title: string;
       type: "dark" | "light";
       href?: {
@@ -165,12 +166,16 @@ type AboutMenuType = {
     id: number;
     title: string;
     description: string;
+
+    link: string | null;
   }[];
   sidebarSections: {
     id: number;
     title: string;
     icon: string;
+    link: string | null;
     description: string;
+    link: string;
   }[];
 };
 
@@ -504,6 +509,7 @@ type InsightBlog = {
 };
 type InsightResponse = {
   insight: InsightItem;
+  content: string;
   previousInsight: InsightItem | null;
   nextInsight: InsightItem | null;
   relatedInsight: InsightItem[];
@@ -529,6 +535,10 @@ type InsightResponse = {
   slug: string;
   title: string;
   webStories: WebStoriesType[];
+  webinar: WebinarType;
+  preWebinar: {
+    preSummary: BuildConnectSectionType;
+  };
 };
 
 type InsightItem = {
@@ -619,6 +629,19 @@ type WebStoriesType = {
   buttonLink: string;
 };
 
+type WebinarType = {
+  buildData: BuildConnectSectionType;
+  demonstrate: DemonstrationSectionType;
+  expert: WebinarExpertsType;
+  summary: SummaryType;
+};
+type SummaryType = {
+  title: string;
+  description: string;
+  thumbnail?: string;
+};
+
+type WebinarExpertsType = { list: ExpertsCardType[]; title: string };
 type KorCareSlide = {
   buttonText?: string;
   description: string;

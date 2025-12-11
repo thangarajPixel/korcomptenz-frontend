@@ -214,9 +214,9 @@ export const getInsightSearchPage = async ({
 };
 
 export const getPrivacyPolicy = async (): Promise<{
-  seo: SEO,
-  title: string,
-  description: CaseStudyDescription[]
+  seo: SEO;
+  title: string;
+  description: CaseStudyDescription[];
 }> => {
   const { data } = await http.get(PRIVACY_POLICY);
   return data;

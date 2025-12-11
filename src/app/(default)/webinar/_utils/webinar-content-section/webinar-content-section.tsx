@@ -36,7 +36,7 @@ const WebinarContentSection = ({
               <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold mb-4 text-[#313941]">
                 {summary.title}
               </h2>
-              <p className="text-[#393939] leading-[25px] text-[18px] font-normal">
+              <p className="text-custom-blue-1 leading-[25px] text-[18px] font-normal">
                 {summary.description}
               </p>
             </div>
@@ -53,12 +53,16 @@ const WebinarContentSection = ({
 
         {/* Key Takeaways */}
         <div className="mb-16 bg-[#5648D8] rounded-2xl p-8 md:p-12 text-white">
-          <h2 className="text-2xl md:text-[40px] leading-[48px] text-[#FFFFFF] font-semibold mb-6">Key Takeaways</h2>
+          <h2 className="text-2xl md:text-[40px] leading-[48px] text-[#FFFFFF] font-semibold mb-6">
+            Key Takeaways
+          </h2>
           <ul className="space-y-3">
             {keyTakeaways.map((takeaway, index) => (
               <li key={index} className="flex items-start">
                 <span className="mr-3 mt-1">•</span>
-                <span className="text-[17px] leading-[27px] font-normal ">{takeaway}</span>
+                <span className="text-[17px] leading-[27px] font-normal ">
+                  {takeaway}
+                </span>
               </li>
             ))}
           </ul>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronLeft, X, Plus } from "lucide-react";
+import Link from "next/link";
 
 // ---------- Types ----------
 
@@ -9,6 +10,7 @@ interface EcosystemDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   menu: EcosystemMenuType | null;
+  closeMenu: () => void;
 }
 
 interface DrawerState {
@@ -19,7 +21,12 @@ interface DrawerState {
 // ---------- Data ----------
 
 // ---------- Drawer ----------
-const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
+const EcosystemDrawer = ({
+  isOpen,
+  onClose,
+  menu,
+  closeMenu,
+}: EcosystemDrawerProps) => {
   if (!isOpen || !menu) return null;
 
   const item = menu?.item;
@@ -36,7 +43,9 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
-            <h2 className="font-medium text-lg text-primary">{menu?.menu}</h2>
+            <Link href={menu?.item?.link || "#"} onClick={closeMenu}>
+              <h2 className="font-medium text-lg text-primary">{menu?.menu}</h2>
+            </Link>
           </div>
           <button
             onClick={onClose}
@@ -55,9 +64,11 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
                   key={`ecosystem-mobile-${i}`}
                   className="px-2 py-3 border-b border-gray-100"
                 >
-                  <p className="text-lg font-medium text-primary border-b border-primary">
-                    {child?.title}
-                  </p>
+                  <Link href={child?.href?.slug || "#"} onClick={closeMenu}>
+                    <p className="text-lg font-medium text-primary border-b border-primary">
+                      {child?.title}
+                    </p>
+                  </Link>
                   {child?.description?.length > 0 && (
                     <ul className="mt-1 text-md text-black">
                       {child?.description?.map((desc, j) => (
@@ -78,7 +89,13 @@ const EcosystemDrawer = ({ isOpen, onClose, menu }: EcosystemDrawerProps) => {
 };
 
 // ---------- Main Component ----------
-const EcosystemMobile = ({ data }: { data: LayoutType }) => {
+const EcosystemMobile = ({
+  data,
+  closeMenu,
+}: {
+  data: LayoutType;
+  closeMenu: () => void;
+}) => {
   const [drawer, setDrawer] = useState<DrawerState>({
     isOpen: false,
     menu: null,
@@ -115,6 +132,7 @@ const EcosystemMobile = ({ data }: { data: LayoutType }) => {
         isOpen={drawer.isOpen}
         onClose={closeDrawer}
         menu={drawer.menu}
+        closeMenu={closeMenu}
       />
     </>
   );

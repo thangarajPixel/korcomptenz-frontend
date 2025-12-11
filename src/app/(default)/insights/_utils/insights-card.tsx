@@ -17,6 +17,10 @@ export function InsightCard({ data }: { data: CaseStudyData }) {
         return data?.attachment?.url;
       case "web-stories":
         return `/webstories/${data?.slug}`;
+      case "post-webinar":
+        return `/webinar/${data?.slug}`;
+      case "pre-webinar":
+        return `/webinar/${data?.slug}`;
       default:
         return null;
     }

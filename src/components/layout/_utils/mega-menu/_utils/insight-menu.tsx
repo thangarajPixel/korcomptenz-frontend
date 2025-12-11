@@ -4,7 +4,13 @@ import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import Link from "next/link";
 
-const InsightsMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
+const InsightsMenu = ({
+  data,
+  onClick,
+}: {
+  data: LayoutType;
+  onClick: () => void;
+}) => {
   return (
     <div className="bg-white w-full overflow-x-hidden  overscroll-contain">
       <div className="mx-auto">
@@ -33,7 +39,7 @@ const InsightsMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {data?.insightMenu?.categories?.map((category, index) => (
-              <Link href={category?.link || "#"} key={index}>
+              <Link href={category?.link || "#"} key={index} onClick={onClick}>
                 <motion.div
                   key={category?.id}
                   className="group h-[55px] border-b border-[#D2D2D2] cursor-pointer flex items-center justify-between transition-all duration-300"
