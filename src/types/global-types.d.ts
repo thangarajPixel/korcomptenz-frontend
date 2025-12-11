@@ -115,6 +115,7 @@ type ServicesMenuProps = {
     };
     child: {
       id: number;
+      attachment: ImageType;
       title: string;
       type: "dark" | "light";
       href?: {
@@ -165,12 +166,14 @@ type AboutMenuType = {
     id: number;
     title: string;
     description: string;
+    link: string;
   }[];
   sidebarSections: {
     id: number;
     title: string;
     icon: string;
     description: string;
+    link: string;
   }[];
 };
 

@@ -199,16 +199,28 @@ export function Navbar({ data }: { data: LayoutType }) {
                               <ServicesMobile data={data} />
                             )}
                             {item.label === "Industries" && (
-                              <IndustriesMobile data={data} />
+                              <IndustriesMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "Ecosystems" && (
-                              <EcosystemMobile data={data} />
+                              <EcosystemMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "Insights" && (
-                              <InsightMobile data={data} />
+                              <InsightMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "About Us" && (
-                              <AboutMobile data={data} />
+                              <AboutMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                           </motion.div>
                         )}
