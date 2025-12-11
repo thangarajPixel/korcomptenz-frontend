@@ -22,7 +22,7 @@ const CaseStudyDomainSection = ({
       buttonText: item.heroSection.buttonText,
     })),
     link: domainData.link,
-    butttonText: domainData.buttonText,
+    buttonText: domainData.buttonText,
     description: "",
   };
   return <DemonstrateSection data={componentProps} />;
