@@ -74,7 +74,7 @@ export const Footer = ({ data }: { data: LayoutType }) => {
         </div>
 
         {/* Copyright */}
-        <CopyrightSection data={data} />
+        {/* <CopyrightSection data={data} /> */}
       </div>
     </footer>
   );
@@ -218,10 +218,13 @@ const EcosystemSection = ({ data }: { data: LayoutType }) => (
   </section>
 );
 
-const CopyrightSection = ({ data }: { data: LayoutType }) => (
-  <>
-    {/* Desktop */}
-    {/* <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex items-center justify-between">
+// const CopyrightSection = ({ data }: { data: LayoutType }) => (
+//   <>
+{
+  /* Desktop */
+}
+{
+  /* <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex items-center justify-between">
       <p className="text-custom-gray-2 text-lg">{data?.company?.copyrights}</p>
       <div>
         {data?.company?.policy?.map((policy) => (
@@ -234,10 +237,14 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
           </Link>
         ))}
       </div>
-    </div> */}
+    </div> */
+}
 
-    {/* Mobile */}
-    <div className="mt-8 lg:hidden flex flex-col items-center">
+{
+  /* Mobile */
+}
+{
+  /* <div className="mt-8 lg:hidden flex flex-col items-center">
       <div className="flex justify-center pb-4">
         {data?.company?.policy?.map((policy, i) => (
           <Link
@@ -258,6 +265,7 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
           {data?.company?.copyrights}
         </p>
       </div>
-    </div>
-  </>
-);
+    </div> */
+}
+//   </>
+// );
