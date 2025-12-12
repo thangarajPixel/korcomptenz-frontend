@@ -249,7 +249,7 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
                 : ""
             }`}
           >
-            {policy?.label}
+            {policy?.label || " Privacy Policy"}
           </Link>
         ))}
       </div>
