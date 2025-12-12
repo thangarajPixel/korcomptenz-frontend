@@ -630,6 +630,8 @@ type NewsEventListSectionType = {
   id: string;
   title: string;
   isEvent?: boolean;
+  image: ImageType;
+  createdAt: string;
 };
 type NotFoundType = {
   id: string;
