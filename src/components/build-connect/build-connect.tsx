@@ -21,11 +21,12 @@ const BuildConnect = ({
     open: false,
     link: null,
   });
+
   return (
     <section data-debug="page-componets.build-data" id="our-mission-and-vision">
       <div className="container-md  ">
         {buildData?.isSwap && (
-          <h3 className=" text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
+          <h3 className=" text-6xl md:text-8xl font-bold text-foreground leading-10 lg:leading-15">
             {buildData?.title}
           </h3>
         )}
@@ -39,14 +40,16 @@ const BuildConnect = ({
             className={cn("px-5 space-y-3 ", buildData?.isSwap && "order-2")}
           >
             {!buildData?.isSwap && (
-              <h3 className="text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
+              <h3 className="text-6xl md:text-8xl font-bold text-foreground leading-10 lg:leading-14">
                 {buildData?.title}
               </h3>
             )}
-            <DangerousHtml
-              html={buildData?.description}
-              className="text-xs md:text-2xl text-foreground leading-7 break-words"
-            />
+            {buildData?.description && (
+              <DangerousHtml
+                html={buildData?.description}
+                className="text-xs md:text-2xl text-foreground leading-7 break-words"
+              />
+            )}
             {buildData?.descriptionButtonText && (
               <ButtonLink
                 link={buildData?.descriptionButtonLink || "#"}
@@ -167,6 +170,32 @@ const BuildConnect = ({
               />
             </div>
           )}
+
+          {buildData?.rightSection?.content === "customDescription" && (
+            <div className="flex flex-col items-start">
+              {buildData?.rightSection?.customDescription?.map(
+                (item, index) => (
+                  <div key={index} className="flex gap-3 justify-end">
+                    {/* Blue arrow icon */}
+                    <div className="flex-shrink-0 pt-2">
+                      <KorcomptenzImage
+                        src="/assets/thumbnail_arrow_f6130cd06d.png"
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+
+                    {/* Benefit text */}
+                    <DangerousHtml
+                      html={item?.description}
+                      className="text-gray-700 text-2xl font-sans leading-relaxed mb-5"
+                    />
+                  </div>
+                )
+              )}
+            </div>
+          )}
+
           {buildData?.rightSection?.content === "form" && (
             <BookDemoSection
               essential={

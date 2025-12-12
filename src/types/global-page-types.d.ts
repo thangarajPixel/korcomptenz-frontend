@@ -316,6 +316,12 @@ type BuildConnectSectionType = {
   rightSection: {
     content: string;
     description: string;
+    customDescription: {
+      id: string;
+
+      description: string;
+    }[];
+
     isBgGray: boolean;
     responsiveImage: {
       image: ImageType;
@@ -631,7 +637,17 @@ type DemoListType = {
   id: string;
   list: DemoList[];
 };
-
+type NewsEventListSectionType = {
+  buttonLink: string | null;
+  buttonText: string;
+  date: string;
+  description: string;
+  id: string;
+  title: string;
+  isEvent?: boolean;
+  image: ImageType;
+  createdAt: string;
+};
 type NotFoundType = {
   id: string;
   __component: "not-found.not-found";
@@ -965,6 +981,10 @@ type ComponentPropsMap = {
   KorCareImpactHighlight: KorCareImpactHighlightType & {
     id: string;
     __component: "kor-cares.impact-highlight";
+  };
+  NewsEventListSection: NewsEventListSectionType & {
+    id: string;
+    __component: "news-and-event.news-event-list";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

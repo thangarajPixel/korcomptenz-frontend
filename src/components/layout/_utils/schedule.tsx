@@ -18,7 +18,7 @@ const ScheduleCall = ({
       data-debug={"home.schedule-call"}
     >
       <div className="container-md">
-        <div className="lg:flex flex-row  lg:gap-8 items-center justify-center min-h-[600px]">
+        <div className="lg:flex flex-row  lg:gap-8 justify-center min-h-[600px]">
           {/* Left content */}
           <div className="relative z-20 flex flex-col justify-around lg:ml-0">
             <div className="space-y-2">

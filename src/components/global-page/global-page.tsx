@@ -55,6 +55,7 @@ import KorCareImpactDescription from "../kor-care-impact-description";
 import KorCareAward from "../kor-care-award-section/kor-care-award";
 import KorCareSlider from "../kor-care-slider-section";
 import KorCareImpactHighlight from "../kor-care-impact-highlight";
+import NewsEventListSection from "../news-event-list-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -316,6 +317,13 @@ const GlobalPage = (props: Props) => {
           <LiveDemoList
             key={`live-demo-list-${item?.__component}-${item?.id}`}
             data={item}
+          />
+        );
+      case "news-and-event.news-event-list":
+        return (
+          <NewsEventListSection
+            key={`live-demo-list-${item?.__component}-${item?.id}`}
+            data={item?.list}
           />
         );
       case "not-found.not-found":
