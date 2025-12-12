@@ -164,11 +164,16 @@ export const getDemoPage = async (): Promise<PagesListType> => {
 
   return data;
 };
-export const getEventListPage = async (): Promise<PagesListType & { listData: EventListType[] }> => {
+export const getEventListPage = async (): Promise<
+  PagesListType & { listData: EventListType[] }
+> => {
   const { data } = await http.get(EVENT_PAGE);
 
   return data;
-}; export const getNewsroomPage = async (): Promise<PagesListType & { listData: NewsroomListType[] }> => {
+};
+export const getNewsroomPage = async (): Promise<
+  PagesListType & { listData: NewsroomListType[] }
+> => {
   const { data } = await http.get(NEWSROOM_PAGE);
 
   return data;

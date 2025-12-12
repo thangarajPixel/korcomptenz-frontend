@@ -2,13 +2,13 @@
 import Image from "next/image";
 import { Calendar, Clock } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { cn } from "@/lib/utils";
 import dayjs from "dayjs";
 import { formatRange } from "@/utils/helper";
 import Timer from "./timer";
 import React from "react";
 
 const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
-
   const date = data?.preWebinar?.webinarTime;
   const time = formatRange(date);
 
@@ -35,7 +35,7 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
   }, [date]);
 
   return (
-    <section className="relative  overflow-visible md:pb-16">
+    <section className={cn("relative w-full overflow-hidden")}>
       {/* Mobile Card Design */}
       <div className="block md:hidden">
         <div className="overflow-hidden">
@@ -74,7 +74,10 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
                 <Clock className="w-4 h-4 flex-shrink-0" />
                 <div>
                   <span className="font-medium">Time: </span>
-                  <span>{data?.preWebinar?.timeText || `${time.est} EST | ${time.pst} PST | ${time.cst} CST`}</span>
+                  <span>
+                    {data?.preWebinar?.timeText ||
+                      `${time.est} EST | ${time.pst} PST | ${time.cst} CST`}
+                  </span>
                 </div>
               </div>
             </div>
@@ -103,7 +106,6 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
 
           <div className="relative z-10 container-lg ">
             <div className="w-7/12">
-
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight">
                 {data?.title}
               </h1>
@@ -124,7 +126,10 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
                   <Clock className="w-5 h-5 flex-shrink-0" />
                   <div>
                     <span className="font-medium">Time: </span>
-                    <span>{data?.preWebinar?.timeText || `${time.est} EST | ${time.pst} PST | ${time.cst} CST`}</span>
+                    <span>
+                      {data?.preWebinar?.timeText ||
+                        `${time.est} EST | ${time.pst} PST | ${time.cst} CST`}
+                    </span>
                   </div>
                 </div>
               </div>
