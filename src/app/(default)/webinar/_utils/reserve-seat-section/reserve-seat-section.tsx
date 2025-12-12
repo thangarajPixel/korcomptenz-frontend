@@ -70,8 +70,8 @@ const ReserveSeatSection = ({
     );
 
   return (
-    <section className="py-12 md:py-16">
-      <div className="container-md mx-auto px-4 max-w-6xl">
+    <section className="container-md">
+      <div className=" mx-auto max-w-6xl py-5">
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           {/* Left - Content */}
           <div>
@@ -85,7 +85,7 @@ const ReserveSeatSection = ({
           </div>
 
           {/* Right - Form */}
-          <div className="bg-gray-100 rounded-3xl p-5 md:p-8">
+          <div className="bg-gray-100 rounded-3xl lg:p-5 md:p-8">
             <div className="bg-white rounded-4xl">
               <form
                 onSubmit={handleSubmit(handleFormSubmit)}
