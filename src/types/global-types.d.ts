@@ -554,6 +554,9 @@ type InsightResponse = {
   webinar: WebinarType;
   preWebinar: {
     preSummary: BuildConnectSectionType;
+    timeText: string;
+    dateText: string;
+    webinarTime: string;
   };
 };
 

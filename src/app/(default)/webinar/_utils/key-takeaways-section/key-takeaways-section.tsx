@@ -1,5 +1,4 @@
 import { DangerousHtml } from "@/components/ui/dangerous-html";
-import React from "react";
 
 const KeyTakeawaysSection = ({ takeaways }: { takeaways: SummaryType }) => {
   return (
@@ -21,7 +20,7 @@ const KeyTakeawaysSection = ({ takeaways }: { takeaways: SummaryType }) => {
           </ul> */}
           <DangerousHtml
             html={takeaways?.description || ""}
-            className=" flex items-start text-md leading-7 font-normal ml-5"
+            className=" flex items-start text-md leading-7 font-normal [&_ul]:ml-5"
           />
         </div>
       </div>

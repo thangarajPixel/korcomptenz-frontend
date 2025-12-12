@@ -1,16 +1,16 @@
-import React from "react";
+
 
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const WhyAttendSection = ({ data }: { data: BuildConnectSectionType }) => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16  bg-white">
       <div className="">
-        <div className="grid md:grid-cols-2">
+        <div className=" grid md:grid-cols-2">
           {/* Left - Image */}
           <div className="relative h-64 md:h-auto min-h-[400px]">
-            <KorcomptenzImage src={data?.image} fill className="object-cover" />
+            <KorcomptenzImage src={data?.image} quality={100} fill className="object-cover" />
           </div>
 
           {/* Right - Content */}
@@ -37,7 +37,7 @@ const WhyAttendSection = ({ data }: { data: BuildConnectSectionType }) => {
             </ul> */}
             <DangerousHtml
               html={data?.description || ""}
-              className="flex items-start gap-3 text-md text-foreground"
+              className="flex items-start gap-3 text-md text-foreground [&_ul]:ml-5"
             />
           </div>
         </div>

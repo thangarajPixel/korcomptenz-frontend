@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
@@ -16,7 +15,7 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
             priority
           />
 
-          <div className="relative z-10 max-w-xl">
+          <div className="relative z-10 container-md">
             <h1 className="text-3xl md:text-9xl   mb-4 leading-tight font-semibold">
               {data?.title}
             </h1>
@@ -35,7 +34,6 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
           width={600}
           height={1000}
           className="object-contain w-full h-auto"
-          priority
         />
       </div>
       <div className="px-4 block md:hidden">
