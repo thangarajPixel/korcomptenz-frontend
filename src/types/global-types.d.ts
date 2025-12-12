@@ -93,10 +93,11 @@ type CompanyType = {
   policy: {
     id: string;
     label: string;
-    link: string | null;
+    link: string;
     icon: string;
   }[];
   companyDarkLogo: ImageType;
+  title: string;
 };
 
 type ServicesMenuProps = {
