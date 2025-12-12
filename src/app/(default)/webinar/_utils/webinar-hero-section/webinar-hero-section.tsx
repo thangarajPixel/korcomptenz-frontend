@@ -6,7 +6,7 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
     <section className="relative w-full">
       {/* Desktop Banner */}
       <div className="hidden md:grid  w-full gap-0 min-h-[500px] lg:min-h-[600px]">
-        <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center h-full w-full">
+        <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center size-full">
           <Image
             src="/assets/tempory/image_preview1.png"
             alt="Webinar speaker"
@@ -15,14 +15,16 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
             priority
           />
 
-          <div className="relative z-10 container-md">
-            <h1 className="text-3xl md:text-9xl   mb-4 leading-tight font-semibold">
-              {data?.title}
-            </h1>
+          <div className="relative z-10 container-lg">
+            <div className="w-7/12">
+              <h1 className="text-3xl md:text-9xl   mb-4 leading-tight font-semibold">
+                {data?.title}
+              </h1>
 
-            <p className="text-base lg:text-lg mb-6 leading-relaxed font-semibold">
-              {data?.heroSection?.description}
-            </p>
+              <p className="text-base lg:text-lg mb-6 leading-relaxed font-semibold">
+                {data?.heroSection?.description}
+              </p>
+            </div>
           </div>
         </div>
       </div>

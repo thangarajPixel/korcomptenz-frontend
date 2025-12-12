@@ -92,7 +92,7 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
       </div>
 
       <div className="hidden md:grid  w-full gap-0 min-h-[500px] lg:min-h-[600px]">
-        <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center h-full w-full">
+        <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center size-full">
           <Image
             src="/assets/tempory/image_preview1.png"
             alt="Webinar speaker"
