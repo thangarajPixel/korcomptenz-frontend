@@ -221,7 +221,7 @@ const EcosystemSection = ({ data }: { data: LayoutType }) => (
 const CopyrightSection = ({ data }: { data: LayoutType }) => (
   <>
     {/* Desktop */}
-    <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex items-center justify-between">
+    {/* <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex items-center justify-between">
       <p className="text-custom-gray-2 text-lg">{data?.company?.copyrights}</p>
       <div>
         {data?.company?.policy?.map((policy) => (
@@ -234,7 +234,7 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
           </Link>
         ))}
       </div>
-    </div>
+    </div> */}
 
     {/* Mobile */}
     <div className="mt-8 lg:hidden flex flex-col items-center">
