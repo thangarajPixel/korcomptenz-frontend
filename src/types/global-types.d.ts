@@ -93,7 +93,7 @@ type CompanyType = {
   policy: {
     id: string;
     label: string;
-    href: string | null;
+    link: string | null;
     icon: string;
   }[];
   companyDarkLogo: ImageType;
@@ -510,6 +510,8 @@ type InsightBlog = {
 type InsightResponse = {
   insight: InsightItem;
   content: string;
+  id: string;
+  documentId: string;
   previousInsight: InsightItem | null;
   nextInsight: InsightItem | null;
   relatedInsight: InsightItem[];
@@ -601,6 +603,7 @@ type PodcastType = {
 
 type InsightPageType = {
   form: GlobalFormType;
+  webinarForm: GlobalFormType;
   blogAiPlatform: SocialPlatformType[];
   blogSocialPlatform: SocialPlatformType[];
   relatedCase: RelatedCaseType;

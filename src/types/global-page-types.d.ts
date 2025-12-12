@@ -333,6 +333,7 @@ type DemoBuildConnectSectionType = {
   mobileImage: ImageType;
   imageCaption: string;
   buttonText: string;
+  ButtonText: string;
   link: string;
   descriptionButtonText: string;
   isSwap: boolean;
@@ -558,6 +559,19 @@ type DemoRequestFormType = {
 
   list: { id: string; description: string }[];
 };
+type WebinarReserveFormType = {
+  __component: "form-fields.insight-reserve-spot";
+  title: string;
+  description: string;
+  id: string;
+  buttonText: string;
+  companyLabel: string;
+  emailLabel: string;
+  nameLabel: string;
+  phoneLabel: string;
+
+  list: { id: string; description: string }[];
+};
 type KorCareImpactDescriptionType = {
   title: string;
   description: string;
@@ -573,6 +587,7 @@ type FormMap = {
   BookDemoFormType: BookDemoFormType;
   ContactUsFormType: ContactUsFormType;
   DemoRequestFormType: DemoRequestFormType;
+  WebinarReserveFormType: WebinarReserveFormType;
 };
 type FormType = keyof FormMap;
 type FormPropsType = FormMap[FormType];

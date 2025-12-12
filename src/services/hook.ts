@@ -160,3 +160,10 @@ export const useInsightSearchHook = ({
     ...options,
   });
 };
+
+export const useWebinarReserveMySpotHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.WEBINAR_RESERVE_MY_SPOT],
+    mutationFn: PAGE.createWebinarReserveMySpotLead,
+  });
+};

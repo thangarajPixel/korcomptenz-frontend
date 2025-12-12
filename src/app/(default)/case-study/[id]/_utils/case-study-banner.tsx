@@ -2,7 +2,13 @@
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-export function CaseStudyBanner({ data, essential }: { data: CaseStudyHeroSection; essential: CaseStudyPageType }) {
+export function CaseStudyBanner({
+  data,
+  essential,
+}: {
+  data: CaseStudyHeroSection;
+  essential: CaseStudyPageType;
+}) {
   return (
     <section
       className="container-md rounded-2xl overflow-hidden py-12 "
@@ -12,9 +18,7 @@ export function CaseStudyBanner({ data, essential }: { data: CaseStudyHeroSectio
         {/* Left Content */}
         <div className="bg-[#C7D7CA] flex-1 p-8 md:p-12 flex flex-col rounded-4xl rounded-l-4xl md:rounded-l-4xl md:rounded-none">
           <p className="text-xl font-medium text-gray-800 mt-4">
-            {essential?.study}
-            {" "}
-            {data?.study}
+            {essential?.study} {data?.study}
           </p>
 
           <span className="text-7xl  text-custom-gray-9 mt-4  font-semibold  max-w-md leading-12 ">

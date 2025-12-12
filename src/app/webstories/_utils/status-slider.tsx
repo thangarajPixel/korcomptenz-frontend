@@ -11,6 +11,8 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 import ButtonLink from "@/components/ui/button-link";
+import { X } from "lucide-react";
+import Link from "next/link";
 
 export default function StatusCarousel({
   carouselData,
@@ -43,7 +45,7 @@ export default function StatusCarousel({
         if (prev >= 100) return 0;
         return prev + 2;
       });
-    }, 100);
+    }, 200);
 
     return () => clearInterval(progressInterval);
   }, [currentIndex, isPaused]);
@@ -86,7 +88,9 @@ export default function StatusCarousel({
       <div className="absolute inset-0 backdrop-blur-3xl bg-gradient-to-b from-gray-900/70 via-gray-800/60 to-gray-900/80" />
 
       <div className="absolute inset-0 bg-indigo-950/10" />
-
+      <Link href="/insights/webstories">
+        <X className="w-5 h-5 text-gray-400" />
+      </Link>
       <div className="relative z-10 lg:max-w-xl w-full mx-auto h-full flex items-center py-0  justify-center md:px-4">
         <div className="flex items-center md:gap-6 gap-0 max-w-5xl w-full mx-auto justify-center">
           {/* Left Arrow */}
@@ -112,7 +116,7 @@ export default function StatusCarousel({
                     className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden"
                   >
                     <div
-                      className="h-full bg-white transition-all duration-100 ease-linear"
+                      className="h-full bg-white transition-all duration-200 ease-linear"
                       style={{
                         width:
                           i === currentIndex

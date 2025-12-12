@@ -1,4 +1,3 @@
-import React from "react";
 import { DangerousHtml } from "../ui/dangerous-html";
 import { cn } from "@/lib/utils";
 import ButtonLink from "../ui/button-link";
@@ -11,7 +10,7 @@ const BuildDemo = ({
 }) => {
   return (
     <section data-debug="page-componets.build-data">
-      <div className="container-md  ">
+      <div className="container-md">
         {buildData?.isSwap && (
           <h3 className=" text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
             {buildData?.title}
@@ -35,16 +34,16 @@ const BuildDemo = ({
               html={buildData?.description}
               className="text-md md:text-2xl text-foreground leading-7 break-words"
             />
-            {buildData?.descriptionButtonText && (
+            {buildData?.buttonText && (
               <ButtonLink
-                link={buildData?.descriptionButtonLink || "#"}
+                link={buildData?.link || "#"}
                 buttonProps={{
                   size: "xl",
                   arrow: true,
                   className: "items-center",
                 }}
               >
-                {buildData?.descriptionButtonText || "Watch Now"}
+                {buildData?.buttonText || "Watch Now"}
               </ButtonLink>
             )}
           </div>

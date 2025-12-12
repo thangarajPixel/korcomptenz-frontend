@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, X, ChevronLeft, Plus } from "lucide-react";
+import { ChevronLeft, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -11,6 +11,7 @@ interface ChildItem {
   href?: {
     slug: string;
   };
+  attachment: ImageType;
 }
 
 interface ServiceItem {
@@ -29,65 +30,54 @@ interface Service {
   items: readonly ServiceItem[];
 }
 
-interface SubmenuDrawerProps {
-  isOpen: boolean;
-  onClose: () => void;
-  submenuItem: ServiceItem | null;
-  serviceName: string;
-}
+// const SubmenuDrawer = ({
+//   isOpen,
+//   onClose,
+//   submenuItem,
+//   serviceName,
+// }: SubmenuDrawerProps) => {
+//   if (!isOpen || !submenuItem) return null;
 
-const SubmenuDrawer = ({
-  isOpen,
-  onClose,
-  submenuItem,
-  serviceName,
-}: SubmenuDrawerProps) => {
-  if (!isOpen || !submenuItem) return null;
+//   return (
+//     <div className="fixed inset-0 z-[60] lg:hidden">
+//       <div className="fixed inset-0 bg-black/5">
+//         <div className="flex items-center justify-between px-4 bg-white border-b border-gray-100 shadow-sm">
+//           <div className="flex items-center">
+//             <button
+//               onClick={onClose}
+//               className="mr-2 p-2 rounded-full hover:bg-gray-50 transition-colors"
+//             >
+//               <ArrowLeft className="w-5 h-5 text-primary" />
+//             </button>
+//             <h2 className="text-4xl font-normal text-custom-gray-4 leading-6.5">
+//               {serviceName}
+//             </h2>
+//           </div>
+//           <button
+//             onClick={onClose}
+//             className="p-2 rounded-full hover:bg-gray-50 transition-colors"
+//           >
+//             <X className="w-5 h-5 text-gray-400" />
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
-  return (
-    <div className="fixed inset-0 z-[60] lg:hidden">
-      <div className="fixed inset-0 bg-black/5">
-        <div className="flex items-center justify-between px-4 bg-white border-b border-gray-100 shadow-sm">
-          <div className="flex items-center">
-            <button
-              onClick={onClose}
-              className="mr-2 p-2 rounded-full hover:bg-gray-50 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5 text-primary" />
-            </button>
-            <h2 className="text-4xl font-normal text-custom-gray-4 leading-6.5">
-              {serviceName}
-            </h2>
-          </div>
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full hover:bg-gray-50 transition-colors"
-          >
-            <X className="w-5 h-5 text-gray-400" />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ServicesMobile = ({ data }: { data: LayoutType }) => {
+const ServicesMobile = ({
+  data,
+  closeMenu,
+}: {
+  data: LayoutType;
+  closeMenu: () => void;
+}) => {
   const [serviceDrawer, setServiceDrawer] = useState<{
     isOpen: boolean;
     service: Service | null;
   }>({
     isOpen: false,
     service: null,
-  });
-
-  const [submenuDrawer, setSubmenuDrawer] = useState<{
-    isOpen: boolean;
-    item: ServiceItem | null;
-    serviceName: string;
-  }>({
-    isOpen: false,
-    item: null,
-    serviceName: "",
   });
 
   const handleServiceClick = (service: Service) => {
@@ -98,21 +88,13 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
     setServiceDrawer({ isOpen: false, service: null });
   };
 
-  const handleSubmenuClick = (item: ServiceItem, serviceName: string) => {
-    setSubmenuDrawer({
-      isOpen: true,
-      item,
-      serviceName,
-    });
-  };
-
-  const closeSubmenuDrawer = () => {
-    setSubmenuDrawer({
-      isOpen: false,
-      item: null,
-      serviceName: "",
-    });
-  };
+  // const closeSubmenuDrawer = () => {
+  //   setSubmenuDrawer({
+  //     isOpen: false,
+  //     item: null,
+  //     serviceName: "",
+  //   });
+  // };
 
   return (
     <>
@@ -155,14 +137,8 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
                     {/* 🔹 Parent Link */}
                     <Link
                       href={item?.href?.slug ? `${item.href.slug}` : "#"}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleSubmenuClick(
-                          item,
-                          serviceDrawer?.service?.title || ""
-                        );
-                      }}
                       className="w-full block text-left"
+                      onClick={closeMenu}
                     >
                       <div className="text-lg font-normal text-primary py-2 px-4 leading-6.5">
                         {item?.title}
@@ -172,25 +148,43 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
                     {/* 🔹 Child Links */}
                     {item?.child?.length > 0 && (
                       <div className="space-y-1 mt-2">
-                        {item.child.map((childItem, childIndex) => (
-                          <Link
-                            key={`ng-sub-${childIndex}`}
-                            href={
-                              childItem?.href?.slug
-                                ? `${childItem.href.slug}`
-                                : "#"
-                            }
-                            className={cn(
-                              "block text-lg px-4 rounded transition-colors",
-                              childItem?.type === "light" &&
-                                "text-custom-gray-4 ps-7 hover:text-primary",
-                              childItem?.type === "dark" &&
-                                "text-black mb-1 hover:text-primary"
-                            )}
-                          >
-                            {childItem?.title}
-                          </Link>
-                        ))}
+                        {item.child.map((childItem, childIndex) =>
+                          childItem?.attachment ? (
+                            <Link
+                              key={`ng-sub-${childIndex}`}
+                              href={childItem?.attachment?.url || "#"}
+                              onClick={closeMenu}
+                              className={cn(
+                                "block text-lg px-4 rounded transition-colors",
+                                childItem?.type === "light" &&
+                                  "text-custom-gray-4 ps-7 hover:text-primary",
+                                childItem?.type === "dark" &&
+                                  "text-black mb-1 hover:text-primary"
+                              )}
+                            >
+                              {childItem?.title}
+                            </Link>
+                          ) : (
+                            <Link
+                              key={`ng-sub-${childIndex}`}
+                              href={
+                                childItem?.href?.slug
+                                  ? `${childItem.href.slug}`
+                                  : "#"
+                              }
+                              onClick={closeMenu}
+                              className={cn(
+                                "block text-lg px-4 rounded transition-colors",
+                                childItem?.type === "light" &&
+                                  "text-custom-gray-4 ps-7 hover:text-primary",
+                                childItem?.type === "dark" &&
+                                  "text-black mb-1 hover:text-primary"
+                              )}
+                            >
+                              {childItem?.title}
+                            </Link>
+                          )
+                        )}
                       </div>
                     )}
                   </div>
@@ -201,12 +195,12 @@ const ServicesMobile = ({ data }: { data: LayoutType }) => {
         </div>
       )}
 
-      <SubmenuDrawer
+      {/* <SubmenuDrawer
         isOpen={submenuDrawer.isOpen}
         onClose={closeSubmenuDrawer}
         submenuItem={submenuDrawer.item}
         serviceName={submenuDrawer.serviceName}
-      />
+      /> */}
     </>
   );
 };

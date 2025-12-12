@@ -196,7 +196,10 @@ export function Navbar({ data }: { data: LayoutType }) {
                             className="pr-3 pl-3 py-3  rounded-md "
                           >
                             {item.label === "Services" && (
-                              <ServicesMobile data={data} />
+                              <ServicesMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "Industries" && (
                               <IndustriesMobile

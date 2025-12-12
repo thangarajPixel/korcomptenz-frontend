@@ -9,7 +9,9 @@ import WebinarHeroSection from "../_utils/webinar-hero-section";
 import WhyAttendSection from "../_utils/why-attend-section";
 
 import DemonstrateSection from "@/components/demonstrate-section";
-import { getBlogPage } from "@/services";
+import { getBlogPage, getInsightPage } from "@/services";
+
+import { GlobalForm } from "@/components/global-form";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -19,8 +21,10 @@ const getBlogPageCache = cache(getBlogPage);
 
 const Page = async ({ params }: Props) => {
   const { id } = await params;
-
-  const webinarData = await getBlogPageCache({ id });
+  const [webinarData, pageLayout] = await Promise.all([
+    getBlogPageCache({ id }),
+    getInsightPage(),
+  ]);
 
   return (
     <div>
@@ -49,14 +53,7 @@ const Page = async ({ params }: Props) => {
             image={webinarData.whyAttendImage}
           />
           <ExpertsSection experts={webinarData.experts || []} />
-          <ReserveSeatSection
-            title={webinarData.reserveSeatTitle || "Reserve Your Seat"}
-            description={webinarData.reserveSeatDescription}
-            buttonText={
-              webinarData.reserveSeatButtonText || "Reserve Your Seat Now!"
-            }
-            formAction={webinarData.registerLink || "#register"}
-          />
+          
           {webinarData.demonstrateSection && (
             <DemonstrateSection data={webinarData.demonstrateSection} />
           )} */}
@@ -75,7 +72,13 @@ const Page = async ({ params }: Props) => {
           <WhyAttendSection data={webinarData?.preWebinar?.preSummary} />
         )}
         <ExpertsSection experts={webinarData.webinar?.expert || []} />
-
+        <GlobalForm
+          form={pageLayout?.webinarForm}
+          essential={{
+            id: webinarData?.id,
+            documentId: webinarData?.documentId,
+          }}
+        />
         {webinarData?.webinar?.demonstrate && (
           <DemonstrateSection data={webinarData?.webinar?.demonstrate} />
         )}

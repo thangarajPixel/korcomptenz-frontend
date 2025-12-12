@@ -7,6 +7,7 @@ import type {
   ContactUsFormSchema,
   DemoRequestFormSchema,
   FreeConsultationLeadSchema,
+  WebinarReserveFormSchema,
 } from "@/utils/validation.schema";
 
 const HOME = "/home";
@@ -34,6 +35,7 @@ export const INSIGHT_PAGE = "/insight-page";
 export const FREE_CONSULTATION_LEAD = "/free-consultation-leads";
 export const INSIGHT_SEARCH = "/insight-search";
 const PRIVACY_POLICY = "/privacy-policy";
+export const WEBINAR_RESERVE_MY_SPOT = "/webinar-reserve-spots";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -219,5 +221,12 @@ export const getPrivacyPolicy = async (): Promise<{
   description: CaseStudyDescription[];
 }> => {
   const { data } = await http.get(PRIVACY_POLICY);
+  return data;
+};
+
+export const createWebinarReserveMySpotLead = async (
+  formData: WebinarReserveFormSchema
+) => {
+  const { data } = await http.post(WEBINAR_RESERVE_MY_SPOT, { data: formData });
   return data;
 };

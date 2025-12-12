@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Calendar, Clock } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { cn } from "@/lib/utils";
 
 const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
   const [timeLeft, setTimeLeft] = useState({
@@ -61,7 +62,7 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
   };
 
   return (
-    <section className="relative w-screen overflow-visible md:pb-16">
+    <section className={cn("relative w-full overflow-hidden")}>
       {/* Mobile Card Design */}
       <div className="block md:hidden">
         <div className="overflow-hidden">

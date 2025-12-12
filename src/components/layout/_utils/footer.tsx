@@ -227,7 +227,7 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
         {data?.company?.policy?.map((policy) => (
           <Link
             key={`policy-${policy?.id}`}
-            href={policy?.href || "/"}
+            href={policy?.link || "/"}
             className="text-custom-gray-2 text-lg mx-2"
           >
             {policy?.label}
@@ -242,7 +242,7 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
         {data?.company?.policy?.map((policy, i) => (
           <Link
             key={`policy-${policy?.id}`}
-            href={policy?.href || "#"}
+            href={policy?.link || "#"}
             className={`text-custom-gray-2 text-xs mx-2 ${
               i < data?.company?.policy?.length - 1
                 ? "border-r pr-2 border-custom-gray-3"

@@ -1,23 +1,70 @@
 "use client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useWebinarReserveMySpotHook } from "@/services";
+import { errorSet, notify } from "@/utils/helper";
+import { WebinarReserveFormSchema } from "@/utils/validation.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
 
-interface ReserveSeatSectionProps {
-  title: string;
-  description: string;
-  buttonText: string;
-  formAction?: string;
-}
+const defaultValues = {
+  name: "",
+  email: "",
+  phone: "",
+  company: "",
+};
 
 const ReserveSeatSection = ({
-  title,
-  description,
-  buttonText,
-  formAction = "#",
-}: ReserveSeatSectionProps) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Handle form submission
+  form,
+  essential,
+}: {
+  form: WebinarReserveFormType;
+  essential?: { id: string | number; [key: string]: unknown };
+}) => {
+  const {
+    control,
+    handleSubmit,
+    setError,
+
+    reset,
+    formState: { isSubmitting },
+  } = useForm<WebinarReserveFormSchema>({
+    mode: "onSubmit",
+    resolver: zodResolver(WebinarReserveFormSchema),
+    defaultValues: {
+      ...defaultValues,
+    },
+  });
+
+  const { mutateAsync } = useWebinarReserveMySpotHook();
+  const insight = {
+    connect: [
+      {
+        id: essential?.id,
+        documentId: essential?.documentId,
+        isTemporary: true,
+      },
+    ],
   };
+
+  const handleFormSubmit: SubmitHandler<WebinarReserveFormSchema> =
+    React.useCallback(
+      async (formdata) => {
+        const data = {
+          ...formdata,
+          insight,
+        };
+        try {
+          const response = await mutateAsync(data);
+          notify(response);
+          reset({ ...defaultValues });
+        } catch (error) {
+          errorSet(error, setError);
+        }
+      },
+      [mutateAsync, reset]
+    );
 
   return (
     <section className="py-16 ">
@@ -25,94 +72,72 @@ const ReserveSeatSection = ({
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left - Content */}
           <div>
-            <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold text-[#313941]  mb-6">
-              {title}
+            <h2 className="text-3xl md:text-[40px] leading-12 font-semibold text-[#313941]  mb-6">
+              {form?.title}
             </h2>
-            <p className="text-custom-blue-1 text-[18px] leading-[25px] font-normal">
-              {description}
+            <p className="text-custom-blue-1 text-[18px] leading-6.25 font-normal">
+              {form?.description}
             </p>
           </div>
 
           {/* Right - Form */}
           <div className="bg-gray-100 rounded-3xl p-6 md:p-8">
-            <div className="bg-white rounded-2xl p-6 md:p-8">
-              <form onSubmit={handleSubmit} action={formAction} method="POST">
-                <div className="grid grid-cols-2 gap-x-6 gap-y-6">
-                  {/* Full Name */}
-                  <div className="col-span-2 md:col-span-1">
-                    <label
-                      htmlFor="fullName"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      Full Name<span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="fullName"
-                      name="fullName"
+            <div className="bg-white">
+              <form
+                onSubmit={handleSubmit(handleFormSubmit)}
+                className="space-y-8"
+              >
+                <div className="grid rounded-4xl shadow-2xl p-10 gap-y-2 ">
+                  {/* Name + Email */}
+                  <h3 className="text-5xl font-semibold text-center text-foreground mb-5">
+                    {form?.title || "Reserve My Spot"}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+                    <Input
+                      control={control}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
+                      name="name"
+                      label={form?.nameLabel}
+                      className="border-2 p-2 rounded-md text-foreground"
                     />
-                  </div>
-
-                  {/* Business Email */}
-                  <div className="col-span-2 md:col-span-1">
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      Business email<span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
+                    <Input
+                      control={control}
                       name="email"
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
+                      label={form?.emailLabel}
+                      className="border-2 p-2 rounded-md text-foreground"
                     />
                   </div>
-
-                  {/* Company */}
-                  <div className="col-span-2 md:col-span-1">
-                    <label
-                      htmlFor="company"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+                    <Input
+                      control={control}
                       name="company"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
+                      required
+                      label={form?.companyLabel}
+                      className="border-2 p-2 rounded-md text-foreground"
                     />
-                  </div>
-
-                  {/* Phone */}
-                  <div className="col-span-2 md:col-span-1">
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
+                    <Input
+                      control={control}
                       name="phone"
-                      className="w-full px-2 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
+                      required
+                      label={form?.phoneLabel}
+                      className="border-2 p-2 rounded-md text-foreground"
                     />
                   </div>
-                </div>
 
-                {/* Submit Button */}
-                <div className="flex justify-center mt-8">
-                  <button
-                    type="submit"
-                    className="bg-[#5648D8] text-white py-3 px-12 rounded-[15px] font-semibold hover:bg-[#5648D8] transition-colors"
-                  >
-                    {buttonText}
-                  </button>
+                  {/* Submit button */}
+                  <div className="pt-4 flex justify-center">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="px-10 py-8 rounded-full border border-secondary  text-white bg-secondary hover:bg-white hover:text-secondary "
+                      arrow
+                      isLoading={isSubmitting}
+                      type="submit"
+                    >
+                      Reserve your Seat
+                    </Button>
+                  </div>
                 </div>
               </form>
             </div>
