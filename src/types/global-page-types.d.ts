@@ -400,7 +400,7 @@ type CompanyType = {
   policy: {
     id: string;
     label: string;
-    href: string | null;
+    link: string | null;
     icon: string;
   }[];
   companyDarkLogo: ImageType;
