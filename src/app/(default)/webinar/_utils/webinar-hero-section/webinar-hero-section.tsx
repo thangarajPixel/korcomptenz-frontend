@@ -3,10 +3,10 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
   return (
-    <section className="relative w-full container-md ">
+    <section className="relative w-full">
       {/* Desktop Banner */}
       <div className="hidden md:grid  w-full gap-0 min-h-[500px] lg:min-h-[600px]">
-        <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center size-full">
+        <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center-full">
           <Image
             src="/assets/tempory/image_preview1.png"
             alt="Webinar speaker"
