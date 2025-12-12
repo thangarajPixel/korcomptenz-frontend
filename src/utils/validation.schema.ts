@@ -137,8 +137,8 @@ export const freeConsultationLeadSchema = z.object({
     }),
 });
 
-export const WebinarReserveFormSchema = z.object({
-  name: z
+export const webinarReserveFormSchema = z.object({
+  fullName: z
     .string()
     .min(1, "Name is required")
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
@@ -155,7 +155,7 @@ export const WebinarReserveFormSchema = z.object({
     .refine((val) => !val || /^\d{10,15}$/.test(val), {
       message: "Enter a valid phone number",
     }),
-  company: z.string().min(1, "company is required"),
+  organization: z.string().min(1, "company is required"),
 });
 export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
 export type FreeConsultationLeadSchema = z.infer<
@@ -165,4 +165,4 @@ export type ContactFormData = z.infer<typeof contactSchema>;
 export type BookADemoFormData = z.infer<typeof bookADemoSchema>;
 export type CareerNewLetterFormData = z.infer<typeof CareerNewLetterSchema>;
 export type DemoRequestFormSchema = z.infer<typeof DemoRequestFormSchema>;
-export type WebinarReserveFormSchema = z.infer<typeof WebinarReserveFormSchema>;
+export type WebinarReserveFormSchema = z.infer<typeof webinarReserveFormSchema>;

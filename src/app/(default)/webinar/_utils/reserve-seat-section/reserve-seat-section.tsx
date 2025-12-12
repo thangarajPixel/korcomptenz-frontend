@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useWebinarReserveMySpotHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
-import { WebinarReserveFormSchema } from "@/utils/validation.schema";
+import { type WebinarReserveFormSchema, webinarReserveFormSchema } from "@/utils/validation.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
@@ -20,7 +20,7 @@ const ReserveSeatSection = ({
   essential,
 }: {
   form: WebinarReserveFormType;
-  essential?: { id: string | number; [key: string]: unknown };
+  essential?: { id: string | number;[key: string]: unknown };
 }) => {
   const {
     control,
@@ -31,7 +31,7 @@ const ReserveSeatSection = ({
     formState: { isSubmitting },
   } = useForm<WebinarReserveFormSchema>({
     mode: "onSubmit",
-    resolver: zodResolver(WebinarReserveFormSchema),
+    resolver: zodResolver(webinarReserveFormSchema),
     defaultValues: {
       ...defaultValues,
     },
@@ -96,7 +96,7 @@ const ReserveSeatSection = ({
                     <Input
                       control={control}
                       required
-                      name="name"
+                      name="fullName"
                       label={form?.nameLabel}
                       className="border-2 p-2 rounded-md text-foreground"
                     />
@@ -111,7 +111,7 @@ const ReserveSeatSection = ({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                     <Input
                       control={control}
-                      name="company"
+                      name="organization"
                       required
                       label={form?.companyLabel}
                       className="border-2 p-2 rounded-md text-foreground"
