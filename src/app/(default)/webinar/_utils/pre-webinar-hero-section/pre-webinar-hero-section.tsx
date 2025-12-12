@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+
 import { Calendar, Clock } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { cn } from "@/lib/utils";
@@ -7,11 +7,12 @@ import dayjs from "dayjs";
 import { formatRange } from "@/utils/helper";
 import Timer from "./timer";
 import React from "react";
+import { useMobile } from "@/utils/custom-hooks";
 
 const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
   const date = data?.preWebinar?.webinarTime;
   const time = formatRange(date);
-
+  const isMobile = useMobile();
   const formatDate = React.useCallback(() => {
     const d = dayjs(date);
     const day = d.date();
@@ -42,7 +43,7 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
           {/* Image with countdown overlay */}
           <div className="relative h-64">
             <KorcomptenzImage
-              src={data?.heroSection?.image}
+              src={data?.heroSection?.mobileImage}
               fill
               className="object-cover"
             />
@@ -94,11 +95,10 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
         </div>
       </div>
 
-      <div className="hidden md:grid  w-full gap-0 min-h-[500px] lg:min-h-[600px]">
+      <div className="hidden md:grid  w-full gap-0 min-h-125 lg:min-h-125">
         <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center size-full">
-          <Image
-            src="/assets/tempory/image_preview1.png"
-            alt="Webinar speaker"
+          <KorcomptenzImage
+            src={data?.heroSection?.image}
             fill
             className="object-cover"
             priority
@@ -147,9 +147,11 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
       </div>
 
       {/* Desktop Countdown Timer - Overlapping white box */}
-      <div className="hidden md:block absolute bottom-[65px] left-1/2 transform -translate-x-1/2 translate-y-1/2 z-20">
-        <Timer data={data?.preWebinar?.webinarTime} />
-      </div>
+      {!isMobile && (
+        <div className="relative flex  -mt-10 justify-center   z-20">
+          <Timer data={data?.preWebinar?.webinarTime} />
+        </div>
+      )}
     </section>
   );
 };

@@ -3,7 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useWebinarReserveMySpotHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
-import { type WebinarReserveFormSchema, webinarReserveFormSchema } from "@/utils/validation.schema";
+import {
+  type WebinarReserveFormSchema,
+  webinarReserveFormSchema,
+} from "@/utils/validation.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
@@ -20,7 +23,7 @@ const ReserveSeatSection = ({
   essential,
 }: {
   form: WebinarReserveFormType;
-  essential?: { id: string | number;[key: string]: unknown };
+  essential?: { id: string | number; [key: string]: unknown };
 }) => {
   const {
     control,
@@ -67,32 +70,35 @@ const ReserveSeatSection = ({
     );
 
   return (
-    <section className="py-16 ">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section className="py-12 md:py-16">
+      <div className="container-md mx-auto px-4 max-w-6xl">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           {/* Left - Content */}
           <div>
-            <h2 className="text-3xl md:text-[40px] leading-12 font-semibold text-[#313941]  mb-6">
+            <h2 className="text-2xl md:text-[40px] leading-snug md:leading-12 font-semibold text-[#313941] mb-4 md:mb-6">
               {form?.title}
             </h2>
-            <p className="text-custom-blue-1 text-[18px] leading-6.25 font-normal">
+
+            <p className="text-custom-blue-1 text-[16px] md:text-[18px] leading-6 md:leading-6.25 font-normal">
               {form?.description}
             </p>
           </div>
 
           {/* Right - Form */}
-          <div className="bg-gray-100 rounded-3xl p-6 md:p-8">
-            <div className="bg-white">
+          <div className="bg-gray-100 rounded-3xl p-5 md:p-8">
+            <div className="bg-white rounded-4xl">
               <form
                 onSubmit={handleSubmit(handleFormSubmit)}
-                className="space-y-8"
+                className="space-y-6 md:space-y-8"
               >
-                <div className="grid rounded-4xl shadow-2xl p-10 gap-y-2 ">
-                  {/* Name + Email */}
-                  <h3 className="text-5xl font-semibold text-center text-foreground mb-5">
+                <div className="grid rounded-4xl shadow-2xl p-6 md:p-10 gap-y-4">
+                  {/* Title */}
+                  <h3 className="text-3xl md:text-5xl font-semibold text-center text-foreground mb-4 md:mb-5">
                     {form?.title || "Reserve My Spot"}
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+
+                  {/* Name + Email */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <Input
                       control={control}
                       required
@@ -108,7 +114,9 @@ const ReserveSeatSection = ({
                       className="border-2 p-2 rounded-md text-foreground"
                     />
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+
+                  {/* Organization + Phone */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <Input
                       control={control}
                       name="organization"
@@ -126,11 +134,18 @@ const ReserveSeatSection = ({
                   </div>
 
                   {/* Submit button */}
-                  <div className="pt-4 flex justify-center">
+                  <div className="pt-2 md:pt-4 flex justify-center">
                     <Button
                       size="lg"
                       variant="outline"
-                      className="px-10 py-8 rounded-full border border-secondary  text-white bg-secondary hover:bg-white hover:text-secondary "
+                      className="
+                    px-6 py-4 md:px-10 md:py-6
+                    rounded-full 
+                    border border-secondary 
+                    text-white bg-secondary 
+                    hover:bg-white hover:text-secondary hover:border-secondary
+                    transition
+                  "
                       arrow
                       isLoading={isSubmitting}
                       type="submit"

@@ -543,6 +543,7 @@ type InsightResponse = {
     buttonText: string;
     description: string;
     image: ImageType;
+    mobileImage: ImageType;
   };
   podcast: {
     description: string;

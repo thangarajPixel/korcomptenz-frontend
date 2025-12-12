@@ -72,13 +72,16 @@ const Page = async ({ params }: Props) => {
           <WhyAttendSection data={webinarData?.preWebinar?.preSummary} />
         )}
         <ExpertsSection experts={webinarData.webinar?.expert || []} />
-        <GlobalForm
-          form={pageLayout?.webinarForm}
-          essential={{
-            id: webinarData?.id,
-            documentId: webinarData?.documentId,
-          }}
-        />
+        {webinarData?.content === "pre-webinar" && (
+          <GlobalForm
+            form={pageLayout?.webinarForm}
+            essential={{
+              id: webinarData?.id,
+              documentId: webinarData?.documentId,
+            }}
+          />
+        )}
+
         {webinarData?.webinar?.demonstrate && (
           <DemonstrateSection data={webinarData?.webinar?.demonstrate} />
         )}
