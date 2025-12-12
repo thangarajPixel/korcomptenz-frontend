@@ -1,6 +1,11 @@
 import type { UseFormSetError } from "react-hook-form";
 import sampleJson from "../../public/json/sample.json";
 import { toast, type ExternalToast } from "sonner";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export const jsonData = sampleJson;
 type FormErrors = {
@@ -167,3 +172,20 @@ export async function downloadFile(
   document.body.removeChild(a);
   window.URL.revokeObjectURL(url);
 }
+export const formatRange = (dateString: string) => {
+
+  const base = dayjs.utc(dateString); // input is UTC
+
+  const makeRange = (tz: string) => {
+    const start = base.tz(tz);
+    const end = start.add(1, "hour");
+
+    return `${start.format("hA")} - ${end.format("hA")}`;
+  };
+
+  return {
+    est: makeRange("America/New_York"),
+    pst: makeRange("America/Los_Angeles"),
+    cst: makeRange("America/Chicago"),
+  };
+};

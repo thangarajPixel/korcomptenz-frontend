@@ -6,6 +6,13 @@ import { APP_CONFIG } from "@/utils/app-config";
 
 const getDemoCache = cache(getDemoPage);
 
+export async function generateMetadata() {
+  const data = await getDemoCache();
+  return {
+    title: data?.seo?.title || "Career",
+    description: data?.seo?.description || "",
+  }
+}
 export default async function DemoPage() {
   const data = await getDemoCache();
   return (

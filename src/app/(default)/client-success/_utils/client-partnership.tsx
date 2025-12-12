@@ -31,7 +31,7 @@ export default function ClientPartnership({
                 : "flex-col"
             )}
           >
-            <div className="flex">
+            <div className="flex w-50">
               <div className=" relative flex-shrink-0">
                 <KorcomptenzImage
                   src={badge.logo}
@@ -42,7 +42,7 @@ export default function ClientPartnership({
               </div>
               <p
                 className={cn(
-                  "text-lg leading-relaxed text-foreground font-normal",
+                  "text-lg leading-relaxed ml-1 text-foreground font-normal -mt-2 line-clamp-2",
                   data?.isSingleLine && "text-2xl font-bold ml-5"
                 )}
               >
