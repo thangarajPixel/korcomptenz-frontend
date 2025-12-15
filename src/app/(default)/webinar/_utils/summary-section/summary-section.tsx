@@ -6,7 +6,7 @@ const SummarySection = ({ data }: { data: SummaryType }) => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
-        {data.thumbnail ? (
+        {data?.thumbnail ? (
           <div className="grid md:grid-cols-2 gap-8 items-start">
             <div>
               <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold mb-4 text-[#313941]">
@@ -18,7 +18,7 @@ const SummarySection = ({ data }: { data: SummaryType }) => {
             </div>
             <div className="relative w-full aspect-video rounded-lg overflow-hidden">
               <KorcomptenzImage
-                src={data.thumbnail}
+                src={data?.thumbnail}
                 fill
                 className="object-cover"
               />
