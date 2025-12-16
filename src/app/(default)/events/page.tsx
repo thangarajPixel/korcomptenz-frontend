@@ -19,9 +19,9 @@ const Page = async () => {
     list: data?.listData?.map((item) => ({
       ...item,
       isEvent: true,
-      buttonLink: "",
+      buttonLink: "/events/" + item?.slug,
       date: item?.date || item?.publishedAt || "",
-      createdAt: "",
+      createdAt: item?.publishedAt || "",
     })),
   });
   return (
