@@ -2,6 +2,7 @@ import React from "react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 const ScheduleCall = ({
   scheduleCall,
@@ -12,9 +13,12 @@ const ScheduleCall = ({
 }) => {
   return (
     <section
-      className={cn("bg-custom-black lg:min-h-[600px] flex items-center py-4 md:py-0", {
-        "mb-[-40px] md:mb-[-96px]": isLastIndex,
-      })}
+      className={cn(
+        "bg-custom-black lg:min-h-[600px] flex items-center py-4 md:py-0",
+        {
+          "mb-[-40px] md:mb-[-96px]": isLastIndex,
+        }
+      )}
       data-debug={"home.schedule-call"}
     >
       <div className="container-md">
@@ -28,9 +32,11 @@ const ScheduleCall = ({
               <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl  font-bold text-custom-green-1 leading-tight whitespace-pre-wrap">
                 {scheduleCall?.title}
               </h2>
-              <p className="text-2xl font-semibold text-custom-green-1 max-w-xl">
-                {scheduleCall?.description}
-              </p>
+
+              <DangerousHtml
+                html={scheduleCall?.description}
+                className="text-2xl font-semibold text-custom-green-1 max-w-xl"
+              />
             </div>
             <ButtonLink
               link={scheduleCall?.link || "#"}

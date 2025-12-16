@@ -14,11 +14,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 
 const defaultValues = {
-  name: "",
+  fullName: "",
   email: "",
-  phoneNumber: "",
+  phone: "",
   mobile: "",
-  department: "",
+  organization: "",
+  location: "",
+  message: "",
 };
 
 const ConsultationForm = ({

@@ -185,7 +185,7 @@ export default function DocumentationLayout(data: InsightBlog) {
                 <p className="text-lg font-semibold text-foreground">
                   {data?.data?.previousInsight?.title}
                 </p>
-                <p className="text-md text-foreground">Previous</p>
+                <p className="text-md text-foreground text-start">Previous</p>
               </div>
             </div>
           </Link>
