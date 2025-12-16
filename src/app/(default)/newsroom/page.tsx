@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/utils/app-config";
 import { getNewsroomPage } from "@/services/page";
 
+export const dynamic = "force-dynamic";
 export async function generateMetadata() {
   const data = await getNewsroomPage();
   return {
