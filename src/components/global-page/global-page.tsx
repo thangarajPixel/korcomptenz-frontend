@@ -22,7 +22,10 @@ import StretchableSection from "../stretchable-section";
 import WhyKorcomptenz from "../why-korcomptenz/why-korcomptenz";
 import GramBanner from "../gram-banner/gram-banner";
 import { GlobalForm } from "../global-form";
-import { ClientPartnership } from "@/app/(default)/client-success/_utils";
+import {
+  ClientPartnership,
+  ClientTestimonial,
+} from "@/app/(default)/client-success/_utils";
 import ContentShowcaseSection from "../content-showcase-section";
 import MapSection from "../map-section";
 import OurStory from "../our-story";
@@ -56,6 +59,9 @@ import KorCareAward from "../kor-care-award-section/kor-care-award";
 import KorCareSlider from "../kor-care-slider-section";
 import KorCareImpactHighlight from "../kor-care-impact-highlight";
 import NewsEventListSection from "../news-event-list-section";
+import { DescriptionOnly, TitleDescription } from "../description-section";
+import { CombinedSection, NewsRoomSlider, ServiceProvider } from "../news-room";
+import VideoBannerSection from "../video-banner-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -466,6 +472,63 @@ const GlobalPage = (props: Props) => {
           <KorCareImpactHighlight
             key={`kor-care-impact-highlight-${item?.__component}-${item?.id}`}
             data={item}
+          />
+        );
+      case "news-and-event.news-description-only":
+        return (
+          <DescriptionOnly
+            key={`news-description-only-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "news-and-event.news-title-description-only":
+        return (
+          <TitleDescription
+            key={`news-title-description-only-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "news-and-event.compounds-newsroom":
+        return (
+          <CombinedSection
+            key={`compounds-newsroom-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "news-and-event.news-service":
+        return (
+          <ServiceProvider
+            key={`news-service-provider-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "news-and-event.color-custom-description":
+        return (
+          <DescriptionOnly
+            key={`news-dcolor-custom-description-${item?.__component}-${item?.id}`}
+            data={item}
+            isbgColor
+          />
+        );
+      case "news-and-event.news-banner":
+        return (
+          <VideoBannerSection
+            key={`news-banner-${item?.__component}-${item?.id}`}
+            item={item}
+          />
+        );
+      case "news-and-event.simple-image-gallery":
+        return (
+          <NewsRoomSlider
+            key={`simple-image-gallery-${item?.__component}-${item?.id}`}
+            manuelSliderData={item}
+          />
+        );
+      case "news-and-event.testimonal-list":
+        return (
+          <ClientTestimonial
+            key={`client-testimonial-${item?.__component}-${item?.id}`}
+            data={item?.list}
           />
         );
       default:

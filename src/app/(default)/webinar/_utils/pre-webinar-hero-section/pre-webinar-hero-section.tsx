@@ -8,7 +8,6 @@ import Timer from "./timer";
 import React from "react";
 
 const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
-
   const date = data?.preWebinar?.webinarTime;
   const time = formatRange(date);
 
@@ -62,7 +61,7 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
             </p>
 
             {/* Date & Time - Teal Background */}
-            <div className="bg-[#26A17C]  p-4 mb-6 space-y-2 text-white">
+            <div className="bg-primary  p-4 mb-6 space-y-2 text-white">
               <div className="flex items-center gap-2 text-sm">
                 <Calendar className="w-4 h-4 flex-shrink-0" />
                 <div>
@@ -74,7 +73,10 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
                 <Clock className="w-4 h-4 flex-shrink-0" />
                 <div>
                   <span className="font-medium">Time: </span>
-                  <span>{data?.preWebinar?.timeText || `${time.est} EST | ${time.pst} PST | ${time.cst} CST`}</span>
+                  <span>
+                    {data?.preWebinar?.timeText ||
+                      `${time.est} EST | ${time.pst} PST | ${time.cst} CST`}
+                  </span>
                 </div>
               </div>
             </div>
@@ -91,7 +93,7 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
         </div>
       </div>
 
-      <div className="hidden md:grid  w-full gap-0 min-h-[500px] lg:min-h-[600px]">
+      <div className="hidden md:grid  w-full gap-0 min-h-125 lg:min-h-150">
         <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center h-full w-full">
           <Image
             src="/assets/tempory/image_preview1.png"
@@ -103,7 +105,6 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
 
           <div className="relative z-10 container-lg ">
             <div className="w-7/12">
-
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight">
                 {data?.title}
               </h1>
@@ -124,7 +125,10 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
                   <Clock className="w-5 h-5 flex-shrink-0" />
                   <div>
                     <span className="font-medium">Time: </span>
-                    <span>{data?.preWebinar?.timeText || `${time.est} EST | ${time.pst} PST | ${time.cst} CST`}</span>
+                    <span>
+                      {data?.preWebinar?.timeText ||
+                        `${time.est} EST | ${time.pst} PST | ${time.cst} CST`}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -142,7 +146,7 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
       </div>
 
       {/* Desktop Countdown Timer - Overlapping white box */}
-      <div className="hidden md:block absolute bottom-[65px] left-1/2 transform -translate-x-1/2 translate-y-1/2 z-20">
+      <div className="hidden md:block absolute bottom-16.25 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-20">
         <Timer data={data?.preWebinar?.webinarTime} />
       </div>
     </section>

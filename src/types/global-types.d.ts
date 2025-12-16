@@ -678,3 +678,11 @@ type KorCareHighlightCardType = {
   description: string;
   buttonText?: string;
 };
+
+type NewroomPageType = {
+  buttonLink: string;
+  buttonText: string;
+  description: string;
+};
+
+type NewsRoomSliderCardType = { id: string; image: ImageType };
