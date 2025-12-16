@@ -7,6 +7,7 @@ import type {
   ContactUsFormSchema,
   DemoRequestFormSchema,
   FreeConsultationLeadSchema,
+  WebinarReserveFormSchema,
 } from "@/utils/validation.schema";
 
 const HOME = "/home";
@@ -246,5 +247,12 @@ export const getNewsRoomPage = async ({
   id: string;
 }): Promise<PagesListType> => {
   const { data } = await http.get(`${NEWSROOM_PAGE}/${id}`);
+  return data;
+};
+
+export const createWebinarReserveMySpotLead = async (
+  formData: WebinarReserveFormSchema
+) => {
+  const { data } = await http.post(WEBINAR_RESERVE_MY_SPOT, { data: formData });
   return data;
 };
