@@ -90,7 +90,7 @@ export default function DocumentationLayout(data: InsightBlog) {
   );
 
   return (
-    <section className="container-md  py-10">
+    <section className="container-md">
       <div className="flex gap-10">
         <aside className="hidden md:block w-[280px]">
           <div className="relative bg-[#E2EBE4] border border-[#4999C2] shadow-md rounded-lg p-6 bg-no-repeat">

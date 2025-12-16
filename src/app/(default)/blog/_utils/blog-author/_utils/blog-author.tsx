@@ -3,6 +3,8 @@
 import Image from "next/image";
 
 import { ShareButton } from "./share-button";
+import dayjs from "dayjs";
+import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const article = {
   id: 1,
@@ -39,26 +41,29 @@ const article = {
   ],
 };
 
-export default function BlogAuthor() {
+type AuthorType = {
+  publishedAt: string;
+  name: string;
+  image: ImageType;
+};
+
+export default function BlogAuthor({ data }: { data: AuthorType }) {
   return (
     <section className="container-md  py-8 px-4 md:px-10">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
         {/* LEFT — AUTHOR INFO */}
         <div className="flex flex-col md:flex-row items-center md:items-start gap-4 flex-1 text-center md:text-left">
           <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-pink-400 to-orange-400">
-            <Image
-              src={article.authorImage || "/placeholder.svg"}
-              alt={article.author}
-              fill
-              className="object-cover"
-            />
+            <KorcomptenzImage src={data.image} fill className="object-cover" />
           </div>
 
           <div className="pt-1">
             <h2 className="text-4xl font-semibold text-foreground">
-              {article.author}
+              {data?.name}
             </h2>
-            <p className="text-lg text-muted-foreground">{article.date}</p>
+            <p className="text-lg text-muted-foreground">
+              {dayjs(data?.publishedAt).format("DD MMM YYYY")}
+            </p>
           </div>
         </div>
 

@@ -284,9 +284,9 @@ type EventListType = {
   description: string;
   image: ImageType;
   buttonText: string;
-  date: string;
   slug: string;
   publishedAt: string;
+  date: string;
 };
 type NewsroomListType = {
   id: string;
@@ -535,11 +535,7 @@ type InsightResponse = {
   previousInsight: InsightItem | null;
   nextInsight: InsightItem | null;
   relatedInsight: InsightItem[];
-  author: {
-    image: ImageType;
-    name: string;
-    role: string;
-  };
+
   category: {
     label: string;
   };
@@ -569,6 +565,7 @@ type InsightResponse = {
 
 type InsightItem = {
   id: number;
+  author: AuthorType;
   slug: string;
   documentId: string;
   title: string;
