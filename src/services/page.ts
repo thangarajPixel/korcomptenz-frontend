@@ -35,6 +35,7 @@ export const INSIGHT_PAGE = "/insight-page";
 export const FREE_CONSULTATION_LEAD = "/free-consultation-leads";
 export const INSIGHT_SEARCH = "/insight-search";
 const PRIVACY_POLICY = "/privacy-policy";
+const NEWSLETTER = "/news-letter-list";
 export const WEBINAR_RESERVE_MY_SPOT = "/webinar-reserve-spots";
 export const EVENT_PAGE = "/event-list";
 export const NEWSROOM = "/news-list";
@@ -169,6 +170,13 @@ export const getEventListPage = async (): Promise<
   PagesListType & { listData: EventListType[] }
 > => {
   const { data } = await http.get(EVENT_PAGE);
+
+  return data;
+};
+export const getNewsletterPage = async (): Promise<
+  PagesListType & { listData: EventListType[] }
+> => {
+  const { data } = await http.get(NEWSLETTER);
 
   return data;
 };
