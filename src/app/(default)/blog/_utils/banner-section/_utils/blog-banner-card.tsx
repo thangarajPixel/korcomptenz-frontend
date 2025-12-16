@@ -4,6 +4,7 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 
 import React from "react";
+import BreadcrumbFromUrl from "./breadcrumbs";
 
 const BlogBannerCard = ({
   data,
@@ -32,8 +33,7 @@ const BlogBannerCard = ({
         >
           {" "}
           <p className="text-white text-2xl">
-            Home / Blog / Data Visualization Tools: Best Software for IT &
-            Business Insights
+            <BreadcrumbFromUrl slug={data?.slug} />
           </p>
           <div className="grid justify-between gap-10">
             <h1 className="text-7xl font-semibold leading-14 text-white mb-4 max-w-md">
