@@ -19,7 +19,7 @@ export default function BlogContentShowcase({
       title: item.title || item.heroSection.title,
       buttonText: item.heroSection?.buttonText,
       link: `/blog/${item.slug}`,
-      image: item.heroSection.image,
+      image: item.featureImage,
       text: item.content || "",
       description: item.content || "",
       buttonLink: `/blog/${item.slug}`,

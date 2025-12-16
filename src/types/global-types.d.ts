@@ -573,6 +573,7 @@ type InsightItem = {
   blog: BlogData;
   heroSection: HeroSection;
   seo: SEO | null;
+  featureImage: ImageType;
   faq: string | null;
 };
 type BlogData = {
