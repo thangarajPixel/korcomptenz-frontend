@@ -41,13 +41,13 @@ const article = {
   ],
 };
 
-type AuthorType = {
+type BlogAuthorType = {
   publishedAt: string;
   name: string;
   image: ImageType;
 };
 
-export default function BlogAuthor({ data }: { data: AuthorType }) {
+export default function BlogAuthor({ data }: { data: BlogAuthorType }) {
   return (
     <section className="container-md  px-4 md:px-10">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">

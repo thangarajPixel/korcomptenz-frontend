@@ -545,6 +545,11 @@ type InsightResponse = {
     image: ImageType;
     mobileImage: ImageType;
   };
+  author: {
+    image: ImageType;
+    name: string;
+    role: string;
+  };
   podcast: {
     description: string;
     title: string;
@@ -565,7 +570,7 @@ type InsightResponse = {
 
 type InsightItem = {
   id: number;
-  author: AuthorType;
+  author: BlogAuthorType;
   slug: string;
   documentId: string;
   title: string;
