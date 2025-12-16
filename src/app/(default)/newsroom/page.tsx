@@ -18,9 +18,9 @@ const Page = async () => {
     __component: "news-and-event.news-event-list",
     list: data?.listData?.map((item) => ({
       ...item,
-      buttonLink: "",
-      date: "",
-      createdAt: "",
+      buttonLink: "/newsroom/" + item?.slug,
+      date: item?.publishedAt || "",
+      createdAt: item?.publishedAt || "",
     })),
   });
 

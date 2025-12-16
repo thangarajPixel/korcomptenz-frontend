@@ -295,6 +295,7 @@ type NewsroomListType = {
   image: ImageType;
   buttonText: string;
   slug: string;
+  publishedAt: string;
 };
 // ✅ Banner section
 type ClientSuccessBannerSectionType = {
