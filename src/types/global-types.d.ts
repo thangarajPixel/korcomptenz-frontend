@@ -203,7 +203,7 @@ type EcosystemMenuType = {
     link: string;
     child: {
       title: string;
-      description: { description: string }[];
+      description: { description: string; href: { slug: string } }[];
       type?: string;
       href: {
         slug: string;

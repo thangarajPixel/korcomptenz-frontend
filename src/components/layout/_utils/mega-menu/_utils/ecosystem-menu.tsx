@@ -76,12 +76,16 @@ const EcosystemMenu = ({
                   </Link>
                   <div className="my-2 flex flex-wrap">
                     {childItem?.description?.map((item, index) => (
-                      <p
+                      <Link
                         key={`ecosystem-menu-${childIndex}-${index}`}
-                        className="text-custom-gray-4 text-sm w-1/2 leading-5.5 mb-2"
+                        href={item?.href?.slug || "#"}
+                        onClick={onClick}
+                        className="w-1/2"
                       >
-                        {item?.description}
-                      </p>
+                        <p className="text-custom-gray-4 text-sm leading-5.5 mb-2 hover:text-primary transition-colors">
+                          {item?.description}
+                        </p>
+                      </Link>
                     ))}
                   </div>
                 </div>

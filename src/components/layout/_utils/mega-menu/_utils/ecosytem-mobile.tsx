@@ -72,9 +72,15 @@ const EcosystemDrawer = ({
                   {child?.description?.length > 0 && (
                     <ul className="mt-1 text-md text-black">
                       {child?.description?.map((desc, j) => (
-                        <li key={`ecosystem-mobile-${j}`}>
-                          {desc?.description}
-                        </li>
+                        <Link
+                          href={desc?.href?.slug || "#"}
+                          onClick={closeMenu}
+                          key={j}
+                        >
+                          <li key={`ecosystem-mobile-${j}`}>
+                            {desc?.description}
+                          </li>
+                        </Link>
                       ))}
                     </ul>
                   )}
