@@ -1,14 +1,14 @@
-import GlobalPage from '@/components/global-page';
-import { cn } from '@/lib/utils';
-import { APP_CONFIG } from '@/utils/app-config';
-import { getEventListPage } from '@/services/page';
+import GlobalPage from "@/components/global-page";
+import { cn } from "@/lib/utils";
+import { APP_CONFIG } from "@/utils/app-config";
+import { getEventListPage } from "@/services/page";
 
 export async function generateMetadata() {
   const data = await getEventListPage();
   return {
     title: data?.seo?.title || "Career",
     description: data?.seo?.description || "",
-  }
+  };
 }
 const Page = async () => {
   const data = await getEventListPage();
@@ -18,14 +18,16 @@ const Page = async () => {
     list: data?.listData?.map((item) => ({
       ...item,
       isEvent: true,
-    }))
+      buttonLink: "",
+      date: "",
+      createdAt: "",
+    })),
   });
   return (
     <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
       <GlobalPage data={data?.list} />
     </div>
   );
-}
+};
 
-
-export default Page
+export default Page;

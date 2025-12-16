@@ -1,7 +1,7 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 
-const KorCareAward = ({ data }: { data: KorCareBuildDataType }) => {
+const KorCareAward = ({ data }: { data: KorCareAwardType }) => {
   return (
     <section className="container-nav bg-[#E5E7EB] py-16 px-12">
       <div className="mx-auto max-w-4xl text-center space-y-5 rounded-3xl shadow-2xl bg-white  px-10 py-16">

@@ -647,6 +647,7 @@ type NewsEventListSectionType = {
   isEvent?: boolean;
   image: ImageType;
   createdAt: string;
+  slug: string;
 };
 type NotFoundType = {
   id: string;
@@ -746,6 +747,44 @@ type KorCareImpactHighlightType = {
   title: string;
   list: KorCareHighlightCardType[];
 };
+
+type KorCareAwardType = {
+  id: string;
+  title: string;
+  image: ImageType;
+  description: string;
+};
+
+type DescriptionOnlyType = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+type ServiceProviderType = {
+  id: string;
+  title: string;
+  list: DescriptionOnlyType[];
+};
+
+type CombinedSectionType = {
+  heading: DescriptionOnlyType;
+  stretchableComponent: StretchableSectionType;
+  thirdSection: ServiceProviderType;
+  button: ButtonType;
+};
+
+type VideoBannerItemType = {
+  id: string;
+  videoLink: string;
+  title: string;
+  imageMobile: ImageType;
+
+  image: ImageType;
+  isVideo: boolean;
+};
+
+type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
 type ComponentPropsMap = {
   SlidingSection: {
@@ -962,7 +1001,7 @@ type ComponentPropsMap = {
     __component: "page-componets.pricing-section";
   };
 
-  KorCareBuildData: KorCareBuildDataType & {
+  KorCareBuildData: BuildConnectSectionType & {
     id: string;
     __component: "kor-cares.kor-care-build-data";
   };
@@ -982,9 +1021,46 @@ type ComponentPropsMap = {
     id: string;
     __component: "kor-cares.impact-highlight";
   };
-  NewsEventListSection: NewsEventListSectionType & {
+
+  NewsEventListSection: {
     id: string;
     __component: "news-and-event.news-event-list";
+    list: NewsEventListSectionType[];
+  };
+  DescriptionOnly: DescriptionOnlyType & {
+    id: string;
+    __component: "news-and-event.news-description-only";
+  };
+  TitleDescription: DescriptionOnlyType & {
+    id: string;
+    __component: "news-and-event.news-title-description-only";
+  };
+
+  ServiceProvider: CombinedSectionType & {
+    id: string;
+    __component: "news-and-event.news-service";
+  };
+  CustomDescription: DescriptionOnlyType & {
+    id: string;
+    __component: "news-and-event.color-custom-description";
+  };
+  CombinedDescription: CombinedSectionType & {
+    id: string;
+    __component: "news-and-event.compounds-newsroom";
+  };
+
+  VideoBannerSection: VideoBannerItemType & {
+    id: string;
+    __component: "news-and-event.news-banner";
+  };
+  NewsRoomSlider: NewsRoomSliderType & {
+    id: string;
+    __component: "news-and-event.simple-image-gallery";
+  };
+  CaseStudyTestimonial: {
+    id: string;
+    __component: "news-and-event.testimonal-list";
+    list: TestimonialType[];
   };
 };
 type ComponentType = keyof ComponentPropsMap;

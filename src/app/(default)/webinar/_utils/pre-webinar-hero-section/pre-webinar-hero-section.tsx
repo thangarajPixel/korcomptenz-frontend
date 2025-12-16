@@ -7,12 +7,11 @@ import dayjs from "dayjs";
 import { formatRange } from "@/utils/helper";
 import Timer from "./timer";
 import React from "react";
-import { useMobile } from "@/utils/custom-hooks";
 
 const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
   const date = data?.preWebinar?.webinarTime;
   const time = formatRange(date);
-  const isMobile = useMobile();
+
   const formatDate = React.useCallback(() => {
     const d = dayjs(date);
     const day = d.date();
@@ -63,7 +62,7 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
             </p>
 
             {/* Date & Time - Teal Background */}
-            <div className="bg-[#26A17C]  p-4 mb-6 space-y-2 text-white">
+            <div className="bg-primary  p-4 mb-6 space-y-2 text-white">
               <div className="flex items-center gap-2 text-sm">
                 <Calendar className="w-4 h-4 flex-shrink-0" />
                 <div>
@@ -147,11 +146,9 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
       </div>
 
       {/* Desktop Countdown Timer - Overlapping white box */}
-      {!isMobile && (
-        <div className="relative flex  -mt-10 justify-center   z-20">
-          <Timer data={data?.preWebinar?.webinarTime} />
-        </div>
-      )}
+      <div className="hidden md:block absolute bottom-16.25 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-20">
+        <Timer data={data?.preWebinar?.webinarTime} />
+      </div>
     </section>
   );
 };
