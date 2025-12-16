@@ -17,9 +17,12 @@ const Page = async () => {
     __component: "news-and-event.news-event-list",
     list: data?.listData?.map((item) => ({
       ...item,
+      buttonLink: "",
+      date: "",
+      createdAt: "",
     })),
   });
- 
+
   return (
     <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
       <GlobalPage data={data?.list} />
