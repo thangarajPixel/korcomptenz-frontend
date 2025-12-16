@@ -49,7 +49,7 @@ type AuthorType = {
 
 export default function BlogAuthor({ data }: { data: AuthorType }) {
   return (
-    <section className="container-md  py-8 px-4 md:px-10">
+    <section className="container-md  px-4 md:px-10">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
         {/* LEFT — AUTHOR INFO */}
         <div className="flex flex-col md:flex-row items-center md:items-start gap-4 flex-1 text-center md:text-left">
