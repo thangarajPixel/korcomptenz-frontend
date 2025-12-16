@@ -20,7 +20,7 @@ const Page = async () => {
       ...item,
       isEvent: true,
       buttonLink: "",
-      date: "",
+      date: item?.date || item?.publishedAt || "",
       createdAt: "",
     })),
   });

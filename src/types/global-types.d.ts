@@ -284,7 +284,9 @@ type EventListType = {
   description: string;
   image: ImageType;
   buttonText: string;
+  date: string;
   slug: string;
+  publishedAt: string;
 };
 type NewsroomListType = {
   id: string;
