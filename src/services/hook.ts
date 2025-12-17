@@ -167,3 +167,10 @@ export const useWebinarReserveMySpotHook = () => {
     mutationFn: PAGE.createWebinarReserveMySpotLead,
   });
 };
+
+export const useNewsRoomHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.NEWSROOM_LEAD],
+    mutationFn: PAGE.NewRoomDownload,
+  });
+};

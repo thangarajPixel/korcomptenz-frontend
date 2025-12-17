@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { useFreeConsultationLeadHook } from "@/services";
+import { useNewsRoomHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  freeConsultationLeadSchema,
-  type FreeConsultationLeadSchema,
+  newsRoomFormSchema,
+  type NewsRoomFormSchema,
 } from "@/utils/validation.schema";
 
 import { Button } from "@/components/ui/button";
@@ -16,57 +16,49 @@ import { Input } from "@/components/ui/input";
 const defaultValues = {
   name: "",
   email: "",
-  phoneNumber: "",
-  mobile: "",
-  department: "",
 };
 
-const DownloadForm = ({
-  form,
-  essential,
-}: {
-  form: FreeConsultationFormType;
-  essential?: { id: string | number; [key: string]: unknown };
-}) => {
+const DownloadForm = () => {
   const {
     control,
     handleSubmit,
     setError,
     reset,
     formState: { isSubmitting },
-  } = useForm<FreeConsultationLeadSchema>({
+  } = useForm<NewsRoomFormSchema>({
     mode: "onSubmit",
-    resolver: zodResolver(freeConsultationLeadSchema),
+    resolver: zodResolver(newsRoomFormSchema),
     defaultValues: {
       ...defaultValues,
-      insight: essential?.id
-        ? {
-            connect: [
-              {
-                id: essential.id as number,
-                documentId: essential.documentId as string,
-                isTempory: false,
-              },
-            ],
-          }
-        : null,
     },
   });
-  const { mutateAsync } = useFreeConsultationLeadHook();
-
-  const handleFormSubmit: SubmitHandler<FreeConsultationLeadSchema> =
-    React.useCallback(
-      async (formdata) => {
-        try {
-          const response = await mutateAsync(formdata);
-          notify(response);
-          reset({ ...defaultValues });
-        } catch (error) {
-          errorSet(error, setError);
-        }
+  const { mutateAsync } = useNewsRoomHook();
+  const newRoom = {
+    connect: [
+      {
+        id: "33",
+        documentId: "it1f4mi9drcbpt4si7d1tqab",
+        isTemporary: true,
       },
-      [mutateAsync, reset]
-    );
+    ],
+  };
+
+  const handleFormSubmit: SubmitHandler<NewsRoomFormSchema> = React.useCallback(
+    async (formdata) => {
+      const data = {
+        ...formdata,
+        newRoom,
+      };
+      try {
+        const response = await mutateAsync(data);
+        notify(response);
+        reset({ ...defaultValues });
+      } catch (error) {
+        errorSet(error, setError);
+      }
+    },
+    [mutateAsync, reset]
+  );
 
   return (
     <form
@@ -75,37 +67,36 @@ const DownloadForm = ({
       className="space-y-8"
     >
       <div className="grid gap-y-2 mt-5">
-        <h2 className=" text-black text-center text-xl">
-          {form?.title || "Download Form"}
+        <h2 className=" text-foreground text-center font-semibold mb-2 text-5xl">
+          Download Form
         </h2>
         <div className="grid grid-cols-1  ">
           <Input
             control={control}
-            name={"fullName"}
-            placeholder={form?.nameLabel || "Full name"}
-            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
+            name={"name"}
+            placeholder="Full name"
+            className="border-2 p-2 rounded-md text-foreground"
           />
         </div>
         <div className="grid gap-y-8 mt-5">
           <Input
             control={control}
             name="email"
-            placeholder={form?.emailLabel || "Email"}
-            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
+            placeholder="Email"
+            className="border-2 p-2 rounded-md text-foreground"
           />
         </div>
 
         {/* Submit button */}
         <div className="pt-4">
           <Button
-            size="xl"
             variant="outline"
-            className="hover:bg-primary border-primary text-primary hover:text-white"
+            className="bg-secondary text-white rounded-2xl p-5 hover:bg-secondary hover:text-white"
             arrow
             isLoading={isSubmitting}
             type="submit"
           >
-            {form?.buttonText || "Submit"}
+            Submit
           </Button>
         </div>
       </div>

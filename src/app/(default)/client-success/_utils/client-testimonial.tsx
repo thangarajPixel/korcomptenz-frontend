@@ -51,7 +51,7 @@ export default function ClientTestimonial({
           </blockquote> */}
           <DangerousHtml
             html={currentTestimonial?.description}
-            className="text-6xl text-muted leading-12"
+            className="lg:text-6xl text-xl text-muted leading-12"
           />
         </div>
 
