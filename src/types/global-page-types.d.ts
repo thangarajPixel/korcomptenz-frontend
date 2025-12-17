@@ -385,6 +385,12 @@ type SocialPlatformType = {
   link: string | null;
   icon: ImageType;
 };
+type SocialPlatfooterType = {
+  id: string;
+  label: string;
+  link: string | null;
+  icon: ImageType;
+};
 type CompanyType = {
   id: string;
   companyName: string;
@@ -395,7 +401,7 @@ type CompanyType = {
   address: string;
   companyLogo: ImageType;
   companyFullLogo: ImageType;
-  socialPlatforms: SocialPlatformType[];
+  socialPlatforms: SocialPlatfooterType[];
 
   policy: {
     id: string;
