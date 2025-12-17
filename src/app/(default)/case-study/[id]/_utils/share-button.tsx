@@ -23,10 +23,7 @@ const defaultSocialLinks: SocialLink[] = [
   {
     id: "instragram",
     name: "Instragram",
-    buildUrl: (pageUrl: string) =>
-      `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
-        pageUrl
-      )}`,
+    buildUrl: () => `https://www.instagram.com/accounts/login/`,
     icon: InstragramIcon,
   },
   {

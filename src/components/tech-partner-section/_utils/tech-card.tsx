@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const TechCard = ({
   data,
@@ -10,6 +11,7 @@ const TechCard = ({
     id: number;
     title: string;
     description: string;
+    link: string;
     buttonText: string;
   };
   className?: string;
@@ -23,13 +25,16 @@ const TechCard = ({
         <p className="text-sm lg:text-lg text-background">
           {data?.description}
         </p>
+
         {data?.buttonText && (
-          <Button
-            arrow
-            className="bg-secondary hover:bg-secondary/80 hover:text-white hover:border-secondary text-white flex justify-start items-center -ms-4"
-          >
-            {data?.buttonText}
-          </Button>
+          <Link href={data?.link || "#"}>
+            <Button
+              arrow
+              className="bg-secondary hover:bg-secondary/80 hover:text-white hover:border-secondary text-white flex justify-start items-center -ms-4"
+            >
+              {data?.buttonText}
+            </Button>
+          </Link>
         )}
       </div>
     </section>
