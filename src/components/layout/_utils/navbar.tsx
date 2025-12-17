@@ -278,7 +278,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                     {data?.company?.socialPlatforms.map((social) => (
                       <Link
                         key={`social-platform-${social.id}`}
-                        href={social?.href || "/"}
+                        href={social?.link || "/"}
                         className="w-5 h-5 rounded-lg flex items-center justify-center"
                       >
                         <KorcomptenzImage
