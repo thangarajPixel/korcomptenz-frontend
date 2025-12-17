@@ -33,7 +33,7 @@ const DownloadForm = () => {
       ...defaultValues,
     },
   });
-  const params = useParams()
+  const params = useParams();
   const { mutateAsync } = useNewsRoomHook();
 
   const handleFormSubmit: SubmitHandler<NewsRoomFormSchema> = React.useCallback(
@@ -69,6 +69,7 @@ const DownloadForm = () => {
             name={"name"}
             placeholder="Full name"
             className="border-2 p-2 rounded-md text-foreground"
+            required
           />
         </div>
         <div className="grid gap-y-8 mt-5">
@@ -77,6 +78,7 @@ const DownloadForm = () => {
             name="email"
             placeholder="Email"
             className="border-2 p-2 rounded-md text-foreground"
+            required
           />
         </div>
 
