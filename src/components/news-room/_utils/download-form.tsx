@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 import { Input } from "@/components/ui/input";
+import { useParams } from "next/navigation";
 
 const defaultValues = {
   name: "",
@@ -32,22 +33,14 @@ const DownloadForm = () => {
       ...defaultValues,
     },
   });
+  const params = useParams()
   const { mutateAsync } = useNewsRoomHook();
-  const newRoom = {
-    connect: [
-      {
-        id: "33",
-        documentId: "it1f4mi9drcbpt4si7d1tqab",
-        isTemporary: true,
-      },
-    ],
-  };
 
   const handleFormSubmit: SubmitHandler<NewsRoomFormSchema> = React.useCallback(
     async (formdata) => {
       const data = {
         ...formdata,
-        newRoom,
+        newRoomID: params?.id,
       };
       try {
         const response = await mutateAsync(data);
