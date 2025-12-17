@@ -382,7 +382,7 @@ type WhyKorcomptenzType = {
 type SocialPlatformType = {
   id: string;
   label: string;
-  href: string | null;
+  link: string | null;
   icon: ImageType;
 };
 type CompanyType = {
