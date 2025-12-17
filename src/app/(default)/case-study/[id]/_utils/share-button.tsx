@@ -23,7 +23,10 @@ const defaultSocialLinks: SocialLink[] = [
   {
     id: "instragram",
     name: "Instragram",
-    buildUrl: () => `https://www.instagram.com/accounts/login/`,
+    buildUrl: (pageUrl: string) =>
+      `https://www.linkedin.com/uas/login?session_redirect=${encodeURIComponent(
+        pageUrl
+      )}`,
     icon: InstragramIcon,
   },
   {

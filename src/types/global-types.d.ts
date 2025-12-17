@@ -477,7 +477,7 @@ type AchievementscardType = {
 type InsightsMobileCarouselType = {
   category: string;
   description: string;
-  id: string;
+  id: string | number;
   image: ImageType;
   link: string;
   title: string;
@@ -524,9 +524,8 @@ type PricingPlanType = {
   price: number;
   button: ButtonType;
 };
-type InsightBlog = {
-  data: InsightResponse;
-};
+type InsightBlog = InsightResponse;
+
 type InsightResponse = {
   insight: InsightItem;
   content: string;

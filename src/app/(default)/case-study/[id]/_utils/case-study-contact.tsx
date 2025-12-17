@@ -53,7 +53,7 @@ export function CaseStudyForm({
   );
 
   return (
-    <div className="container-md py-12 px-8">
+    <div className="container-md py-12 md:px-8">
       <div className="max-w-2xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
@@ -63,18 +63,24 @@ export function CaseStudyForm({
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
+        <form
+          onSubmit={handleSubmit(handleFormSubmit)}
+          className="space-y-8"
+          noValidate
+        >
           {/* Row 1: Full name and Email */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
             <Input
               control={control}
               name="fullName"
               placeholder={essential?.nameLabel}
+              required={true}
             />
             <Input
               control={control}
               name="email"
               placeholder={essential?.emailLabel}
+              required={true}
             />
           </div>
           {/* Row 2: Organization and Phone */}
@@ -83,6 +89,7 @@ export function CaseStudyForm({
               control={control}
               name="organization"
               placeholder={essential?.organizationLabel}
+              required={true}
             />
             <Input
               control={control}
@@ -102,7 +109,7 @@ export function CaseStudyForm({
               type="submit"
               size={"xl"}
               variant={"outline"}
-              className="hover:bg-primary border-primary text-primary hover:text-white"
+              className="bg-primary border-primary hover:text-primary text-white"
               arrow
             >
               {essential?.buttonText}

@@ -1,71 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Link as LinkIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  FacebookIcon,
-  InstragramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-  WhatAppIcon,
-} from "../../../../../../../public/svg/all-svg";
+
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-interface SocialLink {
-  id: string;
-  name: string;
-  buildUrl: (pageUrl: string) => string;
-  icon: React.FC<React.SVGProps<SVGSVGElement>>;
-}
-
-const defaultSocialLinks: SocialLink[] = [
-  {
-    id: "instragram",
-    name: "Instragram",
-    buildUrl: (pageUrl: string) =>
-      `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
-        pageUrl
-      )}`,
-    icon: InstragramIcon,
-  },
-  {
-    id: "whatapp",
-    name: "Whatapp",
-    buildUrl: (pageUrl: string) =>
-      `https://api.whatsapp.com/send?text=${encodeURIComponent(pageUrl)}`,
-    icon: WhatAppIcon,
-  },
-
-  {
-    id: "linkedin",
-    name: "LinkedIn",
-    buildUrl: (pageUrl: string) =>
-      `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
-        pageUrl
-      )}`,
-    icon: LinkedInIcon,
-  },
-  {
-    id: "twitter",
-    name: "Twitter",
-    buildUrl: (pageUrl: string) =>
-      `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}`,
-    icon: TwitterIcon,
-  },
-  {
-    id: "facebook",
-    name: "Facebook",
-    buildUrl: (pageUrl: string) =>
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-        pageUrl
-      )}`,
-    icon: FacebookIcon,
-  },
-];
-
-export function ShareButton() {
+export function ShareButton({ data }: { data: SocialPlatformType[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -79,14 +21,16 @@ export function ShareButton() {
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
-
+  const articleUrl = window.location.href;
+  // const prompt = `Visit this URL and summarize this post for me: ${articleUrl}`;
+  const encodedPrompt = encodeURIComponent(articleUrl);
   return (
-    <div className="relative inline-block mb-10">
+    <div className="relative inline-block mb-10 ">
       {/* Share Trigger Button */}
       <Button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Share"
-        className="flex items-center text-3xl  w-32 justify-center p-3 bg-white  text-secondary rounded-xl  "
+        className="flex items-center text-3xl  w-32 justify-center p-3 bg-white  text-secondary rounded-xl hover:border-white hover:text-secondary "
       >
         Share{" "}
         <KorcomptenzImage
@@ -100,18 +44,18 @@ export function ShareButton() {
       {/* Social Menu */}
       {isOpen && (
         <>
-          <div className="absolute top-full  mt-3 -left-25 p-3 z-50 min-w-max">
+          <div className="absolute top-full  mt-3 -left-25 md:-left-35 p-3 z-50 min-w-max">
             <div className="flex gap-3">
-              {defaultSocialLinks.map((link) => (
+              {data?.map((link) => (
                 <Link
                   key={link.id}
-                  href={link.buildUrl(pageUrl)}
+                  href={`${link?.link}${encodedPrompt}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title={link.name}
+                  title={link.label}
                   className="flex items-center justify-center w-10 h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
                 >
-                  <link.icon color="black" />
+                  <KorcomptenzImage src={link?.icon} width={25} height={25} />
                 </Link>
               ))}
 
