@@ -311,6 +311,9 @@ type BuildConnectSectionType = {
   buttonText: string;
   link: string;
   descriptionButtonText: string;
+  listDescription: {
+    description: string;
+  }[];
   isSwap: boolean;
   descriptionButtonLink: string;
   rightSection: {
@@ -1061,6 +1064,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "news-and-event.testimonal-list";
     list: TestimonialType[];
+  };
+  NewRoomBuild: BuildConnectSectionType & {
+    id: string;
+    __component: "news-and-event.build-data";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

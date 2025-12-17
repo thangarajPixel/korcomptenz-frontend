@@ -62,6 +62,7 @@ import NewsEventListSection from "../news-event-list-section";
 import { DescriptionOnly, TitleDescription } from "../description-section";
 import { CombinedSection, NewsRoomSlider, ServiceProvider } from "../news-room";
 import VideoBannerSection from "../video-banner-section";
+import NewsRoomBuild from "../news-room/_utils/news-room-build";
 
 type Props = {
   data: ComponentPropsType[];
@@ -529,6 +530,13 @@ const GlobalPage = (props: Props) => {
           <ClientTestimonial
             key={`client-testimonial-${item?.__component}-${item?.id}`}
             data={item?.list}
+          />
+        );
+      case "news-and-event.build-data":
+        return (
+          <NewsRoomBuild
+            key={`build-data-${item?.__component}-${item?.id}`}
+            buildData={item}
           />
         );
       default:

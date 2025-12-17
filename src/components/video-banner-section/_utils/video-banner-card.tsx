@@ -1,6 +1,7 @@
 "use client";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import DownloadForm from "@/components/news-room/_utils/download-form";
 import { cn } from "@/lib/utils";
 // import DownloadForm from "@/components/news-room/_utils/download-form";
 
@@ -39,20 +40,19 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
         <div className="absolute inset-0 z-10 flex items-center">
           <div className="container-md grid grid-cols-12 gap-10 px-6 md:px-10">
             {/* ---------- LEFT CONTENT ---------- */}
-            <div className="col-span-7 flex flex-col justify-center gap-4">
-              <h1 className="text-4xl md:text-9xl font-semibold text-white leading-tight max-w-2xl">
+            <div className="col-span-8 flex flex-col justify-center ">
+              <h1 className="text-4xl md:text-7xl font-semibold text-white leading-tight max-w-3xl">
                 {data?.title}
               </h1>
             </div>
 
             {/* ---------- RIGHT FORM ---------- */}
-            {/* {data?.form && (
-              <div className="col-span-5 flex items-center justify-end">
-                <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
-                  <DownloadForm />
-                </div>
+
+            <div className="col-span-4 flex  justify-end">
+              <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+                <DownloadForm />
               </div>
-            )} */}
+            </div>
           </div>
         </div>
       </div>
@@ -81,6 +81,9 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
         {/* Mobile Content */}
         <div className="container-md flex flex-col gap-6 p-6">
           <h2 className="text-3xl font-bold text-foreground">{data?.title}</h2>
+        </div>
+        <div className="p-5 rounded-2xl shadow-2xl">
+          <DownloadForm />
         </div>
       </div>
     </div>
