@@ -23,8 +23,8 @@ const Page = async ({ params }: Props) => {
   return (
     <div className="flex flex-col gap-16">
       <BlogBannerSection BannerSectionData={data?.insight} />
-      <BlogAuthor data={data?.insight?.author} />
-      <DocumentationLayout data={data} />
+      <BlogAuthor data={data?.insight?.author} essential={pageLayout} />
+      <DocumentationLayout data={data} essential={pageLayout} />
       <GlobalForm
         form={pageLayout?.form}
         essential={{

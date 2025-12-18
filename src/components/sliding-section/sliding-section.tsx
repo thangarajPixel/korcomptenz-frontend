@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "../korcomptenz-image";
 import { useMobile } from "@/utils/custom-hooks";
 import CardSwiper from "../ui/card-swiper";
+import Link from "next/link";
 
 export default function SlidingSection({
   slides,
@@ -80,14 +81,16 @@ export default function SlidingSection({
                     {slide?.description}
                   </p>
                   {slide?.buttonText && (
-                    <Button
-                      size="xl"
-                      variant="white"
-                      className="hover:bg-transparent text-md md:text-lg hover:text-primary border hover:border-primary"
-                      arrow={true}
-                    >
-                      {slide?.buttonText}
-                    </Button>
+                    <Link href={slide?.link}>
+                      <Button
+                        size="xl"
+                        variant="white"
+                        className="hover:bg-transparent text-md md:text-lg hover:text-primary border hover:border-primary"
+                        arrow={true}
+                      >
+                        {slide?.buttonText}
+                      </Button>
+                    </Link>
                   )}
                 </div>
               </div>

@@ -1,45 +1,9 @@
 "use client";
 
-import Image from "next/image";
-
 import { ShareButton } from "./share-button";
 import dayjs from "dayjs";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-
-const article = {
-  id: 1,
-  author: "George Philip",
-  authorImage: "/public/assets/Neha-Bhagat.png",
-  date: "September 30, 2025",
-  title: "The Future of Web Development",
-  aiTools: [
-    {
-      id: 1,
-      name: "Claude",
-      icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/Clip_path_group_da6ff639d1.png?updatedAt=2025-12-04T11%3A22%3A02.430Z",
-    },
-    {
-      id: 2,
-      name: "GPT-4",
-      icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/Clip_path_group_1_8ab0534a54.png?updatedAt=2025-12-04T11%3A22%3A02.488Z",
-    },
-    {
-      id: 3,
-      name: "Gemini",
-      icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/Vector_ce867faeb0.png?updatedAt=2025-12-04T11%3A22%3A02.531Z",
-    },
-    {
-      id: 4,
-      name: "Perplexity",
-      icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/grok_ai_1_a29323e083.png?updatedAt=2025-12-04T11%3A22%3A02.448Z",
-    },
-    {
-      id: 5,
-      name: "More",
-      icon: "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/google_ai_1_2c17d8836b.png?updatedAt=2025-12-04T11%3A22%3A02.436Z",
-    },
-  ],
-};
+import Link from "next/link";
 
 type BlogAuthorType = {
   publishedAt: string;
@@ -47,14 +11,24 @@ type BlogAuthorType = {
   image: ImageType;
 };
 
-export default function BlogAuthor({ data }: { data: BlogAuthorType }) {
+export default function BlogAuthor({
+  data,
+  essential,
+}: {
+  data: BlogAuthorType;
+  essential: InsightPageType;
+}) {
+  const articleUrl = window.location.href;
+  const prompt = `Visit this URL and summarize this post for me: ${articleUrl}`;
+  const encodedPrompt = encodeURIComponent(prompt);
+
   return (
     <section className="container-md  px-4 md:px-10">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
         {/* LEFT — AUTHOR INFO */}
         <div className="flex flex-col md:flex-row items-center md:items-start gap-4 flex-1 text-center md:text-left">
           <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-pink-400 to-orange-400">
-            <KorcomptenzImage src={data.image} fill className="object-cover" />
+            <KorcomptenzImage src={data?.image} fill className="object-cover" />
           </div>
 
           <div className="pt-1">
@@ -80,7 +54,7 @@ export default function BlogAuthor({ data }: { data: BlogAuthorType }) {
         >
           {/* MOBILE: Share button first */}
           <div className="flex md:hidden justify-center mb-10">
-            <ShareButton />
+            <ShareButton data={essential?.blogSocialPlatform} />
           </div>
 
           {/* TEXT */}
@@ -94,40 +68,28 @@ export default function BlogAuthor({ data }: { data: BlogAuthorType }) {
           </p>
 
           {/* ICON ROW */}
-          <div
-            className="
-    flex items-center 
-    justify-center md:justify-start 
-    gap-2
-  "
-          >
-            {article.aiTools.map((tool) => (
-              <button
+          <div className="flex items-center justify-center md:justify-start gap-2">
+            {essential?.blogAiPlatform.map((tool) => (
+              <Link
                 key={tool.id}
-                className="
-          flex items-center justify-center 
-          h-14 w-14 
-          rounded-lg 
-       
-       
-        "
-                title={tool.name}
+                href={`${tool.link}${encodedPrompt}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={tool.label}
+                className="flex items-center justify-center h-14 w-14 rounded-lg "
               >
-                <span className="text-lg">
-                  {" "}
-                  <Image
-                    src={tool.icon || "/placeholder.svg"}
-                    alt={article.author || ""}
-                    width={"30"}
-                    height={"30"}
-                  />
-                </span>
-              </button>
+                <KorcomptenzImage
+                  src={tool.icon}
+                  width={30}
+                  height={30}
+                  alt={tool.label}
+                />
+              </Link>
             ))}
 
             {/* DESKTOP: Share button next to icons */}
             <div className="hidden md:block  ">
-              <ShareButton />
+              <ShareButton data={essential?.blogSocialPlatform} />
             </div>
           </div>
         </div>

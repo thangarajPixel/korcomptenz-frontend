@@ -10,6 +10,7 @@ type SlidingSectionType = {
   mobile_image: ImageType;
   description?: string;
   logo?: ImageType;
+  link: string;
 };
 
 type ServicesSectionType = {
@@ -364,6 +365,7 @@ type TechPartnerSectionType = {
     title: string;
     description: string;
     buttonText: string;
+    link: string;
   }[];
 };
 type ScheduleCallType = {
@@ -385,7 +387,13 @@ type WhyKorcomptenzType = {
 type SocialPlatformType = {
   id: string;
   label: string;
-  href: string | null;
+  link: string | null;
+  icon: ImageType;
+};
+type SocialPlatfooterType = {
+  id: string;
+  label: string;
+  link: string | null;
   icon: ImageType;
 };
 type CompanyType = {
@@ -398,7 +406,7 @@ type CompanyType = {
   address: string;
   companyLogo: ImageType;
   companyFullLogo: ImageType;
-  socialPlatforms: SocialPlatformType[];
+  socialPlatforms: SocialPlatfooterType[];
 
   policy: {
     id: string;

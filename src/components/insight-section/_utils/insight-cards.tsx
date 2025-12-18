@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 
 interface InsightCardType {
-  id: string;
+  id: string | number;
   title: string;
   image: ImageType;
   description?: string;

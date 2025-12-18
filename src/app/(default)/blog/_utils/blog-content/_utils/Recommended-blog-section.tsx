@@ -1,11 +1,7 @@
-import SplitDivider from "../ui/split-divider";
-import ContentShowcaseCard from "./_utils/content-showcase-card";
+import { InsightCard } from "@/components/insight-section";
+import SplitDivider from "@/components/ui/split-divider";
 
-const ContentShowcaseSection = ({
-  data,
-}: {
-  data: ContentShowcaseSectionType;
-}) => {
+const RecommendedBlogSection = ({ data }: { data: InsightsSectionType }) => {
   return (
     <section data-debug="content-showcase-section">
       <div className="flex flex-col gap-10">
@@ -18,7 +14,7 @@ const ContentShowcaseSection = ({
         {/* Cards Grid */}
         <div className="container-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {data?.list?.map((list, index) => (
-            <ContentShowcaseCard key={index} list={list} />
+            <InsightCard key={index} {...list} />
           ))}
         </div>
       </div>
@@ -26,4 +22,4 @@ const ContentShowcaseSection = ({
   );
 };
 
-export default ContentShowcaseSection;
+export default RecommendedBlogSection;

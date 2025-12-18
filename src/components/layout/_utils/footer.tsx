@@ -96,8 +96,10 @@ const CompanyInfo = ({ data }: { data: LayoutType["company"] }) => (
       {data?.socialPlatforms?.map((social) => (
         <Link
           key={social.id}
-          href={social?.href || "#"}
+          href={social?.link || "#"}
           className="w-8 h-8 rounded-lg flex items-center justify-center"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <KorcomptenzImage
             src={social.icon}
