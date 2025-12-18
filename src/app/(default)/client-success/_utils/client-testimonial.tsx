@@ -41,7 +41,7 @@ export default function ClientTestimonial({
         />
       </div>
       {/* Carousel content */}
-      <div className="relative lg:p-12">
+      <div className="relative lg:p-8">
         <div className="space-y-6">
           <h2 className="text-5xl font-semibold text-muted">
             {currentTestimonial?.title}
@@ -51,7 +51,7 @@ export default function ClientTestimonial({
           </blockquote> */}
           <DangerousHtml
             html={currentTestimonial?.description}
-            className="lg:text-6xl text-xl text-muted leading-12"
+            className="md:text-5xl text-xl text-muted leading-12 font-medium"
           />
         </div>
 

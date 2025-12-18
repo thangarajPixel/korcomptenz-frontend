@@ -10,6 +10,7 @@ type SlidingSectionType = {
   mobile_image: ImageType;
   description?: string;
   logo?: ImageType;
+  link: string;
 };
 
 type ServicesSectionType = {
