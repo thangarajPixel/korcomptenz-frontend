@@ -7,7 +7,13 @@ import { CaseStudyCard } from "@/components/case-study-section";
 import { cn } from "@/lib/utils";
 import ButtonLink from "@/components/ui/button-link";
 
-const CaseStudy = ({ data, essential, }: { data: CaseStudySingleData; essential: CaseStudyPageType; }) => {
+const CaseStudy = ({
+  data,
+  essential,
+}: {
+  data: CaseStudySingleData;
+  essential: CaseStudyPageType;
+}) => {
   return (
     <React.Fragment>
       <CaseStudyBanner
@@ -16,7 +22,7 @@ const CaseStudy = ({ data, essential, }: { data: CaseStudySingleData; essential:
           title: data?.heroSection?.title || data?.title,
           study: data?.case_industries
             .map((industry) => industry.label)
-            .join(", ")
+            .join(", "),
         }}
         essential={essential}
       />
@@ -24,37 +30,44 @@ const CaseStudy = ({ data, essential, }: { data: CaseStudySingleData; essential:
       {data?.testimonials?.length > 0 && (
         <ClientTestimonial data={data?.testimonials} />
       )}
-      <div className={cn("h-1 container-md my-20 bg-primary ")} />
-      {data?.relatedCaseStudies?.length > 0 &&
-        <div className="container-md">
-          <h2
-            id="insights-heading"
-            className="text-pretty lg:text-7xl text-6xl font-semibold text-primary break-words md:text-7xl "
-          >
-            {essential?.relatedCase?.title || "Explore more success stories"}
-          </h2>
-          <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
-            {data?.relatedCaseStudies?.map((item) => (
-              <div
-                key={`related-case-study-${item.id}`}
-                className="col-span-12 md:col-span-6 lg:col-span-4"
-              >
-                <CaseStudyCard data={item} />
-              </div>))}
-          </div>
-          <div className="flex justify-center">
-            <ButtonLink
-              link="/client-success"
-              buttonProps={{
-                size: "xl",
-                arrow: true,
-              }}
+
+      {data?.relatedCaseStudies?.length > 0 && (
+        <>
+          <div className={cn("h-1 container-md my-20 bg-primary ")} />
+          <div className="container-md">
+            <h2
+              id="insights-heading"
+              className="text-pretty lg:text-7xl text-6xl font-semibold text-primary break-words md:text-7xl "
             >
-              {essential?.relatedCase?.buttonText || "View all case studies"}
-            </ButtonLink>
+              {essential?.relatedCase?.title}
+            </h2>
+
+            <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
+              {data?.relatedCaseStudies?.length > 0 &&
+                data?.relatedCaseStudies?.map((item) => (
+                  <div
+                    key={`related-case-study-${item.id}`}
+                    className="col-span-12 md:col-span-6 lg:col-span-4"
+                  >
+                    <CaseStudyCard data={item} />
+                  </div>
+                ))}
+            </div>
+            <div className="flex justify-center">
+              <ButtonLink
+                link="/client-success"
+                buttonProps={{
+                  size: "xl",
+                  arrow: true,
+                }}
+              >
+                {essential?.relatedCase?.buttonText || "View all case studies"}
+              </ButtonLink>
+            </div>
           </div>
-        </div>
-      }
+        </>
+      )}
+
       <CaseStudyForm data={data} essential={essential} />
     </React.Fragment>
   );

@@ -58,7 +58,7 @@ export function CaseStudyForm({
         {/* Heading */}
         <div className="text-center mb-12">
           <h3 className="text-[#2d3748] text-7xl leading-tight mb-2 font-bold">
-            {essential?.title}
+            {data?.isAttachment ? essential?.downloadContent : essential?.title}
           </h3>
         </div>
 

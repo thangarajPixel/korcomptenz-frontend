@@ -246,6 +246,7 @@ type CaseStudyTestimonial = {
 type CaseStudyData = {
   id: string;
   documentId: string;
+  isAttachment: boolean;
   title: string;
   seo: SEO;
   study: string;

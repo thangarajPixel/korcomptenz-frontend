@@ -450,6 +450,7 @@ type CaseStudyFormType = {
   phoneLabel: string;
   messageLabel: string;
   buttonText: string;
+  downloadContent: string;
 };
 type FreeConsultationFormType = {
   __component: "form-fields.free-consultation-form";
@@ -1124,6 +1125,7 @@ type CaseStudyPageType = {
   study: string;
   buttonText: string;
   form: GlobalFormType;
+
   relatedCase: {
     title: string;
     buttonText: string;
