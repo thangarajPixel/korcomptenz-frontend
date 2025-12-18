@@ -9,9 +9,11 @@ import BreadcrumbFromUrl from "./breadcrumbs";
 const BlogBannerCard = ({
   data,
   className,
+  tableTitle,
 }: {
   data: InsightItem;
   className?: string;
+  tableTitle: string;
 }) => {
   return (
     <div className={cn(className)}>
@@ -40,10 +42,10 @@ const BlogBannerCard = ({
               {data?.title}
             </h1>
 
-            <DangerousHtml
-              className="text-lg md:text-base text-white mb-4 md:mb-8 max-w-md"
-              html={data?.heroSection?.description}
-            />
+            <p className="text-lg md:text-5xl text-white mb-4 md:mb-8 max-w-md">
+              {tableTitle}{" "}
+            </p>
+
             {/* <div className="flex flex-row gap-4">
                 {data?.buttonText && (
                   <ButtonLink

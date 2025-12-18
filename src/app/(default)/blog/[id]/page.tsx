@@ -19,10 +19,13 @@ const Page = async ({ params }: Props) => {
     getBlogPageCache({ id }),
     getInsightPage(),
   ]);
-
+ 
   return (
     <div className="flex flex-col gap-16">
-      <BlogBannerSection BannerSectionData={data?.insight} />
+      <BlogBannerSection
+        BannerSectionData={data?.insight}
+        tableTitle={pageLayout?.tableTitle}
+      />
       <BlogAuthor data={data?.insight?.author} essential={pageLayout} />
       <DocumentationLayout data={data} essential={pageLayout} />
       <GlobalForm
