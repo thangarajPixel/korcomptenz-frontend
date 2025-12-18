@@ -364,6 +364,7 @@ type TechPartnerSectionType = {
     title: string;
     description: string;
     buttonText: string;
+    link: string;
   }[];
 };
 type ScheduleCallType = {
