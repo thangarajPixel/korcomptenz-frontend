@@ -273,11 +273,10 @@ type CaseStudyData = {
       title: string;
     };
   }[];
+  relatedCaseStudies: CaseStudyData[]
 };
-type CaseStudySingleData = {
-  caseStudy: CaseStudyData;
-  relatedCaseStudies: CaseStudyData[];
-};
+type CaseStudySingleData = CaseStudyData;
+
 type EventListType = {
   id: string;
   title: string;

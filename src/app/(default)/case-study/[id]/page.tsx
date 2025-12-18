@@ -14,8 +14,8 @@ export async function generateMetadata({
   const { id: slug } = await params;
   const data = await getCaseStudySingleCache({ slug });
   return {
-    title: data?.caseStudy?.seo?.title || slug,
-    description: data?.caseStudy?.seo?.description || "",
+    title: data?.seo?.title || slug,
+    description: data?.seo?.description || "",
   }
 }
 const Page = async ({ params }: Props) => {

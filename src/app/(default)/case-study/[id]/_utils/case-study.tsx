@@ -12,17 +12,17 @@ const CaseStudy = ({ data, essential, }: { data: CaseStudySingleData; essential:
     <React.Fragment>
       <CaseStudyBanner
         data={{
-          ...data?.caseStudy?.heroSection,
-          title: data?.caseStudy?.heroSection?.title || data?.caseStudy?.title,
-          study: data?.caseStudy?.case_industries
+          ...data?.heroSection,
+          title: data?.heroSection?.title || data?.title,
+          study: data?.case_industries
             .map((industry) => industry.label)
             .join(", ")
         }}
         essential={essential}
       />
-      <CaseStudyContent data={data?.caseStudy} />
-      {data?.caseStudy?.testimonials?.length > 0 && (
-        <ClientTestimonial data={data?.caseStudy?.testimonials} />
+      <CaseStudyContent data={data} />
+      {data?.testimonials?.length > 0 && (
+        <ClientTestimonial data={data?.testimonials} />
       )}
       <div className={cn("h-1 container-md my-20 bg-primary ")} />
       <div className="container-md">
@@ -56,7 +56,7 @@ const CaseStudy = ({ data, essential, }: { data: CaseStudySingleData; essential:
         </div>
       </div>
 
-      <CaseStudyForm data={data?.caseStudy} essential={essential} />
+      <CaseStudyForm data={data} essential={essential} />
     </React.Fragment>
   );
 };
