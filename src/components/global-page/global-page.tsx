@@ -343,20 +343,18 @@ const GlobalPage = (props: Props) => {
             <ContactUsCorporate corporateData={item} />
           </ScrollFadeIn>
         );
-      case "contact-us.fixed-section": {
+      case "contact-us.fixed-section":
         return (
           <ScrollFadeIn key={`contact-us-fixed-section-${item?.__component}-${item?.id}`}>
             <FixedFooter data={item} />
           </ScrollFadeIn>
         );
-      }
-      case "contact-us.contact-us-form-section": {
+      case "contact-us.contact-us-form-section":
         return (
           <ScrollFadeIn key={`contact-us-form-${item?.__component}-${item?.id}`}>
             <ContactUsForm data={item} />
           </ScrollFadeIn>
         );
-      }
       case "demo-page.demo-partnership":
         return (
           <ScrollFadeIn key={`demo-partnership-${item?.__component}-${item?.id}`}>
