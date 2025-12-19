@@ -13,7 +13,7 @@ interface ScrollFadeInProps {
 export function ScrollFadeIn({
   children,
   delay = 0,
-  duration = 1,
+  duration = 1.5,
   className,
 }: ScrollFadeInProps) {
   const ref = useRef(null);
