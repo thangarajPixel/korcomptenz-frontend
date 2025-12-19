@@ -76,7 +76,9 @@ const GlobalPage = (props: Props) => {
     switch (item?.__component) {
       case "home.hero-section-one":
         return (
-          <SlidingSection key={`sliding-section-${item?.__component}-${item?.id}`} slides={item?.list} />
+          <ScrollFadeIn key={`sliding-section-${item?.__component}-${item?.id}`}>
+            <SlidingSection key={`sliding-section-${item?.__component}-${item?.id}`} slides={item?.list} />
+          </ScrollFadeIn>
         );
       case "page-componets.sticky-cards-list":
         return (
@@ -116,7 +118,9 @@ const GlobalPage = (props: Props) => {
         );
       case "page-componets.banner-section-list":
         return (
-          <BannerSection key={`banner-${item?.__component}-${item?.id}`} BannerSectionData={item?.list} />
+          <ScrollFadeIn key={`banner-section-list-${item?.__component}-${item?.id}`}>
+            <BannerSection key={`banner-${item?.__component}-${item?.id}`} BannerSectionData={item?.list} />
+          </ScrollFadeIn>
         );
       case "demo-page.demo-banner-list":
         return (
@@ -290,10 +294,12 @@ const GlobalPage = (props: Props) => {
         );
       case "news-and-event.news-event-list":
         return (
-          <NewsEventListSection
-            key={`live-demo-list-${item?.__component}-${item?.id}`}
-            data={item?.list}
-          />
+          <ScrollFadeIn key={`live-demo-list-${item?.__component}-${item?.id}`}>
+            <NewsEventListSection
+              key={`live-demo-list-${item?.__component}-${item?.id}`}
+              data={item?.list}
+            />
+          </ScrollFadeIn>
         );
       case "not-found.not-found":
         return (
@@ -377,116 +383,148 @@ const GlobalPage = (props: Props) => {
         );
       case "demo-page.build-demo":
         return (
-          <BuildDemo
-            key={`build-demo-${item?.__component}-${item?.id}`}
-            buildData={item}
-          />
+          <ScrollFadeIn key={`build-demo-${item?.__component}-${item?.id}`}>
+            <BuildDemo
+              key={`build-demo-${item?.__component}-${item?.id}`}
+              buildData={item}
+            />
+          </ScrollFadeIn>
         );
       case "page-componets.pricing-section":
         return (
-          <PricingSection
-            key={`pricing-section-${item?.__component}-${item?.id}`}
-            data={item}
-          />
+          <ScrollFadeIn key={`pricing-section-${item?.__component}-${item?.id}`}>
+            <PricingSection
+              key={`pricing-section-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
         );
       case "kor-cares.kor-care-build-data":
         return (
-          <KorCareBuildData
-            key={`kor-care-build-data-${item?.__component}-${item?.id}`}
-            buildData={item}
-          />
+          <ScrollFadeIn key={`kor-care-build-data-${item?.__component}-${item?.id}`}>
+            <KorCareBuildData
+              key={`kor-care-build-data-${item?.__component}-${item?.id}`}
+              buildData={item}
+            />
+          </ScrollFadeIn>
         );
       case "kor-cares.impact-description":
         return (
-          <KorCareImpactDescription
-            key={`impact-description-${item?.__component}-${item?.id}`}
-            data={item}
-          />
+          <ScrollFadeIn key={`impact-description-${item?.__component}-${item?.id}`}>
+            <KorCareImpactDescription
+              key={`impact-description-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
         );
       case "kor-cares.award":
         return (
-          <KorCareAward
-            key={`kor-care-award-${item?.__component}-${item?.id}`}
-            data={item}
-          />
+          <ScrollFadeIn key={`kor-care-award-${item?.__component}-${item?.id}`}>
+            <KorCareAward
+              key={`kor-care-award-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
         );
       case "kor-cares.straight-slider":
         return (
-          <KorCareSlider
-            key={`kor-care-slider-${item?.__component}-${item?.id}`}
-            manuelSliderData={item}
-          />
+          <ScrollFadeIn key={`kor-care-slider-${item?.__component}-${item?.id}`}>
+            <KorCareSlider
+              key={`kor-care-slider-${item?.__component}-${item?.id}`}
+              manuelSliderData={item}
+            />
+          </ScrollFadeIn>
         );
       case "kor-cares.impact-highlight":
         return (
-          <KorCareImpactHighlight
-            key={`kor-care-impact-highlight-${item?.__component}-${item?.id}`}
-            data={item}
-          />
+          <ScrollFadeIn key={`kor-care-impact-highlight-${item?.__component}-${item?.id}`}>
+            <KorCareImpactHighlight
+              key={`kor-care-impact-highlight-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
         );
       case "news-and-event.news-description-only":
         return (
-          <DescriptionOnly
-            key={`news-description-only-${item?.__component}-${item?.id}`}
-            data={item}
-          />
+          <ScrollFadeIn key={`news-description-only-${item?.__component}-${item?.id}`}>
+            <DescriptionOnly
+              key={`news-description-only-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
         );
       case "news-and-event.news-title-description-only":
         return (
-          <TitleDescription
-            key={`news-title-description-only-${item?.__component}-${item?.id}`}
-            data={item}
-          />
+          <ScrollFadeIn key={`news-title-description-only-${item?.__component}-${item?.id}`}>
+            <TitleDescription
+              key={`news-title-description-only-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
         );
       case "news-and-event.compounds-newsroom":
         return (
-          <CombinedSection
-            key={`compounds-newsroom-${item?.__component}-${item?.id}`}
-            data={item}
-          />
+          <ScrollFadeIn key={`compounds-newsroom-${item?.__component}-${item?.id}`}>
+            <CombinedSection
+              key={`compounds-newsroom-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
         );
       case "news-and-event.news-service":
         return (
-          <ServiceProvider
-            key={`news-service-provider-${item?.__component}-${item?.id}`}
-            data={item}
-          />
+          <ScrollFadeIn key={`news-service-provider-${item?.__component}-${item?.id}`}>
+            <ServiceProvider
+              key={`news-service-provider-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
         );
       case "news-and-event.color-custom-description":
         return (
-          <DescriptionOnly
-            key={`news-dcolor-custom-description-${item?.__component}-${item?.id}`}
-            data={item}
-            isbgColor
-          />
+          <ScrollFadeIn key={`news-dcolor-custom-description-${item?.__component}-${item?.id}`}>
+            <DescriptionOnly
+              key={`news-dcolor-custom-description-${item?.__component}-${item?.id}`}
+              data={item}
+              isbgColor
+            />
+          </ScrollFadeIn>
         );
       case "news-and-event.news-banner":
         return (
-          <VideoBannerSection
-            key={`news-banner-${item?.__component}-${item?.id}`}
-            item={item}
-          />
+          <ScrollFadeIn key={`news-banner-${item?.__component}-${item?.id}`}>
+            <VideoBannerSection
+              key={`news-banner-${item?.__component}-${item?.id}`}
+              item={item}
+            />
+          </ScrollFadeIn>
         );
       case "news-and-event.simple-image-gallery":
         return (
-          <NewsRoomSlider
-            key={`simple-image-gallery-${item?.__component}-${item?.id}`}
-            manuelSliderData={item}
-          />
+          <ScrollFadeIn key={`simple-image-gallery-${item?.__component}-${item?.id}`}>
+            <NewsRoomSlider
+              key={`simple-image-gallery-${item?.__component}-${item?.id}`}
+              manuelSliderData={item}
+            />
+          </ScrollFadeIn>
         );
       case "news-and-event.testimonal-list":
         return (
-          <ClientTestimonial
-            key={`client-testimonial-${item?.__component}-${item?.id}`}
-            data={item?.list}
-          />
+          <ScrollFadeIn key={`client-testimonial-${item?.__component}-${item?.id}`}>
+            <ClientTestimonial
+              key={`client-testimonial-${item?.__component}-${item?.id}`}
+              data={item?.list}
+            />
+          </ScrollFadeIn>
         );
       case "news-and-event.build-data":
         return (
-          <NewsRoomBuild
-            key={`build-data-${item?.__component}-${item?.id}`}
-            buildData={item}
-          />
+          <ScrollFadeIn key={`build-data-${item?.__component}-${item?.id}`}>
+            <NewsRoomBuild
+              key={`build-data-${item?.__component}-${item?.id}`}
+              buildData={item}
+            />
+          </ScrollFadeIn>
         );
       default:
         return;
