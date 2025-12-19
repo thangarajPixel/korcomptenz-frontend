@@ -196,19 +196,34 @@ export function Navbar({ data }: { data: LayoutType }) {
                             className="pr-3 pl-3 py-3  rounded-md "
                           >
                             {item.label === "Services" && (
-                              <ServicesMobile data={data} />
+                              <ServicesMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "Industries" && (
-                              <IndustriesMobile data={data} />
+                              <IndustriesMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "Ecosystems" && (
-                              <EcosystemMobile data={data} />
+                              <EcosystemMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "Insights" && (
-                              <InsightMobile data={data} />
+                              <InsightMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "About Us" && (
-                              <AboutMobile data={data} />
+                              <AboutMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                           </motion.div>
                         )}
@@ -263,7 +278,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                     {data?.company?.socialPlatforms.map((social) => (
                       <Link
                         key={`social-platform-${social.id}`}
-                        href={social?.href || "/"}
+                        href={social?.link || "/"}
                         className="w-5 h-5 rounded-lg flex items-center justify-center"
                       >
                         <KorcomptenzImage

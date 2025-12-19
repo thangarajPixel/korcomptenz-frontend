@@ -12,19 +12,19 @@ import {
   WhatAppIcon,
 } from "../../../../../../public/svg/all-svg";
 
-interface SocialLink {
+type SocialLink = {
   id: string;
   name: string;
   buildUrl: (pageUrl: string) => string;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
-}
+};
 
 const defaultSocialLinks: SocialLink[] = [
   {
     id: "instragram",
     name: "Instragram",
     buildUrl: (pageUrl: string) =>
-      `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
+      `https://www.linkedin.com/uas/login?session_redirect=${encodeURIComponent(
         pageUrl
       )}`,
     icon: InstragramIcon,

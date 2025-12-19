@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Plus, ChevronLeft, X } from "lucide-react";
+import Link from "next/link";
 
 interface DrawerState {
   isOpen: boolean;
@@ -12,9 +13,15 @@ interface IndustryDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   industry: IndustriesMenuType["sections"][number] | null;
+  closeMenu: () => void;
 }
 
-const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
+const IndustryDrawer = ({
+  isOpen,
+  onClose,
+  industry,
+  closeMenu,
+}: IndustryDrawerProps) => {
   if (!isOpen || !industry) return null;
 
   return (
@@ -28,9 +35,11 @@ const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
-            <h2 className="text-lg font-normal text-primary">
-              {industry?.title}
-            </h2>
+            <Link href={industry?.href?.slug || "#"} onClick={closeMenu}>
+              <h2 className="text-lg font-normal text-primary">
+                {industry?.title}
+              </h2>
+            </Link>
           </div>
           <button
             onClick={onClose}
@@ -45,12 +54,20 @@ const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
           <div className="divide-y divide-gray-100">
             {industry?.items?.length > 0 ? (
               industry?.items?.map((item, index) => (
-                <div
-                  key={`industries-mobile-${index}`}
-                  className="py-3 px-4 text-lg text-primary border-b border-primary"
+                <Link
+                  key={`industries-mobile-link-${index}`}
+                  href={item?.href?.slug || "#"}
+                  onClick={() => {
+                    closeMenu();
+                  }}
                 >
-                  {item?.title}
-                </div>
+                  <div
+                    key={`industries-mobile-${index}`}
+                    className="py-3 px-4 text-lg text-primary border-b border-primary"
+                  >
+                    {item?.title}
+                  </div>
+                </Link>
               ))
             ) : (
               <div className="px-4 py-8 text-center text-gray-500 text-lg">
@@ -65,7 +82,13 @@ const IndustryDrawer = ({ isOpen, onClose, industry }: IndustryDrawerProps) => {
 };
 
 // ---------- Main Component ----------
-const IndustriesMobile = ({ data }: { data: LayoutType }) => {
+const IndustriesMobile = ({
+  data,
+  closeMenu,
+}: {
+  data: LayoutType;
+  closeMenu: () => void;
+}) => {
   const [drawer, setDrawer] = useState<DrawerState>({
     isOpen: false,
     industry: null,
@@ -104,6 +127,7 @@ const IndustriesMobile = ({ data }: { data: LayoutType }) => {
         isOpen={drawer.isOpen}
         onClose={closeDrawer}
         industry={drawer.industry}
+        closeMenu={closeMenu}
       />
     </>
   );

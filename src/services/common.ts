@@ -23,3 +23,12 @@ export const getDownloadService = async (attachment: ImageType) => {
     console.error('Download error:', error);
   }
 };
+
+export const createBulkUploadService = async () => {
+  const { data } = await http.post('/bulk-create', {
+    data: [{
+      content: "blog",
+    }]
+  });
+  return data;
+};

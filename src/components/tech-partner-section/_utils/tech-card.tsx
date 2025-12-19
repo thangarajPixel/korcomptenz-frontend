@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const TechCard = ({
   data,
@@ -10,12 +11,13 @@ const TechCard = ({
     id: number;
     title: string;
     description: string;
+    link: string;
     buttonText: string;
   };
   className?: string;
 }) => {
   return (
-    <section className={cn(className, "p-4 flex flex-col justify-center")}>
+    <section className={cn(className, "p-4 flex flex-col ")}>
       <div className="flex flex-col gap-2">
         <h3 className="text-2xl lg:text-6xl font-normal text-background">
           {data?.title}
@@ -23,13 +25,16 @@ const TechCard = ({
         <p className="text-sm lg:text-lg text-background">
           {data?.description}
         </p>
+
         {data?.buttonText && (
-          <Button
-            arrow
-            className="bg-secondary text-white flex justify-start items-center -ms-4"
-          >
-            {data?.buttonText}
-          </Button>
+          <Link href={data?.link || "#"}>
+            <Button
+              arrow
+              className="bg-secondary hover:bg-secondary/80 hover:text-white hover:border-secondary text-white flex justify-start items-center -ms-4"
+            >
+              {data?.buttonText}
+            </Button>
+          </Link>
         )}
       </div>
     </section>

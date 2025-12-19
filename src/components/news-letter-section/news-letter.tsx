@@ -12,7 +12,7 @@ const ContactUsNewsletter = ({
   newsletterData: NewsletterData;
 }) => {
   return (
-    <section data-debug={"contact-us.news-letter"} className="container-md ">
+    <section id={newsletterData.isForm ? "career-form" : "contact-us.news-letter"} data-debug={"contact-us.news-letter"} className="container-md ">
       <div className="">
         {/* Mobile Layout: Content Top (70%), Image Bottom (30%) */}
         <div className="flex flex-col md:flex-row md:gap-0 md:rounded-3xl md:overflow-hidden ">

@@ -19,7 +19,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
   return (
     <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px]">
       {/* Content */}
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row lg:flex-row md:flex-col gap-4">
         <div className="flex flex-col justify-start gap-6 p-8 ">
           {logo && (
             <div>
@@ -36,7 +36,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                 html={description}
                 className={cn(
                   image?.url &&
-                  "text-foreground text-md md:text-lg leading-4xl z-10 w-full [&>ul]:ml-7",
+                    "text-foreground text-md md:text-lg leading-4xl z-10 w-full [&>ul]:ml-7",
                   position !== "main" && "lg:max-w-xs max-w-none"
                 )}
               />
@@ -53,8 +53,6 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
             </div>
           )}
 
-
-
           {position === "main" && image && (
             <div className="flex items-center justify-center ">
               <KorcomptenzImage
@@ -70,7 +68,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               html={secondaryDescription}
               className={cn(
                 image?.url &&
-                "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-full"
+                  "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-full"
               )}
             />
           )}
@@ -116,9 +114,9 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
       </div>
       {position === "corner" && image && (
         <div className="relative lg:hidden ">
-          <div className="flex absolute -right-0 -bottom-0 justify-end items-end  ">
+          <div className="flex   justify-end items-end  ">
             <KorcomptenzImage
-              className="w-full object-cover p-0 h-28"
+              className=" object-cover p-0 w-40"
               width={image?.width}
               height={image?.height}
               src={image}

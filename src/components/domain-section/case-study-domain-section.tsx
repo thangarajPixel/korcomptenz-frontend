@@ -1,5 +1,4 @@
 import React from "react";
-
 import DemonstrateSection from "../demonstrate-section";
 
 const CaseStudyDomainSection = ({
@@ -10,15 +9,21 @@ const CaseStudyDomainSection = ({
   const componentProps: DemonstrationSectionType = {
     ...domainData,
     list: domainData.list.map((item) => ({
-      ...item,
+      id: item.id,
+      link: item.heroSection.buttonText,
+      type: "",
+      buttonLink: {
+        text: item.heroSection.buttonText,
+        link: item?.heroSection?.link,
+      },
       image: item.heroSection.image,
-      buttonText: item.heroSection.buttonText,
-      title: item.heroSection.title,
+      title: item.title || item.heroSection.title,
       description: item.heroSection.description,
-      buttonLink: item.heroSection.buttonText,
-      type: ""
+      buttonText: item.heroSection.buttonText,
     })),
-    buttonlink: domainData.link,
+    link: domainData.link,
+    buttonText: domainData.buttonText,
+    description: "",
   };
   return <DemonstrateSection data={componentProps} />;
 };

@@ -19,12 +19,9 @@ export const contactSchema = z.object({
     .string()
     .min(1, "Email is required")
     .pipe(z.email("Invalid email address")),
-  phone: z
-    .string()
-    .min(10, "Mobile number must be at least 10 digits")
-    .max(15, "Mobile number can't exceed 15 digits")
-    .regex(/^\d+$/, "Mobile number must contain only digits"),
-  message: z.string().min(1, "Message is required"),
+  phone: z.string().optional(),
+
+  message: z.string().optional(),
   organization: z.string().min(1, "Organization is required"),
   caseStudyId: z.string().optional(),
 });
@@ -48,11 +45,6 @@ export const CareerNewLetterSchema = z.object({
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
   email: z.string().min(1, "Email is required").email("Invalid email address"),
 
-  mobile: z
-    .string()
-    .min(1, "Mobile number is required")
-    .regex(/^\d{1,3}$/, "Enter a valid mobile number")
-    .optional(),
   phone: z
     .string()
     .optional()
@@ -102,8 +94,81 @@ export const ContactUsFormSchema = z.object({
   message: z.string().min(1, "Message is required"),
 });
 
-export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
+export const DemoRequestFormSchema = z.object({
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+  email: z.string().min(1, "Email is required").email("Invalid email address"),
 
+  mobile: z
+    .string()
+    .min(1, "Mobile number is required")
+    .regex(/^\d{1,3}$/, "Enter a valid mobile number")
+    .optional(),
+  phone: z
+    .string()
+    .optional()
+    .refine((val) => !val || /^\d{10,15}$/.test(val), {
+      message: "Enter a valid phone number",
+    }),
+  company: z.string().min(1, "company is required"),
+});
+
+export const freeConsultationLeadSchema = z.object({
+  fullName: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+  email: z.string().min(1, "Email is required").email("Invalid email address"),
+
+  location: z.string().min(1, "Location is required"),
+  message: z.string().min(1, "Message is required"),
+  insight: essential,
+  organization: z.string().min(1, "Organization is required"),
+  phone: z
+    .string()
+    .optional()
+    .refine((val) => !val || /^\d{10,15}$/.test(val), {
+      message: "Enter a valid phone number",
+    }),
+});
+
+export const webinarReserveFormSchema = z.object({
+  fullName: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+  email: z.string().min(1, "Email is required").email("Invalid email address"),
+
+  mobile: z
+    .string()
+    .min(1, "Mobile number is required")
+    .regex(/^\d{1,3}$/, "Enter a valid mobile number")
+    .optional(),
+  phone: z
+    .string()
+    .optional()
+    .refine((val) => !val || /^\d{10,15}$/.test(val), {
+      message: "Enter a valid phone number",
+    }),
+  organization: z.string().min(1, "company is required"),
+});
+
+export const newsRoomFormSchema = z.object({
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+  email: z.string().min(1, "Email is required").email("Invalid email address"),
+});
+export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
+export type FreeConsultationLeadSchema = z.infer<
+  typeof freeConsultationLeadSchema
+>;
 export type ContactFormData = z.infer<typeof contactSchema>;
 export type BookADemoFormData = z.infer<typeof bookADemoSchema>;
 export type CareerNewLetterFormData = z.infer<typeof CareerNewLetterSchema>;
+export type DemoRequestFormSchema = z.infer<typeof DemoRequestFormSchema>;
+export type WebinarReserveFormSchema = z.infer<typeof webinarReserveFormSchema>;
+export type NewsRoomFormSchema = z.infer<typeof newsRoomFormSchema>;

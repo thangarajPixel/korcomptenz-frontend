@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -37,6 +37,7 @@
     ".next/types/**/*.ts",
     "lint-staged.config.js",
     "postcss.config.mjs",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "./node_modules"

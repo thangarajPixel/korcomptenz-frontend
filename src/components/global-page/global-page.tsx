@@ -22,7 +22,10 @@ import StretchableSection from "../stretchable-section";
 import WhyKorcomptenz from "../why-korcomptenz/why-korcomptenz";
 import GramBanner from "../gram-banner/gram-banner";
 import { GlobalForm } from "../global-form";
-import { ClientPartnership } from "@/app/(default)/client-success/_utils";
+import {
+  ClientPartnership,
+  ClientTestimonial,
+} from "@/app/(default)/client-success/_utils";
 import ContentShowcaseSection from "../content-showcase-section";
 import MapSection from "../map-section";
 import OurStory from "../our-story";
@@ -49,6 +52,18 @@ import DemoExperts from "@/app/(default)/live-demo/_utils/demo-experts";
 import DemoOpportunities from "@/app/(default)/live-demo/_utils/demo-opportunities";
 import DemoWhyAttend from "@/app/(default)/live-demo/_utils/demo-why-attend";
 import { ScrollFadeIn } from "../ui/scroll-fade-in";
+import BuildDemo from "../build-connect/build-Demo";
+import PricingSection from "../pricing-section";
+import KorCareBuildData from "../kor-care-build-data";
+import KorCareImpactDescription from "../kor-care-impact-description";
+import KorCareAward from "../kor-care-award-section/kor-care-award";
+import KorCareSlider from "../kor-care-slider-section";
+import KorCareImpactHighlight from "../kor-care-impact-highlight";
+import NewsEventListSection from "../news-event-list-section";
+import { DescriptionOnly, TitleDescription } from "../description-section";
+import { CombinedSection, NewsRoomSlider, ServiceProvider } from "../news-room";
+import VideoBannerSection from "../video-banner-section";
+import NewsRoomBuild from "../news-room/_utils/news-room-build";
 
 type Props = {
   data: ComponentPropsType[];
@@ -57,7 +72,7 @@ type Props = {
 const GlobalPage = (props: Props) => {
   const { data } = props;
 
-  return data?.map((item) => {
+  return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
         return (
@@ -105,7 +120,10 @@ const GlobalPage = (props: Props) => {
         );
       case "demo-page.demo-banner-list":
         return (
-          <DemoBannerSection key={`banner-${item?.__component}-${item?.id}`} BannerSectionData={item?.list} />
+          <DemoBannerSection
+            key={`banner-${item?.__component}-${item?.id}`}
+            item={item}
+          />
         );
       case "page-componets.sap-section-data":
         return (
@@ -188,7 +206,8 @@ const GlobalPage = (props: Props) => {
       case "home.schedule-call":
         return (
           <ScrollFadeIn key={`schedule-call-${item?.__component}-${item?.id}`}>
-            <ScheduleCall scheduleCall={item} />
+            <ScheduleCall scheduleCall={item}
+              isLastIndex={index === data?.length - 1} />
           </ScrollFadeIn>
         );
       case "page-componets.why-we-are":
@@ -269,6 +288,13 @@ const GlobalPage = (props: Props) => {
             <LiveDemoList data={item} />
           </ScrollFadeIn>
         );
+      case "news-and-event.news-event-list":
+        return (
+          <NewsEventListSection
+            key={`live-demo-list-${item?.__component}-${item?.id}`}
+            data={item?.list}
+          />
+        );
       case "not-found.not-found":
         return (
           <ScrollFadeIn key={`not-found-${item?.__component}-${item?.id}`}>
@@ -348,6 +374,119 @@ const GlobalPage = (props: Props) => {
           <ScrollFadeIn key={`demo-demonstration-${item?.__component}-${item?.id}`}>
             <DemoWhyAttend whyAttendData={item} />
           </ScrollFadeIn>
+        );
+      case "demo-page.build-demo":
+        return (
+          <BuildDemo
+            key={`build-demo-${item?.__component}-${item?.id}`}
+            buildData={item}
+          />
+        );
+      case "page-componets.pricing-section":
+        return (
+          <PricingSection
+            key={`pricing-section-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "kor-cares.kor-care-build-data":
+        return (
+          <KorCareBuildData
+            key={`kor-care-build-data-${item?.__component}-${item?.id}`}
+            buildData={item}
+          />
+        );
+      case "kor-cares.impact-description":
+        return (
+          <KorCareImpactDescription
+            key={`impact-description-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "kor-cares.award":
+        return (
+          <KorCareAward
+            key={`kor-care-award-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "kor-cares.straight-slider":
+        return (
+          <KorCareSlider
+            key={`kor-care-slider-${item?.__component}-${item?.id}`}
+            manuelSliderData={item}
+          />
+        );
+      case "kor-cares.impact-highlight":
+        return (
+          <KorCareImpactHighlight
+            key={`kor-care-impact-highlight-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "news-and-event.news-description-only":
+        return (
+          <DescriptionOnly
+            key={`news-description-only-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "news-and-event.news-title-description-only":
+        return (
+          <TitleDescription
+            key={`news-title-description-only-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "news-and-event.compounds-newsroom":
+        return (
+          <CombinedSection
+            key={`compounds-newsroom-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "news-and-event.news-service":
+        return (
+          <ServiceProvider
+            key={`news-service-provider-${item?.__component}-${item?.id}`}
+            data={item}
+          />
+        );
+      case "news-and-event.color-custom-description":
+        return (
+          <DescriptionOnly
+            key={`news-dcolor-custom-description-${item?.__component}-${item?.id}`}
+            data={item}
+            isbgColor
+          />
+        );
+      case "news-and-event.news-banner":
+        return (
+          <VideoBannerSection
+            key={`news-banner-${item?.__component}-${item?.id}`}
+            item={item}
+          />
+        );
+      case "news-and-event.simple-image-gallery":
+        return (
+          <NewsRoomSlider
+            key={`simple-image-gallery-${item?.__component}-${item?.id}`}
+            manuelSliderData={item}
+          />
+        );
+      case "news-and-event.testimonal-list":
+        return (
+          <ClientTestimonial
+            key={`client-testimonial-${item?.__component}-${item?.id}`}
+            data={item?.list}
+          />
+        );
+      case "news-and-event.build-data":
+        return (
+          <NewsRoomBuild
+            key={`build-data-${item?.__component}-${item?.id}`}
+            buildData={item}
+          />
         );
       default:
         return;

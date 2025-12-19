@@ -36,7 +36,7 @@ function PaginationContent({
 }
 
 function PaginationItem({ ...props }: React.ComponentProps<"li">) {
-  return <li data-slot="pagination-item" {...props} />;
+  return <li data-slot="pagination-item"  {...props} className={cn("rounded-md border", props.className)} />;
 }
 
 type PaginationLinkProps = {
@@ -60,6 +60,7 @@ function PaginationLink({
           variant: isActive ? "ishighlight" : "highlight",
           size,
         }),
+        "text-sm font-semibold",
         className
       )}
       {...props}

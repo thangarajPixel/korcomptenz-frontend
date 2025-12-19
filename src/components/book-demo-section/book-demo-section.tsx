@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Button } from "../ui/button";
-
 import { Input } from "../ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -19,10 +18,11 @@ const defaultValues = {
 };
 const BookDemoSection = ({
   essential,
+  item,
 }: {
   essential: BookDemoFormType;
+  item?: GlobalFormItemType;
 }) => {
-
   const { mutateAsync } = useBookADemoHook();
   const {
     control,
@@ -35,10 +35,23 @@ const BookDemoSection = ({
     resolver: zodResolver(bookADemoSchema),
     defaultValues,
   });
+  const demoFrom = {
+    connect: [
+      {
+        id: item?.id,
+        documentId: item?.documentId,
+        isTemporary: true,
+      },
+    ],
+  };
   const handleFormSubmit: SubmitHandler<BookADemoFormData> = React.useCallback(
     async (data) => {
+      const formdata = {
+        ...data,
+        demoFrom,
+      };
       try {
-        const response = await mutateAsync(data);
+        const response = await mutateAsync(formdata);
         notify(response);
         reset(defaultValues);
       } catch (error) {
@@ -50,11 +63,11 @@ const BookDemoSection = ({
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)}>
-      <div className="grid rounded-4xl shadow-xl p-10 gap-y-8 w-3/4">
+      <div className="grid rounded-4xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-10 gap-y-8 w-3/4">
         <h3 className="text-5xl font-semibold text-center text-foreground">
           {essential?.title || "Book a Demo"}
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-x-2 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 ">
           <Input
             control={control}
             name="name"
@@ -75,7 +88,7 @@ const BookDemoSection = ({
           <Input
             control={control}
             name="email"
-            label={essential?.emailLabel || "Email ID"}
+            label={essential?.emailLabel || "Email"}
             required
             className="border-2 p-2 rounded-md text-foreground"
           />
@@ -85,7 +98,7 @@ const BookDemoSection = ({
           <Button
             size={"lg"}
             variant={"secondary"}
-            className="rounded-sm"
+            className="rounded-2xl border-2 border-secondary hover:border-bg-secondary hover:bg-white hover:text-secondary"
             arrow
             isLoading={isSubmitting}
             type="submit"

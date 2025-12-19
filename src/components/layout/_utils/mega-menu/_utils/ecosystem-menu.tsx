@@ -2,9 +2,16 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 import React, { useState } from "react";
 
-const EcosystemMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
+const EcosystemMenu = ({
+  data,
+  onClick,
+}: {
+  data: LayoutType;
+  onClick: () => void;
+}) => {
   const [activeSideBar, setActiveSideBar] = useState(data?.ecosystemMenu[0]);
   return (
     <div className="grid grid-cols-24 ">
@@ -16,10 +23,11 @@ const EcosystemMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
               <div
                 key={`ecosystem-menu-${item?.id}`}
                 onClick={() => setActiveSideBar(item)}
-                className={`w-full group ${activeSideBar?.id === item?.id
+                className={`w-full group ${
+                  activeSideBar?.id === item?.id
                     ? "border-b-2 border-primary"
                     : "border-b-2 border-transparent hover:border-primary"
-                  }`}
+                }`}
               >
                 <h4 className="relative font-medium text-3xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
                   <span>{item?.menu}</span>
@@ -46,27 +54,38 @@ const EcosystemMenu = ({ data }: { data: LayoutType; onClick: () => void }) => {
               {activeSideBar?.item?.description}
             </p>
             <div className="mt-4">
-              <Button size="lg" arrow={true}>
-                {activeSideBar.item?.buttontext}
-              </Button>
+              <Link href={activeSideBar.item?.link || "#"} onClick={onClick}>
+                <Button size="lg" arrow={true}>
+                  {activeSideBar.item?.buttontext}
+                </Button>
+              </Link>
             </div>
-            <div className="mt-6 space-y-2 ">
+            <div className="mt-6 space-y-2 cursor-pointer ">
               {activeSideBar?.item?.child?.map((childItem, childIndex) => (
                 <div key={`ecosystem-menu-${childIndex}`}>
-                  <span
-                    className={` ${childItem.type === "Dark" ? "text-black" : " text-primary"
+                  <Link href={childItem?.href?.slug || "#"} onClick={onClick}>
+                    <span
+                      className={` ${
+                        childItem.type === "Dark"
+                          ? "text-black "
+                          : " text-primary "
                       }`}
-                  >
-                    {childItem?.title}
-                  </span>
+                    >
+                      {childItem?.title}
+                    </span>
+                  </Link>
                   <div className="my-2 flex flex-wrap">
                     {childItem?.description?.map((item, index) => (
-                      <p
+                      <Link
                         key={`ecosystem-menu-${childIndex}-${index}`}
-                        className="text-custom-gray-4 text-sm w-1/2 leading-5.5 mb-2"
+                        href={item?.href?.slug || "#"}
+                        onClick={onClick}
+                        className="w-1/2"
                       >
-                        {item?.description}
-                      </p>
+                        <p className="text-custom-gray-4 text-sm leading-5.5 mb-2 hover:text-primary transition-colors">
+                          {item?.description}
+                        </p>
+                      </Link>
                     ))}
                   </div>
                 </div>

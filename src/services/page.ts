@@ -5,6 +5,10 @@ import type {
   CareerNewLetterFormData,
   ContactFormData,
   ContactUsFormSchema,
+  DemoRequestFormSchema,
+  FreeConsultationLeadSchema,
+  NewsRoomFormSchema,
+  WebinarReserveFormSchema,
 } from "@/utils/validation.schema";
 
 const HOME = "/home";
@@ -24,6 +28,20 @@ export const CONTACT_US = "/contact-us";
 export const CASE_STUDY_ESSENTIAL_LIST = "/case-study-essential";
 export const CONTACT_US_LEAD = "/contact-us-leads";
 export const DEMO_PAGE = "/demo-list";
+export const RESERVE_MY_SPOT = "/reserve-leads";
+const INSIGHT_LIST_PAGE = "/insight-list-page";
+export const FILTER_INSIGHT = "/insight-filter";
+export const INSIGHT = "/insights";
+export const INSIGHT_PAGE = "/insight-page";
+export const FREE_CONSULTATION_LEAD = "/free-consultation-leads";
+export const INSIGHT_SEARCH = "/insight-search";
+const PRIVACY_POLICY = "/privacy-policy";
+const NEWSLETTER = "/news-letter-list";
+export const WEBINAR_RESERVE_MY_SPOT = "/webinar-reserve-spots";
+export const EVENT_PAGE = "/event-list";
+export const NEWSROOM = "/news-list";
+export const NEWSROOM_PAGE = "/new-rooms";
+export const NEWSROOM_LEAD = "/news-room-leads";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -60,6 +78,10 @@ export const getCaseStudyService = async ({
 
 export const getFilterCaseStudies = async (): Promise<FilterDataType> => {
   const { data } = await http.get(FILTER_CASE_STUDY);
+  return data;
+};
+export const getInsights = async (): Promise<InsightsFilterDataType> => {
+  const { data } = await http.get(FILTER_INSIGHT);
   return data;
 };
 
@@ -144,5 +166,108 @@ export const createContactUsLead = async (formData: ContactUsFormSchema) => {
 export const getDemoPage = async (): Promise<PagesListType> => {
   const { data } = await http.get(DEMO_PAGE);
 
+  return data;
+};
+export const getEventListPage = async (): Promise<
+  PagesListType & { listData: EventListType[] }
+> => {
+  const { data } = await http.get(EVENT_PAGE);
+
+  return data;
+};
+export const getNewsletterPage = async (): Promise<
+  PagesListType & { listData: EventListType[] }
+> => {
+  const { data } = await http.get(NEWSLETTER);
+
+  return data;
+};
+export const getNewsroomPage = async (): Promise<
+  PagesListType & { listData: NewsroomListType[] }
+> => {
+  const { data } = await http.get(NEWSROOM);
+
+  return data;
+};
+export const createReserveMySpotLead = async (
+  formData: DemoRequestFormSchema
+) => {
+  const { data } = await http.post(RESERVE_MY_SPOT, { data: formData });
+  return data;
+};
+
+export const getInsightsPage = async (): Promise<CaseStudiesPageType> => {
+  const { data } = await http.get(INSIGHT_LIST_PAGE);
+  return data;
+};
+
+export const getInsightsList = async ({
+  params,
+}: {
+  params: { pagination: PaginationType; slug?: string; sort?: string[] };
+}): Promise<CaseStudiesType> => {
+  const data = await http.get(INSIGHT, {
+    params,
+  });
+  return data as never;
+};
+
+export const getBlogPage = async ({
+  id,
+}: {
+  id: string;
+}): Promise<InsightResponse> => {
+  const { data } = await http.get(`${INSIGHT}/${id}`);
+  return data;
+};
+
+export const getInsightPage = async (): Promise<InsightPageType> => {
+  const { data } = await http.get(INSIGHT_PAGE);
+  return data;
+};
+
+export const createFreeConsultationLead = async (
+  formData: FreeConsultationLeadSchema
+) => {
+  const { data } = await http.post(FREE_CONSULTATION_LEAD, { data: formData });
+  return data;
+};
+
+export const getInsightSearchPage = async ({
+  search = "",
+}: {
+  search?: string;
+}): Promise<FilterListType[]> => {
+  const { data } = await http.get(INSIGHT_SEARCH, { params: { search } });
+  return data;
+};
+
+export const getPrivacyPolicy = async (): Promise<{
+  seo: SEO;
+  title: string;
+  description: CaseStudyDescription[];
+}> => {
+  const { data } = await http.get(PRIVACY_POLICY);
+  return data;
+};
+
+export const getNewsRoomPage = async ({
+  id,
+}: {
+  id: string;
+}): Promise<PagesListType> => {
+  const { data } = await http.get(`${NEWSROOM_PAGE}/${id}`);
+  return data;
+};
+
+export const createWebinarReserveMySpotLead = async (
+  formData: WebinarReserveFormSchema
+) => {
+  const { data } = await http.post(WEBINAR_RESERVE_MY_SPOT, { data: formData });
+  return data;
+};
+
+export const NewRoomDownload = async (formData: NewsRoomFormSchema) => {
+  const { data } = await http.post(NEWSROOM_LEAD, { data: formData });
   return data;
 };

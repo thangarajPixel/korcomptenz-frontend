@@ -1,98 +1,104 @@
 "use client";
 import React from "react";
-import { Button } from "../ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import useEmblaCarousel from "embla-carousel-react";
 import SliderCard from "./_utils/slider-card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "../ui/carousel";
+import { cn } from "@/lib/utils";
 
 const DarkSlider = ({
   manuelSliderData,
 }: {
   manuelSliderData: DarkSliderType;
 }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: false,
-    align: "start",
-  });
-
-  const [prevBtnEnabled, setPrevBtnEnabled] = React.useState(false);
-  const [nextBtnEnabled, setNextBtnEnabled] = React.useState(true);
-
-  const scrollPrev = React.useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = React.useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const onSelect = React.useCallback(() => {
-    if (!emblaApi) return;
-    setPrevBtnEnabled(emblaApi.canScrollPrev());
-    setNextBtnEnabled(emblaApi.canScrollNext());
-  }, [emblaApi]);
-
-  React.useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-  }, [emblaApi, onSelect]);
+  const isSwap = manuelSliderData?.isSwap;
 
   return (
-    <section
+    <Carousel
       className="container-md overflow-hidden"
       data-debug={"page-componets.dark-slider-list"}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-24 gap-4">
+      <div
+        className={
+          !isSwap
+            ? "grid grid-cols-1 lg:grid-cols-24 gap-4"
+            : "flex flex-col gap-4"
+        }
+      >
         <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
-          <h5 className="text-6xl md:text-9xl font-bold leading-tight text-black px-5 lg:px-0 mb-5 lg:mb-0">
+          <h5
+            className={cn(
+              "text-6xl md:text-7xl font-bold leading-tight text-black px-5 lg:px-0 mb-5 lg:mb-0",
+              isSwap && "text-center"
+            )}
+          >
             {manuelSliderData?.heading}
           </h5>
           {manuelSliderData?.descripition && (
-            <p>{manuelSliderData?.descripition}</p>
+            <p className="text-left">{manuelSliderData?.descripition}</p>
           )}
 
-          <div className=" lg:flex ms-5 lg:ms-0  items-center gap-4">
-            <Button
-              size="icon"
-              className={`rounded-full size-12 hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              onClick={scrollPrev}
-              disabled={!prevBtnEnabled}
-            >
-              <ChevronLeft className="size-6" />
-            </Button>
-            <Button
-              size="icon"
-              className={`rounded-full size-12 hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              onClick={scrollNext}
-              disabled={!nextBtnEnabled}
-            >
-              <ChevronRight className="size-6" />
-            </Button>
-          </div>
-        </div>
-
-        <section className="col-span-24 lg:col-span-16">
-          <div ref={emblaRef} className="overflow-hidden">
-            <div className="flex flex-row gap-6">
-              {manuelSliderData?.slides?.map((slide, index) => (
-                <div
-                  key={slide?.id}
-                  className={`min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${index === manuelSliderData?.slides?.length - 1
-                      ? "mr-[100px]"
-                      : ""
-                    }`}
-                >
-                  <SliderCard slide={slide} />
-                </div>
-              ))}
+          {!isSwap && (
+            <div className="hidden lg:flex ms-5 lg:ms-0  items-center gap-4">
+              <CarouselPrevious
+                className="relative left-0 hover:bg-primary hover:text-white size-12"
+                variant={"default"}
+              />
+              <CarouselNext
+                className="relative left-0 hover:bg-primary hover:text-white size-12"
+                variant={"default"}
+              />
             </div>
-          </div>
-        </section>
+          )}
+        </div>
+        <div className={cn(!isSwap ? "col-span-24 lg:col-span-16" : "px-10")}>
+          <CarouselContent>
+            {manuelSliderData?.slides?.map((slide, index) => (
+              <CarouselItem
+                key={index}
+                className={cn(
+                  !isSwap
+                    ? `min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${
+                        index === manuelSliderData?.slides?.length - 1
+                          ? "mr-[100px]"
+                          : ""
+                      }`
+                    : "md:basis-1/2 lg:basis-1/4"
+                )}
+              >
+                <SliderCard slide={slide} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          {isSwap && (
+            <div className="hidden lg:flex">
+              <CarouselPrevious
+                className="left-0 top-1/2 size-12 hover:bg-primary hover:text-white "
+                variant={"default"}
+              />
+              <CarouselNext
+                className="right-0 top-1/2 hover:bg-primary hover:text-white size-12"
+                variant={"default"}
+              />
+            </div>
+          )}
+        </div>
       </div>
-    </section>
+      <div className="flex lg:hidden w-full justify-center items-center gap-4 mt-8">
+        <CarouselPrevious
+          className="relative left-0 hover:bg-primary hover:text-white size-12"
+          variant={"default"}
+        />
+        <CarouselNext
+          className="relative left-0 hover:bg-primary hover:text-white size-12"
+          variant={"default"}
+        />
+      </div>
+    </Carousel>
   );
 };
 

@@ -3,6 +3,7 @@ import KorcomptenzImage from "../korcomptenz-image";
 import CardSwiper from "../ui/card-swiper";
 import TechCard from "./_utils/tech-card";
 import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 const chunkArray = <T,>(arr: T[], size: number): T[][] => {
   const chunks: T[][] = [];
@@ -45,7 +46,7 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
                     <TechCard
                       key={`tech-card-${slide?.id}`}
                       data={slide}
-                      className="flex-1"
+                      className={cn("flex-1", pair.length === 1 && "justify-center")}
                     />
                   ))}
                 </div>

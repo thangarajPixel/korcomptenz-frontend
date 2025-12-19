@@ -11,7 +11,7 @@ const PanchatattvaSection = ({
   const [isVideoOpen, setIsVideoOpen] = React.useState(false);
   return (
     <React.Fragment>
-      <div className="container-md  flex flex-col gap-16 ">
+      <div className="container-md  flex flex-col gap-12 ">
         <div className="text-center space-y-5 ">
           <h5 className="text-8xl font-semibold">{buildData?.title}</h5>
           <p className="text-lg px-2">{buildData?.titleDescription}</p>
@@ -48,13 +48,14 @@ const PanchatattvaSection = ({
             <p className="text-lg">{buildData?.description}</p>
           </div>
         </div>
+        <KorcomptenzImage
+          src={buildData?.mainImage}
+          width={1000}
+          height={1000}
+          className="size-full"
+        />
       </div>
-      <KorcomptenzImage
-        src={buildData?.mainImage}
-        width={1000}
-        height={1000}
-        className="size-full"
-      />
+
       {isVideoOpen && (
         <VideoPopup
           isOpen={isVideoOpen}

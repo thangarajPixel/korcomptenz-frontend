@@ -57,3 +57,4 @@ dev-dist
 .open-next
 pnpm-lock.yaml
 package-lock.json
+yarn.lock

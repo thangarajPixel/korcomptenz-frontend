@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils"; // optional helper
 
-
 export const CaseStudyCardSkeleton = () => {
   return (
     <motion.article
@@ -13,8 +12,12 @@ export const CaseStudyCardSkeleton = () => {
       {/* Image Section */}
       <motion.div className="relative rounded-4xl overflow-hidden">
         <div className="absolute left-3 top-3 flex flex-wrap gap-2 z-10">
-          <div className={cn("h-6 w-24 rounded-full animate-pulse bg-gray-300")} />
-          <div className={cn("h-6 w-32 rounded-full animate-pulse bg-gray-300")} />
+          <div
+            className={cn("h-6 w-24 rounded-full animate-pulse bg-gray-300")}
+          />
+          <div
+            className={cn("h-6 w-32 rounded-full animate-pulse bg-gray-300")}
+          />
         </div>
 
         <div

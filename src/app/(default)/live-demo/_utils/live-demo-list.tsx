@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { useState, useEffect, useRef } from "react";
 import dayjs from "dayjs";
+import Link from "next/link";
 
 export default function LiveDemoList({ data }: { data: DemoListType }) {
   const [activeSection, setActiveSection] = useState(
@@ -54,7 +55,7 @@ export default function LiveDemoList({ data }: { data: DemoListType }) {
               key={`section-button-${section.id}`}
               onClick={() => handleSectionClick(section.id)}
               className={cn(
-                `w-full text-left font-semibold px-4 py-2 text-xl transition-all text-foreground duration-200  hover:text-primary `,
+                `w-full text-left cursor-pointer font-semibold px-4 py-2 text-xl transition-all text-foreground duration-200  hover:text-primary `,
                 activeSection === `${section.id}` && "text-primary"
               )}
             >
@@ -91,12 +92,12 @@ export default function LiveDemoList({ data }: { data: DemoListType }) {
                   <p className="text-gray-600 text-sm mb-2 leading-relaxed">
                     {item?.description}
                   </p>
-                  <a
-                    href="#"
+                  <Link
+                    href={item?.buttonLink || "#"}
                     className="text-primary font-semibold text-sm hover:text-primary transition-colors"
                   >
                     {item?.buttonText}
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>

@@ -84,7 +84,7 @@ const ServicesMenu = ({
                             >
                               <div
                                 key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
-                                className={`text-sm leading-5 cursor-pointer ${
+                                className={`text-sm leading-6 cursor-pointer ${
                                   sub?.type === "dark"
                                     ? "font-normal text-black"
                                     : "text-gray-500 pl-2"
@@ -127,24 +127,42 @@ const ServicesMenu = ({
                       </Link>
                       {item?.child && item?.child?.length > 0 && (
                         <div className="space-y-2 max-h-0 overflow-hidden transition-all duration-2000 ease-in-out group-hover:max-h-[300px]">
-                          {item?.child?.map((sub) => (
-                            <Link
-                              key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
-                              href={sub?.href?.slug || "#"}
-                              onClick={onClick}
-                            >
-                              <div
-                                key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}-sub-${sub?.id}`}
-                                className={`text-sm leading-5 ${
-                                  sub?.type === "dark"
-                                    ? "font-normal text-black"
-                                    : "text-gray-500 pl-2"
-                                }`}
+                          {item?.child?.map((sub) =>
+                            sub?.attachment ? (
+                              <a
+                                key={`service-section-${activeServiceSection?.id}-att-${item?.id}-sub-${sub?.id}`}
+                                href={sub?.attachment?.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
                               >
-                                {sub?.title}
-                              </div>
-                            </Link>
-                          ))}
+                                <div
+                                  className={`text-sm leading-6 ${
+                                    sub?.type === "dark"
+                                      ? "font-normal text-black"
+                                      : "text-gray-500 pl-2"
+                                  }`}
+                                >
+                                  {sub?.title}
+                                </div>
+                              </a>
+                            ) : (
+                              <Link
+                                key={`service-section-${activeServiceSection?.id}-link-${item?.id}-sub-${sub?.id}`}
+                                href={sub?.href?.slug || "#"}
+                                onClick={onClick}
+                              >
+                                <div
+                                  className={`text-sm leading-6 ${
+                                    sub?.type === "dark"
+                                      ? "font-normal text-black"
+                                      : "text-gray-500 pl-2"
+                                  }`}
+                                >
+                                  {sub?.title}
+                                </div>
+                              </Link>
+                            )
+                          )}
                         </div>
                       )}
                     </div>

@@ -1,34 +1,32 @@
 "use client";
 
-import React from 'react'
-import { Button } from '../ui/button';
-import { useRouter } from 'next/navigation';
-import { Home } from 'lucide-react';
+import { Home } from "lucide-react";
+import KorcomptenzImage from "../korcomptenz-image";
+import ButtonLink from "../ui/button-link";
 
-const NotFound = ({ data }: {
-  data: NotFoundType;
-}) => {
-  const router = useRouter();
+const NotFound = ({ data }: { data: NotFoundType }) => {
   return (
-    <div className="flex flex-col h-screen items-center justify-center text-center">
-      <span className="bg-gradient-to-b to-transparent bg-clip-text text-9xl font-extrabold leading-none text-primary-500">
-        404
-      </span>
-      <h2 className="my-2 text-2xl font-bold">
-        {data.title || 'Page Not Found'}
-      </h2>
-      <p>{data.description || 'The page you are looking for does not exist.'}</p>
+    <div className="flex flex-col  items-center  text-center">
+      <KorcomptenzImage src={data.image} width={500} height={500} />
+      <p className="text-foreground text-9xl max-w-5xl mx-auto font-bold">
+        {data.description ||
+          "Sorry, but we are not able to find the page you are looking for."}
+      </p>
       <div className="mt-8 flex justify-center gap-2">
-        <Button
-          onClick={() => router.push('/')}
-          size={'lg'}
+        <ButtonLink
+          link="/"
+          buttonProps={{
+            arrow: true,
+
+            size: "xl",
+          }}
         >
           <Home className="size-4" />
-          {data.buttonText || 'Go to Home'}
-        </Button>
+          {data.buttonText || "Go to Home"}
+        </ButtonLink>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFound;

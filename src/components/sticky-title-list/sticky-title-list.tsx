@@ -23,7 +23,7 @@ const StickyTitleList = ({
               <p className="text-2xl">{salesforceServices?.description}</p>
             </div>
           </div>
-          <div className="space-y-6 w-full lg:w-1/2">
+          <div className="grid gap-6 lg:grid-cols-1 md:grid-cols-2 grid-cols-1 lg:w-1/2">
             {salesforceServices?.list?.map((service) => (
               <StickyTitleCard
                 key={`sticky-title-card-${service?.id}`}

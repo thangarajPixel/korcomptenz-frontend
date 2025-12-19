@@ -44,16 +44,8 @@ const CareerForm = () => {
   const handleFormSubmit: SubmitHandler<CareerNewLetterFormData> =
     React.useCallback(
       async (formdata) => {
-        const careerdata = {
-          name: formdata.name,
-          email: formdata.email,
-          department: formdata.department,
-          resume: formdata.resume,
-          phone: `${formdata.mobile}-${formdata.phone}`,
-        };
-
         try {
-          const response = await mutateAsync(careerdata);
+          const response = await mutateAsync(formdata);
           notify(response);
           reset({ ...defaultValues });
           setFileName("");
@@ -66,7 +58,7 @@ const CareerForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
-      <div className="grid gap-y-8">
+      <div className="grid gap-y-5">
         {/* Name + Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Input
@@ -85,18 +77,7 @@ const CareerForm = () => {
 
         {/* Mobile + Phone + Department */}
         <div className="grid gap-4 sm:grid-cols-2 lg:flex">
-          {/* Mobile */}
-          <div className="w-full lg:w-[15%]">
-            <Input
-              control={control}
-              name="mobile"
-              placeholder="Mobile"
-              className="border-2 p-2 rounded-md text-foreground bg-white w-full placeholder:text-black"
-            />
-          </div>
-
-          {/* Phone Number */}
-          <div className="w-full lg:w-[35%]">
+          <div className="w-full lg:w-[50%]">
             <Input
               control={control}
               name="phone"
@@ -106,7 +87,7 @@ const CareerForm = () => {
           </div>
 
           {/* Department */}
-          <div className="w-full sm:col-span-2 ">
+          <div className="size-full sm:col-span-2 ">
             <ComboboxField
               control={control}
               name="department"
@@ -140,14 +121,14 @@ const CareerForm = () => {
             <span className="text-black text-sm truncate">
               {fileName || "Resume (below 10MB, PDF file) *"}
             </span>
-            <Upload className="text-gray-600 w-5 h-5" />
+            <Upload className="text-gray-600 size-5" />
           </div>
         </div>
 
         {/* Submit button */}
-        <div className="pt-4">
+        <div className="mt-3">
           <Button
-            size="lg"
+            size="xl"
             variant="outline"
             className="hover:bg-primary border-primary text-primary hover:text-white"
             arrow

@@ -40,6 +40,18 @@ const InspireSection = ({
           center: cards?.slice(2, 4),
           right: cards?.slice(4),
         };
+      case 7:
+        return {
+          left: cards?.slice(0, 2),
+          center: cards?.slice(2, 4),
+          right: cards?.slice(4),
+        };
+      case 8:
+        return {
+          left: cards?.slice(0, 3),
+          center: cards?.slice(3, 5),
+          right: cards?.slice(5),
+        };
       default:
         const mid = Math.floor((len || 0) / 2);
         return {

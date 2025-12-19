@@ -8,7 +8,11 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
   const [activeYear, setActiveYear] = useState(2025);
   // const activeData = TIMELINE_DATA.find((d) => d.year === activeYear) || TIMELINE_DATA[TIMELINE_DATA.length - 1]
   return (
-    <div className="w-full px-2 md:px-0">
+    <section
+      data-debug="about-us.our-story-list"
+      id="our-story"
+      className="w-full px-2 md:px-0"
+    >
       {/* Hero Section */}
       <div className="relative aspect-[627/500] md:aspect-[1443/696]">
         {/* Background Image with Overlay */}
@@ -36,7 +40,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
                 </h2>
               </div>{" "}
               {/* Content Area */}
-              <div className="flex-1 flex flex-col  gap-2 lg:gap-6 md:gap-8 h-full lg:justify-end ">
+              <div className="flex-1 flex flex-col overflow-hidden  gap-2 lg:gap-6 md:gap-8 h-full lg:justify-end ">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`active-content-${activeYear}`}
@@ -108,7 +112,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

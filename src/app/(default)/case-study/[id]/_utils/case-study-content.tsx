@@ -28,11 +28,11 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
 
   return (
     <main className="container-md">
-      <div className="mx-auto max-w-7xl h-full px-6 py-8 md:py-10">
+      <div className="mx-auto max-w-7xl h-full md:px-6 py-8 md:py-10">
         {/* Layout: stack on mobile, 50/50 split on md+ */}
         <div className="flex h-full flex-col md:flex-row gap-8">
           {/* LEFT: One section only (title + description text) */}
-          <div className="flex-1">
+          <div className="flex-1 md:order-1 order-2">
             <article>
               {data?.descriptionSection?.map((item, index) => (
                 <section
@@ -57,7 +57,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
           </div>
 
           {/* RIGHT: Static image exactly like provided */}
-          <div>
+          <div className="md:order-2 order-1">
             <div className="bg-[#5A36E9] text-white rounded-[25px] p-8 w-full max-w-sm">
               {!!data?.rightSection?.length &&
                 (() => {
@@ -76,8 +76,9 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                   return rows.map((row, rowIndex) => (
                     <div key={`row-${rowIndex}`} className="mb-6 last:mb-0">
                       <div
-                        className={`grid ${row.length === 1 ? "grid-cols-1" : "grid-cols-2"
-                          } gap-6`}
+                        className={`grid ${
+                          row.length === 1 ? "grid-cols-1" : "grid-cols-2"
+                        } gap-6`}
                       >
                         {row.map((section) => (
                           <div
@@ -100,7 +101,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                                   : section?.preTitle?.title}
                               </h3>
                             </div>
-                            <p className="text-lg text-white/80">
+                            <p className="text-lg text-white">
                               {section.isCustomDescripition
                                 ? section?.descripition
                                 : handleDescription(section.descripitionKey)}

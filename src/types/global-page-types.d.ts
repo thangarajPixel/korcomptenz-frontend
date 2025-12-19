@@ -9,6 +9,8 @@ type SlidingSectionType = {
   buttonAction: string;
   mobile_image: ImageType;
   description?: string;
+  logo?: ImageType;
+  link: string;
 };
 
 type ServicesSectionType = {
@@ -59,12 +61,14 @@ type CaseStudyStickyCardsType = {
   list: {
     id: string;
     heroSection: {
+      link: string;
       id: string;
       title: string;
       description: string;
       image: ImageType;
       buttonText: string;
     };
+    title: string;
     slug: string;
     study: string;
   }[];
@@ -86,6 +90,7 @@ type BusinessOutcomeFilterType = {
 
 type FilterListType = {
   label: string;
+  categoryAllLabel?: string;
   id: string;
   image: ImageType;
   childTitle: string;
@@ -98,6 +103,19 @@ type FilterDataType = {
   businessOutcomes: FilterListType[];
   industries: FilterListType[];
   region: FilterListType[];
+  service: FilterListType[];
+  technology: FilterListType[];
+};
+
+type InsightsFilterDataType = {
+  category: FilterListType[];
+  filterData: {
+    service: FilterListType[];
+    technology: FilterListType[];
+  };
+};
+
+type InsightfilterListType = {
   service: FilterListType[];
   technology: FilterListType[];
 };
@@ -147,11 +165,21 @@ type BannerSectionType = {
   buttonText: string;
   bannerCaption: string;
   link: string | null;
+  secondButton: string;
+  secondLink: string;
 };
 
 type SapSectionType = {
   heading: string;
   description: string;
+  image3: ImageType;
+  isItemOnly: boolean;
+  itemDescription: string;
+  item: {
+    id: string;
+    content: string;
+    value: string;
+  }[];
   imageSection: {
     image1: { image: ImageType };
     image2: { image: ImageType };
@@ -185,6 +213,7 @@ type LightSliderType = {
 type DarkSliderType = {
   heading: string;
   descripition: string;
+  isSwap: boolean;
   slides: [
     {
       id: number;
@@ -236,6 +265,7 @@ type DomainSectionType = {
 };
 type BenefitSectionType = {
   title: string;
+  description: string;
   image: ImageType;
   cards: {
     id: number;
@@ -258,9 +288,12 @@ type DemonstrationSectionType = {
   buttonText: string;
   link: string;
   description: string;
+
   list: {
     id: string;
+    link: string;
     type: string;
+    buttonLink: ButtonType;
     image: ImageType;
     title: string;
     description: string;
@@ -270,26 +303,58 @@ type DemonstrationSectionType = {
 };
 type BuildConnectSectionType = {
   title: string;
+  thumbnail: ImageType;
   description: string;
+  videoLink: string;
   image: ImageType;
   mobileImage: ImageType;
   imageCaption: string;
   buttonText: string;
   link: string;
   descriptionButtonText: string;
+  listDescription: {
+    description: string;
+  }[];
   isSwap: boolean;
   descriptionButtonLink: string;
   rightSection: {
     content: string;
     description: string;
+    customDescription: {
+      id: string;
+
+      description: string;
+    }[];
+
+    isBgGray: boolean;
     responsiveImage: {
       image: ImageType;
       mobileImage: ImageType;
     };
+    videoLink: string;
+    videoButtonText: string;
     form: GlobalFormType;
   };
 };
-
+type DemoBuildConnectSectionType = {
+  title: string;
+  description: string;
+  image: ImageType;
+  mobileImage: ImageType;
+  imageCaption: string;
+  buttonText: string;
+  ButtonText: string;
+  link: string;
+  descriptionButtonText: string;
+  isSwap: boolean;
+  descriptionButtonLink: string;
+  form: GlobalFormType;
+  item: GlobalFormItemType;
+};
+type GlobalFormItemType = {
+  id: number;
+  documentId?: string;
+};
 type TechPartnerSectionType = {
   heading: string;
   image: string;
@@ -300,6 +365,7 @@ type TechPartnerSectionType = {
     title: string;
     description: string;
     buttonText: string;
+    link: string;
   }[];
 };
 type ScheduleCallType = {
@@ -307,12 +373,28 @@ type ScheduleCallType = {
   buttonText: string;
   link: string;
   image: string;
+  description: string;
+  topDescription: string;
 };
 
 type WhyKorcomptenzType = {
   title: string;
   description: string;
+  isPerRowFive: boolean;
+  isBgGray: boolean;
   list: IndustryItem[];
+};
+type SocialPlatformType = {
+  id: string;
+  label: string;
+  link: string | null;
+  icon: ImageType;
+};
+type SocialPlatfooterType = {
+  id: string;
+  label: string;
+  link: string | null;
+  icon: ImageType;
 };
 type CompanyType = {
   id: string;
@@ -324,19 +406,12 @@ type CompanyType = {
   address: string;
   companyLogo: ImageType;
   companyFullLogo: ImageType;
-  socialPlatforms: [
-    {
-      id: string;
-      label: string;
-      href: string | null;
-      icon: ImageType;
-    }
-  ];
+  socialPlatforms: SocialPlatfooterType[];
 
   policy: {
     id: string;
     label: string;
-    href: string | null;
+    link: string | null;
     icon: string;
   }[];
   companyDarkLogo: ImageType;
@@ -375,6 +450,20 @@ type CaseStudyFormType = {
   phoneLabel: string;
   messageLabel: string;
   buttonText: string;
+};
+type FreeConsultationFormType = {
+  __component: "form-fields.free-consultation-form";
+  id: string;
+  title: string;
+  nameLabel: string;
+  organizationLabel: string;
+  emailLabel: string;
+  phoneLabel: string;
+  messageLabel: string;
+  buttonText: string;
+  phoneLabel: string;
+  locationLabel: string;
+  image: ImageType;
 };
 type ContactFormType = {
   __component: "form-fields.contact-form";
@@ -475,12 +564,47 @@ type ContactUsFormType = {
   technologyLabel: string;
   list: { id: string; description: string }[];
 };
+type DemoRequestFormType = {
+  __component: "form-fields.reserve-spot-fields";
+  title: string;
+  id: string;
+  buttonText: string;
+  companyLabel: string;
+  emailLabel: string;
+  nameLabel: string;
+  phoneLabel: string;
+
+  list: { id: string; description: string }[];
+};
+type WebinarReserveFormType = {
+  __component: "form-fields.insight-reserve-spot";
+  title: string;
+  description: string;
+  id: string;
+  buttonText: string;
+  companyLabel: string;
+  emailLabel: string;
+  nameLabel: string;
+  phoneLabel: string;
+
+  list: { id: string; description: string }[];
+};
+type KorCareImpactDescriptionType = {
+  title: string;
+  description: string;
+  image: ImageType;
+  id: string;
+  roleDescription: string;
+};
 
 type FormMap = {
   CaseStudyFormType: CaseStudyFormType;
   ContactFormType: ContactFormType;
+  FreeConsultationFormType: FreeConsultationFormType;
   BookDemoFormType: BookDemoFormType;
   ContactUsFormType: ContactUsFormType;
+  DemoRequestFormType: DemoRequestFormType;
+  WebinarReserveFormType: WebinarReserveFormType;
 };
 type FormType = keyof FormMap;
 type FormPropsType = FormMap[FormType];
@@ -493,11 +617,18 @@ type MasonryGalleryColumnType = {
   isVideo: boolean;
   videoLink: string | null;
 };
+type KorCareSliderType = {
+  id: string;
+  title: string;
+  isPerRowFive: boolean;
+  list: KorCareSlide[];
+};
 
 type MasonryGallerySectionType = {
   id: string;
   __component: "career.mansonry-gallery-section";
   title: string;
+  isPerRowFour: boolean;
   highLightText: string;
   list: {
     id: string;
@@ -517,7 +648,18 @@ type DemoListType = {
   id: string;
   list: DemoList[];
 };
-
+type NewsEventListSectionType = {
+  buttonLink: string | null;
+  buttonText: string;
+  date: string;
+  description: string;
+  id: string;
+  title: string;
+  isEvent?: boolean;
+  image: ImageType;
+  createdAt: string;
+  slug: string;
+};
 type NotFoundType = {
   id: string;
   __component: "not-found.not-found";
@@ -571,8 +713,89 @@ type ExpertsSectionType = {
 type DemoWhyAttendSectionType = {
   id: string;
   title: string;
+  description: string;
   list: DemoWhyAttendCardType[];
 };
+
+type DemoBannerDetailsType = {
+  buttonText: string;
+  buttonLink: string;
+  data: string;
+  id: string;
+  title: string;
+  bannerInfo: {
+    id: string;
+    title: string;
+    details: {
+      icon: ImageType;
+      id: string;
+      info: string;
+      isDate: boolean;
+    }[];
+  };
+};
+type BannerItemType = {
+  demoDetails: DemoBannerDetailsType;
+
+  list: BannerSectionType[];
+};
+
+type PricingSectionType = {
+  id: number;
+  title: string;
+  subtitle: string;
+  plans: PricingPlanType[];
+};
+
+type KorCareBuildDataType = {
+  image: ImageType;
+  description: string;
+  title: string;
+};
+
+type KorCareImpactHighlightType = {
+  id: string;
+  title: string;
+  list: KorCareHighlightCardType[];
+};
+
+type KorCareAwardType = {
+  id: string;
+  title: string;
+  image: ImageType;
+  description: string;
+};
+
+type DescriptionOnlyType = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+type ServiceProviderType = {
+  id: string;
+  title: string;
+  list: DescriptionOnlyType[];
+};
+
+type CombinedSectionType = {
+  heading: DescriptionOnlyType;
+  stretchableComponent: StretchableSectionType;
+  thirdSection: ServiceProviderType;
+  button: ButtonType;
+};
+
+type VideoBannerItemType = {
+  id: string;
+  videoLink: string;
+  title: string;
+  imageMobile: ImageType;
+
+  image: ImageType;
+  isVideo: boolean;
+};
+
+type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
 type ComponentPropsMap = {
   SlidingSection: {
@@ -610,10 +833,9 @@ type ComponentPropsMap = {
     __component: "page-componets.banner-section-list";
     list: BannerSectionType[];
   };
-  DemoBannerSection: {
+  DemoBannerSection: BannerItemType & {
     id: string;
     __component: "demo-page.demo-banner-list";
-    list: BannerSectionType[];
   };
 
   SapSection: SapSectionType & {
@@ -781,6 +1003,80 @@ type ComponentPropsMap = {
     id: string;
     __component: "demo-page.demo-opportunity";
   };
+  DemoBookDemoForm: DemoBuildConnectSectionType & {
+    id: string;
+    __component: "demo-page.build-demo";
+  };
+  PricingSection: PricingSectionType & {
+    id: string;
+    __component: "page-componets.pricing-section";
+  };
+
+  KorCareBuildData: BuildConnectSectionType & {
+    id: string;
+    __component: "kor-cares.kor-care-build-data";
+  };
+  KorCareImpactDescription: KorCareImpactDescriptionType & {
+    id: string;
+    __component: "kor-cares.impact-description";
+  };
+  KorCareAward: KorCareAwardType & {
+    id: string;
+    __component: "kor-cares.award";
+  };
+  KorCareSlider: KorCareSliderType & {
+    id: string;
+    __component: "kor-cares.straight-slider";
+  };
+  KorCareImpactHighlight: KorCareImpactHighlightType & {
+    id: string;
+    __component: "kor-cares.impact-highlight";
+  };
+
+  NewsEventListSection: {
+    id: string;
+    __component: "news-and-event.news-event-list";
+    list: NewsEventListSectionType[];
+  };
+  DescriptionOnly: DescriptionOnlyType & {
+    id: string;
+    __component: "news-and-event.news-description-only";
+  };
+  TitleDescription: DescriptionOnlyType & {
+    id: string;
+    __component: "news-and-event.news-title-description-only";
+  };
+
+  ServiceProvider: CombinedSectionType & {
+    id: string;
+    __component: "news-and-event.news-service";
+  };
+  CustomDescription: DescriptionOnlyType & {
+    id: string;
+    __component: "news-and-event.color-custom-description";
+  };
+  CombinedDescription: CombinedSectionType & {
+    id: string;
+    __component: "news-and-event.compounds-newsroom";
+  };
+
+  VideoBannerSection: VideoBannerItemType & {
+    id: string;
+    __component: "news-and-event.news-banner";
+  };
+  NewsRoomSlider: NewsRoomSliderType & {
+    id: string;
+    __component: "news-and-event.simple-image-gallery";
+  };
+  CaseStudyTestimonial: {
+    id: string;
+    __component: "news-and-event.testimonal-list";
+    list: TestimonialType[];
+  };
+  NewRoomBuild: BuildConnectSectionType & {
+    id: string;
+    __component: "news-and-event.build-data";
+  };
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
@@ -817,6 +1113,11 @@ type CaseStudiesPageType = {
   sponser: SponsorSectionType;
   testimonal: TestimonialType[];
   popularFilter: PopularFilterType;
+  categoryAllLabel: string;
+  category: {
+    label: string;
+    id: number;
+  }[];
 };
 type CaseStudyPageType = {
   id: string;

@@ -15,7 +15,7 @@ const ButtonLink = ({ children = "", buttonProps, isTargetNew = false, link = "#
   VariantProps<typeof buttonVariants>
 }) => {
   return (
-    <Link href={link} target={isTargetNew ? '_blank' : undefined} >
+    <Link href={link || "#"} target={isTargetNew ? '_blank' : undefined} >
       <Button {...buttonProps}>{children}</Button>
     </Link>
   )
