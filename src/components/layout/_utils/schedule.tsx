@@ -68,7 +68,7 @@ const ScheduleCall = ({
                 " text-xs  py-3 lg:hidden hover:bg-transparent mt-5 lg:mt-48  w-full [&>span]:!w-[273px]",
             }}
           >
-            <p className="truncate max-w-1/2">{scheduleCall?.buttonText}</p>
+            <p className="truncate max-w-1/2 text-sm">{scheduleCall?.buttonText}</p>
           </ButtonLink>
         </div>
       </div>

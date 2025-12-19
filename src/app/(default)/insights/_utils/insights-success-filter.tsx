@@ -140,7 +140,7 @@ export function InsightsSuccessFilter({
                             }
                           />
 
-                          <span className="text-lg">{item.label}</span>
+                          <span className="text-lg truncate">{item.label}</span>
                         </label>
                       )
                     )}
