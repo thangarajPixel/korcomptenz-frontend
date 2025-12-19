@@ -104,17 +104,11 @@ export function ClientSuccessFilter({
                   : undefined
               }
             />
-            <DropdownMenuContent className="overflow-y-auto" align="start">
+            <DropdownMenuContent className="overflow-y-auto dropdown-items" align="start">
               <div className="p-4">
                 {!label.isMultiple ? (
                   // ✅ Custom grid layout for designed dropdowns (e.g., Technology)
-                  <div
-                    className={
-                      label.isDesignedDropdown
-                        ? "grid grid-cols-4 gap-3"
-                        : "space-y-3"
-                    }
-                  >
+                  <div className="grid grid-cols-4 gap-3">
                     {data?.[label.filterKey]?.map((tech) => (
                       <Link
                         key={`${label.filterKey}-${tech.id}`}
@@ -139,7 +133,7 @@ export function ClientSuccessFilter({
                   </div>
                 ) : (
                   // ✅ Default checkbox list layout
-                  <div className="space-y-3">
+                  <div className="grid grid-cols-4 gap-3">
                     {data?.[label.filterKey]?.map((item) => (
                       <label
                         key={item.id}
@@ -159,7 +153,7 @@ export function ClientSuccessFilter({
                             }
                           />
                         )}
-                        <span className="text-lg">{item.label}</span>
+                        <span className="text-lg truncate">{item.label}</span>
                       </label>
                     ))}
                   </div>
@@ -182,14 +176,14 @@ export function ClientSuccessFilter({
       </div>
 
       {/* Sort Dropdown */}
-      <DropdownMenu>
+      <DropdownMenu >
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="gap-2 bg-transparent text-lg">
             {popularFilter?.label}
             <ChevronDown className="w-4 h-4 opacity-50" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
+        <DropdownMenuContent align="end" >
           {popularFilter?.popularFilterList.map((item) => (
             <button
               key={`sort-${item.id}`}

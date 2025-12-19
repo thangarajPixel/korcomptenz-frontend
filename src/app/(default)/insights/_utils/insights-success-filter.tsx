@@ -118,9 +118,9 @@ export function InsightsSuccessFilter({
                 label={label.label}
                 count={filter?.[label?.filterKey as FilterType]?.length ?? 0}
               />
-              <DropdownMenuContent className="overflow-y-auto" align="start">
+              <DropdownMenuContent className="overflow-y-auto dropdown-items" align="start">
                 <div className="p-4">
-                  <div className="space-y-3">
+                  <div className="grid grid-cols-4 gap-3">
                     {data?.filterData?.[label.filterKey as FilterType]?.map(
                       (item) => (
                         <label
