@@ -250,9 +250,9 @@ export function Navbar({ data }: { data: LayoutType }) {
                         <div key={index}>
                           <Link
                             href={item.href || "#"}
-                            className="hover:text-primary transition-colors"
+                            className="hover:text-primary text-md transition-colors"
                           >
-                            {item.label}
+                            {item.label}|
                           </Link>
                         </div>
                       ))}

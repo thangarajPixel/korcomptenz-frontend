@@ -61,7 +61,7 @@ const CardSwiper = ({
   }, [emblaApi, disableAutoSlide]);
 
   return (
-    <section className={cn("w-full rounded-none", className)} {...props} >
+    <section className={cn("w-full rounded-none", className)} {...props}>
       <div className="relative">
         <div className="overflow-hidden" ref={emblaRef}>
           {/* Important: min-w-0 ensures flex items shrink properly */}

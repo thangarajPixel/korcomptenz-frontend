@@ -47,7 +47,7 @@ const BuildConnect = ({
             {buildData?.description && (
               <DangerousHtml
                 html={buildData?.description}
-                className="text-xs md:text-2xl text-foreground leading-7 break-words"
+                className="text-md md:text-2xl text-foreground leading-7 break-words"
               />
             )}
             {buildData?.descriptionButtonText && (
