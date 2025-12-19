@@ -32,7 +32,7 @@ const DarkSlider = ({
         <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
           <h5
             className={cn(
-              "text-6xl md:text-7xl font-bold leading-tight text-black px-5 lg:px-0 mb-5 lg:mb-0",
+              "text-6xl md:text-7xl font-bold leading-tight text-black md:px-5 lg:px-0 mb-5 lg:mb-0",
               isSwap && "text-center"
             )}
           >
@@ -55,19 +55,26 @@ const DarkSlider = ({
             </div>
           )}
         </div>
-        <div className={cn(!isSwap ? "col-span-24 lg:col-span-16" : "px-10")}>
+        <div
+          className={cn(!isSwap ? "col-span-24 lg:col-span-16" : "md:px-10")}
+        >
           <CarouselContent>
             {manuelSliderData?.slides?.map((slide, index) => (
               <CarouselItem
                 key={index}
                 className={cn(
                   !isSwap
-                    ? `min-w-3/4 md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${
+                    ? `min-w-3/4 w-[20%] md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${
                         index === manuelSliderData?.slides?.length - 1
                           ? "mr-[100px]"
                           : ""
                       }`
-                    : "md:basis-1/2 lg:basis-1/4"
+                    : cn(
+                        "md:basis-1/4",
+                        manuelSliderData?.isPerRowThree
+                          ? "lg:basis-1/3"
+                          : "lg:basis-1/4"
+                      )
                 )}
               >
                 <SliderCard slide={slide} />

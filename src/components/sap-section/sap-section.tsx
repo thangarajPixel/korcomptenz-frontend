@@ -7,21 +7,21 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
       className="container-md"
       data-debug={"page-componets.sap-section-data"}
     >
-      <div className="grid grid-cols-24 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-24 gap-6">
         {/* Left Content */}
-        <div className="space-y-8 col-span-24 lg:col-span-10  mb-5 lg:mb-0">
+        <div className="space-y-6 col-span-1 lg:col-span-10 mb-4 lg:mb-0">
           <h5 className="text-6xl md:text-7xl font-bold text-foreground leading-tight">
             {sapSectionData?.heading}
           </h5>
-          <p className="text-md md:text-lg text-foreground leading-4xl ">
+          <p className="text-md md:text-lg text-foreground leading-4xl  whitespace-break-spaces">
             {sapSectionData?.description}
           </p>
         </div>
 
         {/* Right Content */}
-        {sapSectionData?.isItemOnly == false ? (
-          <div className="space-y-4 col-span-24 lg:col-span-14  ">
-            <div className="flex flex-col lg:flex-row justify-between gap-6 p-6 lg:p-0">
+        {!sapSectionData?.isItemOnly ? (
+          <div className="space-y-4 col-span-1 lg:col-span-14  ">
+            <div className="flex flex-col lg:flex-row justify-between gap-6  lg:p-0">
               {sapSectionData?.imageSection?.image1?.image && (
                 <div className="hidden md:block rounded-3xl overflow-hidden w-full lg:w-1/2">
                   <KorcomptenzImage
@@ -35,9 +35,9 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
 
               {/* Business Meeting Image 2 */}
               <div className="flex flex-col gap-10 w-full lg:w-1/2 ">
-                <div className=" rounded-3xl p-6 text-white flex items-center">
+                <div className=" rounded-3xl md:p-6 text-white flex items-center">
                   {sapSectionData?.card ? (
-                    <div className="flex flex-row gap-4 bg-secondary rounded-3xl p-8 ">
+                    <div className="flex flex-row gap-4 bg-secondary rounded-3xl p-6 ">
                       <div className="text-6xl md:text-8xl font-bold mb-2">
                         {sapSectionData?.card?.value}
                       </div>

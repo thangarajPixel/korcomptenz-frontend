@@ -6,6 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { DangerousHtml } from "../ui/dangerous-html";
+import Link from "next/link";
 
 const LightSlider = ({ data }: { data: LightSliderType }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -119,10 +120,12 @@ const LightSlider = ({ data }: { data: LightSliderType }) => {
                         />
 
                         {solution?.buttonText && (
-                          <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">
-                            {solution?.buttonText}
-                            <ChevronRight className="w-4 h-4" />
-                          </button>
+                          <Link href={solution?.link || "#"}>
+                            <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">
+                              {solution?.buttonText}
+                              <ChevronRight className="w-4 h-4" />
+                            </button>
+                          </Link>
                         )}
                         {solutionIndex < slide?.solutions?.length - 1 && (
                           <hr className="border-gray-200 mt-2" />

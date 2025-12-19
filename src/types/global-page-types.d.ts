@@ -204,6 +204,7 @@ type LightSliderType = {
           title: string;
           description: string;
           buttonText: string;
+          link: string;
         }
       ];
     }
@@ -214,6 +215,7 @@ type DarkSliderType = {
   heading: string;
   descripition: string;
   isSwap: boolean;
+  isPerRowThree: boolean;
   slides: [
     {
       id: number;
