@@ -1,12 +1,8 @@
-import React from "react";
+
 import ThankYouPage from "../thank-you";
 
-const page = () => {
-  return (
-    <div>
-      <ThankYouPage />
-    </div>
-  );
+const Page = () => {
+  return <ThankYouPage />;
 };
 
-export default page;
+export default Page;

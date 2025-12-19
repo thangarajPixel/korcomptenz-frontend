@@ -46,9 +46,6 @@ export default function ClientTestimonial({
           <h2 className="text-5xl font-semibold text-muted">
             {currentTestimonial?.title}
           </h2>
-          {/* <blockquote className="text-6xl text-muted leading-relaxed">
-            {currentTestimonial?.description}
-          </blockquote> */}
           <DangerousHtml
             html={currentTestimonial?.description}
             className="md:text-5xl text-xl text-muted leading-12 font-medium"
