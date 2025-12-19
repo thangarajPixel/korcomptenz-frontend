@@ -62,13 +62,15 @@ const ScheduleCall = ({
           <ButtonLink
             link={scheduleCall?.link || "#"}
             buttonProps={{
-              size: "xl",
+              size: "lg",
               arrow: true,
               className:
-                "text-4xl py-3 lg:hidden hover:bg-transparent lg:mt-48",
+                "text-4xl py-3 lg:hidden hover:bg-transparent lg:mt-48 ",
             }}
           >
-            {scheduleCall?.buttonText}
+            <p className="text-sm w-20 truncate">
+              {scheduleCall?.buttonText}
+            </p>
           </ButtonLink>
         </div>
       </div>
