@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button"
+import { Button } from "../ui/button";
 import KorcomptenzImage from "../korcomptenz-image";
 import Link from "next/link";
 import { useMobile } from "@/utils/custom-hooks";
@@ -18,10 +18,7 @@ export default function StickyCards({
   const cardData = stickyCards?.list;
 
   return (
-    <section
-      data-debug={stickyCards?.__component}
-      className="relative"
-    >
+    <section data-debug={stickyCards?.__component} className="relative">
       <div className="relative container-md">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-5">
           <h4 className="font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
@@ -45,7 +42,7 @@ export default function StickyCards({
             key={`sticky-card-${card?.id}`}
             className={cn(
               "sm:sticky relative sm:top-48 top-0 ",
-              `z-[${index + 10}] sm:mb-1`,
+              `z-[${index + 10}] sm:mb-1`
               // index !== cardData.length - 1 ? "mb-[8rem]" : "mb-[0]"
             )}
           >
@@ -112,11 +109,7 @@ export default function StickyCards({
         <div className="flex items-center justify-center sm:hidden relative mt-5">
           {stickyCards?.buttonText && (
             <Link href={stickyCards?.link || "/"}>
-              <Button
-                className="w-full lg:w-fit "
-                size="xl"
-                arrow={true}
-              >
+              <Button className="w-full lg:w-fit " size="xl" arrow={true}>
                 {stickyCards?.buttonText}
               </Button>
             </Link>

@@ -17,7 +17,7 @@ interface Props {
 const SliderCard: React.FC<Props> = ({ slide }) => {
   return (
     <div className="flex-shrink-0 w-full h-full">
-      <div className="bg-foreground rounded-3xl p-8 h-full  w-3/4 md:w-full flex flex-col justify-between">
+      <div className="bg-foreground rounded-3xl p-5 h-full  w-3/4 md:w-full flex flex-col justify-between">
         <div className="flex flex-col gap-2 md:gap-5">
           <div className="flex justify-end gap-2">
             <KorcomptenzImage
@@ -27,7 +27,7 @@ const SliderCard: React.FC<Props> = ({ slide }) => {
               src={slide?.image}
             />
           </div>
-          <h3 className="text-white text:medium md:text-5xl font-normal whitespace-pre-wrap pr-6 mb-6">
+          <h3 className="text-white text:medium md:text-4xl font-normal whitespace-pre-wrap pr-6 mb-6">
             {slide?.title}
           </h3>
           <DangerousHtml

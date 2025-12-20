@@ -4,6 +4,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import ExpandableHtml from "./show-more";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
   const {
@@ -32,7 +33,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           </h3>
           {description && (
             <div className="flex flex-row gap-4">
-              <DangerousHtml
+              <ExpandableHtml
                 html={description}
                 className={cn(
                   image?.url &&
@@ -40,6 +41,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                   position !== "main" && "lg:max-w-xs max-w-none"
                 )}
               />
+
               {position === "side" && image && (
                 <div className="flex items-center justify-center ">
                   <KorcomptenzImage
