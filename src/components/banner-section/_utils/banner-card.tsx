@@ -36,10 +36,13 @@ const BannerCard = ({
             <h1 className="text-9xl font-semibold leading-14 text-white ">
               {data?.title}
             </h1>
-            <DangerousHtml
-              className=" text-lg md:text-base md:text-white   max-w-md"
-              html={data?.description}
-            />
+            {data?.description && (
+              <DangerousHtml
+                className=" text-lg md:text-base md:text-white   max-w-md"
+                html={data?.description}
+              />
+            )}
+
             <div className="flex flex-row  gap-4">
               {data?.buttonText && (
                 <ButtonLink
@@ -135,7 +138,7 @@ const BannerCard = ({
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="gap-6 justify-center items-start p-4 md:p-8 w-full lg:hidden  h-full">
+      <div className="gap-6 justify-center items-start p-4 md:px-8 md:pt-8 w-full lg:hidden  h-full">
         {data?.logoMobile ? (
           <KorcomptenzImage
             src={data?.logoMobile}
@@ -144,15 +147,17 @@ const BannerCard = ({
             className="w-[300px] h-auto object-contain mb-2 md:mb-4 opacity-65"
           />
         ) : (
-          <h2 className="text-4xl font-bold text-foreground mb-2 md:mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-2 md:mb-4">
             {data?.title}
           </h2>
         )}
+        {data?.description && (
+          <DangerousHtml
+            className="text-lg md:text-base [&>span]:!text-black mb-4 md:mb-8 lg:max-w-md w-full"
+            html={data?.description}
+          />
+        )}
 
-        <DangerousHtml
-          className="text-lg md:text-base [&>span]:!text-black mb-4 md:mb-8 lg:max-w-md w-full"
-          html={data?.description}
-        />
         <div className="flex flex-row gap-4 mb-3">
           {data?.buttonText && (
             <ButtonLink

@@ -58,7 +58,7 @@ const DarkSlider = ({
         <div
           className={cn(!isSwap ? "col-span-24 lg:col-span-16" : "md:px-10")}
         >
-          <CarouselContent>
+          <CarouselContent className="sm:pr-5">
             {manuelSliderData?.slides?.map((slide, index) => (
               <CarouselItem
                 key={index}
@@ -66,7 +66,7 @@ const DarkSlider = ({
                   !isSwap
                     ? `min-w-3/4 w-[20%] md:min-w-[45%] md:max-w-[45%] pl-4 pr-1 relative ${
                         index === manuelSliderData?.slides?.length - 1
-                          ? "mr-[100px]"
+                          ? "lg:mr-25"
                           : ""
                       }`
                     : cn(

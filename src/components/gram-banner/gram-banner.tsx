@@ -12,7 +12,7 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         gramData?.theme === "dark"
           ? "bg-custom-black "
           : gramData?.theme === "light"
-          ? "bg-custom-gray-6 "
+          ? "bg-custom-gray-6 py-5"
           : gramData?.theme === "default"
           ? "bg-white"
           : ""

@@ -40,7 +40,7 @@ const StretchableSectionCard = ({
         <div className="flex-1">
           <DangerousHtml
             html={data?.description}
-            className="text-gray-700 text-base mb-6 line-clamp-4 [&>p,&>span]:line-clamp-4"
+            className="text-gray-700 text-base mb-6 "
           />
         </div>
         <div className="z-10">
