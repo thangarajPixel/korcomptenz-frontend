@@ -72,7 +72,11 @@ const DemoRequestForm = ({
     );
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
+    <form
+      onSubmit={handleSubmit(handleFormSubmit)}
+      className="space-y-8"
+      id="form"
+    >
       <div className="grid rounded-4xl shadow-2xl p-10 gap-y-2 w-3/4">
         {/* Name + Email */}
         <h3 className="text-5xl font-semibold text-center text-foreground mb-5">

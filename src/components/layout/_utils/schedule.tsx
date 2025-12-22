@@ -14,7 +14,7 @@ const ScheduleCall = ({
   return (
     <section
       className={cn(
-        "bg-custom-black lg:min-h-[600px] flex items-center py-4 md:py-0",
+        "bg-custom-black lg:min-h-[600px]  flex items-center py-4 md:py-0",
         {
           "mb-[-40px] md:mb-[-96px]": isLastIndex,
         }
@@ -22,20 +22,20 @@ const ScheduleCall = ({
       data-debug={"home.schedule-call"}
     >
       <div className="container-md">
-        <div className="lg:flex flex-row  lg:gap-8 justify-center min-h-[600px]">
+        <div className="lg:flex flex-row  lg:gap-8 justify-center h-full lg:min-h-[600px] md:py-10">
           {/* Left content */}
           <div className="relative z-20 flex flex-col justify-around lg:ml-0">
             <div className="space-y-2">
-              <p className="text-2xl font-semibold text-custom-green-1 max-w-xl">
+              <p className="text-2xl font-semibold text-white max-w-xl">
                 {scheduleCall?.topDescription}
               </p>
-              <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl  font-bold text-custom-green-1 leading-tight whitespace-pre-wrap">
+              <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl  font-bold text-white leading-tight whitespace-pre-wrap">
                 {scheduleCall?.title}
               </h2>
 
               <DangerousHtml
                 html={scheduleCall?.description}
-                className="text-2xl font-semibold text-custom-green-1 max-w-xl"
+                className="text-2xl font-semibold text-white max-w-xl"
               />
             </div>
             <ButtonLink
@@ -65,7 +65,7 @@ const ScheduleCall = ({
               size: "lg",
               arrow: true,
               className:
-                " text-xs  py-3 lg:hidden hover:bg-transparent mt-5 lg:mt-48  w-full [&>span]:!w-[273px]",
+                " text-xs  py-3 lg:hidden hover:bg-transparent mt-5 lg:mt-48  w-full md:w-1/2 [&>span]:!w-[200px]",
             }}
           >
             <p className="truncate max-w-1/2 text-sm">{scheduleCall?.buttonText}</p>

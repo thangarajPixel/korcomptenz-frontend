@@ -71,6 +71,7 @@ const DarkSlider = ({
                       }`
                     : cn(
                         "md:basis-1/4",
+
                         manuelSliderData?.isPerRowThree
                           ? "lg:basis-1/3"
                           : "lg:basis-1/4"

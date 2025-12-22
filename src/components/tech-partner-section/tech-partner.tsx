@@ -1,9 +1,10 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
-import CardSwiper from "../ui/card-swiper";
+
 import TechCard from "./_utils/tech-card";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
+import TechCardSwiper from "./_utils/tech-card-swiper";
 
 const chunkArray = <T,>(arr: T[], size: number): T[][] => {
   const chunks: T[][] = [];
@@ -36,31 +37,34 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
 
           {/* Desktop Swiper */}
           <div className="hidden lg:block">
-            <CardSwiper disableAutoSlide>
+            <TechCardSwiper disableAutoSlide>
               {slidesInPairs?.map((pair, index) => (
                 <div
                   key={`tech-card-${index}`}
-                  className="embla__slide flex-none w-full flex flex-col lg:flex-row gap-6"
+                  className="embla__slide flex-none w-full flex flex-col lg:flex-row gap-6 px-2"
                 >
                   {pair?.map((slide) => (
                     <TechCard
                       key={`tech-card-${slide?.id}`}
                       data={slide}
-                      className={cn("flex-1", pair.length === 1 && "justify-center")}
+                      className={cn(
+                        "flex-1",
+                        pair.length === 1 && "justify-center"
+                      )}
                     />
                   ))}
                 </div>
               ))}
-            </CardSwiper>
+            </TechCardSwiper>
           </div>
 
           {/* Mobile Swiper */}
           <div className="lg:hidden col-span-12">
-            <CardSwiper disableAutoSlide>
+            <TechCardSwiper disableAutoSlide>
               {slidesInPairs?.map((pair, index) => (
                 <div
                   key={`tech-card-${index}`}
-                  className="embla__slide flex-none w-full flex flex-col gap-6"
+                  className="embla__slide flex-none w-full flex flex-col gap-6 px-2"
                 >
                   {pair?.map((slide) => (
                     <div
@@ -85,7 +89,7 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
                   ))}
                 </div>
               ))}
-            </CardSwiper>
+            </TechCardSwiper>
           </div>
         </div>
 

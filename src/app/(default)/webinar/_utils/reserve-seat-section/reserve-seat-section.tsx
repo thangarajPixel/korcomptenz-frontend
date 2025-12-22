@@ -29,7 +29,6 @@ const ReserveSeatSection = ({
     control,
     handleSubmit,
     setError,
-
     reset,
     formState: { isSubmitting },
   } = useForm<WebinarReserveFormSchema>({
@@ -120,14 +119,12 @@ const ReserveSeatSection = ({
                     <Input
                       control={control}
                       name="organization"
-                      required
                       label={form?.companyLabel}
                       className="border-2 p-2 rounded-md text-foreground"
                     />
                     <Input
                       control={control}
                       name="phone"
-                      required
                       label={form?.phoneLabel}
                       className="border-2 p-2 rounded-md text-foreground"
                     />
