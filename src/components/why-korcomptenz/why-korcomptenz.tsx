@@ -9,7 +9,7 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
     <section
       data-debug="page-componets.why-we-are"
       className={`container-md ${
-        data?.isBgGray ? "bg-gray-100 p-10 rounded-3xl" : ""
+        data?.isBgGray ? "bg-gray-100 py-10 md:p-10 rounded-3xl" : ""
       }`}
     >
       {/* Header */}
@@ -31,7 +31,7 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
       >
         {data.list.map((card) => (
           <div
-            className="hover:bg-light-gray rounded-2xl p-5 space-y-3"
+            className="hover:bg-light-gray rounded-2xl py-5 md:p-5 space-y-3"
             key={`${card?.id}-${card?.title}`}
           >
             {/* Icon */}

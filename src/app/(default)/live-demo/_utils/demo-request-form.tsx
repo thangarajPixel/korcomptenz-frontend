@@ -74,10 +74,11 @@ const DemoRequestForm = ({
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="space-y-8"
+      className="space-y-8 "
       id="form"
+      noValidate
     >
-      <div className="grid rounded-4xl shadow-2xl p-10 gap-y-2 w-3/4">
+      <div className="grid rounded-4xl shadow-2xl p-10 gap-y-2 w-full md:w-3/4">
         {/* Name + Email */}
         <h3 className="text-5xl font-semibold text-center text-foreground mb-5">
           {form?.title || "Reserve My Spot"}
@@ -116,11 +117,11 @@ const DemoRequestForm = ({
         </div>
 
         {/* Submit button */}
-        <div className="pt-4">
+        <div className="pt-4 flex justify-center">
           <Button
-            size="lg"
-            variant="outline"
-            className="hover:bg-primary border-primary text-primary hover:text-white"
+            size={"lg"}
+            variant={"secondary"}
+            className="rounded-2xl border-2 border-secondary hover:border-bg-secondary hover:bg-white hover:text-secondary"
             arrow
             isLoading={isSubmitting}
             type="submit"

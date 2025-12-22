@@ -92,7 +92,10 @@ export function Navbar({ data }: { data: LayoutType }) {
                   className="flex items-center"
                 >
                   {data?.navItems?.find((item) => item?.isButton)?.label}
-                  <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
+                  <ChevronRight
+                    className="ml-1 h-5 w-5 transition-transform"
+                    strokeWidth={3}
+                  />
                 </Link>
               </Button>
             </div>
@@ -246,13 +249,16 @@ export function Navbar({ data }: { data: LayoutType }) {
                   <div className="flex gap-1">
                     {data?.navItems
                       ?.filter((item) => item?.isHideMobile)
-                      .map((item, index) => (
+                      .map((item, index, arr) => (
                         <div key={index}>
                           <Link
                             href={item.href || "#"}
-                            className="hover:text-primary text-md transition-colors"
+                            className="hover:text-primary text-sm transition-colors"
                           >
-                            {item.label}|
+                            {item.label}
+                            {index !== arr.length - 1 && (
+                              <span className="text-gray-400">|</span>
+                            )}
                           </Link>
                         </div>
                       ))}
@@ -279,7 +285,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                       <Link
                         key={`social-platform-${social.id}`}
                         href={social?.link || "/"}
-                        className="w-5 h-5 rounded-lg flex items-center justify-center"
+                        className="w-5 h-5 rounded-lg flex items-center justify-center mr-2"
                       >
                         <KorcomptenzImage
                           src={social.icon}

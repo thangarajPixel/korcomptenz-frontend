@@ -87,7 +87,7 @@ const ServicesMenu = ({
                                 className={`text-sm leading-6 cursor-pointer ${
                                   sub?.type === "dark"
                                     ? "font-normal text-black"
-                                    : "text-gray-500 pl-2"
+                                    : "text-gray-500"
                                 }`}
                               >
                                 {sub?.title}

@@ -89,11 +89,12 @@ const ReserveSeatSection = ({
               <form
                 onSubmit={handleSubmit(handleFormSubmit)}
                 className="space-y-6 md:space-y-8"
+                noValidate
               >
                 <div className="grid rounded-4xl shadow-2xl p-6 md:p-10 gap-y-4">
                   {/* Title */}
                   <h3 className="text-3xl md:text-5xl font-semibold text-center text-foreground mb-4 md:mb-5">
-                    {form?.title || "Reserve My Spot"}
+                    {form?.title || "Reserve My Spot"}aaaaaaaaaaaa
                   </h3>
 
                   {/* Name + Email */}

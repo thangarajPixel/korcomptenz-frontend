@@ -1,5 +1,6 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
+import { cn } from "@/lib/utils";
 import React from "react";
 
 interface Slide {
@@ -12,11 +13,17 @@ interface Slide {
 
 interface Props {
   slide: Slide;
+  isSwap?: boolean;
 }
 
-const SliderCard: React.FC<Props> = ({ slide }) => {
+const SliderCard: React.FC<Props> = ({ slide, isSwap }) => {
   return (
-    <div className="flex-shrink-0 w-full h-full">
+    <div
+      className={cn(
+        "flex-shrink-0 w-full h-full  ",
+        isSwap && "sm:justify-start justify-center flex"
+      )}
+    >
       <div className="bg-foreground rounded-3xl p-5 h-full  w-3/4 md:w-full flex flex-col justify-between">
         <div className="flex flex-col gap-2 md:gap-5">
           <div className="flex justify-end gap-2">

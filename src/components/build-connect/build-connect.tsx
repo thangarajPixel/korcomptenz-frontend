@@ -32,12 +32,12 @@ const BuildConnect = ({
         )}
         <div
           className={cn(
-            "grid grid-cols-1 lg:grid-cols-2 gap-x-20",
+            "grid grid-cols-1 lg:grid-cols-2 ",
             buildData?.isSwap && "mt-3"
           )}
         >
           <div
-            className={cn("md:px-5 space-y-3 ", buildData?.isSwap && "order-2")}
+            className={cn("md:pl-5 space-y-3 ", buildData?.isSwap && "order-2")}
           >
             {!buildData?.isSwap && (
               <h3 className="text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-12">
@@ -47,7 +47,7 @@ const BuildConnect = ({
             {buildData?.description && (
               <DangerousHtml
                 html={buildData?.description}
-                className="text-md md:text-2xl text-foreground leading-7 break-words"
+                className="text-md md:text-2xl text-foreground leading-6 break-words"
               />
             )}
             {buildData?.descriptionButtonText && (

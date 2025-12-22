@@ -274,7 +274,7 @@ type CaseStudyData = {
       title: string;
     };
   }[];
-  relatedCaseStudies: CaseStudyData[]
+  relatedCaseStudies: CaseStudyData[];
 };
 type CaseStudySingleData = CaseStudyData;
 
@@ -324,6 +324,7 @@ type CustomerSectionType = {
 type PartnerType = {
   id: string;
   name: string;
+  description: string;
   logo: ImageType;
 };
 type PartnershipSectionType = {
@@ -336,6 +337,7 @@ type PartnershipSectionType = {
 type DemoPartnershipSectionType = {
   id: string;
   title: string;
+  description: string;
   list: PartnerType[];
 };
 
