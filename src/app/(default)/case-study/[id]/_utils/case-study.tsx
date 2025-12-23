@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import ButtonLink from "@/components/ui/button-link";
 import { ScrollFadeIn } from "@/components/ui/scroll-fade-in";
 
+import CaseStudyVideo from "./case-study-video";
 
 const CaseStudy = ({
   data,
@@ -18,7 +19,7 @@ const CaseStudy = ({
 }) => {
   return (
     <React.Fragment>
-      <ScrollFadeIn >
+      <ScrollFadeIn>
         <CaseStudyBanner
           data={{
             ...data?.heroSection,
@@ -30,14 +31,31 @@ const CaseStudy = ({
           essential={essential}
         />
       </ScrollFadeIn>
-      <ScrollFadeIn >
+      <ScrollFadeIn>
         <CaseStudyContent data={data} />
       </ScrollFadeIn>
-      <ScrollFadeIn >
+      <ScrollFadeIn>
         {data?.testimonials?.length > 0 && (
           <ClientTestimonial data={data?.testimonials} />
         )}
       </ScrollFadeIn>
+      <CaseStudyBanner
+        data={{
+          ...data?.heroSection,
+          title: data?.heroSection?.title || data?.title,
+          study: data?.case_industries
+            .map((industry) => industry.label)
+            .join(", "),
+        }}
+        essential={essential}
+      />
+      <CaseStudyContent data={data} />
+      {data?.video && <CaseStudyVideo data={data?.video} />}
+
+      {data?.testimonials?.length > 0 && (
+        <ClientTestimonial data={data?.testimonials} />
+      )}
+
       {data?.relatedCaseStudies?.length > 0 && (
         <ScrollFadeIn>
           <div className={cn("h-1 container-md my-20 bg-primary ")} />
@@ -74,7 +92,7 @@ const CaseStudy = ({
           </div>
         </ScrollFadeIn>
       )}
-      <ScrollFadeIn >
+      <ScrollFadeIn>
         <CaseStudyForm data={data} essential={essential} />
       </ScrollFadeIn>
     </React.Fragment>

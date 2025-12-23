@@ -65,10 +65,12 @@ const ScheduleCall = ({
               size: "lg",
               arrow: true,
               className:
-                " text-xs  py-3 lg:hidden hover:bg-transparent mt-5 lg:mt-48  w-full md:w-1/2 [&>span]:!w-[200px]",
+                "text-sm py-3 lg:hidden hover:bg-transparent mt-5 lg:mt-48 w-full md:w-1/2 flex items-center justify-center text-center py-8",
             }}
           >
-            <p className="truncate max-w-1/2 text-sm">{scheduleCall?.buttonText}</p>
+            <p className="w-full whitespace-normal break-words">
+              {scheduleCall?.buttonText}
+            </p>
           </ButtonLink>
         </div>
       </div>

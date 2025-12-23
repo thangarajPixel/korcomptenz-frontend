@@ -83,7 +83,7 @@ const BannerCard = ({
                 {data?.title}
               </h2>
             ) : (
-              <h1 className="text-9xl font-semibold leading-14 text-white ">
+              <h1 className="text-8xl font-semibold leading-14 text-white ">
                 {data?.title}
               </h1>
             )}

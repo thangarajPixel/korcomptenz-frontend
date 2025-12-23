@@ -253,6 +253,11 @@ type CaseStudyData = {
   slug: string;
   content: string;
   descriptionSection: CaseStudyDescription[];
+  video: {
+    thumbnail: ImageType;
+    link: string;
+    id: number;
+  };
   heroSection: CaseStudyHeroSection;
   testimonials: TestimonialType[];
   case_industries: { label: string }[];
@@ -670,6 +675,7 @@ type SummaryType = {
   title: string;
   description: string;
   thumbnail?: ImageType;
+  videoLink?: string;
 };
 
 type WebinarExpertsType = { list: ExpertsCardType[]; title: string };
