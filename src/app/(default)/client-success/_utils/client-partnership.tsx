@@ -35,8 +35,8 @@ export default function ClientPartnership({
               <div className=" relative flex-shrink-0">
                 <KorcomptenzImage
                   src={badge.logo}
-                  width={data?.isSingleLine ? 52 : 200}
-                  height={data?.isSingleLine ? 52 : 200}
+                  width={data?.isSingleLine ? 52 : badge?.logo?.width}
+                  height={data?.isSingleLine ? 52 : badge?.logo?.height}
                   className="object-cover"
                 />
               </div>
