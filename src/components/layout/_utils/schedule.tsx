@@ -27,7 +27,7 @@ const ScheduleCall = ({
           <div className="relative z-20 flex flex-col justify-around lg:ml-0">
             <div className="space-y-2">
               <p className="text-2xl font-semibold text-white max-w-xl">
-                {scheduleCall?.topDescription}
+                {isLastIndex ? "Expert-led Transformation. Impact-led Growth" : scheduleCall?.topDescription}
               </p>
               <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl  font-bold text-white leading-tight whitespace-pre-wrap">
                 {scheduleCall?.title}

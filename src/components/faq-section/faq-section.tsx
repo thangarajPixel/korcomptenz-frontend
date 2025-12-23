@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronDownIcon } from "lucide-react";
 import {
   Accordion,
@@ -47,6 +47,21 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
                   className="mt-2 text-lg text-answer-color"
                   html={item?.description}
                 />
+              )}
+              {(item?.isHasCustomList && item?.list && item.list.length > 0) && (
+                <ul className="mt-2 w-full flex flex-wrap md:gap-4 gap-2">
+                  {item.list.map((listItem) => (
+                    <li
+                      key={`list-item-${listItem?.id}`}
+                      className="w-full lg:w-1/4 text-center flex items-center flex-col gap-3 bg-white rounded-2xl p-4 md:p-6"
+                    >
+                      <h4 className="text-lg md:text-5xl font-semibold">{listItem?.title}</h4>
+                      <p className="text-base md:text-lg lg:text-xl text-answer-color leading-relaxed flex-1">
+                        {listItem?.description}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
               )}
             </AccordionContent>
           </AccordionItem>

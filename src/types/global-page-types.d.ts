@@ -286,6 +286,12 @@ type FaqSectionType = {
     id: number;
     title: string;
     description: string;
+    isHasCustomList: boolean;
+    list: {
+      id: number;
+      title: string;
+      description: string;
+    }[];
   }[];
 };
 
