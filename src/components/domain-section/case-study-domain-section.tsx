@@ -10,11 +10,11 @@ const CaseStudyDomainSection = ({
     ...domainData,
     list: domainData.list.map((item) => ({
       id: item.id,
-      link: item.heroSection.buttonText,
+      link: `/case-study/${item?.slug}`,
       type: "",
       buttonLink: {
         text: item.heroSection.buttonText,
-        link: item?.heroSection?.link,
+        link: `/case-study/${item?.slug}`,
       },
       image: item.heroSection.image,
       title: item.title || item.heroSection.title,
