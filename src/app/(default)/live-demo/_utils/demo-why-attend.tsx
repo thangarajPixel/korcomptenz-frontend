@@ -1,6 +1,6 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
-import React from "react";
+import { cn } from "@/lib/utils";
 
 const DemoWhyAttend = ({
   whyAttendData,
@@ -10,22 +10,29 @@ const DemoWhyAttend = ({
   return (
     <section className="flex items-center justify-center  bg-background container-md ">
       <div className="w-full">
-        <div className="rounded-3xl bg-light-gray px-8 pt-12 md:px-12 md:py-16 w-full">
+        <div className="rounded-3xl bg-light-gray px-8 pt-12 md:px-12 md:py-16 w-full md-12 ">
           {/* Header dividers and title */}
-          <div className="flex items-center justify-center gap-8 mb-5">
-            <div className="flex-1 h-1 bg-gray-400 lg:-ml-12 "></div>
-            <h1 className="text-7xl md:text-7xl font-semibold text-foreground text-center font-sans whitespace-nowrap">
-              {whyAttendData.title}
-            </h1>
+          <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 mb-5">
+            <div className="flex-1 h-1 bg-gray-400 lg:-ml-12 hidden sm:block"></div>
 
-            <div className="flex-1 h-1 bg-gray-400 lg:-mr-12 "></div>
+            <h2 className="text-4xl md:text-7xl  font-semibold text-foreground text-center font-sans max-w-[90%] sm:max-w-[70%] md:max-w-none">
+              {whyAttendData.title}
+            </h2>
+
+            <div className="flex-1 h-1 bg-gray-400 lg:-mr-12 hidden sm:block"></div>
           </div>
+
           <DangerousHtml
             html={whyAttendData?.description}
             className="text-foreground text-base md:text-lg leading-relaxed mb-5  max-w-4xl mx-auto text-center font-sans"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+          <div
+            className={cn(
+              "grid   gap-x-8 gap-y-6",
+              whyAttendData?.isHasFooter ? "grid-cols-1 " : "grid-cols-2"
+            )}
+          >
             {whyAttendData?.list.map((benefit, index) => (
               <div key={index} className="flex gap-3">
                 {/* Blue arrow icon */}
@@ -48,6 +55,26 @@ const DemoWhyAttend = ({
             ))}
           </div>
         </div>
+        {whyAttendData?.isHasFooter && (
+          <div className="px-4 md:px-8 lg:mx-24">
+            <div
+              className="text-white bg-muted p-5 md:p-8 lg:p-10 rounded-3xl lg:rounded-4xl 
+                   lg:-mt-20 -mt-20"
+            >
+              <DangerousHtml
+                html={whyAttendData?.footer?.description || ""}
+                className="mb-6 md:mb-8 text-sm md:text-base leading-relaxed text-white"
+              />
+
+              <KorcomptenzImage
+                src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/Benefits_of_Partnering_with_Korcomptenz_2048x509_006bad9497.png"
+                width={1000}
+                height={1000}
+                className="w-full h-auto rounded-xl"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

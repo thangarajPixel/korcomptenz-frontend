@@ -68,9 +68,9 @@ const TechCardSwiper = ({
           disabled={!canPrev}
           className="
             absolute lg:left-[-32px]  left-[-42px] top-1/2 -translate-y-1/2 z-20
-            h-15 w-15 rounded-full  shadow
+            h-15 w-15 rounded-full  
             flex items-center justify-center
-            disabled:opacity-30 disabled:cursor-not-allowed text-white
+            disabled:opacity-30 disabled:cursor-not-allowed text-white cursor-pointer
           "
         >
           <ChevronLeft className="h-12 w-12" />
@@ -81,8 +81,8 @@ const TechCardSwiper = ({
           onClick={() => emblaApi?.scrollNext()}
           disabled={!canNext}
           className="
-            absolute right-[-30px] lg:right-[-20px] top-1/2 -translate-y-1/2 z-20
-            h-15 w-15 rounded-full  shadow
+            absolute right-[-30px] lg:right-[-20px] top-1/2 -translate-y-1/2 z-20 cursor-pointer
+            h-15 w-15 rounded-full  
             flex items-center justify-center
             disabled:opacity-30 disabled:cursor-not-allowed text-white
           "

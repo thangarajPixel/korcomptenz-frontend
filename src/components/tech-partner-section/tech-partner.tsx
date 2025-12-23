@@ -8,9 +8,11 @@ import TechCardSwiper from "./_utils/tech-card-swiper";
 
 const chunkArray = <T,>(arr: T[], size: number): T[][] => {
   const chunks: T[][] = [];
-  for (let i = 0; i < arr.length; i += size) {
+
+  for (let i = 0; i <= arr.length - size; i++) {
     chunks.push(arr.slice(i, i + size));
   }
+
   return chunks;
 };
 
@@ -30,7 +32,7 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
         <div className="col-span-12 lg:col-span-8 flex flex-col gap-4 p-8 lg:pr-20">
           {/* Heading */}
           <div className="lg:pr-20">
-            <h5 className="text-6xl md:text-9xl border-b-4 border-custom-white-1 leading-10 lg:leading-16 pb-8 font-semibold text-background">
+            <h5 className="text-6xl md:text-7xl border-b-4 border-custom-white-1 leading-10 lg:leading-12 pb-8 font-semibold text-background">
               {heading}
             </h5>
           </div>

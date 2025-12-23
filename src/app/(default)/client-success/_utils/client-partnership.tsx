@@ -17,7 +17,7 @@ export default function ClientPartnership({
       {/* Partner Badges Grid */}
       <div
         className={cn(
-          "grid grid-cols-2 md:grid-cols-5  gap-5 ",
+          "grid grid-cols-1 md:grid-cols-5  gap-5 ",
           data?.isPerRowFive ? "md:grid-cols-5" : "md:grid-cols-3"
         )}
       >
@@ -35,15 +35,15 @@ export default function ClientPartnership({
               <div className=" relative flex-shrink-0">
                 <KorcomptenzImage
                   src={badge.logo}
-                  width={badge?.logo?.width}
-                  height={badge?.logo?.height}
-                  className="object-contain object-left"
+                  width={20}
+                  height={20}
+                  className="object-contain object-left "
                 />
               </div>
               <p
                 className={cn(
                   "text-lg leading-relaxed ml-1 text-foreground font-normal -mt-2 line-clamp-2",
-                  data?.isSingleLine && "text-2xl font-bold ml-5"
+                  data?.isSingleLine && "text-lg font-bold ml-5"
                 )}
               >
                 {badge.name}

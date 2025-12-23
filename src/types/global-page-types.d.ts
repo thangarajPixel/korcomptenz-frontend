@@ -167,6 +167,10 @@ type BannerSectionType = {
   link: string | null;
   secondButton: string;
   secondLink: string;
+  footer: {
+    logo: ImageType;
+    description: string;
+  };
 };
 
 type SapSectionType = {
@@ -718,6 +722,11 @@ type DemoWhyAttendSectionType = {
   title: string;
   description: string;
   list: DemoWhyAttendCardType[];
+  isHasFooter?: boolean;
+  footer?: {
+    description: string;
+    image: ImageType;
+  };
 };
 
 type DemoBannerDetailsType = {
