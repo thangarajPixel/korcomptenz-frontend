@@ -25,13 +25,13 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
       {/* Cards Grid */}
       <div
         className={cn(
-          "grid grid-cols-2 md:grid-cols-5  gap-5 ",
+          "grid grid-cols-1 md:grid-cols-5  gap-5 ",
           data.isPerRowFive ? "md:grid-cols-5" : "md:grid-cols-3"
         )}
       >
         {data.list.map((card) => (
           <div
-            className="hover:bg-light-gray rounded-2xl py-5 md:p-5 space-y-3"
+            className="hover:bg-light-gray rounded-2xl p-3  py-5 md:p-5 space-y-3"
             key={`${card?.id}-${card?.title}`}
           >
             {/* Icon */}

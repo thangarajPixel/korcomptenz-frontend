@@ -26,16 +26,19 @@ const ServicesMenu = ({
               <motion.button
                 key={`service-section-${section?.id}`}
                 onClick={() => setActiveServiceSection(section)}
-                className={`w-full text-left text-custom-gray-4 py-3 
+                className={`w-full text-left text-custom-gray-4  
                   rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${
                     activeServiceSection?.id === section?.id
                       ? "text-primary"
                       : ""
                   }`}
               >
-                <span className="text-lg font-normal leading-1">
-                  {section?.title}
-                </span>
+                {" "}
+                <Link href={section?.items?.[0]?.href?.slug || "#"}>
+                  <span className="text-lg font-normal leading-1">
+                    {section?.title}
+                  </span>
+                </Link>
               </motion.button>
             ))}
           </nav>

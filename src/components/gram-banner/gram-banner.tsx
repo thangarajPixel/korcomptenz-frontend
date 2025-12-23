@@ -4,13 +4,14 @@ import { Button } from "../ui/button";
 
 import { DangerousHtml } from "../ui/dangerous-html";
 import { cn } from "@/lib/utils";
+import ButtonLink from "../ui/button-link";
 
 const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
   return (
     <section
       className={` grid grid-cols-1 lg:grid-cols-1  ${
         gramData?.theme === "dark"
-          ? "bg-custom-black "
+          ? "bg-custom-black py-10 "
           : gramData?.theme === "light"
           ? "bg-custom-gray-6 py-5"
           : gramData?.theme === "default"
@@ -45,13 +46,15 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         />
         {gramData?.buttonText && (
           <div className="flex justify-center items-center">
-            <Button
-              size="xl"
-              arrow
-              className="flex items-center justify-center"
+            <ButtonLink
+              link={gramData?.buttonLink || "#"}
+              buttonProps={{
+                className: " flex items-center justify-center",
+                size: "xl",
+              }}
             >
               {gramData?.buttonText}
-            </Button>
+            </ButtonLink>
           </div>
         )}
       </div>

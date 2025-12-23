@@ -67,7 +67,7 @@ const DemoWhyAttend = ({
               />
 
               <KorcomptenzImage
-                src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/Benefits_of_Partnering_with_Korcomptenz_2048x509_006bad9497.png"
+                src={whyAttendData?.footer?.image}
                 width={1000}
                 height={1000}
                 className="w-full h-auto rounded-xl"

@@ -32,7 +32,7 @@ const DarkSlider = ({
         <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
           <h5
             className={cn(
-              "text-6xl md:text-7xl font-bold leading-tight text-black md:px-5 lg:px-0 mb-5 lg:mb-0",
+              "text-5xl md:text-7xl font-bold leading-tight text-black md:px-5 lg:px-0 mb-5 lg:mb-0",
               isSwap && "text-center"
             )}
           >

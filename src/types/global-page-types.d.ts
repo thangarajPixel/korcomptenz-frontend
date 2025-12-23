@@ -448,6 +448,7 @@ type GramBannerType = {
   image: ImageType;
   mobileImage: ImageType;
   imageCaption: string;
+  buttonLink: string;
   buttonText: string;
   descriptionButtonText: string;
   descriptionButtonLink: string;
