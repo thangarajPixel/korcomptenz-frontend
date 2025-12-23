@@ -161,7 +161,7 @@ export function Navbar({ data }: { data: LayoutType }) {
             <div className="pb-5 pt-5 space-y-6 ">
               {/* Enhanced Regular mobile nav items */}
               <div
-                className={`space-y-2 border-t border-border pt-6 transition-all duration-500 ease-out ${
+                className={`space-y-2 border-t border-border transition-all duration-500 ease-out ${
                   isMenuOpen
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-4"
@@ -244,7 +244,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                 }`}
                 style={{ transitionDelay: "400ms" }}
               >
-                <div className="flex items-center justify-between pt-4 px-2">
+                <div className="grid gap-5 items-center justify-between pt-4 px-2">
                   {/* Left side - Career | Contact Us */}
                   <div className="flex gap-1">
                     {data?.navItems
