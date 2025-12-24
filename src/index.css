@@ -432,3 +432,33 @@ h6.elementor-heading-title,
   border-radius: 8px;
   margin-bottom: 16px;
 }
+
+ul.key_list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 500px;
+}
+ul.key_list li {
+  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 26px;
+  position: relative;
+  padding-left: 32px;
+}
+ul.key_list li::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 8px;
+  width: 24px;
+  height: 13px;
+  background-image: url("../public/dual-arrow.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 1024px) {
+  ul.key_list {
+    max-width: 100%;
+  }
+}

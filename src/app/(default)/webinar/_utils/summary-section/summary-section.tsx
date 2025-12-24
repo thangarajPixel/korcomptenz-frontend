@@ -1,8 +1,19 @@
+"use client";
+
 import React from "react";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { VideoPopup } from "@/components/video-popup";
 
 const SummarySection = ({ data }: { data: SummaryType }) => {
+  const [isVideoOpen, setIsVideoOpen] = React.useState<{
+    open: boolean;
+    link: string | null;
+  }>({
+    open: false,
+    link: null,
+  });
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -21,6 +32,9 @@ const SummarySection = ({ data }: { data: SummaryType }) => {
                 src={data?.thumbnail}
                 fill
                 className="object-cover"
+                onClick={() =>
+                  setIsVideoOpen({ link: data?.videoLink || "#", open: true })
+                }
               />
             </div>
           </div>
@@ -35,6 +49,13 @@ const SummarySection = ({ data }: { data: SummaryType }) => {
           </div>
         )}
       </div>
+      <VideoPopup
+        isOpen={isVideoOpen.open}
+        onClose={() => {
+          setIsVideoOpen({ link: null, open: false });
+        }}
+        videoSrc={data.videoLink || ""}
+      />
     </section>
   );
 };

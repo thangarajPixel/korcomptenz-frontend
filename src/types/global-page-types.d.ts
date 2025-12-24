@@ -167,6 +167,10 @@ type BannerSectionType = {
   link: string | null;
   secondButton: string;
   secondLink: string;
+  footer: {
+    logo: ImageType;
+    description: string;
+  };
 };
 
 type SapSectionType = {
@@ -444,6 +448,7 @@ type GramBannerType = {
   image: ImageType;
   mobileImage: ImageType;
   imageCaption: string;
+  buttonLink: string;
   buttonText: string;
   descriptionButtonText: string;
   descriptionButtonLink: string;
@@ -724,6 +729,11 @@ type DemoWhyAttendSectionType = {
   title: string;
   description: string;
   list: DemoWhyAttendCardType[];
+  isHasFooter?: boolean;
+  footer?: {
+    description: string;
+    image: ImageType;
+  };
 };
 
 type DemoBannerDetailsType = {

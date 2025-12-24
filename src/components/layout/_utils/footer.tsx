@@ -25,7 +25,7 @@ export const Footer = ({ data }: { data: LayoutType }) => {
             items={data?.serviceMenu.map((s) => ({
               id: s?.id,
               label: s?.title,
-              href: s?.href?.slug || "#",
+              href: s?.items?.[0]?.href?.slug || "#",
             }))}
           />
 

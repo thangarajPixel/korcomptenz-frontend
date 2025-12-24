@@ -48,14 +48,16 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
                   html={item?.description}
                 />
               )}
-              {(item?.isHasCustomList && item?.list && item.list.length > 0) && (
-                <ul className="mt-2 w-full flex flex-wrap md:gap-4 gap-2">
+              {item?.isHasCustomList && item?.list && item.list.length > 0 && (
+                <ul className="mt-2 w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
                   {item.list.map((listItem) => (
                     <li
                       key={`list-item-${listItem?.id}`}
-                      className="w-full lg:w-1/4 text-center flex items-center flex-col gap-3 bg-white rounded-2xl p-4 md:p-6"
+                      className="text-center flex items-center flex-col gap-3 bg-white rounded-2xl p-6 shadow-sm"
                     >
-                      <h4 className="text-lg md:text-5xl font-semibold">{listItem?.title}</h4>
+                      <h4 className="text-lg md:text-5xl font-semibold">
+                        {listItem?.title}
+                      </h4>
                       <p className="text-base md:text-lg lg:text-xl text-answer-color leading-relaxed flex-1">
                         {listItem?.description}
                       </p>

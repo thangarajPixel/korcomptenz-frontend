@@ -41,9 +41,12 @@ const BenefitSection = ({
                   }`}
                 >
                   <div className="md:mx-4 m-2 flex flex-col gap-4">
-                    <p className="text-6xl md:text-8xl  font-light text-primary shrink-0 ">
-                      {card?.number || (index + 1).toString().padStart(1, "0")}
-                    </p>
+                    {card?.number && (
+                      <p className="text-6xl md:text-8xl  font-light text-primary shrink-0 ">
+                        {card?.number}
+                      </p>
+                    )}
+
                     {card?.title && (
                       <p className="text-black text-xl">{card?.title}</p>
                     )}

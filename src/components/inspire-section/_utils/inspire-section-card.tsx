@@ -14,9 +14,7 @@ const InspireSectionCard: React.FC<{ card: InspireCardType }> = ({ card }) => {
 
     if (card.position === "topAbove") {
       return (
-        <div
-          className={`flex justify-end w-full absolute -top-16 `}
-        >
+        <div className={`flex justify-end w-full absolute -top-12 md:-top-16 `}>
           <KorcomptenzImage
             src={card.image}
             width={100}
@@ -64,10 +62,12 @@ const InspireSectionCard: React.FC<{ card: InspireCardType }> = ({ card }) => {
 
         {card.position === "topAbove" && (
           <div className="flex flex-col pb-3 px-3">
-            <div className="relative min-h-16">
-              {renderImage()}
-            </div>
-            <InspireSectionContent card={card} topClassName="pt-0" className="mb-2 pt-5 xl:whitespace-pre-wrap" />
+            <div className="relative min-h-16">{renderImage()}</div>
+            <InspireSectionContent
+              card={card}
+              topClassName="pt-0"
+              className="mb-2 pt-5 xl:whitespace-pre-wrap"
+            />
           </div>
         )}
       </CardContent>

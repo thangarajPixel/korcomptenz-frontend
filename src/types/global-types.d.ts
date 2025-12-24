@@ -253,6 +253,11 @@ type CaseStudyData = {
   slug: string;
   content: string;
   descriptionSection: CaseStudyDescription[];
+  video: {
+    thumbnail: ImageType;
+    link: string;
+    id: number;
+  };
   heroSection: CaseStudyHeroSection;
   testimonials: TestimonialType[];
   case_industries: { label: string }[];
@@ -274,7 +279,7 @@ type CaseStudyData = {
       title: string;
     };
   }[];
-  relatedCaseStudies: CaseStudyData[]
+  relatedCaseStudies: CaseStudyData[];
 };
 type CaseStudySingleData = CaseStudyData;
 
@@ -324,6 +329,7 @@ type CustomerSectionType = {
 type PartnerType = {
   id: string;
   name: string;
+  description: string;
   logo: ImageType;
 };
 type PartnershipSectionType = {
@@ -336,6 +342,7 @@ type PartnershipSectionType = {
 type DemoPartnershipSectionType = {
   id: string;
   title: string;
+  description: string;
   list: PartnerType[];
 };
 
@@ -668,6 +675,7 @@ type SummaryType = {
   title: string;
   description: string;
   thumbnail?: ImageType;
+  videoLink?: string;
 };
 
 type WebinarExpertsType = { list: ExpertsCardType[]; title: string };

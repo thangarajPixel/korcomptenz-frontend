@@ -7,7 +7,6 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 const StretchableSectionCard = ({
   props,
   data,
-  image = "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/lets_drive_fdc0c33e0c.png",
 }: {
   props: React.HTMLAttributes<HTMLDivElement>;
   image?: ImageType | string;
@@ -15,7 +14,7 @@ const StretchableSectionCard = ({
 }) => {
   const { ...rest } = props;
   const backgroundImage =
-    typeof image === "string" ? image : (image as ImageType)?.url ?? "";
+    "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/lets_drive_fdc0c33e0c.png";
 
   return (
     <div
@@ -32,7 +31,7 @@ const StretchableSectionCard = ({
       }}
     >
       {/* Overlay to reduce background image opacity */}
-      <div className="absolute inset-0 bg-light-gray/90 z-0"></div>
+      <div className="absolute inset-0 bg-light-gray/80 z-0"></div>
 
       <div className="pl-8 py-8 lg:pl-10 lg:py-10 flex flex-col gap-3 flex-1 pr-8 relative z-10">
         <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
@@ -41,7 +40,7 @@ const StretchableSectionCard = ({
         <div className="flex-1">
           <DangerousHtml
             html={data?.description}
-            className="text-gray-700 text-base mb-6 line-clamp-4 [&>p,&>span]:line-clamp-4"
+            className="text-gray-700 text-base mb-6 "
           />
         </div>
         <div className="z-10">

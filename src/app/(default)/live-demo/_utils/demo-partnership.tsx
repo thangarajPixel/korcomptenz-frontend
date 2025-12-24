@@ -1,4 +1,5 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 export default function DemoPartnership({
   data,
@@ -23,9 +24,16 @@ export default function DemoPartnership({
                 className="object-contain object-left text-white"
               />
             </div>
-            <p className="text-lg leading-relaxed font-normal justify-center">
-              {badge.name}
-            </p>
+            {badge.name && (
+              <p className="text-lg leading-relaxed font-normal justify-center">
+                {badge.name}
+              </p>
+            )}
+
+            <DangerousHtml
+              html={badge?.description}
+              className="text-lg leading-relaxed font-normal justify-center text-white"
+            />
           </div>
         ))}
       </div>

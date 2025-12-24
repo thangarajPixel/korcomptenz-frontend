@@ -17,7 +17,7 @@ export default function ClientPartnership({
       {/* Partner Badges Grid */}
       <div
         className={cn(
-          "grid grid-cols-2 md:grid-cols-5  gap-5 ",
+          "grid grid-cols-1 md:grid-cols-5  gap-5 ",
           data?.isPerRowFive ? "md:grid-cols-5" : "md:grid-cols-3"
         )}
       >
@@ -27,7 +27,7 @@ export default function ClientPartnership({
             className={cn(
               "flex flex-col gap-4",
               data?.isSingleLine
-                ? "flex-row bg-gray-200 py-5 px-6 rounded-3xl justify-between  space-x-10"
+                ? "flex-row bg-[#E2EBE4] py-5 px-6 rounded-3xl justify-between  space-x-10"
                 : "flex-col"
             )}
           >
@@ -35,22 +35,22 @@ export default function ClientPartnership({
               <div className=" relative flex-shrink-0">
                 <KorcomptenzImage
                   src={badge.logo}
-                  width={badge?.logo?.width}
-                  height={badge?.logo?.height}
-                  className="object-contain object-left"
+                  width={data?.isSingleLine ? 52 : badge?.logo?.width}
+                  height={data?.isSingleLine ? 52 : badge?.logo?.height}
+                  className="object-cover"
                 />
               </div>
               <p
                 className={cn(
                   "text-lg leading-relaxed ml-1 text-foreground font-normal -mt-2 line-clamp-2",
-                  data?.isSingleLine && "text-2xl font-bold ml-5"
+                  data?.isSingleLine && "text-lg font-bold ml-5 mt-3"
                 )}
               >
                 {badge.name}
               </p>
             </div>
             {data?.isSingleLine && (
-              <div className="bg-white rounded-full w-8 h-8 flex items-center justify-center">
+              <div className="bg-white rounded-full w-8 h-8 flex items-center justify-center mt-4">
                 <ChevronRight className="w-5 h-5" />
               </div>
             )}
