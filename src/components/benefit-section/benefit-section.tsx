@@ -12,10 +12,10 @@ const BenefitSection = ({
       className="container-md"
       data-debug={"page-componets.benefit-data"}
     >
-      <h4 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 text-center w-full">
+      <h4 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 w-full">
         {benefitData?.title}
       </h4>
-      <p className="text-2xl md:text-4xl font-normal text-foreground mb-6 text-center w-full">
+      <p className="text-2xl md:text-4xl font-normal text-foreground mb-6 w-full">
         {benefitData?.description}
       </p>
       <div>
@@ -36,9 +36,8 @@ const BenefitSection = ({
               return (
                 <div
                   key={`benefit-card-item-${card?.id}`}
-                  className={`flex gap-4 ${
-                    isOddNumberOfCards ? "w-full" : "w-1/2"
-                  }`}
+                  className={`flex gap-4 ${isOddNumberOfCards ? "w-full" : "w-1/2"
+                    }`}
                 >
                   <div className="md:mx-4 m-2 flex flex-col gap-4">
                     {card?.number && (
