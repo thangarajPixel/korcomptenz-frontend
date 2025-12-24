@@ -13,7 +13,7 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         gramData?.theme === "dark"
           ? "bg-custom-black py-10 "
           : gramData?.theme === "light"
-          ? "bg-custom-gray-6 py-5"
+          ? "bg-custom-gray-6 "
           : gramData?.theme === "default"
           ? "bg-white"
           : ""
@@ -23,7 +23,7 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
       <div
         className={` space-y-3 container-md p-2 ${
           gramData?.theme === "default"
-            ? "bg-custom-gray-6 rounded-2xl py-5"
+            ? "bg-custom-gray-6 rounded-2xl py-12"
             : ""
         }  `}
       >
@@ -59,7 +59,7 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         )}
       </div>
       {gramData?.image && (
-        <div className="p-5 hidden lg:flex items-center justify-center w-full h-full">
+        <div className="p-5 hidden lg:flex items-center justify-center w-full h-full container-md">
           <KorcomptenzImage
             src={gramData?.image}
             width={500}

@@ -172,21 +172,32 @@ export function Navbar({ data }: { data: LayoutType }) {
                   ?.filter((item) => !item?.isHideMobile)
                   .map((item, index) => (
                     <div key={index}>
-                      <button
-                        onClick={() => toggleExpand(item.label)}
-                        className={`w-full flex justify-between items-center px-3 py-3 text-lg font-medium text-muted-foreground  ${
-                          expandedItem === item.label
-                            ? "text-primary "
-                            : "text-muted-foreground border-b-1 border-primary"
-                        }`}
-                      >
-                        {item.label}
-                        {expandedItem === item.label ? (
-                          <Minus className="ml-2 h-4 w-4 transition-all duration-300 " />
-                        ) : (
-                          <Plus className="ml-2 h-4 w-4 transition-all duration-300" />
-                        )}
-                      </button>
+                      {item.hasChild === false ? (
+                        <Link
+                          href={item.href || "#"}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="w-full block px-3 py-3 text-lg font-medium text-muted-foreground border-b-1 border-primary"
+                        >
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={() => toggleExpand(item.label)}
+                          className={`w-full flex justify-between items-center px-3 py-3 text-lg font-medium ${
+                            expandedItem === item.label
+                              ? "text-primary"
+                              : "text-muted-foreground border-b-1 border-primary"
+                          }`}
+                        >
+                          <span>{item.label}</span>
+
+                          {expandedItem === item.label ? (
+                            <Minus className="ml-2 h-4 w-4 transition-all duration-300" />
+                          ) : (
+                            <Plus className="ml-2 h-4 w-4 transition-all duration-300" />
+                          )}
+                        </button>
+                      )}
 
                       {/* Accordion Content */}
                       <AnimatePresence>
@@ -237,14 +248,14 @@ export function Navbar({ data }: { data: LayoutType }) {
 
               {/* Enhanced Mobile CTA buttons */}
               <div
-                className={`border-t border-border pt-6 transition-all duration-500 ease-out ${
+                className={` pt-6 transition-all duration-500 ease-out ${
                   isMenuOpen
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: "400ms" }}
               >
-                <div className="grid gap-5 items-center justify-between pt-4 px-2">
+                <div className="grid gap-5 items-end justify-between pt-4 px-2">
                   {/* Left side - Career | Contact Us */}
                   <div className="flex gap-1">
                     {data?.navItems
@@ -257,7 +268,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                           >
                             {item.label}
                             {index !== arr.length - 1 && (
-                              <span className="text-gray-400">|</span>
+                              <span className="text-gray-400"> |</span>
                             )}
                           </Link>
                         </div>
@@ -280,12 +291,12 @@ export function Navbar({ data }: { data: LayoutType }) {
                   </div> */}
 
                   {/* Right side - Social icons */}
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-6">
                     {data?.company?.socialPlatforms.map((social) => (
                       <Link
                         key={`social-platform-${social.id}`}
                         href={social?.link || "/"}
-                        className="w-5 h-5 rounded-lg flex items-center justify-center mr-2"
+                        className="w-6 h-6 rounded-lg flex items-center justify-center mr-2"
                       >
                         <KorcomptenzImage
                           src={social.icon}
