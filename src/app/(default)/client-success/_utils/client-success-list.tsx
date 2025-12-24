@@ -145,11 +145,13 @@ const ClientSuccessList = ({
             </div>
           )}
         </div>
-        {pagination && (
+        {pagination && !!data?.pagination.total && (
           <PaginationSection
+            key={`pagination-${data?.pagination.pageCount}-${data?.pagination.total}`}
             pagination={{
               ...pagination,
-              pageCount: data?.pagination.pageCount || pagination.pageCount,
+              pageCount: data?.pagination.pageCount ?? pagination.pageCount,
+              total: data?.pagination.total ?? pagination.total,
             }}
             handlePageChange={handlePageChange}
             handleItemsPerPageChange={handleItemsPerPageChange}

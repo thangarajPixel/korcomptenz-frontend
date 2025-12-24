@@ -33,7 +33,7 @@ const PaginationSection = ({
     const items = [];
 
     items.push(
-      <PaginationItem key={1}>
+      <PaginationItem key={pagination?.page}>
         <PaginationLink
           href="#"
           onClick={(e) => {
