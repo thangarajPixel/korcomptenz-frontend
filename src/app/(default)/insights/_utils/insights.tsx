@@ -1,4 +1,3 @@
-import React from "react";
 import InsightsSuccessList from "./insights-success-list";
 
 const Insights = async ({
