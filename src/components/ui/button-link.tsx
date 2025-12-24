@@ -14,7 +14,7 @@ const ButtonLink = ({ children = "", buttonProps, isTargetNew = false, link = "#
   } & import("motion/react").HTMLMotionProps<"button"> &
   VariantProps<typeof buttonVariants>
 }) => {
-  return (
+  return children && (
     <Link href={link || "#"} target={isTargetNew ? '_blank' : undefined} >
       <Button {...buttonProps}>{children}</Button>
     </Link>
