@@ -104,7 +104,7 @@ export default function DocumentationLayout({
 
             <div className="space-y-16">
               <div className="space-y-8">
-                <DangerousHtml html={updatedHtml} className="scroll-smooth" />
+                <DangerousHtml html={updatedHtml} className="blog-section" />
               </div>
             </div>
           </article>
