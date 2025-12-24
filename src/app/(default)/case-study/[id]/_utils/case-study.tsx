@@ -34,28 +34,12 @@ const CaseStudy = ({
       <ScrollFadeIn>
         <CaseStudyContent data={data} />
       </ScrollFadeIn>
-      <ScrollFadeIn>
-        {data?.testimonials?.length > 0 && (
-          <ClientTestimonial data={data?.testimonials} />
-        )}
-      </ScrollFadeIn>
-      <CaseStudyBanner
-        data={{
-          ...data?.heroSection,
-          title: data?.heroSection?.title || data?.title,
-          study: data?.case_industries
-            .map((industry) => industry.label)
-            .join(", "),
-        }}
-        essential={essential}
-      />
-      <CaseStudyContent data={data} />
       {data?.video && <CaseStudyVideo data={data?.video} />}
-
       {data?.testimonials?.length > 0 && (
-        <ClientTestimonial data={data?.testimonials} />
+        <ScrollFadeIn>
+          <ClientTestimonial data={data?.testimonials} />
+        </ScrollFadeIn>
       )}
-
       {data?.relatedCaseStudies?.length > 0 && (
         <ScrollFadeIn>
           <div className={cn("h-1 container-md my-20 bg-primary ")} />
