@@ -69,7 +69,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
             </div>
           </div>
         ) : (
-          <div className="col-span-24 lg:col-span-14 ">
+          <div className="col-span-1 lg:col-span-14 ">
             {sapSectionData?.itemDescription && (
               <p className="text-4xl md:text-5xl font-semibold text-foreground leading-tight mb-5">
                 {sapSectionData?.itemDescription}

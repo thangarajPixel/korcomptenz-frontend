@@ -447,6 +447,7 @@ type PeopleShowcaseCardType = {
   position: string;
   socialPlatform: {
     icon: ImageType;
+    link: string;
   }[];
 };
 

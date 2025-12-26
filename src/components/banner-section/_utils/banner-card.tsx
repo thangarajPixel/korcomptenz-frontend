@@ -28,9 +28,9 @@ const BannerCard = ({
             src={data?.image}
             width={1000}
             height={800}
-            className="w-full h-full object-cover rounded-4xl "
+            className="w-full h-full object-cover  "
           />
-          <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-[5] " />
+          <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-[5]  " />
           {data?.logo ? (
             <div className=" absolute top-0 left-10 p-4 md:p-8 z-10 w-full h-full flex flex-col gap-6 justify-center items-start">
               <KorcomptenzImage
@@ -81,7 +81,7 @@ const BannerCard = ({
           ) : (
             <div
               className={cn(
-                " absolute top-0 left-10 p-10 z-10 w-5/8 h-full flex flex-col gap-2 justify-center items-start "
+                " absolute top-0 left-10 p-10 z-10 w-5/8 h-full flex flex-col gap-2 justify-center items-start max-w-2xl "
               )}
             >
               {!isFirst ? (
@@ -106,7 +106,7 @@ const BannerCard = ({
                     link={data?.link || "#"}
                     buttonProps={{
                       arrow: true,
-                      className: "hover:bg-transparent ",
+                      className: "varient:default",
                       size: "xl",
                     }}
                   >
@@ -185,7 +185,7 @@ const BannerCard = ({
         )}
       </div>
 
-      <div className="gap-6 justify-center items-start p-4 md:px-8 md:pt-8 w-full lg:hidden  h-full">
+      <div className="gap-6 justify-center items-start py-4 md:px-8 md:pt-8 w-full lg:hidden  h-full">
         {data?.logoMobile ? (
           <KorcomptenzImage
             src={data?.logoMobile}

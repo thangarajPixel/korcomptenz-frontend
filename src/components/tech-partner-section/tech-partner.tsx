@@ -39,7 +39,10 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
 
           {/* Desktop Swiper */}
           <div className="hidden lg:block">
-            <TechCardSwiper disableAutoSlide>
+            <TechCardSwiper
+              disableAutoSlide
+              cardlenght={techData?.techslides?.length}
+            >
               {slidesInPairs?.map((pair, index) => (
                 <div
                   key={`tech-card-${index}`}
@@ -62,7 +65,10 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
 
           {/* Mobile Swiper */}
           <div className="lg:hidden col-span-12">
-            <TechCardSwiper disableAutoSlide>
+            <TechCardSwiper
+              disableAutoSlide
+              cardlenght={techData?.techslides?.length}
+            >
               {slidesInPairs?.map((pair, index) => (
                 <div
                   key={`tech-card-${index}`}

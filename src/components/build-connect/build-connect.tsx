@@ -47,7 +47,7 @@ const BuildConnect = ({
             {buildData?.description && (
               <DangerousHtml
                 html={buildData?.description}
-                className="text-md md:text-2xl text-foreground leading-6 break-words"
+                className="text-md md:text-2xl text-foreground leading-8 break-words"
               />
             )}
             {buildData?.descriptionButtonText && (
@@ -108,7 +108,7 @@ const BuildConnect = ({
                   </div>
                 )}
               </div>
-              <div className="p-5 lg:hidden ">
+              <div className="md:p-5 lg:hidden ">
                 <KorcomptenzImage
                   src={buildData?.rightSection?.responsiveImage?.mobileImage}
                   width={500}

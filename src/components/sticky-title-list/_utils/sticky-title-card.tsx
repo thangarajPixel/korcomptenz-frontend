@@ -28,7 +28,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
             </div>
           )}
 
-          <h3 className=" text-foreground text-6xl  font-bold leading-tight">
+          <h3 className=" text-foreground  text-5xl  md:text-6xl font-bold leading-tight">
             {title}
           </h3>
           {description && (

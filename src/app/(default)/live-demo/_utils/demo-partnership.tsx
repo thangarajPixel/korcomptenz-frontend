@@ -19,8 +19,8 @@ export default function DemoPartnership({
             <div className=" relative flex-shrink-0">
               <KorcomptenzImage
                 src={badge?.logo}
-                width={badge?.logo?.width}
-                height={badge?.logo?.height}
+                width={badge?.logo?.width || 40}
+                height={badge?.logo?.height || 40}
                 className="object-contain object-left text-white"
               />
             </div>

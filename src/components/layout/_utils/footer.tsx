@@ -7,6 +7,7 @@ import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import FooterTitle from "./footer-title";
 import FooterDescription from "./footer-description";
+import React from "react";
 
 export const Footer = ({ data }: { data: LayoutType }) => {
   return (
@@ -224,41 +225,49 @@ const CopyrightSection = ({ data }: { data: LayoutType }) => (
   <>
     <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex items-center justify-between">
       <p className="text-custom-gray-2 text-lg">{data?.company?.copyrights}</p>
-      <div>
-        {data?.company?.policy?.map((policy) => (
-          <Link
-            key={`policy-${policy?.id}`}
-            href={policy?.link || "#"}
-            className="text-custom-gray-2 text-lg mx-2"
-          >
-            {policy?.label}
-          </Link>
+
+      <div className="flex items-center">
+        {data?.company?.policy?.map((policy, i) => (
+          <React.Fragment key={`policy-${policy?.id}`}>
+            <Link
+              href={policy?.link || "#"}
+              className="text-custom-gray-2 text-lg mx-2"
+            >
+              {policy?.label || "Privacy Policy"}
+            </Link>
+
+            {i < data?.company?.policy?.length - 1 && (
+              <span className="text-custom-gray-3 text-lg">|</span>
+            )}
+          </React.Fragment>
         ))}
       </div>
     </div>
 
     {/* Mobile */}
-    {/* <div className="mt-8 lg:hidden flex flex-col items-center">
+    <div className="mt-8 lg:hidden flex flex-col items-center">
       <div className="flex justify-center pb-4">
         {data?.company?.policy?.map((policy, i) => (
-          <Link
+          <span
             key={`policy-${policy?.id}`}
-            href={policy?.link || "#"}
-            className={`text-custom-gray-2 text-xs mx-2 ${
-              i < data?.company?.policy?.length - 1
-                ? "border-r pr-2 border-custom-gray-3"
-                : ""
-            }`}
+            className="flex items-center text-custom-gray-2 text-xs"
           >
-            {policy?.label || " Privacy Policy"}
-          </Link>
+            <Link href={policy?.link || "#"} className="mx-1">
+              {policy?.label || "Privacy Policy"}
+            </Link>
+
+            {i < data?.company?.policy?.length - 1 && (
+              <span className="mx-1 text-custom-gray-3">|</span>
+            )}
+          </span>
         ))}
       </div>
+
       <div className="flex justify-center pt-4 border-t border-custom-gray-3">
         <p className="text-custom-gray-2 text-xs">
           {data?.company?.copyrights}
         </p>
       </div>
-    </div> */}
+    </div>
   </>
 );

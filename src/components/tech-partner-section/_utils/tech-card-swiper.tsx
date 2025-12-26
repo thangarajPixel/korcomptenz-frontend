@@ -10,11 +10,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const TechCardSwiper = ({
   children,
   className,
+  cardlenght,
   disableAutoSlide = false,
   ...props
 }: PropsWithChildren<unknown> & {
   className?: string;
   disableAutoSlide?: boolean;
+  cardlenght?: number;
 } & React.HTMLAttributes<HTMLDivElement>) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -62,33 +64,36 @@ const TechCardSwiper = ({
           <div className="flex">{children}</div>
         </div>
 
-        {/* Left Arrow */}
-        <button
-          onClick={() => emblaApi?.scrollPrev()}
-          disabled={!canPrev}
-          className="
+        {cardlenght && cardlenght > 2 && (
+          <>
+            <button
+              onClick={() => emblaApi?.scrollPrev()}
+              disabled={!canPrev}
+              className="
             absolute lg:left-[-32px]  left-[-42px] top-1/2 -translate-y-1/2 z-20
             h-15 w-15 rounded-full  
             flex items-center justify-center
             disabled:opacity-30 disabled:cursor-not-allowed text-white cursor-pointer
           "
-        >
-          <ChevronLeft className="h-12 w-12" />
-        </button>
+            >
+              <ChevronLeft className="h-12 w-12" />
+            </button>
 
-        {/* Right Arrow */}
-        <button
-          onClick={() => emblaApi?.scrollNext()}
-          disabled={!canNext}
-          className="
+            {/* Right Arrow */}
+            <button
+              onClick={() => emblaApi?.scrollNext()}
+              disabled={!canNext}
+              className="
             absolute right-[-30px] lg:right-[-20px] top-1/2 -translate-y-1/2 z-20 cursor-pointer
             h-15 w-15 rounded-full  
             flex items-center justify-center
             disabled:opacity-30 disabled:cursor-not-allowed text-white
           "
-        >
-          <ChevronRight className="h-12 w-12" />
-        </button>
+            >
+              <ChevronRight className="h-12 w-12" />
+            </button>
+          </>
+        )}
       </div>
     </section>
   );

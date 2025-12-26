@@ -10,6 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import Link from "next/link";
 
 export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
   const [open, setOpen] = React.useState(false);
@@ -50,9 +51,11 @@ export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
         >
           {/* Close Button (floating, top-right) */}
           {data?.socialPlatform?.map((platform) => (
-            <button className="absolute lg:top-4 lg:right-18  w-9 h-9 flex items-center cursor-pointer  justify-center ">
-              <KorcomptenzImage src={platform?.icon} width={32} height={32} />
-            </button>
+            <Link href={platform?.link}>
+              <button className="absolute lg:top-4 lg:right-18  w-9 h-9 flex items-center cursor-pointer  justify-center ">
+                <KorcomptenzImage src={platform?.icon} width={32} height={32} />
+              </button>
+            </Link>
           ))}
 
           {/* Left Image */}

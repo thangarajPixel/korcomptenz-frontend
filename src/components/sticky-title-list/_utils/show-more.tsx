@@ -43,8 +43,8 @@ const ExpandableHtml = ({
           html={html}
           className={cn(
             className,
-            "[&>ul]:list-disc [&>ul]:pl-7",
-            "[&>ol]:list-decimal [&>ol]:pl-7"
+            "[&>ul]:list-disc [&>ul]:",
+            "[&>ol]:list-decimal [&>ol]:"
           )}
         />
       </div>
