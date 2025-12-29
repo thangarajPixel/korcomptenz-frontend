@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useFilterCaseStudyHook } from "@/services";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 type FilterType = "industries" | "businessOutcomes" | "region";
 
@@ -53,7 +54,10 @@ export function ClientSuccessFilter({
   onSortChange,
 }: FilterBarProps) {
   const { data } = useFilterCaseStudyHook({});
+  const pathname = usePathname();
+  const normalize = (str = "") => str.toLowerCase().replace(/\s+/g, "-");
 
+  const activeSlug = pathname?.split("/client-success/")[1];
   const [filter, setFilter] = React.useState<{
     industries: string[];
     businessOutcomes: string[];
@@ -104,10 +108,12 @@ export function ClientSuccessFilter({
                   : undefined
               }
             />
-            <DropdownMenuContent className="overflow-y-auto dropdown-items" align="start">
+            <DropdownMenuContent
+              className="overflow-y-auto dropdown-items"
+              align="start"
+            >
               <div className="p-4">
                 {!label.isMultiple ? (
-                  // ✅ Custom grid layout for designed dropdowns (e.g., Technology)
                   <div className="grid grid-cols-4 gap-3">
                     {data?.[label.filterKey]?.map((tech) => (
                       <Link
@@ -127,7 +133,15 @@ export function ClientSuccessFilter({
                             />
                           </span>
                         )}
-                        <span className="text-left truncate">{tech.label}</span>
+                        <span
+                          className={cn(
+                            "text-lg truncate",
+                            normalize(activeSlug) == tech.slug &&
+                              "text-primary "
+                          )}
+                        >
+                          {tech.label}
+                        </span>
                       </Link>
                     ))}
                   </div>
@@ -176,14 +190,14 @@ export function ClientSuccessFilter({
       </div>
 
       {/* Sort Dropdown */}
-      <DropdownMenu >
+      <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="gap-2 bg-transparent text-lg">
             {popularFilter?.label}
             <ChevronDown className="w-4 h-4 opacity-50" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" >
+        <DropdownMenuContent align="end">
           {popularFilter?.popularFilterList.map((item) => (
             <button
               key={`sort-${item.id}`}
