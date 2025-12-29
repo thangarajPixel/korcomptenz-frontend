@@ -341,7 +341,7 @@ body {
 
 .rich-text table,
 .rich-text .table {
-  @apply !w-full;
+  @apply !w-full overflow-x-auto;
 }
 .rich-text table {
   @apply shadow-2xl;

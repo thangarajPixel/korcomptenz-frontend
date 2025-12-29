@@ -35,8 +35,8 @@ export function AnimatedTabsHero({
         >
           <TabsList
             className={cn(
-              "relative lg:h-[80px] md:h-[60px] h-[44px] sm:h-16 grid max-w-5xl grid-cols-5 overflow-hidden rounded-2xl",
-              "bg-secondary p-0 shadow-none border-none !ml-0 flex w-full"
+              "relative lg:h-20 md:h-25 h-11 sm:h-16 grid max-w-5xl grid-cols-5 overflow-hidden rounded-2xl",
+              "bg-secondary p-0 shadow-none border-none ml-0! flex w-full"
             )}
           >
             {content?.map((t) => (
@@ -44,7 +44,7 @@ export function AnimatedTabsHero({
                 key={t?.label}
                 value={t?.label}
                 className={cn(
-                  "relative !cursor-pointer h-full z-10 text-white  rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-md sm:text-base font-semibold ",
+                  "relative cursor-pointer! h-full z-10 text-white  rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-md sm:text-base font-semibold ",
                   "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >

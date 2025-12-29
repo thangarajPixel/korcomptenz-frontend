@@ -9,7 +9,7 @@ export default function DemoPartnership({
 }) {
   return (
     <section className="container-md bg-foreground rounded-4xl p-8">
-      <h1 className="text-7xl  font-semibold  mb-12 text-balance text-center  text-white">
+      <h1 className=" text-5xl md:text-7xl  font-semibold  mb-12 text-balance text-center  text-white">
         {data?.title}
       </h1>
 
@@ -38,7 +38,7 @@ export default function DemoPartnership({
 
             <DangerousHtml
               html={badge?.description}
-              className="text-lg leading-relaxed font-normal justify-center text-white"
+              className="text-md md:text-lg leading-relaxed font-normal justify-center text-white"
             />
           </div>
         ))}

@@ -1,4 +1,3 @@
-import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { Button } from "../ui/button";
 import Link from "next/link";
