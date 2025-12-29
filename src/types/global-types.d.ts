@@ -103,6 +103,9 @@ type CompanyType = {
 type ServicesMenuProps = {
   id: string;
   title: string;
+  footerLink: {
+    slug: string;
+  };
   href?: {
     slug: string;
   };
