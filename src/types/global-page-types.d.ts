@@ -270,6 +270,7 @@ type DomainSectionType = {
     image: ImageType;
     type: string;
     buttonText: string;
+    link: string;
   }[];
 };
 type BenefitSectionType = {
