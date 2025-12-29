@@ -6,7 +6,7 @@ import PaginationSection from "@/components/pagination-section";
 import { INITIAL_PAGINATION } from "@/utils/helper";
 import { useParams } from "next/navigation";
 import InsightsSuccessBanner from "./insights-success-banner";
-import { CaseStudyCardSkeleton } from "../../client-success/_utils/case-study-skeleton";
+import { CaseStudyCardSkeleton } from "../../case-studies/_utils/case-study-skeleton";
 import { InsightsSuccessFilter } from "./insights-success-filter";
 import { InsightCard } from "./insights-card";
 

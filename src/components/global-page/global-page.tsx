@@ -25,7 +25,7 @@ import { GlobalForm } from "../global-form";
 import {
   ClientPartnership,
   ClientTestimonial,
-} from "@/app/(default)/client-success/_utils";
+} from "@/app/(default)/case-studies/_utils";
 import ContentShowcaseSection from "../content-showcase-section";
 import MapSection from "../map-section";
 import OurStory from "../our-story";
@@ -71,7 +71,6 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-  
 
   return data?.map((item, index) => {
     switch (item?.__component) {

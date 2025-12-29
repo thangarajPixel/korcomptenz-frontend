@@ -57,7 +57,7 @@ export function ClientSuccessFilter({
   const pathname = usePathname();
   const normalize = (str = "") => str.toLowerCase().replace(/\s+/g, "-");
 
-  const activeSlug = pathname?.split("/client-success/")[1];
+  const activeSlug = pathname?.split("/case-studies/")[1];
   const [filter, setFilter] = React.useState<{
     industries: string[];
     businessOutcomes: string[];
@@ -122,7 +122,7 @@ export function ClientSuccessFilter({
                     {data?.[label.filterKey]?.map((tech) => (
                       <Link
                         key={`${label.filterKey}-${tech.id}`}
-                        href={`/client-success/${tech.slug}`}
+                        href={`/case-studies/${tech.slug}`}
                         className={cn(
                           "flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors ",
                           label.isDesignedDropdown && "text-lg leading-6.5",

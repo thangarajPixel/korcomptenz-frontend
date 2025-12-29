@@ -1,7 +1,7 @@
 import React from "react";
 import CaseStudyBanner from "./case-study-banner";
 import CaseStudyContent from "./case-study-content";
-import { ClientTestimonial } from "@/app/(default)/client-success/_utils";
+
 import { CaseStudyForm } from "./case-study-contact";
 import { CaseStudyCard } from "@/components/case-study-section";
 import { cn } from "@/lib/utils";
@@ -9,6 +9,7 @@ import ButtonLink from "@/components/ui/button-link";
 import { ScrollFadeIn } from "@/components/ui/scroll-fade-in";
 
 import CaseStudyVideo from "./case-study-video";
+import { ClientTestimonial } from "@/app/(default)/case-studies/_utils";
 
 const CaseStudy = ({
   data,
