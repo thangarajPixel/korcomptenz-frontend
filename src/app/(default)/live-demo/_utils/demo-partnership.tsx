@@ -1,5 +1,6 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
+import { cn } from "@/lib/utils";
 
 export default function DemoPartnership({
   data,
@@ -13,7 +14,12 @@ export default function DemoPartnership({
       </h1>
 
       {/* Partner Badges Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 text-white">
+      <div
+        className={cn(
+          "grid grid-cols-1 sm:grid-cols-2  gap-8 mb-16 text-white",
+          data?.isTwoPerRow ? "lg:grid-cols-2" : "lg:grid-cols-3"
+        )}
+      >
         {data?.list?.map((badge) => (
           <div key={badge.id} className="flex flex-row-3 gap-4">
             <div className=" relative flex-shrink-0">

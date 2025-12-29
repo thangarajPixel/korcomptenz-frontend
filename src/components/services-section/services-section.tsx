@@ -85,17 +85,20 @@ export function AnimatedTabsHero({
             className="space-y-3 w-full flex flex-col-reverse lg:flex-row"
           >
             <div className="space-y-3  w-full lg:w-1/2  ">
-              <h5 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl mt-6 md:mt-0">
+              <h5 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl mt-12">
                 {activeContent?.heading}
               </h5>
               <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
                 {activeContent?.description}
               </p>
-              <Link href={activeContent?.link || "#"}>
-                <Button size="xl" arrow={true}>
-                  {activeContent?.buttonText}
-                </Button>
-              </Link>
+
+              {!activeContent?.isBottomButton && (
+                <Link href={activeContent?.link || "#"}>
+                  <Button size="xl" arrow={true}>
+                    {activeContent?.buttonText}
+                  </Button>
+                </Link>
+              )}
             </div>
             <div className="flex-1">
               <KorcomptenzImage
@@ -109,6 +112,20 @@ export function AnimatedTabsHero({
           </motion.div>
         </AnimatePresence>
       </div>
+      {activeContent?.isBottomButton && (
+        <div className="container-md flex justify-center mt-10 gap-10">
+          <Link href={activeContent?.bottomlink || "#"}>
+            <Button size="xl" arrow={true}>
+              {activeContent?.bottomButtonText}
+            </Button>
+          </Link>
+          <Link href={activeContent?.link || "#"}>
+            <Button size="xl" arrow={true}>
+              {activeContent?.buttonText}
+            </Button>
+          </Link>{" "}
+        </div>
+      )}
     </section>
   );
 }

@@ -60,17 +60,13 @@ export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
 
           {/* Left Image */}
           <div className="relative h-1/4 md:h-auto w-full md:w-1/4 p-2 flex-shrink-0">
-            {data?.image ? (
+            {data?.image && (
               <KorcomptenzImage
                 src={data.image}
                 width={1000}
                 height={1000}
                 className="object-contain md:object-cover  size-full"
               />
-            ) : (
-              <div className="h-full w-full bg-muted flex items-center justify-center text-muted-foreground">
-                No Image
-              </div>
             )}
           </div>
 
@@ -82,8 +78,11 @@ export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
                 <p className="text-foreground text-md">{data?.position}</p>
               </DialogTitle>
               <DialogDescription asChild className="">
-                <div className="text-[#333] text-base leading-relaxed space-y-4">
-                  <DangerousHtml html={data?.description} />
+                <div>
+                  <DangerousHtml
+                    html={data?.description}
+                    className="text-black text-base leading-relaxed space-y-4"
+                  />
                 </div>
               </DialogDescription>
             </DialogHeader>

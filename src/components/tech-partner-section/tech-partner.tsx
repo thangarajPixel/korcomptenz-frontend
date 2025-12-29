@@ -88,7 +88,7 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
                       {slide?.buttonText && (
                         <Button
                           arrow
-                          className="bg-secondary text-sm text-white flex justify-start items-center -ms-4"
+                          className="bg-secondary hover:bg-secondary/80 hover:text-white hover:border-secondary text-white flex justify-start items-center -ms-4"
                         >
                           {slide?.buttonText}
                         </Button>

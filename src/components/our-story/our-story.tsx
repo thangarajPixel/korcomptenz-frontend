@@ -6,7 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const OurStory = ({ data }: { data: OurStorySectionType }) => {
   const [activeYear, setActiveYear] = useState(2025);
+  
   // const activeData = TIMELINE_DATA.find((d) => d.year === activeYear) || TIMELINE_DATA[TIMELINE_DATA.length - 1]
+  const image = data?.list.find((item) => item.year === activeYear)?.image;
   return (
     <section
       data-debug="about-us.our-story-list"
@@ -52,8 +54,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
                     {/* Partner Badges */}
                     <div className="flex items-center gap-4 flex-wrap">
                       <KorcomptenzImage
-                        src="/assets/tempory/Group-33218.png"
-                        alt="Forrester"
+                        src={image}
                         width={1000}
                         height={1000}
                         className="w-60 h-auto object-contain"

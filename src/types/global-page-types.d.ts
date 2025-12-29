@@ -20,6 +20,9 @@ type ServicesSectionType = {
   image?: ImageType;
   link: string;
   buttonText: string;
+  isBottomButton?: boolean;
+  bottomButtonText?: string;
+  bottomlink?: string;
 };
 
 type InspireSectionType = {

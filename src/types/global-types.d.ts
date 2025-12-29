@@ -343,6 +343,7 @@ type DemoPartnershipSectionType = {
   id: string;
   title: string;
   description: string;
+  isTwoPerRow: boolean;
   list: PartnerType[];
 };
 

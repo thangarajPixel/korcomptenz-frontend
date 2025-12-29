@@ -22,7 +22,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
             {data?.title}
           </h5>
           {data?.description && (
-            <p className="text-lg font-normal text-foreground leading-6 whitespace-pre-wrap">
+            <p className="text-lg font-normal text-foreground leading-6 whitespace-pre-wrap line-clamp-2">
               {data?.description}
             </p>
           )}
