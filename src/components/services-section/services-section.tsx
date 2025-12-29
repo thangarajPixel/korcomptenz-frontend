@@ -48,7 +48,14 @@ export function AnimatedTabsHero({
                   "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50 text-xs md:text-5xl truncate md:whitespace-normal block md:inline-block max-w-[5ch] md:max-w-none leading-normal">
+                <span
+                  className={cn(
+                    "z-50 text-xs md:text-5xl truncate block md:inline-block max-w-[5ch] md:max-w-none leading-normal",
+                    activeContent?.label === t.label
+                      ? "block text-xs md:text-5xl whitespace-normal max-w-none"
+                      : "block text-xs md:text-5xl truncate max-w-[5ch]"
+                  )}
+                >
                   {t?.label}
                 </span>
 

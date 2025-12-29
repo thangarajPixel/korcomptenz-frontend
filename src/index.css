@@ -382,6 +382,7 @@ h2.elementor-heading-title,
   line-height: 26px;
   font-weight: 600;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .elementor-heading-title {
@@ -424,7 +425,7 @@ h6.elementor-heading-title,
   line-height: 26px;
 }
 .blog-section ul {
-  padding-left: 0px;
+  padding-left: 18px;
 }
 .blog-section .elementor-toggle-item {
   background: #ededed;

@@ -104,7 +104,11 @@ export function ClientSuccessFilter({
               label={label.label}
               count={
                 label.isMultiple
-                  ? filter?.[label?.filterKey as FilterType]?.length ?? 0
+                  ? filter?.[label.filterKey as FilterType]?.length ?? 0
+                  : data?.[label.filterKey]?.some(
+                      (item) => normalize(item.slug) === activeSlug
+                    )
+                  ? 1
                   : undefined
               }
             />
@@ -114,14 +118,17 @@ export function ClientSuccessFilter({
             >
               <div className="p-4">
                 {!label.isMultiple ? (
-                  <div className="grid grid-cols-4 gap-3">
+                  <div className={cn("grid grid-cols-4 gap-3")}>
                     {data?.[label.filterKey]?.map((tech) => (
                       <Link
                         key={`${label.filterKey}-${tech.id}`}
                         href={`/client-success/${tech.slug}`}
                         className={cn(
-                          "flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors",
-                          label.isDesignedDropdown && "text-lg leading-6.5"
+                          "flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors ",
+                          label.isDesignedDropdown && "text-lg leading-6.5",
+                          "text-lg truncate",
+                          normalize(activeSlug) == tech.slug &&
+                            "text-white bg-primary p-2 hover:bg-primary"
                         )}
                       >
                         {label.isDesignedDropdown && (
@@ -137,7 +144,7 @@ export function ClientSuccessFilter({
                           className={cn(
                             "text-lg truncate",
                             normalize(activeSlug) == tech.slug &&
-                              "text-primary "
+                              "text-white bg-primary "
                           )}
                         >
                           {tech.label}

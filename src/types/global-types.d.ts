@@ -105,6 +105,7 @@ type ServicesMenuProps = {
   title: string;
   footerLink: {
     slug: string;
+    pageTitle: string;
   };
   href?: {
     slug: string;

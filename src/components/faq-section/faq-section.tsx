@@ -27,7 +27,7 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
           <AccordionItem
             key={`faq-item-${item?.id}`}
             value={`item-${item?.id}`}
-            className={`rounded-2xl p-2 md:p-3 my-3 data-[state=open]:bg-light-gray bg-custom-gray-8`}
+            className={`rounded-2xl p-2 md:px-5 my-3 data-[state=open]:bg-light-gray bg-custom-gray-8`}
           >
             <AccordionTrigger
               className="cursor-pointer text-lg md:text-4xl font-semibold w-full text-left flex justify-between items-start text-foreground leading-7 md:leading-9"

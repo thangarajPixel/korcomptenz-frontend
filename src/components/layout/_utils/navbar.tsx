@@ -64,6 +64,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                   <Link
                     key={`nav-item-${item?.label}`}
                     href={item?.href || "#"}
+                    onClick={() => setActiveSection("")}
                     className={cn(
                       `cursor-pointer font-medium transition-all duration-300 ease-out hover:text-primary  relative group/nav 
       after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all 
