@@ -1,4 +1,4 @@
-import GlobalPage from "@/components/global-page";
+// import GlobalPage from "@/components/global-page";
 import { cn } from "@/lib/utils";
 import { getHomeService } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
@@ -16,10 +16,10 @@ export async function generateMetadata() {
   }
 }
 export default async function Home() {
-  const data = await getHomeServiceCache();
+  // const data = await getHomeServiceCache();
   return (
     <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
-      <GlobalPage data={data?.list} />
+      {/* <GlobalPage data={data?.list} /> */}
     </div>
   );
 }
