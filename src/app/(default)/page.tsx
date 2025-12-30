@@ -1,12 +1,12 @@
 // import GlobalPage from "@/components/global-page";
 import { cn } from "@/lib/utils";
-// import { getHomeService } from "@/services";
+import { getHomeService } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
-// import { cache } from "react";
+import { cache } from "react";
 
 export const dynamic = "force-dynamic";
 
-// const getHomeServiceCache = cache(getHomeService);
+const getHomeServiceCache = cache(getHomeService);
 
 // export async function generateMetadata() {
 //   const data = await getHomeServiceCache();
@@ -16,12 +16,23 @@ export const dynamic = "force-dynamic";
 //   }
 // }
 export default async function Home() {
-  // const data = await getHomeServiceCache();
-  return (
-    <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
-      {/* <GlobalPage data={data?.list} /> */}
-      jj
-    </div>
-  );
+  try {
+    const data = await getHomeServiceCache();
+    return (
+      <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
+        {/* <GlobalPage data={data?.list} /> */}
+        {JSON.stringify(data)}
+      </div>
+    );
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+    return (
+      <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
+        {/* <GlobalPage data={data?.list} /> */}
+        {JSON.stringify(error)}
+      </div>
+    );
+  }
 }
 
