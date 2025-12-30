@@ -1,10 +1,11 @@
+"use client";
 // import GlobalPage from "@/components/global-page";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import { getHomeService } from "@/services";
-import { APP_CONFIG } from "@/utils/app-config";
-import { cache } from "react";
+// import { APP_CONFIG } from "@/utils/app-config";
+import { cache, useEffect } from "react";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 const getHomeServiceCache = cache(getHomeService);
 
@@ -15,26 +16,14 @@ const getHomeServiceCache = cache(getHomeService);
 //     description: data?.seo?.description || "",
 //   }
 // }
-export default async function Home() {
-  try {
-    const data = await getHomeServiceCache();
-    return (
-      <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
-        {/* <GlobalPage data={data?.list} /> */}
-        {JSON.stringify(data)}
-        success
-      </div>
-    );
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error);
-    return (
-      <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
-        {/* <GlobalPage data={data?.list} /> */}
-        {JSON.stringify(error)}
-        error
-      </div>
-    );
-  }
+export default function Home() {
+  useEffect(() => {
+    getHomeServiceCache();
+  }, []);
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  )
 }
 
