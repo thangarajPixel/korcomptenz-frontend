@@ -51,7 +51,7 @@ export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
         >
           {/* Close Button (floating, top-right) */}
           {data?.socialPlatform?.map((platform) => (
-            <Link href={platform?.link}>
+            <Link href={platform?.link} target="blank">
               <button className="absolute lg:top-4 lg:right-18  w-9 h-9 flex items-center cursor-pointer  justify-center ">
                 <KorcomptenzImage src={platform?.icon} width={32} height={32} />
               </button>
