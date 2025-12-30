@@ -11,6 +11,16 @@ type Props = {
 };
 
 const getBlogPageCache = cache(getBlogPage);
+export async function generateMetadata({
+  params,
+}: Props) {
+  const { id } = await params;
+  const data = await getBlogPageCache({ id })
+  return {
+    title: data?.seo?.title || id,
+    description: data?.seo?.description || "",
+  }
+}
 
 const Page = async ({ params }: Props) => {
   const { id } = await params;
@@ -19,7 +29,7 @@ const Page = async ({ params }: Props) => {
     getBlogPageCache({ id }),
     getInsightPage(),
   ]);
- 
+
   return (
     <div className="flex flex-col gap-16">
       <BlogBannerSection

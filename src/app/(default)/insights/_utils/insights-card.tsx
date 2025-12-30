@@ -14,7 +14,8 @@ export function InsightCard({ data }: { data: CaseStudyData }) {
       case "podcast":
         return `/podcast/${data?.slug}`;
       case "file":
-        return data?.attachment?.url;
+        // return data?.attachment?.url;
+        return `/whitepaper/${data?.slug}`;
       case "web-stories":
         return `/webstories/${data?.slug}`;
       case "post-webinar":

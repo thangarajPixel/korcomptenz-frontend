@@ -540,6 +540,7 @@ type PricingPlanType = {
 type InsightBlog = InsightResponse;
 
 type InsightResponse = {
+  seo: SEO;
   insight: InsightItem;
   content: string;
   id: string;
@@ -547,7 +548,7 @@ type InsightResponse = {
   previousInsight: InsightItem | null;
   nextInsight: InsightItem | null;
   relatedInsight: InsightItem[];
-
+  attachment: ImageType;
   category: {
     label: string;
   };
