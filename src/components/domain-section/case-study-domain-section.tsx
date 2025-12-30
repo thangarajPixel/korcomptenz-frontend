@@ -20,8 +20,10 @@ const CaseStudyDomainSection = ({
       title: item.title || item.heroSection.title,
       description: item.heroSection.description,
       buttonText: item.heroSection.buttonText,
+      isTargetBlank: domainData.isTargetBlank,
     })),
     link: domainData.link,
+    isTargetBlank: domainData.isTargetBlank,
     buttonText: domainData.buttonText,
     description: "",
   };

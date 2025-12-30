@@ -61,6 +61,8 @@ type CaseStudyStickyCardsType = {
   title: string;
   buttonText: string;
   link: string;
+  isTargetBlank: boolean;
+
   list: {
     id: string;
     heroSection: {
