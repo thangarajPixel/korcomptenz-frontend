@@ -22,6 +22,7 @@ export default async function Home() {
       <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
         {/* <GlobalPage data={data?.list} /> */}
         {JSON.stringify(data)}
+        success
       </div>
     );
   } catch (error) {
@@ -31,6 +32,7 @@ export default async function Home() {
       <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
         {/* <GlobalPage data={data?.list} /> */}
         {JSON.stringify(error)}
+        error
       </div>
     );
   }
