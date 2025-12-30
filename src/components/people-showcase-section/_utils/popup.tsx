@@ -20,14 +20,16 @@ export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
   return (
     <>
       {/* Trigger Button */}
-      <Button
-        variant="ghost"
-        arrow
-        onClick={handleOpen}
-        className="mb-8 ml-8 text-primary hover:text-primary justify-start hover:bg-transparent p-[-2px]"
-      >
-        {data?.buttonText}
-      </Button>
+      {data?.buttonText && (
+        <Button
+          variant="ghost"
+          arrow
+          onClick={handleOpen}
+          className="mb-8 ml-8 text-primary hover:text-primary justify-start hover:bg-transparent p-[-2px]"
+        >
+          {data?.buttonText}
+        </Button>
+      )}
 
       {/* Controlled Dialog */}
       <Dialog open={open} onOpenChange={setOpen}>

@@ -17,7 +17,7 @@ export default function ClientPartnership({
       {/* Partner Badges Grid */}
       <div
         className={cn(
-          "grid grid-cols-1 md:grid-cols-5  gap-5 ",
+          "grid grid-cols-1   gap-5 ",
           data?.isPerRowFive ? "md:grid-cols-5" : "md:grid-cols-3"
         )}
       >

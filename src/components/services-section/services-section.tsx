@@ -120,17 +120,18 @@ export function AnimatedTabsHero({
         </AnimatePresence>
       </div>
       {activeContent?.isBottomButton && (
-        <div className="container-md flex justify-center mt-10 gap-10">
+        <div className="container-md flex flex-col md:flex-row justify-center items-center mt-10 gap-10">
           <Link href={activeContent?.bottomlink || "#"}>
-            <Button size="xl" arrow={true}>
+            <Button size="xl" arrow>
               {activeContent?.bottomButtonText}
             </Button>
           </Link>
+
           <Link href={activeContent?.link || "#"}>
-            <Button size="xl" arrow={true}>
+            <Button size="xl" arrow>
               {activeContent?.buttonText}
             </Button>
-          </Link>{" "}
+          </Link>
         </div>
       )}
     </section>

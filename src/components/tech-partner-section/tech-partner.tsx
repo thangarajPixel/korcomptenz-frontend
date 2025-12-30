@@ -25,7 +25,7 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
   return (
     <section
       data-debug="page-componets.tech-data"
-      className="container-md my-10"
+      className="md:container-md my-10"
     >
       <div className="bg-secondary rounded-none lg:rounded-4xl grid grid-cols-12">
         {/* Content */}
@@ -104,7 +104,7 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
         {/* Images */}
         <div className="col-span-12 lg:col-span-4 h-full">
           {/* Mobile */}
-          <div className="lg:hidden h-full">
+          <div className="lg:hidden h-full rounded-4xl">
             <KorcomptenzImage
               src={mobileimage}
               alt={alt}
@@ -114,13 +114,13 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
             />
           </div>
           {/* Desktop */}
-          <div className="hidden lg:block h-full">
+          <div className="hidden lg:block h-full rounded-r-4xl">
             <KorcomptenzImage
               src={image}
               alt={alt}
               width={500}
               height={500}
-              className="object-cover h-full w-full"
+              className="object-cover h-full w-full  rounded-r-4xl"
             />
           </div>
         </div>

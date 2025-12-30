@@ -153,46 +153,52 @@ export default function DocumentationLayout({
         </main>
       </div>
 
-      <div className="flex justify-between mt-24 px-2 w-full">
-        {/* LEFT — PREVIOUS */}
-        {data?.previousInsight ? (
-          <Link href={`/blog/${data?.previousInsight?.slug}`}>
-            <div className="flex gap-2 items-center justify-end text-end">
-              <ChevronLeft
-                size={20}
-                className="text-white bg-primary p-2 rounded-full w-12 h-12 flex items-center justify-center transition-all hover:bg-white hover:text-primary hover:border hover:border-primary"
-              />
-              <div className="flex flex-col">
-                <p className="text-lg font-semibold text-foreground">
-                  {data?.previousInsight?.title}
-                </p>
-                <p className="text-md text-foreground text-start">Previous</p>
-              </div>
-            </div>
-          </Link>
-        ) : (
-          <div className="w-[200px]"></div>
-        )}
+      <div className="mt-24 w-full ">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:justify-between">
+          {/* PREVIOUS */}
+          <div className="md:w-[45%] w-full">
+            {data?.previousInsight ? (
+              <Link href={`/blog/${data?.previousInsight?.slug}`}>
+                <div className="flex items-center gap-4">
+                  <ChevronLeft
+                    size={20}
+                    className="h-12 w-12 rounded-full bg-primary p-2 text-white transition-all hover:border hover:border-primary hover:bg-white hover:text-primary"
+                  />
+                  <div className="flex flex-col">
+                    <p className="line-clamp-2 max-w-[320px] text-lg font-semibold text-foreground">
+                      {data?.previousInsight?.title}
+                    </p>
+                    <p className="text-sm text-muted-foreground">Previous</p>
+                  </div>
+                </div>
+              </Link>
+            ) : (
+              <div className="h-12" />
+            )}
+          </div>
 
-        {/* RIGHT — NEXT */}
-        {data?.nextInsight ? (
-          <Link href={`/blog/${data?.nextInsight?.slug}`}>
-            <div className="flex gap-2 items-center justify-end text-end">
-              <div className="flex flex-col items-end text-end">
-                <p className="text-lg font-semibold text-foreground">
-                  {data?.nextInsight?.title}
-                </p>
-                <p className="text-md text-foreground">Next</p>
-              </div>
-              <ChevronRight
-                size={20}
-                className="text-white bg-primary p-2 rounded-full w-12 h-12 flex items-center justify-center transition-all hover:bg-white hover:text-primary hover:border hover:border-primary"
-              />
-            </div>
-          </Link>
-        ) : (
-          <div className="w-[200px]"></div>
-        )}
+          {/* NEXT */}
+          <div className="md:w-[45%] w-full text-right">
+            {data?.nextInsight ? (
+              <Link href={`/blog/${data?.nextInsight?.slug}`}>
+                <div className="flex items-center justify-end gap-4">
+                  <div className="flex flex-col items-end">
+                    <p className="line-clamp-2 max-w-[320px] text-lg font-semibold text-foreground">
+                      {data?.nextInsight?.title}
+                    </p>
+                    <p className="text-sm text-muted-foreground">Next</p>
+                  </div>
+                  <ChevronRight
+                    size={20}
+                    className="h-12 w-12 rounded-full bg-primary p-2 text-white transition-all hover:border hover:border-primary hover:bg-white hover:text-primary"
+                  />
+                </div>
+              </Link>
+            ) : (
+              <div className="h-12" />
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

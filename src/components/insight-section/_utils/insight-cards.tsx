@@ -15,13 +15,22 @@ interface InsightCardType {
   category?: string;
   link?: string;
   buttonText?: string;
+  isTargetBlank?: boolean;
 }
 
 export function InsightCard(props: InsightCardType) {
-  const { title, image, description, className, category, buttonText } = props;
+  const {
+    title,
+    image,
+    description,
+    className,
+    category,
+    buttonText,
+    isTargetBlank,
+  } = props;
 
   return (
-    <Link href={props?.link || "#"}>
+    <Link href={props?.link || "#"} target={isTargetBlank ? "_blank" : "_self"}>
       <motion.article
         className={cn(
           "group relative bg-card p-3   transition-colors",

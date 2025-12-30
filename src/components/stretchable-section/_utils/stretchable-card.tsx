@@ -44,7 +44,10 @@ const StretchableSectionCard = ({
           />
         </div>
         <div className="z-10">
-          <Link href={data?.link || "#"}>
+          <Link
+            href={data?.link || "#"}
+            target={data?.isTargetBlank ? "true" : "false"}
+          >
             <Button size="xl" arrow={true}>
               {data?.buttonText}
             </Button>

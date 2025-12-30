@@ -13,6 +13,7 @@ const TechCard = ({
     description: string;
     link: string;
     buttonText: string;
+    isTargetBlank: boolean;
   };
   className?: string;
 }) => {
@@ -27,7 +28,10 @@ const TechCard = ({
         </p>
 
         {data?.buttonText && (
-          <Link href={data?.link || "#"}>
+          <Link
+            href={data?.link || "#"}
+            target={data?.isTargetBlank ? "_blank" : "_self"}
+          >
             <Button
               arrow
               className="bg-secondary hover:bg-secondary/80 hover:text-white hover:border-secondary text-white flex justify-start items-center -ms-4"

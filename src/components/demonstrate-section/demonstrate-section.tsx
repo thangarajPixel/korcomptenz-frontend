@@ -59,12 +59,12 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                   />
                 </div>
                 <div>
-                  <p className="lg:text-5xl text-4xl font-semibold text-foreground leading-9 group-hover:text-primary">
+                  <p className="lg:text-5xl text-4xl font-semibold text-foreground leading-9 group-hover:text-primary line-clamp-2">
                     {card?.title}
                   </p>
                 </div>
 
-                <p className="text-lg font-normal text-foreground leading-6 break-words">
+                <p className="text-lg font-normal text-foreground leading-6 break-words line-clamp-2">
                   {card?.description}
                 </p>
                 {card?.buttonText && (
@@ -79,6 +79,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
         </div>
         <ButtonLink
           link={data?.link || "#"}
+          isTargetNew={data?.isTargetBlank}
           buttonProps={{
             size: "xl",
             arrow: true,

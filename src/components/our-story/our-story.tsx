@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const OurStory = ({ data }: { data: OurStorySectionType }) => {
   const [activeYear, setActiveYear] = useState(2025);
-  
+
   // const activeData = TIMELINE_DATA.find((d) => d.year === activeYear) || TIMELINE_DATA[TIMELINE_DATA.length - 1]
   const image = data?.list.find((item) => item.year === activeYear)?.image;
   return (
@@ -52,7 +52,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
                     transition={{ duration: 0.3, ease: [0.22, 0.36, 0.22, 1] }}
                   >
                     {/* Partner Badges */}
-                    <div className="flex items-center gap-4 flex-wrap">
+                    <div className="flex items-center gap-4 flex-wrap mb-5">
                       <KorcomptenzImage
                         src={image}
                         width={1000}

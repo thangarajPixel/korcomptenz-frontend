@@ -24,7 +24,8 @@ const ContentShowcaseCard = ({ list }: { list: ShowCaseCardType }) => {
               link={list?.buttonLink || `/blog/${list?.slug}`}
               buttonProps={{
                 variant: "ghost",
-                className: "text-primary hover:text-primary/80",
+                className:
+                  "text-primary hover:text-primary hover:bg-transparent p-0",
                 arrow: true,
               }}
             >

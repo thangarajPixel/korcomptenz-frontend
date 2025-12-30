@@ -304,6 +304,7 @@ type DemonstrationSectionType = {
   buttonText: string;
   link: string;
   description: string;
+  isTargetBlank: boolean;
 
   list: {
     id: string;
@@ -315,6 +316,7 @@ type DemonstrationSectionType = {
     description: string;
     buttonText: string;
     buttonLink: string;
+    isTargetBlank: boolean;
   }[];
 };
 type BuildConnectSectionType = {
@@ -382,6 +384,7 @@ type TechPartnerSectionType = {
     description: string;
     buttonText: string;
     link: string;
+    isTargetBlank: boolean;
   }[];
 };
 type ScheduleCallType = {
@@ -443,6 +446,7 @@ type StretchableSectionType = {
     image: ImageType;
     buttonText: string;
     link: string;
+    isTargetBlank: boolean;
   }[];
 };
 type GramBannerType = {
