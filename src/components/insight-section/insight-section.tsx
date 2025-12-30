@@ -11,14 +11,16 @@ export default function InsightsSection({
 }: {
   insights: InsightsSectionType;
 }) {
- 
   return (
-    <section data-debug={"page-componets.insights-section"}>
+    <section
+      data-debug={"page-componets.insights-section"}
+      className="font-sans"
+    >
       {insights?.title && (
         <SplitDivider>
           <motion.h2
             id="insights-heading"
-            className="text-pretty lg:text-9xl text-6xl font-semibold text-gray-900 break-words md:text-7xl "
+            className="text-pretty lg:text-9xl text-6xl font-semibold text-gray-900 break-words md:text-7xl  "
           >
             {insights?.title}
           </motion.h2>

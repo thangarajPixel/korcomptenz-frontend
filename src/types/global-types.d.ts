@@ -335,6 +335,7 @@ type PartnerType = {
   name: string;
   description: string;
   logo: ImageType;
+  link: string;
 };
 type PartnershipSectionType = {
   id: string;
