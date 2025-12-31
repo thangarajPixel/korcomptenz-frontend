@@ -1,5 +1,6 @@
 import React from "react";
-import ClientSuccessPage from "../_utils/client-success-page";
+import ClientSuccessPage from "../../case-studies/_utils/client-success-page";
+
 
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
