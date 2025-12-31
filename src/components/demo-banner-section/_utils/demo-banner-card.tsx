@@ -88,11 +88,7 @@ const DemoBannerCard = ({
             </p>
             {item?.bannerInfo?.details.map((detail, index) => (
               <div className="flex gap-2" key={index}>
-                <KorcomptenzImage
-                  src={detail?.icon}
-                  width={detail?.icon?.width}
-                  height={detail?.icon?.height}
-                />
+                <KorcomptenzImage src={detail?.icon} width={45} height={45} />
                 <p
                   key={index}
                   className="text-white text-xl font-semibold mt-2"

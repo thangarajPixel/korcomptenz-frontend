@@ -28,6 +28,7 @@ const CaseStudy = ({
             study: data?.case_industries
               .map((industry) => industry.label)
               .join(", "),
+            rightSection: data?.rightSection,
           }}
           essential={essential}
         />

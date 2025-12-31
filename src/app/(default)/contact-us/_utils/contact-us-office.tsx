@@ -3,7 +3,11 @@ import React from "react";
 
 const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
   return (
-    <section data-debug={'contact-us.our-office'} className="container-md ">
+    <section
+      data-debug={"contact-us.our-office"}
+      className="container-md "
+      id="our-office"
+    >
       <div className="rounded-2xl  py-10 px-5  bg-custom-gray-6">
         {/* Header */}
         <div className="mb-5">

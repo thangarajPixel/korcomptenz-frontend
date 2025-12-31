@@ -18,7 +18,7 @@ type FormErrors = {
 };
 export const INITIAL_PAGINATION: PaginationType = {
   page: 1,
-  pageSize: 10,
+  pageSize: 12,
   pageCount: 1,
   total: 0,
 };
@@ -173,7 +173,6 @@ export async function downloadFile(
   window.URL.revokeObjectURL(url);
 }
 export const formatRange = (dateString: string) => {
-
   const base = dayjs.utc(dateString); // input is UTC
 
   const makeRange = (tz: string) => {

@@ -239,6 +239,19 @@ type CaseStudyHeroSection = {
   image: ImageType;
   buttonText: string;
   study: string;
+  rightSection: {
+    id: string;
+    title: string;
+    descripitionKey: "region" | "service" | "technology" | "industry";
+    icon: ImageType;
+    isCustomDescripition: boolean;
+    descripition?: string;
+    isPreTitle: boolean;
+    preTitle: {
+      icon: ImageType;
+      title: string;
+    };
+  }[];
 };
 
 type CaseStudyTestimonial = {
