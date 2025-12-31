@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { motion } from "motion/react";
 
-export function InsightCard({ data }: { data: CaseStudyData }) {
+export function InsightCard({ data }: { data: CaseStudyData & { category?: { slug: string } } }) {
+
   const getLink = React.useCallback(() => {
     switch (data?.content) {
       case "blog":
@@ -15,7 +16,7 @@ export function InsightCard({ data }: { data: CaseStudyData }) {
         return `/podcast/${data?.slug}`;
       case "file":
         // return data?.attachment?.url;
-        return `/whitepaper/${data?.slug}`;
+        return `/${data?.category?.slug}/${data?.slug}`;
       case "web-stories":
         return `/webstories/${data?.slug}`;
       case "post-webinar":

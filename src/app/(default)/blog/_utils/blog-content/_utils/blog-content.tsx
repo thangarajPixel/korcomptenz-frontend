@@ -88,7 +88,7 @@ export default function DocumentationLayout({
             {/* IMAGE FIXED TO RIGHT-BOTTOM */}
             <div className="mt-auto flex justify-end pt-4 ">
               <KorcomptenzImage
-                src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/thumbnail_a192026447cc8bbb85fe76258661cb3a6f90d37c_36efa177de.png?updatedAt=2025-12-08T11%3A16%3A55.521Z"
+                src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/thumbnail_a192026447cc8bbb85fe76258661cb3a6f90d37c_36efa177de.png?updatedAt=2025-12-08T11%3A16%3A55.521Z"
                 width={120}
                 height={120}
               />

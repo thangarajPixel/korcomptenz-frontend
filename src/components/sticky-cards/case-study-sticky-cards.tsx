@@ -15,7 +15,7 @@ export default function CaseStudyStickyCards({
       title: item.title || item.heroSection.title,
       description: item.heroSection.description,
       buttonText: item.heroSection?.buttonText,
-      link: `/case-study/${item.slug}`,
+      link: `/case-studies/${item.slug}`,
       image: item.heroSection.image,
     })),
   };

@@ -57,7 +57,7 @@ export function ClientSuccessFilter({
   const pathname = usePathname();
   const normalize = (str = "") => str.toLowerCase().replace(/\s+/g, "-");
 
-  const activeSlug = pathname?.split("/case-studies/")[1];
+  const activeSlug = pathname?.split("/case-study/")[1];
   const [filter, setFilter] = React.useState<{
     industries: string[];
     businessOutcomes: string[];
@@ -106,10 +106,10 @@ export function ClientSuccessFilter({
                 label.isMultiple
                   ? filter?.[label.filterKey as FilterType]?.length ?? 0
                   : data?.[label.filterKey]?.some(
-                      (item) => normalize(item.slug) === activeSlug
-                    )
-                  ? 1
-                  : undefined
+                    (item) => normalize(item.slug) === activeSlug
+                  )
+                    ? 1
+                    : undefined
               }
             />
             <DropdownMenuContent
@@ -122,13 +122,13 @@ export function ClientSuccessFilter({
                     {data?.[label.filterKey]?.map((tech) => (
                       <Link
                         key={`${label.filterKey}-${tech.id}`}
-                        href={`/case-studies/${tech.slug}`}
+                        href={`/case-stud/${tech.slug}`}
                         className={cn(
                           "flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors ",
                           label.isDesignedDropdown && "text-lg leading-6.5",
                           "text-lg truncate",
                           normalize(activeSlug) == tech.slug &&
-                            "text-white bg-primary p-2 hover:bg-primary"
+                          "text-white bg-primary p-2 hover:bg-primary"
                         )}
                       >
                         {label.isDesignedDropdown && (
@@ -144,7 +144,7 @@ export function ClientSuccessFilter({
                           className={cn(
                             "text-lg truncate",
                             normalize(activeSlug) == tech.slug &&
-                              "text-white bg-primary "
+                            "text-white bg-primary "
                           )}
                         >
                           {tech.label}

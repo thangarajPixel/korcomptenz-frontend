@@ -54,7 +54,7 @@ const ScheduleCall = ({
           </div>
           <div className="flex items-center justify-end space-x-2 lg:mt-10">
             <KorcomptenzImage
-              src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/lets_drive_fdc0c33e0c.png"
+              src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/lets_drive_fdc0c33e0c.png"
               alt="drive"
               className="w-50 lg:w-137.5 h-auto rounded-2xl"
               width={1112}

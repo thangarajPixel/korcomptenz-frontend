@@ -35,7 +35,7 @@ export default function ClientTestimonial({
     <Card className="container-md mb-5 relative bg-[#C9F5FF]">
       <div className="absolute inset-0 flex justify-end pointer-events-none">
         <KorcomptenzImage
-          src="https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/mask_group_f6a2b0c60c.png"
+          src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/mask_group_f6a2b0c60c.png"
           fill
           className="object-contain object-right opacity-30"
         />

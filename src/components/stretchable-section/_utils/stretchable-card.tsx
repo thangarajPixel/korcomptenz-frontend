@@ -14,7 +14,7 @@ const StretchableSectionCard = ({
 }) => {
   const { ...rest } = props;
   const backgroundImage =
-    "https://aue2kormlworkspacetest01.blob.core.windows.net/pixelteam-datastorage/lets_drive_fdc0c33e0c.png";
+    "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/lets_drive_fdc0c33e0c.png";
 
   return (
     <div
