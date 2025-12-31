@@ -36,6 +36,7 @@ type GlobalFieldType = {
   subtitle2?: string;
   secondaryDescription?: string;
   mainImage?: ImageType;
+  isVideo?:Boolean;
   position?: "corner" | "main" | "side";
 };
 type PaginationType = {

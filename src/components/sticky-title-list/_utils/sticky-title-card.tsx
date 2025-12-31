@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "@/components/korcomptenz-image";
@@ -5,6 +7,7 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import ExpandableHtml from "./show-more";
+import { VideoPopup } from "@/components/video-popup";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
   const {
@@ -15,8 +18,15 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
     logo,
     secondaryDescription,
     position = "corner",
+    isVideo,
   } = data;
-
+  const [isVideoOpen, setIsVideoOpen] = React.useState<{
+    open: boolean;
+    link: string | null;
+  }>({
+    open: false,
+    link: null,
+  });
   return (
     <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px]">
       {/* Content */}
@@ -80,6 +90,11 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               <Button
                 size="xl"
                 // className="flex w-[150px] md:w-[200px] mb-10 mr-4 lg:mb-0"
+                onClick={() => {
+                  if (isVideo) {
+                    setIsVideoOpen({ link: data?.link||"#", open: true });
+                  }
+                }}
                 arrow={true}
               >
                 {buttonText}
@@ -126,6 +141,13 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           </div>
         </div>
       )}
+      <VideoPopup
+        isOpen={isVideoOpen.open}
+        onClose={() => {
+          setIsVideoOpen({ link: null, open: false });
+        }}
+        videoSrc={data.link || ""}
+      />
     </div>
   );
 };
