@@ -122,7 +122,7 @@ export function ClientSuccessFilter({
                     {data?.[label.filterKey]?.map((tech) => (
                       <Link
                         key={`${label.filterKey}-${tech.id}`}
-                        href={`/case-stud/${tech.slug}`}
+                        href={`/case-study/${tech.slug}`}
                         className={cn(
                           "flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors ",
                           label.isDesignedDropdown && "text-lg leading-6.5",
