@@ -10,10 +10,11 @@ const getCareerCache = cache(getCareer);
 
 export async function generateMetadata() {
   const data = await getCareerCache();
+  
   return {
     title: data?.seo?.title || "Career",
     description: data?.seo?.description || "",
-  }
+  };
 }
 
 export default async function CareerPage() {

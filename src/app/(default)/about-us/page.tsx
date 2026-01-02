@@ -10,10 +10,11 @@ const getAboutUsCache = cache(getAboutUs);
 
 export async function generateMetadata() {
   const data = await getAboutUsCache();
+
   return {
     title: data?.seo?.title || "About us",
     description: data?.seo?.description || "",
-  }
+  };
 }
 
 export default async function AboutUsPage() {

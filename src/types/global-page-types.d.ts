@@ -525,6 +525,7 @@ type MapSectionType = {
   id: string;
   title: string;
   list: MapDataType[];
+  buttonLink: string;
 };
 type OurStorySectionType = {
   id: string;
@@ -1135,6 +1136,10 @@ type LayoutType = {
 
 type CaseStudiesPageType = {
   id: string;
+  seo: {
+    title: string;
+    description: string;
+  };
   banner: ClientSuccessBannerSectionType;
   customerSection: CustomerSectionType;
   filterLabel: FilterLabelType[];

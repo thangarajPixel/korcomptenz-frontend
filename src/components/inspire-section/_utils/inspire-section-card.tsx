@@ -32,7 +32,7 @@ const InspireSectionCard: React.FC<{ card: InspireCardType }> = ({ card }) => {
         height={500}
         className={cn(
           "h-auto rounded-lg ",
-          card.position === "bottom" ? "w-full" : ""
+          card.position === "bottom" ? "w-full object-contain" : ""
         )}
       />
     );

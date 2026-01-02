@@ -10,10 +10,11 @@ const getHomeServiceCache = cache(getHomeService);
 
 export async function generateMetadata() {
   const data = await getHomeServiceCache();
+
   return {
     title: data?.seo?.title || "Home",
     description: data?.seo?.description || "",
-  }
+  };
 }
 export default async function Home() {
   const data = await getHomeServiceCache();
@@ -23,4 +24,3 @@ export default async function Home() {
     </div>
   );
 }
-

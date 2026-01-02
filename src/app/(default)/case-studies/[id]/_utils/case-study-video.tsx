@@ -22,13 +22,16 @@ const CaseStudyVideo = ({
     "
     >
       <div className="max-w-5xl mx-auto">
-        <KorcomptenzImage
-          src={data?.thumbnail}
-          width={1000}
-          height={500}
-          className="object-cover cursor-pointer rounded-3xl"
-          onClick={() => setIsVideoOpen({ link: data.link, open: true })}
-        />
+        {data?.thumbnail && (
+          <KorcomptenzImage
+            src={data?.thumbnail}
+            width={1000}
+            height={500}
+            className="object-cover cursor-pointer rounded-3xl"
+            onClick={() => setIsVideoOpen({ link: data.link, open: true })}
+          />
+        )}
+
         <VideoPopup
           isOpen={isVideoOpen.open}
           onClose={() => {

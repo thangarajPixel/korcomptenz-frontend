@@ -3,110 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import KorcomptenzImage from "../korcomptenz-image";
-import { Button } from "../ui/button";
+
+import ButtonLink from "../ui/button-link";
 
 const MapSection = ({ data }: { data: MapSectionType }) => {
   const [activeLocation, setActiveLocation] = React.useState<number | null>(
     null
   );
-  // const list: Location[] = [
-  //   {
-  //     id: 1,
-  //     name: "UAE",
-  //     description: "Neem Connect",
-  //     x: 72,
-  //     y: 28,
-  //     image: "/assets/tempory/4ad21517e21620bcd4d9f5fedadce99309f70bd4.png",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "US",
-  //     description: "Neem Connect",
-  //     x: 20,
-  //     y: 32,
-  //     image: "/assets/tempory/4d292c43fb8f4e61048c37694258227d464e4551.png",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "US",
-  //     description: "Neem Connect",
-  //     x: 18,
-  //     y: 29,
-  //     image: "/assets/tempory/4d292c43fb8f4e61048c37694258227d464e4551.png",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "US",
-  //     description: "Neem Connect",
-  //     x: 9,
-  //     y: 36,
-  //     image: "/assets/tempory/4d292c43fb8f4e61048c37694258227d464e4551.png",
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "India",
-  //     description: "Coimbatore",
-  //     x: 77.5,
-  //     y: 47.5,
-  //     image: "/assets/tempory/9afaeaa0a343634e1218348071057d4d22f80323.png",
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "India",
-  //     description: "Neem Connect",
-  //     x: 76,
-  //     y: 43.5,
-  //     image: "/assets/tempory/9afaeaa0a343634e1218348071057d4d22f80323.png",
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "India",
-  //     description: "Neem Connect",
-  //     x: 79,
-  //     y: 43.5,
-  //     image: "/assets/tempory/9afaeaa0a343634e1218348071057d4d22f80323.png",
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "Netherlands",
-  //     description: "Neem Connect",
-  //     x: 57,
-  //     y: 18.5,
-  //     image: "/assets/tempory/94d292a2c797797d6cd81246220b21c618efc5a4.png",
-  //   },
-  //   {
-  //     id: 9,
-  //     name: "Philippines",
-  //     description: "Neem Connect",
-  //     x: 97,
-  //     y: 54,
-  //     image: "/assets/tempory/97c6b0ef8a7d05279036655955685e5d0001485f.png",
-  //   },
-  //   {
-  //     id: 10,
-  //     name: "Mexico",
-  //     description: "Neem Connect",
-  //     x: 12,
-  //     y: 48,
-  //     image: "/assets/tempory/481cc013cbeed078b133d204e9d695b416e4906c.png",
-  //   },
-  //   {
-  //     id: 11,
-  //     name: "Canada",
-  //     description: "Neem Connect",
-  //     x: 29,
-  //     y: 22,
-  //     image: "/assets/tempory/cd2183fa1b501189e1b99540a39d1ffb1559c390.png",
-  //   },
-  //   {
-  //     id: 12,
-  //     name: "Canada",
-  //     description: "Neem Connect",
-  //     x: 28,
-  //     y: 26,
-  //     image: "/assets/tempory/cd2183fa1b501189e1b99540a39d1ffb1559c390.png",
-  //   },
-  // ];
+
   const handleClick = (locationId: number) => {
     setActiveLocation(activeLocation === locationId ? null : locationId);
   };
@@ -119,15 +23,19 @@ const MapSection = ({ data }: { data: MapSectionType }) => {
         <p className="text-center text-[#6C6C6C] text-lg max-w-3xl mx-auto mb-5">
           {data?.description}
         </p>
-        <Button
-          size="xl"
-          arrow
-          className="variant:default flex items-center justify-center max-w-3xl mx-auto mb-10"
+        <ButtonLink
+          link={data?.buttonLink || "#"}
+          buttonProps={{
+            className:
+              "variant:default flex items-center justify-center max-w-3xl mx-auto mb-10",
+            size: "xl",
+            arrow: true,
+          }}
         >
           {data?.buttonText}
-        </Button>
+        </ButtonLink>
       </div>
-      <div className="relative aspect-[2/1] w-full">
+      <div className="relative aspect-2/1 w-full">
         <Image
           src={"/assets/map.png"}
           alt="World map"
@@ -148,10 +56,11 @@ const MapSection = ({ data }: { data: MapSectionType }) => {
                 aria-label={`Location: ${location.title}`}
               >
                 <div
-                  className={`flex size-8 items-center justify-center transition-all duration-200 ${activeLocation === location.id
+                  className={`flex size-8 items-center justify-center transition-all duration-200 ${
+                    activeLocation === location.id
                       ? "scale-125"
                       : "group-hover:scale-125"
-                    }`}
+                  }`}
                 >
                   <KorcomptenzImage
                     src={location?.image}

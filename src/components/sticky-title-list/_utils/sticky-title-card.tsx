@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "@/components/korcomptenz-image";
@@ -18,7 +17,6 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
     logo,
     secondaryDescription,
     position = "corner",
-    isVideo,
   } = data;
   const [isVideoOpen, setIsVideoOpen] = React.useState<{
     open: boolean;
@@ -85,22 +83,24 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
             />
           )}
 
-          {buttonText && (
-            <Link href={data?.link || "#"}>
+          {buttonText &&
+            (data?.IsVideo ? (
               <Button
                 size="xl"
-                // className="flex w-[150px] md:w-[200px] mb-10 mr-4 lg:mb-0"
-                onClick={() => {
-                  if (isVideo) {
-                    setIsVideoOpen({ link: data?.link||"#", open: true });
-                  }
-                }}
-                arrow={true}
+                arrow
+                onClick={() =>
+                  setIsVideoOpen({ link: data.link || "", open: true })
+                }
               >
                 {buttonText}
               </Button>
-            </Link>
-          )}
+            ) : (
+              <Link href={data?.link || "#"}>
+                <Button size="xl" arrow>
+                  {buttonText}
+                </Button>
+              </Link>
+            ))}
         </div>
 
         {/*Desktop Button */}
@@ -141,6 +141,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           </div>
         </div>
       )}
+
       <VideoPopup
         isOpen={isVideoOpen.open}
         onClose={() => {
