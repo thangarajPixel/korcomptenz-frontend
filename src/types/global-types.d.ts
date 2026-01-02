@@ -380,6 +380,7 @@ type TestimonialType = {
   id: string;
   title: string;
   description: string;
+  author: string;
 };
 
 type PopularFilterType = {

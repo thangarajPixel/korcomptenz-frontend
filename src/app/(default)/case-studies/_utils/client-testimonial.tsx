@@ -42,7 +42,7 @@ export default function ClientTestimonial({
       </div>
       {/* Carousel content */}
       <div className="relative lg:p-8">
-        <div className="space-y-6">
+        <div className="space-y-3">
           <h2 className="text-5xl font-semibold text-muted">
             {currentTestimonial?.title}
           </h2>
@@ -50,6 +50,10 @@ export default function ClientTestimonial({
             html={currentTestimonial?.description}
             className="md:text-5xl text-xl text-muted leading-12 font-medium"
           />
+          <p className="md:text-5xl text-xl text-muted leading-12 font-medium text-right">
+            {" "}
+            {currentTestimonial?.author}
+          </p>
         </div>
 
         {/* Navigation dots */}
