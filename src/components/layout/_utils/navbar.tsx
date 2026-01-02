@@ -57,7 +57,7 @@ export function Navbar({ data }: { data: LayoutType }) {
             </div>
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
-            <nav className="hidden lg:flex items-center space-x-7 relative text-muted text-lg font-light">
+            <nav className="hidden min-[1120px]:flex items-center space-x-7 relative text-muted text-lg font-light">
               {data?.navItems
                 .filter((item) => !item?.isButton)
                 .map((item) => (
@@ -84,7 +84,7 @@ export function Navbar({ data }: { data: LayoutType }) {
             </nav>
 
             {/* Enhanced Desktop CTA with animations */}
-            <div className="hidden lg:flex items-center justify-between gap-10">
+            <div className="hidden min-[1120px]:flex items-center justify-between gap-10">
               <Button size="xl" className="variant:default  font-base ">
                 <Link
                   href={
@@ -102,7 +102,7 @@ export function Navbar({ data }: { data: LayoutType }) {
             </div>
 
             {/* Enhanced Mobile menu button with smooth animation */}
-            <div className="lg:hidden  gap-2">
+            <div className="min-[1120px]:hidden  gap-2">
               <button
                 className="transition-all duration-300 ease-out cursor-pointer  p-2 rounded-md"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -138,7 +138,7 @@ export function Navbar({ data }: { data: LayoutType }) {
       </header>
       {/* Enhanced Mobile Menu with smooth animations */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden  transition-all duration-500 ease-out ${
+        className={`fixed inset-0 z-40 min-[1120px]:hidden  transition-all duration-500 ease-out ${
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >

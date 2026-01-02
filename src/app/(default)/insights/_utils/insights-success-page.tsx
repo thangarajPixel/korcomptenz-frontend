@@ -9,15 +9,6 @@ import Insights from "./insights";
 
 const getInsightsPageCache = cache(getInsightsPage);
 
-export async function generateMetadata() {
-  const data = await getInsightsPageCache();
-
-  return {
-    title: data?.seo?.title || "Insights",
-    description: data?.seo?.description || "",
-  };
-}
-
 const InsightsSuccessPage = async ({ slug }: { slug?: string }) => {
   const [data, initialData, search] = await Promise.all([
     getInsightsPageCache(),
