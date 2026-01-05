@@ -64,7 +64,7 @@ export function InsightNavbar({
 
             {value === categoryAllLabel && (
               <motion.div
-           
+                layoutId="active-pill"
                 transition={{ type: "spring", stiffness: 120, damping: 20 }}
                 className="absolute inset-0 z-0 bg-secondary-foreground"
               />
@@ -86,13 +86,13 @@ export function InsightNavbar({
                 {t?.label}
               </span>
 
-              {value === t?.slug && (
+              {/* {value === t?.slug && (
                 <motion.div
-               
+                  layoutId="active-pill"
                   transition={{ type: "spring", stiffness: 120, damping: 20 }}
                   className="absolute inset-0 z-0 bg-secondary-foreground"
                 />
-              )}
+              )} */}
             </TabsTrigger>
           ))}
         </TabsList>
