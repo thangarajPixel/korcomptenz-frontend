@@ -58,7 +58,7 @@ function Button({
     isLoading?: boolean;
     arrow?: boolean;
     disabled?: boolean;
-  } & import("motion/react").HTMLMotionProps<"button"> &
+  } & import("framer-motion").HTMLMotionProps<"button"> &
   VariantProps<typeof buttonVariants>) {
   return (
     <motion.button
