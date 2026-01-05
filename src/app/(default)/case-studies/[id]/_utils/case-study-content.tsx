@@ -70,11 +70,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                     // Second row → next 2 items if available
                     if (items.length > 1) rows.push(items.slice(1, 3));
                     // Remaining items (last row)
-                    if (items.length > 3) {
-                      for (let i = 3; i < items.length; i += 2) {
-                        rows.push(items.slice(i, i + 2));
-                      }
-                    }
+                    if (items.length > 3) rows.push(items.slice(3));
                   }
 
                   return rows.map((row, rowIndex) => (

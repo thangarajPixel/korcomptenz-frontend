@@ -61,7 +61,7 @@ const InspireSectionCard: React.FC<{ card: InspireCardType }> = ({ card }) => {
         )}
 
         {card.position === "topAbove" && (
-          <div className="flex flex-col pb-3 px-3 mt-7">
+          <div className="flex flex-col pb-3 px-3">
             <div className="relative min-h-16">{renderImage()}</div>
             <InspireSectionContent
               card={card}

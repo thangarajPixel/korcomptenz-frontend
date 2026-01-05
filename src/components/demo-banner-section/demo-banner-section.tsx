@@ -7,7 +7,11 @@ const DemoBannerSection = ({ item }: { item: BannerItemType }) => {
     <section className="w-full" data-debug={"demo-page.demo-banner-list"}>
       {item?.list?.length < 2 ? (
         <div>
-          <DemoBannerCard data={item?.list?.[0]} item={item?.demoDetails} />
+          <DemoBannerCard
+            data={item?.list?.[0]}
+            item={item?.demoDetails}
+            isFirst
+          />
         </div>
       ) : (
         <CardSwiper>
