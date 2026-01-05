@@ -1,12 +1,11 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils"; // optional helper
+import { cn } from "@/lib/utils";
 
 export const CaseStudyCardSkeleton = () => {
   return (
-    <motion.article
+    <motion.div
       className={cn(
-        "group relative bg-card p-3 flex flex-col transition-colors rounded-2xl "
+        "group relative bg-card p-3 flex flex-col transition-colors rounded-2xl"
       )}
     >
       {/* Image Section */}
@@ -42,6 +41,6 @@ export const CaseStudyCardSkeleton = () => {
 
       {/* Button */}
       <div className={cn("mt-5 h-5 w-28 bg-gray-300 rounded animate-pulse")} />
-    </motion.article>
+    </motion.div>
   );
 };

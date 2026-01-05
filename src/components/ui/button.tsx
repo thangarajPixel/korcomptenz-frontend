@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Loader2, ChevronRight } from "lucide-react";
 
@@ -58,7 +58,7 @@ function Button({
     isLoading?: boolean;
     arrow?: boolean;
     disabled?: boolean;
-  } & import("motion/react").HTMLMotionProps<"button"> &
+  } & import("framer-motion").HTMLMotionProps<"button"> &
   VariantProps<typeof buttonVariants>) {
   return (
     <motion.button

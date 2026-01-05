@@ -1,7 +1,7 @@
 "use client";
 import { InsightCard } from "./_utils/insight-cards";
 import InsightsMobileCarousel from "./_utils/insight-mobile-carousel";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import SplitDivider from "../ui/split-divider";
 import ButtonLink from "../ui/button-link";

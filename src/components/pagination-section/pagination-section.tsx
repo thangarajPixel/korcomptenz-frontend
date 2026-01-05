@@ -41,6 +41,7 @@ const PaginationSection = ({
             handlePageChange(1);
           }}
           isActive={pagination?.page === 1}
+          size="default"
         >
           1
         </PaginationLink>
@@ -69,6 +70,7 @@ const PaginationSection = ({
               handlePageChange(i);
             }}
             isActive={pagination?.page === i}
+            size="default"
           >
             {i}
           </PaginationLink>
@@ -97,6 +99,7 @@ const PaginationSection = ({
               handlePageChange(pagination.pageCount);
             }}
             isActive={pagination?.page === pagination.pageCount}
+            size="default"
           >
             {pagination.pageCount}
           </PaginationLink>
@@ -119,6 +122,7 @@ const PaginationSection = ({
                   e.preventDefault();
                   handlePageChange(1);
                 }}
+                size="default"
                 className={
                   pagination?.page === 1 ? "pointer-events-none opacity-50" : ""
                 }
@@ -133,6 +137,7 @@ const PaginationSection = ({
                   e.preventDefault();
                   handlePageChange(pagination?.page - 1);
                 }}
+                size="default"
                 className={
                   pagination?.page === 1 ? "pointer-events-none opacity-50" : ""
                 }
@@ -150,6 +155,7 @@ const PaginationSection = ({
                   e.preventDefault();
                   handlePageChange(pagination?.page + 1);
                 }}
+                size="default"
                 className={
                   pagination?.page === pagination?.pageCount
                     ? "pointer-events-none opacity-50"
@@ -165,6 +171,7 @@ const PaginationSection = ({
                   e.preventDefault();
                   handlePageChange(pagination?.pageCount);
                 }}
+                size="default"
                 className={
                   pagination?.page === pagination?.pageCount
                     ? "pointer-events-none opacity-50"
