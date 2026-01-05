@@ -34,11 +34,9 @@ const ServicesMenu = ({
                   }`}
               >
                 {" "}
-                <Link href={section?.items?.[0]?.href?.slug || "#"}>
-                  <span className="text-lg font-normal leading-1">
-                    {section?.title}
-                  </span>
-                </Link>
+                <span className="text-lg font-normal leading-6">
+                  {section?.title}
+                </span>
               </motion.button>
             ))}
           </nav>

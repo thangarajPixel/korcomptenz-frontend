@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -62,13 +62,13 @@ export function InsightNavbar({
               {categoryAllLabel}
             </span>
 
-            {/* {value === categoryAllLabel && (
+            {value === categoryAllLabel && (
               <motion.div
-                layoutId="active-pill"
+           
                 transition={{ type: "spring", stiffness: 120, damping: 20 }}
                 className="absolute inset-0 z-0 bg-secondary-foreground"
               />
-            )} */}
+            )}
           </TabsTrigger>
 
           {/* ⭐ MAP ITEMS */}
@@ -86,13 +86,13 @@ export function InsightNavbar({
                 {t?.label}
               </span>
 
-              {/* {value === t?.slug && (
+              {value === t?.slug && (
                 <motion.div
-                  layoutId="active-pill"
+               
                   transition={{ type: "spring", stiffness: 120, damping: 20 }}
                   className="absolute inset-0 z-0 bg-secondary-foreground"
                 />
-              )} */}
+              )}
             </TabsTrigger>
           ))}
         </TabsList>

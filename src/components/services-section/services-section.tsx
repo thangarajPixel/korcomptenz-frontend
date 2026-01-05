@@ -61,6 +61,7 @@ export function AnimatedTabsHero({
 
                 {value === t?.label && (
                   <motion.div
+                    layoutId="active-pill"
                     transition={{
                       type: "spring",
                       stiffness: 120,

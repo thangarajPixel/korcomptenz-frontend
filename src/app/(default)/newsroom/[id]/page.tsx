@@ -3,7 +3,6 @@ import { cache } from "react";
 
 import GlobalPage from "@/components/global-page";
 import { cn } from "@/lib/utils";
-import { APP_CONFIG } from "@/utils/app-config";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -17,9 +16,7 @@ const Page = async ({ params }: Props) => {
   const data = await getNewsRoomPageCache({ id });
 
   return (
-    <div
-      className={cn(cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP))}
-    >
+    <div className={cn(cn("flex flex-col pb-10 md:pb-12 gap-10"))}>
       <GlobalPage data={data?.list} />
     </div>
   );
