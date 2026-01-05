@@ -3,13 +3,11 @@ import { Button } from "@/components/ui/button";
 import ButtonLink from "@/components/ui/button-link";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
-import React from "react";
 
 const DemoBannerCard = ({
   data,
   item,
   className,
-  isFirst = false,
 }: {
   data: BannerSectionType;
   className?: string;
@@ -34,25 +32,10 @@ const DemoBannerCard = ({
         {/* ✅ Centered + Responsive container */}
         <div className="absolute inset-0 z-10 flex items-center py-10">
           <div className="container-md  flex flex-col gap-2 px-6 md:px-10 ">
-            {data?.logo && (
-              <KorcomptenzImage
-                src={data.logo}
-                width={300}
-                height={200}
-                className="w-32 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
-              />
-            )}
-            {isFirst ? (
-              data?.title && (
-                <h1 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
-                  {data?.title}
-                </h1>
-              )
-            ) : (
-              <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
-                {data?.title}
-              </h2>
-            )}
+            <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
+              {data?.title}
+            </h2>
+
             {data?.description && (
               <DangerousHtml
                 className="text-lg md:text-base text-white my-4  max-w-md"
@@ -80,7 +63,7 @@ const DemoBannerCard = ({
         </div>
       </div>
       {item?.bannerInfo && (
-        <div className="bg-muted hidden lg:block py-5">
+        <div className="bg-muted hidden lg:block py-20">
           <div className="flex container-md justify-evenly">
             <p className="text-white font-semibold text-6xl">
               {" "}

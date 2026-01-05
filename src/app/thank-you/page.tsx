@@ -1,3 +1,4 @@
+"use client";
 
 import ThankYouPage from "../thank-you";
 

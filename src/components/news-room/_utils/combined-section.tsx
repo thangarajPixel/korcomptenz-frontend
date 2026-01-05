@@ -6,7 +6,7 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 const CombinedSection = ({ data }: { data: CombinedSectionType }) => {
   return (
     <section className="bg-[#f7f8f8] ">
-      <div className="flex flex-col gap-12 md:gap-20">
+      <div className="flex flex-col gap-12 md:gap-20 py-8">
         {/* Heading (needs container) */}
         <div className="container-md flex flex-col ">
           <DangerousHtml

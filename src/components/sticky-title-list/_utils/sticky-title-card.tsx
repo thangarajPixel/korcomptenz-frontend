@@ -95,11 +95,15 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                 {buttonText}
               </Button>
             ) : (
-              <Link href={data?.link || "#"}>
-                <Button size="xl" arrow>
-                  {buttonText}
-                </Button>
-              </Link>
+              <>
+                {buttonText && (
+                  <Link href={data?.link || "#"}>
+                    <Button size="xl" arrow>
+                      {buttonText}
+                    </Button>
+                  </Link>
+                )}
+              </>
             ))}
         </div>
 
