@@ -1,32 +1,46 @@
 "use client";
+import { cn } from "@/lib/utils";
 import KorcomptenzImage from "../korcomptenz-image";
 import { Button } from "../ui/button";
 import { DangerousHtml } from "../ui/dangerous-html";
 
 export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
   return (
-    <div className="container-md">
+    <section
+      data-debug="page-componets.why-we-are"
+      className={`container-md ${
+        data?.isBgGray ? "bg-gray-100 py-10 md:p-10 rounded-3xl" : ""
+      }`}
+    >
       {/* Header */}
-      <div className="text-center mb-16">
-        <h1 className="text-5xl md:text-5xl font-semibold text-foreground mb-2">
+      <div className="text-center md:mb-10">
+        <h5 className="text-5xl md:text-6xl font-semibold text-foreground mb-2 leading-8">
           {data.title}
-        </h1>
+        </h5>
         <p className="text-xl font-normal text-foreground mb-2">
           {data.description}
         </p>
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-5  gap-5 ">
-        {data.list.map((card, index) => (
-          <div className=" " key={index}>
+      <div
+        className={cn(
+          "grid grid-cols-1 md:grid-cols-5  gap-5 ",
+          data.isPerRowFive ? "md:grid-cols-5" : "md:grid-cols-3"
+        )}
+      >
+        {data.list.map((card) => (
+          <div
+            className="hover:bg-light-gray rounded-2xl p-3  py-5 md:p-5 space-y-3"
+            key={`${card?.id}-${card?.title}`}
+          >
             {/* Icon */}
             <div>
               <KorcomptenzImage
                 src={card?.image}
                 width={100}
                 height={100}
-                className="size-20 mt-5"
+                className="size-20 "
               />
             </div>
             {/* Title */}
@@ -47,6 +61,6 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

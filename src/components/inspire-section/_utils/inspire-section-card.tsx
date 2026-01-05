@@ -14,14 +14,12 @@ const InspireSectionCard: React.FC<{ card: InspireCardType }> = ({ card }) => {
 
     if (card.position === "topAbove") {
       return (
-        <div
-          className={`flex justify-end w-full absolute -top-16 `}
-        >
+        <div className={`flex justify-end w-full absolute -top-12 md:-top-16 `}>
           <KorcomptenzImage
             src={card.image}
             width={100}
             height={100}
-            className={cn("h-auto max-h-40 w-1/2 max-w-full")}
+            className={cn("h-auto max-h-40 w-1/2 max-w-full object-contain")}
           />
         </div>
       );
@@ -33,8 +31,8 @@ const InspireSectionCard: React.FC<{ card: InspireCardType }> = ({ card }) => {
         width={500}
         height={500}
         className={cn(
-          "h-auto rounded-lg",
-          card.position === "bottom" ? "w-full" : ""
+          "h-auto rounded-lg ",
+          card.position === "bottom" ? "w-full object-contain" : ""
         )}
       />
     );
@@ -47,27 +45,29 @@ const InspireSectionCard: React.FC<{ card: InspireCardType }> = ({ card }) => {
     >
       <CardContent className="px-0 text-muted">
         {card.position === "bottom" && (
-          <>
+          <React.Fragment>
             <InspireSectionContent card={card} />
             <div className="flex justify-end md:h-3/4 lg:pb-28 pr-0 p-6">
               {renderImage()}
             </div>
-          </>
+          </React.Fragment>
         )}
 
         {card.position === "top" && (
-          <>
+          <React.Fragment>
             <div className="flex mb-4 p-6">{renderImage()}</div>
             <InspireSectionContent card={card} className="mb-2" />
-          </>
+          </React.Fragment>
         )}
 
         {card.position === "topAbove" && (
           <div className="flex flex-col pb-3 px-3">
-            <div className="relative min-h-16">
-              {renderImage()}
-            </div>
-            <InspireSectionContent card={card} topClassName="pt-0" className="mb-2 pt-5 xl:whitespace-pre-wrap" />
+            <div className="relative min-h-16">{renderImage()}</div>
+            <InspireSectionContent
+              card={card}
+              topClassName="pt-0"
+              className="mb-2 pt-5 xl:whitespace-pre-wrap"
+            />
           </div>
         )}
       </CardContent>

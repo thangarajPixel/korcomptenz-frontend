@@ -31,6 +31,24 @@ export const useCaseStudyLeadHook = () => {
     mutationFn: PAGE.createCaseStudyLead,
   });
 };
+export const useFreeConsultationLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.FREE_CONSULTATION_LEAD],
+    mutationFn: PAGE.createFreeConsultationLead,
+  });
+};
+export const useCareerNewLetterHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.CAREER_NEW_LETTER],
+    mutationFn: PAGE.createCareerNewLetter,
+  });
+};
+export const useDepartmentListHook = () => {
+  return useQuery({
+    queryKey: [PAGE.CASE_STUDY],
+    queryFn: () => PAGE.getDepartmentList(),
+  });
+};
 
 export const useCaseStudyListHook = ({
   options,
@@ -72,5 +90,87 @@ export const useBookADemoHook = () => {
   return useMutation({
     mutationKey: [PAGE.BOOK_DEMO],
     mutationFn: PAGE.bookADemo,
+  });
+};
+
+export const useCaseStudyEssentialHook = () => {
+  return useQuery({
+    queryKey: [PAGE.CASE_STUDY_ESSENTIAL_LIST],
+    queryFn: () => PAGE.getCaseStudyEssentialList(),
+  });
+};
+
+export const useContactUsLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.CONTACT_US_LEAD],
+    mutationFn: PAGE.createContactUsLead,
+  });
+};
+export const useReserveMySpotHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.RESERVE_MY_SPOT],
+    mutationFn: PAGE.createReserveMySpotLead,
+  });
+};
+
+export const useFilterInsightHook = ({
+  options,
+}: {
+  options?: OptionsType<InsightsFilterDataType>;
+}) => {
+  return useQuery({
+    queryKey: [PAGE.FILTER_CASE_STUDY],
+    queryFn: () => PAGE.getInsights(),
+    ...options,
+  });
+};
+
+export const useInsightsListHook = ({
+  options,
+  params,
+}: {
+  options?: OptionsType<CaseStudiesType>;
+  params: {
+    pagination: PaginationType;
+    filter: {
+      [key: string]: string[];
+    };
+    search?: string;
+    slug?: string;
+    sort?: string[];
+  };
+}) => {
+  return useQuery({
+    queryKey: [PAGE.INSIGHT, params],
+    queryFn: () => PAGE.getInsightsList({ params }),
+    ...options,
+  });
+};
+
+export const useInsightSearchHook = ({
+  search,
+  options,
+}: {
+  search?: string;
+  options?: OptionsType<(FilterListType & { from?: string })[]>;
+}) => {
+  return useQuery({
+    queryKey: [PAGE.INSIGHT_SEARCH, search],
+    queryFn: () => PAGE.getInsightSearchPage({ search }),
+    ...options,
+  });
+};
+
+export const useWebinarReserveMySpotHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.WEBINAR_RESERVE_MY_SPOT],
+    mutationFn: PAGE.createWebinarReserveMySpotLead,
+  });
+};
+
+export const useNewsRoomHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.NEWSROOM_LEAD],
+    mutationFn: PAGE.NewRoomDownload,
   });
 };

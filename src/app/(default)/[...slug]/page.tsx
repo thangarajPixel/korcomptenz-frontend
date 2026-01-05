@@ -1,7 +1,8 @@
-import React from "react";
 import { cache } from "react";
 import { getPageService } from "@/services";
 import GlobalPage from "@/components/global-page";
+import { cn } from "@/lib/utils";
+import { APP_CONFIG } from "@/utils/app-config";
 
 type Props = {
   params: Promise<{ slug: string[] }>;
@@ -25,7 +26,7 @@ const Page = async ({ params }: Props) => {
   const data = await getPageServiceCache({ slug });
 
   return (
-    <div className="flex flex-col gap-16 md:gap-28">
+    <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
       <GlobalPage data={data?.list} />
     </div>
   );

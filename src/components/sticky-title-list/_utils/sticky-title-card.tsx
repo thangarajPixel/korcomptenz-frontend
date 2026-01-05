@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import ExpandableHtml from "./show-more";
+import { VideoPopup } from "@/components/video-popup";
 
 const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
   const {
@@ -12,13 +16,19 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
     buttonText,
     logo,
     secondaryDescription,
-    position = "corner"
+    position = "corner",
   } = data;
-
+  const [isVideoOpen, setIsVideoOpen] = React.useState<{
+    open: boolean;
+    link: string | null;
+  }>({
+    open: false,
+    link: null,
+  });
   return (
     <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px]">
       {/* Content */}
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row lg:flex-row md:flex-col gap-4">
         <div className="flex flex-col justify-start gap-6 p-8 ">
           {logo && (
             <div>
@@ -26,28 +36,41 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
             </div>
           )}
 
-          <h3 className=" text-foreground text-6xl  font-bold leading-tight">
+          <h3 className=" text-foreground  text-5xl  md:text-6xl font-bold leading-tight">
             {title}
           </h3>
           {description && (
             <div className="flex flex-row gap-4">
-              <DangerousHtml
+              <ExpandableHtml
                 html={description}
                 className={cn(
                   image?.url &&
-                  "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-w-xs"
+                    "text-foreground text-md md:text-lg leading-4xl z-10 w-full [&>ul]:ml-7",
+                  position !== "main" && "lg:max-w-xs max-w-none"
                 )}
               />
+
               {position === "side" && image && (
                 <div className="flex items-center justify-center ">
-                  <KorcomptenzImage src={image} className="object-contain max-h-60" width={400} height={200} />
+                  <KorcomptenzImage
+                    src={image}
+                    className="object-contain max-h-60"
+                    width={400}
+                    height={200}
+                  />
                 </div>
               )}
             </div>
           )}
+
           {position === "main" && image && (
             <div className="flex items-center justify-center ">
-              <KorcomptenzImage src={image} className=" object-contain max-h-60" width={400} height={200} />
+              <KorcomptenzImage
+                src={image}
+                className=" object-contain max-h-60"
+                width={400}
+                height={200}
+              />
             </div>
           )}
           {secondaryDescription && (
@@ -55,30 +78,39 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               html={secondaryDescription}
               className={cn(
                 image?.url &&
-                "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-w-xs"
+                  "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-full"
               )}
             />
           )}
 
-          {buttonText && (
-            <Button
-              size="xl"
-              className="flex w-[150px] md:w-[200px] mb-10 mr-4 lg:mb-0"
-              arrow={true}
-            >
-              {buttonText}
-            </Button>
-          )}
+          {buttonText &&
+            (data?.IsVideo ? (
+              <Button
+                size="xl"
+                arrow
+                onClick={() =>
+                  setIsVideoOpen({ link: data.link || "", open: true })
+                }
+              >
+                {buttonText}
+              </Button>
+            ) : (
+              <Link href={data?.link || "#"}>
+                <Button size="xl" arrow>
+                  {buttonText}
+                </Button>
+              </Link>
+            ))}
         </div>
 
         {/*Desktop Button */}
         {position === "corner" && image && (
           <div className="hidden lg:flex pt-10  pb-0 ">
             {/* Illustration */}
-            <div className="flex absolute bottom-0 right-0 justify-end items-end w-[250px] h-[250px] ">
+            <div className="flex absolute bottom-0 right-0 justify-end items-end w-[200px] h-[230px] ">
               <KorcomptenzImage
                 className={cn(
-                  ` rounded-tl-4xl  p-0 `,
+                  ` rounded-tl-4xl  p-0 `
                   // image?.height > 300
                   //   ? "size-2/3"
                   //   : image?.height >= 200
@@ -99,9 +131,9 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
       </div>
       {position === "corner" && image && (
         <div className="relative lg:hidden ">
-          <div className="flex absolute -right-0 -bottom-0 justify-end items-end  ">
+          <div className="flex   justify-end items-end  ">
             <KorcomptenzImage
-              className="w-full object-cover p-0 h-28"
+              className=" object-cover p-0 w-40"
               width={image?.width}
               height={image?.height}
               src={image}
@@ -109,6 +141,14 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           </div>
         </div>
       )}
+
+      <VideoPopup
+        isOpen={isVideoOpen.open}
+        onClose={() => {
+          setIsVideoOpen({ link: null, open: false });
+        }}
+        videoSrc={data.link || ""}
+      />
     </div>
   );
 };

@@ -4,64 +4,80 @@ import { Button } from "../ui/button";
 
 import { DangerousHtml } from "../ui/dangerous-html";
 import { cn } from "@/lib/utils";
+import ButtonLink from "../ui/button-link";
 
 const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
   return (
     <section
-      className={`my-10 grid grid-cols-1 lg:grid-cols-1 ${
+      className={` grid grid-cols-1 lg:grid-cols-1  ${
         gramData?.theme === "dark"
-          ? "bg-custom-black "
+          ? "bg-custom-black py-10 "
           : gramData?.theme === "light"
           ? "bg-custom-gray-6 "
+          : gramData?.theme === "default"
+          ? "bg-white"
           : ""
       }`}
       data-debug="page-components.build-data"
     >
       <div
-        className={` space-y-3 container-md p-5 ${
-          gramData?.theme === "default" ? "bg-custom-gray-6 rounded-2xl " : ""
+        className={` space-y-3 container-md p-2 ${
+          gramData?.theme === "default"
+            ? "bg-custom-gray-6 rounded-2xl py-12"
+            : ""
         }  `}
       >
-        <h3
-          className={`text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15 text-center px-10 ${
-            gramData?.theme === "dark" ? "text-white" : ""
-          }`}
-        >
-          {gramData?.title}
-        </h3>
+        {gramData?.title && (
+          <h3
+            className={`text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15 text-center lg:px-10 ${
+              gramData?.theme === "dark" ? "text-white" : ""
+            }`}
+          >
+            {gramData?.title}
+          </h3>
+        )}
 
         <DangerousHtml
           html={gramData?.description}
           className={cn(
-            `text-md md:text-2xl text-foreground leading-7 break-words text-center px-10 `,
+            `text-md md:text-2xl text-foreground leading-7 break-words text-center lg:px-10 `,
             gramData?.theme === "dark" && "[&>span]:!text-white "
           )}
         />
         {gramData?.buttonText && (
           <div className="flex justify-center items-center">
-            <Button arrow className="flex items-center justify-center">
+            <ButtonLink
+              link={gramData?.buttonLink || "#"}
+              buttonProps={{
+                className: " flex items-center justify-center",
+                size: "xl",
+              }}
+            >
               {gramData?.buttonText}
-            </Button>
+            </ButtonLink>
           </div>
         )}
       </div>
       {gramData?.image && (
-        <div className="p-5 hidden lg:flex  items-center justify-center ">
+        <div className="p-5 hidden lg:flex items-center justify-center w-full h-full container-md">
           <KorcomptenzImage
             src={gramData?.image}
             width={500}
             height={500}
-            className="w-auto h-auto  "
+            className="w-full h-full object-contain"
           />
         </div>
       )}
       <div className="p-5 lg:hidden ">
-        <KorcomptenzImage
-          src={gramData?.mobileImage}
-          width={500}
-          height={500}
-          className="w-full h-auto object-cover"
-        />
+        {gramData?.mobileImage && (
+          <KorcomptenzImage
+            src={gramData?.mobileImage}
+            width={500}
+            height={500}
+            className="w-full h-auto object-cover"
+          />
+        )}
+
         {gramData?.imageCaption && (
           <div className="flex flex-col items-center gap-2 lg:mt-5">
             <p className="text-md text-center">{gramData?.imageCaption}</p>

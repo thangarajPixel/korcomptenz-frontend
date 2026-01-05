@@ -57,13 +57,14 @@ export function Navbar({ data }: { data: LayoutType }) {
             </div>
 
             {/* Desktop Navigation with Enhanced Mega Menu */}
-            <nav className="hidden lg:flex items-center space-x-7 relative text-muted text-lg font-light">
+            <nav className="hidden min-[1120px]:flex items-center space-x-7 relative text-muted text-lg font-light">
               {data?.navItems
                 .filter((item) => !item?.isButton)
                 .map((item) => (
                   <Link
                     key={`nav-item-${item?.label}`}
                     href={item?.href || "#"}
+                    onClick={() => setActiveSection("")}
                     className={cn(
                       `cursor-pointer font-medium transition-all duration-300 ease-out hover:text-primary  relative group/nav 
       after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all 
@@ -74,7 +75,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                       }
                     )}
                     onMouseEnter={() =>
-                      item.hasChild && setActiveSection(item.label)
+                      setActiveSection(item.hasChild ? item.label : "")
                     }
                   >
                     {item.label}
@@ -83,7 +84,7 @@ export function Navbar({ data }: { data: LayoutType }) {
             </nav>
 
             {/* Enhanced Desktop CTA with animations */}
-            <div className="hidden lg:flex items-center justify-between gap-10">
+            <div className="hidden min-[1120px]:flex items-center justify-between gap-10">
               <Button size="xl" className="variant:default  font-base ">
                 <Link
                   href={
@@ -92,13 +93,16 @@ export function Navbar({ data }: { data: LayoutType }) {
                   className="flex items-center"
                 >
                   {data?.navItems?.find((item) => item?.isButton)?.label}
-                  <ChevronRight className="ml-1 h-5 w-5 transition-transform" />
+                  <ChevronRight
+                    className="ml-1 h-5 w-5 transition-transform"
+                    strokeWidth={3}
+                  />
                 </Link>
               </Button>
             </div>
 
             {/* Enhanced Mobile menu button with smooth animation */}
-            <div className="lg:hidden  gap-2">
+            <div className="min-[1120px]:hidden  gap-2">
               <button
                 className="transition-all duration-300 ease-out cursor-pointer  p-2 rounded-md"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -108,72 +112,93 @@ export function Navbar({ data }: { data: LayoutType }) {
                     src="/assets/icn_mob_mob.svg"
                     alt="menu"
                     fill
-                    className={`absolute inset-0 transition-all duration-500 ease-out ${isMenuOpen
-                      ? "opacity-0 rotate-180 scale-75"
-                      : "opacity-100 rotate-0 scale-100"
-                      }`}
+                    className={`absolute inset-0 transition-all duration-500 ease-out ${
+                      isMenuOpen
+                        ? "opacity-0 rotate-180 scale-75"
+                        : "opacity-100 rotate-0 scale-100"
+                    }`}
                   />
                   <X
-                    className={`absolute inset-0  transition-all duration-500 ease-out ${isMenuOpen
-                      ? "opacity-100 rotate-0 scale-100"
-                      : "opacity-0 -rotate-180 scale-75"
-                      }`}
+                    className={`absolute inset-0  transition-all duration-500 ease-out ${
+                      isMenuOpen
+                        ? "opacity-100 rotate-0 scale-100"
+                        : "opacity-0 -rotate-180 scale-75"
+                    }`}
                   />
                 </div>
               </button>
             </div>
           </div>
         </div>
-        <MegaMenuContent activeTab={activeSection} data={data} onClick={() => setActiveSection("")} />
+        <MegaMenuContent
+          activeTab={activeSection}
+          data={data}
+          onClick={() => setActiveSection("")}
+        />
       </header>
       {/* Enhanced Mobile Menu with smooth animations */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden  transition-all duration-500 ease-out ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
+        className={`fixed inset-0 z-40 min-[1120px]:hidden  transition-all duration-500 ease-out ${
+          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
       >
         {/* Enhanced Backdrop with animation */}
         <div
-          className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-500 ease-out ${isMenuOpen ? "opacity-100" : "opacity-0"
-            }`}
+          className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-500 ease-out ${
+            isMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
           onClick={() => setIsMenuOpen(false)}
         />
 
         {/* Enhanced Mobile Navigation Panel with slide animation */}
         <div
-          className={`fixed top-16 left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl transition-all duration-500 ease-out ${isMenuOpen
-            ? "translate-y-0 opacity-100"
-            : "-translate-y-4 opacity-0"
-            }`}
+          className={`fixed top-16 left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl transition-all duration-500 ease-out ${
+            isMenuOpen
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-4 opacity-0"
+          }`}
         >
           <div className="h-full overflow-y-auto">
             <div className="pb-5 pt-5 space-y-6 ">
               {/* Enhanced Regular mobile nav items */}
               <div
-                className={`space-y-2 border-t border-border pt-6 transition-all duration-500 ease-out ${isMenuOpen
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 -translate-x-4"
-                  }`}
+                className={`space-y-2 border-t border-border transition-all duration-500 ease-out ${
+                  isMenuOpen
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-4"
+                }`}
                 style={{ transitionDelay: "300ms" }}
               >
                 {data?.navItems
                   ?.filter((item) => !item?.isHideMobile)
                   .map((item, index) => (
                     <div key={index}>
-                      <button
-                        onClick={() => toggleExpand(item.label)}
-                        className={`w-full flex justify-between items-center px-3 py-3 text-lg font-medium text-muted-foreground  ${
-                          expandedItem === item.label
-                            ? "text-primary "
-                            : "text-muted-foreground border-b-1 border-primary"
-                        }`}
-                      >
-                        {item.label}
-                        {expandedItem === item.label ? (
-                          <Minus className="ml-2 h-4 w-4 transition-all duration-300 " />
-                        ) : (
-                          <Plus className="ml-2 h-4 w-4 transition-all duration-300" />
-                        )}
-                      </button>
+                      {item.hasChild === false ? (
+                        <Link
+                          href={item.href || "#"}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="w-full block px-3 py-3 text-lg font-medium text-muted-foreground border-b-1 border-primary"
+                        >
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={() => toggleExpand(item.label)}
+                          className={`w-full flex justify-between items-center px-3 py-3 text-lg font-medium ${
+                            expandedItem === item.label
+                              ? "text-primary"
+                              : "text-muted-foreground border-b-1 border-primary"
+                          }`}
+                        >
+                          <span>{item.label}</span>
+
+                          {expandedItem === item.label ? (
+                            <Minus className="ml-2 h-4 w-4 transition-all duration-300" />
+                          ) : (
+                            <Plus className="ml-2 h-4 w-4 transition-all duration-300" />
+                          )}
+                        </button>
+                      )}
 
                       {/* Accordion Content */}
                       <AnimatePresence>
@@ -186,19 +211,34 @@ export function Navbar({ data }: { data: LayoutType }) {
                             className="pr-3 pl-3 py-3  rounded-md "
                           >
                             {item.label === "Services" && (
-                              <ServicesMobile data={data} />
+                              <ServicesMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "Industries" && (
-                              <IndustriesMobile data={data} />
+                              <IndustriesMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "Ecosystems" && (
-                              <EcosystemMobile data={data} />
+                              <EcosystemMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "Insights" && (
-                              <InsightMobile data={data} />
+                              <InsightMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                             {item.label === "About Us" && (
-                              <AboutMobile data={data} />
+                              <AboutMobile
+                                data={data}
+                                closeMenu={() => setIsMenuOpen(false)}
+                              />
                             )}
                           </motion.div>
                         )}
@@ -209,24 +249,28 @@ export function Navbar({ data }: { data: LayoutType }) {
 
               {/* Enhanced Mobile CTA buttons */}
               <div
-                className={`border-t border-border pt-6 transition-all duration-500 ease-out ${isMenuOpen
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-                  }`}
+                className={` pt-6 transition-all duration-500 ease-out ${
+                  isMenuOpen
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                }`}
                 style={{ transitionDelay: "400ms" }}
               >
-                <div className="flex items-center justify-between pt-4 px-2">
+                <div className="grid gap-5 items-end justify-between pt-4 px-2">
                   {/* Left side - Career | Contact Us */}
                   <div className="flex gap-1">
                     {data?.navItems
                       ?.filter((item) => item?.isHideMobile)
-                      .map((item, index) => (
+                      .map((item, index, arr) => (
                         <div key={index}>
                           <Link
                             href={item.href || "#"}
-                            className="hover:text-primary transition-colors"
+                            className="hover:text-primary text-sm transition-colors"
                           >
                             {item.label}
+                            {index !== arr.length - 1 && (
+                              <span className="text-gray-400"> |</span>
+                            )}
                           </Link>
                         </div>
                       ))}
@@ -248,12 +292,12 @@ export function Navbar({ data }: { data: LayoutType }) {
                   </div> */}
 
                   {/* Right side - Social icons */}
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-6">
                     {data?.company?.socialPlatforms.map((social) => (
                       <Link
                         key={`social-platform-${social.id}`}
-                        href={social?.href || "/"}
-                        className="w-5 h-5 rounded-lg flex items-center justify-center"
+                        href={social?.link || "/"}
+                        className="w-6 h-6 rounded-lg flex items-center justify-center mr-2"
                       >
                         <KorcomptenzImage
                           src={social.icon}
@@ -268,7 +312,11 @@ export function Navbar({ data }: { data: LayoutType }) {
             </div>
           </div>
         </div>
-        <MegaMenuContent data={data} activeTab={activeSection} onClick={() => setIsMenuOpen(false)} />
+        <MegaMenuContent
+          data={data}
+          activeTab={activeSection}
+          onClick={() => setIsMenuOpen(false)}
+        />
       </div>
     </>
   );

@@ -5,7 +5,13 @@ import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import Link from "next/link";
 
-const ServicesMenu = ({ data, onClick }: { data: LayoutType; onClick: () => void }) => {
+const ServicesMenu = ({
+  data,
+  onClick,
+}: {
+  data: LayoutType;
+  onClick: () => void;
+}) => {
   const [activeServiceSection, setActiveServiceSection] = useState(
     data?.serviceMenu[0]
   );
@@ -20,15 +26,19 @@ const ServicesMenu = ({ data, onClick }: { data: LayoutType; onClick: () => void
               <motion.button
                 key={`service-section-${section?.id}`}
                 onClick={() => setActiveServiceSection(section)}
-                className={`w-full text-left text-custom-gray-4 py-3 
-                  rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${activeServiceSection?.id === section?.id
-                    ? "text-primary"
-                    : ""
+                className={`w-full text-left text-custom-gray-4  
+                  rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${
+                    activeServiceSection?.id === section?.id
+                      ? "text-primary"
+                      : ""
                   }`}
               >
-                <span className="text-lg font-normal leading-1">
-                  {section?.title}
-                </span>
+                {" "}
+                <Link href={section?.items?.[0]?.href?.slug || "#"}>
+                  <span className="text-lg font-normal leading-1">
+                    {section?.title}
+                  </span>
+                </Link>
               </motion.button>
             ))}
           </nav>
@@ -62,11 +72,13 @@ const ServicesMenu = ({ data, onClick }: { data: LayoutType; onClick: () => void
                           <span className="border-b-2 border-transparent group-hover:border-primary">
                             {item?.title}
                           </span>
-                          <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
+                          {item?.child?.length > 0 && (
+                            <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                          )}
                         </h4>
                       </Link>
                       {item?.child && item?.child?.length > 0 && (
-                        <div className="space-y-2">
+                        <div className="space-y-2 max-h-0 overflow-hidden transition-all duration-2000 ease-in-out group-hover:max-h-[300px]">
                           {item?.child?.map((sub) => (
                             <Link
                               key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
@@ -75,10 +87,11 @@ const ServicesMenu = ({ data, onClick }: { data: LayoutType; onClick: () => void
                             >
                               <div
                                 key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
-                                className={`text-sm leading-5 cursor-pointer ${sub?.type === "dark"
-                                  ? "font-normal text-black"
-                                  : "text-gray-500"
-                                  }`}
+                                className={`text-sm leading-6 cursor-pointer ${
+                                  sub?.type === "dark"
+                                    ? "font-normal text-black"
+                                    : "text-gray-500"
+                                }`}
                               >
                                 {sub?.title}
                               </div>
@@ -110,28 +123,49 @@ const ServicesMenu = ({ data, onClick }: { data: LayoutType; onClick: () => void
                           <span className="border-b-2 border-transparent group-hover:border-primary">
                             {item?.title}
                           </span>
-                          <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100" />
+                          {item?.child?.length > 0 && (
+                            <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                          )}
                         </h4>
                       </Link>
                       {item?.child && item?.child?.length > 0 && (
-                        <div className="space-y-2">
-                          {item?.child?.map((sub) => (
-                            <Link
-                              key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
-                              href={sub?.href?.slug || "#"}
-                              onClick={onClick}
-                            >
-                              <div
-                                key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}-sub-${sub?.id}`}
-                                className={`text-sm leading-5 ${sub?.type === "dark"
-                                  ? "font-normal text-black"
-                                  : "text-gray-500"
-                                  }`}
+                        <div className="space-y-2 max-h-0 overflow-hidden transition-all duration-2000 ease-in-out group-hover:max-h-[300px]">
+                          {item?.child?.map((sub) =>
+                            sub?.attachment ? (
+                              <a
+                                key={`service-section-${activeServiceSection?.id}-att-${item?.id}-sub-${sub?.id}`}
+                                href={sub?.attachment?.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
                               >
-                                {sub?.title}
-                              </div>
-                            </Link>
-                          ))}
+                                <div
+                                  className={`text-sm leading-6 ${
+                                    sub?.type === "dark"
+                                      ? "font-normal text-black"
+                                      : "text-gray-500 pl-2"
+                                  }`}
+                                >
+                                  {sub?.title}
+                                </div>
+                              </a>
+                            ) : (
+                              <Link
+                                key={`service-section-${activeServiceSection?.id}-link-${item?.id}-sub-${sub?.id}`}
+                                href={sub?.href?.slug || "#"}
+                                onClick={onClick}
+                              >
+                                <div
+                                  className={`text-sm leading-6 ${
+                                    sub?.type === "dark"
+                                      ? "font-normal text-black"
+                                      : "text-gray-500 pl-2"
+                                  }`}
+                                >
+                                  {sub?.title}
+                                </div>
+                              </Link>
+                            )
+                          )}
                         </div>
                       )}
                     </div>

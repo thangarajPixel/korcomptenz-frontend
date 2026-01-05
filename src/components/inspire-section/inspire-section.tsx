@@ -40,6 +40,18 @@ const InspireSection = ({
           center: cards?.slice(2, 4),
           right: cards?.slice(4),
         };
+      case 7:
+        return {
+          left: cards?.slice(0, 2),
+          center: cards?.slice(2, 4),
+          right: cards?.slice(4),
+        };
+      case 8:
+        return {
+          left: cards?.slice(0, 3),
+          center: cards?.slice(3, 5),
+          right: cards?.slice(5),
+        };
       default:
         const mid = Math.floor((len || 0) / 2);
         return {
@@ -60,9 +72,9 @@ const InspireSection = ({
     >
       <div className="grid lg:grid-cols-3 gap-6">
         <div className="flex lg:hidden  ">
-          <h1 className="text-6xl font-bold text-custom-gray mb-6 text-balance">
+          <h5 className="text-6xl font-bold text-custom-gray mb-6 text-balance">
             {inspireSection?.title}
-          </h1>
+          </h5>
         </div>
         <div className="lg:col-span-1 flex flex-col  gap-6 ">
           {left?.map((card) => (
@@ -74,9 +86,9 @@ const InspireSection = ({
         </div>
         <div className={cn("flex flex-col gap-5 ", centerSpan)}>
           <div className="hidden lg:flex flex-col text-center items-center justify-center ">
-            <h1 className="text-6xl font-bold text-custom-gray mb-6 text-balance">
+            <h5 className="text-6xl font-bold text-custom-gray mb-6 text-balance">
               {inspireSection?.title}
-            </h1>
+            </h5>
             {inspireSection?.buttonText && (
               <Link href={inspireSection?.link || "#"}>
                 <Button

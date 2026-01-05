@@ -35,8 +35,8 @@ export function AnimatedTabsHero({
         >
           <TabsList
             className={cn(
-              "relative lg:h-[80px] md:h-[60px] h-[44px] sm:h-16 grid max-w-5xl grid-cols-5 overflow-hidden rounded-2xl",
-              "bg-secondary p-0 shadow-none border-none !ml-0"
+              "relative lg:h-20 md:h-25 h-11 sm:h-16 grid max-w-5xl grid-cols-5 overflow-hidden rounded-2xl",
+              "bg-secondary p-0 shadow-none border-none ml-0! flex w-full"
             )}
           >
             {content?.map((t) => (
@@ -44,11 +44,18 @@ export function AnimatedTabsHero({
                 key={t?.label}
                 value={t?.label}
                 className={cn(
-                  "relative !cursor-pointer h-full z-10 text-white  rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-md sm:text-base font-semibold ",
+                  "relative cursor-pointer! h-full z-10 text-white  rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-md sm:text-base font-semibold ",
                   "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
                 )}
               >
-                <span className="z-50 text-xs md:text-5xl truncate md:whitespace-normal block md:inline-block max-w-[5ch] md:max-w-none">
+                <span
+                  className={cn(
+                    "z-50 text-xs md:text-5xl truncate block md:inline-block max-w-[5ch] md:max-w-none leading-normal",
+                    activeContent?.label === t.label
+                      ? "block text-xs md:text-5xl whitespace-normal max-w-none"
+                      : "block text-xs md:text-5xl truncate max-w-[5ch]"
+                  )}
+                >
                   {t?.label}
                 </span>
 
@@ -85,17 +92,20 @@ export function AnimatedTabsHero({
             className="space-y-3 w-full flex flex-col-reverse lg:flex-row"
           >
             <div className="space-y-3  w-full lg:w-1/2  ">
-              <h1 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl">
+              <h5 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl mt-12">
                 {activeContent?.heading}
-              </h1>
+              </h5>
               <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
                 {activeContent?.description}
               </p>
-              <Link href={activeContent?.link}>
-                <Button size="xl" arrow={true}>
-                  {activeContent?.buttonText}
-                </Button>
-              </Link>
+
+              {!activeContent?.isBottomButton && (
+                <Link href={activeContent?.link || "#"}>
+                  <Button size="xl" arrow={true}>
+                    {activeContent?.buttonText}
+                  </Button>
+                </Link>
+              )}
             </div>
             <div className="flex-1">
               <KorcomptenzImage
@@ -109,6 +119,21 @@ export function AnimatedTabsHero({
           </motion.div>
         </AnimatePresence>
       </div>
+      {activeContent?.isBottomButton && (
+        <div className="container-md flex flex-col md:flex-row justify-center items-center mt-10 gap-10">
+          <Link href={activeContent?.bottomlink || "#"}>
+            <Button size="xl" arrow>
+              {activeContent?.bottomButtonText}
+            </Button>
+          </Link>
+
+          <Link href={activeContent?.link || "#"}>
+            <Button size="xl" arrow>
+              {activeContent?.buttonText}
+            </Button>
+          </Link>
+        </div>
+      )}
     </section>
   );
 }

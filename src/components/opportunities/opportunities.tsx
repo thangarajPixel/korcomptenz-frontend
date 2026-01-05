@@ -1,8 +1,8 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { cn } from "@/lib/utils";
+import ButtonLink from "../ui/button-link";
 
 export default function Opportunities({
   careers,
@@ -18,7 +18,12 @@ export default function Opportunities({
           {/* Left side - Image with geometric elements */}
           <div className="relative">
             {/* Blue geometric arrows */}
-            <div className={cn("absolute top-8 z-10 transition-all duration-1000", isHovered ? "left-24" : "left-6")}>
+            <div
+              className={cn(
+                "absolute top-8 z-10 transition-all duration-1000",
+                isHovered ? "left-24" : "left-6"
+              )}
+            >
               <div className="flex space-x-1 w-72">
                 <KorcomptenzImage
                   src={careers?.arrowImage}
@@ -43,7 +48,12 @@ export default function Opportunities({
           {/* Right side - Content */}
           <div className="space-y-8 mx-auto">
             {/* Desktop heading */}
-            <div className={cn("relative hidden lg:block transition-all", isHovered && "-translate-x-5 scale-102")}>
+            <div
+              className={cn(
+                "relative hidden lg:block transition-all",
+                isHovered && "-translate-x-5 scale-102"
+              )}
+            >
               <div className="text-5xl lg:text-9xl font-bold leading-tight w-full">
                 <div className="flex flex-row items-center justify-between">
                   <span className="text-custom-black lg:-ml-56 text-4xl lg:text-7xl font-semibold lg:me-20">
@@ -51,8 +61,7 @@ export default function Opportunities({
                   </span>
                   <section className="flex flex-row items-center gap-2">
                     <KorcomptenzImage
-                      src={careers?.profiles?.[0].image?.url}
-                      alt={careers?.profiles?.[0].image?.alternativeText}
+                      src={careers?.profiles?.[0].image}
                       className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
                       width={1000}
                       height={1000}
@@ -63,8 +72,7 @@ export default function Opportunities({
                   </section>
                   <div className="ps-10">
                     <KorcomptenzImage
-                      src={careers?.profiles?.[2].image?.url}
-                      alt={careers?.profiles?.[2].image?.alternativeText}
+                      src={careers?.profiles?.[2].image}
                       className="w-16 h-16 lg:w-[100px] lg:h-[100px] rounded-full border-4 border-white shrink-0"
                       width={1000}
                       height={1000}
@@ -78,8 +86,7 @@ export default function Opportunities({
                   </span>
                   <section className="flex flex-row items-center gap-2 lg:-ml-12">
                     <KorcomptenzImage
-                      src={careers?.profiles?.[1].image?.url}
-                      alt={careers?.profiles?.[1].image?.alternativeText}
+                      src={careers?.profiles?.[1].image}
                       className="lg:w-[100px] lg:h-[100px] w-16 h-16 rounded-full border-4 border-white shrink-0"
                       width={1000}
                       height={1000}
@@ -93,7 +100,12 @@ export default function Opportunities({
             </div>
 
             {/* Mobile heading */}
-            <div className={cn("relative transition-all duration-500 lg:hidden", isHovered && "-translate-x-5 scale-105")}>
+            <div
+              className={cn(
+                "relative transition-all duration-500 lg:hidden",
+                isHovered && "-translate-x-5 scale-105"
+              )}
+            >
               <div className="text-5xl font-bold leading-tight w-full ">
                 <div className="flex flex-row items-center justify-between">
                   <span className="text-custom-black text-5xl font-semibold">
@@ -101,8 +113,7 @@ export default function Opportunities({
                   </span>
 
                   <KorcomptenzImage
-                    src={careers?.profiles?.[0].image?.url}
-                    alt={careers?.profiles?.[0].image?.alternativeText}
+                    src={careers?.profiles?.[0].image}
                     className="w-16 h-16 rounded-full border-4 border-white shrink-0"
                     width={1000}
                     height={1000}
@@ -115,8 +126,7 @@ export default function Opportunities({
 
                 <div className="flex flex-row justify-between items-center">
                   <KorcomptenzImage
-                    src={careers?.profiles?.[2].image?.url}
-                    alt={careers?.profiles?.[2].image?.alternativeText}
+                    src={careers?.profiles?.[2].image}
                     className="w-16 h-16 rounded-full border-4 border-white shrink-0"
                     width={1000}
                     height={1000}
@@ -125,8 +135,7 @@ export default function Opportunities({
                     {careers?.breakThree}
                   </span>
                   <KorcomptenzImage
-                    src={careers?.profiles?.[1].image?.url}
-                    alt={careers?.profiles?.[1].image?.alternativeText}
+                    src={careers?.profiles?.[1].image}
                     className="w-16 h-16 rounded-full border-4 border-white shrink-0"
                     width={1000}
                     height={1000}
@@ -143,22 +152,23 @@ export default function Opportunities({
             <p className="text-3xl text-custom-black leading-[28px] max-w-lg lg:ms-[-30px]">
               {careers?.description}
             </p>
-
-            {/* CTA */}
-            <Button
-              type="button"
-              arrow={true}
-              variant="default"
-              size="xl"
-              className="text-lg lg:ms-[-30px]"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+            <ButtonLink
+              {...careers?.button}
+              buttonProps={{
+                arrow: true,
+                variant: "default",
+                size: "xl",
+                className: "text-lg lg:ms-[-30px]",
+                onMouseEnter: () => setIsHovered(true),
+                onMouseLeave: () => setIsHovered(false)
+              }}
             >
-              {careers?.buttonText}
-            </Button>
+              {careers?.button?.text}
+            </ButtonLink>
+
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }

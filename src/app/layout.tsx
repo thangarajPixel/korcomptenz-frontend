@@ -12,7 +12,10 @@ const outfitSans = Outfit({
 
 
 export const metadata: Metadata = {
-  title: "korcomptenz-frontend",
+  title: {
+    default: "korcomptenz",
+    template: ''
+  },
   description: "korcomptenz-frontend",
 };
 
@@ -22,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <link rel="icon" href="/assets/logo.png" sizes="any" />
       <body
         className={`${outfitSans.variable} antialiased`}

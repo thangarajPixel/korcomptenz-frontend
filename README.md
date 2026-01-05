@@ -1,6 +1,6 @@
 # korcomptenz-frontend
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, and more.
+This project was created with , a modern TypeScript stack that combines Next.js, and more.
 
 ## Features
 
@@ -18,23 +18,20 @@ First, install the dependencies:
 pnpm install
 ```
 
-
 Then, run the development server:
 
 ```bash
+
 pnpm dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application.
-
-
+Open [http://localhost:4000](http://localhost:4000) in your browser to see the web application.
 
 ## Project Structure
 
 ```
 korcomptenz-frontend/
-├── apps/
-│   ├── web/         # Frontend application (Next.js)
+├── app/         # Frontend application (Next.js)
 ```
 
 ## Available Scripts

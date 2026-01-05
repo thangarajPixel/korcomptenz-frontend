@@ -1,58 +1,63 @@
-import { Button } from '@/components/ui/button'
-import KorcomptenzImage from '@/components/korcomptenz-image'
-import { cn } from '@/lib/utils'
+import { Button } from "@/components/ui/button";
+
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 const StretchableSectionCard = ({
-  open,
   props,
   data,
-  image
 }: {
-  open: boolean;
   props: React.HTMLAttributes<HTMLDivElement>;
-  image?: ImageType;
-  data: StretchableSectionType['list'][number];
+  image?: ImageType | string;
+  data: StretchableSectionType["list"][number];
 }) => {
+  const { ...rest } = props;
+  const backgroundImage =
+    "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/lets_drive_fdc0c33e0c.png";
+
   return (
     <div
-      {...props}
-      className={cn(`bg-light-gray rounded-4xl relative overflow-hidden min-h-80 flex flex-row  transition-all duration-1000 ease-out  
-        ${open ? "lg:flex-[2] transform" : "lg:flex-1"}`, props.className)}
+      {...rest}
+      className={cn(
+        `bg-light-gray rounded-4xl relative overflow-hidden min-h-80 flex flex-row`,
+        props.className
+      )}
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "280px",
+        backgroundPosition: "center center",
+      }}
     >
-      <div className='pl-8 py-8 lg:pl-10 lg:py-10 flex flex-col '>
-        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-auto">{data?.title}</h2>
-        <div
-          className={`transition-all duration-1000 ease-out ${open ? "opacity-100 max-h-96" : "opacity-0 max-h-0 overflow-hidden"
-            }`}
-        >
-          <p className="text-gray-700 text-lg mb-8 flex-grow">
-            {data?.description}
-          </p>
-        </div>
-        <div
-          className={`transition-all duration-1000 ease-out `}
-        >
-          <Button size={open ? 'xl' : 'icon'} arrow={true} >
-            {open && data?.buttonText}
-          </Button>
+      {/* Overlay to reduce background image opacity */}
+      <div className="absolute inset-0 bg-light-gray/80 z-0"></div>
 
-        </div>
-      </div>
-      <div className={cn("size-full", open && "relative")}>
-        <div
-          className={`absolute  transition-all duration-1000 ease-out ${open ? "right-0 bottom-0" : "opacity-20  right-4 top-1/2 -translate-y-1/2"
-            }`}
-        >
-          <KorcomptenzImage
-            src={open ? data?.image : image}
-            width={200}
-            height={200}
+      <div className="pl-8 py-8 lg:pl-10 lg:py-10 flex flex-col gap-3 flex-1 pr-8 relative z-10">
+        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
+          {data?.title}
+        </h2>
+        <div className="flex-1">
+          <DangerousHtml
+            html={data?.description}
+            className="text-gray-700 text-base mb-6 "
           />
         </div>
+        {data?.buttonText && (
+          <div className="z-10">
+            <Link
+              href={data?.link || "#"}
+              target={data?.isTargetBlank ? "true" : "false"}
+            >
+              <Button size="xl" arrow={true}>
+                {data?.buttonText}
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-
-export default StretchableSectionCard
+export default StretchableSectionCard;

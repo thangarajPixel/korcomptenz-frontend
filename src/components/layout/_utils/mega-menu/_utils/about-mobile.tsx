@@ -2,14 +2,21 @@
 
 import { useState } from "react";
 import { Plus, ChevronLeft } from "lucide-react";
+import Link from "next/link";
 
 interface IndustryDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   data: LayoutType;
+  closeMenu: () => void;
 }
 
-const AboutDrawer = ({ isOpen, onClose, data }: IndustryDrawerProps) => {
+const AboutDrawer = ({
+  isOpen,
+  onClose,
+  data,
+  closeMenu,
+}: IndustryDrawerProps) => {
   const [activeItem, setActiveItem] = useState<number | null>(null);
 
   if (!isOpen) return null;
@@ -45,17 +52,19 @@ const AboutDrawer = ({ isOpen, onClose, data }: IndustryDrawerProps) => {
         {/* Accordion list */}
         <div className="h-full bg-white p-4 text-lg text-gray-700">
           {data?.aboutMenu?.navigationItems?.map((item) => (
-            <div
-              key={`about-mobile-${item?.id}`}
-              className="border-b border-gray-100"
-            >
-              <button
-                onClick={() => toggleAccordion(item?.id)}
-                className="w-full flex items-center justify-between py-3 text-lg text-primary"
+            <Link href={item?.link || "#"} key={item?.id} onClick={closeMenu}>
+              <div
+                key={`about-mobile-${item?.id}`}
+                className="border-b border-gray-100"
               >
-                <span>{item?.title}</span>
-              </button>
-            </div>
+                <button
+                  onClick={() => toggleAccordion(item?.id)}
+                  className="w-full flex items-center justify-between py-3 text-lg text-primary"
+                >
+                  <span>{item?.title}</span>
+                </button>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -63,7 +72,13 @@ const AboutDrawer = ({ isOpen, onClose, data }: IndustryDrawerProps) => {
   );
 };
 
-const AboutMobile = ({ data }: { data: LayoutType }) => {
+const AboutMobile = ({
+  data,
+  closeMenu,
+}: {
+  data: LayoutType;
+  closeMenu: () => void;
+}) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -82,14 +97,16 @@ const AboutMobile = ({ data }: { data: LayoutType }) => {
 
         {/* Sidebar Sections (static, no drawer) */}
         {data?.aboutMenu?.sidebarSections?.map((sec) => (
-          <div
-            key={`about-mobile-${sec?.id}`}
-            className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
-          >
-            <span className="text-lg text-custom-gray-4 font-normal">
-              {sec?.title}
-            </span>
-          </div>
+          <Link href={sec?.link || "#"} onClick={closeMenu} key={sec?.id}>
+            <div
+              key={`about-mobile-${sec?.id}`}
+              className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
+            >
+              <span className="text-lg text-custom-gray-4 font-normal">
+                {sec?.title}
+              </span>
+            </div>
+          </Link>
         ))}
       </div>
 
@@ -98,6 +115,7 @@ const AboutMobile = ({ data }: { data: LayoutType }) => {
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         data={data}
+        closeMenu={closeMenu}
       />
     </>
   );

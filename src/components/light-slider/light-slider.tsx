@@ -5,12 +5,10 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
+import { DangerousHtml } from "../ui/dangerous-html";
+import Link from "next/link";
 
-const LightSlider = ({
-  data,
-}: {
-  data: LightSliderType;
-}) => {
+const LightSlider = ({ data }: { data: LightSliderType }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -62,8 +60,9 @@ const LightSlider = ({
             <div className="hidden lg:flex items-center gap-4 mt-4">
               <Button
                 size="icon"
-                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${!prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
+                className={`rounded-full size-12  hover:bg-primary hover:text-white  ${
+                  !prevBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                }`}
                 onClick={scrollPrev}
                 disabled={!prevBtnEnabled}
               >
@@ -71,8 +70,9 @@ const LightSlider = ({
               </Button>
               <Button
                 size="icon"
-                className={`rounded-full size-12  hover:bg-primary hover:text-white ${!nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
+                className={`rounded-full size-12  hover:bg-primary hover:text-white ${
+                  !nextBtnEnabled ? "opacity-50 cursor-not-allowed" : ""
+                }`}
                 onClick={scrollNext}
                 disabled={!nextBtnEnabled}
               >
@@ -101,23 +101,31 @@ const LightSlider = ({
               {data?.list?.map((slide, index) => (
                 <div
                   key={`slide-${slide?.id}`}
-                  className={`min-w-full pl-4 pr-1 relative ${index === data?.list?.length - 1 ? "mr-[0px]" : ""
-                    }`}
+                  className={`min-w-full pl-4 pr-1 relative ${
+                    index === data?.list?.length - 1 ? "mr-[0px]" : ""
+                  }`}
                 >
                   <div className="space-y-4">
                     {slide?.solutions?.map((solution, solutionIndex) => (
-                      <div key={`solution-${solution?.id}`} className="space-y-2">
+                      <div
+                        key={`solution-${solution?.id}`}
+                        className="space-y-2"
+                      >
                         <h3 className="text-4xl mg:text-5xl font-semibold text-foreground">
                           {solution?.title}
                         </h3>
-                        <p className="text-custom-gray-9 text-md md:text-lg leading-relaxed break-words">
-                          {solution?.description}
-                        </p>
+                        <DangerousHtml
+                          html={solution?.description}
+                          className="text-custom-gray-9 text-md md:text-lg leading-relaxed"
+                        />
+
                         {solution?.buttonText && (
-                          <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">
-                            {solution?.buttonText}
-                            <ChevronRight className="w-4 h-4" />
-                          </button>
+                          <Link href={solution?.link || "#"}>
+                            <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">
+                              {solution?.buttonText}
+                              <ChevronRight className="w-4 h-4" />
+                            </button>
+                          </Link>
                         )}
                         {solutionIndex < slide?.solutions?.length - 1 && (
                           <hr className="border-gray-200 mt-2" />

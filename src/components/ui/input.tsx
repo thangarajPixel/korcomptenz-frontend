@@ -20,6 +20,7 @@ const Input = <D extends FieldValue>({
   name,
   defaultValue,
   className,
+  placeholder,
   ...props
 }: InputProps<D>) => {
   const {
@@ -30,23 +31,33 @@ const Input = <D extends FieldValue>({
     control,
     defaultValue,
   });
+  const { required, ...rest } = props;
+  const computedPlaceholder =
+    required && placeholder ? `${placeholder} *` : placeholder;
   return (
     <div className={cn("relative", props.disabled && "cursor-pointer")}>
-      {props.label && <label className="block text-sm font-medium text-gray-700">{props.label} {props.required && <span className="text-destructive">*</span>}</label>}
+      {props.label && (
+        <label className="block text-sm font-medium text-gray-700">
+          {props.label}{" "}
+          {required && <span className="text-destructive">*</span>}
+        </label>
+      )}
       <input
         data-slot="input"
+        required={required}
+        placeholder={computedPlaceholder}
         className={cn(
           "w-full bg-transparent border-0 border-b border-[#cbd5e0] pb-3 text-[#2d3748] placeholder:text-[#cbd5e0] focus:outline-none focus:border-[#4a5568] transition-colors",
           className
         )}
         {...field}
-        {...props}
+        {...rest}
         value={
           typeof field.value === "string"
             ? field.value
             : field.value == null
-              ? ""
-              : String(field.value)
+            ? ""
+            : String(field.value)
         }
         onChange={(e) => {
           field.onChange(e.target.value);
