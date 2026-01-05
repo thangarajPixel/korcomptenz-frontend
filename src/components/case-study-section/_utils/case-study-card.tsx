@@ -4,7 +4,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export function CaseStudyCard({ data }: { data: CaseStudyData }) {
   return (
