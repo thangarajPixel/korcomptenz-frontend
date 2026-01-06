@@ -1,7 +1,9 @@
 "use client";
 
-import { getCaseStudyPage } from "@/services";
+import { getCaseStudiesPage } from "@/services";
+import { cache } from "react";
 
+const getCaseStudiesPageCache = cache(getCaseStudiesPage);
 const ThankYouPage = () => {
   const handleClose = () => {
     if (window.history.length > 1) {
@@ -10,9 +12,9 @@ const ThankYouPage = () => {
       window.close();
     }
   };
-  const data = getCaseStudyPage();
-
-  !data && <div>not found</div>;
+  const data = getCaseStudiesPageCache();
+  // oxlint-disable-next-line no-console
+  console.log(data);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 relative">
