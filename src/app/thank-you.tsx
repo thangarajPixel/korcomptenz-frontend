@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+
+import { getCaseStudyPage } from "@/services";
 
 const ThankYouPage = () => {
   const handleClose = () => {
@@ -9,6 +10,9 @@ const ThankYouPage = () => {
       window.close();
     }
   };
+  const data = getCaseStudyPage();
+
+  !data && <div>not found</div>;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 relative">
