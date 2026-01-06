@@ -10,7 +10,8 @@ const getHomeServiceCache = cache(getHomeService);
 
 export async function generateMetadata() {
   const data = await getHomeServiceCache();
-
+  // oxlint-disable-next-line no-console
+  console.log(data);
   return {
     title: data?.seo?.title || "Home",
     description: data?.seo?.description || "",
@@ -18,6 +19,8 @@ export async function generateMetadata() {
 }
 export default async function Home() {
   const data = await getHomeServiceCache();
+  // oxlint-disable-next-line no-console
+  console.log(data);
   return (
     <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
       <GlobalPage data={data?.list} />
