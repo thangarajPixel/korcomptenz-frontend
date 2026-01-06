@@ -36,8 +36,9 @@ const BenefitSection = ({
               return (
                 <div
                   key={`benefit-card-item-${card?.id}`}
-                  className={`flex gap-4 ${isOddNumberOfCards ? "w-full" : "w-1/2"
-                    }`}
+                  className={`flex gap-4 ${
+                    isOddNumberOfCards ? "w-full" : "w-1/2"
+                  }`}
                 >
                   <div className="md:mx-4 m-2 flex flex-col gap-4">
                     {card?.number && (
@@ -47,7 +48,9 @@ const BenefitSection = ({
                     )}
 
                     {card?.title && (
-                      <p className="text-black text-xl">{card?.title}</p>
+                      <p className="text-black text-xl font-semibold">
+                        {card?.title}
+                      </p>
                     )}
                     {card?.description && (
                       <DangerousHtml
