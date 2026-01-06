@@ -820,7 +820,7 @@ type VideoBannerItemType = {
   videoLink: string;
   title: string;
   imageMobile: ImageType;
-
+  form?: GlobalFormItemType;
   image: ImageType;
   isVideo: boolean;
 };

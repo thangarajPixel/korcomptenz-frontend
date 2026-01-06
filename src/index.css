@@ -327,6 +327,7 @@ body {
 }
 .rich-text li {
   margin-bottom: 0.25rem;
+  font-size: 18px;
 }
 
 .rich-text a {

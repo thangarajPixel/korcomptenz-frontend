@@ -70,20 +70,22 @@ export default function StickyCards({
                       {card?.description}
                     </p>
                   </div>
-                  <Link href={card?.link || "/"}>
-                    <Button
-                      size="xl"
-                      className={cn(
-                        "mt-3 mb-3 rounded-full ",
-                        !isMobile
-                          ? "w-fit text-4xl px-6"
-                          : " text-xs px-2  bg-white text-primary border border-primary h-[44px] w-[155px]"
-                      )}
-                      arrow={true}
-                    >
-                      {card?.buttonText}
-                    </Button>
-                  </Link>
+                  {card?.buttonText && (
+                    <Link href={card?.link || "/"}>
+                      <Button
+                        size="xl"
+                        className={cn(
+                          "mt-3 mb-3 rounded-full ",
+                          !isMobile
+                            ? "w-fit text-4xl px-6"
+                            : " text-xs px-2  bg-white text-primary border border-primary h-[44px] w-[155px]"
+                        )}
+                        arrow={true}
+                      >
+                        {card?.buttonText}
+                      </Button>
+                    </Link>
+                  )}
                 </div>
 
                 {/* Visual Section */}

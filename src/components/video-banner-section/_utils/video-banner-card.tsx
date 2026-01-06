@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 type VideoBannerCardProps = {
   data: VideoBannerItemType;
+
   className?: string;
 };
 
@@ -48,11 +49,13 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
 
             {/* ---------- RIGHT FORM ---------- */}
 
-            <div className="col-span-4 flex  justify-end">
-              <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
-                <DownloadForm />
+            {data?.form && (
+              <div className="col-span-4 flex  justify-end">
+                <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+                  <DownloadForm />
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

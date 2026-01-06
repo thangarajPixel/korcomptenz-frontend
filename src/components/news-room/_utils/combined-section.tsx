@@ -5,13 +5,13 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 const CombinedSection = ({ data }: { data: CombinedSectionType }) => {
   return (
-    <section className="bg-[#f7f8f8] ">
+    <section className="bg-[#f7f8f8] py-10 ">
       <div className="flex flex-col gap-12 md:gap-20">
         {/* Heading (needs container) */}
         <div className="container-md flex flex-col ">
           <DangerousHtml
             html={data?.heading?.title}
-            className="text-4xl lg:text-[40px] font-bold text-foreground mb-12  lg:mb-16  text-balance"
+            className="text-4xl lg:text-[40px] font-bold text-foreground mb-5  text-balance"
           />
 
           <DangerousHtml
