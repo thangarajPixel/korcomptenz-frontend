@@ -7,8 +7,6 @@ export const dynamic = "force-dynamic";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   const response = await getLayoutService();
-  // oxlint-disable-next-line no-console
-  console.log(response, "layout");
   return (
     <div className="flex min-h-svh  flex-col">
       <Header data={response} />
