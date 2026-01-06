@@ -110,18 +110,20 @@ export default function NewsEventListSection({
       {data?.[0]?.isEvent && (
         <div className="w-full lg:w-64">
           <div className="space-y-2 sticky top-32">
-            {groupByYear(data)?.map((section) => (
-              <button
-                key={`section-button-${section.id}`}
-                onClick={() => handleSectionClick(section.id)}
-                className={cn(
-                  `w-full text-left cursor-pointer font-semibold px-4 py-2 text-xl transition-all text-foreground duration-200  hover:text-primary `,
-                  activeSection === `${section.id}` && "text-primary"
-                )}
-              >
-                {dayjs(section?.date).format("YYYY")}
-              </button>
-            ))}
+            {groupByYear(data)
+              ?.sort((a, b) => dayjs(b.date).year() - dayjs(a.date).year())
+              .map((section) => (
+                <button
+                  key={`section-button-${section.id}`}
+                  onClick={() => handleSectionClick(section.id)}
+                  className={cn(
+                    `w-full text-left cursor-pointer font-semibold px-4 py-2 text-xl transition-all text-foreground duration-200  hover:text-primary `,
+                    activeSection === `${section.id}` && "text-primary"
+                  )}
+                >
+                  {dayjs(section?.date).format("YYYY")}
+                </button>
+              ))}
           </div>
         </div>
       )}
@@ -129,28 +131,30 @@ export default function NewsEventListSection({
       <div ref={contentRef} className="flex-1 overflow-y-auto pl-4">
         {/* Content Sections */}
         {data?.[0]?.isEvent ? (
-          groupByYear(data)?.map((section, index) => (
-            <div
-              key={`section-content-${section.id}`}
-              data-section={section.id}
-              className={cn(
-                "mb-6 pb-6 border-b border-gray-200",
-                index === section.item.length - 1 && "border-b-0"
-              )}
-            >
-              <h2 className="text-7xl font-semibold text-foreground mb-8">
-                {dayjs(section?.date).format("YYYY")}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {section?.item?.map((item) => (
-                  <NewsEventListSectionItem
-                    key={`section-item-${item.id}`}
-                    data={item}
-                  />
-                ))}
+          groupByYear(data)
+            ?.sort((a, b) => dayjs(b.date).year() - dayjs(a.date).year())
+            .map((section, index) => (
+              <div
+                key={`section-content-${section.id}`}
+                data-section={section.id}
+                className={cn(
+                  "mb-6 pb-6 border-b border-gray-200",
+                  index === section.item.length - 1 && "border-b-0"
+                )}
+              >
+                <h2 className="text-7xl font-semibold text-foreground mb-8">
+                  {dayjs(section?.date).format("YYYY")}
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {section?.item?.map((item) => (
+                    <NewsEventListSectionItem
+                      key={`section-item-${item.id}`}
+                      data={item}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))
+            ))
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {data?.map((item) => (

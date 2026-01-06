@@ -9,7 +9,6 @@ const DemoBannerCard = ({
   data,
   item,
   className,
-  isFirst = false,
 }: {
   data: BannerSectionType;
   className?: string;
@@ -19,40 +18,25 @@ const DemoBannerCard = ({
   return (
     <div className={cn("relative w-full overflow-hidden", className)}>
       {/* Desktop View */}
-      <div className="relative w-full  h-full hidden lg:block">
+      <div className="relative w-full min-h-[73vh] hidden lg:block">
         {/* Background image */}
         <KorcomptenzImage
           src={data?.image}
           width={1920}
           height={1080}
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Dark gradient overlay */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-[5]" />
 
         {/* ✅ Centered + Responsive container */}
         <div className="absolute inset-0 z-10 flex items-center py-10">
           <div className="container-md  flex flex-col gap-2 px-6 md:px-10 ">
-            {data?.logo && (
-              <KorcomptenzImage
-                src={data.logo}
-                width={300}
-                height={200}
-                className="w-32 md:w-[300px] h-auto object-contain mb-2 md:mb-4"
-              />
-            )}
-            {isFirst ? (
-              data?.title && (
-                <h1 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
-                  {data?.title}
-                </h1>
-              )
-            ) : (
-              <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
-                {data?.title}
-              </h2>
-            )}
+            <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
+              {data?.title}
+            </h2>
+
             {data?.description && (
               <DangerousHtml
                 className="text-lg md:text-base text-white my-4  max-w-md"

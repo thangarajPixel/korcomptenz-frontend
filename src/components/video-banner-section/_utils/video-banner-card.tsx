@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 type VideoBannerCardProps = {
   data: VideoBannerItemType;
+
   className?: string;
 };
 
@@ -44,15 +45,21 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
               <h1 className="text-4xl md:text-7xl font-semibold text-white leading-tight max-w-3xl">
                 {data?.title}
               </h1>
+              <p className="text-xl md:text-4xl leading-relaxed font-normal justify-center text-white">
+                {" "}
+                {data?.description}
+              </p>
             </div>
 
             {/* ---------- RIGHT FORM ---------- */}
 
-            <div className="col-span-4 flex  justify-end">
-              <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
-                <DownloadForm />
+            {data?.form && (
+              <div className="col-span-4 flex  justify-end">
+                <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+                  <DownloadForm />
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
@@ -82,9 +89,11 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
         <div className="container-md flex flex-col gap-6 p-6">
           <h2 className="text-3xl font-bold text-foreground">{data?.title}</h2>
         </div>
-        <div className="p-5 rounded-2xl shadow-2xl">
-          <DownloadForm />
-        </div>
+        {data?.form && (
+          <div className="p-5 rounded-2xl shadow-2xl">
+            <DownloadForm />
+          </div>
+        )}
       </div>
     </div>
   );

@@ -67,7 +67,7 @@ const NewsRoomBuild = ({
           </div>
 
           <div className="relative">
-            <div className="sticky top-24 p-5 hidden lg:block">
+            <div className="sticky top-24 right-0 p-5 hidden lg:block">
               <KorcomptenzImage
                 src={buildData?.image}
                 width={400}

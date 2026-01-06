@@ -46,11 +46,11 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
                       </div>
                     </div>
                   ) : (
-                    <div className="flex flex-row gap-4">
+                    <div className=" overflow-hidden">
                       <KorcomptenzImage
                         src={sapSectionData?.image3}
-                        width={400}
-                        height={400}
+                        width={180}
+                        height={180}
                       />
                     </div>
                   )}

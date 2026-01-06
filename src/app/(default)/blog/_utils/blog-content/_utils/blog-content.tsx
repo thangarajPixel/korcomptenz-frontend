@@ -98,9 +98,9 @@ export default function DocumentationLayout({
 
         <main className="flex-1">
           <article className="max-w-4xl">
-            <h1 className="text-5xl font-bold text-gray-900 leading-tight mb-10">
+            <h2 className="text-5xl font-bold text-gray-900 leading-tight mb-10">
               {data?.insight?.title}
-            </h1>
+            </h2>
 
             <div className="space-y-16">
               <div className="space-y-8">
