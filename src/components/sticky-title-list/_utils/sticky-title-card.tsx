@@ -64,7 +64,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
           )}
 
           {position === "main" && image && (
-            <div className="flex items-center justify-center ">
+            <div className="flex items-center justify-left ">
               <KorcomptenzImage
                 src={image}
                 className=" object-contain max-h-60"

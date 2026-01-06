@@ -823,6 +823,7 @@ type VideoBannerItemType = {
   form?: GlobalFormItemType;
   image: ImageType;
   isVideo: boolean;
+  description: string;
 };
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
