@@ -11,37 +11,22 @@ const http = axios.create({
 });
 
 // Add a request interceptor
-http.interceptors.request.use(
-  async (config) => {
-    try {
-      if (!API_BASE_URL) {
-        return Promise.reject({
-          message: 'API URL is not configured',
-          status: undefined,
-        });
-      }
-      return config;
-    } catch {
-      return config;
-    }
-  },
-  (error) => {
-    return Promise.reject(error);
+http.interceptors.request.use(async (config) => {
+  try {
+    // config.headers['content-type'] = 'application/json';
+    return config;
+  } catch {
+    // eslint no-console: "error"
+    // console.error('Error in request interceptor:', error);
+    return config;
   }
-);
+});
 
 http.interceptors.response.use(
   (response) => {
     return response.data;
   },
   async (error) => {
-    if (!API_BASE_URL) {
-      return Promise.reject({
-        message: 'API URL is not configured',
-        status: undefined,
-      });
-    }
-
     if (error) {
       const errorData = {
         ...error?.response?.data,
@@ -65,7 +50,7 @@ http.interceptors.response.use(
       }
       return Promise.reject(errorData);
     }
-    return Promise.reject(error?.response?.data || { status: undefined });
+    return Promise.reject(error?.response?.data);
   },
 );
 
