@@ -19,9 +19,9 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
 
   return (
     <section className="container-md" data-debug={"page-componets.faq-title"}>
-      <h5 className="text-6xl md:text-9xl font-semibold text-foreground mb-4">
+      <h2 className="text-6xl md:text-9xl font-semibold text-foreground mb-4">
         {faqData?.title}
-      </h5>
+      </h2>
       <Accordion type="single" collapsible className="w-full">
         {faqData?.faq?.map((item) => (
           <AccordionItem
@@ -55,9 +55,9 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
                       key={`list-item-${listItem?.id}`}
                       className="text-center flex items-center flex-col gap-3 bg-white rounded-2xl p-6 shadow-sm"
                     >
-                      <h4 className="text-lg md:text-5xl font-semibold">
+                      <h3 className="text-lg md:text-5xl font-semibold">
                         {listItem?.title}
-                      </h4>
+                      </h3>
                       <p className="text-base md:text-lg lg:text-xl text-answer-color leading-relaxed flex-1">
                         {listItem?.description}
                       </p>

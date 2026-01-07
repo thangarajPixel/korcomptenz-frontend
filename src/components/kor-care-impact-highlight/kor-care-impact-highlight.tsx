@@ -25,7 +25,7 @@ const KorCareImpactHighlight = ({
                 className="w-[100px] h-[100px] object-contain"
               />
 
-              <p className="text-white text-6xl font-bold">{item.title}</p>
+              <h3 className="text-white text-6xl font-bold">{item.title}</h3>
 
               <p className="text-white text-base font-normal break-words">
                 {item.description}

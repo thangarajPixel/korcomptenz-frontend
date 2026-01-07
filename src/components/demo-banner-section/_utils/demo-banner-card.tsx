@@ -66,10 +66,10 @@ const DemoBannerCard = ({
       {item?.bannerInfo && (
         <div className="bg-muted hidden lg:block py-5">
           <div className="flex container-md justify-evenly">
-            <p className="text-white font-semibold text-6xl">
+            <h1 className="text-white font-semibold text-6xl">
               {" "}
               {item?.bannerInfo?.title}
-            </p>
+            </h1>
             {item?.bannerInfo?.details.map((detail, index) => (
               <div className="flex gap-2" key={index}>
                 <KorcomptenzImage src={detail?.icon} width={45} height={45} />
@@ -96,10 +96,10 @@ const DemoBannerCard = ({
       {item?.bannerInfo && (
         <div className="bg-muted lg:hidden flex w-full ">
           <div className="grid container-md justify-start gap-1">
-            <p className="text-white font-normal text-4xl">
+            <h1 className="text-white font-normal text-4xl">
               {" "}
               {item?.bannerInfo?.title}
-            </p>
+            </h1>
             {item?.bannerInfo?.details.map((detail, index) => (
               <div className="flex gap-2" key={index}>
                 <KorcomptenzImage src={detail?.icon} width={20} height={20} />
@@ -120,9 +120,9 @@ const DemoBannerCard = ({
             className="w-[250px] md:w-[300px] h-auto object-contain opacity-80 mb-2"
           />
         ) : (
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground">
             {data?.title}
-          </h2>
+          </h1>
         )}
         {data?.description && (
           <DangerousHtml

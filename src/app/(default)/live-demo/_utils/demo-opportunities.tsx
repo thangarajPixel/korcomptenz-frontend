@@ -44,9 +44,9 @@ export default function DemoOpportunities({
             <div className="rounded-3xl ">
               {/* Header dividers and title */}
               <div className="flex  mb-5">
-                <h1 className="text-3xl md:text-7xl font-semibold text-foreground text-center font-sans whitespace-nowrap">
+                <h2 className="text-3xl md:text-7xl font-semibold text-foreground text-center font-sans whitespace-nowrap">
                   {whyAttendData.title}
-                </h1>
+                </h2>
               </div>
 
               {/* <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-10 max-w-4xl mx-auto text-center font-sans">

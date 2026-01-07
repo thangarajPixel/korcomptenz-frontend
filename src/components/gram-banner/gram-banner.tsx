@@ -28,13 +28,13 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         }  `}
       >
         {gramData?.title && (
-          <h3
+          <h2
             className={`text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15 text-center lg:px-10 ${
               gramData?.theme === "dark" ? "text-white" : ""
             }`}
           >
             {gramData?.title}
-          </h3>
+          </h2>
         )}
 
         <DangerousHtml

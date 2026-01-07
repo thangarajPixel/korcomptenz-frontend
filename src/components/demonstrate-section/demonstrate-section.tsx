@@ -13,14 +13,14 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
     >
       <div className="">
         <div className="flex flex-col gap-9 text-start lg:text-center items-start lg:items-center justify-center leading-14  text-foreground  ">
-          <h5
+          <h2
             className={cn(
               "text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0",
               data?.description && "mb-0"
             )}
           >
             {data?.title}
-          </h5>
+          </h2>
           {data?.description && (
             <p className="text-lg font-normal text-foreground leading-6 whitespace-pre-wrap line-clamp-2">
               {data?.description}
@@ -59,9 +59,9 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                   />
                 </div>
                 <div>
-                  <p className="lg:text-5xl text-4xl font-semibold text-foreground leading-9 group-hover:text-primary line-clamp-2">
+                  <h2 className="lg:text-5xl text-4xl font-semibold text-foreground leading-9 group-hover:text-primary line-clamp-2">
                     {card?.title}
-                  </p>
+                  </h2>
                 </div>
 
                 <p className="text-lg font-normal text-foreground leading-6 break-words line-clamp-2">

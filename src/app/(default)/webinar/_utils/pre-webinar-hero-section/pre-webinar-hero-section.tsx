@@ -54,9 +54,9 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
 
           {/* Content */}
           <div className="p-6 mt-4">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
               {data?.title}
-            </h1>
+            </h2>
             <p className="text-sm text-gray-600 mb-6">
               {data?.heroSection?.description}
             </p>
@@ -105,9 +105,9 @@ const PreWebinarHeroSection = ({ data }: { data: InsightResponse }) => {
 
           <div className="relative z-10 container-lg ">
             <div className="w-7/12">
-              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight">
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight">
                 {data?.title}
-              </h1>
+              </h2>
 
               <p className="text-base lg:text-lg mb-6 leading-relaxed">
                 {data?.heroSection?.description}

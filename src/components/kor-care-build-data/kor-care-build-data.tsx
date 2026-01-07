@@ -80,9 +80,9 @@ const KorCareBuildData = ({
 
             {/* CONTENT SECTION */}
             <div className="md:px-5 space-y-3 flex flex-col justify-center order-1 lg:order-2">
-              <h3 className="text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
+              <h2 className="text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
                 {buildData?.title}
-              </h3>
+              </h2>
 
               <DangerousHtml
                 html={buildData?.description}

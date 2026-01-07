@@ -22,9 +22,9 @@ const ContactUsNewsletter = ({
         <div className="flex flex-col md:flex-row md:gap-0 md:rounded-3xl md:overflow-hidden ">
           {/* Content Section - 70% on mobile, 50% on desktop */}
           <div className="flex flex-col justify-center px-6 py-8 md:w-[60%] md:px-20 md:py-12 bg-secondary   ">
-            <h4 className="text-5xl  font-semibold text-white mb-4 md:mb-6">
+            <h2 className="text-5xl  font-semibold text-white mb-4 md:mb-6">
               {newsletterData.title}
-            </h4>
+            </h2>
 
             <p className="text-base text-xl text-white/90 mb-6 md:mb-8 leading-relaxed">
               {newsletterData.description}

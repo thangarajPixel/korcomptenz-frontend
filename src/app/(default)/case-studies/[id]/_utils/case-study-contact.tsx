@@ -60,9 +60,9 @@ export function CaseStudyForm({
       <div className="max-w-2xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h3 className="text-[#2d3748] text-7xl leading-tight mb-2 font-bold">
+          <h2 className="text-[#2d3748] text-7xl leading-tight mb-2 font-bold">
             {data?.isAttachment ? essential?.downloadContent : essential?.title}
-          </h3>
+          </h2>
         </div>
 
         {/* Form */}

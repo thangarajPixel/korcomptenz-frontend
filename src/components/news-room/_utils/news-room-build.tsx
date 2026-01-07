@@ -18,9 +18,9 @@ const NewsRoomBuild = ({
             className={cn("lg:px-5 space-y-3 ", buildData?.isSwap && "order-2")}
           >
             {!buildData?.isSwap && (
-              <h3 className="text-6xl md:text-8xl font-bold text-foreground leading-10 lg:leading-14">
+              <h2 className="text-6xl md:text-8xl font-bold text-foreground leading-10 lg:leading-14">
                 {buildData?.title}
-              </h3>
+              </h2>
             )}
             {buildData?.description && (
               <DangerousHtml

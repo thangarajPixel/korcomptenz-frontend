@@ -21,13 +21,13 @@ const KorCareSlider = ({
     >
       <div className={"flex flex-col gap-4 py-5 "}>
         <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
-          <h5
+          <h2
             className={cn(
               "text-center text text-6xl md:text-7xl font-bold leading-tight text-[#1E293B] mb-5"
             )}
           >
             {manuelSliderData?.title}
-          </h5>
+          </h2>
         </div>
         <div className={cn("px-5 lg:px-10")}>
           <CarouselContent>

@@ -26,9 +26,9 @@ const BuildConnect = ({
     <section data-debug="page-componets.build-data" id="our-mission-and-vision">
       <div className="container-md  ">
         {buildData?.isSwap && (
-          <h3 className=" text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-15">
+          <h2 className=" text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-15">
             {buildData?.title}
-          </h3>
+          </h2>
         )}
         <div
           className={cn(
@@ -40,9 +40,9 @@ const BuildConnect = ({
             className={cn("md:pl-5 space-y-3 ", buildData?.isSwap && "order-2")}
           >
             {!buildData?.isSwap && (
-              <h3 className="text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-12">
+              <h2 className="text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-12">
                 {buildData?.title}
-              </h3>
+              </h2>
             )}
             {buildData?.description && (
               <DangerousHtml

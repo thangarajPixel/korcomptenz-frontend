@@ -17,9 +17,9 @@ const AboutMenu = ({
       <div className="flex h-full">
         {/* Left section */}
         <div className="w-1/3 h-full flex flex-col">
-          <h5 className="text-9xl font-semibold text-primary mb-8">
+          <h2 className="text-9xl font-semibold text-primary mb-8">
             {data?.aboutMenu?.title}
-          </h5>
+          </h2>
           <div className="relative h-1 border-5 border-b  border-primary w-full " />
         </div>
 

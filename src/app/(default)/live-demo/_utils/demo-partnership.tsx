@@ -9,9 +9,9 @@ export default function DemoPartnership({
 }) {
   return (
     <section className="container-md bg-foreground rounded-4xl p-8">
-      <h1 className=" text-5xl md:text-7xl  font-semibold  mb-12 text-balance text-center  text-white">
+      <h2 className=" text-5xl md:text-7xl  font-semibold  mb-12 text-balance text-center  text-white">
         {data?.title}
-      </h1>
+      </h2>
 
       {/* Partner Badges Grid */}
       <div

@@ -11,9 +11,9 @@ const AchievementSection: React.FC<AchievementSectionProps> = ({ data }) => {
   return (
     <div className="container-md mt-10">
       {data.title && (
-        <h5 className="text-center text-foreground text-5xl font-semibold">
+        <h2 className="text-center text-foreground text-5xl font-semibold">
           {data.title}
-        </h5>
+        </h2>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
