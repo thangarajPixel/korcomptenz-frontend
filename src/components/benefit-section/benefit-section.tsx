@@ -19,7 +19,7 @@ const BenefitSection = ({
         {benefitData?.description}
       </p>
       <div>
-        <div className="flex flex-wrap lg:flex-nowrap lg:flex-row md:p-6 gap-10">
+        <div className="flex flex-wrap lg:flex-nowrap lg:flex-row md:py-6 gap-10">
           <div className="lg:w-1/2 w-full">
             <KorcomptenzImage
               src={benefitData?.image}
@@ -40,7 +40,7 @@ const BenefitSection = ({
                     isOddNumberOfCards ? "w-full" : "w-1/2"
                   }`}
                 >
-                  <div className="md:mx-4 m-2 flex flex-col gap-4">
+                  <div className="md:mx-4 m-2 flex flex-col ">
                     {card?.number && (
                       <p className="text-6xl md:text-8xl  font-light text-primary shrink-0 ">
                         {card?.number}

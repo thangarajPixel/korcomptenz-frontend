@@ -50,7 +50,7 @@ export default function ClientTestimonial({
             html={currentTestimonial?.description}
             className="md:text-5xl text-xl text-muted leading-12 font-medium"
           />
-          <p className="md:text-5xl text-xl text-muted leading-12 font-semibold text-right">
+          <p className="md:text-4xl text-xl text-muted leading-12 font-medium text-right">
             {" "}
             {currentTestimonial?.author}
           </p>

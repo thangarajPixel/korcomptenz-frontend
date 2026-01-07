@@ -44,7 +44,7 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
             <AccordionContent className="flex flex-col gap-4 text-balance">
               {item?.description && (
                 <DangerousHtml
-                  className="mt-2 text-lg text-answer-color"
+                  className="mt-2 text-lg text-[#0E0E0E]"
                   html={item?.description}
                 />
               )}
@@ -58,7 +58,7 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
                       <h3 className="text-lg md:text-5xl font-semibold">
                         {listItem?.title}
                       </h3>
-                      <p className="text-base md:text-lg lg:text-xl text-answer-color leading-relaxed flex-1">
+                      <p className="text-base md:text-lg lg:text-xl text-[#0E0E0E] leading-relaxed flex-1">
                         {listItem?.description}
                       </p>
                     </li>
