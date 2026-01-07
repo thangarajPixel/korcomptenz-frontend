@@ -13,7 +13,7 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         gramData?.theme === "dark"
           ? "bg-custom-black py-10 "
           : gramData?.theme === "light"
-          ? "bg-custom-gray-6 "
+          ? "bg-custom-gray-6 py-10 "
           : gramData?.theme === "default"
           ? "bg-white"
           : ""
@@ -62,8 +62,8 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         <div className="p-5 hidden lg:flex items-center justify-center w-full h-full container-md">
           <KorcomptenzImage
             src={gramData?.image}
-            width={500}
-            height={500}
+            width={gramData?.image?.width || 500}
+            height={gramData?.image?.height || 500}
             className="w-full h-full object-contain"
           />
         </div>
