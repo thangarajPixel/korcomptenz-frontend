@@ -62,7 +62,7 @@ const InsightsMenu = ({
           group-hover:bg-white group-hover:border-primary
         "
                   >
-                    <ChevronRight className="w-4 h-3 text-white transition-all duration-300 group-hover:text-primary" />
+                    <ChevronRight className="w-6 h-5 text-white transition-all duration-300 group-hover:text-primary" />
                   </div>
                 </motion.div>{" "}
               </Link>
