@@ -22,7 +22,7 @@ const InsightsMenu = ({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative  -top-6 rounded-2xl overflow-hidden aspect-[4/3]">
+            <div className="relative  -top-9 rounded-2xl overflow-hidden aspect-[4/3]">
               <KorcomptenzImage
                 src={data?.insightMenu?.heroImage}
                 fill
@@ -33,7 +33,7 @@ const InsightsMenu = ({
 
           {/* Right side - Menu Items */}
           <motion.div
-            className="grid grid-cols-2 gap-4  bg-white px-8 py-6"
+            className="grid grid-cols-2 gap-4  bg-white px-8 py-2"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
