@@ -1142,6 +1142,7 @@ type CaseStudiesPageType = {
     description: string;
   };
   banner: ClientSuccessBannerSectionType;
+
   customerSection: CustomerSectionType;
   filterLabel: FilterLabelType[];
   partnerSection: PartnershipSectionType;

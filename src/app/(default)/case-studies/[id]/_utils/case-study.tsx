@@ -66,7 +66,7 @@ const CaseStudy = ({
             </div>
             <div className="flex justify-center">
               <ButtonLink
-                link="/client-success"
+                link="/case-studies"
                 buttonProps={{
                   size: "xl",
                   arrow: true,

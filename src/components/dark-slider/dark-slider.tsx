@@ -29,7 +29,7 @@ const DarkSlider = ({
             : "flex flex-col gap-4"
         }
       >
-        <div className="col-span-18 lg:col-span-8 flex flex-col gap-10">
+        <div className="col-span-18 lg:col-span-8 flex flex-col gap-5">
           <h5
             className={cn(
               "text-5xl md:text-7xl font-bold leading-tight text-black md:px-5 lg:px-0 mb-5 lg:mb-0",

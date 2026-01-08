@@ -13,10 +13,10 @@ const AboutMenu = ({
   onClick: () => void;
 }) => {
   return (
-    <div className="bg-white h-[598px] w-full overflow-y-auto overflow-x-hidden">
-      <div className="flex h-full">
+    <div className="bg-white  h-100 w-full  overflow-hidden">
+      <div className="flex ">
         {/* Left section */}
-        <div className="w-1/3 h-full flex flex-col">
+        <div className="w-1/5 h-full flex flex-col">
           <h2 className="text-9xl font-semibold text-primary mb-8">
             {data?.aboutMenu?.title}
           </h2>
@@ -25,11 +25,11 @@ const AboutMenu = ({
 
         {/* Middle section */}
         <div className="w-2/5 bg-light-white mr-10 rounded-2xl">
-          <div className="h-full rounded-2xl p-6 pt-10 flex flex-col">
+          <div className="h-full rounded-2xl p-6 pt-5 flex flex-col">
             {/* Top section - 40% */}
-            <div className="flex-[0.4] flex">
+            <div className=" flex">
               {/* Left side */}
-              <div className="w-2/5 flex flex-col">
+              <div className="w-3/5 flex flex-col">
                 <div className="flex items-center mb-4">
                   <h2 className="text-3xl font-normal text-primary mr-3">
                     {data?.aboutMenu?.whoWeAre?.title}
@@ -46,7 +46,7 @@ const AboutMenu = ({
               </div>
 
               {/* Right side */}
-              <div className="w-3/5 pl-6">
+              <div className="w-full pl-6">
                 <div className="">
                   {data?.aboutMenu?.navigationItems?.map((item, index) => (
                     <Link
@@ -72,11 +72,12 @@ const AboutMenu = ({
             </div>
 
             {/* Bottom image section - 60% */}
-            <div className="flex-[0.6] mt-6">
-              <div className="relative w-full h-full rounded-xl overflow-hidden shadow-none">
+            <div className=" ">
+              <div className="relative -top-12 -left-12 rounded-xl overflow-hidden shadow-none">
                 <KorcomptenzImage
                   src={data?.aboutMenu?.whoWeAre?.image}
-                  fill
+                  width={300}
+                  height={300}
                   className="object-contain"
                 />
               </div>
@@ -85,14 +86,14 @@ const AboutMenu = ({
         </div>
 
         {/* Right section */}
-        <div className="w-[26.67%]">
-          <div className="h-full flex flex-col gap-4">
+        <div className="w-1/3">
+          <div className=" grid grid-cols-2 gap-4">
             {data?.aboutMenu?.sidebarSections?.map((section, index) => (
               <Link href={section?.link || "#"} key={index} onClick={onClick}>
                 <div>
                   <div
                     key={`about-menu-sidebar-${section?.id}`}
-                    className="flex-1 bg-gray-100 rounded-2xl p-4 flex items-center cursor-pointer"
+                    className="flex-1 bg-gray-100 rounded-2xl py-4 pl-4 flex items-center cursor-pointer"
                   >
                     {/* Text - 50% */}
                     <div className="w-1/2 pr-2 grid items-center gap-3 bg-light-white">
@@ -112,14 +113,16 @@ const AboutMenu = ({
                     </div>
 
                     {/* Image - 50% */}
-                    <div className="relative w-1/2 h-full flex items-center justify-center">
-                      <KorcomptenzImage
-                        src={section?.icon}
-                        alt={`${section?.title} icon`}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
+                    {section?.icon && (
+                      <div className="relative w-1/2 h-full flex items-end justify-end">
+                        <KorcomptenzImage
+                          src={section?.icon}
+                          width={120}
+                          height={120}
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               </Link>
