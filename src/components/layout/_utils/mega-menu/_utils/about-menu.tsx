@@ -20,7 +20,6 @@ const AboutMenu = ({
           <h2 className="text-9xl font-semibold text-primary mb-8">
             {data?.aboutMenu?.title}
           </h2>
-          <div className="relative h-1 border-5 border-b  border-primary w-full " />
         </div>
 
         {/* Middle section */}
