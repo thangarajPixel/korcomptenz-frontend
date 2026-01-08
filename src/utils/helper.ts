@@ -146,32 +146,25 @@ export const errorSet = <T extends Record<string, never>>(
 };
 
 export async function downloadFile(
-  response: { name: string; bufferResponse: ArrayBuffer; type: string },
+  response: { name: string; bufferResponse: Blob; type: string },
   name?: string
 ) {
-  const responseName =
-    name ||
-    response.name?.split("=")?.[1]?.split(".")?.[0] ||
-    response.name ||
-    "download";
+  const fileName = (name || response.name || "download").trim();
 
-  const blob = new Blob([response.bufferResponse], { type: response.type });
-  const url = window.URL.createObjectURL(blob);
+  const url = window.URL.createObjectURL(response.bufferResponse);
 
   const a = document.createElement("a");
   a.href = url;
-
-  const fileName = responseName.replace("/", "").trim() || "file";
-  const extension =
-    response.type.split("/")[1] || response.name.split(".").pop() || "dat";
-  a.download = `${fileName}.${extension}`;
+  a.download = fileName;
 
   document.body.appendChild(a);
   a.click();
-
+  window.open(url, "_blank");
   document.body.removeChild(a);
+
   window.URL.revokeObjectURL(url);
 }
+
 export const formatRange = (dateString: string) => {
   const base = dayjs.utc(dateString); // input is UTC
 

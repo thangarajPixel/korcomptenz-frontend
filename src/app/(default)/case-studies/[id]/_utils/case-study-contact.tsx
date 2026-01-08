@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormData } from "@/utils/validation.schema";
 import { useCaseStudyLeadHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
-import { useRouter } from "next/navigation";
+
 const defaultValues = {
   fullName: "",
   email: "",
@@ -39,14 +39,16 @@ export function CaseStudyForm({
       caseStudyId: String(data?.id),
     },
   });
-  const router = useRouter();
+
   const { mutateAsync } = useCaseStudyLeadHook();
   const handleFormSubmit: SubmitHandler<ContactFormData> = React.useCallback(
     async (formdata) => {
       try {
         const response = await mutateAsync(formdata);
         notify(response);
-        router.push("/thank-you");
+        // window.open(response?.attachment?.url, "_blank");
+        // router.push("/thank-you");
+
         reset({ ...defaultValues, caseStudyId: String(data.id) });
       } catch (error) {
         errorSet(error, setError);
