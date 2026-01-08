@@ -22,11 +22,11 @@ const InsightsMenu = ({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+            <div className="relative  -top-6 rounded-2xl overflow-hidden aspect-[4/3]">
               <KorcomptenzImage
                 src={data?.insightMenu?.heroImage}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           </motion.div>
