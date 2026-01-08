@@ -34,7 +34,7 @@ const SliderCard: React.FC<Props> = ({ slide, isSwap }) => {
               src={slide?.image}
             />
           </div>
-          <h3 className="text-white text-xl md:text-4xl font-normal whitespace-pre-wrap pr-6 mb-6">
+          <h3 className="text-white text-xl md:text-4xl font-normal whitespace-pre-wrap pr-6 ">
             {slide?.title}
           </h3>
           <DangerousHtml
