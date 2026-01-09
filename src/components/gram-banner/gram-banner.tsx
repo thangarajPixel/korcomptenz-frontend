@@ -29,8 +29,10 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
       >
         {gramData?.title && (
           <h3
-            className={cn("text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15  lg:px-10", 
-              gramData?.theme === "dark" ? "text-white" : "",gramData?.isTitleLeft ? "text-left" : "text-center"
+            className={cn(
+              "text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15  lg:px-10",
+              gramData?.theme === "dark" ? "text-white" : "",
+              gramData?.isTitleLeft ? "text-left" : "text-center"
             )}
           >
             {gramData?.title}
@@ -41,7 +43,8 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
           html={gramData?.description}
           className={cn(
             `text-md md:text-2xl text-foreground leading-7 break-words text-center lg:px-10 `,
-            gramData?.theme === "dark" && "[&>span]:!text-white "
+            gramData?.theme === "dark" && "[&>span]:!text-white ",
+            gramData?.isDescriptionLeft ? "text-left mb-10" : "text-center"
           )}
         />
         {gramData?.buttonText && (

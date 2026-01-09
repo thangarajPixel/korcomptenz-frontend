@@ -463,6 +463,7 @@ type GramBannerType = {
   buttonText: string;
   descriptionButtonText: string;
   descriptionButtonLink: string;
+  isDescriptionLeft: boolean;
 };
 type CaseStudyFormType = {
   __component: "form-fields.case-study-form";

@@ -29,7 +29,7 @@ const DemoWhyAttend = ({
 
           <div
             className={cn(
-              "grid   gap-x-8 gap-y-6",
+              "grid   gap-x-8 gap-y-6 mb-12",
               whyAttendData?.isHasFooter ? "grid-cols-1 " : "grid-cols-2"
             )}
           >
@@ -56,7 +56,7 @@ const DemoWhyAttend = ({
           </div>
         </div>
         {whyAttendData?.isHasFooter && (
-          <div className="px-4 md:px-8 lg:mx-24">
+          <div className="px-4 md:px-8 lg:mx-24 ">
             <div
               className="text-white bg-muted p-5 md:p-8 lg:p-10 rounded-3xl lg:rounded-4xl 
                    lg:-mt-20 -mt-20"
