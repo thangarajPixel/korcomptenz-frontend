@@ -342,7 +342,7 @@ body {
 
 .rich-text table,
 .rich-text .table {
-  @apply !w-full overflow-x-auto px-2;
+  @apply !w-full overflow-x-auto;
 }
 .rich-text table {
   @apply !px-2 shadow-2xl text-left;
