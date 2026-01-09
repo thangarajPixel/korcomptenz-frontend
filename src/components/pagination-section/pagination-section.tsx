@@ -111,7 +111,7 @@ const PaginationSection = ({
   };
 
   return (
-    <div className="container-md flex flex-col sm:flex-row sm:justify-between items-center gap-3 mb-5">
+    <div className="container-md flex flex-col sm:flex-row sm:justify-between items-center gap-3 mb-10">
       <div>
         <Pagination>
           <PaginationContent>
@@ -203,7 +203,7 @@ const PaginationSection = ({
                 className={cn(
                   `cursor-pointer`,
                   pagination?.pageSize === num &&
-                  "bg-gray-100 text-muted font-normal"
+                    "bg-gray-100 text-muted font-normal"
                 )}
               >
                 {num}

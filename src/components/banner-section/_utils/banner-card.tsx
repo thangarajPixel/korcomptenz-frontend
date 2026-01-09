@@ -194,9 +194,9 @@ const BannerCard = ({
             className="w-[300px] h-auto object-contain mb-2 md:mb-4 opacity-65"
           />
         ) : (
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-2 md:mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-2 md:mb-4">
             {data?.title}
-          </h2>
+          </h1>
         )}
         {data?.description && (
           <DangerousHtml

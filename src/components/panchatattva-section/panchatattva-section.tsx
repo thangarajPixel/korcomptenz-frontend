@@ -42,9 +42,9 @@ const PanchatattvaSection = ({
             </button>
           </div>
           <div className="flex flex-col justify-center ">
-            <h2 className="text-4xl text-primary font-semibold mb-5">
+            <h3 className="text-4xl text-primary font-semibold mb-5">
               {buildData?.descriptionTitle}
-            </h2>
+            </h3>
             <p className="text-lg">{buildData?.description}</p>
           </div>
         </div>

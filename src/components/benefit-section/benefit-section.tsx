@@ -48,9 +48,9 @@ const BenefitSection = ({
                     )}
 
                     {card?.title && (
-                      <p className="text-black text-xl font-semibold">
+                      <h3 className="text-black text-xl font-semibold">
                         {card?.title}
-                      </p>
+                      </h3>
                     )}
                     {card?.description && (
                       <DangerousHtml

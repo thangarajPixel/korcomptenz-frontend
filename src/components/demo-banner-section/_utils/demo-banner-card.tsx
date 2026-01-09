@@ -33,9 +33,9 @@ const DemoBannerCard = ({
         {/* ✅ Centered + Responsive container */}
         <div className="absolute inset-0 z-10 flex items-center py-10">
           <div className="container-md  flex flex-col gap-2 px-6 md:px-10 ">
-            <h2 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
+            <h1 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
               {data?.title}
-            </h2>
+            </h1>
 
             {data?.description && (
               <DangerousHtml

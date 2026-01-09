@@ -53,11 +53,12 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
                 {slide?.description && (
                   <div className="absolute inset-0 bottom-0 sm:bottom-4 flex items-end justify-center">
                     <div className="bg-primary opacity-80 p-8 w-full sm:w-3/4 rounded-md">
-                      <h2 className="text-white text-center text-2xl md:text-3xl font-semibold text-balance">
+                      <h3 className="text-white text-center text-2xl md:text-3xl font-semibold text-balance">
                         {slide.description}
-                      </h2>
+                      </h3>
                     </div>
-                  </div>)}
+                  </div>
+                )}
 
                 {/* Play icon if needed */}
                 {slide?.isVideo && (

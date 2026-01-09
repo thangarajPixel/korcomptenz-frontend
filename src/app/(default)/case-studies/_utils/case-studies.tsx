@@ -14,7 +14,7 @@ const CaseStudies = async ({
   search: FilterListType[];
 }) => {
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-16 mb-10">
       <ClientSuccessList
         data={data}
         initialData={initialData}

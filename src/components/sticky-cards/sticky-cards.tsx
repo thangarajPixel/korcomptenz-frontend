@@ -21,9 +21,9 @@ export default function StickyCards({
     <section data-debug={stickyCards?.__component} className="relative">
       <div className="relative container-md">
         <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-5">
-          <h4 className="font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
+          <h2 className="font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
             {stickyCards?.title}
-          </h4>
+          </h2>
 
           {stickyCards?.buttonText && (
             <Link href={stickyCards?.link || "/"}>
@@ -63,9 +63,9 @@ export default function StickyCards({
                 {/* Content */}
                 <div className="p-2 lg:pt-14 lg:pb-16 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
                   <div className="space-y-4">
-                    <h2 className="text-4xl lg:text-6xl font-bold text-black leading-tight">
+                    <h3 className="text-4xl lg:text-6xl font-bold text-black leading-tight">
                       {card?.title}
-                    </h2>
+                    </h3>
                     <p className="text-custom-black-1  text-lg md:xl leading-relaxed">
                       {card?.description}
                     </p>

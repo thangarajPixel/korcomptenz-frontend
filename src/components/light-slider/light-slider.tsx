@@ -50,9 +50,9 @@ const LightSlider = ({ data }: { data: LightSliderType }) => {
               {data?.title}
             </h2>
 
-            <h2 className="text-custom-gray-9 text-md md:text-lg leading-relaxed">
+            <p className="text-custom-gray-9 text-md md:text-lg leading-relaxed">
               {data?.description}
-            </h2>
+            </p>
           </div>
 
           {/* Navigation Arrows */}

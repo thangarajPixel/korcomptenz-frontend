@@ -37,9 +37,9 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
             <div className="flex flex-row md:items-start md:gap-12 lg:gap-16 gap-5 h-full">
               {/* Year 2025 - Large Vertical Text */}
               <div className="mb-8 md:mb-0 md:flex md:items-center">
-                <h2 className="text-[80px] md:text-[100px] font-bold lg:text-[140px] xl:text-[160px] text-primary leading-[0.85] opacity-50 tracking-tight md:-rotate-0 [writing-mode:vertical-lr] [transform:rotate(180deg)]">
+                <span className="text-[80px] md:text-[100px] font-bold lg:text-[140px] xl:text-[160px] text-primary leading-[0.85] opacity-50 tracking-tight md:-rotate-0 [writing-mode:vertical-lr] [transform:rotate(180deg)]">
                   {activeYear}
-                </h2>
+                </span>
               </div>{" "}
               {/* Content Area */}
               <div className="flex-1 flex flex-col overflow-hidden  gap-2 lg:gap-6 md:gap-8 h-full lg:justify-end ">

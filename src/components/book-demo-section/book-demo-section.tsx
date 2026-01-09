@@ -64,23 +64,23 @@ const BookDemoSection = ({
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} id="form">
       <div className="grid rounded-4xl shadow-[0_0_25px_rgba(0,0,0,0.15)] p-5 md:p-10 gap-y-5 mt-5 w-full md:w-3/4">
-        <h2 className="text-5xl font-semibold text-center text-foreground">
+        <h3 className="text-5xl font-semibold text-center text-foreground">
           {essential?.title || "Book a Demo"}
-        </h2>
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2  ">
           <Input
             control={control}
             name="name"
             label={essential?.nameLabel || "Full name"}
             required
-            className="border-2 p-2 rounded-md text-foreground mb-3"
+            className="border-2 p-2 border-black rounded-md text-foreground mb-3"
           />
           <Input
             control={control}
             name="organization"
             label={essential?.organizationLabel || "Organization"}
             required
-            className="border-2 p-2 rounded-md text-foreground"
+            className="border-2 p-2   border-black rounded-md text-foreground"
           />
         </div>
 
@@ -90,7 +90,7 @@ const BookDemoSection = ({
             name="email"
             label={essential?.emailLabel || "Email"}
             required
-            className="border-2 p-2 rounded-md text-foreground"
+            className="border-2 p-2  border-black rounded-md text-foreground"
           />
         </div>
         {/* Submit button */}

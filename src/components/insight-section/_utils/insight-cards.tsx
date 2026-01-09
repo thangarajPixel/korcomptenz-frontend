@@ -60,9 +60,9 @@ export function InsightCard(props: InsightCardType) {
           </div>
         </motion.div>
 
-        <h2 className="mt-4 left-0 top-0 max-w-fit text-start  text-3xl group-hover:text-primary  font-semibold leading-7 lg:leading-7 line-clamp-2">
+        <h3 className="mt-4 left-0 top-0 max-w-fit text-start  text-3xl group-hover:text-primary  font-semibold leading-7 lg:leading-7 line-clamp-2">
           {title}
-        </h2>
+        </h3>
         {description && (
           <p className="mt-4 left-0 top-0 max-w-fit text-start  text-xl  font-normal leading-7   line-clamp-3">
             {description}

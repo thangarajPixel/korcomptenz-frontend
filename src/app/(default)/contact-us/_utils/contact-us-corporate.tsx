@@ -29,9 +29,9 @@ const ContactUsCorporate = ({
                   />
                 </div>
               </div>
-              <h3 className="text-center text-4xl font-semibold text-gray-900 mb-3">
+              <p className="text-center text-4xl font-semibold text-gray-900 mb-3">
                 {corporate?.country}
-              </h3>
+              </p>
               <p className="text-center text-lg text-gray-600 mb-4 leading-relaxed">
                 {corporate?.address}
               </p>

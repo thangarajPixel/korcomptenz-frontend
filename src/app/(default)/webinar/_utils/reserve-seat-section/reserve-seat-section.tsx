@@ -74,9 +74,9 @@ const ReserveSeatSection = ({
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           {/* Left - Content */}
           <div>
-            <h2 className="text-2xl md:text-[40px] leading-snug md:leading-12 font-semibold text-[#313941] mb-4 md:mb-6">
+            <h3 className="text-2xl md:text-[40px] leading-snug md:leading-12 font-semibold text-[#313941] mb-4 md:mb-6">
               {form?.title}
-            </h2>
+            </h3>
 
             <p className="text-custom-blue-1 text-[16px] md:text-[18px] leading-6 md:leading-6.25 font-normal">
               {form?.description}
@@ -104,14 +104,14 @@ const ReserveSeatSection = ({
                       required
                       name="fullName"
                       label={form?.nameLabel}
-                      className="border-2 p-2 rounded-md text-foreground"
+                      className="border-2  border-black p-2 rounded-md text-foreground"
                     />
                     <Input
                       control={control}
                       name="email"
                       required
                       label={form?.emailLabel}
-                      className="border-2 p-2 rounded-md text-foreground"
+                      className="border-2 p-2  border-black  rounded-md text-foreground"
                     />
                   </div>
 
@@ -121,13 +121,13 @@ const ReserveSeatSection = ({
                       control={control}
                       name="organization"
                       label={form?.companyLabel}
-                      className="border-2 p-2 rounded-md text-foreground"
+                      className="border-2  border-black p-2 rounded-md text-foreground"
                     />
                     <Input
                       control={control}
                       name="phone"
                       label={form?.phoneLabel}
-                      className="border-2 p-2 rounded-md text-foreground"
+                      className="border-2  border-black p-2 rounded-md text-foreground"
                     />
                   </div>
 

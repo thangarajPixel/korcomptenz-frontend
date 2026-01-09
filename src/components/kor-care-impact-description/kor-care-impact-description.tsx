@@ -20,7 +20,7 @@ const KorCareImpactDescription = ({
           {data.description}
         </p>
         <div>
-          <h2 className="text-primary font-semibold text-3xl">{data.title}</h2>
+          <p className="text-primary font-semibold text-3xl">{data.title}</p>
           <p className="text-lg text-foreground">{data.roleDescription}</p>
         </div>
       </div>

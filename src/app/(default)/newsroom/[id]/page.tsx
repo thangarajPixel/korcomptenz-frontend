@@ -9,6 +9,15 @@ type Props = {
 };
 
 const getNewsRoomPageCache = cache(getNewsRoomPage);
+export async function generateMetadata({ params }: Props) {
+  const { id } = await params;
+  const data = await getNewsRoomPageCache({ id });
+
+  return {
+    title: data?.seo?.title || id,
+    description: data?.seo?.description || "",
+  };
+}
 
 const Page = async ({ params }: Props) => {
   const { id } = await params;

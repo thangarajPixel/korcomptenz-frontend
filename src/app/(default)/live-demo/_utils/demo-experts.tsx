@@ -26,9 +26,9 @@ export default function DemoExperts({ data }: { data: ExpertsSectionType }) {
               height={200}
               className="object-contain"
             />
-            <h2 className="text-2xl font-semibold text-muted">
+            <h4 className="text-2xl font-semibold text-muted">
               {partner?.title}
-            </h2>
+            </h4>
             <DangerousHtml html={partner?.description} className="text-muted" />
           </div>
         ))}

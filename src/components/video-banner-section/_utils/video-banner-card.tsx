@@ -87,7 +87,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
 
         {/* Mobile Content */}
         <div className="container-md flex flex-col gap-6 p-6">
-          <h2 className="text-3xl font-bold text-foreground">{data?.title}</h2>
+          <h1 className="text-3xl font-bold text-foreground">{data?.title}</h1>
         </div>
         {data?.form && (
           <div className="p-5 rounded-2xl shadow-2xl">

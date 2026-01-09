@@ -91,9 +91,9 @@ export function AnimatedTabsHero({
             className="space-y-3 w-full flex flex-col-reverse lg:flex-row"
           >
             <div className="space-y-3  w-full lg:w-1/2  ">
-              <h5 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl mt-12">
+              <h2 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl mt-12">
                 {activeContent?.heading}
-              </h5>
+              </h2>
               <p className="max-w-xl text-pretty text-lg text-custom-gray py-3">
                 {activeContent?.description}
               </p>

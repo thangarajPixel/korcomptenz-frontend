@@ -32,9 +32,9 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
         <div className="col-span-12 lg:col-span-8 flex flex-col gap-4 p-8 lg:pr-20">
           {/* Heading */}
           <div className="lg:pr-20">
-            <h5 className="text-6xl md:text-7xl border-b-4 border-custom-white-1 leading-10 lg:leading-12 pb-8 font-semibold text-background">
+            <h2 className="text-6xl md:text-7xl border-b-4 border-custom-white-1 leading-10 lg:leading-12 pb-8 font-semibold text-background">
               {heading}
-            </h5>
+            </h2>
           </div>
 
           {/* Desktop Swiper */}
@@ -79,9 +79,9 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
                       key={`tech-card-${slide?.id}`}
                       className="flex flex-col gap-2"
                     >
-                      <h5 className="text-2xl font-normal text-background">
+                      <h3 className="text-2xl font-normal text-background">
                         {slide?.title}
-                      </h5>
+                      </h3>
                       <p className="text-sm font-normal text-background">
                         {slide?.description}
                       </p>

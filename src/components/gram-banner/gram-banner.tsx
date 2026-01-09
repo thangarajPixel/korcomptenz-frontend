@@ -29,9 +29,9 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
       >
         {gramData?.title && (
           <h3
-            className={`text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15 text-center lg:px-10 ${
-              gramData?.theme === "dark" ? "text-white" : ""
-            }`}
+            className={cn("text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15  lg:px-10", 
+              gramData?.theme === "dark" ? "text-white" : "",gramData?.isTitleLeft ? "text-left" : "text-center"
+            )}
           >
             {gramData?.title}
           </h3>

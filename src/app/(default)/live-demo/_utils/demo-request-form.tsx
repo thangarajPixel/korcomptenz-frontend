@@ -80,23 +80,23 @@ const DemoRequestForm = ({
     >
       <div className="grid rounded-4xl shadow-2xl p-10 gap-y-2 w-full md:w-3/4">
         {/* Name + Email */}
-        <h2 className="text-5xl font-semibold text-center text-foreground mb-5">
+        <h3 className="text-5xl font-semibold text-center text-foreground mb-5">
           {form?.title || "Reserve My Spot"}
-        </h2>
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
           <Input
             control={control}
             required
             name="name"
             label={form?.nameLabel}
-            className="border-2 p-2 rounded-md text-foreground"
+            className="border-2 p-2  border-black rounded-md text-foreground"
           />
           <Input
             control={control}
             name="email"
             required
             label={form?.emailLabel}
-            className="border-2 p-2 rounded-md text-foreground"
+            className="border-2 p-2  border-black rounded-md text-foreground"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
@@ -105,14 +105,14 @@ const DemoRequestForm = ({
             name="company"
             required
             label={form?.companyLabel}
-            className="border-2 p-2 rounded-md text-foreground"
+            className="border-2 p-2 rounded-md  border-black text-foreground"
           />
           <Input
             control={control}
             name="phone"
             required
             label={form?.phoneLabel}
-            className="border-2 p-2 rounded-md text-foreground"
+            className="border-2 p-2 rounded-md  border-black text-foreground"
           />
         </div>
 

@@ -47,7 +47,7 @@ const Input = <D extends FieldValue>({
         required={required}
         placeholder={computedPlaceholder}
         className={cn(
-          "w-full bg-transparent border-0 border-b border-black pb-3 text-[#2d3748] placeholder:text-[#cbd5e0] focus:outline-none focus:border-[#4a5568] transition-colors",
+          "w-full bg-transparent border-0 border-b border-[#cbd5e0] pb-3 text-[#2d3748] placeholder:text-[#cbd5e0] focus:outline-none focus:border-[#4a5568] transition-colors",
           className
         )}
         {...field}

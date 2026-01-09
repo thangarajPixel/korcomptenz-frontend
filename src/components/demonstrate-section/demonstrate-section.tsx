@@ -59,9 +59,9 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                   />
                 </div>
                 <div>
-                  <h2 className="lg:text-5xl text-4xl font-semibold text-foreground leading-9 group-hover:text-primary line-clamp-2">
+                  <h3 className="lg:text-5xl text-4xl font-semibold text-foreground leading-9 group-hover:text-primary line-clamp-2">
                     {card?.title}
-                  </h2>
+                  </h3>
                 </div>
 
                 <p className="text-lg font-normal text-foreground leading-6 break-words line-clamp-2">

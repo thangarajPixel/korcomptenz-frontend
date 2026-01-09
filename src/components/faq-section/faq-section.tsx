@@ -41,10 +41,10 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
                 )}
               />
             </AccordionTrigger>
-            <AccordionContent className="flex flex-col gap-4 text-balance">
+            <AccordionContent className="flex flex-col gap-4 ">
               {item?.description && (
                 <DangerousHtml
-                  className="mt-2 text-lg text-[#0E0E0E]"
+                  className="mt-2 text-lg text-[#0E0E0E] w-full"
                   html={item?.description}
                 />
               )}
