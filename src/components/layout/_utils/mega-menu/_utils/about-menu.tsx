@@ -17,9 +17,9 @@ const AboutMenu = ({
       <div className="flex ">
         {/* Left section */}
         <div className="w-1/5 h-full flex flex-col">
-          <h2 className="text-9xl font-semibold text-primary mb-8">
+          <p className="text-9xl font-semibold text-primary mb-8">
             {data?.aboutMenu?.title}
-          </h2>
+          </p>
         </div>
 
         {/* Middle section */}
@@ -30,9 +30,9 @@ const AboutMenu = ({
               {/* Left side */}
               <div className="w-3/5 flex flex-col">
                 <div className="flex items-center mb-4">
-                  <h2 className="text-3xl font-normal text-primary mr-3">
+                  <p className="text-3xl font-normal text-primary mr-3">
                     {data?.aboutMenu?.whoWeAre?.title}
-                  </h2>
+                  </p>
                   <div
                     className="group w-8 h-8 rounded-full flex items-center justify-center 
              bg-primary border border-transparent 
