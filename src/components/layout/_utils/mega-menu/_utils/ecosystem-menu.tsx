@@ -47,9 +47,9 @@ const EcosystemMenu = ({
       <div className="col-span-24 md:col-span-12 lg:col-span-12 pl-0 md:px-8 lg:px-8">
         <div className="space-y-6">
           <div key={`ecosystem-menu-item-${activeSideBar?.id}`}>
-            <h2 className="text-3xl font-normal  text-foreground mb-4">
+            <p className="text-3xl font-normal  text-foreground mb-4">
               {activeSideBar?.item?.title}
-            </h2>
+            </p>
             <p className="text-sm text-custom-gray-4 ">
               {activeSideBar?.item?.description}
             </p>

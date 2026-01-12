@@ -9,9 +9,9 @@ const FooterTitle = ({
 }) => {
   return (
     <div className="space-y-4">
-      <h2 className="text-primary font-semibold text-3xl  border-b border-primary  pb-2">
+      <p className="text-primary font-semibold text-3xl  border-b border-primary  pb-2">
         {title}
-      </h2>
+      </p>
       <ul className="space-y-3">{children}</ul>
     </div>
   );
