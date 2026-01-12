@@ -1,6 +1,6 @@
 "use client";
 
-import ThankYouPage from "../thank-you";
+import ThankYouPage from "./thank-you";
 
 const Page = () => {
   return <ThankYouPage />;
