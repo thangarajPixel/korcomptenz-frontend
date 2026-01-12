@@ -92,7 +92,7 @@ const AboutMenu = ({
                 <div>
                   <div
                     key={`about-menu-sidebar-${section?.id}`}
-                    className="flex-1 bg-gray-100 rounded-2xl py-4 pl-4 flex items-center cursor-pointer"
+                    className="flex-1 bg-gray-100 rounded-2xl py-4 h-30 pl-4 flex items-center cursor-pointer"
                   >
                     {/* Text - 50% */}
                     <div className="w-1/2 pr-2 grid items-center gap-3 bg-light-white">
