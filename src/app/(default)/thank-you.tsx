@@ -26,11 +26,21 @@ const ThankYouPage = () => {
         {/* Heading */}
 
         <div className="flex gap-2">
-          <p className="text-[80px] font-light mb-2">Thank you</p>
+          <p className="text-[40px] md:text-[80px] font-light mb-2">
+            Thank you
+          </p>
           <KorcomptenzImage
             src="https://s.w.org/images/core/emoji/16.0.1/svg/1f642.svg"
             width={80}
             height={80}
+            className="hidden md:block"
+          />
+
+          <KorcomptenzImage
+            src="https://s.w.org/images/core/emoji/16.0.1/svg/1f642.svg"
+            width={40}
+            height={40}
+            className="block md:hidden"
           />
         </div>
 
@@ -50,7 +60,7 @@ const ThankYouPage = () => {
         <div className="w-full max-w-3xl border-t border-gray-300 my-8" />
 
         {/* Contact details */}
-        <div className="text-gray-800 text-[16px] leading-relaxed">
+        <div className="text-gray-800 text-[16px] leading-relaxed mb-10">
           <p className="font-semibold text-[18px] mb-1">Kathy Jones</p>
           <p className="mb-1">
             Suite 207, 35 Waterview Blvd. Parsippany, NJ 07054
