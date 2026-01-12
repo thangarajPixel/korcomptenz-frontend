@@ -1,6 +1,5 @@
-import React from "react";
-import CardSwiper from "../ui/card-swiper";
 import BannerCard from "./_utils/banner-card";
+import CardSwiperArrow from "./_utils/card-swiper-arrow";
 
 const BannerSection = ({
   BannerSectionData,
@@ -15,7 +14,7 @@ const BannerSection = ({
       {BannerSectionData?.length < 2 ? (
         <BannerCard data={BannerSectionData[0]} isFirst />
       ) : (
-        <CardSwiper>
+        <CardSwiperArrow>
           {BannerSectionData?.map((data, index) => (
             <BannerCard
               key={`banner-card-${data?.id}`}
@@ -24,7 +23,7 @@ const BannerSection = ({
               isFirst={index === 0}
             />
           ))}
-        </CardSwiper>
+        </CardSwiperArrow>
       )}
     </section>
   );

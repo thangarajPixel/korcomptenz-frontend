@@ -1,16 +1,15 @@
 "use client";
 import React from "react";
-
 import { useForm, type SubmitHandler } from "react-hook-form";
-
 import { useCaseStudyEssentialHook, useContactUsLeadHook } from "@/services";
-import { errorSet, notify } from "@/utils/helper";
+import { errorSet } from "@/utils/helper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactUsFormSchema } from "@/utils/validation.schema";
 import { ComboboxField } from "@/components/ui/combobox";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from "next/navigation";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
@@ -38,7 +37,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
       ...defaultValues,
     },
   });
-
+  const router = useRouter();
   const { mutateAsync } = useContactUsLeadHook();
 
   const { data } = useCaseStudyEssentialHook();
@@ -48,7 +47,9 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
       async (formdata) => {
         try {
           const response = await mutateAsync(formdata);
-          notify(response);
+          // notify(response);
+          router.push("/thank-you");
+          if (!response.success) return;
           reset({ ...defaultValues });
         } catch (error) {
           errorSet(error, setError);
@@ -58,7 +59,11 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
     );
 
   return (
-    <form id="contact-us-form" onSubmit={handleSubmit(handleFormSubmit)} className="space-y-8">
+    <form
+      id="contact-us-form"
+      onSubmit={handleSubmit(handleFormSubmit)}
+      className="space-y-8"
+    >
       <div className="grid gap-y-8 mt-5">
         {/* Name + Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
