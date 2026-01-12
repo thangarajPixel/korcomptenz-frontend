@@ -1,9 +1,9 @@
-"use client";
+// "use client";
 
-import ThankYouPage from "./_utils/thank-you";
+// import ThankYouPage from "./_utils/thank-you";
 
-const Page = () => {
-  return <ThankYouPage />;
-};
+// const Page = () => {
+//   return <ThankYouPage />;
+// };
 
-export default Page;
+// export default Page;
