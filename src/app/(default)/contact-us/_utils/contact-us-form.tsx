@@ -9,7 +9,7 @@ import { ComboboxField } from "@/components/ui/combobox";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
@@ -37,7 +37,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
       ...defaultValues,
     },
   });
-  // const router = useRouter();
+  const router = useRouter();
   const { mutateAsync } = useContactUsLeadHook();
 
   const { data } = useCaseStudyEssentialHook();
@@ -48,7 +48,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
         try {
           const response = await mutateAsync(formdata);
           // notify(response);
-          // router.push("/thank-you");
+          router.push("/thank-you");
           if (!response.success) return;
           reset({ ...defaultValues });
         } catch (error) {
