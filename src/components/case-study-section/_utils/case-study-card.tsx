@@ -45,9 +45,9 @@ export function CaseStudyCard({ data }: { data: CaseStudyData }) {
         </div>
       </motion.div>
 
-      <h2 className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black ">
+      <h3 className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black ">
         {data?.title || data?.heroSection?.title}
-      </h2>
+      </h3>
       <p className="text-lg text-black font-normal mb-5 mt-5 line-clamp-3 ">
         {data?.heroSection?.description}
       </p>
@@ -56,8 +56,10 @@ export function CaseStudyCard({ data }: { data: CaseStudyData }) {
         buttonProps={{
           arrow: true,
           variant: "ghost",
-          className: "text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px]"
-        }}>
+          className:
+            "text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px]",
+        }}
+      >
         {data?.heroSection?.buttonText}
       </ButtonLink>
     </motion.article>

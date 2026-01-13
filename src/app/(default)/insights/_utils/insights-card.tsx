@@ -6,8 +6,11 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { motion } from "framer-motion";
 
-export function InsightCard({ data }: { data: CaseStudyData & { category?: { slug: string } } }) {
-
+export function InsightCard({
+  data,
+}: {
+  data: CaseStudyData & { category?: { slug: string } };
+}) {
   const getLink = React.useCallback(() => {
     switch (data?.content) {
       case "blog":
@@ -60,10 +63,16 @@ export function InsightCard({ data }: { data: CaseStudyData & { category?: { slu
         </div>
       </motion.div>
 
-      <h2 title={data?.title || data?.heroSection?.title} className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black ">
+      <h3
+        title={data?.title || data?.heroSection?.title}
+        className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black "
+      >
         {data?.title || data?.heroSection?.title}
-      </h2>
-      <p title={data?.heroSection?.description} className="text-lg text-black font-normal mb-5 mt-5 line-clamp-3 ">
+      </h3>
+      <p
+        title={data?.heroSection?.description}
+        className="text-lg text-black font-normal mb-5 mt-5 line-clamp-3 "
+      >
         {data?.heroSection?.description}
       </p>
       <ButtonLink
