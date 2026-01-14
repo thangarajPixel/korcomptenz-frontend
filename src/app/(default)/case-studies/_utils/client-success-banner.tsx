@@ -27,9 +27,9 @@ const ClientSuccessBanner = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* Left: Heading, copy, search */}
           <div className="space-y-6 md:space-y-8">
-            <h2 className="text-balance font-semibold tracking-tight text-foreground text-6xl md:text-9xl leading-tight">
+            <h1 className="text-balance font-semibold tracking-tight text-foreground text-6xl md:text-9xl leading-tight">
               {data?.title}
-            </h2>
+            </h1>
 
             <p className="text-pretty text-foreground text-xl md:text-3xl leading-relaxed">
               {data?.description}
