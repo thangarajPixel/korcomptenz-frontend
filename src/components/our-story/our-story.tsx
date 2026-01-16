@@ -63,7 +63,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
 
                     {/* Achievement Text */}
                     <div className="text-white ">
-                      <p className="text-base md:text-lg lg:text-xl leading-relaxed line-clamp-4 md:line-clamp-none">
+                      <p className="text-base md:text-lg lg:text-3xl leading-8 line-clamp-4 md:line-clamp-none">
                         {
                           data?.list.find((item) => item.year === activeYear)
                             ?.description

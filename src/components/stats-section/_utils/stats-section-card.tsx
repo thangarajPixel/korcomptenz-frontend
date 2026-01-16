@@ -16,7 +16,7 @@ const StatsSectionCard = ({ list }: { list: StatsCardType }) => {
         </div>
       </div>
 
-      <p className="text-white/90 text-md leading-relaxed flex-1">
+      <p className="text-white/90 text-lg leading-6.5 flex-1">
         {list?.description}
       </p>
     </div>
