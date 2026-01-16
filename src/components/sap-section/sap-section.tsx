@@ -9,7 +9,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
     >
       <div className="grid grid-cols-1 lg:grid-cols-24 gap-6">
         {/* Left Content */}
-        <div className=" col-span-1 lg:col-span-10  lg:mb-0 space-y-3">
+        <div className=" col-span-1 lg:col-span-11  lg:mb-0 space-y-3">
           <h2 className="text-6xl md:text-7xl font-bold text-foreground">
             {sapSectionData?.heading}
           </h2>
@@ -20,7 +20,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
 
         {/* Right Content */}
         {!sapSectionData?.isItemOnly ? (
-          <div className="space-y-4 col-span-1 lg:col-span-14  ">
+          <div className="space-y-4 col-span-1 lg:col-span-13  ">
             <div className="flex flex-col lg:flex-row justify-between gap-6  lg:p-0">
               {sapSectionData?.imageSection?.image1?.image && (
                 <div className="hidden md:block rounded-3xl overflow-hidden w-full lg:w-1/2">
@@ -38,7 +38,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
                 <div className=" rounded-3xl md:p-6 text-white flex items-center">
                   {sapSectionData?.card ? (
                     <div className="flex flex-row gap-4 bg-secondary rounded-3xl p-6 ">
-                      <div className="text-6xl md:text-8xl font-bold mb-2">
+                      <div className="text-6xl md:text-8xl font-bold mb-2 align-middle">
                         {sapSectionData?.card?.value}
                       </div>
                       <div className="text-md md:text-lg font-medium">

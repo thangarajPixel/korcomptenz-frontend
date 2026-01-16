@@ -10,7 +10,7 @@ import type {
   NewsRoomFormSchema,
   WebinarReserveFormSchema,
 } from "@/utils/validation.schema";
-import https from "./https-check";
+// import https from "./https-check";
 
 const HOME = "/home";
 const ABOUT_US = "/about-us";
@@ -140,7 +140,7 @@ export const getCaseStudySearchPage = async ({
 };
 
 export const bookADemo = async (formData: BookADemoFormData) => {
-  const { data } = await https.post(BOOK_DEMO, { data: formData });
+  const { data } = await http.post(BOOK_DEMO, { data: formData });
   return data;
 };
 

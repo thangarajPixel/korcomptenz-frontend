@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://stage03-admin-korcomptenz.korcomptenz.com/api";
+const API_BASE_URL = "https://admin-korcomptenz.designonline.in/api";
 
 const TIMEOUT = 30000;
 
