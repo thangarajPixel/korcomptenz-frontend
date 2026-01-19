@@ -37,10 +37,11 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
               <div className="flex flex-col gap-10 w-full lg:w-1/2 ">
                 <div className=" rounded-3xl md:p-6 text-white flex items-center">
                   {sapSectionData?.card ? (
-                    <div className="flex flex-row gap-4 bg-secondary rounded-3xl p-6 ">
-                      <div className="text-6xl md:text-8xl font-bold mb-2 align-middle">
+                    <div className="flex flex-row items-center gap-4 bg-secondary rounded-3xl p-6">
+                      <div className="text-6xl md:text-8xl font-bold mb-2">
                         {sapSectionData?.card?.value}
                       </div>
+
                       <div className="text-md md:text-lg font-medium">
                         <p>{sapSectionData?.card?.content}</p>
                       </div>
