@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://admin-korcomptenz.designonline.in/api";
+const API_BASE_URL = "https://stage03-admin_korcomptenz.com/api";
 
 const TIMEOUT = 30000;
 
@@ -50,7 +50,7 @@ https.interceptors.response.use(
       return Promise.reject(errorData);
     }
     return Promise.reject(error?.response?.data);
-  }
+  },
 );
 
 export default https;
