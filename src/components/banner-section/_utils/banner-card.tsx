@@ -43,7 +43,7 @@ const BannerCard = ({
               </h1>
               {data?.description && (
                 <DangerousHtml
-                  className=" text-lg md:text-base md:text-white   max-w-md"
+                  className=" text-3xl md:text-5xl md:text-white   max-w-md"
                   html={data?.description}
                 />
               )}
@@ -94,7 +94,7 @@ const BannerCard = ({
               )}
               {data?.description && (
                 <DangerousHtml
-                  className="text-lg md:text-3xl text-white mb-4 md:mb-4 "
+                  className="text-3xl md:text-5xl leading-tight text-white mb-4 md:mb-4 "
                   html={data?.description}
                 />
               )}
