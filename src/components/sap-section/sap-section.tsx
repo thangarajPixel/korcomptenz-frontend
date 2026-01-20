@@ -35,9 +35,9 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
 
               {/* Business Meeting Image 2 */}
               <div className="flex flex-col gap-10 w-full lg:w-1/2 ">
-                <div className=" rounded-3xl md:p-6 text-white flex items-center">
+                <div className=" rounded-3xl  text-white flex items-center">
                   {sapSectionData?.card ? (
-                    <div className="flex flex-row items-center gap-4 bg-secondary rounded-3xl p-6">
+                    <div className="flex flex-row items-center gap-4 bg-secondary rounded-3xl p-4">
                       <div className="text-6xl md:text-8xl font-bold mb-2">
                         {sapSectionData?.card?.value}
                       </div>
@@ -47,7 +47,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
                       </div>
                     </div>
                   ) : (
-                    <div className=" overflow-hidden">
+                    <div className=" overflow-hidden p-6">
                       <KorcomptenzImage
                         src={sapSectionData?.image3}
                         width={180}
