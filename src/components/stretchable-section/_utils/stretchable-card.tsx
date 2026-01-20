@@ -13,22 +13,22 @@ const StretchableSectionCard = ({
   data: StretchableSectionType["list"][number];
 }) => {
   const { ...rest } = props;
-  const backgroundImage =
-    "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/lets_drive_fdc0c33e0c.png";
+  // const backgroundImage =
+  //   "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/lets_drive_fdc0c33e0c.png";
 
   return (
     <div
       {...rest}
       className={cn(
-        `bg-light-gray rounded-4xl relative overflow-hidden min-h-80 flex flex-row`,
-        props.className
+        `bg-light-gray rounded-4xl relative overflow-hidden  flex flex-row`,
+        props.className,
       )}
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "280px",
-        backgroundPosition: "center center",
-      }}
+      // style={{
+      //   backgroundImage: `url(${backgroundImage})`,
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundSize: "280px",
+      //   backgroundPosition: "center center",
+      // }}
     >
       {/* Overlay to reduce background image opacity */}
       <div className="absolute inset-0 bg-light-gray/80 z-0"></div>
@@ -37,6 +37,7 @@ const StretchableSectionCard = ({
         <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
           {data?.title}
         </h3>
+
         <div className="flex-1">
           <DangerousHtml
             html={data?.description}

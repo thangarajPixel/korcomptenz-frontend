@@ -1,13 +1,12 @@
 "use client";
 
-import React from "react";
-
 import { Button } from "@/components/ui/button";
 
 import KorcomptenzImage from "../korcomptenz-image";
 import { useMobile } from "@/utils/custom-hooks";
-import CardSwiper from "../ui/card-swiper";
+
 import Link from "next/link";
+import CardSwiperArrowWhite from "./_utils/card-swiper-arrow";
 
 export default function SlidingSection({
   slides,
@@ -17,7 +16,7 @@ export default function SlidingSection({
   const isMobile = useMobile();
 
   return (
-    <CardSwiper data-debug={"home.hero-section-one"}>
+    <CardSwiperArrowWhite data-debug={"home.hero-section-one"}>
       {slides?.map((slide, index) => (
         <div
           key={`sliding-section-${slide?.id}`}
@@ -41,7 +40,7 @@ export default function SlidingSection({
             />
             <div className="absolute inset-0  flex items-start mt-12 md:mt-0 md:items-center">
               <div className="container-md">
-                <div className="max-w-2xl text-white">
+                <div className="max-w-2xl text-white ml-12">
                   {/* {slide?.logo && (
                     <KorcomptenzImage
                       src={slide?.logo}
@@ -68,11 +67,11 @@ export default function SlidingSection({
                     />
                   )}
                   {index === 0 ? (
-                    <h1 className="text-6xl md:text-7xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
+                    <h1 className="text-6xl md:text-7xl  font-semibold mb-4 leading-tight ">
                       {slide?.title}
                     </h1>
                   ) : (
-                    <h1 className="text-6xl md:text-7xl whitespace-pre-wrap font-semibold mb-4 leading-tight text-balance">
+                    <h1 className="text-6xl md:text-7xl  font-semibold mb-4 leading-tight ">
                       {slide?.title}
                     </h1>
                   )}
@@ -98,6 +97,6 @@ export default function SlidingSection({
           </div>
         </div>
       ))}
-    </CardSwiper>
+    </CardSwiperArrowWhite>
   );
 }

@@ -21,14 +21,13 @@ const BannerCard = ({
         <div
           className={cn(
             "relative w-full md:h-[513px] h-full overflow-hidden hidden lg:block rounded-4xl",
-            data?.footer && "rounded-b-none"
+            data?.footer && "rounded-b-none",
           )}
         >
           <KorcomptenzImage
             src={data?.image}
-            width={1000}
-            height={800}
-            className="w-full h-full object-cover  "
+            fill
+            className="w-full h-full object-cover object-right  "
           />
           <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-[5]  " />
           {data?.logo ? (
@@ -81,7 +80,7 @@ const BannerCard = ({
           ) : (
             <div
               className={cn(
-                " absolute top-0 left-10 p-10 z-10 w-5/8 h-full flex flex-col gap-2 justify-center items-start max-w-2xl "
+                " absolute top-0 left-10 p-10 z-10 w-5/8 h-full flex flex-col gap-2 justify-center items-start max-w-2xl ",
               )}
             >
               {!isFirst ? (
@@ -156,7 +155,7 @@ const BannerCard = ({
         <div
           className={cn(
             "w-full h-auto aspect-square overflow-hidden",
-            data?.footer ? "rounded-t-4xl" : "rounded-4xl"
+            data?.footer ? "rounded-t-4xl" : "rounded-4xl",
           )}
         >
           <KorcomptenzImage

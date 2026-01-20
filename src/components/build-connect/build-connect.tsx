@@ -32,8 +32,8 @@ const BuildConnect = ({
         )}
         <div
           className={cn(
-            "grid grid-cols-1 lg:grid-cols-2 space-x-12 ",
-            buildData?.isSwap && "mt-3"
+            "grid grid-cols-1 lg:grid-cols-[55%_45%] space-x-12 ",
+            buildData?.isSwap && "mt-3",
           )}
         >
           <div
@@ -116,7 +116,7 @@ const BuildConnect = ({
                   className={cn(
                     "w-full h-auto object-cover rounded-4xl",
                     buildData?.rightSection?.content === "video" &&
-                      "cursor-pointer"
+                      "cursor-pointer",
                   )}
                 />
                 {buildData?.imageCaption && (
@@ -191,7 +191,7 @@ const BuildConnect = ({
                       className="text-gray-700 text-2xl font-sans leading-relaxed mb-5"
                     />
                   </div>
-                )
+                ),
               )}
             </div>
           )}

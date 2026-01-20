@@ -33,7 +33,7 @@ export function InsightCard({
   return (
     <motion.article
       className={cn(
-        "group relative bg-card p-3 flex flex-col  transition-colors"
+        "group relative bg-card p-3 flex flex-col  transition-colors",
       )}
     >
       <motion.div className="relative  rounded-4xl">
@@ -46,11 +46,11 @@ export function InsightCard({
           )}
 
           {/* Service + Technology chip */}
-          {data?.technologies?.length > 0 && (
+          {/* {data?.technologies?.length > 0 && (
             <span className="rounded-full px-4 py-1 text-sm font-medium text-white bg-primary">
               {[...data.technologies].map((item) => item.label).join(", ")}
             </span>
-          )}
+          )} */}
         </div>
 
         <div className="relative  w-full rounded-4xl h-80">

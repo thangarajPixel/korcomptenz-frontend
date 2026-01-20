@@ -2,6 +2,9 @@ import React from "react";
 import SearchChips from "./search-chips";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+const formatTitle = (slug: string) =>
+  slug.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
 
 const InsightsSuccessBanner = ({
   data,
@@ -14,6 +17,12 @@ const InsightsSuccessBanner = ({
   onSearch?: (search: string) => void;
   search?: FilterListType[];
 }) => {
+  const pathname = usePathname();
+
+  const segments = pathname.split("/").filter(Boolean);
+  const lastSegment = segments[segments.length - 1];
+  const bannerTitle =
+    segments.length > 1 ? formatTitle(lastSegment) : formatTitle(segments[0]);
   const imageClassName = "rounded-3xl border border-border object-cover w-full";
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
@@ -30,7 +39,7 @@ const InsightsSuccessBanner = ({
           {/* Left: Heading, copy, search */}
           <div className="space-y-6 md:space-y-8">
             <h1 className="text-balance font-semibold tracking-tight text-foreground text-6xl md:text-9xl leading-tight">
-              {data?.title}
+              {bannerTitle}
             </h1>
 
             <p className="text-pretty text-foreground text-xl md:text-3xl leading-relaxed">
@@ -61,7 +70,7 @@ const InsightsSuccessBanner = ({
                 src={data?.images?.[1]?.image}
                 className={cn(
                   imageClassName,
-                  "row-span-2 h-[440px] md:h-[520px]"
+                  "row-span-2 h-[440px] md:h-[520px]",
                 )}
                 width={1000}
                 height={1000}

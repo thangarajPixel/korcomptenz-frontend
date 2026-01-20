@@ -4,8 +4,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Outfit", "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    "Outfit", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
   --color-light-white: #f3f7f4;
   --color-light-gray: #e2ebe4;
   --color-answer-color: #696969;
@@ -329,7 +330,14 @@ body {
   margin-bottom: 0.25rem;
   font-size: 18px;
 }
+.rich-text ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+}
 
+.rich-text li {
+  display: list-item;
+}
 .rich-text a {
   @apply !text-primary;
 }
