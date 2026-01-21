@@ -30,7 +30,7 @@ const BlogBannerCard = ({
 
         <div
           className={cn(
-            " absolute top-0 left-10 p-5 z-10 w-5/8 h-full flex flex-col gap-6 justify-between  "
+            " absolute top-0 left-10 p-5 z-10 w-5/8 h-full flex flex-col gap-6 justify-between  ",
           )}
         >
           {" "}
@@ -38,11 +38,11 @@ const BlogBannerCard = ({
             <BreadcrumbFromUrl slug={data?.slug} />
           </p>
           <div className="grid justify-between gap-10">
-            <h1 className="text-7xl font-semibold leading-14 text-white mb-4 max-w-md">
+            <h1 className="text-7xl font-semibold leading-14 text-white mb-4 max-w-lg">
               {data?.title}
             </h1>
 
-            <p className="text-lg md:text-5xl text-white mb-4 md:mb-8 max-w-md">
+            <p className="text-lg md:text-5xl text-white mb-4 md:mb-8 max-w-lg">
               {tableTitle}{" "}
             </p>
 

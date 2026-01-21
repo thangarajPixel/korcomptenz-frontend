@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function LiveDemoList({ data }: { data: DemoListType }) {
   const [activeSection, setActiveSection] = useState(
-    `${data?.list[0]?.id}` || ""
+    `${data?.list[0]?.id}` || "",
   );
 
   const contentRef = useRef<HTMLDivElement>(null);
@@ -29,7 +29,7 @@ export default function LiveDemoList({ data }: { data: DemoListType }) {
   }, [activeSection]);
   const handleSectionClick = (sectionId: string) => {
     const sectionElement = document.querySelector(
-      `[data-section="${sectionId}"]`
+      `[data-section="${sectionId}"]`,
     );
     if (!sectionElement) return;
     const offset = 100;
@@ -56,7 +56,7 @@ export default function LiveDemoList({ data }: { data: DemoListType }) {
               onClick={() => handleSectionClick(section.id)}
               className={cn(
                 `w-full text-left cursor-pointer font-semibold px-4 py-2 text-xl transition-all text-foreground duration-200  hover:text-primary `,
-                activeSection === `${section.id}` && "text-primary"
+                activeSection === `${section.id}` && "text-primary",
               )}
             >
               {section.title}
@@ -74,21 +74,23 @@ export default function LiveDemoList({ data }: { data: DemoListType }) {
             data-section={section.id}
             className={cn(
               "mb-6 pb-6 border-b border-gray-200",
-              index === section.length - 1 && "border-b-0"
+              index === section.length - 1 && "border-b-0",
             )}
           >
             <h2 className="text-7xl font-semibold text-foreground mb-8">
               {section.title}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {section?.item?.map((item) => (
                 <div key={`section-item-${item.id}`} className="bg-white ">
-                  <h3 className="text-xl font-semibold text-gray-900 ">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 mb-2">
-                    {dayjs(item.date).format("MMM D, YYYY")}
-                  </p>
+                  <div className="min-h-24 mb-2">
+                    <h3 className="text-xl font-semibold text-gray-900 leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 mt-1">
+                      {dayjs(item.date).format("MMM D, YYYY")}
+                    </p>
+                  </div>
                   <p className="text-gray-600 text-sm mb-2 leading-relaxed">
                     {item?.description}
                   </p>

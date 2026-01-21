@@ -50,8 +50,8 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
                     <div className=" overflow-hidden p-6">
                       <KorcomptenzImage
                         src={sapSectionData?.image3}
-                        width={180}
-                        height={180}
+                        width={150}
+                        height={150}
                       />
                     </div>
                   )}

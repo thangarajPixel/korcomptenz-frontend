@@ -14,7 +14,7 @@ const EcosystemMenu = ({
 }) => {
   const [activeSideBar, setActiveSideBar] = useState(data?.ecosystemMenu[0]);
   return (
-    <div className="grid grid-cols-24 ">
+    <div className="grid grid-cols-24 h-[450px]">
       {/* Sidebar */}
       <div className="col-span-24 md:col-span-6 lg:col-span-6">
         <div className="bg-white sticky top-8">
@@ -44,7 +44,7 @@ const EcosystemMenu = ({
         </div>
       </div>
       {/* Content Area */}
-      <div className="col-span-24 md:col-span-12 lg:col-span-12 pl-0 md:px-8 lg:px-8">
+      <div className="col-span-24 md:col-span-12 lg:col-span-12 pl-0 md:px-8 lg:px-8 border-l border-gray-100">
         <div className="space-y-6">
           <div key={`ecosystem-menu-item-${activeSideBar?.id}`}>
             <p className="text-3xl font-normal  text-foreground mb-4">
@@ -60,27 +60,34 @@ const EcosystemMenu = ({
                 </Button>
               </Link>
             </div>
-            <div className="mt-6 space-y-2 cursor-pointer ">
-              {activeSideBar?.item?.child?.map((childItem, childIndex) => (
-                <div key={`ecosystem-menu-${childIndex}`}>
-                  <Link href={childItem?.href?.slug || "#"} onClick={onClick}>
-                    <span
-                      className={` ${
-                        childItem.type === "Dark"
-                          ? "text-black "
-                          : " text-primary "
-                      }`}
-                    >
-                      {childItem?.title}
-                    </span>
-                  </Link>
-                  <div className="my-2 flex flex-wrap">
+
+            <div className="mt-6 cursor-pointer">
+              <div className="columns-2 gap-x-12">
+                {activeSideBar?.item?.child?.map((childItem, childIndex) => (
+                  <div
+                    key={`ecosystem-menu-${childIndex}`}
+                    className="mb-6 break-inside-avoid"
+                  >
+                    {/* TITLE */}
+                    <Link href={childItem?.href?.slug || "#"} onClick={onClick}>
+                      <span
+                        className={`block mb-2 font-medium ${
+                          childItem.type === "Dark"
+                            ? "text-black"
+                            : "text-primary"
+                        }`}
+                      >
+                        {childItem?.title}
+                      </span>
+                    </Link>
+
+                    {/* DESCRIPTION LIST */}
                     {childItem?.description?.map((item, index) => (
                       <Link
                         key={`ecosystem-menu-${childIndex}-${index}`}
                         href={item?.href?.slug || "#"}
                         onClick={onClick}
-                        className="w-1/2"
+                        className="block"
                       >
                         <p className="text-custom-gray-4 text-sm leading-5.5 mb-2 hover:text-primary transition-colors">
                           {item?.description}
@@ -88,8 +95,8 @@ const EcosystemMenu = ({
                       </Link>
                     ))}
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

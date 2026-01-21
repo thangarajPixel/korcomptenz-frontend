@@ -13,43 +13,47 @@ const ServicesMenu = ({
   onClick: () => void;
 }) => {
   const [activeServiceSection, setActiveServiceSection] = useState(
-    data?.serviceMenu[0]
+    data?.serviceMenu[0],
   );
 
   return (
     <div className="grid grid-cols-24">
       {/* Sidebar */}
-      <div className="col-span-24 md:col-span-5 lg:col-span-5">
+      <div className="col-span-24 md:col-span-6 lg:col-span-6">
         <div className="bg-white sticky top-8">
-          <nav className="space-y-2">
+          <nav className="space-y-2 px-10">
             {data?.serviceMenu.map((section) => (
-              <motion.button
+              <div
                 key={`service-section-${section?.id}`}
                 onClick={() => setActiveServiceSection(section)}
-                className={`w-full text-left text-custom-gray-4  
-                  rounded-lg transition-all duration-200 flex items-center space-x-3 cursor-pointer hover:text-primary ${
-                    activeServiceSection?.id === section?.id
-                      ? "text-primary"
-                      : ""
-                  }`}
+                className={`w-full group ${
+                  activeServiceSection?.id === section?.id
+                    ? "border-b-2 border-primary"
+                    : "border-b-2 border-transparent hover:border-primary"
+                }`}
               >
-                {" "}
-                <span className="text-lg font-normal leading-6">
-                  {section?.title}
-                </span>
-              </motion.button>
+                <h4 className="relative font-medium text-2xl text-primary  leading-8 flex items-center justify-between cursor-pointer">
+                  <span>{section?.title}</span>
+                  {activeServiceSection?.id === section?.id && (
+                    <ChevronRight className="w-5 h-5 font-extrabold" />
+                  )}
+                  {activeServiceSection?.id !== section?.id && (
+                    <ChevronRight className="w-5 h-5 font-extrabold opacity-0 group-hover:opacity-100" />
+                  )}
+                </h4>
+              </div>
             ))}
           </nav>
         </div>
       </div>
 
       {/* Content */}
-      <div className="col-span-24 md:col-span-13 lg:col-span-13">
+      <div className="col-span-24 md:col-span-12 lg:col-span-12 border-l border-gray-100">
         <motion.div
           key={`service-section-content-${activeServiceSection?.id}`}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
-          className="bg-white border-l border-gray-200 px-6"
+          className="bg-white "
         >
           <div className="grid grid-cols-2 gap-6">
             {/* Left */}
@@ -162,7 +166,7 @@ const ServicesMenu = ({
                                   {sub?.title}
                                 </div>
                               </Link>
-                            )
+                            ),
                           )}
                         </div>
                       )}
