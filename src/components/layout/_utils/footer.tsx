@@ -34,7 +34,7 @@ export const Footer = ({ data }: { data: LayoutType }) => {
           <FooterLinksGroup
             title={
               data?.navItems?.find(
-                (item) => item?.childKey === "industriesMenu"
+                (item) => item?.childKey === "industriesMenu",
               )?.label
             }
             items={data?.industriesMenu.flatMap((col) =>
@@ -42,7 +42,7 @@ export const Footer = ({ data }: { data: LayoutType }) => {
                 id: s?.id,
                 label: s?.title,
                 href: s?.href?.slug || "#",
-              }))
+              })),
             )}
           />
 
@@ -224,7 +224,9 @@ const EcosystemSection = ({ data }: { data: LayoutType }) => (
 const CopyrightSection = ({ data }: { data: LayoutType }) => (
   <>
     <div className="hidden mt-8 pt-6 border-t border-slate-700 lg:flex items-center justify-between">
-      <p className="text-custom-gray-2 text-lg">{data?.company?.copyrights}</p>
+      <p className="text-custom-gray-2 text-lg">
+        Copyright © {new Date().getFullYear()} {data?.company?.copyrights}
+      </p>
 
       <div className="flex items-center">
         {data?.company?.policy?.map((policy, i) => (

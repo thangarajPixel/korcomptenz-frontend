@@ -13,19 +13,21 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
     >
       <div className="">
         <div className="flex flex-col gap-9 text-start lg:text-center items-start lg:items-center justify-center leading-14  text-foreground  ">
-          <h2
-            className={cn(
-              "text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0",
-              data?.description && "mb-0",
+          <div className="grid gap-3">
+            <h2
+              className={cn(
+                "text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0",
+                data?.description && "mb-0",
+              )}
+            >
+              {data?.title}
+            </h2>
+            {data?.description && (
+              <p className="text-lg font-normal text-foreground leading-6 whitespace-pre-wrap line-clamp-2">
+                {data?.description}
+              </p>
             )}
-          >
-            {data?.title}
-          </h2>
-          {data?.description && (
-            <p className="text-lg font-normal text-foreground leading-6 whitespace-pre-wrap line-clamp-2">
-              {data?.description}
-            </p>
-          )}
+          </div>
           {data?.buttonText && (
             <ButtonLink
               link={data?.link || "#"}

@@ -10,7 +10,7 @@ export default function ClientPartnership({
 }) {
   return (
     <section className="container-md">
-      <h2 className="text-7xl font-semibold text-foreground mb-12 text-balance font-sans">
+      <h2 className="text-7xl font-semibold text-foreground mb-7.5 text-balance font-sans">
         {data?.title}
       </h2>
 
@@ -20,7 +20,7 @@ export default function ClientPartnership({
           "grid gap-x-8 gap-y-6",
           data?.isPerRowFive
             ? "grid-cols-2  md:grid-cols-5"
-            : "grid-cols-2  md:grid-cols-3"
+            : "grid-cols-2  md:grid-cols-3",
         )}
       >
         {data?.partner?.map((badge) => (
@@ -31,7 +31,7 @@ export default function ClientPartnership({
                 "flex  justify-between rounded-3xl",
                 data?.isSingleLine
                   ? "bg-[#E2EBE4] py-4 px-2 items-center"
-                  : "flex-col gap-4"
+                  : "flex-col gap-4",
               )}
             >
               {/* Logo + Name */}
@@ -40,7 +40,7 @@ export default function ClientPartnership({
                 <div
                   className={cn(
                     "relative  flex items-center justify-center",
-                    data?.isSingleLine ? "w-25 h-15" : "w-40 h-20"
+                    data?.isSingleLine ? "w-25 h-15" : "w-40 h-20",
                   )}
                 >
                   <KorcomptenzImage
@@ -53,7 +53,7 @@ export default function ClientPartnership({
                 <p
                   className={cn(
                     "text-lg text-foreground leading-tight",
-                    data?.isSingleLine && "font-bold"
+                    data?.isSingleLine && "font-bold",
                   )}
                 >
                   {badge.name}

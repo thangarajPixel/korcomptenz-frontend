@@ -64,7 +64,7 @@ export default function InsightsSection({
                 key={`insights-item-${item.id}`}
                 className={cn(
                   "relative ",
-                  (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] "
+                  (index + 1) % 2 === 0 ? "top-0" : "top-[-40px] ",
                 )}
               />
             ))}
