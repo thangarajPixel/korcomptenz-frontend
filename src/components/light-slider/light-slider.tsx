@@ -121,7 +121,7 @@ const LightSlider = ({ data }: { data: LightSliderType }) => {
 
                         {solution?.buttonText && (
                           <Link href={solution?.link || "#"}>
-                            <button className="inline-flex items-center gap-2 text-primary hover:text-primary hover:opacity-40 font-medium transition-colors">
+                            <button className="inline-flex items-center gap-2 text-primary  font-medium transition-colors cursor-pointer">
                               {solution?.buttonText}
                               <ChevronRight className="w-4 h-4" />
                             </button>

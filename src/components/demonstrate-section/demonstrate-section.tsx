@@ -16,7 +16,7 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
           <h2
             className={cn(
               "text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0",
-              data?.description && "mb-0"
+              data?.description && "mb-0",
             )}
           >
             {data?.title}
@@ -59,9 +59,9 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                   />
                 </div>
                 <div>
-                  <h3 className="lg:text-5xl text-4xl font-semibold text-foreground leading-9 group-hover:text-primary line-clamp-2">
+                  <h5 className="lg:text-3xl text-xl leading-6.75 font-semibold text-foreground  group-hover:text-primary line-clamp-2">
                     {card?.title}
-                  </h3>
+                  </h5>
                 </div>
 
                 <p className="text-lg font-normal text-foreground leading-6 break-words line-clamp-2">

@@ -46,12 +46,12 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                 className={cn(
                   image?.url &&
                     "text-foreground text-md md:text-lg leading-4xl z-10 w-full [&>ul]:ml-7",
-                  position !== "main" && "lg:max-w-xs max-w-none"
+                  position !== "main" && "lg:max-w-xs max-w-none",
                 )}
               />
 
               {position === "side" && image && (
-                <div className="flex items-center justify-center ">
+                <div className="flex items-center justify-center w-[150px] h-[200px] ">
                   <KorcomptenzImage
                     src={image}
                     className="object-contain max-h-60"
@@ -78,7 +78,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               html={secondaryDescription}
               className={cn(
                 image?.url &&
-                  "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-full"
+                  "text-foreground text-md pr-10  md:text-lg leading-4xl z-10  max-full",
               )}
             />
           )}
@@ -107,10 +107,10 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
         {position === "corner" && image && (
           <div className="hidden lg:flex pt-10  pb-0 ">
             {/* Illustration */}
-            <div className="flex absolute bottom-0 right-0 justify-end items-end w-[200px] h-[230px] ">
+            <div className="flex absolute bottom-7.5 right-7.5 justify-end items-end w-[150px] h-[200px] ">
               <KorcomptenzImage
                 className={cn(
-                  ` rounded-tl-4xl  p-0 `
+                  ` rounded-tl-4xl  p-0 `,
                   // image?.height > 300
                   //   ? "size-2/3"
                   //   : image?.height >= 200
@@ -119,9 +119,9 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                   //       ? "h-[150px]"
                   //       : "h-[90px]"
                 )}
-                width={500}
+                width={300}
                 // fill
-                height={500}
+                height={300}
                 src={image}
               />
             </div>

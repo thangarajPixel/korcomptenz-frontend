@@ -32,14 +32,16 @@ const DarkSlider = ({
         <div className="col-span-18 lg:col-span-8 flex flex-col gap-5">
           <h2
             className={cn(
-              "text-5xl md:text-7xl font-bold leading-tight text-black md:px-5 lg:px-0 mb-5 lg:mb-0",
-              isSwap && "text-center"
+              "text-5xl md:text-7xl font-bold leading-tight text-foreground md:px-5 lg:px-0 mb-5 lg:mb-0",
+              isSwap && "text-center",
             )}
           >
             {manuelSliderData?.heading}
           </h2>
           {manuelSliderData?.descripition && (
-            <p className="text-left">{manuelSliderData?.descripition}</p>
+            <p className="text-left text-md md:text-lg leading-7">
+              {manuelSliderData?.descripition}
+            </p>
           )}
 
           {!isSwap && (
@@ -74,8 +76,8 @@ const DarkSlider = ({
 
                         manuelSliderData?.isPerRowThree
                           ? "md:basis-1/3"
-                          : "lg:basis-1/4"
-                      )
+                          : "lg:basis-1/4",
+                      ),
                 )}
               >
                 <SliderCard slide={slide} isSwap={isSwap} />

@@ -32,12 +32,47 @@ export default function SlidingSection({
             //   objectFit: "cover"
             // }}
           >
-            <KorcomptenzImage
-              src={isMobile ? slide?.mobile_image : slide?.image}
-              width={1000}
-              height={1000}
-              className="w-full h-full object-cover"
-            />
+            {slide?.design === "video" && (
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                src={slide?.video?.url}
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            )}
+
+            {slide?.design === "image" && (
+              <KorcomptenzImage
+                src={isMobile ? slide?.mobile_image : slide?.image}
+                width={1000}
+                height={1000}
+                className="w-full h-full object-cover"
+              />
+            )}
+            {slide?.design === "bgcolor" && (
+              <div className="relative w-full h-full">
+                {/* Background Image */}
+                <KorcomptenzImage
+                  src={slide?.backgroundImage}
+                  width={1000}
+                  height={1000}
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Overlay / Banner Image */}
+                <div className="absolute top-24 right-32 w-[300px] h-[300px]">
+                  <KorcomptenzImage
+                    src={slide?.bannerImage}
+                    width={300}
+                    height={300}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+            )}
+
             <div className="absolute inset-0  flex items-start mt-12 md:mt-0 md:items-center">
               <div className="container-md">
                 <div className="max-w-2xl text-white ml-12">
@@ -80,7 +115,7 @@ export default function SlidingSection({
                     {slide?.description}
                   </p>
                   {slide?.buttonText && (
-                    <Link href={slide?.link}>
+                    <Link href={slide?.link || "#"}>
                       <Button
                         size="xl"
                         variant="white"

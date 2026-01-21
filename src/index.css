@@ -324,7 +324,7 @@ body {
 
 .rich-text ul {
   list-style: disc;
-  /* margin-left: 1.5rem; */
+  margin-left: 1.5rem;
 }
 .rich-text li {
   margin-bottom: 0.25rem;
@@ -332,7 +332,7 @@ body {
 }
 .rich-text ol {
   list-style: decimal;
-  padding-left: 1.5rem;
+  padding-left: 1.75rem;
 }
 
 .rich-text li {
@@ -350,10 +350,10 @@ body {
 
 .rich-text table,
 .rich-text .table {
-  @apply !w-full overflow-x-auto;
+  @apply !w-full overflow-x-auto my-3;
 }
 .rich-text table {
-  @apply !px-2 shadow-2xl text-left;
+  @apply !px-2 shadow-2xl text-left  my-3;
 }
 .rich-text strong {
   @apply !font-semibold;

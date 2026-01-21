@@ -11,6 +11,10 @@ type SlidingSectionType = {
   description?: string;
   logo?: ImageType;
   link: string;
+  design: string;
+  video: ImageType;
+  bannerImage: ImageType;
+  backgroundImage: ImageType;
 };
 
 type ServicesSectionType = {
@@ -214,9 +218,9 @@ type LightSliderType = {
           description: string;
           buttonText: string;
           link: string;
-        }
+        },
       ];
-    }
+    },
   ];
 };
 
@@ -232,7 +236,7 @@ type DarkSliderType = {
       alt: ImageType;
       title: string;
       description: string;
-    }
+    },
   ];
 };
 type StickyTitleListType = {
@@ -254,7 +258,7 @@ type StickyTitleListType = {
       size: number;
       ext: string;
       mime: string;
-    }
+    },
   ];
   link?: string;
   mobile_image?: ImageType;
@@ -332,6 +336,7 @@ type BuildConnectSectionType = {
   buttonText: string;
   link: string;
   descriptionButtonText: string;
+  isTargetBlankDescription: boolean;
   listDescription: {
     description: string;
   }[];
@@ -464,6 +469,7 @@ type GramBannerType = {
   descriptionButtonText: string;
   descriptionButtonLink: string;
   isDescriptionLeft: boolean;
+  isTargetBlank: boolean;
 };
 type CaseStudyFormType = {
   __component: "form-fields.case-study-form";

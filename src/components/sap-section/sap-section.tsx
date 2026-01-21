@@ -13,7 +13,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
           <h2 className="text-6xl md:text-7xl font-bold text-foreground">
             {sapSectionData?.heading}
           </h2>
-          <p className="text-md md:text-lg text-foreground leading-4xl  whitespace-break-spaces">
+          <p className="text-md md:text-lg text-foreground leading-4xl  whitespace-break-spaces leading-7">
             {sapSectionData?.description}
           </p>
         </div>
@@ -47,11 +47,12 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
                       </div>
                     </div>
                   ) : (
-                    <div className=" overflow-hidden p-6">
+                    <div className="overflow-hidden p-6 flex items-center justify-center w-52 h-40">
                       <KorcomptenzImage
                         src={sapSectionData?.image3}
-                        width={150}
-                        height={150}
+                        width={250}
+                        height={250}
+                        className="object-contain"
                       />
                     </div>
                   )}
@@ -70,7 +71,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
             </div>
           </div>
         ) : (
-          <div className="col-span-1 lg:col-span-14 ">
+          <div className="col-span-1 lg:col-span-12 mt-5 ">
             {sapSectionData?.itemDescription && (
               <p className="text-4xl md:text-5xl font-semibold text-foreground leading-tight mb-5">
                 {sapSectionData?.itemDescription}
@@ -81,7 +82,7 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
               {sapSectionData?.item?.map((item, i) => (
                 <div
                   key={i}
-                  className="bg-secondary rounded-3xl p-8 text-white flex flex-row items-center gap-3"
+                  className="bg-secondary rounded-3xl p-4 text-white flex flex-row items-center gap-3"
                 >
                   <div className="text-4xl md:text-6xl font-bold leading-none">
                     {item?.value}

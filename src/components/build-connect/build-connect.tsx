@@ -36,9 +36,7 @@ const BuildConnect = ({
             buildData?.isSwap && "mt-3",
           )}
         >
-          <div
-            className={cn("md:pl-5 space-y-3 ", buildData?.isSwap && "order-2")}
-          >
+          <div className={cn(" space-y-3 ", buildData?.isSwap && "order-2")}>
             {!buildData?.isSwap && (
               <h2 className="text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-12">
                 {buildData?.title}
@@ -47,12 +45,13 @@ const BuildConnect = ({
             {buildData?.description && (
               <DangerousHtml
                 html={buildData?.description}
-                className="text-md md:text-2xl text-foreground leading-8 break-words"
+                className="text-md md:text-lg  leading-7.5 text-foreground  break-words"
               />
             )}
             {buildData?.descriptionButtonText && (
               <ButtonLink
                 link={buildData?.descriptionButtonLink || "#"}
+                isTargetNew={buildData?.isTargetBlankDescription}
                 buttonProps={{
                   size: "xl",
                   arrow: true,

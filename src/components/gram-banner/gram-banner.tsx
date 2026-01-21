@@ -13,10 +13,10 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         gramData?.theme === "dark"
           ? "bg-custom-black py-10 "
           : gramData?.theme === "light"
-          ? "bg-custom-gray-6 py-10 "
-          : gramData?.theme === "default"
-          ? "bg-white"
-          : ""
+            ? "bg-custom-gray-6 py-10 "
+            : gramData?.theme === "default"
+              ? "bg-white"
+              : ""
       }`}
       data-debug="page-components.build-data"
     >
@@ -28,15 +28,15 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
         }  `}
       >
         {gramData?.title && (
-          <h3
+          <h2
             className={cn(
               "text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15  lg:px-10",
               gramData?.theme === "dark" ? "text-white" : "",
-              gramData?.isTitleLeft ? "text-left" : "text-center"
+              gramData?.isTitleLeft ? "text-left" : "text-center",
             )}
           >
             {gramData?.title}
-          </h3>
+          </h2>
         )}
 
         <DangerousHtml
@@ -44,13 +44,14 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
           className={cn(
             `text-md md:text-2xl text-foreground leading-7 break-words text-center lg:px-10 `,
             gramData?.theme === "dark" && "[&>span]:!text-white ",
-            gramData?.isDescriptionLeft ? "text-left mb-10" : "text-center"
+            gramData?.isDescriptionLeft ? "text-left mb-10" : "text-center",
           )}
         />
         {gramData?.buttonText && (
           <div className="flex justify-center items-center">
             <ButtonLink
               link={gramData?.buttonLink || "#"}
+              isTargetNew={gramData?.isTargetBlank}
               buttonProps={{
                 className: " flex items-center justify-center",
                 size: "xl",

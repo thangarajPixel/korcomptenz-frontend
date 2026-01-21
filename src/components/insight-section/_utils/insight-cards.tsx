@@ -34,7 +34,7 @@ export function InsightCard(props: InsightCardType) {
       <motion.article
         className={cn(
           "group relative bg-card p-3   transition-colors",
-          className
+          className,
         )}
         // initial={{ opacity: 0, y: 22 }}
         // whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export function InsightCard(props: InsightCardType) {
           {title}
         </h3>
         {description && (
-          <p className="mt-4 left-0 top-0 max-w-fit text-start  text-xl  font-normal leading-7   line-clamp-3">
+          <p className="mt-4 left-0 top-0 max-w-fit text-start  lg:text-3xl text-xl leading-6.75  font-normal   line-clamp-3">
             {description}
           </p>
         )}
