@@ -10,7 +10,7 @@ export function CaseStudyBanner({
   essential: CaseStudyPageType;
 }) {
   const title = data?.rightSection?.map((item) =>
-    item?.preTitle?.title === "Industry" ? item?.descripition ?? null : null
+    item?.preTitle?.title === "Industry" ? (item?.descripition ?? null) : null,
   );
 
   return (
@@ -28,7 +28,7 @@ export function CaseStudyBanner({
           <h1 className="text-7xl  text-custom-gray-9 mt-4  font-semibold  max-w-md leading-12 ">
             {data.title}
           </h1>
-          <p className="mt-4 text-3xl font-semibold  text-foreground ">
+          <p className="mt-4 text-3xl md:text-5xl leading-tight font-semibold  text-foreground ">
             {data.description}
           </p>
         </div>

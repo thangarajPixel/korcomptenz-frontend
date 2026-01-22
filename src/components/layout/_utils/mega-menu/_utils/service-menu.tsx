@@ -179,13 +179,23 @@ const ServicesMenu = ({
       </div>
 
       {/* Image */}
-      <div className="col-span-24 md:col-span-6 lg:col-span-6 flex">
-        <KorcomptenzImage
-          src={activeServiceSection?.image}
-          className="w-full h-full object-contain"
-          width={300}
-          height={300}
-        />
+      <div className="col-span-24 md:col-span-6 lg:col-span-6 flex justify-center items-center">
+        {activeServiceSection?.isText ? (
+          <div
+            style={{ backgroundColor: activeServiceSection?.bgColor }}
+            className="text-white rounded-3xl inline-block w-fit p-6 text-center"
+          >
+            {/* <p className="text-3xl">{activeServiceSection?.description}</p> */}
+            <p className="text-3xl">{activeServiceSection?.description}</p>
+          </div>
+        ) : (
+          <KorcomptenzImage
+            src={activeServiceSection?.image}
+            className="w-full h-full object-contain"
+            width={300}
+            height={300}
+          />
+        )}
       </div>
     </div>
   );

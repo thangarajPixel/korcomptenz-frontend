@@ -91,6 +91,41 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
           </div>
         )}
       </div>
+
+      {gramData?.isFooter && (
+        <div className="bg-custom-black py-10 -mt-1.5  ">
+          {/* <DangerousHtml
+          html={gramData?.description}
+          className={cn(
+            `text-md md:text-2xl text-foreground leading-7 break-words text-center lg:px-10 `,
+            gramData?.theme === "dark" && "[&>span]:!text-white ",
+            gramData?.isDescriptionLeft ? "text-left mb-10" : "text-center",
+          )}
+          
+        /> */}
+
+          {/* <h2 className="text-5xl md:text-8xl text-foreground leading-7 break-words font-bold text-center lg:px-10 text-white">
+          {gramData?.footerDescription}
+        </h2> */}
+
+          <DangerousHtml
+            html={gramData?.footerDescription}
+            className="text-5xl md:text-8xl text-foreground leading-7 break-words font-bold text-center lg:px-10 text-white mb-8"
+          />
+          <div className="flex justify-center items-center">
+            <ButtonLink
+              link={gramData?.footerButtonLink || "#"}
+              isTargetNew={gramData?.isTargetBlank}
+              buttonProps={{
+                className: " flex items-center justify-center",
+                size: "xl",
+              }}
+            >
+              {gramData?.FooterbuttonText || "Know More"}
+            </ButtonLink>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

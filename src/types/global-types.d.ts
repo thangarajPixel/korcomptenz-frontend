@@ -88,7 +88,7 @@ type CompanyType = {
       label: string;
       href: string | null;
       icon: ImageType;
-    }
+    },
   ];
 
   policy: {
@@ -112,6 +112,9 @@ type ServicesMenuProps = {
     slug: string;
   };
   image: ImageType;
+  bgColor: string;
+  isText: boolean;
+  description: string;
   items: {
     id: number;
     title: string;

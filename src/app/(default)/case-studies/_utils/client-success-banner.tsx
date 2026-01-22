@@ -24,14 +24,14 @@ const ClientSuccessBanner = ({
       </div>
 
       <div className="relative container-lg py-12 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-8 items-center">
           {/* Left: Heading, copy, search */}
           <div className="space-y-6 md:space-y-8">
             <h1 className="text-balance font-semibold tracking-tight text-foreground text-6xl md:text-9xl leading-tight">
               {data?.title}
             </h1>
 
-            <p className="text-pretty text-foreground text-xl md:text-3xl leading-relaxed">
+            <p className="text-3xl md:text-5xl leading-tight text-foreground text-xl md:text-3xl ">
               {data?.description}
             </p>
 

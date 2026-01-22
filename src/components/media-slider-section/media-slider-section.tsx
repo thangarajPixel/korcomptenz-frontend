@@ -1,4 +1,3 @@
-import React from "react";
 import MediaSlider from "./_utils/media-slider";
 
 const MediaSliderSection = ({ data }: { data: MediaSliderSectionType }) => {

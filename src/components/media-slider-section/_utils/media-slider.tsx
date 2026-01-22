@@ -7,28 +7,14 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from "@/components/ui/carousel";
-import CardSwiper from "@/components/ui/card-swiper";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { VideoPopup } from "@/components/video-popup";
 
 const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
-  const [api, setApi] = React.useState<CarouselApi>();
+  const [isCarouselOpen, setIsCarouselOpen] = React.useState(false);
+  const [startIndex, setStartIndex] = React.useState(0);
 
-  const onThumbClick = (index: number) => {
-    api?.scrollTo(index);
-  };
-
-  // React.useEffect(() => {
-  //   if (!api) {
-  //     return
-  //   }
-  //   api.on("select", () => {
-  //     // Do something on select.
-  //     console.log(api.selectedScrollSnap())
-  //   })
-  // }, [api])
   const [isVideoOpen, setIsVideoOpen] = React.useState<{
     open: boolean;
     link: string | null;
@@ -37,96 +23,115 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
     link: null,
   });
 
-  return (
-    <React.Fragment>
-      <div className="w-full max-w-6xl mx-auto px-4 py-8">
-        <Carousel className="w-full " setApi={setApi}>
-          <CarouselContent>
-            {data?.list?.map((slide, index) => (
-              <CarouselItem key={index} className="aspect-video relative">
-                <KorcomptenzImage
-                  src={slide.image || "/placeholder.svg"}
-                  width={slide?.image?.width || 1500}
-                  height={slide?.image?.height || 1500}
-                  className="w-full h-full "
-                />
-                {slide?.description && (
-                  <div className="absolute inset-0 bottom-0 sm:bottom-4 flex items-end justify-center">
-                    <div className="bg-primary opacity-80 p-8 w-full sm:w-3/4 rounded-md">
-                      <h3 className="text-white text-center text-2xl md:text-3xl font-semibold text-balance">
-                        {slide.description}
-                      </h3>
-                    </div>
-                  </div>
-                )}
+  const onThumbClick = (index: number) => {
+    setStartIndex(index);
+    setIsCarouselOpen(true);
+  };
 
-                {/* Play icon if needed */}
-                {slide?.isVideo && (
-                  <button
-                    className="absolute inset-0 flex items-center justify-center"
-                    onClick={() =>
-                      setIsVideoOpen({
-                        open: true,
-                        link: slide?.videoLink || null,
-                      })
-                    }
-                  >
-                    <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors">
-                      <svg
-                        className="w-7 h-7 text-black ml-1"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </button>
-                )}
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious
-            className="-left-5 hover:bg-primary hover:text-white size-12"
-            variant={"default"}
-          />
-          <CarouselNext
-            className="-right-5 hover:bg-primary hover:text-white size-12"
-            variant={"default"}
-          />
-        </Carousel>
-        <div className="relative mt-4">
-          <div className="overflow-hidden">
-            <div className="flex gap-10">
-              <CardSwiper disableAutoSlide>
-                {data?.list.map((slide, index) => (
-                  <button
-                    key={slide.id}
-                    onClick={() => onThumbClick(index)}
-                    className={`flex-[0_0_40%] cursor-pointer  rounded-4xl md:flex-[0_0_22%] min-w-0 rounded-2xl overflow-hidden transition-all duration-200  `}
-                  >
-                    <KorcomptenzImage
-                      src={slide.image}
-                      width={slide?.image?.width || 200}
-                      height={slide?.image?.height || 200}
-                      className="w-full h-full ml-5 rounded-4xl"
-                    />
-                  </button>
-                ))}
-              </CardSwiper>
-            </div>
-          </div>
+  return (
+    <>
+      {/* ================= INLINE THUMBNAILS ================= */}
+      <div className="w-full container-md mx-auto px-4 py-8">
+        <div className="grid grid-cols-3 gap-4">
+          {data?.list?.map((slide, index) => (
+            <button
+              key={slide.id}
+              onClick={() => onThumbClick(index)}
+              className="relative aspect-video rounded-2xl overflow-hidden group"
+            >
+              <KorcomptenzImage
+                src={slide.image}
+                width={400}
+                height={225}
+                className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+              />
+            </button>
+          ))}
         </div>
       </div>
+
+      {/* ================= POPUP CAROUSEL ================= */}
+      {isCarouselOpen && (
+        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center">
+          {/* Modal content wrapper */}
+          <div className="relative w-full max-w-5xl px-4">
+            {/* Close button - independent of carousel */}
+            <button
+              onClick={() => setIsCarouselOpen(false)}
+              className="absolute top-0 right-0 z-50 text-white text-3xl"
+            >
+              ✕
+            </button>
+
+            {/* Carousel */}
+            <Carousel className="w-full" opts={{ startIndex }}>
+              <CarouselContent>
+                {data?.list?.map((slide, index) => (
+                  <CarouselItem
+                    key={index}
+                    className="relative flex justify-center items-center aspect-video"
+                  >
+                    {/* Centered Image */}
+                    <KorcomptenzImage
+                      src={slide.image || "/placeholder.svg"}
+                      width={800}
+                      height={800}
+                      className="max-h-[80vh] w-auto object-contain rounded-xl"
+                    />
+
+                    {/* Description */}
+                    {slide?.description && (
+                      <div className="absolute bottom-4 inset-x-0 flex justify-center">
+                        <div className="bg-primary/80 p-6 rounded-md max-w-4xl">
+                          <h3 className="text-white text-center text-xl md:text-2xl font-semibold">
+                            {slide.description}
+                          </h3>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Video overlay button */}
+                    {slide?.isVideo && (
+                      <button
+                        className="absolute inset-0 flex items-center justify-center z-20"
+                        onClick={() =>
+                          setIsVideoOpen({
+                            open: true,
+                            link: slide?.videoLink || null,
+                          })
+                        }
+                      >
+                        <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition">
+                          <svg
+                            className="w-7 h-7 text-black ml-1"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </button>
+                    )}
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+
+              <CarouselPrevious className="left-2 bg-transparent text-white size-12 border-none hover-border-none hover:bg-transparent hover:text-white" />
+              <CarouselNext className="right-2 bg-transparent text-white size-12 border-none hover-border-none hover:bg-transparent hover:text-white" />
+            </Carousel>
+          </div>
+        </div>
+      )}
+
+      {/* ================= VIDEO POPUP ================= */}
       {isVideoOpen.open && isVideoOpen.link && (
         <VideoPopup
           isOpen={isVideoOpen.open}
-          onClose={() => {
-            setIsVideoOpen({ link: null, open: false });
-          }}
-          videoSrc={isVideoOpen.link || ""}
+          onClose={() => setIsVideoOpen({ open: false, link: null })}
+          videoSrc={isVideoOpen.link}
         />
       )}
-    </React.Fragment>
+    </>
   );
 };
 

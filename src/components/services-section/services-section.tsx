@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 
 import KorcomptenzImage from "../korcomptenz-image";
 import Link from "next/link";
+import { VideoPopup } from "../video-popup";
 
 export function AnimatedTabsHero({
   className,
@@ -17,6 +18,13 @@ export function AnimatedTabsHero({
   content: ServicesSectionType[];
 }) {
   const [value, setValue] = React.useState<string>(content?.[0]?.label);
+  const [isVideoOpen, setIsVideoOpen] = React.useState<{
+    open: boolean;
+    link: string | null;
+  }>({
+    open: false,
+    link: null,
+  });
 
   const activeContent =
     content?.find((c) => c?.label === value) || content?.[0];
@@ -36,7 +44,7 @@ export function AnimatedTabsHero({
           <TabsList
             className={cn(
               "relative lg:h-20 md:h-25 h-11 sm:h-16 grid max-w-5xl grid-cols-5 overflow-hidden rounded-2xl",
-              "bg-secondary p-0 shadow-none border-none ml-0! flex w-full"
+              "bg-secondary p-0 shadow-none border-none ml-0! flex w-full",
             )}
           >
             {content?.map((t) => (
@@ -45,7 +53,7 @@ export function AnimatedTabsHero({
                 value={t?.label}
                 className={cn(
                   "relative cursor-pointer! h-full z-10 text-white  rounded-none lg:px-6 px-2 py-3 shadow-none border-none  text-md sm:text-base font-semibold ",
-                  "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
+                  "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary  data-[state=active]:bg-secondary data-[state=active]:text-secondary data-[state=inactive]:opacity-85",
                 )}
               >
                 <span
@@ -53,7 +61,7 @@ export function AnimatedTabsHero({
                     "z-50 text-xs md:text-5xl truncate block md:inline-block max-w-[5ch] md:max-w-none leading-normal",
                     activeContent?.label === t.label
                       ? "block text-xs md:text-5xl whitespace-normal max-w-none"
-                      : "block text-xs md:text-5xl truncate max-w-[5ch]"
+                      : "block text-xs md:text-5xl truncate max-w-[5ch]",
                   )}
                 >
                   {t?.label}
@@ -68,7 +76,7 @@ export function AnimatedTabsHero({
                       duration: 0.45,
                     }}
                     className={cn(
-                      "absolute inset-0 z-0   bg-secondary-foreground"
+                      "absolute inset-0 z-0   bg-secondary-foreground",
                       // index === 1 && "rounded-l-md", index === TABS.length - 2 && "rounded-r-md"
                     )}
                   />
@@ -107,13 +115,29 @@ export function AnimatedTabsHero({
               )}
             </div>
             <div className="flex-1">
-              <KorcomptenzImage
-                src={activeContent?.image}
-                className="h-full w-full rounded-xl object-contain"
-                width={1000}
-                height={1000}
-                priority={true}
-              />
+              {activeContent?.isVideo ? (
+                <KorcomptenzImage
+                  src={activeContent?.image}
+                  className="h-full w-full rounded-xl object-contain"
+                  width={1000}
+                  height={1000}
+                  priority={true}
+                  onClick={() =>
+                    setIsVideoOpen({
+                      link: activeContent.videoLink || "#",
+                      open: true,
+                    })
+                  }
+                />
+              ) : (
+                <KorcomptenzImage
+                  src={activeContent?.image}
+                  className="h-full w-full rounded-xl object-contain"
+                  width={1000}
+                  height={1000}
+                  priority={true}
+                />
+              )}
             </div>
           </motion.div>
         </AnimatePresence>
@@ -133,6 +157,13 @@ export function AnimatedTabsHero({
           </Link>
         </div>
       )}
+      <VideoPopup
+        isOpen={isVideoOpen.open}
+        onClose={() => {
+          setIsVideoOpen({ link: null, open: false });
+        }}
+        videoSrc={activeContent.videoLink || ""}
+      />
     </section>
   );
 }

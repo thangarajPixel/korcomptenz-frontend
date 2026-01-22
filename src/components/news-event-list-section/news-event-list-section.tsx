@@ -48,6 +48,7 @@ const NewsEventListSectionItem = ({
           priority={false}
         />
       </div>
+
       <h3 className="text-xl font-semibold text-gray-900 ">{item.title}</h3>
       <p className="text-sm text-gray-500 mb-2">
         {dayjs(date).format("MMM D, YYYY")}
@@ -90,7 +91,7 @@ export default function NewsEventListSection({
   }, [activeSection]);
   const handleSectionClick = (sectionId: string) => {
     const sectionElement = document.querySelector(
-      `[data-section="${sectionId}"]`
+      `[data-section="${sectionId}"]`,
     );
     if (!sectionElement) return;
     const offset = 100;
@@ -118,7 +119,7 @@ export default function NewsEventListSection({
                   onClick={() => handleSectionClick(section.id)}
                   className={cn(
                     `w-full text-left cursor-pointer font-semibold px-4 py-2 text-xl transition-all text-foreground duration-200  hover:text-primary `,
-                    activeSection === `${section.id}` && "text-primary"
+                    activeSection === `${section.id}` && "text-primary",
                   )}
                 >
                   {dayjs(section?.date).format("YYYY")}
@@ -139,7 +140,7 @@ export default function NewsEventListSection({
                 data-section={section.id}
                 className={cn(
                   "mb-6 pb-6 border-b border-gray-200",
-                  index === section.item.length - 1 && "border-b-0"
+                  index === section.item.length - 1 && "border-b-0",
                 )}
               >
                 <p className="text-7xl font-semibold text-foreground mb-8">

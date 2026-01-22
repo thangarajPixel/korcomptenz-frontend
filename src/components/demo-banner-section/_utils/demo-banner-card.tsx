@@ -18,7 +18,12 @@ const DemoBannerCard = ({
   return (
     <div className={cn("relative w-full overflow-hidden", className)}>
       {/* Desktop View */}
-      <div className="relative w-full min-h-[73vh] hidden lg:block">
+      <div
+        className={cn(
+          "relative w-full hidden lg:block",
+          data?.isListPage ? "min-h-[60vh]" : "min-h-[80vh]",
+        )}
+      >
         {/* Background image */}
         <KorcomptenzImage
           src={data?.image}
@@ -39,7 +44,7 @@ const DemoBannerCard = ({
 
             {data?.description && (
               <DangerousHtml
-                className="text-lg md:text-base text-white my-4  max-w-md"
+                className="text-3xl md:text-5xl leading-tight text-white my-4  max-w-2xl"
                 html={data?.description}
               />
             )}
@@ -126,7 +131,7 @@ const DemoBannerCard = ({
         )}
         {data?.description && (
           <DangerousHtml
-            className="text-base md:text-lg text-foreground leading-relaxed max-w-md"
+            className="text-3xl md:text-5xl leading-tight text-foreground max-w-2xl"
             html={data?.description}
           />
         )}

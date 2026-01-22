@@ -27,6 +27,8 @@ type ServicesSectionType = {
   isBottomButton?: boolean;
   bottomButtonText?: string;
   bottomlink?: string;
+  videoLink?: string;
+  isVideo?: boolean;
 };
 
 type InspireSectionType = {
@@ -164,6 +166,7 @@ type WeAreKorcomptenzSectionType = {
 type BannerSectionType = {
   id: number;
   imageMobile: ImageType;
+  isListPage: boolean;
   image: ImageType;
   alt: string;
   logo?: ImageType;
@@ -470,6 +473,10 @@ type GramBannerType = {
   descriptionButtonLink: string;
   isDescriptionLeft: boolean;
   isTargetBlank: boolean;
+  isFooter: boolean;
+  footerDescription: string;
+  footerButtonLink: string;
+  FooterbuttonText: string;
 };
 type CaseStudyFormType = {
   __component: "form-fields.case-study-form";
