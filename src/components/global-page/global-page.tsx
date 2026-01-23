@@ -69,6 +69,7 @@ import DigitialBenefits from "../digitial-benefits/digitial-benefits";
 import KpiPartner from "../kpi-partner";
 import DigitalServiceSection from "../digitial-services-section";
 import { DigitialCardSlider } from "../digitial-card-slider";
+import { DigitialAboutSection } from "../digitial-about-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -777,6 +778,18 @@ const GlobalPage = (props: Props) => {
             <DigitialCardSlider
               key={`digital-card-slider-${item?.__component}-${item?.id}`}
               content={item}
+            />
+          </ScrollFadeIn>
+        );
+      case "page-componets.digital-about":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`digital-about-${item?.__component}-${item?.id}`}
+          >
+            <DigitialAboutSection
+              key={`digital-about-${item?.__component}-${item?.id}`}
+              data={item}
             />
           </ScrollFadeIn>
         );

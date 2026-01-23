@@ -873,6 +873,19 @@ type VideoBannerItemType = {
   description: string;
 };
 
+type DigitialAboutSectionType = {
+  title: string;
+  description: string;
+  backgroundImage: ImageType;
+  badges: {
+    badge1: ImageType;
+    badge2: ImageType;
+  };
+  countries: { id: string; flag: ImageType[]; label: string }[];
+  features: { id: string; icon: ImageType; description: string }[];
+  stats: { id: string; value: string; label: string }[];
+};
+
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
 type ComponentPropsMap = {
@@ -1170,6 +1183,10 @@ type ComponentPropsMap = {
   DigitialCardSlider: DigitialServicesSectionType & {
     id: string;
     __component: "page-componets.digital-card-slider";
+  };
+  DigitialAboutSection: DigitialAboutSectionType & {
+    id: string;
+    __component: "page-componets.digital-about";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
