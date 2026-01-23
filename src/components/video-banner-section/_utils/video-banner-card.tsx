@@ -45,7 +45,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
               <h1 className="text-4xl md:text-7xl font-semibold text-white leading-tight max-w-3xl">
                 {data?.title}
               </h1>
-              <p className="text-3xl md:text-5xl leading-tight font-normal justify-center text-white">
+              <p className="text-3xl md:text-5xl leading-tight font-semibold  justify-center text-white">
                 {" "}
                 {data?.description}
               </p>

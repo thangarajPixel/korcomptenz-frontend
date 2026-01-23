@@ -42,7 +42,7 @@ const InsightsSuccessBanner = ({
               {bannerTitle}
             </h1>
 
-            <p className="text-3xl md:text-5xl leading-tight text-foreground text-xl md:text-3xl ">
+            <p className="text-3xl md:text-5xl leading-tight  text-foreground text-xl md:text-3xl font-semibold ">
               {data?.description}
             </p>
 
