@@ -68,13 +68,16 @@ const BuildConnect = ({
           {(buildData?.rightSection?.content === "image" ||
             buildData?.rightSection?.content === "video") && (
             <div>
-              <div className="p-5 hidden lg:block">
-                <KorcomptenzImage
-                  src={buildData?.rightSection?.responsiveImage?.image}
-                  width={500}
-                  height={500}
-                  className="w-full h-auto object-cover rounded-4xl"
-                />
+              <div className="p-5 hidden lg:block w-150 h-150">
+                <div className="w-[550px] h-[400px] -mt-5 rounded-4xl overflow-hidden flex items-center justify-center bg-gray-100">
+                  <KorcomptenzImage
+                    src={buildData?.rightSection?.responsiveImage?.image}
+                    width={550}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
                 {buildData?.imageCaption && (
                   <div className="flex flex-col items-center gap-4 lg:mt-5">
                     <p className="text-3xl">{buildData?.imageCaption}</p>
