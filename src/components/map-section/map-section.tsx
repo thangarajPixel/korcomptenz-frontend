@@ -8,7 +8,7 @@ import ButtonLink from "../ui/button-link";
 
 const MapSection = ({ data }: { data: MapSectionType }) => {
   const [activeLocation, setActiveLocation] = React.useState<number | null>(
-    null
+    null,
   );
 
   const handleClick = (locationId: number) => {
@@ -68,6 +68,9 @@ const MapSection = ({ data }: { data: MapSectionType }) => {
                     height={32}
                     className="object-cover size-5 sm:size-8"
                   />
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block px-2 py-1 text-xs rounded bg-primary text-white whitespace-nowrap z-10">
+                    {location.title}
+                  </div>
                   {/* <svg
                     width="24"
                     height="32"

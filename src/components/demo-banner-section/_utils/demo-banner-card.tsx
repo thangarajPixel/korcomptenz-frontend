@@ -44,7 +44,7 @@ const DemoBannerCard = ({
 
             {data?.description && (
               <DangerousHtml
-                className="text-3xl md:text-5xl leading-tight font-semibold text-white my-4  max-w-2xl"
+                className="text-3xl md:text-5xl leading-tight font-normal text-white my-4  max-w-2xl"
                 html={data?.description}
               />
             )}
@@ -131,7 +131,7 @@ const DemoBannerCard = ({
         )}
         {data?.description && (
           <DangerousHtml
-            className="text-3xl md:text-5xl leading-tight font-semibold text-foreground max-w-2xl"
+            className="text-3xl md:text-5xl leading-tight font-normal text-foreground max-w-2xl"
             html={data?.description}
           />
         )}

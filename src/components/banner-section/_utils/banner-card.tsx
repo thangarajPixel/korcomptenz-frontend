@@ -94,7 +94,7 @@ const BannerCard = ({
               )}
               {data?.description && (
                 <DangerousHtml
-                  className="text-3xl md:text-5xl leading-tight font-semibold text-white mb-4 md:mb-4 "
+                  className="text-3xl md:text-5xl leading-tight font-normal text-white mb-4 md:mb-4 "
                   html={data?.description}
                 />
               )}

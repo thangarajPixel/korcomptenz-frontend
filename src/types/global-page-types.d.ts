@@ -35,6 +35,7 @@ type DigitialServicesSectionType = {
   description: string;
   list: {
     label: string;
+    title: string;
     heading: string;
     description: string;
     image?: ImageType;
@@ -1165,6 +1166,10 @@ type ComponentPropsMap = {
   DigitialServicesSection: DigitialServicesSectionType & {
     id: string;
     __component: "page-componets.digital-services-section";
+  };
+  DigitialCardSlider: DigitialServicesSectionType & {
+    id: string;
+    __component: "page-componets.digital-card-slider";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

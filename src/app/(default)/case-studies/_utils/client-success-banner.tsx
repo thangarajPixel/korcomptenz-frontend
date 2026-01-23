@@ -31,7 +31,7 @@ const ClientSuccessBanner = ({
               {data?.title}
             </h1>
 
-            <p className="text-3xl md:text-5xl leading-tight font-semibold text-foreground text-xl md:text-3xl ">
+            <p className="text-3xl md:text-5xl leading-tight font-normal text-foreground text-xl md:text-3xl ">
               {data?.description}
             </p>
 

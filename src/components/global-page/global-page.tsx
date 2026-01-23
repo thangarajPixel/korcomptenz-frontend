@@ -68,6 +68,7 @@ import NewsRoomBuild from "../news-room/_utils/news-room-build";
 import DigitialBenefits from "../digitial-benefits/digitial-benefits";
 import KpiPartner from "../kpi-partner";
 import DigitalServiceSection from "../digitial-services-section";
+import { DigitialCardSlider } from "../digitial-card-slider";
 
 type Props = {
   data: ComponentPropsType[];
@@ -763,6 +764,18 @@ const GlobalPage = (props: Props) => {
           >
             <DigitalServiceSection
               key={`digital-services-section-${item?.__component}-${item?.id}`}
+              content={item}
+            />
+          </ScrollFadeIn>
+        );
+      case "page-componets.digital-card-slider":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`digital-card-slider-${item?.__component}-${item?.id}`}
+          >
+            <DigitialCardSlider
+              key={`digital-card-slider-${item?.__component}-${item?.id}`}
               content={item}
             />
           </ScrollFadeIn>

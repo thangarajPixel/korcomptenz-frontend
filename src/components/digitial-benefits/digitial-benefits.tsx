@@ -21,7 +21,7 @@ const DigitialBenefits = ({ data }: { data: DigitalBenefitsType }) => {
           {data.list.map((badge) => (
             <div key={badge.id} className="flex flex-col  gap-2  md:px-6">
               {/* Icon */}
-              <div className="h-12 mb-4 ">
+              <div className="h-12 mb-2 ">
                 {badge?.image && (
                   <KorcomptenzImage
                     src={badge?.image}

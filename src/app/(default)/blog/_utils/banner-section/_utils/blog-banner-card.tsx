@@ -42,7 +42,7 @@ const BlogBannerCard = ({
               {data?.title}
             </h1>
 
-            <p className="text-3xl md:text-5xl leading-tight text-white mb-4 md:mb-8 max-w-lg">
+            <p className="text-3xl md:text-5xl leading-tight font-normal text-white mb-4 md:mb-8 max-w-lg">
               {tableTitle}{" "}
             </p>
 
