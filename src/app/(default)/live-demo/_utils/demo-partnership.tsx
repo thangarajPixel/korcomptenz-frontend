@@ -7,6 +7,7 @@ export default function DemoPartnership({
 }: {
   data: DemoPartnershipSectionType;
 }) {
+
   return (
     <section className="container-md bg-foreground rounded-4xl p-8">
       <h2 className=" text-5xl md:text-7xl  font-semibold  mb-12 text-balance text-center  text-white">
@@ -17,7 +18,7 @@ export default function DemoPartnership({
       <div
         className={cn(
           "grid grid-cols-1 sm:grid-cols-2  gap-8 mb-16 text-white",
-          data?.isTwoPerRow ? "lg:grid-cols-2" : "lg:grid-cols-3"
+          data?.isTwoPerRow ? "lg:grid-cols-2" : "lg:grid-cols-3",
         )}
       >
         {data?.list?.map((badge) => (

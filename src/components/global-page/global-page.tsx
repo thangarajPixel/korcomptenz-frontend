@@ -65,6 +65,10 @@ import { CombinedSection, NewsRoomSlider, ServiceProvider } from "../news-room";
 import VideoBannerSection from "../video-banner-section";
 import NewsRoomBuild from "../news-room/_utils/news-room-build";
 
+import DigitialBenefits from "../digitial-benefits/digitial-benefits";
+import KpiPartner from "../kpi-partner";
+import DigitalServiceSection from "../digitial-services-section";
+
 type Props = {
   data: ComponentPropsType[];
 };
@@ -724,6 +728,42 @@ const GlobalPage = (props: Props) => {
             <NewsRoomBuild
               key={`build-data-${item?.__component}-${item?.id}`}
               buildData={item}
+            />
+          </ScrollFadeIn>
+        );
+      case "page-componets.digital-benefits":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`digital-benefits-${item?.__component}-${item?.id}`}
+          >
+            <DigitialBenefits
+              key={`digital-benefits-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
+        );
+      case "page-componets.kpi-partner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`kpi-partner-${item?.__component}-${item?.id}`}
+          >
+            <KpiPartner
+              key={`kpi-partner-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
+        );
+      case "page-componets.digital-services-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`digital-services-section-${item?.__component}-${item?.id}`}
+          >
+            <DigitalServiceSection
+              key={`digital-services-section-${item?.__component}-${item?.id}`}
+              content={item}
             />
           </ScrollFadeIn>
         );

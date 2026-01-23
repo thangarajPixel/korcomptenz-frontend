@@ -30,6 +30,18 @@ type ServicesSectionType = {
   videoLink?: string;
   isVideo?: boolean;
 };
+type DigitialServicesSectionType = {
+  title: string;
+  description: string;
+  list: {
+    label: string;
+    heading: string;
+    description: string;
+    image?: ImageType;
+    link: string;
+    buttonText: string;
+  }[];
+};
 
 type InspireSectionType = {
   title: string;
@@ -291,6 +303,14 @@ type BenefitSectionType = {
     title: string;
     number: string;
     description: string;
+  }[];
+};
+type KpiPartnerType = {
+  title: string;
+  items: {
+    id: string;
+    icon: ImageType;
+    label: string;
   }[];
 };
 type FaqSectionType = {
@@ -673,6 +693,17 @@ type MasonryGallerySectionType = {
   list: {
     id: string;
     column: MasonryGalleryColumnType[];
+  }[];
+};
+
+type DigitalBenefitsType = {
+  title: string;
+  noOfColumn: string;
+  list: {
+    description: string;
+    id: string;
+    image: ImageType;
+    title: string;
   }[];
 };
 type FixedFooter = {
@@ -1122,6 +1153,18 @@ type ComponentPropsMap = {
   NewRoomBuild: BuildConnectSectionType & {
     id: string;
     __component: "news-and-event.build-data";
+  };
+  DigitalBenefits: DigitalBenefitsType & {
+    id: string;
+    __component: "page-componets.digital-benefits";
+  };
+  KpiPartner: KpiPartnerType & {
+    id: string;
+    __component: "page-componets.kpi-partner";
+  };
+  DigitialServicesSection: DigitialServicesSectionType & {
+    id: string;
+    __component: "page-componets.digital-services-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
