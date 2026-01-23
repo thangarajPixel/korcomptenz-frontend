@@ -60,7 +60,7 @@ export function DigitialCardSlider({
                     "border-2 border-primary",
 
                     // background + animation
-                    "bg-white",
+                    "bg-[#F7F8F8]",
                     "transition-all duration-300 ease-in-out",
 
                     "transition-all duration-400 ease-in-out",
