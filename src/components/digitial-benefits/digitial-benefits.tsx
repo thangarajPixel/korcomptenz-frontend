@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 const DigitialBenefits = ({ data }: { data: DigitalBenefitsType }) => {
   return (
-    <section className=" bg-[#E8F1EC]  p-8 md:p-12">
+    <section className=" bg-[#E8F1EC]  md:p-8 md:p-12 p-4">
       <div className="container-md">
         {/* Heading */}
         <h2 className="text-4xl md:text-6xl font-semibold text-center mb-8 text-foreground max-w-4xl mx-auto">
@@ -21,7 +21,7 @@ const DigitialBenefits = ({ data }: { data: DigitalBenefitsType }) => {
           {data.list.map((badge) => (
             <div key={badge.id} className="flex flex-col  gap-2  md:px-6">
               {/* Icon */}
-              <div className="h-12 mb-2 ">
+              <div className="h-12 mb-2 mt-5 ">
                 {badge?.image && (
                   <KorcomptenzImage
                     src={badge?.image}

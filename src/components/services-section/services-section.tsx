@@ -69,6 +69,7 @@ export function AnimatedTabsHero({
 
                 {value === t?.label && (
                   <motion.div
+                    layoutId="active-pill"
                     transition={{
                       type: "spring",
                       stiffness: 120,
@@ -76,8 +77,7 @@ export function AnimatedTabsHero({
                       duration: 0.45,
                     }}
                     className={cn(
-                      "absolute inset-0 z-0   bg-secondary-foreground",
-                      // index === 1 && "rounded-l-md", index === TABS.length - 2 && "rounded-r-md"
+                      "absolute inset-0 z-0 bg-secondary-foreground",
                     )}
                   />
                 )}

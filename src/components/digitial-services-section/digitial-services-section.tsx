@@ -72,6 +72,7 @@ export function DigitalServiceSection({
 
                 {value === t?.label && (
                   <motion.div
+                    layoutId="active-pill"
                     transition={{
                       type: "spring",
                       stiffness: 120,
@@ -79,8 +80,7 @@ export function DigitalServiceSection({
                       duration: 0.45,
                     }}
                     className={cn(
-                      "absolute inset-0 z-0   bg-secondary-foreground",
-                      // index === 1 && "rounded-l-md", index === TABS.length - 2 && "rounded-r-md"
+                      "absolute inset-0 z-0 bg-secondary-foreground",
                     )}
                   />
                 )}
@@ -91,7 +91,7 @@ export function DigitalServiceSection({
         <div className="h-1 w-2/4 bg-secondary absolute top-1/2 right-0" />
       </div>
       {/* Two‑column hero; content slides from right into center on tab change */}
-      <div className="relative container-md overflow-hidden flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">
+      <div className="relative overflow-hidden flex flex-col-reverse justify-between items-center gap-4  lg:flex-row">
         <AnimatePresence mode="wait">
           <motion.div
             key={`active-content-${value}`}
@@ -102,19 +102,19 @@ export function DigitalServiceSection({
             className="space-y-3 w-full flex flex-col-reverse lg:flex-row"
           >
             <div className="space-y-3  w-full lg:w-1/2  ">
-              <h2 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl ">
+              <h2 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl  ">
                 {activeContent?.heading}
               </h2>
 
               <DangerousHtml
                 html={activeContent?.description}
-                className="max-w-xl text-pretty text-lg text-custom-gray py-3"
+                className="max-w-xl text-pretty text-lg text-custom-gray py-3 leading-7.5"
               />
             </div>
             <div className="flex-1">
               <KorcomptenzImage
                 src={activeContent?.image}
-                className="h-full w-full rounded-3xl object-cover"
+                className="h-full w-full rounded-3xl object-cover mb-4"
                 width={1000}
                 height={1000}
                 priority={true}

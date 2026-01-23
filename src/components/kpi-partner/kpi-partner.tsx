@@ -28,7 +28,7 @@ const KpiPartner = ({ data }: { data: KpiPartnerType }) => {
 
             {/* Pill Container - overlaps behind icon */}
             <div className="flex-1 flex items-center pl-14 pr-6 h-[140px] bg-[#E8F1EC] rounded-4xl -ml-10 mt-4 min-h-[90px]">
-              <p className="text-base md:text-[24px] font-normal text-[#2C3E50] leading-7.5">
+              <p className="text-[22px] md:text-[24px] font-normal text-foreground leading-7.5">
                 {item?.label}
               </p>
             </div>
