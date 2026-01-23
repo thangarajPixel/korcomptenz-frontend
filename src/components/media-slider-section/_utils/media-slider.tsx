@@ -43,7 +43,7 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
                 src={slide.image}
                 width={400}
                 height={225}
-                className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105 cursor-pointer"
               />
             </button>
           ))}

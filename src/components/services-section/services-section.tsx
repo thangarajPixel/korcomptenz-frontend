@@ -118,7 +118,7 @@ export function AnimatedTabsHero({
               {activeContent?.isVideo ? (
                 <KorcomptenzImage
                   src={activeContent?.image}
-                  className="h-full w-full rounded-xl object-contain"
+                  className="h-full w-full rounded-xl object-contain cursor-pointer"
                   width={1000}
                   height={1000}
                   priority={true}
