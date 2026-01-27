@@ -43,18 +43,6 @@ const StretchableSectionCard = ({
             className="text-gray-700 text-base mb-6 "
           />
         </div>
-        {/* {data?.buttonText && (
-          <div className="z-10">
-            <Link
-              href={data?.link || "#"}
-              target={data?.isTargetBlank ? "true" : "false"}
-            >
-              <Button size="xl" arrow={true}>
-                {data?.buttonText}
-              </Button>
-            </Link>
-          </div>
-        )} */}
 
         {data?.buttonText && (
           <ButtonLink
