@@ -74,7 +74,7 @@ import { DigitalErpList } from "../digitial-erp-list";
 import DigitialAnalytics from "../digitial-analytics/digitial-analytics";
 
 import { DigitialLifeCycle } from "../digitial-life-cycle";
-import DigitialInsightSlider from "../digitial-insight";
+import DigitialInsightSlider from "../dark-slider copy";
 
 type Props = {
   data: ComponentPropsType[];
