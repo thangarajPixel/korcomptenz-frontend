@@ -19,7 +19,7 @@ interface Props {
 
 const DigitialSliderCard: React.FC<Props> = ({ slide }) => {
   return (
-    <div className="w-full max-w-sm bg-white rounded-xl overflow-hidden shadow-sm">
+    <div className="w-full max-w-sm bg-[#f7f8f8] rounded-xl overflow-hidden ">
       {/* Image section */}
       <div className="relative">
         <KorcomptenzImage

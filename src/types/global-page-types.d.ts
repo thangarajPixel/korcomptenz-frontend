@@ -736,6 +736,7 @@ type MasonryGallerySectionType = {
 type DigitalBenefitsType = {
   title: string;
   noOfColumn: string;
+  isbgGrey: boolean;
   list: {
     description: string;
     id: string;
