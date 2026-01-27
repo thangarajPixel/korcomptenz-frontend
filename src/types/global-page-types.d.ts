@@ -684,6 +684,26 @@ type KorCareSliderType = {
   isPerRowFive: boolean;
   list: KorCareSlide[];
 };
+type DigitalErpListType = {
+  title1: string;
+  title2: string;
+  list1: {
+    id: string;
+    title: string;
+    description: string;
+    buttonLink: string;
+    buttonText: string;
+    isTarget: boolean;
+  }[];
+  list2: {
+    id: string;
+    title: string;
+    description: string;
+    buttonLink: string;
+    buttonText: string;
+    isTarget: boolean;
+  }[];
+};
 
 type MasonryGallerySectionType = {
   id: string;
@@ -872,6 +892,25 @@ type VideoBannerItemType = {
   isVideo: boolean;
   description: string;
 };
+type DigitialAnalyticsType = {
+  title: string;
+  heading1: string;
+  heading2: string;
+  description: string;
+  list1: {
+    id: string;
+    title: string;
+    description: string;
+  }[];
+  list2: {
+    id: string;
+    title: string;
+    description: string;
+    buttonText: string;
+    isTarget?: boolean;
+    buttonLink?: string;
+  }[];
+};
 
 type DigitialAboutSectionType = {
   title: string;
@@ -884,6 +923,11 @@ type DigitialAboutSectionType = {
   countries: { id: string; flag: ImageType[]; label: string }[];
   features: { id: string; icon: ImageType; description: string }[];
   stats: { id: string; value: string; label: string }[];
+};
+type DigitialLifeCycleType = {
+  bottom: DigitialLifeBottomType;
+  mid: DigitialLifeMiddleType;
+  top: DigitialLifeTopType;
 };
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -1187,6 +1231,18 @@ type ComponentPropsMap = {
   DigitialAboutSection: DigitialAboutSectionType & {
     id: string;
     __component: "page-componets.digital-about";
+  };
+  DigitalErpList: DigitalErpListType & {
+    id: string;
+    __component: "page-componets.digital-erp-list";
+  };
+  DigitialAnalytics: DigitialAnalyticsType & {
+    id: string;
+    __component: "page-componets.digital-analytics";
+  };
+  DigitialLifeCycle: DigitialLifeCycleType & {
+    id: string;
+    __component: "page-componets.digital-full-lifecycle";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

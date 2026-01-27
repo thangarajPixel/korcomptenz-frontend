@@ -731,3 +731,39 @@ type NewroomPageType = {
 };
 
 type NewsRoomSliderCardType = { id: string; image: ImageType };
+
+type DigitialLifeBottomType = {
+  id: string;
+  description: string;
+  title: string;
+  bottomCard: {
+    id: string;
+    isTarget: boolean;
+    description: string;
+    buttonLink: string;
+    buttonText: string;
+  }[];
+};
+
+type DigitialLifeMiddleType = {
+  id: string;
+  midList1: { description: string; id: string; title: string }[];
+  midList2: {
+    description: string;
+    buttonLink: string;
+    buttonText: string;
+    id: string;
+    isTarget: boolean;
+  }[];
+};
+
+type DigitialLifeTopType = {
+  title: string;
+  id: string;
+  topList: {
+    description: string;
+    id: string;
+    title: string;
+    image: ImageType;
+  }[];
+};

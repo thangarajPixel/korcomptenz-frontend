@@ -70,6 +70,10 @@ import KpiPartner from "../kpi-partner";
 import DigitalServiceSection from "../digitial-services-section";
 import { DigitialCardSlider } from "../digitial-card-slider";
 import { DigitialAboutSection } from "../digitial-about-section";
+import { DigitalErpList } from "../digitial-erp-list";
+import DigitialAnalytics from "../digitial-analytics/digitial-analytics";
+
+import { DigitialLifeCycle } from "../digitial-life-cycle";
 
 type Props = {
   data: ComponentPropsType[];
@@ -791,6 +795,39 @@ const GlobalPage = (props: Props) => {
               key={`digital-about-${item?.__component}-${item?.id}`}
               data={item}
             />
+          </ScrollFadeIn>
+        );
+      case "page-componets.digital-erp-list":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`digital-erp-list-${item?.__component}-${item?.id}`}
+          >
+            <DigitalErpList
+              key={`digital-erp-list-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
+        );
+      case "page-componets.digital-analytics":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`digital-analytics-${item?.__component}-${item?.id}`}
+          >
+            <DigitialAnalytics
+              key={`digital-analytics-${item?.__component}-${item?.id}`}
+              data={item}
+            />
+          </ScrollFadeIn>
+        );
+      case "page-componets.digital-full-lifecycle":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`digital-life-cycle-${item?.__component}-${item?.id}`}
+          >
+            <DigitialLifeCycle data={item} />
           </ScrollFadeIn>
         );
       default:

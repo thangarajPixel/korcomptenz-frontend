@@ -11,15 +11,14 @@ type Props = {
 };
 
 const getBlogPageCache = cache(getBlogPage);
-export async function generateMetadata({
-  params,
-}: Props) {
+export async function generateMetadata({ params }: Props) {
   const { id } = await params;
-  const data = await getBlogPageCache({ id })
+  const data = await getBlogPageCache({ id });
+
   return {
-    title: data?.seo?.title || id,
-    description: data?.seo?.description || "",
-  }
+    title: data?.insight?.seo?.title || id,
+    description: data?.insight?.seo?.description || "",
+  };
 }
 
 const Page = async ({ params }: Props) => {
