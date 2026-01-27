@@ -1,8 +1,7 @@
-import { Button } from "@/components/ui/button";
-
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+
 import { DangerousHtml } from "@/components/ui/dangerous-html";
+import ButtonLink from "@/components/ui/button-link";
 
 const StretchableSectionCard = ({
   props,
@@ -44,7 +43,7 @@ const StretchableSectionCard = ({
             className="text-gray-700 text-base mb-6 "
           />
         </div>
-        {data?.buttonText && (
+        {/* {data?.buttonText && (
           <div className="z-10">
             <Link
               href={data?.link || "#"}
@@ -55,6 +54,21 @@ const StretchableSectionCard = ({
               </Button>
             </Link>
           </div>
+        )} */}
+
+        {data?.buttonText && (
+          <ButtonLink
+            link={data?.link || "#"}
+            isTargetNew={data?.isTargetBlank ? true : false}
+            buttonProps={{
+              variant: "ghost",
+              className:
+                "text-primary hover:text-primary hover:bg-transparent p-0 text-md",
+              arrow: true,
+            }}
+          >
+            {data?.buttonText}
+          </ButtonLink>
         )}
       </div>
     </div>
