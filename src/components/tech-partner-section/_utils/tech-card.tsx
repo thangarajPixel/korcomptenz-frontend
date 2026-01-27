@@ -1,6 +1,7 @@
+import React from "react";
 import { cn } from "@/lib/utils";
-
-import ButtonLink from "@/components/ui/button-link";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const TechCard = ({
   data,
@@ -27,18 +28,17 @@ const TechCard = ({
         </p>
 
         {data?.buttonText && (
-          <ButtonLink
-            link={data?.link || "#"}
-            isTargetNew={data?.isTargetBlank ? true : false}
-            buttonProps={{
-              variant: "ghost",
-              className:
-                "text-primary hover:text-primary hover:bg-transparent p-0 text-md",
-              arrow: true,
-            }}
+          <Link
+            href={data?.link || "#"}
+            target={data?.isTargetBlank ? "_blank" : "_self"}
           >
-            {data?.buttonText}
-          </ButtonLink>
+            <Button
+              arrow
+              className="bg-secondary hover:bg-secondary/80 hover:text-white hover:border-secondary text-white flex justify-start items-center -ms-4"
+            >
+              {data?.buttonText}
+            </Button>
+          </Link>
         )}
       </div>
     </section>

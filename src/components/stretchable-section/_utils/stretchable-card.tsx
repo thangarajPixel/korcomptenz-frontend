@@ -43,15 +43,28 @@ const StretchableSectionCard = ({
             className="text-gray-700 text-base mb-6 "
           />
         </div>
+        {/* {data?.buttonText && (
+          <div className="z-10">
+            <Link
+              href={data?.link || "#"}
+              target={data?.isTargetBlank ? "true" : "false"}
+            >
+              <Button size="xl" arrow={true}>
+                {data?.buttonText}
+              </Button>
+            </Link>
+          </div>
+        )} */}
 
         {data?.buttonText && (
           <ButtonLink
             link={data?.link || "#"}
             isTargetNew={data?.isTargetBlank ? true : false}
             buttonProps={{
-              variant: "ghost",
+              variant: "default",
+              size: "xl",
               className:
-                "text-primary hover:text-primary hover:bg-transparent p-0 text-md",
+                "bg-primary text-primary-foreground shadow-xs border-2 border-transparent hover:bg-white hover:text-primary hover:border-primary  transition-all duration-300 ease-out",
               arrow: true,
             }}
           >
