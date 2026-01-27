@@ -10,7 +10,7 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
       <div className="max-w-4xl space-y-4">
         {data?.title && (
           <h2 className="text-sm font-semibold uppercase text-primary">
-            {data.title}
+            {data?.title}
           </h2>
         )}
 
@@ -33,15 +33,15 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  ">
           {data?.list1?.map((item) => (
             <div
-              key={item.id}
+              key={item?.id}
               className="border border-foreground rounded-2xl p-6 flex flex-col gap-4 bg-[#f7f5f8] "
             >
               <h4 className="text-3xl font-semibold text-foreground">
-                {item.title}
+                {item?.title}
               </h4>
 
               <DangerousHtml
-                html={item.description}
+                html={item?.description}
                 className="text-base text-foreground  leading-7.5 font-normal pr-5"
               />
             </div>
@@ -53,15 +53,15 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
       <div className=" mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
         {data?.list2?.map((item) => (
           <div
-            key={item.id}
+            key={item?.id}
             className="border border-foreground rounded-2xl p-6 bg-[#F7F8F8] flex flex-col justify-between"
           >
             <DangerousHtml
-              html={item.description}
+              html={item?.description}
               className="text-lg text-foreground leading-7.5 font-normal"
             />
 
-            {item.buttonText && (
+            {item?.buttonText && (
               // <Link
               //   href={item?.buttonLink || "#"}
               //   target={item?.isTarget ? "_blank" : "_self"}

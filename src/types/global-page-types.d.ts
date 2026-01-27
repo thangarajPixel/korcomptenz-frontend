@@ -667,6 +667,22 @@ type FormMap = {
   DemoRequestFormType: DemoRequestFormType;
   WebinarReserveFormType: WebinarReserveFormType;
 };
+type DigitialInsightType = {
+  title: string;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  list: {
+    image1: ImageType;
+    image2: ImageType;
+    isTarget: boolean;
+    buttonText: string;
+    buttonLink: string;
+    description: string;
+    imageText: string;
+    id: string;
+  }[];
+};
 type FormType = keyof FormMap;
 type FormPropsType = FormMap[FormType];
 type GlobalFormType = {
@@ -1243,6 +1259,10 @@ type ComponentPropsMap = {
   DigitialLifeCycle: DigitialLifeCycleType & {
     id: string;
     __component: "page-componets.digital-full-lifecycle";
+  };
+  DigitialInsight: DigitialInsightType & {
+    id: string;
+    __component: "page-componets.digital-inspire";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

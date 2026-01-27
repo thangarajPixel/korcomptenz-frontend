@@ -21,7 +21,7 @@ export default function DigitalErpList({ data }: { data: DigitalErpListType }) {
                 className="bg-white text-foreground "
               >
                 <h3 className="text-xl font-semibold  leading-6.5 line-clamp-2 mb-3">
-                  {item.title}
+                  {item?.title}
                 </h3>
 
                 <p className=" text-lg mb-2  font-normal leading-7.5">
@@ -55,7 +55,7 @@ export default function DigitalErpList({ data }: { data: DigitalErpListType }) {
                 className="bg-[#E2EBE4] p-5 rounded-2xl text-foreground"
               >
                 <h3 className="text-xl font-semibold  leading-6.5 line-clamp-2 mb-3">
-                  {item.title}
+                  {item?.title}
                 </h3>
 
                 <p className="text-gray-600 text-lg mb-2 leading-7.5 font-normal">

@@ -74,6 +74,7 @@ import { DigitalErpList } from "../digitial-erp-list";
 import DigitialAnalytics from "../digitial-analytics/digitial-analytics";
 
 import { DigitialLifeCycle } from "../digitial-life-cycle";
+import DigitialInsightSlider from "../digitial-insight";
 
 type Props = {
   data: ComponentPropsType[];
@@ -828,6 +829,15 @@ const GlobalPage = (props: Props) => {
             key={`digital-life-cycle-${item?.__component}-${item?.id}`}
           >
             <DigitialLifeCycle data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.digital-inspire":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`digital-inspire-${item?.__component}-${item?.id}`}
+          >
+            <DigitialInsightSlider manuelSliderData={item} />
           </ScrollFadeIn>
         );
       default:

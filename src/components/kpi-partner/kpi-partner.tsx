@@ -12,13 +12,13 @@ const KpiPartner = ({ data }: { data: KpiPartnerType }) => {
       {/* KPI Grid */}
       {/* <div></div> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 max-w-6xl mx-auto md:px-5 ">
-        {data?.items.map((item) => (
-          <div key={item.id} className="relative flex items-center">
+        {data?.items?.map((item) => (
+          <div key={item?.id} className="relative flex items-center">
             {/* Floating Icon - positioned on the left */}
             <div className="flex-shrink-0 w-22 h-22 z-10 ">
               {item?.icon && (
                 <KorcomptenzImage
-                  src={item.icon}
+                  src={item?.icon}
                   width={120}
                   height={120}
                   className="object-contain"

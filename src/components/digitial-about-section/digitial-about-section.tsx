@@ -30,10 +30,10 @@ export function DigitialAboutSection({
             {/* Title */}
             <div className="pt-8">
               <h2 className="text-5xl md:text-6xl font-bold text-white mb-2">
-                {data.title}
+                {data?.title}
               </h2>
               <p className="text-lg md:text-xl text-gray-300 font-semibold">
-                {data.description}
+                {data?.description}
               </p>
             </div>
 
@@ -41,7 +41,7 @@ export function DigitialAboutSection({
             <div className="flex flex-row  justify-start lg:justify-end">
               <div className="w-[200px] h-[165px] flex items-center justify-center ">
                 <KorcomptenzImage
-                  src={data?.badges.badge1 || "/placeholder.svg"}
+                  src={data?.badges?.badge1 || "/placeholder.svg"}
                   width={1024}
                   height={1024}
                   className="object-contain max-h-full max-w-full"
@@ -50,7 +50,7 @@ export function DigitialAboutSection({
 
               <div className="w-[260px] aspect-[596/306] bg-white p-2 flex items-center justify-center">
                 <KorcomptenzImage
-                  src={data?.badges.badge2 || "/placeholder.svg"}
+                  src={data?.badges?.badge2 || "/placeholder.svg"}
                   width={596}
                   height={306}
                   className="object-contain w-full h-full"
@@ -64,16 +64,16 @@ export function DigitialAboutSection({
         <section className="relative py-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {data?.stats?.map((stat) => (
-              <div key={stat.id} className="text-center">
+              <div key={stat?.id} className="text-center">
                 <h3
                   className={cn(
                     "text-4xl md:text-9xl font-semibold mb-2 text-primary text-left",
                   )}
                 >
-                  {stat.value}
+                  {stat?.value}
                 </h3>
                 <p className="text-[#FFFFFF] text-sm md:text-base text-left">
-                  {stat.label}
+                  {stat?.label}
                 </p>
               </div>
             ))}
@@ -86,7 +86,7 @@ export function DigitialAboutSection({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-8 mx-5">
               {data?.features?.map((feature) => (
                 <div
-                  key={feature.id}
+                  key={feature?.id}
                   className="flex flex-row items-center text-center "
                 >
                   <div className="w-20 h-20 flex items-center justify-center">
@@ -99,7 +99,7 @@ export function DigitialAboutSection({
                   </div>
 
                   <p className="text-foreground text-sm text-left ">
-                    {feature.description}
+                    {feature?.description}
                   </p>
                 </div>
               ))}
@@ -112,7 +112,7 @@ export function DigitialAboutSection({
           <div className="flex flex-wrap justify-between gap-8 md:gap-12">
             {data?.countries?.map((countries) => (
               <div
-                key={countries.id}
+                key={countries?.id}
                 className="flex flex-col items-center gap-3 group cursor-pointer"
               >
                 <div className="w-[50px] h-[50px]">
@@ -125,7 +125,7 @@ export function DigitialAboutSection({
                 </div>
 
                 <p className=" text-sm font-normal text-[#FFFFFF]">
-                  {countries.label}
+                  {countries?.label}
                 </p>
               </div>
             ))}
