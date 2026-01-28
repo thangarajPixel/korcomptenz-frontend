@@ -177,19 +177,22 @@ const BannerCard = ({
               </div>
 
               {/* LINKS */}
-              <ul className="flex flex-1 items-center justify-between px-8 text-white text-base font-medium">
+              <ul className="flex w-full items-center text-white text-base font-medium">
                 {data?.customFooter?.list?.map((item, index) => (
-                  <li key={item.id} className="flex items-center gap-6">
+                  <li
+                    key={item.id}
+                    className="flex flex-1 items-center justify-center gap-2"
+                  >
+                    {/* Divider (not last item) */}
                     {index !== data.customFooter.list.length && (
-                      <span className="h-12 w-[2px] bg-emerald-400 opacity-80" />
+                      <span className="h-15 w-[3px] bg-primary " />
                     )}
+
                     <Link href={item.link || "#"}>
-                      <span className="capitalize whitespace-nowrap text-lg leading-7.5">
-                        {item?.title}
+                      <span className="text-balance text-lg leading-7.5 text-center">
+                        {item.title}
                       </span>
                     </Link>
-
-                    {/* Divider (not for last item) */}
                   </li>
                 ))}
               </ul>

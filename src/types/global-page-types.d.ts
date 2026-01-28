@@ -508,6 +508,7 @@ type StretchableSectionType = {
 };
 type GramBannerType = {
   title: string;
+  footerHeading: string;
   theme: string;
   description: string;
   image: ImageType;

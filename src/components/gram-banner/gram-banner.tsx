@@ -120,13 +120,13 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
           
         /> */}
 
-          {/* <h2 className="text-5xl md:text-8xl text-foreground leading-7 break-words font-bold text-center lg:px-10 text-white">
-          {gramData?.footerDescription}
-        </h2> */}
+          <h2 className="text-5xl md:text-8xl text-foreground leading-7 break-words font-bold text-center lg:px-10 text-white mb-2">
+            {gramData?.footerHeading}
+          </h2>
 
           <DangerousHtml
             html={gramData?.footerDescription}
-            className="text-5xl md:text-8xl text-foreground leading-7 break-words font-bold text-center lg:px-10 text-white mb-8"
+            className="text-md md:text-2xl text-foreground leading-7 break-words text-center lg:px-10 text-white mb-4"
           />
           <div className="flex justify-center items-center">
             <ButtonLink
