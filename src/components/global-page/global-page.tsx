@@ -75,6 +75,7 @@ import DigitialAnalytics from "../digitial-analytics/digitial-analytics";
 
 import { DigitialLifeCycle } from "../digitial-life-cycle";
 import DigitialInsightSlider from "../dark-slider copy";
+import CombinedAboutCardSlider from "../digitial-combined/digitial-combined";
 
 type Props = {
   data: ComponentPropsType[];
@@ -82,7 +83,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-
+  
   return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
@@ -838,6 +839,15 @@ const GlobalPage = (props: Props) => {
             key={`digital-inspire-${item?.__component}-${item?.id}`}
           >
             <DigitialInsightSlider manuelSliderData={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.combined-about-card-slider":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`combined-about-card-slider-${item?.__component}-${item?.id}`}
+          >
+            <CombinedAboutCardSlider data={item} />
           </ScrollFadeIn>
         );
       default:

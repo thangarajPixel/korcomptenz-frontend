@@ -21,7 +21,7 @@ const InsightsSuccessPage = async ({ slug }: { slug?: string }) => {
     }),
     getCaseStudySearchPage({}),
   ]);
-
+  
   return <Insights data={data} initialData={initialData} search={search} />;
 };
 

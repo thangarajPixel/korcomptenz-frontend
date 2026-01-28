@@ -50,9 +50,9 @@ const NewsRoomBuild = ({
                 ))}
               </div>
             )}
-            {buildData?.descriptionButtonText && (
+            {buildData?.button?.text && (
               <ButtonLink
-                link={buildData?.descriptionButtonLink || "#"}
+                link={buildData?.button?.link || "#"}
                 buttonProps={{
                   size: "xl",
                   arrow: true,
@@ -60,7 +60,7 @@ const NewsRoomBuild = ({
                 }}
               >
                 <span className="w-42 md:w-full truncate">
-                  {buildData?.descriptionButtonText || "Watch Now"}
+                  {buildData?.button?.text || "Watch Now"}
                 </span>
               </ButtonLink>
             )}

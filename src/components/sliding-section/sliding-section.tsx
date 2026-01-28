@@ -35,7 +35,7 @@ export default function SlidingSection({
             {slide?.design === "video" && (
               <video
                 className="absolute inset-0 w-full h-full object-cover"
-                src={slide?.video?.url}
+                src={isMobile ? slide?.mobileVideo?.url : slide?.video?.url}
                 autoPlay
                 loop
                 muted

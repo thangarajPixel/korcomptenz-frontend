@@ -60,7 +60,7 @@ const ClientSuccessList = ({
         page: 1,
       }));
     },
-    [pagination]
+    [pagination],
   );
 
   const handleFilterChange = React.useCallback(
@@ -70,14 +70,14 @@ const ClientSuccessList = ({
           industries: string[];
           businessOutcomes: string[];
           region: string[];
-        }
+        },
       );
       setPagination((prev) => ({
         ...prev,
         page: 1,
       }));
     },
-    [filter]
+    [filter],
   );
 
   const handlePageChange = React.useCallback(
@@ -88,7 +88,7 @@ const ClientSuccessList = ({
         page: page,
       }));
     },
-    [pagination]
+    [pagination],
   );
 
   const handleItemsPerPageChange = React.useCallback(
@@ -99,13 +99,14 @@ const ClientSuccessList = ({
         page: 1,
       }));
     },
-    [pagination]
+    [pagination],
   );
 
   return (
     <React.Fragment>
       <ClientSuccessBanner
         search={search}
+        title={data || initialData}
         data={banner}
         handleFilterChange={handleFilterChange}
         onSearch={handleSearch}

@@ -2,6 +2,7 @@
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import DownloadForm from "@/components/news-room/_utils/download-form";
+import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 // import DownloadForm from "@/components/news-room/_utils/download-form";
 
@@ -45,10 +46,20 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
               <h1 className="text-4xl md:text-7xl font-semibold text-white leading-tight max-w-3xl">
                 {data?.title}
               </h1>
-              <p className="text-3xl md:text-5xl leading-tight font-normal  justify-center text-white">
+              <p className="text-3xl md:text-5xl leading-tight font-normal  justify-center text-white mb-4">
                 {" "}
                 {data?.description}
               </p>
+              <ButtonLink
+                link={data?.buttonLink || "#"}
+                buttonProps={{
+                  arrow: true,
+                  className: "hover:bg-transparent ",
+                  size: "xl",
+                }}
+              >
+                {data?.buttonText}
+              </ButtonLink>
             </div>
 
             {/* ---------- RIGHT FORM ---------- */}

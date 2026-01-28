@@ -45,18 +45,18 @@ const CardSwiperArrowWhite = ({
         <button
           onClick={scrollPrev}
           aria-label="Previous slide"
-          className="absolute top-1/2 z-10 -translate-y-1/2 rounded-full  p-3 text-white cursor-pointer"
+          className="absolute top-1/2 z-10 -translate-y-1/2 rounded-full  md:p-3 text-white cursor-pointer"
         >
-          <ChevronLeft className="h-12 w-12" />
+          <ChevronLeft className="h-6 w-6 md:h-12 md:w-12" />
         </button>
 
         {/* RIGHT ARROW */}
         <button
           onClick={scrollNext}
           aria-label="Next slide"
-          className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full  p-3 text-white cursor-pointer"
+          className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full  md:p-3 text-white cursor-pointer"
         >
-          <ChevronRight className="h-12 w-12" />
+          <ChevronRight className="h-6 w-6 md:h-12 md:w-12" />
         </button>
 
         {/* SLIDER */}

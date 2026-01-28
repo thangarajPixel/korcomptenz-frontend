@@ -1,18 +1,33 @@
+"use client";
 import React from "react";
 import SearchChips from "./search-chips";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { usePathname } from "next/navigation";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 const ClientSuccessBanner = ({
   data,
   handleFilterChange,
   search,
+  title,
   onSearch,
 }: {
   data: ClientSuccessBannerSectionType;
+  title: CaseStudiesType;
   handleFilterChange: (filters: { [key: string]: string[] }) => void;
   onSearch?: (search: string) => void;
   search?: FilterListType[];
 }) => {
+  const pathname = usePathname();
+  const slug = pathname?.split("/").pop();
+
+  const matchedItem =
+    title?.service?.find((item) => item?.slug === slug) ||
+    title?.technology?.find((item) => item?.slug === slug);
+
+  const pageTitle = matchedItem?.title || matchedItem?.label || "";
+  const pageDescription = matchedItem?.description || "";
+
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
       <div className="absolute inset-0">
@@ -28,12 +43,13 @@ const ClientSuccessBanner = ({
           {/* Left: Heading, copy, search */}
           <div className="space-y-6 md:space-y-8">
             <h1 className="text-balance font-semibold tracking-tight text-foreground text-6xl md:text-9xl leading-tight">
-              {data?.title}
+              {pageTitle || data?.title}
             </h1>
 
-            <p className="text-3xl md:text-5xl leading-tight font-normal text-foreground text-xl md:text-3xl ">
-              {data?.description}
-            </p>
+            <DangerousHtml
+              html={pageDescription || data?.description}
+              className="text-3xl md:text-5xl leading-tight font-normal text-foreground text-xl md:text-3xl "
+            />
 
             <SearchChips
               onChange={handleFilterChange}

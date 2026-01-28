@@ -74,7 +74,7 @@ const BuildConnect = ({
                     src={buildData?.rightSection?.responsiveImage?.image}
                     width={550}
                     height={400}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover cursor-pointer"
                     onClick={() =>
                       setIsVideoOpen({
                         link: buildData?.rightSection?.videoLink || "",

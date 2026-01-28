@@ -21,6 +21,7 @@ const InsightsSuccessList = ({
   search: FilterListType[];
 }) => {
   const { slug } = useParams();
+
   const [filter, setFilter] = useState<{
     service: string[];
     technology: string[];
@@ -58,7 +59,7 @@ const InsightsSuccessList = ({
         page: 1,
       }));
     },
-    [pagination]
+    [pagination],
   );
 
   const handleFilterChange = React.useCallback(
@@ -67,14 +68,14 @@ const InsightsSuccessList = ({
         filters as {
           service: string[];
           technology: string[];
-        }
+        },
       );
       setPagination((prev) => ({
         ...prev,
         page: 1,
       }));
     },
-    [filter]
+    [filter],
   );
 
   const handlePageChange = React.useCallback(
@@ -85,7 +86,7 @@ const InsightsSuccessList = ({
         page: page,
       }));
     },
-    [pagination]
+    [pagination],
   );
 
   const handleItemsPerPageChange = React.useCallback(
@@ -96,7 +97,7 @@ const InsightsSuccessList = ({
         page: 1,
       }));
     },
-    [pagination]
+    [pagination],
   );
 
   return (
@@ -106,6 +107,7 @@ const InsightsSuccessList = ({
         data={banner}
         handleFilterChange={handleFilterChange}
         onSearch={handleSearch}
+        category={category as never}
       />
 
       <div className="container-lg">

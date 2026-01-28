@@ -3,26 +3,29 @@ import SearchChips from "./search-chips";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-const formatTitle = (slug: string) =>
-  slug.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 const InsightsSuccessBanner = ({
   data,
   handleFilterChange,
   search,
   onSearch,
+  category,
 }: {
   data: ClientSuccessBannerSectionType;
   handleFilterChange: (filters: { [key: string]: string[] }) => void;
   onSearch?: (search: string) => void;
   search?: FilterListType[];
+  category?: { label: string; id: string; slug: string; description: string }[];
 }) => {
   const pathname = usePathname();
+  const slug = pathname?.split("/").pop();
 
-  const segments = pathname.split("/").filter(Boolean);
-  const lastSegment = segments[segments.length - 1];
-  const bannerTitle =
-    segments.length > 1 ? formatTitle(lastSegment) : formatTitle(segments[0]);
+  const matchedItem = category?.find((item) => item?.slug === slug);
+
+  const pageTitle = matchedItem?.label || "";
+  const pageDescription = matchedItem?.description || "";
+
   const imageClassName = "rounded-3xl border border-border object-cover w-full";
   return (
     <section className="relative overflow-hidden bg-custom-gray-6">
@@ -39,12 +42,13 @@ const InsightsSuccessBanner = ({
           {/* Left: Heading, copy, search */}
           <div className="space-y-6 md:space-y-8">
             <h1 className="text-balance font-semibold tracking-tight text-foreground text-6xl md:text-9xl leading-tight">
-              {bannerTitle}
+              {pageTitle || data?.title}
             </h1>
 
-            <p className="text-3xl md:text-5xl leading-tight  text-foreground text-xl md:text-3xl font-normal ">
-              {data?.description}
-            </p>
+            <DangerousHtml
+              html={pageDescription || data?.description}
+              className="text-3xl md:text-5xl leading-tight  text-foreground text-xl md:text-3xl font-normal "
+            />
 
             <SearchChips
               onChange={handleFilterChange}

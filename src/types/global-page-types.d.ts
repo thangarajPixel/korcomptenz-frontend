@@ -15,6 +15,7 @@ type SlidingSectionType = {
   video: ImageType;
   bannerImage: ImageType;
   backgroundImage: ImageType;
+  mobileVideo: ImageType;
 };
 
 type ServicesSectionType = {
@@ -102,6 +103,18 @@ type CaseStudiesType = {
   pagination: PaginationType;
   results: CaseStudyData[];
   sponsor: { sponser: SponsorSectionType };
+  service: {
+    slug: string;
+    title: string;
+    description: string;
+    label: string;
+  }[];
+  technology: {
+    slug: string;
+    title: string;
+    description: string;
+    label: string;
+  }[];
 };
 
 type BusinessOutcomeFilterType = {
@@ -361,6 +374,10 @@ type DemonstrationSectionType = {
 type BuildConnectSectionType = {
   title: string;
   thumbnail: ImageType;
+  button: {
+    text: string;
+    link: string;
+  };
   description: string;
   videoLink: string;
   image: ImageType;
@@ -911,6 +928,8 @@ type CombinedSectionType = {
 type VideoBannerItemType = {
   id: string;
   videoLink: string;
+  buttonLink: string;
+  buttonText: string;
   title: string;
   imageMobile: ImageType;
   form?: GlobalFormItemType;
@@ -954,6 +973,10 @@ type DigitialLifeCycleType = {
   bottom: DigitialLifeBottomType;
   mid: DigitialLifeMiddleType;
   top: DigitialLifeTopType;
+};
+type DigitialCombinedType = {
+  digitalAbout: DigitialAboutSectionType;
+  digitalCardSlider: DigitialServicesSectionType;
 };
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -1274,6 +1297,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.digital-inspire";
   };
+  DigitialCombined: DigitialCombinedType & {
+    id: string;
+    __component: "page-componets.combined-about-card-slider";
+  };
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
@@ -1316,6 +1343,7 @@ type CaseStudiesPageType = {
   testimonal: TestimonialType[];
   popularFilter: PopularFilterType;
   categoryAllLabel: string;
+
   category: {
     label: string;
     id: number;
