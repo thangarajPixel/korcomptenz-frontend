@@ -5,7 +5,7 @@ import ButtonLink from "../ui/button-link";
 
 export default function DigitalErpList({ data }: { data: DigitalErpListType }) {
   return (
-    <div className=" container-md">
+    <div className=" container-md" id="erp-track">
       {/* Right Content Area */}
       <div className="flex-1 overflow-y-auto ">
         {/* Content Sections */}

@@ -7,7 +7,10 @@ export default function ClosingSection({
   data: DigitialLifeBottomType;
 }) {
   return (
-    <section className="relative bg-[#2F3942] text-white overflow-hidden">
+    <section
+      className="relative bg-[#2F3942] text-white overflow-hidden"
+      id="low-code-solutions"
+    >
       {/* TOP WAVE */}
       <svg
         className="absolute top-0 left-0 w-full h-20"

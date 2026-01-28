@@ -7,7 +7,10 @@ export default function CrmOfferingsSection({
   offerings: DigitialLifeTopType;
 }) {
   return (
-    <section className="relative bg-foreground text-white pt-12 pb-20 md:py-12 md:pb-24 overflow-hidden">
+    <section
+      className="relative bg-foreground text-white pt-12 pb-20 md:py-12 md:pb-24 overflow-hidden"
+      id="crm-track"
+    >
       <div className="container-md ">
         {/* Section Title */}
         <h2 className=" font-bold mb-4 md:mb-6 text-left">

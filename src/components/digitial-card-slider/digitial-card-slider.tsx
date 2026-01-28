@@ -28,6 +28,7 @@ export function DigitialCardSlider({
     <section
       className={cn("my- md:my-0  bg-[#F7F8F8] py-10", className)}
       data-debug={"home.services-section"}
+      id="kor-solution"
     >
       <div className="container-md">
         <div className="mb-4">

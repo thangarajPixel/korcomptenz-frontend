@@ -5,16 +5,14 @@ import ButtonLink from "../ui/button-link";
 
 const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
   return (
-    <section className="container-md py-12">
+    <section className="container-md" id="analytics-cloud-track">
       {/* ---------- TOP CONTENT ---------- */}
-      <div className="max-w-4xl space-y-4">
+      <div className="space-y-3">
         {data?.title && (
-          <h2 className="text-sm font-semibold uppercase text-primary">
-            {data?.title}
-          </h2>
+          <h2 className="text-sm font-semibold uppercase ">{data?.title}</h2>
         )}
 
-        <h3 className="text-foreground text-2xl md:text-4xl font-semibold leading-tight">
+        <h3 className="text-foreground text-2xl md:text-4xl font-semibold leading-tight text-primary">
           {data?.heading1}
         </h3>
 
@@ -25,8 +23,8 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
       </div>
 
       {/* ---------- PLAYBOOK SECTION ---------- */}
-      <div className="mt-6 lg:mt-16">
-        <h3 className="text-primary text-2xl md:text-4xl font-semibold mb-10">
+      <div className="mt-3">
+        <h3 className="text-primary text-2xl md:text-4xl font-semibold mb-4">
           {data?.heading2}
         </h3>
 
