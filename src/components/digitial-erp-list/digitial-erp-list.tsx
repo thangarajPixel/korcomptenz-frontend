@@ -34,7 +34,7 @@ export default function DigitalErpList({ data }: { data: DigitalErpListType }) {
                   buttonProps={{
                     variant: "ghost",
                     className:
-                      "text-primary font-normal text-md hover:text-primary transition-colors p-0",
+                      "text-primary font-normal text-md hover:text-primary hover:bg-transparent  p-0",
                     arrow: true,
                   }}
                 >
@@ -67,7 +67,7 @@ export default function DigitalErpList({ data }: { data: DigitalErpListType }) {
                   buttonProps={{
                     variant: "ghost",
                     className:
-                      "text-primary font-normal text-md hover:text-primary transition-colors p-0",
+                      "text-primary font-normal text-md hover:text-primary transition-colors p-0 hover:bg-transparent",
                     arrow: true,
                   }}
                 >

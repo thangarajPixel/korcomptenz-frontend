@@ -2,6 +2,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 import React from "react";
 
@@ -22,6 +23,7 @@ const BannerCard = ({
           className={cn(
             "relative w-full md:h-[513px] h-full overflow-hidden hidden lg:block rounded-4xl",
             data?.footer && "rounded-b-none",
+            data?.customFooter && "rounded-b-none",
           )}
         >
           <KorcomptenzImage
@@ -148,14 +150,66 @@ const BannerCard = ({
             </div>
           </div>
         )}
+        {data?.customFooter && (
+          <div className="hidden lg:block">
+            <div
+              className="  overflow-hidden"
+              style={{
+                backgroundImage: `url(${data?.customFooter?.backgroundImage?.url})`,
+                backgroundRepeat: "repeat-x",
+                backgroundSize: "auto 24px",
+                height: "24px",
+              }}
+            ></div>
+
+            <div className="bg-[#2b2b2b] flex items-center h-[90px] relative">
+              {/* LEFT ARROW SECTION */}
+              <div
+                className="flex items-center px-6 h-full text-white  text-3xl font-medium  pl-10"
+                style={{
+                  backgroundImage: `url(${data?.customFooter?.image?.url})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "100% 100%",
+                  minWidth: "220px",
+                }}
+              >
+                Quick Links
+              </div>
+
+              {/* LINKS */}
+              <ul className="flex flex-1 items-center justify-between px-8 text-white text-base font-medium">
+                {data?.customFooter?.list?.map((item, index) => (
+                  <li key={item.id} className="flex items-center gap-6">
+                    {index !== data.customFooter.list.length && (
+                      <span className="h-12 w-[2px] bg-emerald-400 opacity-80" />
+                    )}
+                    <Link href={item.link || "#"}>
+                      <span className="capitalize whitespace-nowrap text-lg leading-7.5">
+                        {item?.title}
+                      </span>
+                    </Link>
+
+                    {/* Divider (not for last item) */}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </>
       {/* Mobile view */}
-      <div className="w-full lg:hidden overflow-hidden rounded-4xl">
+      <div
+        className={cn(
+          "w-full lg:hidden overflow-hidden ",
+          data?.customFooter ? "rounded-t-4xl" : "rounded-4xl",
+        )}
+      >
         {/* Image */}
         <div
           className={cn(
             "w-full h-auto aspect-square overflow-hidden",
             data?.footer ? "rounded-t-4xl" : "rounded-4xl",
+            data?.customFooter ? "rounded-t-4xl" : "rounded-4xl",
           )}
         >
           <KorcomptenzImage
@@ -180,6 +234,29 @@ const BannerCard = ({
                 className="text-white text-xl font-normal mt-2"
               />
             </div>
+          </div>
+        )}
+
+        {data?.customFooter && (
+          <div className="lg:hidden bg-[#2b2b2b] px-5 py-6">
+            {/* Title */}
+            <div className="text-white text-xl font-semibold mb-4">
+              Quick Links
+            </div>
+
+            {/* Links */}
+            <ul className="grid grid-cols-2 gap-y-4 gap-x-6">
+              {data?.customFooter?.list?.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    href={item.link || "#"}
+                    className="block text-white text-base capitalize leading-6"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>

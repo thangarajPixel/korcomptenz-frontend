@@ -43,22 +43,38 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
           html={gramData?.description}
           className={cn(
             `text-md md:text-2xl text-foreground leading-7 break-words text-center lg:px-10 `,
-            gramData?.theme === "dark" && "[&>span]:!text-white ",
+            gramData?.theme === "dark" && "[&>span]:!text-white text-white",
             gramData?.isDescriptionLeft ? "text-left mb-10" : "text-center",
           )}
         />
         {gramData?.buttonText && (
           <div className="flex justify-center items-center">
-            <ButtonLink
-              link={gramData?.buttonLink || "#"}
-              isTargetNew={gramData?.isTargetBlank}
-              buttonProps={{
-                className: " flex items-center justify-center",
-                size: "xl",
-              }}
-            >
-              {gramData?.buttonText}
-            </ButtonLink>
+            {gramData?.theme === "dark" ? (
+              <ButtonLink
+                link={gramData?.buttonLink || "#"}
+                isTargetNew={gramData?.isTargetBlank}
+                buttonProps={{
+                  arrow: true,
+                  className:
+                    " flex items-center justify-center hover:bg-transparent hover:border hover:border-white hover:text-white",
+                  size: "xl",
+                }}
+              >
+                {gramData?.buttonText}
+              </ButtonLink>
+            ) : (
+              <ButtonLink
+                link={gramData?.buttonLink || "#"}
+                isTargetNew={gramData?.isTargetBlank}
+                buttonProps={{
+                  arrow: true,
+                  className: " flex items-center justify-center",
+                  size: "xl",
+                }}
+              >
+                {gramData?.buttonText}
+              </ButtonLink>
+            )}
           </div>
         )}
       </div>

@@ -192,6 +192,15 @@ type BannerSectionType = {
   link: string | null;
   secondButton: string;
   secondLink: string;
+  customFooter: {
+    backgroundImage: ImageType;
+    image: ImageType;
+    list: {
+      id: string;
+      title: string;
+      link: string;
+    }[];
+  };
   footer: {
     logo: ImageType;
     description: string;

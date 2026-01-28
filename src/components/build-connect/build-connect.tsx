@@ -75,6 +75,12 @@ const BuildConnect = ({
                     width={550}
                     height={400}
                     className="w-full h-full object-cover"
+                    onClick={() =>
+                      setIsVideoOpen({
+                        link: buildData?.rightSection?.videoLink || "",
+                        open: true,
+                      })
+                    }
                   />
                 </div>
 

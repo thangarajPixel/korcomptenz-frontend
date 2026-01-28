@@ -37,6 +37,36 @@ const LightSlider = ({ data }: { data: LightSliderType }) => {
     emblaApi.on("select", onSelect);
   }, [emblaApi, onSelect]);
 
+  const autoplayRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  const startAutoplay = React.useCallback(() => {
+    if (!emblaApi) return;
+
+    stopAutoplay(); // safety
+    autoplayRef.current = setInterval(() => {
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext();
+      }
+    }, 3000);
+  }, [emblaApi]);
+
+  const stopAutoplay = React.useCallback(() => {
+    if (autoplayRef.current) {
+      clearInterval(autoplayRef.current);
+      autoplayRef.current = null;
+    }
+  }, []);
+
+  React.useEffect(() => {
+    if (!emblaApi) return;
+
+    startAutoplay();
+
+    return () => {
+      stopAutoplay();
+    };
+  }, [emblaApi, startAutoplay, stopAutoplay]);
+
   return (
     <section
       className="container-md"
@@ -96,7 +126,12 @@ const LightSlider = ({ data }: { data: LightSliderType }) => {
 
           {/* Right: Solutions List */}
 
-          <div ref={emblaRef} className=" overflow-hidden">
+          <div
+            ref={emblaRef}
+            className="overflow-hidden"
+            onMouseEnter={stopAutoplay}
+            onMouseLeave={startAutoplay}
+          >
             <div className="flex flex-row gap-4">
               {data?.list?.map((slide, index) => (
                 <div

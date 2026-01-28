@@ -51,7 +51,7 @@ const TechCardSwiper = ({
 
     const autoSlide = setInterval(() => {
       emblaApi.canScrollNext() ? emblaApi.scrollNext() : emblaApi.scrollTo(0);
-    }, 10000);
+    }, 4000);
 
     return () => clearInterval(autoSlide);
   }, [emblaApi, disableAutoSlide]);

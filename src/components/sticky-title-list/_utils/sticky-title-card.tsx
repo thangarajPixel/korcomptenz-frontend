@@ -51,7 +51,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
               />
 
               {position === "side" && image && (
-                <div className="flex items-center justify-center w-[150px] h-[200px] ">
+                <div className="flex items-center justify-center w-[120px] h-[200px] ">
                   <KorcomptenzImage
                     src={image}
                     className="object-contain max-h-60"
@@ -107,7 +107,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
         {position === "corner" && image && (
           <div className="hidden lg:flex pt-10  pb-0 ">
             {/* Illustration */}
-            <div className="flex absolute bottom-7.5 right-7.5 justify-end items-end w-[150px] h-[200px] ">
+            <div className="flex absolute bottom-7.5 right-7.5 justify-end items-end w-[120px] h-[200px] ">
               <KorcomptenzImage
                 className={cn(
                   ` rounded-tl-4xl  p-0 `,

@@ -23,7 +23,15 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
     link: null,
   });
 
-  const onThumbClick = (index: number) => {
+  const onThumbClick = (index: number, slide: MediaSliderCardType) => {
+    if (slide?.isVideo && slide?.videoLink) {
+      setIsVideoOpen({
+        open: true,
+        link: slide.videoLink,
+      });
+      return;
+    }
+
     setStartIndex(index);
     setIsCarouselOpen(true);
   };
@@ -36,7 +44,7 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
           {data?.list?.map((slide, index) => (
             <button
               key={slide.id}
-              onClick={() => onThumbClick(index)}
+              onClick={() => onThumbClick(index, slide)}
               className="relative aspect-video rounded-2xl overflow-hidden group"
             >
               <KorcomptenzImage
@@ -52,7 +60,7 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
 
       {/* ================= POPUP CAROUSEL ================= */}
       {isCarouselOpen && (
-        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center ">
           {/* Modal content wrapper */}
           <div className="relative w-full max-w-5xl px-4">
             {/* Close button - independent of carousel */}
@@ -74,9 +82,9 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
                     {/* Centered Image */}
                     <KorcomptenzImage
                       src={slide.image || "/placeholder.svg"}
-                      width={800}
-                      height={800}
-                      className="max-h-[80vh] w-auto object-contain rounded-xl"
+                      width={1000}
+                      height={1000}
+                      className="w-full h-screen object-contain rounded-xl"
                     />
 
                     {/* Description */}
@@ -116,8 +124,8 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
                 ))}
               </CarouselContent>
 
-              <CarouselPrevious className="left-2 bg-transparent text-white size-12 border-none hover-border-none hover:bg-transparent hover:text-white" />
-              <CarouselNext className="right-2 bg-transparent text-white size-12 border-none hover-border-none hover:bg-transparent hover:text-white" />
+              <CarouselPrevious className="-left-10 bg-transparent text-white size-12 border-none hover-border-none hover:bg-transparent hover:text-white" />
+              <CarouselNext className="-right-10 bg-transparent text-white size-12 border-none hover-border-none hover:bg-transparent hover:text-white" />
             </Carousel>
           </div>
         </div>
