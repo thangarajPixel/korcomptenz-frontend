@@ -5,6 +5,7 @@ import BlogAuthor from "../_utils/blog-author";
 import DocumentationLayout from "../_utils/blog-content";
 import BlogContentShowcase from "../_utils/content-showcase";
 import { GlobalForm } from "@/components/global-form";
+import FaqSection from "@/components/faq-section";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -44,6 +45,7 @@ const Page = async ({ params }: Props) => {
           documentId: data?.insight?.documentId,
         }}
       />
+      <FaqSection faqData={data?.insight?.blog?.faq} />
       <BlogContentShowcase
         data={data?.relatedInsight}
         relatedCase={pageLayout?.relatedCase}
