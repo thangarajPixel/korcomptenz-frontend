@@ -38,6 +38,7 @@ const Page = async ({ params }: Props) => {
       />
       <BlogAuthor data={data?.insight?.author} essential={pageLayout} />
       <DocumentationLayout data={data} essential={pageLayout} />
+      <FaqSection faqData={data?.insight?.blog?.faq} />
       <GlobalForm
         form={pageLayout?.form}
         essential={{
@@ -45,7 +46,7 @@ const Page = async ({ params }: Props) => {
           documentId: data?.insight?.documentId,
         }}
       />
-      <FaqSection faqData={data?.insight?.blog?.faq} />
+
       <BlogContentShowcase
         data={data?.relatedInsight}
         relatedCase={pageLayout?.relatedCase}
