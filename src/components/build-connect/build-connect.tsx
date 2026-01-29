@@ -70,7 +70,7 @@ const BuildConnect = ({
             buildData?.rightSection?.content === "video") && (
             <div>
               <div className="p-5 hidden lg:block ">
-                <div className="w-[525px] h-[400px] -mt-5 rounded-4xl overflow-hidden flex items-center justify-center bg-gray-100">
+                <div className="w-[525px] h-[400px] -mt-5 rounded-4xl overflow-hidden flex items-center justify-center ">
                   <Link
                     href={
                       buildData?.rightSection?.responsiveImage?.imageLink || "#"
