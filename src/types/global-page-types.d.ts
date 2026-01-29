@@ -193,6 +193,7 @@ type BannerSectionType = {
   id: number;
   imageMobile: ImageType;
   isListPage: boolean;
+  isHasFooter: boolean;
   image: ImageType;
   alt: string;
   logo?: ImageType;
@@ -928,6 +929,7 @@ type CombinedSectionType = {
 
 type VideoBannerItemType = {
   id: string;
+  isTarget: boolean;
   videoLink: string;
   buttonLink: string;
   buttonText: string;

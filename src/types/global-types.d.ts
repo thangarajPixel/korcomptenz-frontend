@@ -617,6 +617,7 @@ type InsightItem = {
 type BlogData = {
   id: number;
   content: string;
+  faq: FaqSectionType;
 };
 
 type HeroSection = {

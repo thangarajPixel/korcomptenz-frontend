@@ -40,7 +40,7 @@ export default function DocumentationLayout({
   const parser = new DOMParser();
   const doc = parser.parseFromString(
     data?.insight?.blog?.content || "",
-    "text/html"
+    "text/html",
   );
 
   // helper to create URL-safe IDs
@@ -98,13 +98,14 @@ export default function DocumentationLayout({
 
         <main className="flex-1">
           <article className="max-w-4xl">
-            <h2 className="text-5xl font-bold text-gray-900 leading-tight mb-10">
-              {data?.insight?.title}
-            </h2>
+            {/* Unified container with consistent padding and spacing */}
+            <div className="blog-article">
+              {/* <h1 className="blog-title text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-8">
+                {data?.insight?.title}
+              </h1> */}
 
-            <div className="space-y-16">
-              <div className="space-y-8">
-                <DangerousHtml html={updatedHtml} className="blog-section" />
+              <div className="blog-content">
+                <DangerousHtml html={updatedHtml} />
               </div>
             </div>
           </article>

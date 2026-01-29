@@ -25,6 +25,7 @@ const TechCardSwiper = ({
 
   const [canPrev, setCanPrev] = React.useState(false);
   const [canNext, setCanNext] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false);
 
   const updateButtons = React.useCallback((api?: UseEmblaCarouselType[1]) => {
     if (!api) return;
@@ -45,21 +46,25 @@ const TechCardSwiper = ({
     };
   }, [emblaApi, updateButtons]);
 
-  // Auto-slide
+  // Auto-slide (paused on hover)
   React.useEffect(() => {
-    if (!emblaApi || disableAutoSlide) return;
+    if (!emblaApi || disableAutoSlide || isHovered) return;
 
     const autoSlide = setInterval(() => {
       emblaApi.canScrollNext() ? emblaApi.scrollNext() : emblaApi.scrollTo(0);
     }, 4000);
 
     return () => clearInterval(autoSlide);
-  }, [emblaApi, disableAutoSlide]);
+  }, [emblaApi, disableAutoSlide, isHovered]);
 
   return (
-    <section className={cn("w-full rounded-none", className)} {...props}>
+    <section
+      className={cn("w-full rounded-none", className)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      {...props}
+    >
       <div className="relative">
-        {/* Slider */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">{children}</div>
         </div>
@@ -69,26 +74,19 @@ const TechCardSwiper = ({
             <button
               onClick={() => emblaApi?.scrollPrev()}
               disabled={!canPrev}
-              className="
-            absolute lg:left-[-32px]  left-[-42px] top-1/2 -translate-y-1/2 z-20
-            h-15 w-15 rounded-full  
-            flex items-center justify-center
-            disabled:opacity-30 disabled:cursor-not-allowed text-white cursor-pointer
-          "
+              className="absolute lg:left-[-32px] left-[-42px] top-1/2 -translate-y-1/2 z-20
+                h-15 w-15 rounded-full flex items-center justify-center
+                disabled:opacity-30 disabled:cursor-not-allowed text-white"
             >
               <ChevronLeft className="h-12 w-12" />
             </button>
 
-            {/* Right Arrow */}
             <button
               onClick={() => emblaApi?.scrollNext()}
               disabled={!canNext}
-              className="
-            absolute right-[-30px] lg:right-[-20px] top-1/2 -translate-y-1/2 z-20 cursor-pointer
-            h-15 w-15 rounded-full  
-            flex items-center justify-center
-            disabled:opacity-30 disabled:cursor-not-allowed text-white
-          "
+              className="absolute right-[-30px] lg:right-[-20px] top-1/2 -translate-y-1/2 z-20
+                h-15 w-15 rounded-full flex items-center justify-center
+                disabled:opacity-30 disabled:cursor-not-allowed text-white"
             >
               <ChevronRight className="h-12 w-12" />
             </button>

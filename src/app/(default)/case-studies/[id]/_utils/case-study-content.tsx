@@ -8,7 +8,7 @@ import { ShareButton } from "./share-button";
 export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
   const handleDescription = React.useCallback(
     (
-      descriptionKey: CaseStudyData["rightSection"][number]["descripitionKey"]
+      descriptionKey: CaseStudyData["rightSection"][number]["descripitionKey"],
     ) => {
       switch (descriptionKey) {
         case "region":
@@ -23,7 +23,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
           return "";
       }
     },
-    [data]
+    [data],
   );
 
   return (
@@ -49,7 +49,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
 
                   <DangerousHtml
                     html={item.description}
-                    className=" [&_ul]:ml-6"
+                    className=" [&_ul]:ml-6   text-lg leading-7.5"
                   />
                 </section>
               ))}

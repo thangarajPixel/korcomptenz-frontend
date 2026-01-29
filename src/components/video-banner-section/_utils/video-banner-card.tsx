@@ -52,6 +52,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
               </p>
               <ButtonLink
                 link={data?.buttonLink || "#"}
+                isTargetNew={data?.isTarget ? true : false}
                 buttonProps={{
                   arrow: true,
                   className: "hover:bg-transparent ",

@@ -32,7 +32,7 @@ const ServicesMenu = ({
                     : "border-b-2 border-transparent hover:border-primary"
                 }`}
               >
-                <h4 className="relative font-medium text-2xl text-primary  leading-8 flex items-center justify-between cursor-pointer">
+                <h4 className="relative font-medium text-3xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
                   <span>{section?.title}</span>
                   {activeServiceSection?.id === section?.id && (
                     <ChevronRight className="w-5 h-5 font-extrabold" />

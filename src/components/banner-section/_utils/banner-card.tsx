@@ -22,8 +22,7 @@ const BannerCard = ({
         <div
           className={cn(
             "relative w-full md:h-[513px] h-full overflow-hidden hidden lg:block rounded-4xl",
-            data?.footer && "rounded-b-none",
-            data?.customFooter && "rounded-b-none",
+            data?.isHasFooter && "rounded-b-none",
           )}
         >
           <KorcomptenzImage
@@ -135,69 +134,73 @@ const BannerCard = ({
             </div>
           )}
         </div>
-        {data?.footer && (
-          <div className="bg-muted hidden lg:block py-5 rounded-b-3xl">
-            <div className="flex container-md justify-evenly">
-              <KorcomptenzImage
-                src={data?.footer?.logo}
-                width={200}
-                height={200}
-              />
-              <DangerousHtml
-                html={data?.footer?.description}
-                className="text-white text-xl font-semibold mt-2"
-              />
-            </div>
-          </div>
-        )}
-        {data?.customFooter && (
-          <div className="hidden lg:block">
-            <div
-              className="  overflow-hidden"
-              style={{
-                backgroundImage: `url(${data?.customFooter?.backgroundImage?.url})`,
-                backgroundRepeat: "repeat-x",
-                backgroundSize: "auto 24px",
-                height: "24px",
-              }}
-            ></div>
-
-            <div className="bg-[#2b2b2b] flex items-center h-[90px] relative">
-              {/* LEFT ARROW SECTION */}
-              <div
-                className="flex items-center px-6 h-full text-white  text-3xl font-medium  pl-10"
-                style={{
-                  backgroundImage: `url(${data?.customFooter?.image?.url})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "100% 100%",
-                  minWidth: "220px",
-                }}
-              >
-                Quick Links
+        {data?.isHasFooter && (
+          <>
+            {data?.footer && (
+              <div className="bg-muted hidden lg:block py-5 rounded-b-3xl">
+                <div className="flex container-md justify-evenly">
+                  <KorcomptenzImage
+                    src={data?.footer?.logo}
+                    width={200}
+                    height={200}
+                  />
+                  <DangerousHtml
+                    html={data?.footer?.description}
+                    className="text-white text-xl font-semibold mt-2"
+                  />
+                </div>
               </div>
+            )}
+            {data?.customFooter && (
+              <div className="hidden lg:block">
+                <div
+                  className="  overflow-hidden"
+                  style={{
+                    backgroundImage: `url(${data?.customFooter?.backgroundImage?.url})`,
+                    backgroundRepeat: "repeat-x",
+                    backgroundSize: "auto 24px",
+                    height: "24px",
+                  }}
+                ></div>
 
-              {/* LINKS */}
-              <ul className="flex w-full items-center text-white text-base font-medium">
-                {data?.customFooter?.list?.map((item, index) => (
-                  <li
-                    key={item.id}
-                    className="flex flex-1 items-center justify-center gap-2"
+                <div className="bg-[#2b2b2b] flex items-center h-[90px] relative">
+                  {/* LEFT ARROW SECTION */}
+                  <div
+                    className="flex items-center px-6 h-full text-white  text-3xl font-medium  pl-10"
+                    style={{
+                      backgroundImage: `url(${data?.customFooter?.image?.url})`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "100% 100%",
+                      minWidth: "220px",
+                    }}
                   >
-                    {/* Divider (not last item) */}
-                    {index !== data.customFooter.list.length && (
-                      <span className="h-15 w-[3px] bg-primary " />
-                    )}
+                    Quick Links
+                  </div>
 
-                    <Link href={item.link || "#"}>
-                      <span className="text-balance text-lg leading-7.5 text-center">
-                        {item.title}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+                  {/* LINKS */}
+                  <ul className="flex w-full items-center text-white text-base font-medium">
+                    {data?.customFooter?.list?.map((item, index) => (
+                      <li
+                        key={item.id}
+                        className="flex flex-1 items-center justify-center gap-2"
+                      >
+                        {/* Divider (not last item) */}
+                        {index !== data.customFooter.list.length && (
+                          <span className="h-15 w-[3px] bg-primary " />
+                        )}
+
+                        <Link href={item.link || "#"}>
+                          <span className="text-balance text-lg leading-7.5 text-center">
+                            {item.title}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+          </>
         )}
       </>
       {/* Mobile view */}
@@ -224,43 +227,47 @@ const BannerCard = ({
         </div>
 
         {/* Footer */}
-        {data?.footer && (
-          <div className="bg-muted py-5 rounded-b-4xl">
-            <div className="grid container-md justify-evenly items-center">
-              <KorcomptenzImage
-                src={data?.footer?.logo}
-                width={200}
-                height={200}
-              />
-              <DangerousHtml
-                html={data?.footer?.description}
-                className="text-white text-xl font-normal mt-2"
-              />
-            </div>
-          </div>
-        )}
+        {data?.isHasFooter && (
+          <>
+            {data?.footer && (
+              <div className="bg-muted py-5 rounded-b-4xl">
+                <div className="grid container-md justify-evenly items-center">
+                  <KorcomptenzImage
+                    src={data?.footer?.logo}
+                    width={200}
+                    height={200}
+                  />
+                  <DangerousHtml
+                    html={data?.footer?.description}
+                    className="text-white text-xl font-normal mt-2"
+                  />
+                </div>
+              </div>
+            )}
 
-        {data?.customFooter && (
-          <div className="lg:hidden bg-[#2b2b2b] px-5 py-6">
-            {/* Title */}
-            <div className="text-white text-xl font-semibold mb-4">
-              Quick Links
-            </div>
+            {data?.customFooter && (
+              <div className="lg:hidden bg-[#2b2b2b] px-5 py-6">
+                {/* Title */}
+                <div className="text-white text-xl font-semibold mb-4">
+                  Quick Links
+                </div>
 
-            {/* Links */}
-            <ul className="grid grid-cols-2 gap-y-4 gap-x-6">
-              {data?.customFooter?.list?.map((item) => (
-                <li key={item.id}>
-                  <Link
-                    href={item.link || "#"}
-                    className="block text-white text-base capitalize leading-6"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                {/* Links */}
+                <ul className="grid grid-cols-2 gap-y-4 gap-x-6">
+                  {data?.customFooter?.list?.map((item) => (
+                    <li key={item.id}>
+                      <Link
+                        href={item.link || "#"}
+                        className="block text-white text-base capitalize leading-6"
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </>
         )}
       </div>
 
