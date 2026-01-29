@@ -70,7 +70,7 @@ const BuildConnect = ({
             buildData?.rightSection?.content === "video") && (
             <div>
               <div className="p-5 hidden lg:block ">
-                <div className="w-[525px] h-[400px] -mt-5 rounded-4xl overflow-hidden flex items-center justify-center ">
+                <div className="w-[525px] h-[400px] -mt-5 rounded-4xl overflow-hidden flex items-center justify-center">
                   <Link
                     href={
                       buildData?.rightSection?.responsiveImage?.imageLink || "#"
@@ -80,12 +80,13 @@ const BuildConnect = ({
                         ? "_blank"
                         : "_self"
                     }
+                    className="block w-full h-full"
                   >
                     <KorcomptenzImage
                       src={buildData?.rightSection?.responsiveImage?.image}
-                      width={550}
+                      width={525}
                       height={400}
-                      className="w-full h-full object-cover cursor-pointer rounded-4xl"
+                      className="w-full h-full object-cover rounded-4xl cursor-pointer"
                       onClick={() =>
                         setIsVideoOpen({
                           link: buildData?.rightSection?.videoLink || "",

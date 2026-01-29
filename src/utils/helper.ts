@@ -34,10 +34,10 @@ export const handleErrorMessage = (error: Error) =>
   JSON.parse(
     isValidJson(error?.message)
       ? error?.message
-      : '{ "status": 500, "message": "Oops! Something went wrong on our end. We\'re unable to process your request right now.Please try again shortly.We apologize for the inconvenience.", "errors": {} }'
+      : '{ "status": 500, "message": "Oops! Something went wrong on our end. We\'re unable to process your request right now.Please try again shortly.We apologize for the inconvenience.", "errors": {} }',
   ) as { status: number; message: string; errors: object };
 export const toastConfig: (
-  position?: ToastPosition
+  position?: ToastPosition,
 ) => ExternalToast | undefined = (position = "bottom-right") => ({
   position,
   duration: 3000,
@@ -90,7 +90,7 @@ export function notify({
       } else {
         toast.error(
           message || "Something went wrong!",
-          toastConfig("top-right")
+          toastConfig("top-right"),
         );
       }
       break;
@@ -117,7 +117,7 @@ export function notify({
       } else {
         toast.error(
           message || "Something went wrong!",
-          toastConfig("top-right")
+          toastConfig("top-right"),
         );
       }
       break;
@@ -126,7 +126,7 @@ export function notify({
 export const errorSet = <T extends Record<string, never>>(
   err: unknown,
   setError: UseFormSetError<T>,
-  defaultMessage: string = "Error"
+  defaultMessage: string = "Error",
 ) => {
   const error = err as FormErrors;
   if (error?.details?.errors) {
@@ -147,7 +147,7 @@ export const errorSet = <T extends Record<string, never>>(
 
 export async function downloadFile(
   response: { name: string; bufferResponse: Blob; type: string },
-  name?: string
+  name?: string,
 ) {
   const fileName = (name || response.name || "download").trim();
 
