@@ -8,6 +8,7 @@ import BookDemoSection from "../book-demo-section";
 import { cn } from "@/lib/utils";
 import ButtonLink from "../ui/button-link";
 import { VideoPopup } from "../video-popup";
+import Link from "next/link";
 
 const BuildConnect = ({
   buildData,
@@ -70,18 +71,29 @@ const BuildConnect = ({
             <div>
               <div className="p-5 hidden lg:block ">
                 <div className="w-[525px] h-[400px] -mt-5 rounded-4xl overflow-hidden flex items-center justify-center bg-gray-100">
-                  <KorcomptenzImage
-                    src={buildData?.rightSection?.responsiveImage?.image}
-                    width={550}
-                    height={400}
-                    className="w-full h-full object-cover cursor-pointer"
-                    onClick={() =>
-                      setIsVideoOpen({
-                        link: buildData?.rightSection?.videoLink || "",
-                        open: true,
-                      })
+                  <Link
+                    href={
+                      buildData?.rightSection?.responsiveImage?.imageLink || "#"
                     }
-                  />
+                    target={
+                      buildData?.rightSection?.responsiveImage?.isTarget
+                        ? "_blank"
+                        : "_self"
+                    }
+                  >
+                    <KorcomptenzImage
+                      src={buildData?.rightSection?.responsiveImage?.image}
+                      width={550}
+                      height={400}
+                      className="w-full h-full object-cover cursor-pointer"
+                      onClick={() =>
+                        setIsVideoOpen({
+                          link: buildData?.rightSection?.videoLink || "",
+                          open: true,
+                        })
+                      }
+                    />
+                  </Link>
                 </div>
 
                 {buildData?.imageCaption && (
@@ -117,16 +129,27 @@ const BuildConnect = ({
                 )}
               </div>
               <div className="md:p-5 lg:hidden ">
-                <KorcomptenzImage
-                  src={buildData?.rightSection?.responsiveImage?.mobileImage}
-                  width={500}
-                  height={500}
-                  className={cn(
-                    "w-full h-auto object-cover rounded-4xl",
-                    buildData?.rightSection?.content === "video" &&
-                      "cursor-pointer",
-                  )}
-                />
+                <Link
+                  href={
+                    buildData?.rightSection?.responsiveImage?.imageLink || "#"
+                  }
+                  target={
+                    buildData?.rightSection?.responsiveImage?.isTarget
+                      ? "_blank"
+                      : "_self"
+                  }
+                >
+                  <KorcomptenzImage
+                    src={buildData?.rightSection?.responsiveImage?.mobileImage}
+                    width={500}
+                    height={500}
+                    className={cn(
+                      "w-full h-auto object-cover rounded-4xl",
+                      buildData?.rightSection?.content === "video" &&
+                        "cursor-pointer",
+                    )}
+                  />
+                </Link>
                 {buildData?.imageCaption && (
                   <div className="flex flex-col items-center gap-2 lg:mt-5">
                     <p className="text-md text-center">

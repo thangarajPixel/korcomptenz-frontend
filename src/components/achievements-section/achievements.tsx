@@ -16,7 +16,7 @@ const AchievementSection: React.FC<AchievementSectionProps> = ({ data }) => {
         </h2>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
         {data.list?.map((col, colIndex) => {
           const isSingle = col?.column?.length === 1;
 
