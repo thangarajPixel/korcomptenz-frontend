@@ -406,6 +406,8 @@ type BuildConnectSectionType = {
     responsiveImage: {
       image: ImageType;
       mobileImage: ImageType;
+      isTarget: boolean;
+      imageLink: string;
     };
     videoLink: string;
     videoButtonText: string;
