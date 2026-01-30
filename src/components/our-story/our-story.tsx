@@ -7,17 +7,18 @@ import { motion, AnimatePresence } from "framer-motion";
 const OurStory = ({ data }: { data: OurStorySectionType }) => {
   const [activeYear, setActiveYear] = useState(2025);
 
-  // const activeData = TIMELINE_DATA.find((d) => d.year === activeYear) || TIMELINE_DATA[TIMELINE_DATA.length - 1]
-  const image = data?.list.find((item) => item.year === activeYear)?.image;
+  const activeItem = data?.list.find((item) => item.year === activeYear);
+  const image = activeItem?.image;
+
   return (
     <section
-      data-debug="about-us.our-story-list"
       id="our-story"
+      data-debug="about-us.our-story-list"
       className="w-full px-2 md:px-0"
     >
-      {/* Hero Section */}
+      {/* Hero Wrapper */}
       <div className="relative h-auto md:aspect-[1443/696]">
-        {/* Background Image with Overlay */}
+        {/* Background */}
         <div
           className="absolute inset-0 rounded-4xl md:rounded-none"
           style={{
@@ -26,83 +27,94 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
             backgroundSize: "cover",
             backgroundPosition: "right",
             backgroundRepeat: "no-repeat",
-            objectFit: "cover",
           }}
         >
-          <div className="absolute rounded-4xl md:rounded-none inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30" />
+          <div className="absolute inset-0 rounded-4xl md:rounded-none bg-gradient-to-r from-black/60 via-black/40 to-black/30" />
         </div>
-        {/* Content Container */}
-        <div className="relative z-10 size-full  flex flex-col  justify-center  gap-0 md:gap-12 lg:gap-16 xl:gap-24 h-auto ">
-          <div className="container-md pt-12 mb-4">
-            <div className="flex flex-row md:items-start md:gap-12 lg:gap-16 gap-5 h-full sm:py-12">
-              {/* Year 2025 - Large Vertical Text */}
-              <div className="mb-8 md:mb-0 md:flex md:items-center">
-                <span className="text-[80px] md:text-[100px] font-bold lg:text-[140px] xl:text-[160px] text-primary leading-[0.85] opacity-50 tracking-tight md:-rotate-0 [writing-mode:vertical-lr] [transform:rotate(180deg)]">
+
+        {/* Content */}
+        <div className="relative z-10 size-full flex flex-col justify-between md:justify-center gap-6 md:gap-12 lg:gap-16 xl:gap-24">
+          {/* Top Content */}
+          <div className="container-md pt-6 md:pt-12">
+            <div className="flex gap-5 md:gap-12 lg:gap-16 h-full">
+              {/* Vertical Year */}
+              <div className="flex items-center">
+                <span
+                  className="text-[80px] md:text-[100px] lg:text-[140px] xl:text-[160px]
+                  font-bold text-primary opacity-50 leading-[0.85] tracking-tight
+                  [writing-mode:vertical-lr] [transform:rotate(180deg)]"
+                >
                   {activeYear}
                 </span>
-              </div>{" "}
-              {/* Content Area */}
-              <div className="flex-1 flex flex-col overflow-hidden  gap-2 lg:gap-6 md:gap-8 h-full lg:justify-end ">
+              </div>
+
+              {/* Animated Content */}
+              <div className="flex-1 flex flex-col gap-4 md:gap-6 lg:gap-8 justify-end overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div
-                    key={`active-content-${activeYear}`}
+                    key={activeYear}
                     initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -40 }}
                     transition={{ duration: 0.3, ease: [0.22, 0.36, 0.22, 1] }}
                   >
-                    {/* Partner Badges */}
-                    <div className="flex items-center gap-4 flex-wrap mb-5">
+                    {/* Logo */}
+                    {image && (
                       <KorcomptenzImage
                         src={image}
                         width={1000}
                         height={1000}
-                        className="w-60 h-auto object-contain"
+                        className="w-48 md:w-60 h-auto object-contain mb-4"
                       />
-                    </div>
+                    )}
 
-                    {/* Achievement Text */}
-                    <div className="text-white ">
-                      <p className="text-base md:text-lg lg:text-3xl leading-4 md:leading-8  md:line-clamp-none">
-                        {
-                          data?.list.find((item) => item.year === activeYear)
-                            ?.description
-                        }
-                      </p>
-                    </div>
+                    {/* Description */}
+                    <p
+                      className="
+                        text-white
+                        text-sm md:text-lg lg:text-3xl
+                        leading-6 md:leading-8
+                         md:line-clamp-none
+                      "
+                    >
+                      {activeItem?.description}
+                    </p>
                   </motion.div>
                 </AnimatePresence>
               </div>
             </div>
           </div>
 
-          <div className="w-full pb-12">
+          {/* Timeline */}
+          <div className="w-full pb-6 md:pb-12">
             <div className="relative">
               <div className="h-0.5 bg-primary" />
-              <div className="absolute top-[-6px] left-0 right-0 container-md flex justify-between items-start gap-2">
+
+              <div className="absolute top-[-6px] left-0 right-0 container-md flex justify-between gap-2">
                 {data?.list.map((item) => (
                   <button
                     key={item.year}
                     onClick={() => setActiveYear(item.year)}
-                    className="flex flex-col items-center group cursor-pointer flex-1"
+                    className="flex flex-col items-center flex-1 group"
                   >
-                    {/* Year Marker */}
+                    {/* Dot */}
                     <div
-                      className={`w-7 h-4 border border-primary rounded-full mb-4 transition-all duration-300 transform 
-                      ${
-                        activeYear === item.year
-                          ? "bg-primary "
-                          : "bg-slate-600 hover:bg-slate-500"
-                      }`}
+                      className={`w-7 h-4 border border-primary rounded-full mb-3 transition-all
+                        ${
+                          activeYear === item.year
+                            ? "bg-primary"
+                            : "bg-slate-600 group-hover:bg-slate-500"
+                        }`}
                     />
 
-                    {/* Year Label */}
+                    {/* Label */}
                     <span
-                      className={`text-xs md:text-sm transition-all text-white duration-300 ${
-                        activeYear === item.year
-                          ? "text-base md:text-lg"
-                          : "opacity-80"
-                      }`}
+                      className={`text-xs md:text-sm text-white transition-all
+                        ${
+                          activeYear === item.year
+                            ? "text-base md:text-lg"
+                            : "opacity-80"
+                        }`}
                     >
                       {item.year}
                     </span>
