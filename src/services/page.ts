@@ -11,7 +11,7 @@ import type {
   WebinarReserveFormSchema,
 } from "@/utils/validation.schema";
 // import https from "./https-check";
-import type { AxiosResponse } from "axios";
+// import type { AxiosResponse } from "axios";
 // import https from "./https-check";
 
 const HOME = "/home";
@@ -225,13 +225,12 @@ export const getBlogPage = async ({
   return data;
 };
 
-export const getCaseStudyPDFPage = async ({ id }: { id: string }) => {
-  // eslint-disable-next-line
-  const res: AxiosResponse<any, any, { url: string }> = await http.get(
+export const getCaseStudyPDFPage = async ({ id }: { id: string }): Promise<string> => {
+  const { data } = await http.get<{ url: string }>(
     `${CASESTUDYPDF}/${encodeURIComponent(id)}`,
   );
 
-  return res;
+  return data.url;
 };
 
 export const getInsightPage = async (): Promise<InsightPageType> => {
