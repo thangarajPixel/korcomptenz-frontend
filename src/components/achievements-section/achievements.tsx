@@ -1,5 +1,6 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
+import { cn } from "@/lib/utils";
 
 interface AchievementSectionProps {
   data: AchievementsType;
@@ -16,7 +17,12 @@ const AchievementSection: React.FC<AchievementSectionProps> = ({ data }) => {
         </h2>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+      <div
+        className={cn(
+          "grid grid-cols-1 md:grid-cols-2  gap-6 mt-10",
+          data?.isColumnFour ? "lg:grid-cols-4" : "lg:grid-cols-3",
+        )}
+      >
         {data.list?.map((col, colIndex) => {
           const isSingle = col?.column?.length === 1;
 

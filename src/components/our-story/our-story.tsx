@@ -16,7 +16,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
       className="w-full px-2 md:px-0"
     >
       {/* Hero Section */}
-      <div className="relative aspect-[627/500] md:aspect-[1443/696]">
+      <div className="relative h-auto md:aspect-[1443/696]">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 rounded-4xl md:rounded-none"
@@ -32,9 +32,9 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
           <div className="absolute rounded-4xl md:rounded-none inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30" />
         </div>
         {/* Content Container */}
-        <div className="relative z-10 size-full  flex flex-col  justify-center  gap-0 md:gap-12 lg:gap-16 xl:gap-24">
-          <div className="container-md ">
-            <div className="flex flex-row md:items-start md:gap-12 lg:gap-16 gap-5 h-full">
+        <div className="relative z-10 size-full  flex flex-col  justify-center  gap-0 md:gap-12 lg:gap-16 xl:gap-24 h-auto ">
+          <div className="container-md pt-12 mb-4">
+            <div className="flex flex-row md:items-start md:gap-12 lg:gap-16 gap-5 h-full sm:py-12">
               {/* Year 2025 - Large Vertical Text */}
               <div className="mb-8 md:mb-0 md:flex md:items-center">
                 <span className="text-[80px] md:text-[100px] font-bold lg:text-[140px] xl:text-[160px] text-primary leading-[0.85] opacity-50 tracking-tight md:-rotate-0 [writing-mode:vertical-lr] [transform:rotate(180deg)]">
@@ -63,7 +63,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
 
                     {/* Achievement Text */}
                     <div className="text-white ">
-                      <p className="text-base md:text-lg lg:text-3xl leading-8 line-clamp-4 md:line-clamp-none">
+                      <p className="text-base md:text-lg lg:text-3xl leading-4 md:leading-8  md:line-clamp-none">
                         {
                           data?.list.find((item) => item.year === activeYear)
                             ?.description
@@ -76,7 +76,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
             </div>
           </div>
 
-          <div className="w-full">
+          <div className="w-full pb-12">
             <div className="relative">
               <div className="h-0.5 bg-primary" />
               <div className="absolute top-[-6px] left-0 right-0 container-md flex justify-between items-start gap-2">

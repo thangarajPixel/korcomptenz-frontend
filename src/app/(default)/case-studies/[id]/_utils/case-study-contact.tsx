@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormData } from "@/utils/validation.schema";
 import { useCaseStudyLeadHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
+import { useRouter } from "next/navigation";
 
 const defaultValues = {
   fullName: "",
@@ -25,6 +26,7 @@ export function CaseStudyForm({
   essential: CaseStudyPageType;
 }) {
   const essential = form?.form?.forms?.[0] as CaseStudyFormType;
+  const router = useRouter();
   const {
     control,
     handleSubmit,
@@ -41,20 +43,23 @@ export function CaseStudyForm({
   });
 
   const { mutateAsync } = useCaseStudyLeadHook();
+
   const handleFormSubmit: SubmitHandler<ContactFormData> = React.useCallback(
     async (formdata) => {
       try {
         const response = await mutateAsync(formdata);
         notify(response);
-        // window.open(response?.attachment?.url, "_blank");
-        // router.push("/thank-you");
+
+        localStorage.setItem("caseStudySlug", response?.attachment?.url);
+
+        router.push(`/case-studies-asset/${response.attachment.name}`);
 
         reset({ ...defaultValues, caseStudyId: String(data.id) });
       } catch (error) {
         errorSet(error, setError);
       }
     },
-    [mutateAsync, reset]
+    [mutateAsync, reset],
   );
 
   return (

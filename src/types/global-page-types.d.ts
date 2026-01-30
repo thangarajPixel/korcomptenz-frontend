@@ -781,6 +781,7 @@ type FixedFooter = {
 type AchievementsType = {
   id: string;
   title: string;
+  isColumnFour: boolean;
   list: AchievementscardType[];
 };
 type DemoListType = {

@@ -159,7 +159,7 @@ export async function downloadFile(
 
   document.body.appendChild(a);
   a.click();
-  window.open(url, "_blank");
+  // window.open(url, "_blank");
   document.body.removeChild(a);
 
   window.URL.revokeObjectURL(url);
