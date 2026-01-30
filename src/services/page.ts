@@ -226,11 +226,11 @@ export const getBlogPage = async ({
 };
 
 export const getCaseStudyPDFPage = async ({ id }: { id: string }): Promise<string> => {
-  const { data } = await http.get<{ url: string }>(
+  const res: { url: string } = await http.get(
     `${CASESTUDYPDF}/${encodeURIComponent(id)}`,
   );
 
-  return data.url;
+  return res?.url;
 };
 
 export const getInsightPage = async (): Promise<InsightPageType> => {
