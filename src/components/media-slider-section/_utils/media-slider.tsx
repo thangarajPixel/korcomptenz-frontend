@@ -64,7 +64,7 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
   return (
     <>
       {/* ================= THUMB GRID ================= */}
-      <div className="container-md py-8">
+      <div className="container-md ">
         <div className="grid grid-cols-3 gap-4">
           {data?.list?.map((slide, i) => (
             <button
