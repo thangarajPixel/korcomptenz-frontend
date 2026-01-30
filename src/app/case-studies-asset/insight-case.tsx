@@ -13,7 +13,7 @@ export default async function InsightCasePdfSection({ params }: Props) {
 
   const data = await getPageServiceCache({ id: slug });
 
-  const blobUrl = data?.url;
+  const blobUrl = data;
 
   return <PdfViewSection blobUrl={blobUrl} />;
 }
