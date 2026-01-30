@@ -9,7 +9,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormData } from "@/utils/validation.schema";
 import { useCaseStudyLeadHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
-import { useRouter } from "next/navigation";
 
 const defaultValues = {
   fullName: "",
@@ -26,7 +25,7 @@ export function CaseStudyForm({
   essential: CaseStudyPageType;
 }) {
   const essential = form?.form?.forms?.[0] as CaseStudyFormType;
-  const router = useRouter();
+
   const {
     control,
     handleSubmit,
@@ -50,9 +49,10 @@ export function CaseStudyForm({
         const response = await mutateAsync(formdata);
         notify(response);
 
-        localStorage.setItem("caseStudySlug", response?.attachment?.url);
-
-        router.push(`/case-studies-asset/${response.attachment.name}`);
+        window.open(
+          `/case-studies-asset/${response.attachment.name}`,
+          "_blank",
+        );
 
         reset({ ...defaultValues, caseStudyId: String(data.id) });
       } catch (error) {

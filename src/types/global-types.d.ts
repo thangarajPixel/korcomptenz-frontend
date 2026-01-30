@@ -560,6 +560,10 @@ type PricingPlanType = {
 type InsightBlog = InsightResponse;
 
 type InsightResponse = {
+  res: {
+    url: string;
+    name: string;
+  };
   seo: SEO;
   insight: InsightItem;
   content: string;

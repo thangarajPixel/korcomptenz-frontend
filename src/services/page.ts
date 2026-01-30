@@ -10,7 +10,8 @@ import type {
   NewsRoomFormSchema,
   WebinarReserveFormSchema,
 } from "@/utils/validation.schema";
-import https from "./https-check";
+// import https from "./https-check";
+import type { AxiosResponse } from "axios";
 // import https from "./https-check";
 
 const HOME = "/home";
@@ -44,6 +45,7 @@ export const EVENT_PAGE = "/event-list";
 export const NEWSROOM = "/news-list";
 export const NEWSROOM_PAGE = "/new-rooms";
 export const NEWSROOM_LEAD = "/news-room-leads";
+export const CASESTUDYPDF = "/case-studies/by-attachment";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -88,7 +90,7 @@ export const getInsights = async (): Promise<InsightsFilterDataType> => {
 };
 
 export const createCaseStudyLead = async (formData: ContactFormData) => {
-  const { data } = await https.post(CASE_STUDY_LEAD, { data: formData });
+  const { data } = await http.post(CASE_STUDY_LEAD, { data: formData });
   data?.attachment?.url && (await getDownloadService(data?.attachment));
   return data;
 };
@@ -96,7 +98,7 @@ export const createCaseStudyLead = async (formData: ContactFormData) => {
 export const createCareerNewLetter = async (
   formData: CareerNewLetterFormData,
 ) => {
-  const { data } = await https.postForm(CAREER_NEW_LETTER, {
+  const { data } = await http.postForm(CAREER_NEW_LETTER, {
     data: {
       ...formData,
     },
@@ -141,7 +143,7 @@ export const getCaseStudySearchPage = async ({
 };
 
 export const bookADemo = async (formData: BookADemoFormData) => {
-  const { data } = await https.post(BOOK_DEMO, { data: formData });
+  const { data } = await http.post(BOOK_DEMO, { data: formData });
   return data;
 };
 
@@ -161,7 +163,7 @@ export const getCaseStudyEssentialList =
   };
 
 export const createContactUsLead = async (formData: ContactUsFormSchema) => {
-  const { data } = await https.post(CONTACT_US_LEAD, { data: formData });
+  const { data } = await http.post(CONTACT_US_LEAD, { data: formData });
   return data;
 };
 
@@ -194,7 +196,7 @@ export const getNewsroomPage = async (): Promise<
 export const createReserveMySpotLead = async (
   formData: DemoRequestFormSchema,
 ) => {
-  const { data } = await https.post(RESERVE_MY_SPOT, { data: formData });
+  const { data } = await http.post(RESERVE_MY_SPOT, { data: formData });
   return data;
 };
 
@@ -223,6 +225,15 @@ export const getBlogPage = async ({
   return data;
 };
 
+export const getCaseStudyPDFPage = async ({ id }: { id: string }) => {
+  // eslint-disable-next-line
+  const res: AxiosResponse<any, any, { url: string }> = await http.get(
+    `${CASESTUDYPDF}/${encodeURIComponent(id)}`,
+  );
+
+  return res?.url;
+};
+
 export const getInsightPage = async (): Promise<InsightPageType> => {
   const { data } = await http.get(INSIGHT_PAGE);
   return data;
@@ -231,7 +242,7 @@ export const getInsightPage = async (): Promise<InsightPageType> => {
 export const createFreeConsultationLead = async (
   formData: FreeConsultationLeadSchema,
 ) => {
-  const { data } = await https.post(FREE_CONSULTATION_LEAD, { data: formData });
+  const { data } = await http.post(FREE_CONSULTATION_LEAD, { data: formData });
   return data;
 };
 
@@ -265,13 +276,13 @@ export const getNewsRoomPage = async ({
 export const createWebinarReserveMySpotLead = async (
   formData: WebinarReserveFormSchema,
 ) => {
-  const { data } = await https.post(WEBINAR_RESERVE_MY_SPOT, {
+  const { data } = await http.post(WEBINAR_RESERVE_MY_SPOT, {
     data: formData,
   });
   return data;
 };
 
 export const NewRoomDownload = async (formData: NewsRoomFormSchema) => {
-  const { data } = await https.post(NEWSROOM_LEAD, { data: formData });
+  const { data } = await http.post(NEWSROOM_LEAD, { data: formData });
   return data;
 };
