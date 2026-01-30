@@ -231,7 +231,7 @@ export const getCaseStudyPDFPage = async ({ id }: { id: string }) => {
     `${CASESTUDYPDF}/${encodeURIComponent(id)}`,
   );
 
-  return res?.url;
+  return res?.url as never;
 };
 
 export const getInsightPage = async (): Promise<InsightPageType> => {
