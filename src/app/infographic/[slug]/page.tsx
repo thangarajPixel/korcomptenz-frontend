@@ -1,4 +1,5 @@
 import { InsightPdfSection } from "@/components/pdf-view-section";
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
