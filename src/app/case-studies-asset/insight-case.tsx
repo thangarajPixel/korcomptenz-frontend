@@ -1,7 +1,7 @@
 import { PdfViewSection } from "@/components/pdf-view-section";
 import { getCaseStudyPDFPage } from "@/services";
 import { cache } from "react";
-
+// hide
 type Props = {
   params: Promise<{ slug: string }>;
 };
