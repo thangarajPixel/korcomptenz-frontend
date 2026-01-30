@@ -1,16 +1,22 @@
 import axios from "axios";
+import https from "https";
 
 const API_BASE_URL = "https://stage03-admin-korcomptenz.korcomptenz.com/api";
 
 const TIMEOUT = 30000;
 
-const https = axios.create({
+const httpsAgent = new https.Agent({
+  rejectUnauthorized: false,
+});
+
+const https_client = axios.create({
   baseURL: API_BASE_URL,
   timeout: TIMEOUT,
+  httpsAgent,
 });
 
 // Add a request interceptor
-https.interceptors.request.use(async (config) => {
+https_client.interceptors.request.use(async (config) => {
   try {
     // config.headers['content-type'] = 'application/json';
     return config;
@@ -21,7 +27,7 @@ https.interceptors.request.use(async (config) => {
   }
 });
 
-https.interceptors.response.use(
+https_client.interceptors.response.use(
   (response) => {
     return response.data;
   },
@@ -53,4 +59,4 @@ https.interceptors.response.use(
   },
 );
 
-export default https;
+export default https_client;

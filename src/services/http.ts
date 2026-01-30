@@ -1,13 +1,19 @@
 import axios from 'axios';
+import https from 'https';
 import { APP_CONFIG } from '@/utils/app-config';
 
 const API_BASE_URL = APP_CONFIG?.API_URL;
 
 const TIMEOUT = 30000;
 
+const httpsAgent = new https.Agent({
+  rejectUnauthorized: false,
+});
+
 const http = axios.create({
   baseURL: API_BASE_URL,
   timeout: TIMEOUT,
+  httpsAgent,
 });
 
 // Add a request interceptor
