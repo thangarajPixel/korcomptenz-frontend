@@ -564,6 +564,7 @@ type InsightResponse = {
     url: string;
     name: string;
   };
+  title: string;
   seo: SEO;
   insight: InsightItem;
   content: string;
