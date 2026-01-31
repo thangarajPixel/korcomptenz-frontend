@@ -97,12 +97,6 @@ export const getContactUs = async (): Promise<PagesListType> => {
   return data;
 };
 
-export const getCaseStudyEssentialList =
-  async (): Promise<CaseStudyEssentialType> => {
-    const data = await http.get(CASE_STUDY_ESSENTIAL_LIST);
-    return data as never;
-  };
-
 export const getDemoPage = async (): Promise<PagesListType> => {
   const { data } = await http.get(DEMO_PAGE);
 
@@ -288,3 +282,9 @@ export const NewRoomDownload = async (formData: NewsRoomFormSchema) => {
   const { data } = await https.post(NEWSROOM_LEAD, { data: formData });
   return data;
 };
+
+export const getCaseStudyEssentialList =
+  async (): Promise<CaseStudyEssentialType> => {
+    const data = await https.get(CASE_STUDY_ESSENTIAL_LIST);
+    return data as never;
+  };
