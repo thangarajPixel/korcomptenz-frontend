@@ -350,10 +350,10 @@ body {
 
 .rich-text table,
 .rich-text .table {
-  @apply !w-full overflow-x-auto my-3;
+  @apply !w-full overflow-x-auto !shadow-2xl;
 }
 .rich-text table {
-  @apply !px-2 shadow-2xl text-left  my-3;
+  @apply !px-2 !shadow-2xl text-left;
 }
 .rich-text strong {
   @apply !font-semibold;
@@ -362,7 +362,7 @@ body {
   @apply !bg-custom-gray-5 !border !border-white/30 !py-3 !px-2 !pl-4;
 }
 .rich-text .rich-text-table th {
-  @apply !bg-black !border !border-white/30 !py-3 px-2;
+  @apply !bg-black !border !border-white/30 !py-3 !px-2;
 }
 .rich-text table td {
   /* @apply !px-6 !py-4 !text-left !font-semibold !text-foreground !border-b !border-border; */
