@@ -33,7 +33,7 @@ const BuildConnect = ({
         )}
         <div
           className={cn(
-            "grid grid-cols-1 lg:grid-cols-[55%_45%] space-x-12 ",
+            "grid grid-cols-1 lg:grid-cols-[55%_45%] space-x-12 space-y-6 ",
             buildData?.isSwap && "mt-3",
           )}
         >

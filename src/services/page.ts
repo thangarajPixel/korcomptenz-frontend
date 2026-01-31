@@ -11,9 +11,6 @@ import type {
   WebinarReserveFormSchema,
 } from "@/utils/validation.schema";
 import https from "./https-check";
-// import https from "./https-check";
-// import type { AxiosResponse } from "axios";
-// import https from "./https-check";
 
 const HOME = "/home";
 const ABOUT_US = "/about-us";
@@ -81,49 +78,6 @@ export const getCaseStudyService = async ({
 //   return data;
 // };
 
-export const getFilterCaseStudies = async (): Promise<FilterDataType> => {
-  const { data } = await http.get(FILTER_CASE_STUDY);
-  return data;
-};
-export const getInsights = async (): Promise<InsightsFilterDataType> => {
-  const { data } = await http.get(FILTER_INSIGHT);
-  return data;
-};
-
-export const createCaseStudyLead = async (formData: ContactFormData) => {
-  const { data } = await https.post(CASE_STUDY_LEAD, { data: formData });
-  data?.attachment?.url && (await getDownloadService(data?.attachment));
-  return data;
-};
-
-export const createCareerNewLetter = async (
-  formData: CareerNewLetterFormData,
-) => {
-  const { data } = await https.postForm(CAREER_NEW_LETTER, {
-    data: {
-      ...formData,
-    },
-    files: formData.resume?.[0],
-  });
-  return data;
-};
-
-export const getCaseStudyList = async ({
-  params,
-}: {
-  params: { pagination: PaginationType; slug?: string; sort?: string[] };
-}): Promise<CaseStudiesType> => {
-  const data = await http.get(CASE_STUDY, {
-    params,
-  });
-  return data as never;
-};
-
-export const getDepartmentList = async (): Promise<DepartmentType> => {
-  const data = await http.get(DEPARTMENT_LIST);
-  return data as never;
-};
-
 export const getCaseStudiesPage = async (): Promise<CaseStudiesPageType> => {
   const { data } = await http.get(CASE_STUDIES_PAGE);
   return data;
@@ -131,20 +85,6 @@ export const getCaseStudiesPage = async (): Promise<CaseStudiesPageType> => {
 
 export const getCaseStudyPage = async (): Promise<CaseStudyPageType> => {
   const { data } = await http.get(CASE_STUDY_PAGE);
-  return data;
-};
-
-export const getCaseStudySearchPage = async ({
-  search = "",
-}: {
-  search?: string;
-}): Promise<FilterListType[]> => {
-  const { data } = await http.get(CASE_STUDY_SEARCH, { params: { search } });
-  return data;
-};
-
-export const bookADemo = async (formData: BookADemoFormData) => {
-  const { data } = await https.post(BOOK_DEMO, { data: formData });
   return data;
 };
 
@@ -162,11 +102,6 @@ export const getCaseStudyEssentialList =
     const data = await http.get(CASE_STUDY_ESSENTIAL_LIST);
     return data as never;
   };
-
-export const createContactUsLead = async (formData: ContactUsFormSchema) => {
-  const { data } = await https.post(CONTACT_US_LEAD, { data: formData });
-  return data;
-};
 
 export const getDemoPage = async (): Promise<PagesListType> => {
   const { data } = await http.get(DEMO_PAGE);
@@ -194,27 +129,10 @@ export const getNewsroomPage = async (): Promise<
 
   return data;
 };
-export const createReserveMySpotLead = async (
-  formData: DemoRequestFormSchema,
-) => {
-  const { data } = await https.post(RESERVE_MY_SPOT, { data: formData });
-  return data;
-};
 
 export const getInsightsPage = async (): Promise<CaseStudiesPageType> => {
   const { data } = await http.get(INSIGHT_LIST_PAGE);
   return data;
-};
-
-export const getInsightsList = async ({
-  params,
-}: {
-  params: { pagination: PaginationType; slug?: string; sort?: string[] };
-}): Promise<CaseStudiesType> => {
-  const data = await http.get(INSIGHT, {
-    params,
-  });
-  return data as never;
 };
 
 export const getBlogPage = async ({
@@ -243,22 +161,6 @@ export const getInsightPage = async (): Promise<InsightPageType> => {
   return data;
 };
 
-export const createFreeConsultationLead = async (
-  formData: FreeConsultationLeadSchema,
-) => {
-  const { data } = await https.post(FREE_CONSULTATION_LEAD, { data: formData });
-  return data;
-};
-
-export const getInsightSearchPage = async ({
-  search = "",
-}: {
-  search?: string;
-}): Promise<FilterListType[]> => {
-  const { data } = await http.get(INSIGHT_SEARCH, { params: { search } });
-  return data;
-};
-
 export const getPrivacyPolicy = async (): Promise<{
   seo: SEO;
   title: string;
@@ -274,6 +176,102 @@ export const getNewsRoomPage = async ({
   id: string;
 }): Promise<PagesListType> => {
   const { data } = await http.get(`${NEWSROOM_PAGE}/${id}`);
+  return data;
+};
+
+//http
+export const getFilterCaseStudies = async (): Promise<FilterDataType> => {
+  const { data } = await https.get(FILTER_CASE_STUDY);
+  return data;
+};
+export const getInsights = async (): Promise<InsightsFilterDataType> => {
+  const { data } = await https.get(FILTER_INSIGHT);
+  return data;
+};
+
+export const createCaseStudyLead = async (formData: ContactFormData) => {
+  const { data } = await https.post(CASE_STUDY_LEAD, { data: formData });
+  data?.attachment?.url && (await getDownloadService(data?.attachment));
+  return data;
+};
+
+export const createCareerNewLetter = async (
+  formData: CareerNewLetterFormData,
+) => {
+  const { data } = await https.postForm(CAREER_NEW_LETTER, {
+    data: {
+      ...formData,
+    },
+    files: formData.resume?.[0],
+  });
+  return data;
+};
+
+export const getCaseStudyList = async ({
+  params,
+}: {
+  params: { pagination: PaginationType; slug?: string; sort?: string[] };
+}): Promise<CaseStudiesType> => {
+  const data = await https.get(CASE_STUDY, {
+    params,
+  });
+  return data as never;
+};
+
+export const getDepartmentList = async (): Promise<DepartmentType> => {
+  const data = await https.get(DEPARTMENT_LIST);
+  return data as never;
+};
+
+export const getCaseStudySearchPage = async ({
+  search = "",
+}: {
+  search?: string;
+}): Promise<FilterListType[]> => {
+  const { data } = await https.get(CASE_STUDY_SEARCH, { params: { search } });
+  return data;
+};
+
+export const bookADemo = async (formData: BookADemoFormData) => {
+  const { data } = await https.post(BOOK_DEMO, { data: formData });
+  return data;
+};
+export const createContactUsLead = async (formData: ContactUsFormSchema) => {
+  const { data } = await https.post(CONTACT_US_LEAD, { data: formData });
+  return data;
+};
+
+export const createReserveMySpotLead = async (
+  formData: DemoRequestFormSchema,
+) => {
+  const { data } = await https.post(RESERVE_MY_SPOT, { data: formData });
+  return data;
+};
+
+export const getInsightsList = async ({
+  params,
+}: {
+  params: { pagination: PaginationType; slug?: string; sort?: string[] };
+}): Promise<CaseStudiesType> => {
+  const data = await https.get(INSIGHT, {
+    params,
+  });
+  return data as never;
+};
+
+export const createFreeConsultationLead = async (
+  formData: FreeConsultationLeadSchema,
+) => {
+  const { data } = await https.post(FREE_CONSULTATION_LEAD, { data: formData });
+  return data;
+};
+
+export const getInsightSearchPage = async ({
+  search = "",
+}: {
+  search?: string;
+}): Promise<FilterListType[]> => {
+  const { data } = await https.get(INSIGHT_SEARCH, { params: { search } });
   return data;
 };
 

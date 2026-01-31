@@ -291,7 +291,7 @@ const BannerCard = ({
           />
         )}
 
-        <div className="flex flex-row gap-4 mb-3">
+        <div className="grid gap-4 mb-3">
           {data?.buttonText && (
             <ButtonLink
               link={data?.link || "#"}
