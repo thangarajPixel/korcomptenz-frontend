@@ -104,7 +104,7 @@ const TechPartner = ({ techData }: { techData: TechPartnerSectionType }) => {
               alt={alt}
               width={500}
               height={500}
-              className="object-cover h-full w-full p-8 rounded-4xl"
+              className="object-cover h-full w-full p-8 rounded-[40px]"
             />
           </div>
           {/* Desktop */}
