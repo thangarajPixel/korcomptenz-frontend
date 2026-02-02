@@ -32,7 +32,7 @@ const WeAreKorcomptenzSection = ({
       </div>
 
       <div
-        className="relative m-1 md:m-0   cursor-pointer"
+        className="relative cursor-pointer"
         onClick={() => setIsVideoOpen(true)}
       >
         <KorcomptenzImage

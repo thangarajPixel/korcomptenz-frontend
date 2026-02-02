@@ -305,6 +305,7 @@ const GlobalPage = (props: Props) => {
           <ScrollFadeIn
             __component={item?.__component}
             key={`why-we-are-${item?.__component}-${item?.id}`}
+            className="container-md"
           >
             <WhyKorcomptenz data={item} />
           </ScrollFadeIn>

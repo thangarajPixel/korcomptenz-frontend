@@ -20,7 +20,7 @@ export default function StickyCards({
   return (
     <section data-debug={stickyCards?.__component} className="relative">
       <div className="relative container-md">
-        <div className="sm:sticky relative  sm:top-28 top-0 flex justify-between px-4 xl:mb-[80px] sm:mb-5 mb-5">
+        <div className="sm:sticky relative sm:top-28 top-0 flex justify-between px-0 lg:px-4 xl:mb-[80px] sm:mb-5 mb-5">
           <h2 className="font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
             {stickyCards?.title}
           </h2>
@@ -46,7 +46,7 @@ export default function StickyCards({
               // index !== cardData.length - 1 ? "mb-[8rem]" : "mb-[0]"
             )}
           >
-            <div className="flex items-center justify-center px-4 md:py-0 py-4 lg:py-6">
+            <div className="flex items-center justify-center px-0 lg:px-4 md:py-0 py-4 lg:py-6">
               <Card
                 className={cn(
                   "overflow-hidden bg-light-white border-0 w-full py-0 h-auto lg:min-h-[28rem]",
@@ -61,7 +61,7 @@ export default function StickyCards({
                 </div>
 
                 {/* Content */}
-                <div className="p-2 lg:pt-14 lg:pb-16 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
+                <div className="p-2 px-4 lg:pt-14 lg:pb-16 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
                   <div className="space-y-4">
                     <h3 className="text-4xl lg:text-6xl font-bold text-black leading-tight">
                       {card?.title}

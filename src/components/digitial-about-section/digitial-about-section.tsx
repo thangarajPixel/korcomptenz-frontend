@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import { cn } from "@/lib/utils";
 import KorcomptenzImage from "../korcomptenz-image";
 
@@ -67,7 +65,7 @@ export function DigitialAboutSection({
               <div key={stat?.id} className="text-center">
                 <h3
                   className={cn(
-                    "text-4xl md:text-9xl font-semibold mb-2 text-primary text-left",
+                    "text-5xl md:text-10xl font-semibold mb-2 text-primary text-left",
                   )}
                 >
                   {stat?.value}
@@ -109,13 +107,13 @@ export function DigitialAboutSection({
 
         {/* Countries Section */}
         <section className="relative py-5 ">
-          <div className="flex flex-wrap justify-between gap-8 md:gap-12">
+          <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-8 md:gap-12">
             {data?.countries?.map((countries) => (
               <div
                 key={countries?.id}
                 className="flex flex-col items-center gap-3 group cursor-pointer"
               >
-                <div className="w-[50px] h-[50px]">
+                <div className="w-10 h-10 lg:w-[50px] lg:h-[50px]">
                   <KorcomptenzImage
                     src={countries?.flag?.[0]}
                     width={160}
@@ -124,7 +122,7 @@ export function DigitialAboutSection({
                   />
                 </div>
 
-                <p className=" text-sm font-normal text-[#FFFFFF]">
+                <p className="text-[12px] lg:text-sm font-normal text-[#FFFFFF] text-center">
                   {countries?.label}
                 </p>
               </div>

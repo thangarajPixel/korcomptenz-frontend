@@ -40,7 +40,7 @@ export function Navbar({ data }: { data: LayoutType }) {
         onMouseLeave={() => setActiveSection("")}
         className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white`}
       >
-        <div className={`container-nav h-[100px] pt-5`}>
+        <div className={`container-nav h-auto lg:h-[100px] pt-3 pb-3 lg:pb-0 lg:pt-5`}>
           <div
             className={` flex items-center justify-between transition-all duration-500 ease-out "h-16"`}
           >

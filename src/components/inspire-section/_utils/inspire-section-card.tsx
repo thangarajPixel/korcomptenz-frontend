@@ -65,7 +65,7 @@ const InspireSectionCard: React.FC<{ card: InspireCardType }> = ({ card }) => {
             <div className="relative min-h-16">{renderImage()}</div>
             <InspireSectionContent
               card={card}
-              topClassName="pt-0"
+              // topClassName="pt-0"
               className="mb-2 pt-5 xl:whitespace-pre-wrap"
             />
           </div>
