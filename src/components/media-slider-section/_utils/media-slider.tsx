@@ -65,7 +65,7 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
     <>
       {/* ================= THUMB GRID ================= */}
       <div className="container-md ">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
           {data?.list?.map((slide, i) => (
             <button
               key={slide.id}

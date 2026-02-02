@@ -33,7 +33,7 @@ const OurStory = ({ data }: { data: OurStorySectionType }) => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 size-full flex flex-col justify-between md:justify-center gap-6 md:gap-12 lg:gap-16 xl:gap-24">
+        <div className="relative z-10 size-full flex flex-col justify-between md:justify-center gap-6 md:gap-12 lg:gap-16 xl:gap-24 pb-8 lg:pb-0">
           {/* Top Content */}
           <div className="container-md pt-6 md:pt-12">
             <div className="flex gap-5 md:gap-12 lg:gap-16 h-full">

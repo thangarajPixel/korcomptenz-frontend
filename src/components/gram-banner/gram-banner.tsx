@@ -9,7 +9,7 @@ import ButtonLink from "../ui/button-link";
 const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
   return (
     <section
-      className={` grid grid-cols-1 lg:grid-cols-1  ${
+      className={`container-md grid grid-cols-1 lg:grid-cols-1  ${
         gramData?.theme === "dark"
           ? "bg-custom-black py-10 "
           : gramData?.theme === "light"

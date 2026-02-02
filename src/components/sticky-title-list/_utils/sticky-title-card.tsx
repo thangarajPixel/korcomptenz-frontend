@@ -29,7 +29,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
     <div className="bg-light-gray rounded-4xl  relative overflow-hidden min-h-[280px]">
       {/* Content */}
       <div className="flex flex-row lg:flex-row md:flex-col gap-4">
-        <div className="flex flex-col justify-start gap-6 p-8 ">
+        <div className="flex flex-col justify-start gap-6 py-8 px-4 lg:px-8">
           {logo && (
             <div>
               <KorcomptenzImage src={logo} width={172} height={172} />
@@ -131,11 +131,11 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
       </div>
       {position === "corner" && image && (
         <div className="relative lg:hidden ">
-          <div className="flex   justify-end items-end  ">
+          <div className="flex justify-end items-end">
             <KorcomptenzImage
-              className=" object-cover p-0 w-40"
-              width={image?.width}
-              height={image?.height}
+              className=" object-cover p-0 w-30"
+              width={120}
+              height={120}
               src={image}
             />
           </div>
