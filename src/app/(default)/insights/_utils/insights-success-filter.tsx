@@ -123,7 +123,7 @@ export function InsightsSuccessFilter({
                 align="start"
               >
                 <div className="p-4">
-                  <div className="grid grid-cols-4 md:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                     {data?.filterData?.[label.filterKey as FilterType]?.map(
                       (item) => (
                         <label
