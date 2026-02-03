@@ -6,7 +6,7 @@ const essential = z
         id: z.number(),
         documentId: z.string().optional(),
         isTempory: z.boolean().optional(),
-      })
+      }),
     ),
   })
   .nullable();
@@ -47,7 +47,7 @@ export const CareerNewLetterSchema = z.object({
 
   phone: z
     .string()
-    .optional()
+    .min(1, "Phone number is")
     .refine((val) => !val || /^\d{10,15}$/.test(val), {
       message: "Enter a valid phone number",
     }),
@@ -58,11 +58,11 @@ export const CareerNewLetterSchema = z.object({
     .refine((files) => files && files.length > 0, "Resume is required")
     .refine(
       (files) => files?.[0]?.size <= 10 * 1024 * 1024, // 10MB
-      "File must be smaller than 10MB"
+      "File must be smaller than 10MB",
     )
     .refine(
       (files) => files?.[0]?.type === "application/pdf",
-      "Only PDF files are allowed"
+      "Only PDF files are allowed",
     ),
 });
 

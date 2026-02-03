@@ -14,12 +14,14 @@ import { useRouter } from "next/navigation";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
 const defaultValues = {
-  name: "",
+  firstName: "",
+  lastName: "",
   email: "",
-  phoneNumber: "",
-  mobile: "",
-  department: "",
-  resume: "",
+  company: "",
+  phone: "",
+  service: undefined,
+  technology: undefined,
+  message: "",
 };
 
 const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
@@ -55,7 +57,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
           errorSet(error, setError);
         }
       },
-      [mutateAsync, reset]
+      [mutateAsync, reset],
     );
 
   return (

@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Input } from "../ui/input";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { Controller, useForm, type SubmitHandler } from "react-hook-form";
 import { Button } from "../ui/button";
 import { Upload } from "lucide-react";
 import { useCareerNewLetterHook, useDepartmentListHook } from "@/services";
@@ -16,8 +16,7 @@ import { ComboboxField } from "../ui/combobox";
 const defaultValues = {
   name: "",
   email: "",
-  phoneNumber: "",
-  mobile: "",
+  phone: "",
   department: null,
   resume: "",
 };
@@ -27,7 +26,7 @@ const CareerForm = () => {
     control,
     handleSubmit,
     setError,
-    register,
+
     reset,
     formState: { isSubmitting },
   } = useForm<CareerNewLetterFormData>({
@@ -37,7 +36,7 @@ const CareerForm = () => {
       ...defaultValues,
     },
   });
-  const [fileName, setFileName] = useState("");
+
   const { mutateAsync } = useCareerNewLetterHook();
 
   const { data } = useDepartmentListHook();
@@ -48,12 +47,11 @@ const CareerForm = () => {
           const response = await mutateAsync(formdata);
           notify(response);
           reset({ ...defaultValues });
-          setFileName("");
         } catch (error) {
           errorSet(error, setError);
         }
       },
-      [mutateAsync, reset]
+      [mutateAsync, reset],
     );
 
   return (
@@ -106,23 +104,45 @@ const CareerForm = () => {
 
         {/* Resume */}
         <div className="relative">
-          <input
-            type="file"
-            accept="application/pdf"
-            {...register("resume")}
-            onChange={(e) => {
-              const file = e.target.files?.[0];
-              setFileName(file ? file.name : "");
+          <Controller
+            control={control}
+            name="resume"
+            rules={{
+              validate: {
+                required: (files) => files?.length > 0 || "Resume is required",
+                size: (files) =>
+                  !files ||
+                  files[0]?.size <= 10 * 1024 * 1024 ||
+                  "File must be smaller than 10MB",
+                type: (files) =>
+                  !files ||
+                  files[0]?.type === "application/pdf" ||
+                  "Only PDF files are allowed",
+              },
             }}
-            className="absolute inset-0 opacity-0 cursor-pointer z-10"
+            render={({ field, fieldState }) => (
+              <div className="relative">
+                <input
+                  type="file"
+                  accept="application/pdf"
+                  onChange={(e) => field.onChange(e.target.files)}
+                  className="absolute inset-0 opacity-0 cursor-pointer z-10"
+                />
+                <div className="border-2 p-2 rounded-md bg-white text-foreground flex justify-between items-center">
+                  <span className="text-black text-sm truncate">
+                    {field.value?.[0]?.name ||
+                      "Resume (below 10MB, PDF file) *"}
+                  </span>
+                  <Upload className="text-gray-600 size-5" />
+                </div>
+                {fieldState.error && (
+                  <p className="text-red-600 text-sm mt-1">
+                    {fieldState.error.message}
+                  </p>
+                )}
+              </div>
+            )}
           />
-
-          <div className="border-2 p-2 rounded-md bg-white text-foreground flex justify-between items-center">
-            <span className="text-black text-sm truncate">
-              {fileName || "Resume (below 10MB, PDF file) *"}
-            </span>
-            <Upload className="text-gray-600 size-5" />
-          </div>
         </div>
 
         {/* Submit button */}

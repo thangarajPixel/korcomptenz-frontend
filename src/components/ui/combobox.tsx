@@ -47,13 +47,16 @@ export function ComboboxField<T extends FieldValues>({
   placeholder = "Select an option...",
   emptyMessage = "No results found.",
   className,
-  errormessage,
 }: ComboboxFieldProps<T>) {
   const [open, setOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState("");
-  const { field } = useController({ control, name });
+  const {
+    field,
+    fieldState: { error },
+  } = useController({ control, name });
+
   const selectedOption = options.find(
-    (opt) => String(opt.value) === String(field?.value?.connect?.[0]?.id)
+    (opt) => String(opt.value) === String(field.value?.connect?.[0]?.id),
   );
 
   // Filter options based on search query
@@ -64,7 +67,7 @@ export function ComboboxField<T extends FieldValues>({
       (option) =>
         option.label.toLowerCase().includes(searchLower) ||
         String(option.value).toLowerCase().includes(searchLower) ||
-        option.state_code?.toLowerCase().includes(searchLower)
+        option.state_code?.toLowerCase().includes(searchLower),
     );
   }, [options, searchQuery]);
 
@@ -77,8 +80,8 @@ export function ComboboxField<T extends FieldValues>({
             role="combobox"
             aria-expanded={open}
             className={cn(
-              "flex items-center justify-between w-full bg-white h-full min-h-10 px-3 text-base text-left",
-              className
+              "flex items-center justify-between w-full bg-white h-10 min-h-10 px-3 text-base text-left",
+              className,
             )}
             onClick={() => setOpen(!open)}
           >
@@ -149,7 +152,7 @@ export function ComboboxField<T extends FieldValues>({
                         "mr-2 h-4 w-4",
                         String(field.value) === String(option.value)
                           ? "opacity-100"
-                          : "opacity-0"
+                          : "opacity-0",
                       )}
                     />
                     {option.label}
@@ -165,8 +168,10 @@ export function ComboboxField<T extends FieldValues>({
           </Command>
         </PopoverContent>
       </Popover>
-      {errormessage && (
-        <p className="mt-1 text-sm text-red-500">{errormessage}</p>
+      {error?.message && (
+        <p className="mt-1 font-sans text-sm text-destructive">
+          {error.message}
+        </p>
       )}
     </div>
   );

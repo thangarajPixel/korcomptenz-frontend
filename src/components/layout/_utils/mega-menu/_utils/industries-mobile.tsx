@@ -106,20 +106,40 @@ const IndustriesMobile = ({
     <>
       <div className="px-0">
         {data?.industriesMenu.map((col) =>
-          col.sections.map((section) => (
-            <button
-              key={`industries-mobile-${section?.id}`}
-              onClick={() => section?.items?.length > 0 && openDrawer(section)}
-              className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
-            >
-              <span className="text-lg text-custom-gray-4 font-normal">
-                {section?.title}
-              </span>
-              {section?.items?.length > 0 && (
-                <Plus className="w-4 h-4 text-primary" />
-              )}
-            </button>
-          ))
+          col.sections.map((section) => {
+            const hasItems = section?.items?.length > 0;
+
+            return (
+              <button
+                key={`industries-mobile-${section?.id}`}
+                type="button"
+                className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
+                onClick={(e) => {
+                  if (hasItems) {
+                    e.preventDefault();
+                    openDrawer(section);
+                  } else {
+                    closeMenu();
+                  }
+                }}
+              >
+                <Link
+                  href={hasItems ? "#" : section?.href?.slug || "#"}
+                  onClick={(e) => {
+                    if (hasItems) {
+                      e.preventDefault(); // stop navigation
+                    }
+                  }}
+                >
+                  <span className="text-lg text-custom-gray-4 font-normal">
+                    {section?.title}
+                  </span>
+                </Link>
+
+                {hasItems && <Plus className="w-4 h-4 text-primary" />}
+              </button>
+            );
+          }),
         )}
       </div>
 
