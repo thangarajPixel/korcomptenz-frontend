@@ -17,7 +17,7 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
                 {title}
               </h3>
               {miniDescription && (
-                <div className="flex flex-row gap-4">
+                <div className="flex md:flex-row md:gap-4">
                   <p className="text-foreground text-md leading-4xl z-10 whitespace-pre-wrap">
                     {miniDescription}
                   </p>
@@ -34,7 +34,7 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
               <div className="flex absolute bottom-0 right-0 justify-end items-end z-10">
                 <KorcomptenzImage
                   className={cn(
-                    `rounded-br-4xl  p-0 h-auto w-54  object-cover`
+                    `rounded-br-4xl  p-0 h-auto w-54  object-cover`,
                   )}
                   width={500}
                   height={500}
@@ -46,15 +46,13 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
           {/*Mobile Button */}
         </div>
         {image && (
-          <div className="relative lg:hidden ">
-            <div className="flex absolute -right-0 -bottom-0 justify-end items-end ">
-              <KorcomptenzImage
-                className="w-full object-cover p-0 h-28"
-                width={500}
-                height={500}
-                src={image}
-              />
-            </div>
+          <div className="relative lg:hidden">
+            <KorcomptenzImage
+              className="absolute right-0 bottom-0 w-40 h-80 object-contain"
+              width={500}
+              height={500}
+              src={image}
+            />
           </div>
         )}
       </div>
