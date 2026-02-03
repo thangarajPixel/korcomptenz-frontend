@@ -31,7 +31,7 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
           <div className="flex flex-wrap justify-center gap-4 w-full">
             {item?.list?.map((value) => (
               <StretchableSectionCard
-                key={`stretchable-section-card-${value?.title?.toLowerCase()}`}
+                key={`stretchable-section-card-${value?.id}`}
                 // open={hoveredCard === value?.title?.toLowerCase()}
                 props={{
                   className:
