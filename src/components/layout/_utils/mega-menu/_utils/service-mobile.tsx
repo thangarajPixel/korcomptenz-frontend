@@ -105,7 +105,7 @@ const ServicesMobile = ({
             onClick={() => handleServiceClick(service)}
             className="w-full flex items-center justify-between p-1 text-left"
           >
-            <span className="text-lg text-custom-gray-4 font-normal">
+            <span className="text-lg text-foreground leading-6.5 font-normal">
               {service?.title}
             </span>
             <Plus className="w-4 h-4 text-primary" />
@@ -115,8 +115,8 @@ const ServicesMobile = ({
 
       {serviceDrawer.isOpen && serviceDrawer?.service && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="fixed inset-0 bg-white">
-            <div className="flex items-center justify-between py-4 bg-white border-b border-primary">
+          <div className="fixed inset-0 bg-[#f2f2f2]">
+            <div className="flex items-center justify-between py-2  bg-[#f2f2f2] border-b border-primary">
               <div className="flex items-center">
                 <button
                   onClick={closeServiceDrawer}
@@ -124,13 +124,13 @@ const ServicesMobile = ({
                 >
                   <ChevronLeft className="w-5 h-5 text-primary" />
                 </button>
-                <h2 className="items-center font-medium text-lg leading-[26px] text-primary">
+                <h4 className="items-center font-medium text-lg leading-[26px] text-primary">
                   {serviceDrawer?.service?.title}
-                </h2>
+                </h4>
               </div>
             </div>
 
-            <div className="h-full overflow-y-auto bg-white">
+            <div className="h-full overflow-y-auto bg-[#f2f2f2] p-4">
               <div className="divide-y divide-gray-100">
                 {serviceDrawer?.service?.items?.map((item, index) => (
                   <div key={index} className="border-b border-primary">
@@ -140,7 +140,10 @@ const ServicesMobile = ({
                       className="w-full block text-left"
                       onClick={closeMenu}
                     >
-                      <div className="text-lg font-normal text-primary py-2 px-4 leading-6.5">
+                      <div
+                        className="text-lg font-normal text-primary py-2 
+                       leading-6.5"
+                      >
                         {item?.title}
                       </div>
                     </Link>
@@ -159,7 +162,7 @@ const ServicesMobile = ({
                                 childItem?.type === "light" &&
                                   "text-custom-gray-4 ps-7 hover:text-primary",
                                 childItem?.type === "dark" &&
-                                  "text-black mb-1 hover:text-primary"
+                                  "text-black mb-1 hover:text-primary",
                               )}
                             >
                               {childItem?.title}
@@ -178,12 +181,12 @@ const ServicesMobile = ({
                                 childItem?.type === "light" &&
                                   "text-custom-gray-4 ps-7 hover:text-primary",
                                 childItem?.type === "dark" &&
-                                  "text-black mb-1 hover:text-primary"
+                                  "text-black mb-1 hover:text-primary",
                               )}
                             >
                               {childItem?.title}
                             </Link>
-                          )
+                          ),
                         )}
                       </div>
                     )}

@@ -14,10 +14,10 @@ const InsightMobile = ({
       {data?.insightMenu?.categories?.map((cat) => (
         <div
           key={cat?.id}
-          className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
+          className="w-full flex items-center justify-between p-2 text-left border-b border-[#E0E0E0]"
         >
           <Link href={cat?.link || "#"} onClick={closeMenu}>
-            <span className="text-lg text-custom-gray-4 font-normal">
+            <span className="text-lg text-foreground leading-6.5 font-normal">
               {cat?.title}
             </span>
           </Link>

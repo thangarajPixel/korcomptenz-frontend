@@ -27,19 +27,19 @@ const AboutDrawer = ({
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
-      <div className="fixed inset-0 bg-black/5">
+      <div className="fixed inset-0 bg-[#f2f2f2]">
         {/* Header */}
-        <div className="flex items-center justify-between py-4 bg-white border-b-2 border-primary">
+        <div className="flex items-center justify-between py-4 bg-[#f2f2f2]border-b-2 border-primary">
           <div className="flex items-center">
             <button
               onClick={onClose}
-              className="p-2 rounded-full hover:bg-gray-50 transition-colors"
+              className="p-2 rounded-full transition-colors"
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
-            <h2 className="text-lg font-normal text-primary">
+            <h4 className="text-lg font-normal text-primary">
               {data?.aboutMenu?.whoWeAre?.title}
-            </h2>
+            </h4>
           </div>
           <button
             onClick={onClose}
@@ -50,7 +50,7 @@ const AboutDrawer = ({
         <span className="block w-full h-[0.5px] bg-primary"></span>
 
         {/* Accordion list */}
-        <div className="h-full bg-white p-4 text-lg text-gray-700">
+        <div className="h-full bg-[#f2f2f2] p-4 text-lg text-gray-700">
           {data?.aboutMenu?.navigationItems?.map((item) => (
             <Link href={item?.link || "#"} key={item?.id} onClick={closeMenu}>
               <div
@@ -59,7 +59,7 @@ const AboutDrawer = ({
               >
                 <button
                   onClick={() => toggleAccordion(item?.id)}
-                  className="w-full flex items-center justify-between py-3 text-lg text-primary"
+                  className="w-full flex pr-3 items-center justify-between py-1 border-b border-primary text-lg text-primary"
                 >
                   <span>{item?.title}</span>
                 </button>
@@ -87,9 +87,9 @@ const AboutMobile = ({
         {/* Who We Are (opens drawer) */}
         <button
           onClick={() => setDrawerOpen(true)}
-          className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
+          className="w-full flex items-center justify-between p-2 text-left border-b border-[#E0E0E0]"
         >
-          <span className="text-lg text-custom-gray-4 font-normal">
+          <span className="text-lg text-foreground leading-6.5 font-normal">
             {data?.aboutMenu?.whoWeAre?.title}
           </span>
           <Plus className="w-4 h-4 text-primary" />
@@ -100,9 +100,9 @@ const AboutMobile = ({
           <Link href={sec?.link || "#"} onClick={closeMenu} key={sec?.id}>
             <div
               key={`about-mobile-${sec?.id}`}
-              className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
+              className="w-full flex items-center justify-between p-2 text-left border-b border-[#E0E0E0]"
             >
-              <span className="text-lg text-custom-gray-4 font-normal">
+              <span className="text-lg text-foreground leading-6.5 font-normal">
                 {sec?.title}
               </span>
             </div>

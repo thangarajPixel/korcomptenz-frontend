@@ -21,7 +21,7 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
                 key={`stretchable-section-card-${value?.id}`}
                 // open={true}
                 props={{
-                  className: "embla__custom_slide",
+                  className: "embla__custom_slide mr-8",
                 }}
                 data={value}
               />

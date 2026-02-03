@@ -40,7 +40,9 @@ export function Navbar({ data }: { data: LayoutType }) {
         onMouseLeave={() => setActiveSection("")}
         className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-500 ease-out bg-white`}
       >
-        <div className={`container-nav h-auto lg:h-[100px] pt-3 pb-3 lg:pb-0 lg:pt-5`}>
+        <div
+          className={`container-nav h-auto lg:h-[100px] pt-3 pb-3 lg:pb-0 lg:pt-5 sm:px-4`}
+        >
           <div
             className={` flex items-center justify-between transition-all duration-500 ease-out "h-16"`}
           >
@@ -72,7 +74,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                       {
                         "after:w-full after:translate-x-0 after:opacity-100 after:visible after:z-10 text-primary":
                           activeSection === item.label,
-                      }
+                      },
                     )}
                     onMouseEnter={() =>
                       setActiveSection(item.hasChild ? item.label : "")
@@ -119,7 +121,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                     }`}
                   />
                   <X
-                    className={`absolute inset-0  transition-all duration-500 ease-out ${
+                    className={`absolute inset-0  transition-all w-8 h-8 -top-2 -right-2 stroke-[2px] duration-500 ease-out ${
                       isMenuOpen
                         ? "opacity-100 rotate-0 scale-100"
                         : "opacity-0 -rotate-180 scale-75"
@@ -158,11 +160,11 @@ export function Navbar({ data }: { data: LayoutType }) {
               : "-translate-y-4 opacity-0"
           }`}
         >
-          <div className="h-full overflow-y-auto">
-            <div className="pb-5 pt-5 space-y-6 ">
+          <div className="h-full overflow-y-auto bg-[#f2f2f2]">
+            <div className="pb-5  space-y-6  ">
               {/* Enhanced Regular mobile nav items */}
               <div
-                className={`space-y-2 border-t border-border transition-all duration-500 ease-out ${
+                className={`space-y-2 border-t border-border transition-all duration-500 ease-out overflow-scroll ${
                   isMenuOpen
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-4"
@@ -177,14 +179,14 @@ export function Navbar({ data }: { data: LayoutType }) {
                         <Link
                           href={item.href || "#"}
                           onClick={() => setIsMenuOpen(false)}
-                          className="w-full block px-3 py-3 text-lg font-medium text-muted-foreground border-b-1 border-primary"
+                          className="w-full block px-3 py-1 text-lg font-medium text-muted-foreground border-b-1 border-primary"
                         >
                           {item.label}
                         </Link>
                       ) : (
                         <button
                           onClick={() => toggleExpand(item.label)}
-                          className={`w-full flex justify-between items-center px-3 py-3 text-lg font-medium ${
+                          className={`w-full flex justify-between items-center mt-3 px-3 py-1 text-lg font-medium ${
                             expandedItem === item.label
                               ? "text-primary"
                               : "text-muted-foreground border-b-1 border-primary"
@@ -208,7 +210,7 @@ export function Navbar({ data }: { data: LayoutType }) {
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="pr-3 pl-3 py-3  rounded-md "
+                            className="pr-3 pl-5 py-3   rounded-md "
                           >
                             {item.label === "Services" && (
                               <ServicesMobile
@@ -249,63 +251,52 @@ export function Navbar({ data }: { data: LayoutType }) {
 
               {/* Enhanced Mobile CTA buttons */}
               <div
-                className={` pt-6 transition-all duration-500 ease-out ${
-                  isMenuOpen
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
-                }`}
+                className={`fixed bottom-0 left-0 w-full z-50 transition-all duration-500 ease-out  bg-[#f2f2f2]
+    ${
+      isMenuOpen
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 translate-y-4 pointer-events-none"
+    }
+  `}
                 style={{ transitionDelay: "400ms" }}
               >
-                <div className="grid gap-5 items-end justify-between pt-4 px-2">
-                  {/* Left side - Career | Contact Us */}
-                  <div className="flex gap-1">
-                    {data?.navItems
-                      ?.filter((item) => item?.isHideMobile)
-                      .map((item, index, arr) => (
-                        <div key={index}>
-                          <Link
-                            href={item.href || "#"}
-                            className="hover:text-primary text-sm transition-colors"
-                          >
-                            {item.label}
-                            {index !== arr.length - 1 && (
-                              <span className="text-gray-400"> |</span>
-                            )}
-                          </Link>
-                        </div>
-                      ))}
-                  </div>
-                  {/* <div className="text-xs text-muted space-x-2">
-                    <Link
-                      href="/career"
-                      className="hover:text-primary transition-colors"
-                    >
-                      Career
-                    </Link>
-                    <span>|</span>
-                    <Link
-                      href="/contact"
-                      className="hover:text-primary transition-colors"
-                    >
-                      Contact Us
-                    </Link>
-                  </div> */}
+                <div className=" border-t">
+                  <div className="flex gap-2 items-end justify-between px-2 py-3">
+                    {/* Left side - Career | Contact Us */}
+                    <div className="flex gap-1">
+                      {data?.navItems
+                        ?.filter((item) => item?.isHideMobile)
+                        .map((item, index, arr) => (
+                          <div key={index}>
+                            <Link
+                              href={item.href || "#"}
+                              className="hover:text-primary text-[14px] transition-colors"
+                            >
+                              {item.label}
+                              {index !== arr.length - 1 && (
+                                <span className="text-gray-400"> |</span>
+                              )}
+                            </Link>
+                          </div>
+                        ))}
+                    </div>
 
-                  {/* Right side - Social icons */}
-                  <div className="flex space-x-6">
-                    {data?.company?.socialPlatforms.map((social) => (
-                      <Link
-                        key={`social-platform-${social.id}`}
-                        href={social?.link || "/"}
-                        className="w-6 h-6 rounded-lg flex items-center justify-center mr-2"
-                      >
-                        <KorcomptenzImage
-                          src={social.icon}
-                          width={1000}
-                          height={1000}
-                        />
-                      </Link>
-                    ))}
+                    {/* Right side - Social icons */}
+                    <div className="flex space-x-2">
+                      {data?.company?.socialPlatforms.map((social) => (
+                        <Link
+                          key={`social-platform-${social.id}`}
+                          href={social?.link || "/"}
+                          className="w-6 h-6 rounded-lg flex items-center justify-center"
+                        >
+                          <KorcomptenzImage
+                            src={social.icon}
+                            width={1000}
+                            height={1000}
+                          />
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

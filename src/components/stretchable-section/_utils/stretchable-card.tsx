@@ -32,7 +32,7 @@ const StretchableSectionCard = ({
       {/* Overlay to reduce background image opacity */}
       <div className="absolute inset-0 bg-light-gray/80 z-0"></div>
 
-      <div className="pl-8 py-8 lg:pl-10 lg:py-10 flex flex-col gap-3 flex-1 pr-8 relative z-10">
+      <div className="pl-8 py-8 lg:pl-10 lg:py-10 flex flex-col gap-3 flex-1 pr-8 relative z-10 ">
         <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
           {data?.title}
         </h3>

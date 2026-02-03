@@ -27,7 +27,7 @@ const IndustryDrawer = ({
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
       <div className="fixed inset-0 bg-black/5">
-        <div className="flex items-center justify-between py-4 bg-white border-b-2 border-primary">
+        <div className="flex items-center justify-between py-2 bg-[#f2f2f2] border-b-1 border-primary">
           <div className="flex items-center">
             <button
               onClick={onClose}
@@ -36,9 +36,9 @@ const IndustryDrawer = ({
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
             <Link href={industry?.href?.slug || "#"} onClick={closeMenu}>
-              <h2 className="text-lg font-normal text-primary">
+              <h4 className="text-lg font-normal text-primary">
                 {industry?.title}
-              </h2>
+              </h4>
             </Link>
           </div>
           <button
@@ -50,8 +50,8 @@ const IndustryDrawer = ({
         </div>
         <span className="block w-full h-[0.5px] bg-primary"></span>
 
-        <div className="h-full overflow-y-auto bg-white">
-          <div className="divide-y divide-gray-100">
+        <div className="h-full overflow-y-auto bg-[#f2f2f2] ">
+          <div className="divide-y divide-gray-100 p-4">
             {industry?.items?.length > 0 ? (
               industry?.items?.map((item, index) => (
                 <Link
@@ -63,7 +63,7 @@ const IndustryDrawer = ({
                 >
                   <div
                     key={`industries-mobile-${index}`}
-                    className="py-3 px-4 text-lg text-primary border-b border-primary"
+                    className="py-1  text-lg text-primary border-b border-primary  "
                   >
                     {item?.title}
                   </div>
@@ -113,7 +113,7 @@ const IndustriesMobile = ({
               <button
                 key={`industries-mobile-${section?.id}`}
                 type="button"
-                className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
+                className="w-full flex items-center justify-between p-2 text-left border-b border-[#E0E0E0]"
                 onClick={(e) => {
                   if (hasItems) {
                     e.preventDefault();
@@ -131,7 +131,7 @@ const IndustriesMobile = ({
                     }
                   }}
                 >
-                  <span className="text-lg text-custom-gray-4 font-normal">
+                  <span className="text-lg text-foreground leading-6.5 font-normal">
                     {section?.title}
                   </span>
                 </Link>

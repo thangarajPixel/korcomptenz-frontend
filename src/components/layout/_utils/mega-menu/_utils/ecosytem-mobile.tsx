@@ -33,9 +33,9 @@ const EcosystemDrawer = ({
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
-      <div className="fixed inset-0 bg-white">
+      <div className="fixed inset-0 bg-[#f2f2f2]">
         {/* Header */}
-        <div className="flex items-center justify-between py-4 bg-white border-b border-primary">
+        <div className="flex items-center justify-between py-2  bg-[#f2f2f2] border-b border-primary">
           <div className="flex items-center">
             <button
               onClick={onClose}
@@ -44,7 +44,7 @@ const EcosystemDrawer = ({
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
             <Link href={menu?.item?.link || "#"} onClick={closeMenu}>
-              <h2 className="font-medium text-lg text-primary">{menu?.menu}</h2>
+              <h4 className="font-medium text-lg text-primary">{menu?.menu}</h4>
             </Link>
           </div>
           <button
@@ -56,13 +56,13 @@ const EcosystemDrawer = ({
         </div>
 
         {/* Content */}
-        <div className="h-full overflow-y-auto bg-white">
+        <div className="h-full overflow-y-auto  bg-[#f2f2f2]">
           {item && (
-            <div className="p-4 space-y-4">
+            <div className="p-4 ">
               {item?.child?.map((child, i) => (
                 <div
                   key={`ecosystem-mobile-${i}`}
-                  className="px-2 py-3 border-b border-gray-100"
+                  className="px-2 py-1 border-b border-gray-100"
                 >
                   <Link href={child?.href?.slug || "#"} onClick={closeMenu}>
                     <p className="text-lg font-medium text-primary border-b border-primary">
@@ -123,9 +123,9 @@ const EcosystemMobile = ({
           <button
             key={`ecosystem-mobile-${ec?.id}`}
             onClick={() => handleMenuClick(ec)}
-            className="w-full flex items-center justify-between p-2 text-left border-b border-gray-100"
+            className="w-full flex items-center justify-between p-2 text-left border-b border-[#E0E0E0]"
           >
-            <span className="text-lg text-custom-gray-4 font-normal">
+            <span className="text-lg text-foreground leading-6.5 font-normal">
               {ec?.menu}
             </span>
             <Plus className="w-4 h-4 text-primary" />

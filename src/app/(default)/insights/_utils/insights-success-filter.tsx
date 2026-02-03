@@ -90,7 +90,7 @@ export function InsightsSuccessFilter({
         return filterData;
       });
     },
-    []
+    [],
   );
 
   const handleResetFilter = () => {
@@ -118,9 +118,12 @@ export function InsightsSuccessFilter({
                 label={label.label}
                 count={filter?.[label?.filterKey as FilterType]?.length ?? 0}
               />
-              <DropdownMenuContent className="overflow-y-auto dropdown-items" align="start">
+              <DropdownMenuContent
+                className="overflow-y-auto dropdown-items"
+                align="start"
+              >
                 <div className="p-4">
-                  <div className="grid grid-cols-4 gap-3">
+                  <div className="grid grid-cols-4 md:grid-cols-4 gap-3">
                     {data?.filterData?.[label.filterKey as FilterType]?.map(
                       (item) => (
                         <label
@@ -135,14 +138,14 @@ export function InsightsSuccessFilter({
                               handleFilterChange(
                                 label.filterKey as FilterType,
                                 item.id,
-                                checked as boolean
+                                checked as boolean,
                               )
                             }
                           />
 
                           <span className="text-lg truncate">{item.label}</span>
                         </label>
-                      )
+                      ),
                     )}
                   </div>
                 </div>
