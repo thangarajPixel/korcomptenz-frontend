@@ -48,7 +48,7 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
         {image && (
           <div className="relative lg:hidden">
             <KorcomptenzImage
-              className="absolute right-0 bottom-0 w-40 h-80 object-contain"
+              className="absolute right-0 -bottom-20 w-50 h-100 object-cover object-contain"
               width={500}
               height={500}
               src={image}
