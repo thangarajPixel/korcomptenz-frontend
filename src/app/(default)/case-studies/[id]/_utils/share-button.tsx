@@ -24,8 +24,8 @@ const defaultSocialLinks: SocialLink[] = [
     id: "instragram",
     name: "Instragram",
     buildUrl: (pageUrl: string) =>
-      `https://www.linkedin.com/uas/login?session_redirect=${encodeURIComponent(
-        pageUrl
+      `https://www.instagram.com/accounts/login/?session_redirect=${encodeURIComponent(
+        pageUrl,
       )}`,
     icon: InstragramIcon,
   },
@@ -42,7 +42,7 @@ const defaultSocialLinks: SocialLink[] = [
     name: "LinkedIn",
     buildUrl: (pageUrl: string) =>
       `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
-        pageUrl
+        pageUrl,
       )}`,
     icon: LinkedInIcon,
   },
@@ -58,7 +58,7 @@ const defaultSocialLinks: SocialLink[] = [
     name: "Facebook",
     buildUrl: (pageUrl: string) =>
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-        pageUrl
+        pageUrl,
       )}`,
     icon: FacebookIcon,
   },
@@ -93,7 +93,7 @@ export function ShareButton() {
       {/* Social Menu */}
       {isOpen && (
         <>
-          <div className="absolute top-full mt-3 left-0 p-3 z-50 min-w-max">
+          <div className="absolute top-full mt-3 -left-5 md:left-0 p-3 z-50 min-w-max">
             <div className="flex gap-3">
               {defaultSocialLinks.map((link) => (
                 <Link

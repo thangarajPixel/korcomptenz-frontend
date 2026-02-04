@@ -35,29 +35,34 @@ const ServiceProvider = ({
         {data?.thirdSection?.list.map((item, index) => (
           <div
             key={index}
-            className={` border border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow  bg-[#b7dfc652]
+            className={`
+        col-span-1
+        md:col-span-1
+        border border-border rounded-lg p-6
+        shadow-sm hover:shadow-md transition-shadow
         ${getColSpan(index, data?.thirdSection?.list?.length)}
-        ${isCustom ? "bg-card" : "bg-[#b7dfc652] "}
-        `}
+        ${isCustom ? "bg-card" : "bg-[#b7dfc652]"}
+      `}
           >
             <DangerousHtml
               html={item?.title}
-              className="text-xl font-semibold text-black mb-3"
+              className="text-lg sm:text-xl font-semibold text-black mb-3 break-words"
             />
 
             <DangerousHtml
               html={item?.description}
-              className="text-black leading-relaxed"
+              className="text-lg sm:text-md text-black leading-7.5 break-words"
             />
           </div>
         ))}
+
         {data?.button?.text && (
-          <div className="col-span-6 flex items-center justify-center">
+          <div className="col-span-1 md:col-span-2 lg:col-span-6 flex items-center justify-center">
             <ButtonLink
               link={data?.button?.link || "#"}
               buttonProps={{
                 arrow: true,
-                className: "hover:bg-transparent ",
+                className: "hover:bg-transparent",
                 size: "xl",
               }}
             >

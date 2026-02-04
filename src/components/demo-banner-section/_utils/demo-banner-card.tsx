@@ -116,7 +116,7 @@ const DemoBannerCard = ({
           </div>
         </div>
       )}
-      <div className="lg:hidden container-md flex flex-col gap-6 p-6 md:p-8">
+      <div className="lg:hidden container-md flex flex-col gap-6 p-2 md:p-8">
         {data?.logoMobile ? (
           <KorcomptenzImage
             src={data.logoMobile}

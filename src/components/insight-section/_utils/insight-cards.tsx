@@ -64,7 +64,7 @@ export function InsightCard(props: InsightCardType) {
           {title}
         </h3>
         {description && (
-          <p className="mt-4 left-0 top-0 max-w-fit text-start  lg:text-3xl text-xl leading-6.75  font-normal   line-clamp-3">
+          <p className="mt-3 left-0 top-0 max-w-fit text-start  md:text-lg text-md leading-6.75  font-normal   line-clamp-3">
             {description}
           </p>
         )}

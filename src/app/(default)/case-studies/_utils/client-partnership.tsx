@@ -19,8 +19,8 @@ export default function ClientPartnership({
         className={cn(
           "grid gap-x-8 gap-y-6",
           data?.isPerRowFive
-            ? "grid-cols-2  md:grid-cols-5"
-            : "grid-cols-2  md:grid-cols-3",
+            ? "grid-cols-1  md:grid-cols-5"
+            : "grid-cols-1  md:grid-cols-3",
         )}
       >
         {data?.partner?.map((badge) => (

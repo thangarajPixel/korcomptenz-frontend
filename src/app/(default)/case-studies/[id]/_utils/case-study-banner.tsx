@@ -15,12 +15,12 @@ export function CaseStudyBanner({
 
   return (
     <section
-      className="container-md rounded-2xl overflow-hidden py-12 "
+      className="container-md rounded-2xl overflow-hidden py-6 md:py-12 "
       aria-label="Case Study Banner"
     >
       <div className="flex flex-col md:flex-row  ">
         {/* Left Content */}
-        <div className="bg-[#C7D7CA] flex-1 p-2 md:p-12 flex flex-col  rounded-t-4xl md:rounded-l-4xl md:rounded-none">
+        <div className="bg-[#C7D7CA] flex-1 p-5 md:p-12 flex flex-col  rounded-t-4xl md:rounded-l-4xl md:rounded-none">
           <p className="text-xl font-semibold text-foreground mt-4">
             {essential?.study} {title || data?.study}
           </p>

@@ -78,7 +78,7 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                   }
 
                   return rows.map((row, rowIndex) => (
-                    <div key={`row-${rowIndex}`} className="mb-6 last:mb-0">
+                    <div key={`row-${rowIndex}`} className=" last:mb-0">
                       <div
                         className={`grid ${
                           row.length === 1 ? "grid-cols-1" : "grid-cols-2"

@@ -52,7 +52,7 @@ export default function BlogAuthor({
 
         {/* RIGHT — AI SECTION */}
         {/* RIGHT — AI SECTION */}
-        <div className="flex flex-col items-start md:mt-0 -mt-5  w-full md:w-auto">
+        <div className="flex flex-col items-start md:mt-0 -mt-2  w-full md:w-auto">
           {/* TEXT */}
           <p
             className="

@@ -129,7 +129,7 @@ export default function NewsEventListSection({
         </div>
       )}
       {/* Right Content Area */}
-      <div ref={contentRef} className="flex-1 overflow-y-auto pl-4">
+      <div ref={contentRef} className="flex-1 overflow-y-auto md:pl-4">
         {/* Content Sections */}
         {data?.[0]?.isEvent ? (
           groupByYear(data)
