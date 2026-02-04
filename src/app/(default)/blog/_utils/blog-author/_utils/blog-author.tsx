@@ -23,45 +23,41 @@ export default function BlogAuthor({
   const encodedPrompt = encodeURIComponent(prompt);
 
   return (
-    <section className="container-md  px-4 md:px-10">
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+    <section className="container-md  px-4 md:px-10 -mt-4">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between md:gap-6 md:mb-6">
         {/* LEFT — AUTHOR INFO */}
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-4 flex-1 text-center md:text-left">
-          <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-pink-400 to-orange-400">
-            <KorcomptenzImage src={data?.image} fill className="object-cover" />
-          </div>
+        <div className="flex  flex-row md:items-center gap-4 flex-1  justify-between ">
+          <div className="flex gap-2 text-left items-start">
+            <div className="relative w-12 h-12 md:h-24 md:w-24 flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-pink-400 to-orange-400">
+              <KorcomptenzImage
+                src={data?.image}
+                fill
+                className="object-cover"
+              />
+            </div>
 
-          <div className="pt-1">
-            <h2 className="text-4xl font-semibold text-foreground">
-              {data?.name}
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              {dayjs(data?.publishedAt).format("DD MMM YYYY")}
-            </p>
+            <div className="md:pt-5">
+              <h4 className="text-3xl md:text-5xl font-semibold text-foreground">
+                {data?.name}
+              </h4>
+              <p className="text:sm md:text-lg text-muted-foreground">
+                {dayjs(data?.publishedAt).format("DD MMM YYYY")}
+              </p>
+            </div>
+          </div>
+          <div className="flex md:hidden mt-4">
+            <ShareButton data={essential?.blogSocialPlatform} />
           </div>
         </div>
 
         {/* RIGHT — AI SECTION */}
         {/* RIGHT — AI SECTION */}
-        <div
-          className="
-  flex flex-col 
-  md:items-start 
-  gap-3 
-  mt-4 md:mt-0 
-  w-full md:w-auto
-"
-        >
-          {/* MOBILE: Share button first */}
-          <div className="flex md:hidden justify-center mb-10">
-            <ShareButton data={essential?.blogSocialPlatform} />
-          </div>
-
+        <div className="flex flex-col items-start md:mt-0 -mt-5  w-full md:w-auto">
           {/* TEXT */}
           <p
             className="
     text-3xl text-black 
-    text-center md:text-left font-medium
+    text-left font-medium
   "
           >
             Use AI to summarize this article

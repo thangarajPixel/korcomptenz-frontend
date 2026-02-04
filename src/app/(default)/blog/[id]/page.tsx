@@ -31,7 +31,7 @@ const Page = async ({ params }: Props) => {
   ]);
 
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-10">
       <BlogBannerSection
         BannerSectionData={data?.insight}
         tableTitle={pageLayout?.tableTitle}

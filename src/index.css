@@ -471,6 +471,9 @@ h6.elementor-heading-title,
   font-size: 1.125rem;
   line-height: 1.667;
   color: #374151;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* All headings with minimal spacing */

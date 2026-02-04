@@ -68,9 +68,9 @@ export default function DocumentationLayout({
       <div className="flex gap-10">
         <aside className="hidden md:block w-[280px]">
           <div className="relative bg-[#E2EBE4] border border-[#4999C2] shadow-md rounded-lg p-6 bg-no-repeat">
-            <h2 className="font-bold text-lg text-gray-900 mb-6">
+            <h4 className="font-bold text-[24px] text-gray-900 mb-6">
               Table of Contents
-            </h2>
+            </h4>
 
             <ul className="space-y-3 text-md text-gray-800">
               {h2Array.map((item, index) => (
