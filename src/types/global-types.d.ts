@@ -28,6 +28,7 @@ type GlobalFieldType = {
   buttonText?: string;
   logo?: ImageType;
   description?: string;
+  isTarget?: boolean;
   image?: ImageType;
   link?: string;
   mobile_image?: ImageType;

@@ -53,6 +53,7 @@ const BannerCard = ({
                 {data?.buttonText && (
                   <ButtonLink
                     link={data?.link || "#"}
+                    isTargetNew={data?.isTarget ? true : false}
                     buttonProps={{
                       arrow: true,
                       className: "hover:bg-transparent ",
@@ -104,6 +105,7 @@ const BannerCard = ({
                 {data?.buttonText && (
                   <ButtonLink
                     link={data?.link || "#"}
+                    isTargetNew={data?.isTarget ? true : false}
                     buttonProps={{
                       arrow: true,
                       className: "varient:default",
@@ -295,6 +297,7 @@ const BannerCard = ({
           {data?.buttonText && (
             <ButtonLink
               link={data?.link || "#"}
+              isTargetNew={data?.isTarget ? true : false}
               buttonProps={{
                 arrow: true,
                 size: "xl",

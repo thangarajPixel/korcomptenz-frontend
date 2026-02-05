@@ -37,7 +37,12 @@ const BuildConnect = ({
             buildData?.isSwap && "mt-3",
           )}
         >
-          <div className={cn("space-y-3 w-full lg:w-auto", buildData?.isSwap && "order-2")}>
+          <div
+            className={cn(
+              "space-y-3 w-full lg:w-auto",
+              buildData?.isSwap && "order-2",
+            )}
+          >
             {!buildData?.isSwap && (
               <h2 className="text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-12">
                 {buildData?.title}
@@ -52,7 +57,7 @@ const BuildConnect = ({
             {buildData?.descriptionButtonText && (
               <ButtonLink
                 link={buildData?.descriptionButtonLink || "#"}
-                isTargetNew={buildData?.isTargetBlankDescription}
+                isTargetNew={buildData?.isTargetBlankDescription ? true : false}
                 buttonProps={{
                   size: "xl",
                   arrow: true,

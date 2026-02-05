@@ -16,6 +16,7 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
     buttonText,
     logo,
     secondaryDescription,
+    isTarget,
     position = "corner",
   } = data;
   const [isVideoOpen, setIsVideoOpen] = React.useState<{
@@ -95,7 +96,10 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
                 {buttonText}
               </Button>
             ) : (
-              <Link href={data?.link || "#"}>
+              <Link
+                href={data?.link || "#"}
+                target={isTarget ? "_blank" : "_self"}
+              >
                 <Button size="xl" arrow>
                   {buttonText}
                 </Button>

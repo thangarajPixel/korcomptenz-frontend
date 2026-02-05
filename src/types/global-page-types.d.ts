@@ -41,6 +41,7 @@ type DigitialServicesSectionType = {
     description: string;
     image?: ImageType;
     link: string;
+    isTarget?: boolean;
     buttonText: string;
   }[];
 };
@@ -194,6 +195,7 @@ type BannerSectionType = {
   imageMobile: ImageType;
   isListPage: boolean;
   isHasFooter: boolean;
+  isTarget: boolean;
   image: ImageType;
   alt: string;
   logo?: ImageType;

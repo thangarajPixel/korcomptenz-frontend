@@ -122,7 +122,10 @@ export function DigitialCardSlider({
                   className=" text-pretty text-lg leading-7 text-custom-gray"
                 />
                 {activeContent?.buttonText && (
-                  <Link href={activeContent?.link || "#"}>
+                  <Link
+                    href={activeContent?.link || "#"}
+                    target={activeContent?.isTarget ? "_blank" : "_self"}
+                  >
                     <Button size="xl" arrow>
                       {activeContent?.buttonText}
                     </Button>
