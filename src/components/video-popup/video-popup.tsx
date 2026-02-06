@@ -31,8 +31,27 @@ function isVimeoUrl(url: string): boolean {
 }
 
 function getVimeoEmbedUrl(url: string): string {
-  const videoId = url.split("/").pop();
-  return videoId ? `https://player.vimeo.com/video/${videoId}?autoplay=1` : url;
+  // Handle various Vimeo URL formats:
+  // - https://vimeo.com/VIDEO_ID
+  // - https://vimeo.com/VIDEO_ID/HASH
+  // - https://player.vimeo.com/video/VIDEO_ID
+
+  // Match: vimeo.com/687885385/88d82b13d5
+  const matchWithHash = url.match(/vimeo\.com\/(\d+)\/([a-zA-Z0-9]+)/);
+  if (matchWithHash) {
+    const [, videoId, hash] = matchWithHash;
+    return `https://player.vimeo.com/video/${videoId}?h=${hash}&autoplay=1`;
+  }
+
+  // Match: vimeo.com/673222899 or player.vimeo.com/video/673222899
+  const matchSimple = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if (matchSimple) {
+    const videoId = matchSimple[1];
+    return `https://player.vimeo.com/video/${videoId}?autoplay=1`;
+  }
+
+  // Fallback to original URL if no match
+  return url;
 }
 
 /* ================= COMPONENT ================= */
