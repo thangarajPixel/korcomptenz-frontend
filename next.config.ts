@@ -1107,6 +1107,114 @@ const nextConfig: NextConfig = {
         "https://www.korcomptenz.com/ebook/ebook-for-banking-and-financial-services-leaders.pdf",
       permanent: true,
     },
+    {
+      source: "/case-studies/transforming-operations-trailer-chassis-leasing",
+      destination:
+        "https://www.korcomptenz.com/case-studies/mobile-application-case-studies",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/edi-upgrade-global-grill-manufacturer",
+      destination:
+        "https://www.korcomptenz.com/case-studies/edi-transformation-for-manufacturer-case-study",
+      permanent: true,
+    },
+    {
+      source:
+        "/case-studies/nav-to-d365-business-central-cloud-construction-giant",
+      destination:
+        "https://www.korcomptenz.com/case-studies/erp-migration-construction-dynamics365-case-study",
+      permanent: true,
+    },
+    {
+      source:
+        "/case-studies/leading-phonotics-manufacturer-acheived-seamless-reporting-with-ms-fabric",
+      destination:
+        "https://www.korcomptenz.com/case-studies/ai-analytics-reporting-photonics-case-study",
+      permanent: true,
+    },
+    {
+      source:
+        "/case-studies/design-thinking-to-reimagine-a-mission-critical-custom-application",
+      destination:
+        "https://www.korcomptenz.com/case-studies/cloud-claims-management-manufacturing-case-study",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/rescuing-salesforce-expansion-automation",
+      destination: "https://www.korcomptenz.com/",
+      permanent: true,
+    },
+    {
+      source:
+        "/case-studies/integration-of-two-salesforce-organizations-to-improve-operational-excellence-and-customer-service",
+      destination:
+        "https://www.korcomptenz.com/case-studies/salesforce-healthcare-data-unification-case-study",
+      permanent: true,
+    },
+    {
+      source:
+        "/case-studies/greater-roi-with-lower-tco-by-migrating-to-microsoft-azure",
+      destination:
+        "https://www.korcomptenz.com/case-studies/erp-cloud-migration-waste-management-case-study",
+      permanent: true,
+    },
+    {
+      source:
+        "/case-studies/healthcare-app-that-tracks-wellness-and-fitness-activities",
+      destination:
+        "https://www.korcomptenz.com/case-studies/healthcare-wellness-app-case-study",
+      permanent: true,
+    },
+    {
+      source:
+        "/case-studies/automating-manual-processes-with-a-dynamics-erp-implementation-to-boost-operational-performance",
+      destination:
+        "https://www.korcomptenz.com/case-studies/orthopedic-erp-implementation-case-study",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/power-apps-for-human-resources-management",
+      destination:
+        "https://www.korcomptenz.com/case-studies/hr-power-apps-transformation-case-study",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/improve-customer-experience-with-field-service",
+      destination:
+        "https://www.korcomptenz.com/case-studies/water-services-dynamics-365-transformation-case-study",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/korcomptenz-power-apps-portal-case-study",
+      destination:
+        "https://www.korcomptenz.com/case-studies/cold-chain-case-management-portal-case-study",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/salesforce-solutions-case-study",
+      destination:
+        "https://www.korcomptenz.com/case-studies/salesforce-optimization-disease-management-case-study",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/quality-control-management",
+      destination:
+        "https://www.korcomptenz.com/case-studies/erp-quality-automation-logistics-case-study",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/retail-digital-transformation-case-study",
+      destination:
+        "https://www.korcomptenz.com/case-studies/retail-crm-erp-unification-dynamics-365-case-study",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/sports-fitness-center-salesforce-case-study",
+      destination:
+        "https://www.korcomptenz.com/case-studies/salesforce-crm-optimization-sports-wellness-case-study",
+      permanent: true,
+    },
   ],
 };
 

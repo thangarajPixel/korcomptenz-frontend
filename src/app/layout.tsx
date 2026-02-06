@@ -90,6 +90,27 @@ export default function RootLayout({
         />
         {/* End HubSpot Embed Code */}
 
+        {/* <!-- Mirabel's Marketing Manager Tracking Code Start --> */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `!function () {
+        var e, t;
+        e = document.createElement("script");
+        e.type = "text/javascript";
+        e.async = true;
+        e.defer = true;
+        e.src = "https://mkmpages.korcomptenz.com/6666?isnew=1&pdn=mkmpages.korcomptenz.com&v=" 
+          + String((new Date).getMonth() + 1)
+          + String((new Date).getFullYear())
+          + String(Math.round(parseInt((new Date).getDate() / 7), 0) + 1)
+          + "&encsid=uztEfD4WCXU,&enccid=p8gDO8NUS7Y,&wsid=Njg4&dHJhY2tpbmdVcmw=2PtuCvDuCGT5LwTmxa5wjl35YCAFpwehX6VzxWewIgs,";
+        t = document.getElementsByTagName("body")[0];
+        t.appendChild(e);
+      }();`,
+          }}
+        />
+        {/* <!-- Mirabel's Marketing Manager Tracking Code End --> */}
         <link rel="icon" href="/assets/logo.png" sizes="any" />
       </head>
       <body className={`${outfitSans.variable} antialiased`}>
