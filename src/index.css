@@ -773,9 +773,9 @@ ul.key_list li::before {
 .load-wrap img {
   width: 100px;
   height: 100px;
-  /* animation: rotateSide 1s linear infinite; */
-  /* transform-origin: center;
-  transform-style: preserve-3d; */
+  animation: rotateSide 1s linear infinite;
+  transform-origin: center;
+  transform-style: preserve-3d;
 }
 
 @keyframes rotateSide {

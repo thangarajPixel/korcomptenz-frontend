@@ -103,6 +103,7 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+
         <BreadcrumbSchema />
         <Providers>{children}</Providers>
       </body>
