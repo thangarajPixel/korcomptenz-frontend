@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit } from 'next/font/google'
+import { Outfit } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
 import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
@@ -11,11 +11,10 @@ const outfitSans = Outfit({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: {
     default: "korcomptenz",
-    template: ''
+    template: "",
   },
   description: "korcomptenz-frontend",
 };
@@ -35,7 +34,7 @@ export default function RootLayout({
           }}
         />
         {/* End Google Tag Manager */}
-        
+
         {/* Schema.org Structured Data */}
         <script
           type="application/ld+json"
@@ -45,46 +44,55 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Organization",
-                  "name": "Korcomptenz",
-                  "url": "https://www.korcomptenz.com/",
-                  "logo": "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_b4df11a39a.svg",
-                  "description": "Digitize businesses with Korcomptenz IT services to unlock new growth opportunities, maximize ROI and deliver superior customer experiences.",
-                  "telephone": "+1-973-601-8770",
-                  "email": "sales@korcomptenz.com",
-                  "address": {
+                  name: "Korcomptenz",
+                  url: "https://www.korcomptenz.com/",
+                  logo: "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_b4df11a39a.svg",
+                  description:
+                    "Digitize businesses with Korcomptenz IT services to unlock new growth opportunities, maximize ROI and deliver superior customer experiences.",
+                  telephone: "+1-973-601-8770",
+                  email: "sales@korcomptenz.com",
+                  address: {
                     "@type": "PostalAddress",
-                    "streetAddress": "35 Waterview Blvd Suite 207",
-                    "addressLocality": "Parsippany",
-                    "addressRegion": "New Jersey",
-                    "postalCode": "07054",
-                    "addressCountry": "US"
+                    streetAddress: "35 Waterview Blvd Suite 207",
+                    addressLocality: "Parsippany",
+                    addressRegion: "New Jersey",
+                    postalCode: "07054",
+                    addressCountry: "US",
                   },
-                  "sameAs": [
+                  sameAs: [
                     "https://www.linkedin.com/company/korcomptenz/",
                     "https://www.facebook.com/Korcomptenz/",
-                    "https://x.com/korcomptenz"
-                  ]
+                    "https://x.com/korcomptenz",
+                  ],
                 },
                 {
                   "@type": "WebSite",
-                  "url": "https://www.korcomptenz.com/",
-                  "name": "Korcomptenz",
-                  "publisher": {
+                  url: "https://www.korcomptenz.com/",
+                  name: "Korcomptenz",
+                  publisher: {
                     "@type": "Organization",
-                    "name": "Korcomptenz"
-                  }
-                }
-              ]
-            })
+                    name: "Korcomptenz",
+                  },
+                },
+              ],
+            }),
           }}
         />
         {/* End Schema.org Structured Data */}
-        
+
+        {/* HubSpot Embed Code */}
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js.hs-scripts.com/7991245.js"
+        />
+        {/* End HubSpot Embed Code */}
+
         <link rel="icon" href="/assets/logo.png" sizes="any" />
       </head>
-      <body
-        className={`${outfitSans.variable} antialiased`}
-      >
+      <body className={`${outfitSans.variable} antialiased`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -96,9 +104,7 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         <BreadcrumbSchema />
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
