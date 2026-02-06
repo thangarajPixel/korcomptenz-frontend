@@ -28,6 +28,7 @@ const BannerCard = ({
           <KorcomptenzImage
             src={data?.image}
             fill
+            loading="eager"
             className="w-full h-full object-cover object-right  "
           />
           <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-[5]  " />

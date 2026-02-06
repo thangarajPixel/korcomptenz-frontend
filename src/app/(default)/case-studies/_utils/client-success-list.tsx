@@ -111,7 +111,7 @@ const ClientSuccessList = ({
         handleFilterChange={handleFilterChange}
         onSearch={handleSearch}
       />
-      <div className="container-lg">
+      <div className="container-md md:container-lg">
         <ClientSuccessFilter
           filterLabel={filterLabel}
           popularFilter={popularFilter}

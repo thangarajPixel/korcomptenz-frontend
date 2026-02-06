@@ -769,3 +769,23 @@ ul.key_list li::before {
     }
   }
 }
+.load-wrap {
+  perspective: 800px; /* REQUIRED for side effect */
+}
+
+.load-wrap img {
+  width: 100px;
+  height: 100px;
+  animation: rotateSide 1s linear infinite;
+  transform-origin: center;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotateSide {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}

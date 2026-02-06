@@ -1,6 +1,7 @@
 import React, { cache } from "react";
 import StatusCarousel from "../_utils/status-slider";
 import { getBlogPage } from "@/services";
+import NotFound from "@/components/not-found";
 type Props = {
   params: Promise<{ id: string }>;
 };
@@ -22,7 +23,7 @@ const Page = async ({ params }: Props) => {
   const data = await getBlogPageCache({ id });
 
   let compileArray = data?.webStories;
-  compileArray.unshift({
+  compileArray?.unshift({
     id: 0,
     title: data?.title,
     description: "",
@@ -32,7 +33,17 @@ const Page = async ({ params }: Props) => {
     buttonLink: "",
   });
 
-  return <StatusCarousel carouselData={compileArray} />;
+  return (
+    <>
+      {data?.seo?.title === "not-found" ? (
+        <div className="pb-10 md:pb-24">
+          <NotFound data={data?.list?.[0]} />
+        </div>
+      ) : (
+        <StatusCarousel carouselData={compileArray} />
+      )}
+    </>
+  );
 };
 
 export default Page;
