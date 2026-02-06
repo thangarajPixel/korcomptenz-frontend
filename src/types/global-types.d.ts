@@ -267,6 +267,7 @@ type CaseStudyTestimonial = {
 type CaseStudyData = {
   id: string;
   documentId: string;
+  list: NotFoundType[];
   isLinkOnly: boolean;
   isAttachment: boolean;
   title: string;
@@ -565,6 +566,7 @@ type InsightResponse = {
     name: string;
   };
   title: string;
+  list: NotFoundType[];
   seo: SEO;
   insight: InsightItem;
   content: string;

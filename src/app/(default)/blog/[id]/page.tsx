@@ -7,6 +7,8 @@ import BlogContentShowcase from "../_utils/content-showcase";
 import { GlobalForm } from "@/components/global-form";
 import FaqSection from "@/components/faq-section";
 
+import NotFound from "@/components/not-found";
+
 type Props = {
   params: Promise<{ id: string }>;
 };
@@ -31,27 +33,35 @@ const Page = async ({ params }: Props) => {
   ]);
 
   return (
-    <div className="flex flex-col gap-16">
-      <BlogBannerSection
-        BannerSectionData={data?.insight}
-        tableTitle={pageLayout?.tableTitle}
-      />
-      <BlogAuthor data={data?.insight?.author} essential={pageLayout} />
-      <DocumentationLayout data={data} essential={pageLayout} />
-      <FaqSection faqData={data?.insight?.blog?.faq} />
-      <GlobalForm
-        form={pageLayout?.form}
-        essential={{
-          id: data?.insight?.id,
-          documentId: data?.insight?.documentId,
-        }}
-      />
+    <>
+      {data?.seo?.title === "not-found" ? (
+        <div className="pb-10 md:pb-24">
+          <NotFound data={data?.list?.[0]} />
+        </div>
+      ) : (
+        <div className="flex flex-col gap-16">
+          <BlogBannerSection
+            BannerSectionData={data?.insight}
+            tableTitle={pageLayout?.tableTitle}
+          />
+          <BlogAuthor data={data?.insight?.author} essential={pageLayout} />
+          <DocumentationLayout data={data} essential={pageLayout} />
+          <FaqSection faqData={data?.insight?.blog?.faq} />
+          <GlobalForm
+            form={pageLayout?.form}
+            essential={{
+              id: data?.insight?.id,
+              documentId: data?.insight?.documentId,
+            }}
+          />
 
-      <BlogContentShowcase
-        data={data?.relatedInsight}
-        relatedCase={pageLayout?.relatedCase}
-      />
-    </div>
+          <BlogContentShowcase
+            data={data?.relatedInsight}
+            relatedCase={pageLayout?.relatedCase}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
