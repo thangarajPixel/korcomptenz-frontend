@@ -76,6 +76,9 @@ import DigitialAnalytics from "../digitial-analytics/digitial-analytics";
 import { DigitialLifeCycle } from "../digitial-life-cycle";
 import DigitialInsightSlider from "../dark-slider copy";
 import CombinedAboutCardSlider from "../digitial-combined/digitial-combined";
+import OperationalRoadblock from "../smartforge-operational-Roadblock";
+import SmartForgeEnterprises from "../smartforge-enterprises";
+import SmartForgeBuild from "../smartforge-build";
 
 type Props = {
   data: ComponentPropsType[];
@@ -849,6 +852,33 @@ const GlobalPage = (props: Props) => {
             key={`combined-about-card-slider-${item?.__component}-${item?.id}`}
           >
             <CombinedAboutCardSlider data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.smart-forge-operational-roadblock":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`smart-forge-operational-roadblock-${item?.__component}-${item?.id}`}
+          >
+            <OperationalRoadblock data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.smart-forge-enterprises":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`smart-forge-enterprises-${item?.__component}-${item?.id}`}
+          >
+            <SmartForgeEnterprises data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.smart-forge-build":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`smart-forge-build-${item?.__component}-${item?.id}`}
+          >
+            <SmartForgeBuild data={item} />
           </ScrollFadeIn>
         );
       default:

@@ -423,6 +423,7 @@ type IndustryItem = {
   id: string;
   title: string;
   description: string;
+  number: string;
   image: ImageType;
   buttontext: string;
 };

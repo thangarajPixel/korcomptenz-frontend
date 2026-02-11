@@ -22,6 +22,13 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
       <h2 className="text-6xl md:text-9xl font-semibold text-foreground mb-4">
         {faqData?.title}
       </h2>
+      <h3 className="text-lg md:text-[21px] font-semibold text-[#1e2939] mb-4">
+        {faqData?.subtitle}
+      </h3>
+      <DangerousHtml
+        html={faqData?.description}
+        className="text-[#1e2939] text-base md:text-lg leading-7.5 "
+      />
       <Accordion type="single" collapsible className="w-full">
         {faqData?.faq?.map((item) => (
           <AccordionItem
@@ -37,7 +44,7 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
               <ChevronDownIcon
                 className={cn(
                   "size-10 p-2 text-white rounded-full bg-primary pointer-events-none  shrink-0 translate-y-0.5 transition-transform duration-200 opacity-20",
-                  activeId === item?.id && "opacity-100"
+                  activeId === item?.id && "opacity-100",
                 )}
               />
             </AccordionTrigger>

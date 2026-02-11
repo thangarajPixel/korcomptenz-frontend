@@ -341,9 +341,12 @@ type KpiPartnerType = {
 };
 type FaqSectionType = {
   title: string;
+  subtitle: string;
+  description: string;
   faq: {
     id: number;
     title: string;
+    subtitle;
     description: string;
     isHasCustomList: boolean;
     list: {
@@ -462,7 +465,9 @@ type WhyKorcomptenzType = {
   title: string;
   description: string;
   isPerRowFive: boolean;
-  isBgGray: boolean;
+  subtitle: string;
+
+  isBgGrey: boolean;
   list: IndustryItem[];
 };
 type SocialPlatformType = {
@@ -1308,6 +1313,18 @@ type ComponentPropsMap = {
   DigitialCombined: DigitialCombinedType & {
     id: string;
     __component: "page-componets.combined-about-card-slider";
+  };
+  OperationalRoadblock: WhyKorcomptenzType & {
+    id: string;
+    __component: "page-componets.smart-forge-operational-roadblock";
+  };
+  SmartForgeEnterprises: WhyKorcomptenzType & {
+    id: string;
+    __component: "page-componets.smart-forge-enterprises";
+  };
+  SmartForgeBuild: WhyKorcomptenzType & {
+    id: string;
+    __component: "page-componets.smart-forge-build";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
