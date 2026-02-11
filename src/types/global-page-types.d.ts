@@ -466,7 +466,7 @@ type WhyKorcomptenzType = {
   description: string;
   isPerRowFive: boolean;
   subtitle: string;
-
+  isBgGray: boolean;
   isBgGrey: boolean;
   list: IndustryItem[];
 };
