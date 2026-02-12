@@ -1,5 +1,5 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { Button } from "@/components/ui/button";
+
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 import React from "react";
@@ -43,15 +43,6 @@ const SliderCard: React.FC<Props> = ({ slide, isSwap }) => {
             html={slide?.description}
             className="text-gray-300 text-md md:text-lg leading-relaxed pr-6 [&>ul]:ml-7"
           />
-          {/* {slide?.buttonText && ( */}
-          <Button
-            arrow
-            variant="ghost"
-            className="w-full justify-start text-left text-gray-300 hover:bg-transparent hover:text-gray-300 -mt-3 -ml-3"
-          >
-            {/* {slide?.buttonText} */}helllo
-          </Button>
-          {/* )} */}
         </div>
       </div>
     </div>
