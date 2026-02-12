@@ -1,4 +1,5 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import ButtonLink from "@/components/ui/button-link";
 
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
@@ -7,7 +8,7 @@ import React from "react";
 interface Slide {
   id: number;
   image: ImageType;
-
+  link: string;
   title: string;
   buttonText?: string;
   description: string;
@@ -43,6 +44,24 @@ const SliderCard: React.FC<Props> = ({ slide, isSwap }) => {
             html={slide?.description}
             className="text-gray-300 text-md md:text-lg leading-relaxed pr-6 [&>ul]:ml-7"
           />
+
+          {slide?.buttonText && (
+            <div className={cn("flex  gap-2")}>
+              <ButtonLink
+                link={slide?.link || "#"}
+                buttonProps={{
+                  size: "xl",
+                  arrow: true,
+                  variant: "ghost",
+                  className:
+                    "w-full justify-start text-left text-gray-300 hover:bg-transparent hover:text-gray-300 -mt-7 -ml-7 text-[16px]",
+                }}
+              >
+                {/* { slide?.buttonText} */}
+                Learn More
+              </ButtonLink>
+            </div>
+          )}
         </div>
       </div>
     </div>

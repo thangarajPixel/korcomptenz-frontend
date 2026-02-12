@@ -270,11 +270,14 @@ type DarkSliderType = {
   descripition: string;
   isSwap: boolean;
   isPerRowThree: boolean;
+  link: string;
+  buttonText: string;
   slides: [
     {
       id: number;
       image: ImageType;
       alt: ImageType;
+      link: string;
       title: string;
       description: string;
     },

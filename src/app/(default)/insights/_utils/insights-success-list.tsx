@@ -110,7 +110,7 @@ const InsightsSuccessList = ({
         category={category as never}
       />
 
-      <div className="container-md md:container-lg">
+      <div className="container-lg">
         <InsightsSuccessFilter
           filterLabel={filterLabel}
           category={category as never}

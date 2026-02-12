@@ -34,7 +34,7 @@ export function InsightCard({
     <motion.article
       className={cn(
         // "group relative bg-card p-0 pt-3 md:pt-0 md:p-3 flex flex-col  transition-colors",
-        "group relative bg-card md:p-3 md:pt-0 pt-3 flex flex-col  transition-colors",
+        "group relative bg-card p-3 md:pt-0  flex flex-col  transition-colors",
       )}
     >
       <motion.div className="relative  rounded-4xl">
