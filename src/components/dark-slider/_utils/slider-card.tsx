@@ -19,15 +19,22 @@ interface Props {
   isSwap?: boolean;
 }
 
-const SliderCard: React.FC<Props> = ({ slide, isSwap }) => {
+const SliderCard: React.FC<Props> = ({ slide }) => {
   return (
-    <div
-      className={cn(
-        "flex-shrink-0 w-full h-full  ",
-        isSwap && "sm:justify-start justify-center flex",
-      )}
-    >
-      <div className="bg-foreground rounded-3xl p-5 h-full w-3/4 md:w-full flex flex-col justify-between">
+    <div className={cn("flex-shrink-0 w-full h-full flex justify-center")}>
+      <div
+        className="
+    bg-foreground 
+    rounded-3xl 
+    p-6 
+    w-[85%] md:w-full
+    min-h-[320px] 
+    md:min-h-[380px]
+    flex 
+    flex-col 
+    justify-between
+  "
+      >
         <div className="flex flex-col gap-2 md:gap-5">
           <div className="flex justify-end gap-2">
             <KorcomptenzImage

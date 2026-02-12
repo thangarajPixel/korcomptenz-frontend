@@ -79,6 +79,7 @@ import CombinedAboutCardSlider from "../digitial-combined/digitial-combined";
 import OperationalRoadblock from "../smartforge-operational-Roadblock";
 import SmartForgeEnterprises from "../smartforge-enterprises";
 import SmartForgeBuild from "../smartforge-build";
+import DigitialCard from "../digitial-card/digitial-card";
 
 type Props = {
   data: ComponentPropsType[];
@@ -86,7 +87,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-  
+
   return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
@@ -879,6 +880,16 @@ const GlobalPage = (props: Props) => {
             key={`smart-forge-build-${item?.__component}-${item?.id}`}
           >
             <SmartForgeBuild data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.digital-card":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`digital-card-${item?.__component}-${item?.id}`}
+          >
+            <DigitialCard data={item} />
           </ScrollFadeIn>
         );
       default:

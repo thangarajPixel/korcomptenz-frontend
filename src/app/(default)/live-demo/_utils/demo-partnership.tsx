@@ -7,7 +7,6 @@ export default function DemoPartnership({
 }: {
   data: DemoPartnershipSectionType;
 }) {
-
   return (
     <section className="container-md bg-foreground rounded-4xl p-8">
       <h2 className=" text-5xl md:text-7xl  font-semibold  mb-12 text-balance text-center  text-white">
@@ -31,16 +30,18 @@ export default function DemoPartnership({
                 className="object-contain object-left text-white"
               />
             </div>
-            {badge.name && (
-              <p className="text-lg leading-relaxed font-normal justify-center">
-                {badge.name}
-              </p>
-            )}
+            <div>
+              {badge.name && (
+                <p className="text-lg md:text-2xl  leading-relaxed font-semibold justify-center">
+                  {badge.name}
+                </p>
+              )}
 
-            <DangerousHtml
-              html={badge?.description}
-              className="text-md md:text-lg leading-relaxed font-normal justify-center text-white"
-            />
+              <DangerousHtml
+                html={badge?.description}
+                className="text-md md:text-lg leading-relaxed font-normal justify-center text-white"
+              />
+            </div>
           </div>
         ))}
       </div>

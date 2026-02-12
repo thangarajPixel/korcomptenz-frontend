@@ -995,6 +995,19 @@ type DigitialCombinedType = {
   digitalCardSlider: DigitialServicesSectionType;
 };
 
+type DigitialCardType = {
+  title: string;
+  description: string;
+  list: {
+    title: string;
+    description: string;
+    buttonLink: string;
+    buttonText: string;
+    id: string;
+    isTarget: boolean;
+  }[];
+};
+
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
 type ComponentPropsMap = {
@@ -1328,6 +1341,10 @@ type ComponentPropsMap = {
   SmartForgeBuild: WhyKorcomptenzType & {
     id: string;
     __component: "page-componets.smart-forge-build";
+  };
+  DigitialCard: DigitialCardType & {
+    id: string;
+    __component: "page-componets.digital-card";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

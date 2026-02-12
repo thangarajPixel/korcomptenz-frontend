@@ -9,7 +9,7 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
       {/* ---------- TOP CONTENT ---------- */}
       <div className="space-y-3">
         {data?.title && (
-          <h2 className="text-sm font-semibold uppercase ">{data?.title}</h2>
+          <h2 className="text-sm font-semibold  ">{data?.title}</h2>
         )}
 
         <h3 className="text-foreground text-2xl md:text-4xl font-semibold leading-tight text-primary">

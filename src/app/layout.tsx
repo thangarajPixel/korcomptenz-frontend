@@ -27,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
+        <link rel="canonical" href="https://www.korcomptenz.com/" />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{

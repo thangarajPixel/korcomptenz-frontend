@@ -41,12 +41,7 @@ const DarkSlider = ({
             {manuelSliderData?.heading}
           </h2>
           {manuelSliderData?.descripition && (
-            <p
-              className={cn(
-                "text-left text-md md:text-lg leading-7",
-                isSwap && "text-center",
-              )}
-            >
+            <p className="text-left text-md md:text-lg leading-7">
               {manuelSliderData?.descripition}
             </p>
           )}
@@ -87,7 +82,7 @@ const DarkSlider = ({
                       ),
                 )}
               >
-                <SliderCard slide={slide} isSwap={isSwap} />
+                <SliderCard slide={slide} />
               </CarouselItem>
             ))}
           </CarouselContent>
