@@ -4,14 +4,19 @@ import InsightsSuccessPage from "../_utils/insights-success-page";
 import { getInsightsPage } from "@/services";
 const getInsightsPageCache = cache(getInsightsPage);
 
-export async function generateMetadata() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const data = await getInsightsPageCache();
 
   return {
     title: data?.seo?.title || "Home",
     description: data?.seo?.description || "",
     alternates: {
-      canonical: "/insights",
+      canonical: "/insights/" + slug,
     },
   };
 }
