@@ -32,6 +32,7 @@ const Page = async ({ params }: Props) => {
   const { slug } = await params;
   if (slug?.length === 1 && SYSTEM_FILES.includes(slug[0])) {
     const data = await getPageServiceCache({ slug });
+
     return data;
   }
   const data = await getPageServiceCache({ slug });
