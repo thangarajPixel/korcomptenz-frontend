@@ -12,12 +12,15 @@ const outfitSans = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://korcomptenz.designonline.in/"),
+  metadataBase: new URL("https://korcomptenz.designonline.in"),
   title: {
-    default: "korcomptenz",
+    default: "Korcomptenz",
     template: "%s | Korcomptenz",
   },
   description: "korcomptenz-frontend",
+  alternates: {
+    canonical: "/", // default homepage
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        {/* <link rel="canonical" href={`https://www.korcomptenz.com${pathname}`} /> */}
+        <link rel="canonical" href="https://www.korcomptenz.com/" />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{

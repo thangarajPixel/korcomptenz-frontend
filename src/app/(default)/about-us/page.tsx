@@ -14,6 +14,9 @@ export async function generateMetadata() {
   return {
     title: data?.seo?.title || "About us",
     description: data?.seo?.description || "",
+    alternates: {
+      canonical: "/about",
+    },
   };
 }
 
