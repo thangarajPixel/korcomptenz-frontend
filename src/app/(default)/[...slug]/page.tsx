@@ -13,10 +13,6 @@ const getPageServiceCache = cache(getPageService);
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
 
-  if (slug?.length === 1 && ["robots.txt", "sitemap.xml"].includes(slug[0])) {
-    return {};
-  }
-
   const data = await getPageServiceCache({ slug });
 
   return {
