@@ -13,6 +13,9 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: data?.seo?.title || slug,
     description: data?.seo?.description || "",
+    alternates: {
+      canonical: "/ebook/" + slug,
+    },
   };
 }
 

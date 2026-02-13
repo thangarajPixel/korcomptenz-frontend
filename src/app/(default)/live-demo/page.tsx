@@ -11,7 +11,10 @@ export async function generateMetadata() {
   return {
     title: data?.seo?.title || "Career",
     description: data?.seo?.description || "",
-  }
+    alternates: {
+      canonical: "/live-demo",
+    },
+  };
 }
 export default async function DemoPage() {
   const data = await getDemoCache();

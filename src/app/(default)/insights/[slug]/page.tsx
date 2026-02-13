@@ -10,6 +10,9 @@ export async function generateMetadata() {
   return {
     title: data?.seo?.title || "Home",
     description: data?.seo?.description || "",
+    alternates: {
+      canonical: "/insights",
+    },
   };
 }
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {

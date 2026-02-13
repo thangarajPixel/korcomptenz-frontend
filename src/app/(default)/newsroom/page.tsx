@@ -11,6 +11,9 @@ export async function generateMetadata() {
   return {
     title: data?.seo?.title || "Newsroom",
     description: data?.seo?.description || "",
+    alternates: {
+      canonical: "/newsroom",
+    },
   };
 }
 const Page = async () => {

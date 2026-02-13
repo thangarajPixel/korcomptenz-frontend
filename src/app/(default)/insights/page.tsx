@@ -10,6 +10,9 @@ export async function generateMetadata() {
   return {
     title: data?.seo?.title || "Insights",
     description: data?.seo?.description || "",
+    alternates: {
+      canonical: "/insights",
+    },
   };
 }
 

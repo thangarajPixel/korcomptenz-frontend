@@ -17,6 +17,9 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: data?.seo?.title || "Career",
     description: data?.seo?.description || "",
+    alternates: {
+      canonical: "/podcast/" + id,
+    },
   };
 }
 const Page = async ({ params }: Props) => {

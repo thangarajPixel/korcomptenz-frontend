@@ -21,6 +21,9 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: data?.insight?.seo?.title || id,
     description: data?.insight?.seo?.description || "",
+    alternates: {
+      canonical: `/blog/${id}`,
+    },
   };
 }
 

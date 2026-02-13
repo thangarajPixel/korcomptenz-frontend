@@ -9,6 +9,9 @@ export async function generateMetadata() {
   return {
     title: data?.seo?.title || "Career",
     description: data?.seo?.description || "",
+    alternates: {
+      canonical: "/case-studies",
+    },
   };
 }
 
