@@ -46,7 +46,7 @@ export default function RootLayout({
         {/* End Google Tag Manager */}
 
         {/* Schema.org Structured Data */}
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -87,17 +87,17 @@ export default function RootLayout({
               ],
             }),
           }}
-        />
+        /> */}
         {/* End Schema.org Structured Data */}
 
         {/* HubSpot Embed Code */}
-        <script
+        {/* <script
           type="text/javascript"
           id="hs-script-loader"
           async
           defer
           src="//js.hs-scripts.com/7991245.js"
-        />
+        /> */}
         {/* End HubSpot Embed Code */}
 
         {/* <!-- Mirabel's Marketing Manager Tracking Code Start --> */}
