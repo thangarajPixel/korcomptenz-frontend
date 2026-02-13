@@ -7,12 +7,18 @@ import { APP_CONFIG } from "@/utils/app-config";
 type Props = {
   params: Promise<{ slug: string[] }>;
 };
-
+const SYSTEM_FILES = ["robots.txt", "sitemap.xml"];
 const getPageServiceCache = cache(getPageService);
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
+
+  if (slug?.length === 1 && ["robots.txt", "sitemap.xml"].includes(slug[0])) {
+    return {};
+  }
+
   const data = await getPageServiceCache({ slug });
+
   return {
     title: data?.seo?.title || slug.join(" "),
     description: data?.seo?.description || "",
@@ -24,6 +30,9 @@ export async function generateMetadata({ params }: Props) {
 
 const Page = async ({ params }: Props) => {
   const { slug } = await params;
+  if (slug?.length === 1 && SYSTEM_FILES.includes(slug[0])) {
+    return {};
+  }
   const data = await getPageServiceCache({ slug });
 
   return (
