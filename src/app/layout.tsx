@@ -96,7 +96,7 @@ export default function RootLayout({
         {/* End HubSpot Embed Code */}
 
         {/* <!-- Mirabel's Marketing Manager Tracking Code Start --> */}
-        <script
+        {/* <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `!function () {
@@ -114,7 +114,7 @@ export default function RootLayout({
         t.appendChild(e);
       }();`,
           }}
-        />
+        /> */}
         {/* <!-- Mirabel's Marketing Manager Tracking Code End --> */}
         <link rel="icon" href="/assets/logo.png" sizes="any" />
       </head>
