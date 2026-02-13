@@ -10,15 +10,16 @@ type Props = {
 
 const getPageServiceCache = cache(getPageService);
 
-export async function generateMetadata({
-  params,
-}: Props) {
+export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const data = await getPageServiceCache({ slug })
+  const data = await getPageServiceCache({ slug });
   return {
     title: data?.seo?.title || slug.join(" "),
     description: data?.seo?.description || "",
-  }
+    alternates: {
+      canonical: "/" + slug.join("/"),
+    },
+  };
 }
 
 const Page = async ({ params }: Props) => {
