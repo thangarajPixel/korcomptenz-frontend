@@ -31,9 +31,7 @@ export async function generateMetadata({ params }: Props) {
 const Page = async ({ params }: Props) => {
   const { slug } = await params;
   if (slug?.length === 1 && SYSTEM_FILES.includes(slug[0])) {
-    const data = await getPageServiceCache({ slug });
-
-    return data;
+    return null;
   }
   const data = await getPageServiceCache({ slug });
 
