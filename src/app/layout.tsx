@@ -34,19 +34,16 @@ export default function RootLayout({
         {/* <link rel="canonical" href="https://www.korcomptenz.com/" /> */}
         {/* Google Tag Manager */}
 
-        
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDLSJSX');`,
           }}
-        /> 
-
-
+        />
 
         {/* End Google Tag Manager */}
 
         {/* Schema.org Structured Data */}
-         <script
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -87,21 +84,21 @@ export default function RootLayout({
               ],
             }),
           }}
-        /> 
+        />
         {/* End Schema.org Structured Data */}
 
         {/* HubSpot Embed Code */}
-         <script
+        <script
           type="text/javascript"
           id="hs-script-loader"
           async
           defer
           src="//js.hs-scripts.com/7991245.js"
-        /> 
+        />
         {/* End HubSpot Embed Code */}
 
         {/* <!-- Mirabel's Marketing Manager Tracking Code Start --> */}
-         <script
+        <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `!function () {
@@ -119,8 +116,18 @@ export default function RootLayout({
         t.appendChild(e);
       }();`,
           }}
-        /> 
+        />
         {/* <!-- Mirabel's Marketing Manager Tracking Code End --> */}
+
+        {/* AdRoll Tracking Script */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `adroll_adv_id = "6AFFI77P25EMLITUU77QLL"; adroll_pix_id = "MBYLSCHWRRDSPAI7HHOHMI"; adroll_version = "2.0"; (function(w, d, e, o, a) { w.adroll_tag_source = w.adroll_tag_source || "manual"; w.__adroll_loaded = true; w.adroll = w.adroll || []; w.adroll.f = [ 'setProperties', 'identify', 'track', 'identify_email', 'get_cookie' ]; var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js"; for (a = 0; a < w.adroll.f.length; a++) { w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) { return function() { w.adroll.push([ n, arguments ]) } })(w.adroll.f[a]) } e = d.createElement('script'); o = d.getElementsByTagName('script')[0]; e.async = 1; e.src = roundtripUrl; o.parentNode.insertBefore(e, o); })(window, document); adroll.track("pageview");`,
+          }}
+        />
+        {/* End AdRoll Tracking Script */}
+
         <link rel="icon" href="/assets/logo.png" sizes="any" />
       </head>
       <body className={`${outfitSans.variable} antialiased`}>
