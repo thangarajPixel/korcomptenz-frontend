@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
 import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
+import { headers } from "next/headers";
 
 export const dynamic = "force-dynamic";
 
@@ -11,17 +12,24 @@ const outfitSans = Outfit({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.korcomptenz.com"),
-  title: {
-    default: "Korcomptenz",
-    template: "%s | Korcomptenz",
-  },
-  description: "korcomptenz-frontend",
-  alternates: {
-    canonical: "/",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const headersList = await headers();
+  const host = headersList.get("host") || "www.korcomptenz.com";
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+  const baseUrl = `${protocol}://${host}`;
+
+  return {
+    metadataBase: new URL(baseUrl),
+    title: {
+      default: "Korcomptenz",
+      template: "%s | Korcomptenz",
+    },
+    description: "korcomptenz-frontend",
+    alternates: {
+      canonical: "/",
+    },
+  };
+}
 
 export default function RootLayout({
   children,
