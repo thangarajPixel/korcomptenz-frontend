@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   description: "korcomptenz-frontend",
   alternates: {
-    canonical: "/", // default homepage
+    canonical: "/",
   },
 };
 
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://www.korcomptenz.com/" />
+        {/* <link rel="canonical" href="https://www.korcomptenz.com/" /> */}
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
