@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 export default function DemoOpportunities({
   whyAttendData,
@@ -53,26 +54,33 @@ export default function DemoOpportunities({
             {whyAttendData?.description}
           </p> */}
 
-              <div className="grid grid-cols-1  ">
-                {whyAttendData?.list?.map((benefit, index) => (
-                  <div key={index} className="flex gap-3">
-                    {/* Blue arrow icon */}
-                    <div className="flex-shrink-0 pt-2 ">
-                      <span className="text-xl text-blue-600 font-bold ">
-                        <KorcomptenzImage
-                          src="/assets/thumbnail_arrow_f6130cd06d.png"
-                          width={24}
-                          height={24}
-                        />
-                      </span>
+              {whyAttendData?.description ? (
+                <DangerousHtml
+                  html={whyAttendData?.description}
+                  className="text-md md:text-lg leading-7.5 font-normal"
+                />
+              ) : (
+                <div className="grid grid-cols-1  ">
+                  {whyAttendData?.list?.map((benefit, index) => (
+                    <div key={index} className="flex gap-3">
+                      {/* Blue arrow icon */}
+                      <div className="flex-shrink-0 pt-2 ">
+                        <span className="text-xl text-blue-600 font-bold ">
+                          <KorcomptenzImage
+                            src="/assets/thumbnail_arrow_f6130cd06d.png"
+                            width={24}
+                            height={24}
+                          />
+                        </span>
+                      </div>
+                      {/* Benefit text */}
+                      <p className="text-gray-700 text-lg font-sans leading-relaxed">
+                        {benefit?.description}
+                      </p>
                     </div>
-                    {/* Benefit text */}
-                    <p className="text-gray-700 text-lg font-sans leading-relaxed">
-                      {benefit?.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>

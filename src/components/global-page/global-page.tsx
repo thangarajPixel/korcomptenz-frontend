@@ -80,6 +80,7 @@ import OperationalRoadblock from "../smartforge-operational-Roadblock";
 import SmartForgeEnterprises from "../smartforge-enterprises";
 import SmartForgeBuild from "../smartforge-build";
 import DigitialCard from "../digitial-card/digitial-card";
+import ExpertMigration from "../expert-migration/expert-migration";
 
 type Props = {
   data: ComponentPropsType[];
@@ -890,6 +891,15 @@ const GlobalPage = (props: Props) => {
             key={`digital-card-${item?.__component}-${item?.id}`}
           >
             <DigitialCard data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.export-migration":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`export-migration-${item?.__component}-${item?.id}`}
+          >
+            <ExpertMigration data={item} />
           </ScrollFadeIn>
         );
       default:

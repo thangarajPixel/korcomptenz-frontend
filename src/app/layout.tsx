@@ -12,7 +12,7 @@ const outfitSans = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://korcomptenz.designonline.in"),
+  metadataBase: new URL("https://korcomptenz.com"),
   title: {
     default: "Korcomptenz",
     template: "%s | Korcomptenz",

@@ -848,6 +848,7 @@ type ContactUsFormSectionType = {
 
 type OpportunitiesSectionType = {
   arrowImage: ImageType;
+  description: string;
   bannerImage: ImageType;
   id: string;
   title: string;
@@ -1006,6 +1007,19 @@ type DigitialCardType = {
     id: string;
     isTarget: boolean;
   }[];
+};
+
+type ExpertMigrationType = {
+  id: string;
+  title: string;
+  description: string;
+  image: ImageType;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  backgroundImage: ImageType;
+  bgColor: string;
+  bgImage: boolean;
 };
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -1345,6 +1359,10 @@ type ComponentPropsMap = {
   DigitialCard: DigitialCardType & {
     id: string;
     __component: "page-componets.digital-card";
+  };
+  ExpertMigration: ExpertMigrationType & {
+    id: string;
+    __component: "page-componets.export-migration";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
