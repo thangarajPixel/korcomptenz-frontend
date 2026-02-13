@@ -145,24 +145,56 @@ export const errorSet = <T extends Record<string, never>>(
   }
 };
 
+// export async function downloadFile(
+//   response: { name: string; bufferResponse: Blob; type: string },
+//   name?: string,
+// ) {
+//   const fileName = (name || response.name || "download").trim();
+
+//   const url = window.URL.createObjectURL(response.bufferResponse);
+
+//   const a = document.createElement("a");
+//   a.href = url;
+//   a.download = fileName;
+
+//   document.body.appendChild(a);
+//   a.click();
+//   // window.open(url, "_blank");
+//   document.body.removeChild(a);
+
+//   window.URL.revokeObjectURL(url);
+// }
+
 export async function downloadFile(
   response: { name: string; bufferResponse: Blob; type: string },
   name?: string,
 ) {
   const fileName = (name || response.name || "download").trim();
-
   const url = window.URL.createObjectURL(response.bufferResponse);
 
   const a = document.createElement("a");
   a.href = url;
   a.download = fileName;
 
+  // Add to DOM
   document.body.appendChild(a);
-  a.click();
-  // window.open(url, "_blank");
-  document.body.removeChild(a);
 
-  window.URL.revokeObjectURL(url);
+  // Trigger download
+  a.click();
+
+  // Cleanup after a delay with safety check
+  setTimeout(() => {
+    try {
+      if (a.parentNode === document.body) {
+        document.body.removeChild(a);
+      }
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.debug("Download anchor already removed", e);
+    } finally {
+      window.URL.revokeObjectURL(url);
+    }
+  }, 100);
 }
 
 export const formatRange = (dateString: string) => {
