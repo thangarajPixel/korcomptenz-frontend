@@ -19,6 +19,17 @@ const nextConfig: NextConfig = {
   },
   redirects: async () => [
     {
+      source: "/:path*",
+      has: [
+        {
+          type: "host",
+          value: "korcomptenz.com",
+        },
+      ],
+      destination: "https://www.korcomptenz.com/:path*",
+      permanent: true,
+    },
+    {
       source: "/sap-consulting-service",
       destination: "https://campaigns.korcomptenz.com/sap-consulting-service",
       permanent: true,
