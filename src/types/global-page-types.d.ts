@@ -858,6 +858,10 @@ type OpportunitiesSectionType = {
 type ExpertsSectionType = {
   id: string;
   title: string;
+  title1: string;
+  title2: string;
+  title3: string;
+  backgroundImage: ImageType;
   list: ExpertsCardType[];
 };
 
@@ -1020,6 +1024,63 @@ type ExpertMigrationType = {
   backgroundImage: ImageType;
   bgColor: string;
   bgImage: boolean;
+};
+type FabconAboutType = {
+  title1: string;
+  title2: string;
+  image: ImageType;
+  backgroundImage: ImageType;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+};
+
+type FabconAiPoweredType = {
+  title1: string;
+  title2: string;
+  title3: string;
+  list: AiCardType[];
+};
+
+type FabconAnalyticsType = {
+  title1: string;
+
+  title2: string;
+  backgroundImage: ImageType;
+  bottom: {
+    image: ImageType;
+    link: string;
+    id: string;
+  }[];
+  top: {
+    image: ImageType;
+    id: string;
+    description: string;
+    title: string;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+  }[];
+  mid: {
+    id: string;
+    description: string;
+
+    image: ImageType;
+    percentage: string;
+  }[];
+};
+
+type FabconSmartForgeType = {
+  title1: string;
+  title2: string;
+  title3: string;
+  image: ImageType;
+  description: string;
+  isVideoLink: boolean;
+  videoLink: string;
+  buttonImage: ImageType;
+  backgroundImage: ImageType;
 };
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -1363,6 +1424,26 @@ type ComponentPropsMap = {
   ExpertMigration: ExpertMigrationType & {
     id: string;
     __component: "page-componets.export-migration";
+  };
+  FabconAiPowered: FabconAiPoweredType & {
+    id: string;
+    __component: "page-componets.fabcon-ai-powered";
+  };
+  FabconAbout: FabconAboutType & {
+    id: string;
+    __component: "page-componets.fabcon-about";
+  };
+  FabconAnalytics: FabconAnalyticsType & {
+    id: string;
+    __component: "page-componets.fabcon-data-analytics";
+  };
+  FabconSmartForge: FabconSmartForgeType & {
+    id: string;
+    __component: "page-componets.fabcon-smart-forge";
+  };
+  FabconExperts: ExpertsSectionType & {
+    id: string;
+    __component: "page-componets.fabcon-fabric-ai-leadership";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

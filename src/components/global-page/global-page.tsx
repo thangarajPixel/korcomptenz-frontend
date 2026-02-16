@@ -81,6 +81,11 @@ import SmartForgeEnterprises from "../smartforge-enterprises";
 import SmartForgeBuild from "../smartforge-build";
 import DigitialCard from "../digitial-card/digitial-card";
 import ExpertMigration from "../expert-migration/expert-migration";
+import FabconAiPowered from "../fabcon-ai-powered/fabcon-ai-powered";
+import FabconAbout from "../fabcon-about";
+import FabconAnalytics from "../fabcon-analytics";
+import FabconSmartForge from "../fabcon-smart-forge";
+import FabconExperts from "../fabcon-experts";
 
 type Props = {
   data: ComponentPropsType[];
@@ -900,6 +905,52 @@ const GlobalPage = (props: Props) => {
             key={`export-migration-${item?.__component}-${item?.id}`}
           >
             <ExpertMigration data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-ai-powered":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-ai-powered-${item?.__component}-${item?.id}`}
+          >
+            <FabconAiPowered data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-about":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-about-${item?.__component}-${item?.id}`}
+          >
+            <FabconAbout data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-data-analytics":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-data-analytics-${item?.__component}-${item?.id}`}
+          >
+            <FabconAnalytics data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-smart-forge":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-smart-forge-${item?.__component}-${item?.id}`}
+          >
+            <FabconSmartForge data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.fabcon-fabric-ai-leadership":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-fabric-ai-leadership-${item?.__component}-${item?.id}`}
+          >
+            <FabconExperts data={item} />
           </ScrollFadeIn>
         );
       default:
