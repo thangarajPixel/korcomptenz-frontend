@@ -777,3 +777,12 @@ type DigitialLifeTopType = {
     image: ImageType;
   }[];
 };
+
+type AiCardType = {
+  image: ImageType;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+};

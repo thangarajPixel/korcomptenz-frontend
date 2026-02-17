@@ -6,6 +6,7 @@ import type {
   ContactFormData,
   ContactUsFormSchema,
   DemoRequestFormSchema,
+  FabconDecisionLeadSchema,
   FreeConsultationLeadSchema,
   NewsRoomFormSchema,
   WebinarReserveFormSchema,
@@ -44,6 +45,9 @@ export const NEWSROOM = "/news-list";
 export const NEWSROOM_PAGE = "/new-rooms";
 export const NEWSROOM_LEAD = "/news-room-leads";
 export const CASESTUDYPDF = "/case-studies/by-attachment";
+export const TIME_SLOT_LIST = "/fabcon-time-slots";
+export const FABCON_BANNER_LEAD = "/fabcon-book-meet-leads";
+export const FABCON_DECISION_LEAD = "/fabcon-reserve-leads";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -216,6 +220,10 @@ export const getDepartmentList = async (): Promise<DepartmentType> => {
   const data = await https.get(DEPARTMENT_LIST);
   return data as never;
 };
+export const getTimeSlotList = async (): Promise<TimeSlotType> => {
+  const data = await http.get(TIME_SLOT_LIST);
+  return data as never;
+};
 
 export const getCaseStudySearchPage = async ({
   search = "",
@@ -288,3 +296,17 @@ export const getCaseStudyEssentialList =
     const data = await https.get(CASE_STUDY_ESSENTIAL_LIST);
     return data as never;
   };
+
+export const createFabconDecisionLead = async (
+  formData: FabconDecisionLeadSchema,
+) => {
+  const { data } = await http.post(FABCON_DECISION_LEAD, { data: formData });
+  return data;
+};
+
+export const createFabconBannerLead = async (
+  formData: FabconDecisionLeadSchema,
+) => {
+  const { data } = await http.post(FABCON_BANNER_LEAD, { data: formData });
+  return data;
+};

@@ -6,7 +6,9 @@ const CombinedAboutCardSlider = ({ data }: { data: DigitialCombinedType }) => {
   return (
     <div>
       <DigitialAboutSection data={data?.digitalAbout} />
-      <DigitialCardSlider content={data?.digitalCardSlider} />
+      {data?.digitalCardSlider && (
+        <DigitialCardSlider content={data?.digitalCardSlider} />
+      )}
     </div>
   );
 };

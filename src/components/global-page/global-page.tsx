@@ -81,6 +81,15 @@ import SmartForgeEnterprises from "../smartforge-enterprises";
 import SmartForgeBuild from "../smartforge-build";
 import DigitialCard from "../digitial-card/digitial-card";
 import ExpertMigration from "../expert-migration/expert-migration";
+import FabconAiPowered from "../fabcon-ai-powered/fabcon-ai-powered";
+import FabconAbout from "../fabcon-about";
+import FabconAnalytics from "../fabcon-analytics";
+import FabconSmartForge from "../fabcon-smart-forge";
+import FabconExperts from "../fabcon-experts";
+import FabconLedTransform from "../fabcon-led-transform";
+import FabconComposableIntelligence from "../fabcon-composable-intelligence";
+import FabconDecisionFabric from "../fabcon-decision-fabric";
+import FabconBanner from "../fabcon-banner/fabcon-banner";
 
 type Props = {
   data: ComponentPropsType[];
@@ -900,6 +909,88 @@ const GlobalPage = (props: Props) => {
             key={`export-migration-${item?.__component}-${item?.id}`}
           >
             <ExpertMigration data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-ai-powered":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-ai-powered-${item?.__component}-${item?.id}`}
+          >
+            <FabconAiPowered data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-about":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-about-${item?.__component}-${item?.id}`}
+          >
+            <FabconAbout data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-data-analytics":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-data-analytics-${item?.__component}-${item?.id}`}
+          >
+            <FabconAnalytics data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-smart-forge":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-smart-forge-${item?.__component}-${item?.id}`}
+          >
+            <FabconSmartForge data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.fabcon-fabric-ai-leadership":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-fabric-ai-leadership-${item?.__component}-${item?.id}`}
+          >
+            <FabconExperts data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-led-transformation":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-led-transformation-${item?.__component}-${item?.id}`}
+          >
+            <FabconLedTransform data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-composable-intelligence":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-composable-intelligence-${item?.__component}-${item?.id}`}
+          >
+            <FabconComposableIntelligence data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-decision-fabric":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-decision-fabric-${item?.__component}-${item?.id}`}
+          >
+            <FabconDecisionFabric data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-fabric-community-conference":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-fabric-community-conference-${item?.__component}-${item?.id}`}
+          >
+            <FabconBanner data={item} />
           </ScrollFadeIn>
         );
       default:
