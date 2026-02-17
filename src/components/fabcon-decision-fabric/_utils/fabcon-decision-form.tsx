@@ -75,12 +75,12 @@ const FabconDecisionForm = ({ form }: { form: fromDataType }) => {
         rounded-2xl md:rounded-3xl
         border border-[#1EBFA1]
         bg-[#2a2558]
-        p-4 sm:p-6 md:px-10 md:pt-10
-        space-y-6 md:space-y-8
+        p-4 sm:p-6 md:px-10 md:pt-5
+        space-y-6 md:space-y-4
       "
     >
       {/* Inputs */}
-      <div className="space-y-6 md:space-y-8">
+      <div className="space-y-6 md:space-y-4">
         {/* Row 1 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <Input
@@ -115,7 +115,7 @@ const FabconDecisionForm = ({ form }: { form: fromDataType }) => {
         </div>
 
         {/* Row 2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
           <Input
             control={control}
             name="company"
@@ -159,11 +159,11 @@ const FabconDecisionForm = ({ form }: { form: fromDataType }) => {
           name="message"
           placeholder={form?.forms?.[0]?.message}
           className="
-            min-h-[100px] md:min-h-[120px]
+            min-h-[80px] md:min-h-[80px]
             rounded-xl
             bg-white text-gray-900
             placeholder:text-gray-500
-            p-3 md:p-4
+            p-1 md:p-2
             resize-none
             focus-visible:ring-0
           "
@@ -173,7 +173,7 @@ const FabconDecisionForm = ({ form }: { form: fromDataType }) => {
       {/* CTA */}
       <div className="flex justify-end">
         <Button
-          size="xl"
+          size="lg"
           arrow
           isLoading={isSubmitting}
           type="submit"

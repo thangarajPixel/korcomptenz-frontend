@@ -27,7 +27,7 @@ const FabconBanner = ({ data }: { data: FabconBannerType }) => {
             html={data?.description}
             className="text-lg md:text-3xl leading-relaxed text-white max-w-2xl"
           />
-          <div className="flex gap-4">
+          <div className=" grid md:flex gap-4">
             <p
               className="text-base md:text-lg leading-relaxed text-white 
                 border border-white rounded-full px-6 py-2"

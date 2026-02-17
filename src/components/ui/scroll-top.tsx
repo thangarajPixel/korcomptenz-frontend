@@ -4,7 +4,7 @@ import { ArrowUpIcon } from "lucide-react";
 
 export default function ScrollTopButton() {
   return (
-    <div className="fixed bottom-4 right-4">
+    <div className="fixed bottom-32 right-4">
       <Button
         variant="outline"
         size="icon"
