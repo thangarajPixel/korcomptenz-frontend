@@ -38,7 +38,7 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
         {/* IMAGE SECTION */}
         <div className="relative">
           {/* Background image (small accent only) */}
-          <div className="absolute -bottom-20 -right-7 z-0 hidden md:block">
+          <div className="absolute -bottom-20 -right-7 z-0 hidden lg:block">
             <KorcomptenzImage
               src={data?.backgroundImage}
               width={350}

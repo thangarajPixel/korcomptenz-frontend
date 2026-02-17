@@ -46,7 +46,7 @@ export const NEWSROOM_PAGE = "/new-rooms";
 export const NEWSROOM_LEAD = "/news-room-leads";
 export const CASESTUDYPDF = "/case-studies/by-attachment";
 export const TIME_SLOT_LIST = "/fabcon-time-slots";
-
+export const FABCON_BANNER_LEAD = "/fabcon-book-meet-leads";
 export const FABCON_DECISION_LEAD = "/fabcon-reserve-leads";
 
 export const getHomeService = async (): Promise<PagesListType> => {
@@ -301,5 +301,12 @@ export const createFabconDecisionLead = async (
   formData: FabconDecisionLeadSchema,
 ) => {
   const { data } = await http.post(FABCON_DECISION_LEAD, { data: formData });
+  return data;
+};
+
+export const createFabconBannerLead = async (
+  formData: FabconDecisionLeadSchema,
+) => {
+  const { data } = await http.post(FABCON_BANNER_LEAD, { data: formData });
   return data;
 };

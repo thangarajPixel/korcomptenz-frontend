@@ -187,3 +187,10 @@ export const useFabconDecisionLeadHook = () => {
     mutationFn: PAGE.createFabconDecisionLead,
   });
 };
+
+export const useFabconBannerLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.FABCON_BANNER_LEAD],
+    mutationFn: PAGE.createFabconBannerLead,
+  });
+};

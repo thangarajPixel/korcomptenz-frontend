@@ -2,7 +2,7 @@
 
 import ButtonLink from "../ui/button-link";
 import { DangerousHtml } from "../ui/dangerous-html";
-import FabconDecisionForm from "./_utils/fabcon-decision-form";
+import FabconBannerForm from "./_utils/fabcon-Banner-form";
 
 const FabconBanner = ({ data }: { data: FabconBannerType }) => {
   return (
@@ -56,7 +56,7 @@ const FabconBanner = ({ data }: { data: FabconBannerType }) => {
         </div>
 
         <div className=" flex justify-start lg:justify-start">
-          <FabconDecisionForm form={data?.form} />
+          <FabconBannerForm form={data?.form} />
         </div>
       </div>
     </section>

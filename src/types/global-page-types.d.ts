@@ -1112,7 +1112,7 @@ type FabconDecisionFabricType = {
   title1: string;
   title2: string;
   backgroundImage: ImageType;
-  form: GlobalFormType;
+  form: FabconDecisionLeadSchema;
 };
 
 type FabconBannerType = {
@@ -1122,7 +1122,7 @@ type FabconBannerType = {
   buttonText: string;
   buttonLink: string;
   isTarget: boolean;
-  form: GlobalFormType;
+  form: FabconDecisionLeadSchema;
   description: string;
   date: string;
   location: string;

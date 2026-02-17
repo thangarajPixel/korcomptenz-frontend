@@ -176,6 +176,7 @@ export const fabconDecisionLeadSchema = z.object({
   company: z.string().min(1, "Company is required"),
 
   message: z.string().min(1, "Message is required"),
+  buttonText: z.string().optional(),
 });
 
 export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
