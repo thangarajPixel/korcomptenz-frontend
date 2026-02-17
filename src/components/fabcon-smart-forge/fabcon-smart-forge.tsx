@@ -16,7 +16,7 @@ const FabconSmartForge = ({ data }: { data: FabconSmartForgeType }) => {
     <section className="relative overflow-hidden py-24">
       {/* Background */}
       <div
-        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat bg-blue-950"
+        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat bg-[#07003B]"
         style={{ backgroundImage: `url(${data?.backgroundImage?.url})` }}
       />
 

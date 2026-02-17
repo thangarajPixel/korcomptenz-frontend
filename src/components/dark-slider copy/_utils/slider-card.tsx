@@ -30,7 +30,7 @@ const DigitialSliderCard: React.FC<Props> = ({ slide }) => {
         />
 
         {slide.imageText && (
-          <span className="absolute top-4 right-4 bg-pink-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+          <span className="absolute top-4 right-4 bg-secondary text-white text-xs font-semibold px-3 py-1 rounded-full">
             {slide.imageText}
           </span>
         )}
