@@ -162,6 +162,22 @@ export const newsRoomFormSchema = z.object({
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
   email: z.string().min(1, "Email is required").email("Invalid email address"),
 });
+
+export const fabconDecisionLeadSchema = z.object({
+  fullName: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+
+  email: z.string().min(1, "Email is required").email("Invalid email address"),
+
+  timeSlot: z.string().min(1, "Preferred time slot is required"),
+
+  company: z.string().min(1, "Company is required"),
+
+  message: z.string().min(1, "Message is required"),
+});
+
 export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
 export type FreeConsultationLeadSchema = z.infer<
   typeof freeConsultationLeadSchema
@@ -172,3 +188,5 @@ export type CareerNewLetterFormData = z.infer<typeof CareerNewLetterSchema>;
 export type DemoRequestFormSchema = z.infer<typeof DemoRequestFormSchema>;
 export type WebinarReserveFormSchema = z.infer<typeof webinarReserveFormSchema>;
 export type NewsRoomFormSchema = z.infer<typeof newsRoomFormSchema>;
+
+export type FabconDecisionLeadSchema = z.infer<typeof fabconDecisionLeadSchema>;

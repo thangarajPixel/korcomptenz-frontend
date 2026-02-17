@@ -49,6 +49,12 @@ export const useDepartmentListHook = () => {
     queryFn: () => PAGE.getDepartmentList(),
   });
 };
+export const useTimeSlotListHook = () => {
+  return useQuery({
+    queryKey: [PAGE.TIME_SLOT_LIST],
+    queryFn: () => PAGE.getTimeSlotList(),
+  });
+};
 
 export const useCaseStudyListHook = ({
   options,
@@ -172,5 +178,12 @@ export const useNewsRoomHook = () => {
   return useMutation({
     mutationKey: [PAGE.NEWSROOM_LEAD],
     mutationFn: PAGE.NewRoomDownload,
+  });
+};
+
+export const useFabconDecisionLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.FABCON_DECISION_LEAD],
+    mutationFn: PAGE.createFabconDecisionLead,
   });
 };

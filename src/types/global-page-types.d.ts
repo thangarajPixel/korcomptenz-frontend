@@ -1083,6 +1083,51 @@ type FabconSmartForgeType = {
   backgroundImage: ImageType;
 };
 
+type FabconLedTransformType = {
+  title1: string;
+  title2: string;
+  title3: string;
+  backgroundImage: ImageType;
+  image: ImageType;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  list: { id: string; title: string; description: string }[];
+};
+
+type ComposableIntelligenceType = {
+  title1: string;
+  title2: string;
+  title3: string;
+  backgroundImage: ImageType;
+  list: {
+    title: string;
+    description: string;
+    mainImage: ImageType;
+    subImage: ImageType;
+  }[];
+};
+
+type FabconDecisionFabricType = {
+  title1: string;
+  title2: string;
+  backgroundImage: ImageType;
+  form: GlobalFormType;
+};
+
+type FabconBannerType = {
+  title1: string;
+  title2: string;
+  backgroundImage: ImageType;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  form: GlobalFormType;
+  description: string;
+  date: string;
+  location: string;
+};
+
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
 type ComponentPropsMap = {
@@ -1445,6 +1490,22 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.fabcon-fabric-ai-leadership";
   };
+  FabconLedTransform: FabconLedTransformType & {
+    id: string;
+    __component: "page-componets.fabcon-led-transformation";
+  };
+  FabconComposableIntelligence: ComposableIntelligenceType & {
+    id: string;
+    __component: "page-componets.fabcon-composable-intelligence";
+  };
+  FabconDecisionFabric: FabconDecisionFabricType & {
+    id: string;
+    __component: "page-componets.fabcon-decision-fabric";
+  };
+  FabconBanner: FabconBannerType & {
+    id: string;
+    __component: "page-componets.fabcon-fabric-community-conference";
+  };
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
@@ -1511,6 +1572,12 @@ type DepartmentType = {
   }[];
 };
 
+type TimeSlotType = {
+  data: {
+    id: number;
+    timeSlot: string;
+  }[];
+};
 type CaseStudyEssentialType = {
   data: {
     service: ServiceType[];

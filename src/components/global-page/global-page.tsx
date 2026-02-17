@@ -86,6 +86,10 @@ import FabconAbout from "../fabcon-about";
 import FabconAnalytics from "../fabcon-analytics";
 import FabconSmartForge from "../fabcon-smart-forge";
 import FabconExperts from "../fabcon-experts";
+import FabconLedTransform from "../fabcon-led-transform";
+import FabconComposableIntelligence from "../fabcon-composable-intelligence";
+import FabconDecisionFabric from "../fabcon-decision-fabric";
+import FabconBanner from "../fabcon-banner/fabcon-banner";
 
 type Props = {
   data: ComponentPropsType[];
@@ -951,6 +955,42 @@ const GlobalPage = (props: Props) => {
             key={`fabcon-fabric-ai-leadership-${item?.__component}-${item?.id}`}
           >
             <FabconExperts data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-led-transformation":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-led-transformation-${item?.__component}-${item?.id}`}
+          >
+            <FabconLedTransform data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-composable-intelligence":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-composable-intelligence-${item?.__component}-${item?.id}`}
+          >
+            <FabconComposableIntelligence data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-decision-fabric":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-decision-fabric-${item?.__component}-${item?.id}`}
+          >
+            <FabconDecisionFabric data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.fabcon-fabric-community-conference":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`fabcon-fabric-community-conference-${item?.__component}-${item?.id}`}
+          >
+            <FabconBanner data={item} />
           </ScrollFadeIn>
         );
       default:
