@@ -36,7 +36,7 @@ export default function FabconExperts({ data }: { data: ExpertsSectionType }) {
           {data?.list?.map((partner, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center space-y-4"
+              className="flex flex-col items-center text-center "
             >
               <KorcomptenzImage
                 src={partner?.image}
@@ -45,13 +45,13 @@ export default function FabconExperts({ data }: { data: ExpertsSectionType }) {
                 className="object-contain"
               />
 
-              <h4 className="text-2xl font-semibold text-muted">
+              <h4 className="text-2xl font-semibold text-[#020202] mt-2">
                 {partner?.title}
               </h4>
 
               <DangerousHtml
                 html={partner?.description}
-                className="text-muted"
+                className="text-[#020202]"
               />
             </div>
           ))}
