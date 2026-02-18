@@ -47,14 +47,16 @@ const SapSection = ({ sapSectionData }: { sapSectionData: SapSectionType }) => {
                       </div>
                     </div>
                   ) : (
-                    <div className="overflow-hidden p-6 flex items-center justify-center w-52 h-40">
-                      <KorcomptenzImage
-                        src={sapSectionData?.image3}
-                        width={250}
-                        height={250}
-                        className="object-contain"
-                      />
-                    </div>
+                    sapSectionData?.image3 && (
+                      <div className="overflow-hidden p-6 flex items-center justify-center w-52 h-40">
+                        <KorcomptenzImage
+                          src={sapSectionData?.image3}
+                          width={250}
+                          height={250}
+                          className="object-contain"
+                        />
+                      </div>
+                    )
                   )}
                 </div>
                 {sapSectionData?.imageSection?.image2?.image && (

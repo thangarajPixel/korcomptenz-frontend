@@ -115,8 +115,14 @@ const FabconComposableIntelligence = ({
                     />
                   </div>
                 ) : (
-                  <div className="absolute inset-x-0 bottom-6 flex justify-center">
-                    <span className="text-white text-2xl font-semibold rotate-[-90deg] origin-bottom-left whitespace-nowrap">
+                  <div className="absolute inset-x-0 bottom-6 flex justify-center items-end">
+                    <span
+                      className="text-white text-[32px] font-semibold whitespace-nowrap"
+                      style={{
+                        writingMode: "vertical-rl",
+                        transform: "rotate(180deg)",
+                      }}
+                    >
                       {item?.title}
                     </span>
                   </div>

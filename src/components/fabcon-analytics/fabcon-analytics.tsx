@@ -1,7 +1,6 @@
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
 import { DangerousHtml } from "../ui/dangerous-html";
-import ButtonLink from "../ui/button-link";
 
 import Link from "next/link";
 
@@ -51,18 +50,19 @@ const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
               />
 
               {item?.buttonText && (
-                <ButtonLink
-                  link={item?.buttonLink || "#"}
-                  isTargetNew={item?.isTarget}
-                  buttonProps={{
-                    arrow: true,
-
-                    className:
-                      "hover:bg-transparent bg-transparent text-primary hover:text-primary hover:border-transparent md:-ml-4 ",
-                  }}
+                <a
+                  href={item?.buttonLink || "#"}
+                  target={item?.isTarget ? "_blank" : "_self"}
+                  className="
+    inline-flex items-center
+    bg-gradient-to-r from-[#1F849F] to-[#6AC494]
+    bg-clip-text text-transparent
+    border border-transparent
+    transition-all duration-300 text-[17px] font-medium
+  "
                 >
                   {item.buttonText}
-                </ButtonLink>
+                </a>
               )}
             </div>
           ))}

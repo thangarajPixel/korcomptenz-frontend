@@ -13,7 +13,7 @@ const FabconSmartForge = ({ data }: { data: FabconSmartForgeType }) => {
     link: null,
   });
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative  py-24">
       {/* Background */}
       <div
         className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat bg-[#07003B]"
@@ -40,33 +40,46 @@ const FabconSmartForge = ({ data }: { data: FabconSmartForgeType }) => {
         </div>
 
         {/* ================= RIGHT IMAGE ================= */}
-        <div className="relative flex justify-center lg:justify-end">
+        <div className="relative flex justify-center lg:justify-end ">
           {/* Circle Image */}
-          <div className="relative w-[280px] h-[280px] md:w-[600px] md:h-[600px] rounded-full overflow-hidden border-4 border-primary">
+          <div className="relative w-[280px] h-[280px] md:w-[600px] md:h-[600px] rounded-full  ">
             <KorcomptenzImage
               src={data?.image}
               width={600}
               height={600}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
-          </div>
 
-          {/* Play Button */}
-          <div className="absolute md:-bottom-8  md:-left-4  -bottom-16 left-12">
-            <div className="w-[100px] h-[100px] md:w-[230px] md:h-[230px] rounded-full bg-white flex items-center justify-center shadow-xl cursor-pointer hover:scale-105 transition">
-              <div className="text-foreground rounded-full border-[#e7e7e7] border-2">
-                <KorcomptenzImage
-                  src={data?.buttonImage}
-                  width={200}
-                  height={200}
-                  className="object-cover"
-                  onClick={() =>
-                    setIsVideoOpen({
-                      link: data?.videoLink || "#",
-                      open: true,
-                    })
-                  }
-                />
+            {/* Play Button – locked to circle */}
+            <div className="absolute bottom-0 left-0 translate-x-[-8px] translate-y-[8px]">
+              {/* OUTER CIRCLE */}
+              <div
+                className="
+      w-[80px] h-[80px]
+      md:w-[170px] md:h-[170px]
+     
+      rounded-full bg-white
+      flex items-center justify-center
+      shadow-xl cursor-pointer
+      hover:scale-105 transition
+    "
+              >
+                {/* MIDDLE RING */}
+                <div className="w-[80%] h-[80%] rounded-full border-2 border-[#e7e7e7] flex items-center justify-center">
+                  {/* INNER PLAY ICON */}
+                  <KorcomptenzImage
+                    src={data?.buttonImage}
+                    width={200}
+                    height={200}
+                    className="w-[100%] h-[100%] object-contain"
+                    onClick={() =>
+                      setIsVideoOpen({
+                        link: data?.videoLink || "#",
+                        open: true,
+                      })
+                    }
+                  />
+                </div>
               </div>
             </div>
           </div>

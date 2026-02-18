@@ -3,7 +3,7 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 export default function FabconExperts({ data }: { data: ExpertsSectionType }) {
   return (
-    <section className="relative rounded-4xl py-12 overflow-hidden">
+    <section className="relative rounded-4xl  overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 -z-10 bg-cover bg-right bg-no-repeat"

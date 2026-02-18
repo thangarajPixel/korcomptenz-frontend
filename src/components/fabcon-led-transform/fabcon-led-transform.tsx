@@ -34,33 +34,35 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
         <h2 className="text-foreground">{data?.title3}</h2>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-x-10 gap-y-10">
+      <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-x-10 gap-y-10">
         {/* IMAGE SECTION */}
-        <div className="relative">
-          {/* Background image (small accent only) */}
-          <div className="absolute -bottom-20 -right-7 z-0 hidden lg:block">
-            <KorcomptenzImage
-              src={data?.backgroundImage}
-              width={350}
-              height={400}
-              className="w-[350px] h-[400px] object-contain rounded-2xl opacity-80"
-            />
-          </div>
-
-          {/* Foreground image (FULL image visible) */}
-          <div className="relative z-10 flex justify-center">
+        <div className="relative flex items-start justify-center">
+          <div className="relative inline-block w-full">
+            {/* Foreground person image */}
             <KorcomptenzImage
               src={data?.image}
               width={478}
               height={755}
-              className="
-        w-full
-        max-h-[680px]
-        md:max-h-[755px]
-        object-contain
-        rounded-2xl
-      "
+              className="relative z-10 w-full h-auto object-cover object-top rounded-2xl"
             />
+
+            {/* Purple accent block */}
+            <div
+              className="absolute -bottom-8 -right-8 z-0 w-[55%] h-[40%] rounded-2xl hidden md:block"
+              style={{ backgroundColor: "#2D2B8F" }}
+            />
+
+            {/* Background texture/image */}
+            {data?.backgroundImage && (
+              <div className="absolute -bottom-8 -right-8 z-[5] w-[55%] h-[40%] rounded-2xl overflow-hidden opacity-60 hidden md:block">
+                <KorcomptenzImage
+                  src={data?.backgroundImage}
+                  width={350}
+                  height={400}
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+              </div>
+            )}
           </div>
         </div>
 
@@ -81,7 +83,7 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
                 <AccordionItem
                   key={value}
                   value={value}
-                  className="rounded-2xl p-2 md:px-5 my-5 border border-[#1EBFA1] data-[state=open]:bg-white"
+                  className="rounded-2xl p-2 md:px-5 my-5 border border-[#1EBFA1] data-[state=open]:bg-[#f1f9f9]"
                 >
                   {/* TITLE + INACTIVE ARROW */}
                   <AccordionTrigger
@@ -102,7 +104,7 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
                   </AccordionTrigger>
 
                   {/* DESCRIPTION + ACTIVE ARROW */}
-                  <AccordionContent className="flex flex-col">
+                  <AccordionContent className="flex flex-col bg-[#f1f9f9">
                     {item?.description && (
                       <DangerousHtml
                         className="mt-2 text-lg text-[#0E0E0E] leading-7.5"

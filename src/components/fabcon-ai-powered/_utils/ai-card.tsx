@@ -7,12 +7,12 @@ import { cn } from "@/lib/utils";
 const AiCard = ({
   card,
   isLastOdd = false,
-  isTwoCard = false,
+
   isSingle = false,
 }: {
   card: AiCardType;
   isLastOdd?: boolean;
-  isTwoCard?: boolean;
+
   isSingle?: boolean;
 }) => {
   return (
@@ -26,11 +26,11 @@ const AiCard = ({
       {isSingle ? (
         <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr_2fr] gap-6 items-stretch">
           {/* Column 1 → Image (centered vertically & horizontally) */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-start justify-start">
             <KorcomptenzImage
               src={card?.image}
-              width={200}
-              height={200}
+              width={280}
+              height={280}
               className="flex-shrink-0"
             />
           </div>
@@ -64,7 +64,6 @@ const AiCard = ({
           <div
             className={cn(
               "flex flex-col md:flex-row items-center md:items-center gap-3",
-              isTwoCard && "md:justify-between",
             )}
           >
             {/* Image → centered on mobile */}

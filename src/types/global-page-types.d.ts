@@ -1111,6 +1111,7 @@ type ComposableIntelligenceType = {
 type FabconDecisionFabricType = {
   title1: string;
   title2: string;
+  title3: string;
   backgroundImage: ImageType;
   form: FabconDecisionLeadSchema;
 };

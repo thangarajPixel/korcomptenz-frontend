@@ -27,7 +27,7 @@ const FabconAiPowered = ({ data }: { data: FabconAiPoweredType }) => {
               card={card}
               isSingle={!isEven && isLast}
               isLastOdd={!isEven && isLast}
-              isTwoCard={isEven || !isLast}
+              
             />
           );
         })}
