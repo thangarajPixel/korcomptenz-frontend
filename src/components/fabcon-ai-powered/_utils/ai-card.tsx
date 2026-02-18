@@ -67,23 +67,31 @@ const AiCard = ({
             )}
           >
             {/* Image → centered on mobile */}
-            <div className="flex  justify-center md:justify-center ">
+            <div className="flex justify-center w-full md:w-auto hidden md:block">
               <KorcomptenzImage
                 src={card?.image}
-                width={280}
-                height={280}
-                className="flex-shrink-0 md:w-[160px] md:h-[160px] w-[250px] h-[180px] object-contain"
+                width={180}
+                height={180}
+                className="flex-shrink-0"
+              />
+            </div>
+            <div className="flex justify-center w-full md:w-auto block md:hidden">
+              <KorcomptenzImage
+                src={card?.image}
+                width={200}
+                height={150}
+                className="flex-shrink-0  w-[250px] h-[180px] object-contain"
               />
             </div>
 
             {/* Title → left on mobile, right on desktop */}
-            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-2xl md:text-[26px] font-semibold text-left md:text-right w-full md:w-auto md:mt-24">
+            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-2xl md:text-[26px] font-semibold text-left md:text-right w-full md:w-auto md:mt-12">
               {card?.title}
             </h3>
           </div>
 
           {/* DESCRIPTION */}
-          <div className="sm:mt-3 md:mt-0">
+          <div className="sm:mt-4 md:mt-0">
             <DangerousHtml
               html={card?.description}
               className="text-md md:text-lg leading-7.5 text-[#020202]"

@@ -18,22 +18,37 @@ const ExpandableHtml = ({
     const el = ref.current;
     if (!el) return;
 
-    // Reset state when html changes
     setExpanded(false);
-    setShowToggle(false);
 
-    // Use multiple animation frames + setTimeout to ensure content is fully rendered
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setTimeout(() => {
-          if (el) {
-            // Add small tolerance (5px) for browser rendering differences
-            const isOverflowing = el.scrollHeight > el.clientHeight + 5;
-            setShowToggle(isOverflowing);
-          }
-        }, 0);
-      });
+    const checkOverflow = () => {
+      if (!el) return;
+      const isOverflowing = el.scrollHeight > el.clientHeight + 2;
+      setShowToggle(isOverflowing);
+    };
+
+    // Initial check
+    checkOverflow();
+
+    // Observe size changes
+    const resizeObserver = new ResizeObserver(() => {
+      checkOverflow();
     });
+
+    resizeObserver.observe(el);
+
+    // Re-check when tab becomes active again
+    const onVisibilityChange = () => {
+      if (!document.hidden) {
+        requestAnimationFrame(checkOverflow);
+      }
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      resizeObserver.disconnect();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
   }, [html]);
 
   return (

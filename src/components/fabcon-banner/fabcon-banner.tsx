@@ -10,7 +10,7 @@ const FabconBanner = ({ data }: { data: FabconBannerType }) => {
     <section className="relative overflow-hidden py-12">
       {/* Background */}
       <div
-        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat bg-[#07003B]"
+        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat bg-[#07003B] scroll-mt-24"
         style={{ backgroundImage: `url(${data?.backgroundImage?.url})` }}
       />
 
@@ -63,7 +63,10 @@ const FabconBanner = ({ data }: { data: FabconBannerType }) => {
           </Button>
         </div>
 
-        <div className=" flex justify-center lg:justify-start ">
+        <div
+          id="fabcon-enquiry"
+          className=" flex justify-center lg:justify-start scroll-mt-32"
+        >
           <FabconBannerForm form={data?.form} />
         </div>
       </div>
