@@ -4,7 +4,7 @@ import FabconDecisionForm from "./_utils/fabcon-decision-form";
 
 const FabconDecisionFabric = ({ data }: { data: FabconDecisionFabricType }) => {
   return (
-    <section className="relative overflow-hidden py-12 md:py-24 -mb-10 -mt-24 md:-mb-24">
+    <section className="relative overflow-hidden py-12 md:py-24 -mb-10 -mt-12 md:-mt-24 md:-mb-24">
       {/* Background */}
       <div
         className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat bg-[#07003B]"
@@ -24,7 +24,7 @@ const FabconDecisionFabric = ({ data }: { data: FabconDecisionFabricType }) => {
         {/* ================= LEFT CONTENT ================= */}
         <div
           className="
-            
+            space-y-6
             text-white
             max-w-md
             mx-auto

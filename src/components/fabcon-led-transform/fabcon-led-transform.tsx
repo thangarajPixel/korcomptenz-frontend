@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { DangerousHtml } from "../ui/dangerous-html";
 import KorcomptenzImage from "../korcomptenz-image";
 import { ChevronDownIcon } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import {
   Accordion,
   AccordionItem,
@@ -11,6 +12,7 @@ import {
 } from "../ui/accordion";
 import { cn } from "@/lib/utils";
 import ButtonLink from "../ui/button-link";
+import Link from "next/link";
 
 const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
   const firstValue = data?.list?.[0] ? `item-${data.list[0].id}` : undefined;
@@ -131,19 +133,46 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
 
           {/* BUTTON */}
           {data?.buttonText && (
-            <div className="pt-4 max-w-full ">
-              <ButtonLink
-                link={data?.buttonLink || "#"}
-                buttonProps={{
-                  size: "xl",
-                  arrow: true,
-                  className:
-                    "w-full sm:w-auto text-center whitespace-normal break-words px-4 py-2 md:py-0",
-                }}
-              >
-                {data?.buttonText}
-              </ButtonLink>
-            </div>
+            <>
+              <div className="pt-4 max-w-full hidden md:block ">
+                <ButtonLink
+                  link={data?.buttonLink || "#"}
+                  buttonProps={{
+                    size: "xl",
+                    arrow: true,
+                    className:
+                      "w-full sm:w-auto text-center whitespace-normal break-words px-4 sm:!py-3 md:!py-0",
+                  }}
+                >
+                  {data?.buttonText}
+                </ButtonLink>
+              </div>
+              <div className="block md:hidden">
+                <Link href={data?.buttonLink || "#"}>
+                  <button
+                    type="button"
+                    className="
+      inline-flex items-center justify-center gap-2
+      rounded-full
+      bg-primary text-primary-foreground
+      border-2 border-transparent
+      shadow-xs
+      px-4 py-6
+      h-18
+      text-lg font-normal
+      transition-all duration-300 ease-out
+      hover:bg-white hover:text-primary hover:border-primary
+      whitespace-normal break-words text-center
+    "
+                  >
+                    <span className="flex items-center gap-1">
+                      {data?.buttonText}
+                      <ChevronRight className="size-5" strokeWidth={3} />
+                    </span>
+                  </button>
+                </Link>
+              </div>
+            </>
           )}
         </div>
       </div>

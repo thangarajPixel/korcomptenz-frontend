@@ -1,6 +1,7 @@
 "use client";
 
-import ButtonLink from "../ui/button-link";
+import { Button } from "../ui/button";
+
 import { DangerousHtml } from "../ui/dangerous-html";
 import FabconBannerForm from "./_utils/fabcon-Banner-form";
 
@@ -43,7 +44,7 @@ const FabconBanner = ({ data }: { data: FabconBannerType }) => {
             </p>
           </div>
 
-          <ButtonLink
+          {/* <ButtonLink
             link={data?.buttonLink}
             buttonProps={{
               arrow: true,
@@ -52,10 +53,17 @@ const FabconBanner = ({ data }: { data: FabconBannerType }) => {
             isTargetNew={data?.isTarget}
           >
             {data?.buttonText}
-          </ButtonLink>
+          </ButtonLink> */}
+          <Button
+            arrow
+            size="xl"
+            className="cursor-default hover:bg-primary hover:text-white"
+          >
+            {data?.buttonText}
+          </Button>
         </div>
 
-        <div className=" flex justify-start lg:justify-start">
+        <div className=" flex justify-center lg:justify-start ">
           <FabconBannerForm form={data?.form} />
         </div>
       </div>

@@ -3,6 +3,8 @@ import KorcomptenzImage from "../korcomptenz-image";
 import { DangerousHtml } from "../ui/dangerous-html";
 
 import Link from "next/link";
+import ExpandableHtml from "./_utils/show-more";
+import { cn } from "@/lib/utils";
 
 const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
   return (
@@ -40,30 +42,29 @@ const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
                 />
               </div>
 
-              <h3 className="text-lg md:text-xl font-semibold mb-3 text-[#020202]">
+              <h3
+                className="
+    text-lg md:text-xl
+    font-semibold
+    mb-1
+    text-[#020202]
+    line-clamp-2
+    min-h-[2rem] md:min-h-[3rem]
+  "
+              >
                 {item.title}
               </h3>
 
-              <DangerousHtml
+              {/* <DangerousHtml
                 html={item.description || ""}
                 className="text-sm md:text-base text-[#020202] leading-relaxed mb-4"
+              /> */}
+              <ExpandableHtml
+                html={item.description}
+                className={cn(
+                  "text-sm md:text-base text-[#020202] leading-relaxed mb-4",
+                )}
               />
-
-              {item?.buttonText && (
-                <a
-                  href={item?.buttonLink || "#"}
-                  target={item?.isTarget ? "_blank" : "_self"}
-                  className="
-    inline-flex items-center
-    bg-gradient-to-r from-[#1F849F] to-[#6AC494]
-    bg-clip-text text-transparent
-    border border-transparent
-    transition-all duration-300 text-[17px] font-medium
-  "
-                >
-                  {item.buttonText}
-                </a>
-              )}
             </div>
           ))}
         </div>

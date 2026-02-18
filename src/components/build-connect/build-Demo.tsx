@@ -18,8 +18,8 @@ const BuildDemo = ({
         )}
         <div
           className={cn(
-            "grid grid-cols-1 lg:grid-cols-2 gap-x-20",
-            buildData?.isSwap && "mt-3"
+            "grid grid-cols-1 lg:grid-cols-[60%_40%] gap-x-20",
+            buildData?.isSwap && "mt-3",
           )}
         >
           <div

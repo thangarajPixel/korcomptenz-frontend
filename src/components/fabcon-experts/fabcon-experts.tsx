@@ -3,7 +3,7 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 export default function FabconExperts({ data }: { data: ExpertsSectionType }) {
   return (
-    <section className="relative rounded-4xl  overflow-hidden">
+    <section className="relative rounded-4xl  md:-mb-10 md:-mt-24 md:py-24 ">
       {/* Background Image */}
       <div
         className="absolute inset-0 -z-10 bg-cover bg-right bg-no-repeat"
@@ -15,7 +15,7 @@ export default function FabconExperts({ data }: { data: ExpertsSectionType }) {
       />
       <div className="container-md">
         {/* Title Row */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 text-center">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 text-center ">
           <h2 className="text-black">{data?.title1}</h2>
 
           <h2 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">

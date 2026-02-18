@@ -41,7 +41,7 @@ const FabconAbout = ({ data }: { data: FabconAboutType }) => {
         {/* CONTENT SECTION */}
         <div className="lg:px-5 space-y-4 md:mt-8">
           {/* Title */}
-          <div className="grid md:flex items-center gap-2 md:whitespace-nowrap">
+          <div className="flex items-center gap-2 md:whitespace-nowrap">
             <h2 className="text-foreground">{data?.title1}</h2>
             <h2 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
               {data?.title2}
@@ -51,7 +51,7 @@ const FabconAbout = ({ data }: { data: FabconAboutType }) => {
           {/* Description */}
           <DangerousHtml
             html={data?.description}
-            className="text-md md:text-lg text-foreground leading-7.5 break-words"
+            className="text-md md:text-lg text-[#242424] leading-7.5 break-words"
           />
 
           {/* Button */}

@@ -26,7 +26,7 @@ const AiCard = ({
       {isSingle ? (
         <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr_2fr] gap-6 items-stretch">
           {/* Column 1 → Image (centered vertically & horizontally) */}
-          <div className="flex items-start justify-start">
+          <div className="flex items-center justify-center md:items-start md:justify-start">
             <KorcomptenzImage
               src={card?.image}
               width={280}
@@ -43,7 +43,7 @@ const AiCard = ({
 
             <DangerousHtml
               html={card?.description}
-              className="text-md md:text-lg leading-7.5"
+              className="text-md md:text-lg leading-7.5 text-[#020202]"
             />
           </div>
 
@@ -63,16 +63,16 @@ const AiCard = ({
           {/* HEADER (2 cards → justify-between) */}
           <div
             className={cn(
-              "flex flex-col md:flex-row items-center md:items-center gap-3",
+              "flex flex-col md:flex-row items-center md:items-center gap-0 md:gap-3",
             )}
           >
             {/* Image → centered on mobile */}
-            <div className="flex justify-center w-full md:w-auto">
+            <div className="flex  justify-center md:justify-center ">
               <KorcomptenzImage
                 src={card?.image}
-                width={150}
-                height={150}
-                className="flex-shrink-0"
+                width={280}
+                height={280}
+                className="flex-shrink-0 md:w-[160px] md:h-[160px] w-[250px] h-[180px] object-contain"
               />
             </div>
 
@@ -86,7 +86,7 @@ const AiCard = ({
           <div className="mt-3 md:mt-4">
             <DangerousHtml
               html={card?.description}
-              className="text-md md:text-lg leading-7.5"
+              className="text-md md:text-lg leading-7.5 text-[#020202]"
             />
           </div>
 

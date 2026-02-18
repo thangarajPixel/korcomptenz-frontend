@@ -65,7 +65,7 @@ export function DigitialAboutSection({
               <div key={stat?.id} className="text-center">
                 <h3
                   className={cn(
-                    "text-5xl md:text-10xl font-semibold mb-2 text-primary text-left",
+                    "text-5xl md:text-7xl font-semibold mb-2 text-primary text-left",
                   )}
                 >
                   {stat?.value}
@@ -111,7 +111,7 @@ export function DigitialAboutSection({
             {data?.countries?.map((countries) => (
               <div
                 key={countries?.id}
-                className="flex flex-col items-center gap-3 group cursor-pointer"
+                className="flex flex-col items-center gap-3 group cursor-normal"
               >
                 <div className="w-10 h-10 lg:w-[50px] lg:h-[50px]">
                   <KorcomptenzImage
