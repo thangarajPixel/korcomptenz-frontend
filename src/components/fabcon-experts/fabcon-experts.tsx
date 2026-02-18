@@ -51,7 +51,7 @@ export default function FabconExperts({ data }: { data: ExpertsSectionType }) {
 
               <DangerousHtml
                 html={partner?.description}
-                className="text-[#020202]"
+                className="text-[#020202] text-md md:text-lg leading-7.5"
               />
             </div>
           ))}
