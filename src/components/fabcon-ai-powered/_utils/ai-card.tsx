@@ -83,7 +83,7 @@ const AiCard = ({
           </div>
 
           {/* DESCRIPTION */}
-          <div className="mt-3 ">
+          <div className="sm:mt-3 md:mt-0">
             <DangerousHtml
               html={card?.description}
               className="text-md md:text-lg leading-7.5 text-[#020202]"
