@@ -37,7 +37,7 @@ const AiCard = ({
 
           {/* Column 2 → Title + Description */}
           <div className="flex flex-col justify-center gap-3">
-            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-xl font-semibold text-2xl md:text-[26px]">
+            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-xl font-semibold text-2xl md:text-[26px] ">
               {card?.title}
             </h3>
 
@@ -77,13 +77,13 @@ const AiCard = ({
             </div>
 
             {/* Title → left on mobile, right on desktop */}
-            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-2xl md:text-[26px] font-semibold text-left md:text-right w-full md:w-auto md:mt-12">
+            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-2xl md:text-[26px] font-semibold text-left md:text-right w-full md:w-auto md:mt-24">
               {card?.title}
             </h3>
           </div>
 
           {/* DESCRIPTION */}
-          <div className="mt-3 md:mt-4">
+          <div className="mt-3 ">
             <DangerousHtml
               html={card?.description}
               className="text-md md:text-lg leading-7.5 text-[#020202]"
