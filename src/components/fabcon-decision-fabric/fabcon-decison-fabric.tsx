@@ -24,7 +24,7 @@ const FabconDecisionFabric = ({ data }: { data: FabconDecisionFabricType }) => {
         {/* ================= LEFT CONTENT ================= */}
         <div
           className="
-            space-y-6
+           
             text-white
             max-w-md
             mx-auto
