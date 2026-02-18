@@ -20,7 +20,7 @@ const FabconComposableIntelligence = ({
       {/* Background */}
       <div
         className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat bg-[#07003B]"
-        style={{ backgroundImage: `url(${data?.backgroundImage})` }}
+        style={{ backgroundImage: `url(${data?.backgroundImage?.url})` }}
       />
 
       <div className="container-md">
@@ -115,14 +115,8 @@ const FabconComposableIntelligence = ({
                     />
                   </div>
                 ) : (
-                  <div className="absolute inset-x-0 bottom-6 flex justify-center items-end">
-                    <span
-                      className="text-white text-[32px] font-semibold whitespace-nowrap"
-                      style={{
-                        writingMode: "vertical-rl",
-                        transform: "rotate(180deg)",
-                      }}
-                    >
+                  <div className="absolute inset-x-0 bottom-6 flex justify-center">
+                    <span className="text-white text-2xl font-semibold rotate-[-90deg] origin-bottom-left whitespace-nowrap">
                       {item?.title}
                     </span>
                   </div>
