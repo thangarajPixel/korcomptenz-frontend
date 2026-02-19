@@ -75,7 +75,7 @@ const ExpandableHtml = ({
           className="mt-2 inline-flex items-center
             bg-gradient-to-r from-[#1F849F] to-[#6AC494]
             bg-clip-text text-transparent
-            border border-transparent
+            border border-transparent cursor-pointer
             transition-all duration-300 text-[17px] font-medium"
         >
           {expanded ? "Read less" : "Read more"}
