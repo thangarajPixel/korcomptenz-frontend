@@ -18,7 +18,7 @@ const AiCard = ({
   return (
     <div
       className={cn(
-        "rounded-3xl bg-white p-4 md:p-6 shadow-sm w-full",
+        "rounded-3xl bg-white p-4 md:p-2 shadow-sm w-full",
         isLastOdd && "md:col-span-2",
       )}
     >
@@ -43,7 +43,7 @@ const AiCard = ({
 
             <DangerousHtml
               html={card?.description}
-              className="text-md md:text-lg leading-7.5 text-[#020202]"
+              className="text-md md:text-lg leading-7.5 text-[#020202] "
             />
           </div>
 
@@ -85,21 +85,21 @@ const AiCard = ({
             </div>
 
             {/* Title → left on mobile, right on desktop */}
-            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-2xl md:text-[26px] font-semibold text-left md:text-right w-full md:w-auto md:mt-24">
+            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-2xl md:text-[26px] font-semibold text-left md:text-right w-full md:w-auto md:mt-16">
               {card?.title}
             </h3>
           </div>
 
           {/* DESCRIPTION */}
-          <div className="mt-4">
+          <div className="mt-3">
             <DangerousHtml
               html={card?.description}
-              className="text-md md:text-lg leading-7.5 text-[#020202]"
+              className="text-md md:text-lg leading-7.5 text-[#020202] md:px-4"
             />
           </div>
 
           {/* BUTTON */}
-          <div className="mt-6">
+          <div className="mt-6 md:px-4">
             <ButtonLink
               link={card?.buttonLink}
               isTargetNew={card?.isTarget}
