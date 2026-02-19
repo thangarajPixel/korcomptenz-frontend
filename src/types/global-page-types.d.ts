@@ -1069,7 +1069,7 @@ type FabconAnalyticsType = {
   mid: {
     title1: string;
     title2: string;
-    list: {
+    midList: {
       id: string;
       description: string;
 

@@ -71,14 +71,14 @@ const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
 
         {/* ================= STATS ================= */}
         <div>
-          <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-center ">
+          <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-center mb-6 md:mb-12 ">
             {data?.mid?.title1}
             <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent ml-2">
               {data?.mid?.title2}
             </span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
-            {data?.mid?.list?.map((stat) => (
+            {data?.mid?.midList?.map((stat) => (
               <div
                 key={stat.id}
                 className="flex flex-col items-center text-center"
