@@ -70,37 +70,44 @@ const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
         </div>
 
         {/* ================= STATS ================= */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
-          {data?.mid?.map((stat) => (
-            <div
-              key={stat.id}
-              className="flex flex-col items-center text-center"
-            >
-              {/* Icon */}
-              <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center overflow-hidden">
-                <KorcomptenzImage
-                  src={stat.image}
-                  width={80}
-                  height={80}
-                  className="object-contain"
-                />
-              </div>
+        <div>
+          <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-center ">
+            {data?.mid?.title1}
+            <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent ml-2">
+              {data?.mid?.title2}
+            </span>
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+            {data?.mid?.list?.map((stat) => (
+              <div
+                key={stat.id}
+                className="flex flex-col items-center text-center"
+              >
+                {/* Icon */}
+                <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                  <KorcomptenzImage
+                    src={stat.image}
+                    width={80}
+                    height={80}
+                    className="object-contain"
+                  />
+                </div>
 
-              {/* Text Section */}
-              <div className="mt-4">
-                <p className="text-[40px] md:text-[48px] font-extrabold">
-                  {stat.percentage}
-                </p>
+                {/* Text Section */}
+                <div className="mt-4">
+                  <p className="text-[40px] md:text-[48px] font-extrabold">
+                    {stat.percentage}
+                  </p>
 
-                <DangerousHtml
-                  html={stat.description || ""}
-                  className="text-md md:text-lg leading-7.5"
-                />
+                  <DangerousHtml
+                    html={stat.description || ""}
+                    className="text-md md:text-lg leading-7.5"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
         {/* ================= PARTNER LOGOS ================= */}
         <div
           className="
@@ -116,7 +123,7 @@ const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
               <Link key={logo?.id} href={logo?.link || "#"}>
                 <KorcomptenzImage
                   src={logo.image}
-                  width={120}
+                  width={130}
                   height={60}
                   className="object-contain"
                 />

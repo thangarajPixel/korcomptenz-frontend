@@ -1,9 +1,9 @@
 "use client";
+
 import React, { useState } from "react";
 import { DangerousHtml } from "../ui/dangerous-html";
 import KorcomptenzImage from "../korcomptenz-image";
-import { ChevronDownIcon } from "lucide-react";
-import { ChevronRight } from "lucide-react";
+import { ChevronDownIcon, ChevronRight } from "lucide-react";
 import {
   Accordion,
   AccordionItem,
@@ -21,9 +21,11 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
     firstValue,
   );
 
-  const handleToggle = (value: string) => {
-    setActiveValue((prev) => (prev === value ? undefined : value));
-  };
+  const activeId = activeValue
+    ? Number(activeValue.split("-")[1])
+    : data?.list?.[0]?.id;
+
+  const activeItem = data?.list?.find((item) => item.id === activeId);
 
   return (
     <div className="container-md">
@@ -40,22 +42,21 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
         {/* IMAGE SECTION */}
         <div className="relative flex items-start justify-center">
           <div className="relative inline-block w-full">
-            {/* Foreground person image */}
-            <KorcomptenzImage
-              src={data?.image}
-              width={478}
-              height={755}
-              className="relative z-10 w-full h-auto object-cover object-top rounded-2xl"
-            />
+            {activeItem?.image && (
+              <KorcomptenzImage
+                src={activeItem.image}
+                width={478}
+                height={755}
+                className="relative z-10 w-full h-auto object-cover object-top rounded-2xl"
+              />
+            )}
 
-            {/* Purple accent block */}
             <div
               className="absolute -bottom-8 -right-8 z-0 w-[55%] h-[40%] rounded-2xl hidden md:block"
               style={{ backgroundColor: "#2D2B8F" }}
             />
 
-            {/* Background texture/image */}
-            {data?.backgroundImage && (
+            {activeItem?.image && (
               <div className="absolute -bottom-8 -right-8 z-[5] w-[55%] h-[40%] rounded-2xl overflow-hidden opacity-60 hidden md:block">
                 <KorcomptenzImage
                   src={data?.backgroundImage}
@@ -85,16 +86,12 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
                 <AccordionItem
                   key={value}
                   value={value}
-                  className="rounded-2xl p-2 md:px-5 my-5 border border-[#1EBFA1] data-[state=open]:bg-[#f1f9f9]"
+                  className="relative rounded-2xl p-2 md:px-5 my-5 border border-[#1EBFA1] data-[state=open]:bg-[#f1f9f9]"
                 >
-                  {/* TITLE + INACTIVE ARROW */}
-                  <AccordionTrigger
-                    onClick={() => handleToggle(value)}
-                    className="flex justify-between items-start text-left text-lg md:text-4xl font-semibold leading-7 md:leading-9 text-foreground"
-                  >
+                  {/* TOP TRIGGER */}
+                  <AccordionTrigger className="flex justify-between items-start text-left text-lg md:text-4xl font-semibold leading-7 md:leading-9 text-foreground">
                     <span>{item.title}</span>
 
-                    {/* Arrow near title (inactive only) */}
                     <ChevronDownIcon
                       className={cn(
                         "size-10 p-2 text-black rounded-full transition-all duration-200",
@@ -105,27 +102,28 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
                     />
                   </AccordionTrigger>
 
-                  {/* DESCRIPTION + ACTIVE ARROW */}
-                  <AccordionContent className="flex flex-col bg-[#f1f9f9">
+                  {/* CONTENT */}
+                  <AccordionContent className="relative flex flex-col bg-[#f1f9f9]">
                     {item?.description && (
                       <DangerousHtml
                         className="mt-2 text-lg text-[#0E0E0E] leading-7.5"
                         html={item.description}
                       />
                     )}
-
-                    {/* Arrow near description (active only) */}
-                    {isActive && (
-                      <div className="flex justify-end pt-3">
-                        <button
-                          onClick={() => handleToggle(value)}
-                          className="focus:outline-none"
-                        >
-                          <ChevronDownIcon className="size-8 p-1 text-black rotate-180 transition-transform" />
-                        </button>
-                      </div>
-                    )}
                   </AccordionContent>
+
+                  {/* BOTTOM TRIGGER (DIRECT CHILD ✅) */}
+                  {isActive && (
+                    <AccordionTrigger
+                      className="
+        flex justify-end pt-3
+        text-black
+        data-[state=closed]:hidden
+      "
+                    >
+                      <ChevronDownIcon className="size-8 p-1 rotate-180 transition-transform" />
+                    </AccordionTrigger>
+                  )}
                 </AccordionItem>
               );
             })}
@@ -134,7 +132,7 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
           {/* BUTTON */}
           {data?.buttonText && (
             <>
-              <div className="pt-4 max-w-full hidden md:block ">
+              <div className="pt-4 max-w-full hidden md:block">
                 <ButtonLink
                   link={data?.buttonLink || "#"}
                   buttonProps={{
@@ -147,23 +145,24 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
                   {data?.buttonText}
                 </ButtonLink>
               </div>
+
               <div className="block md:hidden">
                 <Link href={data?.buttonLink || "#"}>
                   <button
                     type="button"
                     className="
-      inline-flex items-center justify-center gap-2
-      rounded-full
-      bg-primary text-primary-foreground
-      border-2 border-transparent
-      shadow-xs
-      px-4 py-6
-      h-18
-      text-lg font-normal
-      transition-all duration-300 ease-out
-      hover:bg-white hover:text-primary hover:border-primary
-      whitespace-normal break-words text-center
-    "
+                      inline-flex items-center justify-center gap-2
+                      rounded-full
+                      bg-primary text-primary-foreground
+                      border-2 border-transparent
+                      shadow-xs
+                      px-4 py-6
+                      h-18
+                      text-lg font-normal
+                      transition-all duration-300 ease-out
+                      hover:bg-white hover:text-primary hover:border-primary
+                      whitespace-normal break-words text-center
+                    "
                   >
                     <span className="flex items-center gap-1">
                       {data?.buttonText}

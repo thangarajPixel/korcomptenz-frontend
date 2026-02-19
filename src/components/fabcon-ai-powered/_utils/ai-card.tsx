@@ -26,7 +26,7 @@ const AiCard = ({
       {isSingle ? (
         <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr_2fr] gap-6 items-stretch">
           {/* Column 1 → Image (centered vertically & horizontally) */}
-          <div className="flex items-center justify-center md:items-start md:justify-start">
+          <div className="flex items-start justify-start">
             <KorcomptenzImage
               src={card?.image}
               width={280}
@@ -75,7 +75,7 @@ const AiCard = ({
                 className="flex-shrink-0"
               />
             </div>
-            <div className="flex justify-center w-full md:w-auto block md:hidden">
+            <div className="flex justify-start w-full md:w-auto block md:hidden">
               <KorcomptenzImage
                 src={card?.image}
                 width={200}

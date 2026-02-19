@@ -1063,12 +1063,16 @@ type FabconAnalyticsType = {
     isTarget: boolean;
   }[];
   mid: {
-    id: string;
-    description: string;
+    title1: string;
+    title2: string;
+    list: {
+      id: string;
+      description: string;
 
-    image: ImageType;
-    percentage: string;
-  }[];
+      image: ImageType;
+      percentage: string;
+    }[];
+  };
 };
 
 type FabconSmartForgeType = {
@@ -1092,7 +1096,7 @@ type FabconLedTransformType = {
   buttonText: string;
   buttonLink: string;
   isTarget: boolean;
-  list: { id: string; title: string; description: string }[];
+  list: { id: string; title: string; description: string; image: ImageType }[];
 };
 
 type ComposableIntelligenceType = {
@@ -1506,6 +1510,11 @@ type ComponentPropsMap = {
   FabconBanner: FabconBannerType & {
     id: string;
     __component: "page-componets.fabcon-fabric-community-conference";
+  };
+
+  FabconMidMarket: WhyKorcomptenzType & {
+    id: string;
+    __component: "page-componets.midmarket-enterprises";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

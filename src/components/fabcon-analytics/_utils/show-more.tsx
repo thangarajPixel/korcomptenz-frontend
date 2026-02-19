@@ -14,43 +14,59 @@ const ExpandableHtml = ({
   const [expanded, setExpanded] = useState(false);
   const [showToggle, setShowToggle] = useState(false);
 
+  // useEffect(() => {
+  //   const el = ref.current;
+  //   if (!el) return;
+
+  //   setExpanded(false);
+
+  //   const checkOverflow = () => {
+  //     if (!el) return;
+  //     const isOverflowing = el.scrollHeight > el.clientHeight + 2;
+  //     setShowToggle(isOverflowing);
+  //   };
+
+  //   // Initial check
+  //   checkOverflow();
+
+  //   // Observe size changes
+  //   const resizeObserver = new ResizeObserver(() => {
+  //     checkOverflow();
+  //   });
+
+  //   resizeObserver.observe(el);
+
+  //   // Re-check when tab becomes active again
+  //   const onVisibilityChange = () => {
+  //     if (!document.hidden) {
+  //       requestAnimationFrame(checkOverflow);
+  //     }
+  //   };
+
+  //   document.addEventListener("visibilitychange", onVisibilityChange);
+
+  //   return () => {
+  //     resizeObserver.disconnect();
+  //     document.removeEventListener("visibilitychange", onVisibilityChange);
+  //   };
+  // }, [html]);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
     setExpanded(false);
-
-    const checkOverflow = () => {
-      if (!el) return;
-      const isOverflowing = el.scrollHeight > el.clientHeight + 2;
-      setShowToggle(isOverflowing);
-    };
-
-    // Initial check
-    checkOverflow();
-
-    // Observe size changes
-    const resizeObserver = new ResizeObserver(() => {
-      checkOverflow();
+    setShowToggle(false);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          if (el) {
+            const isOverflowing = el.scrollHeight > el.clientHeight + 5;
+            setShowToggle(isOverflowing);
+          }
+        }, 0);
+      });
     });
-
-    resizeObserver.observe(el);
-
-    // Re-check when tab becomes active again
-    const onVisibilityChange = () => {
-      if (!document.hidden) {
-        requestAnimationFrame(checkOverflow);
-      }
-    };
-
-    document.addEventListener("visibilitychange", onVisibilityChange);
-
-    return () => {
-      resizeObserver.disconnect();
-      document.removeEventListener("visibilitychange", onVisibilityChange);
-    };
   }, [html]);
-
   return (
     <div>
       <div ref={ref} className={cn(!expanded && "line-clamp-4")}>

@@ -90,6 +90,7 @@ import FabconLedTransform from "../fabcon-led-transform";
 import FabconComposableIntelligence from "../fabcon-composable-intelligence";
 import FabconDecisionFabric from "../fabcon-decision-fabric";
 import FabconBanner from "../fabcon-banner/fabcon-banner";
+import FabconMidMarket from "../fabcon-midmarket";
 
 type Props = {
   data: ComponentPropsType[];
@@ -991,6 +992,15 @@ const GlobalPage = (props: Props) => {
             key={`fabcon-fabric-community-conference-${item?.__component}-${item?.id}`}
           >
             <FabconBanner data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.midmarket-enterprises":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`midmarket-enterprises-${item?.__component}-${item?.id}`}
+          >
+            <FabconMidMarket data={item} />
           </ScrollFadeIn>
         );
       default:
