@@ -98,6 +98,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
+  
 
   return data?.map((item, index) => {
     switch (item?.__component) {

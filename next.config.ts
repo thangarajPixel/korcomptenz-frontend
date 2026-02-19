@@ -1226,6 +1226,12 @@ const nextConfig: NextConfig = {
         "https://www.korcomptenz.com/case-studies/salesforce-crm-optimization-sports-wellness-case-study",
       permanent: true,
     },
+    {
+      source: "/korcomptenz-at-microsoft-fabric-community-conference-2026",
+      destination:
+        "https://www.korcomptenz.com/events/korcomptenz-at-microsoft-fabric-community-conference-2026",
+      permanent: true,
+    },
   ],
 };
 

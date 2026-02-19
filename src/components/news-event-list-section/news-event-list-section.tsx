@@ -37,6 +37,7 @@ const NewsEventListSectionItem = ({
   data: NewsEventListSectionType;
 }) => {
   const date = item?.date || item?.createdAt.split("T")[0];
+
   return (
     <div key={`section-item-${item.id}`} className="bg-white ">
       <div className="relative aspect-[4/3] w-full rounded-4xl mb-3">

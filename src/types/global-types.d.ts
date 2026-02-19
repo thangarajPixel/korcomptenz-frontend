@@ -316,6 +316,7 @@ type EventListType = {
   slug: string;
   publishedAt: string;
   date: string;
+  buttonLink: string;
 };
 type NewsroomListType = {
   id: string;

@@ -22,7 +22,7 @@ const Page = async () => {
     list: data?.listData?.map((item) => ({
       ...item,
       isEvent: true,
-      buttonLink: "/events/" + item?.slug,
+      buttonLink: "/events/" + item?.buttonLink,
       date: item?.date || item?.publishedAt || "",
       createdAt: item?.publishedAt || "",
     })),
