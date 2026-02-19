@@ -49,7 +49,7 @@ export default function FabconMidMarket({
 
               {/* Title */}
               {card?.title && (
-                <h3 className="text-md md:text-xl font-semibold text-white mb-2 text-left">
+                <h3 className="text-lg md:text-[21px] font-semibold text-white mb-2 text-left">
                   {card?.title}
                 </h3>
               )}
