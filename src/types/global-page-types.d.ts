@@ -470,6 +470,8 @@ type WhyKorcomptenzType = {
   isPerRowFive: boolean;
   subtitle: string;
   isBgGray: boolean;
+  backgroundColor: string;
+  noOfColumn: string;
   isBgGrey: boolean;
   list: IndustryItem[];
 };
@@ -710,6 +712,7 @@ type FormMap = {
 type DigitialInsightType = {
   title: string;
   buttonText: string;
+  noPadding: boolean;
   buttonLink: string;
   isTarget: boolean;
   list: {
@@ -980,6 +983,7 @@ type DigitialAnalyticsType = {
 
 type DigitialAboutSectionType = {
   title: string;
+  noPadding: boolean;
   description: string;
   backgroundImage: ImageType;
   badges: {

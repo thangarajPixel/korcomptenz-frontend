@@ -1,8 +1,9 @@
 "use client";
 import { cn } from "@/lib/utils";
 import KorcomptenzImage from "../korcomptenz-image";
-import { Button } from "../ui/button";
+
 import { DangerousHtml } from "../ui/dangerous-html";
+import ButtonLink from "../ui/button-link";
 
 export default function FabconMidMarket({
   data,
@@ -10,7 +11,12 @@ export default function FabconMidMarket({
   data: WhyKorcomptenzType;
 }) {
   return (
-    <section className=" bg-muted py-12 ">
+    <section
+      className="py-12"
+      style={{
+        backgroundColor: data?.backgroundColor || "#313941",
+      }}
+    >
       <div className="container-md">
         {/* Header */}
         <div className="text-start md:mb-6">
@@ -20,26 +26,33 @@ export default function FabconMidMarket({
         </div>
 
         {/* Cards Grid */}
-        <div className={cn("grid grid-cols-2 md:grid-cols-4  gap-4 ")}>
+        <div
+          className={cn(
+            "grid grid-cols-2  gap-4 ",
+            data?.noOfColumn ? `md:${data?.noOfColumn}` : "md:grid-cols-4",
+          )}
+        >
           {data.list.map((card) => (
             <div
               className="rounded-2xl py-5  space-y-3 "
               key={`${card?.id}-${card?.title}`}
             >
               {/* Icon */}
-              <div className="flex items-center justify-center size-24 rounded-full border border-white">
+              <div className="flex items-start justify-start ">
                 <KorcomptenzImage
                   src={card?.image}
-                  width={65}
-                  height={65}
+                  width={70}
+                  height={70}
                   className="object-contain"
                 />
               </div>
 
               {/* Title */}
-              <h3 className="text-md md:text-xl font-semibold text-[#1e2939] text-left">
-                {card?.title}
-              </h3>
+              {card?.title && (
+                <h3 className="text-md md:text-xl font-semibold text-[#1e2939] text-left">
+                  {card?.title}
+                </h3>
+              )}
 
               {/* Description */}
               <DangerousHtml
@@ -48,13 +61,25 @@ export default function FabconMidMarket({
               />
 
               {card?.buttontext && (
-                <Button
-                  variant="ghost"
-                  arrow
-                  className="text-primary hover:text-primary justify-start text-md hover:bg-transparent p-0"
+                <ButtonLink
+                  link={card?.buttonLink || "#"}
+                  buttonProps={{
+                    variant: "ghost",
+                    arrow: true,
+                    className:
+                      "text-primary hover:text-primary justify-start text-md hover:bg-transparent p-0",
+                  }}
                 >
+                  {" "}
                   {card.buttontext}
-                </Button>
+                </ButtonLink>
+                // <Button
+                //   variant="ghost"
+                //   arrow
+                //   className="text-primary hover:text-primary justify-start text-md hover:bg-transparent p-0"
+                // >
+
+                // </Button>
               )}
             </div>
           ))}

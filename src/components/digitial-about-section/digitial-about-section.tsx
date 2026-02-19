@@ -9,7 +9,12 @@ export function DigitialAboutSection({
   data: DigitialAboutSectionType;
 }) {
   return (
-    <div className="relative conainer-nav overflow-hidden">
+    <div
+      className={cn(
+        "relative conainer-nav overflow-hidden",
+        data?.noPadding && "-mb-12 md:-mb-24",
+      )}
+    >
       {/* Fixed Background with Parallax */}
       <div
         className="absolute inset-0 -z-10 bg-cover bg-right bg-no-repeat"

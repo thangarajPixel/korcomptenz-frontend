@@ -18,7 +18,13 @@ const DigitialInsightSlider = ({
   manuelSliderData: DigitialInsightType;
 }) => {
   return (
-    <div className="bg-[#f7f8f8] py-12" id="success-stories">
+    <div
+      className={cn(
+        "bg-[#f7f8f8] py-12 ",
+        manuelSliderData?.noPadding && "-mb-12 md:-mb-24",
+      )}
+      id="success-stories"
+    >
       <Carousel
         className="container-md overflow-hidden "
         autoPlay

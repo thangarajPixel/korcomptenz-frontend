@@ -48,7 +48,7 @@ export default function CrmOfferingsSection({
       </div>
 
       <svg
-        className="absolute bottom-0 left-0 w-full h-20"
+        className="absolute bottom-0 left-0 w-full h-20 "
         viewBox="0 0 1440 90"
         preserveAspectRatio="none"
       >

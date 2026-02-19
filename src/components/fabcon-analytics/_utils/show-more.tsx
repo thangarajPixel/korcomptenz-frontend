@@ -13,80 +13,70 @@ const ExpandableHtml = ({
   const ref = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
   const [showToggle, setShowToggle] = useState(false);
-
-  // useEffect(() => {
-  //   const el = ref.current;
-  //   if (!el) return;
-
-  //   setExpanded(false);
-
-  //   const checkOverflow = () => {
-  //     if (!el) return;
-  //     const isOverflowing = el.scrollHeight > el.clientHeight + 2;
-  //     setShowToggle(isOverflowing);
-  //   };
-
-  //   // Initial check
-  //   checkOverflow();
-
-  //   // Observe size changes
-  //   const resizeObserver = new ResizeObserver(() => {
-  //     checkOverflow();
-  //   });
-
-  //   resizeObserver.observe(el);
-
-  //   // Re-check when tab becomes active again
-  //   const onVisibilityChange = () => {
-  //     if (!document.hidden) {
-  //       requestAnimationFrame(checkOverflow);
-  //     }
-  //   };
-
-  //   document.addEventListener("visibilitychange", onVisibilityChange);
-
-  //   return () => {
-  //     resizeObserver.disconnect();
-  //     document.removeEventListener("visibilitychange", onVisibilityChange);
-  //   };
-  // }, [html]);
+  const expandedRef = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     setExpanded(false);
+    expandedRef.current = false;
     setShowToggle(false);
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setTimeout(() => {
-          if (el) {
-            const isOverflowing = el.scrollHeight > el.clientHeight + 5;
-            setShowToggle(isOverflowing);
-          }
-        }, 0);
-      });
+
+    const checkOverflow = () => {
+      if (!el || expandedRef.current) return;
+
+      // Temporarily remove clamp to measure true height
+      el.classList.remove("line-clamp-4");
+      const fullHeight = el.scrollHeight;
+      el.classList.add("line-clamp-4");
+      const clampedHeight = el.clientHeight;
+
+      setShowToggle(fullHeight > clampedHeight + 5);
+    };
+
+    const observer = new ResizeObserver(() => {
+      checkOverflow();
     });
+
+    observer.observe(el);
+
+    const onVisibilityChange = () => {
+      if (!document.hidden) checkOverflow();
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    requestAnimationFrame(checkOverflow);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
   }, [html]);
+
+  const handleToggle = () => {
+    setExpanded((v) => {
+      expandedRef.current = !v;
+      return !v;
+    });
+  };
+
   return (
     <div>
       <div ref={ref} className={cn(!expanded && "line-clamp-4")}>
         <DangerousHtml
           html={html}
-          className={cn(
-            className,
-            "[&>ul]:list-disc [&>ul]:",
-            "[&>ol]:list-decimal [&>ol]:",
-          )}
+          className={cn(className, "[&>ul]:list-disc", "[&>ol]:list-decimal")}
         />
       </div>
       {showToggle && (
         <button
-          onClick={() => setExpanded((v) => !v)}
+          onClick={handleToggle}
           className="mt-2 inline-flex items-center
-    bg-gradient-to-r from-[#1F849F] to-[#6AC494]
-    bg-clip-text text-transparent
-    border border-transparent
-    transition-all duration-300 text-[17px] font-medium"
+            bg-gradient-to-r from-[#1F849F] to-[#6AC494]
+            bg-clip-text text-transparent
+            border border-transparent
+            transition-all duration-300 text-[17px] font-medium"
         >
           {expanded ? "Read less" : "Read more"}
         </button>

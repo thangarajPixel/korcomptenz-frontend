@@ -12,10 +12,20 @@ export default function digitialLifeCycle({
     <main className="bg-background">
       {data && (
         <>
-          <CrmOfferingsSection offerings={data?.top} />
-          <OutcomesSection outcomes={data.mid} />
+          {/* Top / CRM Offerings */}
+          {data?.top?.topList?.length > 0 && (
+            <CrmOfferingsSection offerings={data.top} />
+          )}
 
-          <ClosingSection data={data.bottom} />
+          {/* Middle / Outcomes */}
+          {data?.mid && Object.keys(data.mid).length > 0 && (
+            <OutcomesSection outcomes={data.mid} />
+          )}
+
+          {/* Bottom / Closing */}
+          {data?.bottom && Object.keys(data.bottom).length > 0 && (
+            <ClosingSection data={data.bottom} />
+          )}
         </>
       )}
     </main>
