@@ -120,7 +120,7 @@ export default function RootLayout({
           + String((new Date).getFullYear())
           + String(Math.round(parseInt((new Date).getDate() / 7), 0) + 1)
           + "&encsid=uztEfD4WCXU,&enccid=p8gDO8NUS7Y,&wsid=Njg4&dHJhY2tpbmdVcmw=2PtuCvDuCGT5LwTmxa5wjl35YCAFpwehX6VzxWewIgs,";
-        t = document.getElementsByTagName("body")[0];
+        t = document.getElementsByTagName("head")[0];
         t.appendChild(e);
       }();`,
           }}
