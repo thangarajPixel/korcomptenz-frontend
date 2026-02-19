@@ -18,7 +18,7 @@ const BuildDemo = ({
         )}
         <div
           className={cn(
-            "grid grid-cols-1 lg:grid-cols-[60%_40%] gap-x-20",
+            "grid grid-cols-1 lg:grid-cols-[60%_40%] gap-x-15",
             buildData?.isSwap && "mt-3",
           )}
         >
