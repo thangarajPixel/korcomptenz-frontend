@@ -49,7 +49,7 @@ export default function FabconMidMarket({
 
               {/* Title */}
               {card?.title && (
-                <h3 className="text-md md:text-xl font-semibold text-[#1e2939] text-left">
+                <h3 className="text-md md:text-xl font-semibold text-white mb-2 text-left">
                   {card?.title}
                 </h3>
               )}
@@ -57,7 +57,7 @@ export default function FabconMidMarket({
               {/* Description */}
               <DangerousHtml
                 html={card?.description}
-                className="text-left leading-7.5 text-md md:text-lg text-[#1e2939]"
+                className="text-left leading-7.5 text-md md:text-lg text-white"
               />
 
               {card?.buttontext && (
