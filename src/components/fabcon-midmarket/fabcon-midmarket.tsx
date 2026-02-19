@@ -34,7 +34,7 @@ export default function FabconMidMarket({
         >
           {data.list.map((card) => (
             <div
-              className="rounded-2xl py-5  space-y-3 "
+              className="rounded-2xl py-5  space-y-2 "
               key={`${card?.id}-${card?.title}`}
             >
               {/* Icon */}
@@ -63,6 +63,7 @@ export default function FabconMidMarket({
               {card?.buttontext && (
                 <ButtonLink
                   link={card?.buttonLink || "#"}
+                  isTargetNew={card?.isTarget ? true : false}
                   buttonProps={{
                     variant: "ghost",
                     arrow: true,

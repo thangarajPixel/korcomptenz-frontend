@@ -426,6 +426,7 @@ type IndustryItem = {
   number: string;
   image: ImageType;
   buttontext: string;
+  isTarget: boolean;
   buttonLink: string;
 };
 
