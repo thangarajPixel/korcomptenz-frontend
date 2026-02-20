@@ -325,7 +325,7 @@ export const createFabconBannerLead = async (
 // };
 
 export const blogFormDownloadLead = async (formData: BlogFormSchema) => {
-  const { data } = await https.post(BLOG_FORM_LEAD, { data: formData });
+  const { data } = await http.post(BLOG_FORM_LEAD, { data: formData });
   data?.attachment?.url && (await getDownloadService(data?.attachment));
   return data;
 };
