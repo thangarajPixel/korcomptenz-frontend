@@ -65,7 +65,7 @@ const ReserveSeatSection = ({
           errorSet(error, setError);
         }
       },
-      [mutateAsync, reset]
+      [mutateAsync, reset],
     );
 
   return (
@@ -94,7 +94,7 @@ const ReserveSeatSection = ({
                 <div className="grid rounded-4xl shadow-2xl p-6 md:p-10 gap-y-4">
                   {/* Title */}
                   <h3 className="text-3xl md:text-5xl font-semibold text-center text-foreground mb-4 md:mb-5">
-                    {form?.title || "Reserve My Spot"}aaaaaaaaaaaa
+                    {form?.title || "Reserve My Spot"}
                   </h3>
 
                   {/* Name + Email */}

@@ -1,4 +1,4 @@
-import InsightCasePdfSection from "../blog-case";
+import InsightCasePdfSection from "../asset";
 type Props = {
   params: Promise<{ slug: string }>;
 };

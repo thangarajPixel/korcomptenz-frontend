@@ -1,12 +1,12 @@
 import { PdfViewSection } from "@/components/pdf-view-section";
-import { getBlogPDFPage } from "@/services";
+import { getAssetPDFPage } from "@/services";
 import { cache } from "react";
-// hide
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-const getBlogPdfCache = cache(getBlogPDFPage);
+const getBlogPdfCache = cache(getAssetPDFPage);
 
 export default async function BlogePdfSection({ params }: Props) {
   const { slug } = await params;

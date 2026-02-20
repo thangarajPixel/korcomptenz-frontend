@@ -615,9 +615,15 @@ type InsightResponse = {
 
 type InsightItem = {
   id: number;
+  asset: {
+    slug: string;
+    file: ImageType;
+  };
   author: BlogAuthorType;
   slug: string;
   documentId: string;
+  form: formType;
+  downloadButton: string;
   title: string;
   content: string;
   blog: BlogData;

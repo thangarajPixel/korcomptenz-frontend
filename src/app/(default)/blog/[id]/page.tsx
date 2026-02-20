@@ -49,7 +49,10 @@ const Page = async ({ params }: Props) => {
           />
           <BlogAuthor data={data?.insight?.author} essential={pageLayout} />
           <DocumentationLayout data={data} essential={pageLayout} />
-          <FaqSection faqData={data?.insight?.blog?.faq} />
+          {data?.insight?.blog?.faq && (
+            <FaqSection faqData={data?.insight?.blog?.faq} />
+          )}
+
           <GlobalForm
             form={pageLayout?.form}
             essential={{

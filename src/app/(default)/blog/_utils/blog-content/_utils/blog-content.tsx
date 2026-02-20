@@ -110,7 +110,8 @@ export default function DocumentationLayout({
               </div>
             </div>
           </article>
-          <BlogFormPopup data={data} />
+          {data?.insight?.form?.forms?.[0] && <BlogFormPopup data={data} />}
+
           <div className="mt-5">
             <div className="flex gap-3 items-center">
               <p className=" font-bold text-black text-sm md:text-base">

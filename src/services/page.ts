@@ -50,12 +50,18 @@ export const TIME_SLOT_LIST = "/fabcon-time-slots";
 export const FABCON_BANNER_LEAD = "/fabcon-book-meet-leads";
 export const FABCON_DECISION_LEAD = "/fabcon-reserve-leads";
 export const BLOG_FORM_LEAD = "/forrester-reports";
-export const BLOGPDF = "/insights/by-attachment/";
+export const ASSETPDF = "/assets/by-slug";
 
-export const getHomeService = async (): Promise<PagesListType> => {
-  const { data } = await http.get(HOME);
-  return data;
-};
+/*************  ✨ Windsurf Command ⭐  *************/
+/**
+ * Fetches the homepage data
+ * @returns {Promise<PagesListType>} The data of the homepage
+ */
+/*******  0b082771-8651-41f8-8fca-03f2a0bb29fb  *******/ export const getHomeService =
+  async (): Promise<PagesListType> => {
+    const { data } = await http.get(HOME);
+    return data;
+  };
 
 export const getAboutUs = async (): Promise<PagesListType> => {
   const { data } = await http.get(ABOUT_US);
@@ -331,14 +337,14 @@ export const blogFormDownloadLead = async (formData: BlogFormSchema) => {
   return data;
 };
 
-export const getBlogPDFPage = async ({
+export const getAssetPDFPage = async ({
   id,
 }: {
   id: string;
 }): Promise<string> => {
-  const res: { url: string } = await http.get(
-    `${BLOGPDF}/${encodeURIComponent(id)}`,
+  const res: { data: ImageType } = await http.get(
+    `${ASSETPDF}/${encodeURIComponent(id)}`,
   );
 
-  return res?.url as never;
+  return res?.data?.url as never;
 };

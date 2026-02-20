@@ -11,6 +11,7 @@ import { errorSet, notify } from "@/utils/helper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useBlogFormHook } from "@/services";
 import { Input } from "@/components/ui/input";
+import { XIcon } from "lucide-react";
 
 const defaultValues = {
   name: "",
@@ -23,6 +24,11 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const blogId = React.useMemo(
+    () => String(data?.insight?.documentId),
+    [data?.insight?.documentId],
+  );
+
   const {
     control,
     handleSubmit,
@@ -34,7 +40,7 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
     resolver: zodResolver(blogFormSchema),
     defaultValues: {
       ...defaultValues,
-      blogId: String(data?.insight?.documentId),
+      blogId,
     },
   });
 
@@ -42,18 +48,23 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
 
   const handleFormSubmit: SubmitHandler<BlogFormSchema> = React.useCallback(
     async (formdata) => {
-      const data = {
+      const data2 = {
         ...formdata,
         // insight,
       };
       try {
-        const response = await mutateAsync(data);
-        notify(response);
-        window.open(`/blog-asset/${response?.attachment?.name}`, "_blank");
+        const response = await mutateAsync(data2);
 
-        reset({ ...defaultValues });
+        notify(response);
+        window.open(`/asset/${data?.insight?.asset?.slug}`, "_blank");
+
+        reset({
+          ...defaultValues,
+          blogId,
+        });
+        setOpen(false);
       } catch (error) {
-        errorSet(error, setError);
+        errorSet(error, setError, blogId);
       }
     },
     [mutateAsync, reset],
@@ -63,18 +74,20 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
       {/* Trigger Button */}
 
       <Button
-        variant="ghost"
+        variant="default"
+        size="xl"
         arrow
         onClick={handleOpen}
-        className="mb-8 ml-8 text-primary hover:text-primary justify-start hover:bg-transparent p-[-2px]"
+        className="mt-4"
       >
-        View Forrester details
+        {data?.insight?.downloadButton}
       </Button>
 
       {/* Controlled Dialog */}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
           onEscapeKeyDown={handleClose}
+          showCloseButton={false}
           onPointerDownOutside={handleClose}
           className="
     bg-white
@@ -87,64 +100,84 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
     h-auto
   "
         >
-          <div className="bg-white rounded-4xl">
+          <div className="bg-white rounded-4xl relative">
             <form
               onSubmit={handleSubmit(handleFormSubmit)}
               className="space-y-6 md:space-y-8"
               noValidate
             >
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={handleClose}
+                className="
+        absolute top-4 right-4
+        bg-primary text-white
+        rounded-full
+        w-8 h-8
+        flex items-center justify-center
+        hover:opacity-90
+        transition
+      "
+                aria-label="Close"
+              >
+                <XIcon className="w-4 h-4" />
+              </button>
+
               <div className="grid rounded-4xl shadow-2xl p-6 md:p-10 gap-y-4">
                 {/* Title */}
                 <h3 className="text-3xl md:text-5xl font-semibold text-center text-foreground mb-4 md:mb-5">
-                  Reserve My Spot
+                  {data?.insight?.form?.title}
                 </h3>
 
-                {/* Name + Email */}
-                <div className="grid grid-cols-1  gap-4">
-                  <Input
-                    control={control}
-                    required
-                    name="name"
-                    label="Full Name"
-                    className="border-2  border-black p-2 rounded-md text-foreground"
-                  />
-                </div>
+                {/* Name */}
+                <Input
+                  control={control}
+                  required
+                  name="name"
+                  label={data?.insight?.form?.forms?.[0]?.name || "Full Name"}
+                  className="border-2 border-black p-2 rounded-md"
+                />
 
-                {/* Organization + Phone */}
+                {/* Email + Organization */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Input
                     control={control}
                     name="email"
                     required
-                    label="Email"
-                    className="border-2 p-2  border-black  rounded-md text-foreground"
+                    label={data?.insight?.form?.forms?.[0]?.email || "Email"}
+                    className="border-2 border-black p-2 rounded-md"
                   />
                   <Input
                     control={control}
                     name="organization"
-                    label="Organization"
-                    className="border-2  border-black p-2 rounded-md text-foreground"
+                    required
+                    label={
+                      data?.insight?.form?.forms?.[0]?.organization ||
+                      "Organization"
+                    }
+                    className="border-2 border-black p-2 rounded-md"
                   />
                 </div>
 
-                {/* Submit button */}
-                <div className="pt-2 md:pt-4 flex justify-center">
+                {/* Submit */}
+                <div className="pt-4 flex justify-center">
                   <Button
                     size="lg"
                     variant="outline"
-                    className="
-                    px-6 py-4 md:px-10 md:py-6
-                    rounded-full 
-                    border border-secondary 
-                    text-white bg-secondary 
-                    hover:bg-white hover:text-secondary hover:border-secondary
-                    transition
-                  "
                     arrow
                     isLoading={isSubmitting}
                     type="submit"
+                    className="
+            px-6 py-4 md:px-10 md:py-6
+            rounded-full
+            border border-secondary
+            text-white bg-secondary
+            hover:bg-white hover:text-secondary
+            transition
+          "
                   >
-                    Reserve your Seat
+                    {data?.insight?.form?.forms?.[0]?.download || "Download"}
                   </Button>
                 </div>
               </div>
