@@ -342,9 +342,7 @@ export const getAssetPDFPage = async ({
 }: {
   id: string;
 }): Promise<string> => {
-  const res: { data: ImageType } = await http.get(
-    `${ASSETPDF}/${encodeURIComponent(id)}`,
-  );
+  const res: { data: ImageType } = await http.get(`${ASSETPDF}/${id}`);
 
-  return res?.data?.url as never;
+  return res?.data?.url as string;
 };

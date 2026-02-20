@@ -2,18 +2,18 @@ import { PdfViewSection } from "@/components/pdf-view-section";
 import { getAssetPDFPage } from "@/services";
 import { cache } from "react";
 
-type Props = {
-  params: Promise<{ slug: string }>;
-};
-
 const getBlogPdfCache = cache(getAssetPDFPage);
-
+type Props = {
+  params: Promise<{ slug: string[] }>;
+};
 export default async function BlogePdfSection({ params }: Props) {
   const { slug } = await params;
 
-  const data = await getBlogPdfCache({ id: slug });
+  const fullSlug = slug.join("/");
 
-  const blobUrl = data;
+  const data = await getBlogPdfCache({
+    id: fullSlug,
+  });
 
-  return <PdfViewSection blobUrl={blobUrl} />;
+  return <PdfViewSection blobUrl={data} />;
 }
