@@ -194,3 +194,10 @@ export const useFabconBannerLeadHook = () => {
     mutationFn: PAGE.createFabconBannerLead,
   });
 };
+
+export const useBlogFormHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.BLOG_FORM_LEAD],
+    mutationFn: PAGE.blogFormDownloadLead,
+  });
+};

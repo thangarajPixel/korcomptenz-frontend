@@ -48,6 +48,7 @@ export const CASESTUDYPDF = "/case-studies/by-attachment";
 export const TIME_SLOT_LIST = "/fabcon-time-slots";
 export const FABCON_BANNER_LEAD = "/fabcon-book-meet-leads";
 export const FABCON_DECISION_LEAD = "/fabcon-reserve-leads";
+export const BLOG_FORM_LEAD = "/forrester-reports";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -308,5 +309,24 @@ export const createFabconBannerLead = async (
   formData: FabconDecisionLeadSchema,
 ) => {
   const { data } = await http.post(FABCON_BANNER_LEAD, { data: formData });
+  return data;
+};
+
+// export const blogFormDownloadLead = async (
+//   formData: WebinarReserveFormSchema,
+// ) => {
+//   const { data } = await https.post(BLOG_FORM_LEAD, {
+//     data: formData,
+//   });
+//   data?.attachment?.url && (await getDownloadService(data?.attachment));
+//   return data;
+//   return data;
+// };
+
+export const blogFormDownloadLead = async (
+  formData: WebinarReserveFormSchema,
+) => {
+  const { data } = await https.post(BLOG_FORM_LEAD, { data: formData });
+  data?.attachment?.url && (await getDownloadService(data?.attachment));
   return data;
 };

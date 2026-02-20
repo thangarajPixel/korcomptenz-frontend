@@ -6,6 +6,7 @@ import { Link as LinkIcon, ChevronRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { BlogFormPopup } from "./popup";
 
 export default function DocumentationLayout({
   data,
@@ -109,7 +110,7 @@ export default function DocumentationLayout({
               </div>
             </div>
           </article>
-
+          <BlogFormPopup data={data} />
           <div className="mt-5">
             <div className="flex gap-3 items-center">
               <p className=" font-bold text-black text-sm md:text-base">
