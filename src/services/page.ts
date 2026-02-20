@@ -50,6 +50,7 @@ export const TIME_SLOT_LIST = "/fabcon-time-slots";
 export const FABCON_BANNER_LEAD = "/fabcon-book-meet-leads";
 export const FABCON_DECISION_LEAD = "/fabcon-reserve-leads";
 export const BLOG_FORM_LEAD = "/forrester-reports";
+export const BLOGPDF = "/insights/by-attachment/";
 
 export const getHomeService = async (): Promise<PagesListType> => {
   const { data } = await http.get(HOME);
@@ -328,4 +329,16 @@ export const blogFormDownloadLead = async (formData: BlogFormSchema) => {
   const { data } = await http.post(BLOG_FORM_LEAD, { data: formData });
   data?.attachment?.url && (await getDownloadService(data?.attachment));
   return data;
+};
+
+export const getBlogPDFPage = async ({
+  id,
+}: {
+  id: string;
+}): Promise<string> => {
+  const res: { url: string } = await http.get(
+    `${BLOGPDF}/${encodeURIComponent(id)}`,
+  );
+
+  return res?.url as never;
 };

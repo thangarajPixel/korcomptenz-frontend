@@ -49,6 +49,8 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
       try {
         const response = await mutateAsync(data);
         notify(response);
+        window.open(`/blog-asset/${response?.attachment?.name}`, "_blank");
+
         reset({ ...defaultValues });
       } catch (error) {
         errorSet(error, setError);
