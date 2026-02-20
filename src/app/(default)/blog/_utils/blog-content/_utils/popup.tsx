@@ -34,7 +34,7 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
     resolver: zodResolver(blogFormSchema),
     defaultValues: {
       ...defaultValues,
-      blogId: String(data?.insight?.id),
+      blogId: String(data?.insight?.documentId),
     },
   });
 
@@ -102,7 +102,7 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
                   <Input
                     control={control}
                     required
-                    name="fullName"
+                    name="name"
                     label="Full Name"
                     className="border-2  border-black p-2 rounded-md text-foreground"
                   />

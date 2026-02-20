@@ -180,7 +180,7 @@ export const fabconDecisionLeadSchema = z.object({
 });
 
 export const blogFormSchema = z.object({
-  fullName: z
+  name: z
     .string()
     .min(1, "Name is required")
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),

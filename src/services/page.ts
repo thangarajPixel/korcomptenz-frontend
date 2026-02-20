@@ -1,6 +1,7 @@
 import { getDownloadService } from "./common";
 import http from "./http";
 import type {
+  BlogFormSchema,
   BookADemoFormData,
   CareerNewLetterFormData,
   ContactFormData,
@@ -323,9 +324,7 @@ export const createFabconBannerLead = async (
 //   return data;
 // };
 
-export const blogFormDownloadLead = async (
-  formData: WebinarReserveFormSchema,
-) => {
+export const blogFormDownloadLead = async (formData: BlogFormSchema) => {
   const { data } = await https.post(BLOG_FORM_LEAD, { data: formData });
   data?.attachment?.url && (await getDownloadService(data?.attachment));
   return data;
