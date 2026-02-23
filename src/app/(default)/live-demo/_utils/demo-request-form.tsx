@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { useReserveMySpotHook } from "@/services";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   name: "",
@@ -52,13 +53,21 @@ const DemoRequestForm = ({
       },
     ],
   };
+  const { getToken } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<DemoRequestFormSchema> =
     React.useCallback(
       async (formdata) => {
+        const captchaToken = await getToken("reserveLead");
+
+        if (!captchaToken) {
+          notify({ message: "Captcha verification failed. Please try again." });
+          return;
+        }
         const data = {
           ...formdata,
           demoFrom,
+          recaptchaToken: captchaToken,
         };
         try {
           const response = await mutateAsync(data);
@@ -68,7 +77,7 @@ const DemoRequestForm = ({
           errorSet(error, setError);
         }
       },
-      [mutateAsync, reset]
+      [mutateAsync, reset],
     );
 
   return (
