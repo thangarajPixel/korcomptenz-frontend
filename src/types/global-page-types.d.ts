@@ -1566,6 +1566,9 @@ type CaseStudiesPageType = {
   category: {
     label: string;
     id: number;
+    image1: ImageType;
+    image2: ImageType;
+    image3: ImageType;
   }[];
 };
 type CaseStudyPageType = {

@@ -16,7 +16,15 @@ const InsightsSuccessBanner = ({
   handleFilterChange: (filters: { [key: string]: string[] }) => void;
   onSearch?: (search: string) => void;
   search?: FilterListType[];
-  category?: { label: string; id: string; slug: string; description: string }[];
+  category?: {
+    label: string;
+    id: string;
+    slug: string;
+    description: string;
+    image1: ImageType;
+    image2: ImageType;
+    image3: ImageType;
+  }[];
 }) => {
   const pathname = usePathname();
   const slug = pathname?.split("/").pop();
