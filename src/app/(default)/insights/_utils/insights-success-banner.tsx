@@ -25,6 +25,9 @@ const InsightsSuccessBanner = ({
 
   const pageTitle = matchedItem?.label || "";
   const pageDescription = matchedItem?.description || "";
+  const image1 = matchedItem?.image1 || "";
+  const image2 = matchedItem?.image2 || "";
+  const image3 = matchedItem?.image3 || "";
 
   const imageClassName = "rounded-3xl border border-border object-cover w-full";
   return (
@@ -63,15 +66,18 @@ const InsightsSuccessBanner = ({
               {/* Top left image (medium) */}
 
               <KorcomptenzImage
-                src={data?.images?.[0]?.image}
-                className={cn(imageClassName, "h-[200px] md:h-[240px]")}
+                src={image1 || data?.images?.[0]?.image}
+                className={cn(
+                  imageClassName,
+                  "h-[200px] md:h-[240px] object-contain",
+                )}
                 width={1000}
                 height={1000}
               />
 
               {/* Tall right image */}
               <KorcomptenzImage
-                src={data?.images?.[1]?.image}
+                src={image2 || data?.images?.[1]?.image}
                 className={cn(
                   imageClassName,
                   "row-span-2 h-[440px] md:h-[520px]",
@@ -82,7 +88,7 @@ const InsightsSuccessBanner = ({
 
               {/* Bottom left image (large) */}
               <KorcomptenzImage
-                src={data?.images?.[2]?.image}
+                src={image3 || data?.images?.[2]?.image}
                 className={cn(imageClassName, "h-[260px] md:h-[320px]")}
                 width={1000}
                 height={1000}
