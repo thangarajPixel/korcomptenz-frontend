@@ -5,11 +5,14 @@ export const useCaptchaToken = () => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const getToken = async (action: string) => {
-    if (!executeRecaptcha) return null;
-
-    const token = await executeRecaptcha(action);
-    return token;
+    if (!executeRecaptcha) {
+      throw new Error("reCAPTCHA not ready");
+    }
+    return await executeRecaptcha(action);
   };
 
-  return { getToken };
+  return {
+    getToken,
+    isReady: !!executeRecaptcha,
+  };
 };

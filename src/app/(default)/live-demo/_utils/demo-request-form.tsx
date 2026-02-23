@@ -53,14 +53,20 @@ const DemoRequestForm = ({
       },
     ],
   };
-  const { getToken } = useCaptchaToken();
+  const { getToken, isReady } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<DemoRequestFormSchema> =
     React.useCallback(
       async (formdata) => {
-        const captchaToken = await getToken("reserveLead");
+        if (!isReady) {
+          notify({ message: "Captcha is loading. Please try again." });
+          return;
+        }
 
-        if (!captchaToken) {
+        let captchaToken: string;
+        try {
+          captchaToken = await getToken("reserveLead");
+        } catch {
           notify({ message: "Captcha verification failed. Please try again." });
           return;
         }
