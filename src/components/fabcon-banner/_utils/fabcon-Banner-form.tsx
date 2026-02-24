@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 
 import { ComboboxWhite } from "@/components/ui/comboboxWhite";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues: FabconDecisionLeadSchema = {
   fullName: "",
@@ -49,12 +50,29 @@ const FabconBannerForm = ({ form }: { form: fromDataType }) => {
   });
 
   const { mutateAsync } = useFabconBannerLeadHook();
+  const { getToken, isReady } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<FabconDecisionLeadSchema> =
     React.useCallback(
       async (formdata) => {
+        if (!isReady) {
+          notify({ message: "Captcha is loading. Please try again." });
+          return;
+        }
+
+        let captchaToken: string;
         try {
-          const response = await mutateAsync(formdata);
+          captchaToken = await getToken("fabconbookmeetlead");
+        } catch {
+          notify({ message: "Captcha verification failed. Please try again." });
+          return;
+        }
+        const data = {
+          ...formdata,
+          recaptchaToken: captchaToken,
+        };
+        try {
+          const response = await mutateAsync(data);
           notify(response);
           reset(defaultValues);
         } catch (error) {

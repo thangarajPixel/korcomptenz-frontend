@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { ComboboxWhite } from "@/components/ui/comboboxWhite";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues: FabconDecisionLeadSchema = {
   fullName: "",
@@ -26,17 +27,17 @@ const defaultValues: FabconDecisionLeadSchema = {
   message: "",
 };
 type fromDataType = {
-  forms: {fullName: string;
+  forms: {
+    fullName: string;
     email: string;
     timeSlot: string;
     company: string;
     message: string;
-    buttonText?: string | undefined;}[];
-
-}
+    buttonText?: string | undefined;
+  }[];
+};
 
 const FabconDecisionForm = ({ form }: { form: fromDataType }) => {
-  
   const {
     control,
     handleSubmit,
@@ -51,12 +52,29 @@ const FabconDecisionForm = ({ form }: { form: fromDataType }) => {
 
   const { mutateAsync } = useFabconDecisionLeadHook();
   const { data } = useTimeSlotListHook();
+  const { getToken, isReady } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<FabconDecisionLeadSchema> =
     React.useCallback(
       async (formdata) => {
+        if (!isReady) {
+          notify({ message: "Captcha is loading. Please try again." });
+          return;
+        }
+
+        let captchaToken: string;
         try {
-          const response = await mutateAsync(formdata);
+          captchaToken = await getToken("fabconreservelead");
+        } catch {
+          notify({ message: "Captcha verification failed. Please try again." });
+          return;
+        }
+        const data = {
+          ...formdata,
+          recaptchaToken: captchaToken,
+        };
+        try {
+          const response = await mutateAsync(data);
           notify(response);
           reset(defaultValues);
         } catch (error) {
@@ -141,7 +159,7 @@ const FabconDecisionForm = ({ form }: { form: fromDataType }) => {
                 value: item.id,
               })) || []
             }
-            placeholder={form?.forms?.[0]?.timeSlot }
+            placeholder={form?.forms?.[0]?.timeSlot}
             className="
               bg-transparent
               border-0 border-b border-white/60
