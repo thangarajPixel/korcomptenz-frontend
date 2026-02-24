@@ -11,6 +11,7 @@ import {
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useBookADemoHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
+import { useCaptchaToken } from "@/lib/recaptcha";
 const defaultValues = {
   name: "",
   email: "",
@@ -35,6 +36,7 @@ const BookDemoSection = ({
     resolver: zodResolver(bookADemoSchema),
     defaultValues,
   });
+
   const demoFrom = {
     connect: [
       {
@@ -44,11 +46,25 @@ const BookDemoSection = ({
       },
     ],
   };
+  const { getToken, isReady } = useCaptchaToken();
   const handleFormSubmit: SubmitHandler<BookADemoFormData> = React.useCallback(
     async (data) => {
+      if (!isReady) {
+        notify({ message: "Captcha is loading. Please try again." });
+        return;
+      }
+
+      let captchaToken: string;
+      try {
+        captchaToken = await getToken("bookdemolead");
+      } catch {
+        notify({ message: "Captcha verification failed. Please try again." });
+        return;
+      }
       const formdata = {
         ...data,
         demoFrom,
+        recaptchaToken: captchaToken,
       };
       try {
         const response = await mutateAsync(formdata);

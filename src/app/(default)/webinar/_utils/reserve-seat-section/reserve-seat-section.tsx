@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useCaptchaToken } from "@/lib/recaptcha";
 import { useWebinarReserveMySpotHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
 import {
@@ -40,6 +41,7 @@ const ReserveSeatSection = ({
   });
 
   const { mutateAsync } = useWebinarReserveMySpotHook();
+  const { getToken, isReady } = useCaptchaToken();
   const insight = {
     connect: [
       {
@@ -53,9 +55,22 @@ const ReserveSeatSection = ({
   const handleFormSubmit: SubmitHandler<WebinarReserveFormSchema> =
     React.useCallback(
       async (formdata) => {
+        if (!isReady) {
+          notify({ message: "Captcha is loading. Please try again." });
+          return;
+        }
+
+        let captchaToken: string;
+        try {
+          captchaToken = await getToken("webinarreservelead");
+        } catch {
+          notify({ message: "Captcha verification failed. Please try again." });
+          return;
+        }
         const data = {
           ...formdata,
           insight,
+          recaptchaToken: captchaToken,
         };
         try {
           const response = await mutateAsync(data);

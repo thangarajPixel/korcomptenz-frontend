@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 import { Input } from "@/components/ui/input";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   name: "",
@@ -33,6 +34,7 @@ const DownloadForm = () => {
     },
   });
   const { mutateAsync } = useNewsRoomHook();
+  const { getToken, isReady } = useCaptchaToken();
   const newRoom = {
     connect: [
       {
@@ -45,9 +47,22 @@ const DownloadForm = () => {
 
   const handleFormSubmit: SubmitHandler<NewsRoomFormSchema> = React.useCallback(
     async (formdata) => {
+      if (!isReady) {
+        notify({ message: "Captcha is loading. Please try again." });
+        return;
+      }
+
+      let captchaToken: string;
+      try {
+        captchaToken = await getToken("newsroomlead");
+      } catch {
+        notify({ message: "Captcha verification failed. Please try again." });
+        return;
+      }
       const data = {
         ...formdata,
         newRoom,
+        recaptchaToken: captchaToken,
       };
       try {
         const response = await mutateAsync(data);
@@ -57,7 +72,7 @@ const DownloadForm = () => {
         errorSet(error, setError);
       }
     },
-    [mutateAsync, reset]
+    [mutateAsync, reset],
   );
 
   return (

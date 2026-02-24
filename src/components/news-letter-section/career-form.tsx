@@ -12,6 +12,7 @@ import {
   type CareerNewLetterFormData,
 } from "@/utils/validation.schema";
 import { ComboboxField } from "../ui/combobox";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   name: "",
@@ -38,13 +39,26 @@ const CareerForm = () => {
   });
 
   const { mutateAsync } = useCareerNewLetterHook();
-
+  const { getToken, isReady } = useCaptchaToken();
   const { data } = useDepartmentListHook();
   const handleFormSubmit: SubmitHandler<CareerNewLetterFormData> =
     React.useCallback(
       async (formdata) => {
+        if (!isReady) {
+          notify({ message: "Captcha is loading. Please try again." });
+          return;
+        }
+
+        let captchaToken: string;
         try {
-          const response = await mutateAsync(formdata);
+          captchaToken = await getToken("candidatedetail");
+        } catch {
+          notify({ message: "Captcha verification failed. Please try again." });
+          return;
+        }
+        const data2 = { ...formdata, recaptchaToken: captchaToken };
+        try {
+          const response = await mutateAsync(data2);
           notify(response);
           reset({ ...defaultValues });
         } catch (error) {

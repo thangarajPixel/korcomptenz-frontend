@@ -2,7 +2,7 @@
 import React from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useCaseStudyEssentialHook, useContactUsLeadHook } from "@/services";
-import { errorSet } from "@/utils/helper";
+import { errorSet, notify } from "@/utils/helper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactUsFormSchema } from "@/utils/validation.schema";
 import { ComboboxField } from "@/components/ui/combobox";
@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useRouter } from "next/navigation";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   firstName: "",
@@ -41,14 +42,28 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
   });
   const router = useRouter();
   const { mutateAsync } = useContactUsLeadHook();
+  const { getToken, isReady } = useCaptchaToken();
 
   const { data } = useCaseStudyEssentialHook();
 
   const handleFormSubmit: SubmitHandler<ContactUsFormSchema> =
     React.useCallback(
       async (formdata) => {
+        if (!isReady) {
+          notify({ message: "Captcha is loading. Please try again." });
+          return;
+        }
+
+        let captchaToken: string;
         try {
-          const response = await mutateAsync(formdata);
+          captchaToken = await getToken("contactuslead");
+        } catch {
+          notify({ message: "Captcha verification failed. Please try again." });
+          return;
+        }
+        const data2 = { ...formdata, recaptchaToken: captchaToken };
+        try {
+          const response = await mutateAsync(data2);
           // notify(response);
           router.push("/thank-you");
           if (!response.success) return;
