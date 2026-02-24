@@ -47,7 +47,7 @@ const Page = async ({ params }: Props) => {
             BannerSectionData={data?.insight}
             tableTitle={pageLayout?.tableTitle}
           />
-          <BlogAuthor data={data?.insight?.author} essential={pageLayout} />
+          <BlogAuthor data={data?.insight} essential={pageLayout} />
           <DocumentationLayout data={data} essential={pageLayout} />
           {data?.insight?.blog?.faq && (
             <FaqSection faqData={data?.insight?.blog?.faq} />

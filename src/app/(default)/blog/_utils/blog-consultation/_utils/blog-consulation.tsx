@@ -2,7 +2,6 @@
 import { cn } from "@/lib/utils";
 import ConsultationForm from "./consultation-form";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 const BlogBuildDemo = ({
   form,
@@ -27,11 +26,8 @@ const BlogBuildDemo = ({
               className="w-full h-full object-cover rounded-4xl"
             />
           </div>
-          <GoogleReCaptchaProvider
-            reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY ?? ""}
-          >
-            <ConsultationForm form={form} essential={essential} />
-          </GoogleReCaptchaProvider>
+
+          <ConsultationForm form={form} essential={essential} />
         </div>
       </div>
     </section>

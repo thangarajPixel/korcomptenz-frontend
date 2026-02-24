@@ -3,7 +3,6 @@ import { DangerousHtml } from "../ui/dangerous-html";
 import { cn } from "@/lib/utils";
 import ButtonLink from "../ui/button-link";
 import { GlobalForm } from "../global-form";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 const BuildDemo = ({
   buildData,
@@ -51,11 +50,7 @@ const BuildDemo = ({
           </div>
 
           {buildData?.form && (
-            <GoogleReCaptchaProvider
-              reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY ?? ""}
-            >
-              <GlobalForm form={buildData.form} item={buildData?.item} />
-            </GoogleReCaptchaProvider>
+            <GlobalForm form={buildData.form} item={buildData?.item} />
           )}
         </div>
       </div>

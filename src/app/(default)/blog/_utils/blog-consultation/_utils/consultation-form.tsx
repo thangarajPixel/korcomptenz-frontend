@@ -56,11 +56,15 @@ const ConsultationForm = ({
     },
   });
   const { mutateAsync } = useFreeConsultationLeadHook();
-  const { getToken } = useCaptchaToken();
+  const { getToken, isReady } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<FreeConsultationLeadSchema> =
     React.useCallback(
       async (formdata) => {
+        if (!isReady) {
+          notify({ message: "Captcha is loading. Please try again." });
+          return;
+        }
         let captchaToken: string;
         try {
           captchaToken = await getToken("freeconsultationlead");

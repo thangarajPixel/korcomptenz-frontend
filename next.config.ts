@@ -1232,6 +1232,537 @@ const nextConfig: NextConfig = {
         "https://www.korcomptenz.com/events/korcomptenz-at-microsoft-fabric-community-conference-2026",
       permanent: true,
     },
+
+    {
+      source: "/blog/5-ad-tech-investments-to-make-in-your-advertising-agency/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/5-pain-points-a-unified-microsoft-dynamics-365-retail-management-system-solves-instantly/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/5-signs-you-need-a-new-microsoft-dynamics-crm-partner/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/5-top-erp-trends-in-2023-and-beyond/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/5-ways-to-achieve-student-success-with-data/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/6-key-success-factors-adobe-experience-manager-implementation/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/7-reasons-why-to-invest-in-web-design/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/ai-in-food-industry/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/ai-in-hospitality-industry/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/api-testing-services/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/artificial-intelligence-as-a-service-in-the-cloud/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/azure-hosting/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/azure-migration-and-modernization-scenarios/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/azure-migration-and-modernization-solution/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/benefits-of-cloud-native-applications/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/best-data-visualization-tools-software/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/best-practices-for-successful-database-migration-to-oracle-cloud/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/can-your-business-benefit-from-a-37-increase-in-revenue-korcomptenz-blog/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/cloud-migration-strategies/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/cloud-solutions/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/critical-questions-assessing-commerce-platform/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/crm-consulting-sales-success/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/crm-consulting-services-lead-management/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/developing-your-mobile-app/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/disaster-recovery-solutions/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/dynamics-ax-upgrade/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/dynamics-retail-solutions/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/edge-computing-vs-cloud-computing/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/edi-in-logistics/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/enterprise-mobility-solutions/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/erp-data-migration/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/erp-implementation-rescue-transforming-challenges-into-success/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/erp-rescue-implementation-getting-project-back-on-track/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/fortifying-finance-power-of-secure-virtual-desktop-infrastructure/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/freshworks/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/getting-started-with-salesforce-einstein-ai/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/helpdesk-support-options/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/honeypot-cybersecurity-guide/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/how-can-mes-and-erp-integration-help-you-achieve-industry-capabilities/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/how-marketers-spend-their-money/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/how-to-maximize-your-it-roi/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/how-website-drives-traffic/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/implementing-dynamics-365-finance-and-operations/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/ios-android/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/is-automation-the-answer-to-my-resource-needs/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/is-the-future-of-the-fashion-industry-in-the-hands-of-ai-technology/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/kanban-vs-scrum/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/managed-services-provider/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/marketing-on-the-internet-of-things/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/mautic/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/microsoft-dynamics-365-ce-the-game-changer-for-bfsi-customer-engagement/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/microsoft-dynamics-365-for-retail/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/microsoft-dynamics-365-pricing-guide/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/microsoft-dynamics-nav-2018/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/microsoft-onedrive/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/microsoft-power-app-power-platform/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/microsoft-sharepoint/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/microsoft-teams/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/microsoft-teams-for-professionals/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/microsoft-teams-integrations/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/modernize-legacy-apps-with-microservices-containerization/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/oracle-cloud-applications-revolutionalize-business-operations/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/oracle-integration-features-challenges-benefits-best-practices/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/our-web-and-mobile-technologies/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/performance-tuning-for-dynamics-ax/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/power-bi-vs-tableau-comparison-guide/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/power-bi-vs-tableau-comparison-guide/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/power-bi-vs-tableau-comparison-guide/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/power-bi-vs-tableau-comparison-guide/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/quick-start-guide-on-kentico/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/retail-analytics-transform-planning-pricing-customer-experiences/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/rpa-not-just-for-billion-dollar-companies/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/salesforce-crm-solutions-unlock-growth/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/salesforce-for-wealth-management/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/salesforce-implementation-partners/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/salesforce-integration-services/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/salesforce-or-microsoft-dynamics-365/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/salesforce-simple-flexible-platform/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/sap-application-management-services/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/sap-grc/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/sap-grc/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/sap-grc/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/sap-grc/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/smart-speaker-technology/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/strengthen-business-devsecops-development-and-security/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/supply-chain-disruptions-and-how-to-overcome-them/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/tag/dynamics-365-business-central",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/the-future-of-cloud-security-top-trends-to-watch-in-2024-and-beyond/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/the-industry-leading-crm/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/top-10-advantages-of-sap-implementation/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/top-10-web-security-issues/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/top-edi-service-providers/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/top-reasons-to-choose-microsoft-dynamics-365/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/trends-in-b2b-e-commerce/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/understanding-tcp-ip-osi-model-layers/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/web-security-standards/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/what-is-a-local-area-network/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/what-is-augmented-reality/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/why-have-mobile-applications/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source:
+        "/blog/why-should-you-implement-intelligent-security-for-the-modern-workplace/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/why-upgrade-dynamics-gp-to-bc/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/wordpress/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
+    {
+      source: "/blog/wordpress-vs-drupal/",
+      destination: "https://www.korcomptenz.com/insights/blog",
+      permanent: true,
+    },
   ],
 };
 

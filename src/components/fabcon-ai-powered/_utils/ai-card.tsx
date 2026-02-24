@@ -85,7 +85,7 @@ const AiCard = ({
             </div>
 
             {/* Title → left on mobile, right on desktop */}
-            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-2xl md:text-[26px] font-semibold text-left md:text-right w-full md:w-auto md:mt-16">
+            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-2xl md:text-[26px] font-semibold text-left md:text-left w-full md:w-auto md:mt-16">
               {card?.title}
             </h3>
           </div>

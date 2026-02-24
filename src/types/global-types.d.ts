@@ -615,6 +615,7 @@ type InsightResponse = {
 
 type InsightItem = {
   id: number;
+  date: string;
   asset: {
     slug: string;
     file: ImageType;

@@ -12,6 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useBlogFormHook } from "@/services";
 import { Input } from "@/components/ui/input";
 import { XIcon } from "lucide-react";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   name: "",
@@ -45,12 +46,25 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
   });
 
   const { mutateAsync } = useBlogFormHook();
+  const { getToken, isReady } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<BlogFormSchema> = React.useCallback(
     async (formdata) => {
+      if (!isReady) {
+        notify({ message: "Captcha is loading. Please try again." });
+        return;
+      }
+
+      let captchaToken: string;
+      try {
+        captchaToken = await getToken("forresterreport");
+      } catch {
+        notify({ message: "Captcha verification failed. Please try again." });
+        return;
+      }
       const data2 = {
         ...formdata,
-        // insight,
+        recaptchaToken: captchaToken,
       };
       try {
         const response = await mutateAsync(data2);

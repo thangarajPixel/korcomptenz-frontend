@@ -1,5 +1,6 @@
 import ButtonLink from "@/components/ui/button-link";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
+import { cn } from "@/lib/utils";
 
 export default function ClosingSection({
   data,
@@ -45,31 +46,40 @@ export default function ClosingSection({
 
           {/* CASE STUDIES */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {data?.bottomCard?.map((study) => (
-              <div
-                key={study.id}
-                className="border border-white/60 rounded-2xl p-4 md:p-8 text-left"
-              >
-                <DangerousHtml
-                  html={study?.description}
-                  className="text-[#f7f8f8] text-sm md:text-lg leading-7.5 font-normal mb-6"
-                />
-                {study?.buttonText && (
-                  <ButtonLink
-                    link={study?.buttonLink || "#"}
-                    isTargetNew={study?.isTarget ? true : false}
-                    buttonProps={{
-                      variant: "ghost",
-                      className:
-                        "text-[#f7f8f8] hover:text-[#f7f8f8] hover:bg-transparent p-0 text-md",
-                      arrow: true,
-                    }}
-                  >
-                    {study?.buttonText}
-                  </ButtonLink>
-                )}
-              </div>
-            ))}
+            {data?.bottomCard?.map((study, index, arr) => {
+              const isSingle = arr.length === 1;
+              const isLastFull = arr.length === 3 && index === 2;
+
+              return (
+                <div
+                  key={study.id}
+                  className={cn(
+                    "border border-white/60 rounded-2xl p-4 md:p-8 text-left",
+                    (isSingle || isLastFull) && "md:col-span-2",
+                  )}
+                >
+                  <DangerousHtml
+                    html={study?.description}
+                    className="text-[#f7f8f8] text-sm md:text-lg leading-7.5 font-normal mb-4"
+                  />
+
+                  {study?.buttonText && (
+                    <ButtonLink
+                      link={study?.buttonLink || "#"}
+                      isTargetNew={!!study?.isTarget}
+                      buttonProps={{
+                        variant: "ghost",
+                        className:
+                          "text-[#f7f8f8] hover:text-[#f7f8f8] hover:bg-transparent p-0 text-md",
+                        arrow: true,
+                      }}
+                    >
+                      {study?.buttonText}
+                    </ButtonLink>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

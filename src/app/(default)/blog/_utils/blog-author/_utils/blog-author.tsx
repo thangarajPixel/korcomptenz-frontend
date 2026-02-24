@@ -5,17 +5,11 @@ import dayjs from "dayjs";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import Link from "next/link";
 
-type BlogAuthorType = {
-  publishedAt: string;
-  name: string;
-  image: ImageType;
-};
-
 export default function BlogAuthor({
   data,
   essential,
 }: {
-  data: BlogAuthorType;
+  data: InsightItem;
   essential: InsightPageType;
 }) {
   const articleUrl = window.location.href;
@@ -30,7 +24,7 @@ export default function BlogAuthor({
           <div className="flex gap-2 text-left items-start">
             <div className="relative w-12 h-12 md:h-24 md:w-24 flex-shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-pink-400 to-orange-400">
               <KorcomptenzImage
-                src={data?.image}
+                src={data?.author?.image}
                 fill
                 className="object-cover"
               />
@@ -38,10 +32,12 @@ export default function BlogAuthor({
 
             <div className="md:pt-5">
               <h4 className="text-3xl md:text-5xl font-semibold text-foreground">
-                {data?.name}
+                {data?.author?.name}
               </h4>
               <p className="text:sm md:text-lg text-muted-foreground">
-                {dayjs(data?.publishedAt).format("DD MMM YYYY")}
+                {dayjs(data?.date || data?.author?.publishedAt).format(
+                  "DD MMM YYYY",
+                )}
               </p>
             </div>
           </div>

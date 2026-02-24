@@ -24,8 +24,16 @@ const BuildConnect = ({
   });
 
   return (
-    <section data-debug="page-componets.build-data" id="our-mission-and-vision">
-      <div className="container-md  ">
+    <section
+      data-debug="page-componets.build-data"
+      id="our-mission-and-vision"
+      className="container-md"
+    >
+      <div
+        className={cn(
+          buildData?.isBgGray && "bg-custom-gray-6 rounded-2xl p-4 md:p-8 ",
+        )}
+      >
         {buildData?.isSwap && (
           <h2 className=" text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-15">
             {buildData?.title}
@@ -74,7 +82,12 @@ const BuildConnect = ({
           {(buildData?.rightSection?.content === "image" ||
             buildData?.rightSection?.content === "video") && (
             <div>
-              <div className="p-5 hidden lg:block ">
+              <div
+                className={cn(
+                  "hidden lg:block ",
+                  buildData?.isBgGray ? "pt-5" : "p-5",
+                )}
+              >
                 <div className="w-[525px] h-[400px] -mt-5 rounded-4xl overflow-hidden flex items-center justify-center">
                   <Link
                     href={

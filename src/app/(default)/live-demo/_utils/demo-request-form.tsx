@@ -65,7 +65,7 @@ const DemoRequestForm = ({
 
         let captchaToken: string;
         try {
-          captchaToken = await getToken("reserveLead");
+          captchaToken = await getToken("reservelead");
         } catch {
           notify({ message: "Captcha verification failed. Please try again." });
           return;

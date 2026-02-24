@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormData } from "@/utils/validation.schema";
 import { useCaseStudyLeadHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   fullName: "",
@@ -42,11 +43,28 @@ export function CaseStudyForm({
   });
 
   const { mutateAsync } = useCaseStudyLeadHook();
-
+  const { getToken, isReady } = useCaptchaToken();
   const handleFormSubmit: SubmitHandler<ContactFormData> = React.useCallback(
     async (formdata) => {
+      if (!isReady) {
+        notify({ message: "Captcha is loading. Please try again." });
+        return;
+      }
+
+      let captchaToken: string;
       try {
-        const response = await mutateAsync(formdata);
+        captchaToken = await getToken("casestudylead");
+      } catch {
+        notify({ message: "Captcha verification failed. Please try again." });
+        return;
+      }
+      const data2 = {
+        ...formdata,
+        recaptchaToken: captchaToken,
+      };
+
+      try {
+        const response = await mutateAsync(data2);
         notify(response);
 
         window.open(

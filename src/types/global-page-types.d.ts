@@ -382,6 +382,7 @@ type DemonstrationSectionType = {
 };
 type BuildConnectSectionType = {
   title: string;
+  isBgGray: boolean;
   thumbnail: ImageType;
   button: {
     text: string;
