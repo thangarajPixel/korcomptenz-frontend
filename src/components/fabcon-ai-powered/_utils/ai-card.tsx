@@ -99,7 +99,7 @@ const AiCard = ({
           </div>
 
           {/* BUTTON */}
-          <div className="mt-6 md:px-4">
+          <div className="my-6 md:px-4">
             <ButtonLink
               link={card?.buttonLink}
               isTargetNew={card?.isTarget}
