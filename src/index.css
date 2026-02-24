@@ -167,7 +167,7 @@ body {
     @apply px-6;
   }
   @variant xl {
-    @apply !max-w-[96rem] px-8;
+    @apply !max-w-[90rem] px-8;
   }
 }
 @utility container-lg {
