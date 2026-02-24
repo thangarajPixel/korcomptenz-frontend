@@ -66,26 +66,31 @@ const AiCard = ({
               "flex flex-col md:flex-row items-center md:items-center gap-0 md:gap-3",
             )}
           >
-            {/* Image → centered on mobile */}
-            <div className="flex justify-center w-full md:w-auto hidden md:block">
+            {/* Desktop Image */}
+            <div className="flex justify-center w-full md:w-auto hidden md:block shrink-0">
               <KorcomptenzImage
                 src={card?.image}
                 width={180}
                 height={180}
-                className="flex-shrink-0"
+                className="object-contain"
               />
             </div>
-            <div className="flex justify-start w-full md:w-auto block md:hidden">
+
+            {/* Mobile Image */}
+            <div className="flex justify-start w-full md:w-auto block md:hidden shrink-0">
               <KorcomptenzImage
                 src={card?.image}
                 width={200}
                 height={150}
-                className="flex-shrink-0  w-[250px] h-[180px] object-contain"
+                className="w-[250px] h-[180px] object-contain"
               />
             </div>
 
-            {/* Title → left on mobile, right on desktop */}
-            <h3 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent text-2xl md:text-[26px] font-semibold text-left md:text-left w-full md:w-auto md:mt-16">
+            {/* Title */}
+            <h3
+              className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent
+    text-2xl md:text-[26px] font-semibold text-left w-full md:w-auto md:mt-16"
+            >
               {card?.title}
             </h3>
           </div>
