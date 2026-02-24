@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   fullName: "",
@@ -55,19 +56,31 @@ const ConsultationForm = ({
     },
   });
   const { mutateAsync } = useFreeConsultationLeadHook();
+  const { getToken } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<FreeConsultationLeadSchema> =
     React.useCallback(
       async (formdata) => {
+        let captchaToken: string;
         try {
-          const response = await mutateAsync(formdata);
+          captchaToken = await getToken("freeconsultationlead");
+        } catch {
+          notify({ message: "Captcha verification failed. Please try again." });
+          return;
+        }
+        const data = {
+          ...formdata,
+          recaptchaToken: captchaToken,
+        };
+        try {
+          const response = await mutateAsync(data);
           notify(response);
           reset({ ...defaultValues });
         } catch (error) {
           errorSet(error, setError);
         }
       },
-      [mutateAsync, reset]
+      [mutateAsync, reset],
     );
 
   return (
