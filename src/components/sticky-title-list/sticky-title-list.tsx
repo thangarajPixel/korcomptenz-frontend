@@ -8,12 +8,12 @@ const StickyTitleList = ({
 }) => {
   return (
     <section
-      className="container-md"
+      className="container-md "
       data-debug={"page-componets.sticky-title-list"}
     >
-      <div className="w-full px-0 ">
+      <div className="w-full px-0 bg-black">
         <div className="flex flex-col lg:flex-row  gap-8 ">
-          {/* Left Sidebar - Title */}
+          s{/* Left Sidebar - Title */}
           <div className="w-full lg:w-1/2">
             <div className={`lg:sticky lg:top-28`}>
               <h2 className="text-6xl  md:text-9xl font-bold text-foreground mb-3 ">

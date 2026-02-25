@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useState, useEffect, useRef } from "react";
-import dayjs from "dayjs";
+
 import Link from "next/link";
 
 export default function LiveDemoList({ data }: { data: DemoListType }) {
@@ -87,9 +87,9 @@ export default function LiveDemoList({ data }: { data: DemoListType }) {
                     <h3 className="text-xl font-semibold text-gray-900 leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-gray-500 mt-1">
-                      {dayjs(item.date).format("MMM D, YYYY")}
-                    </p>
+                    {item?.date && (
+                      <p className="text-sm text-gray-500 mt-1">{item?.date}</p>
+                    )}
                   </div>
                   <p className="text-gray-600 text-sm mb-2 leading-relaxed">
                     {item?.description}

@@ -44,7 +44,7 @@ const ExpandableHtml = ({
           className={cn(
             className,
             "[&>ul]:list-disc [&>ul]:",
-            "[&>ol]:list-decimal [&>ol]:"
+            "[&>ol]:list-decimal [&>ol]:",
           )}
         />
       </div>

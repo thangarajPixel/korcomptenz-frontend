@@ -21,7 +21,7 @@ const DemoBannerCard = ({
       <div
         className={cn(
           "relative w-full hidden lg:block",
-          data?.isListPage ? "min-h-[60vh]" : "min-h-[80vh]",
+          data?.isListPage ? "min-h-[60vh]" : "min-h-[70vh] h-auto",
         )}
       >
         {/* Background image */}
@@ -36,7 +36,7 @@ const DemoBannerCard = ({
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-[5]" />
 
         {/* ✅ Centered + Responsive container */}
-        <div className="absolute inset-0 z-10 flex items-center py-10">
+        <div className="relative z-10 py-12">
           <div className="container-md  flex flex-col gap-2 px-6 md:px-10 ">
             <h1 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
               {data?.title}
