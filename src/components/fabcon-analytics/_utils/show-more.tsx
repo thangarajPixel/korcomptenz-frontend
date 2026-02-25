@@ -26,18 +26,19 @@ const ExpandableHtml = ({
     const checkOverflow = () => {
       if (!el || expandedRef.current) return;
 
-      requestAnimationFrame(() => {
-        // Batch DOM reads to avoid forced reflows
-        el.classList.remove("line-clamp-4");
-        const fullHeight = el.scrollHeight;
-        el.classList.add("line-clamp-4");
-        const clampedHeight = el.clientHeight;
+      // Temporarily remove clamp to measure true height
+      el.classList.remove("line-clamp-4");
+      const fullHeight = el.scrollHeight;
+      el.classList.add("line-clamp-4");
+      const clampedHeight = el.clientHeight;
 
-        setShowToggle(fullHeight > clampedHeight + 5);
-      });
+      setShowToggle(fullHeight > clampedHeight + 5);
     };
 
-    const observer = new ResizeObserver(checkOverflow);
+    const observer = new ResizeObserver(() => {
+      checkOverflow();
+    });
+
     observer.observe(el);
 
     const onVisibilityChange = () => {
@@ -45,7 +46,7 @@ const ExpandableHtml = ({
     };
     document.addEventListener("visibilitychange", onVisibilityChange);
 
-    checkOverflow();
+    requestAnimationFrame(checkOverflow);
 
     return () => {
       observer.disconnect();

@@ -18,19 +18,22 @@ const ExpandableHtml = ({
     const el = ref.current;
     if (!el) return;
 
+    // Reset state when html changes
     setExpanded(false);
+    setShowToggle(false);
 
-    // Use ResizeObserver to detect overflow without forced reflows
-    const resizeObserver = new ResizeObserver(() => {
+    // Use multiple animation frames + setTimeout to ensure content is fully rendered
+    requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        const isOverflowing = el.scrollHeight > el.clientHeight + 5;
-        setShowToggle(isOverflowing);
+        setTimeout(() => {
+          if (el) {
+            // Add small tolerance (5px) for browser rendering differences
+            const isOverflowing = el.scrollHeight > el.clientHeight + 5;
+            setShowToggle(isOverflowing);
+          }
+        }, 0);
       });
     });
-
-    resizeObserver.observe(el);
-
-    return () => resizeObserver.disconnect();
   }, [html]);
 
   return (
