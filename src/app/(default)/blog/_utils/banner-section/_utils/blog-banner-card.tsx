@@ -23,6 +23,7 @@ const BlogBannerCard = ({
           src={data?.heroSection?.image}
           width={1000}
           height={800}
+          isLCP={true}
           className="w-full h-full object-cover rounded-4xl "
         />
 
@@ -70,6 +71,7 @@ const BlogBannerCard = ({
           src={data?.heroSection?.imageMobile}
           width={1000}
           height={800}
+          isLCP={true}
           className="w-full h-full object-cover"
         />
       </div>

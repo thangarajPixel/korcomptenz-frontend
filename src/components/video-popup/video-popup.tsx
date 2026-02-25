@@ -11,8 +11,6 @@ type VideoPopupProps = {
   title?: string;
 };
 
-/* ================= HELPERS ================= */
-
 function isYouTubeUrl(url: string): boolean {
   return url.includes("youtube.com") || url.includes("youtu.be");
 }
@@ -31,30 +29,20 @@ function isVimeoUrl(url: string): boolean {
 }
 
 function getVimeoEmbedUrl(url: string): string {
-  // Handle various Vimeo URL formats:
-  // - https://vimeo.com/VIDEO_ID
-  // - https://vimeo.com/VIDEO_ID/HASH
-  // - https://player.vimeo.com/video/VIDEO_ID
-
-  // Match: vimeo.com/687885385/88d82b13d5
   const matchWithHash = url.match(/vimeo\.com\/(\d+)\/([a-zA-Z0-9]+)/);
   if (matchWithHash) {
     const [, videoId, hash] = matchWithHash;
     return `https://player.vimeo.com/video/${videoId}?h=${hash}&autoplay=1`;
   }
 
-  // Match: vimeo.com/673222899 or player.vimeo.com/video/673222899
   const matchSimple = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
   if (matchSimple) {
     const videoId = matchSimple[1];
     return `https://player.vimeo.com/video/${videoId}?autoplay=1`;
   }
 
-  // Fallback to original URL if no match
   return url;
 }
-
-/* ================= COMPONENT ================= */
 
 export function VideoPopup({
   isOpen,
@@ -73,7 +61,6 @@ export function VideoPopup({
       ? getVimeoEmbedUrl(videoSrc)
       : videoSrc;
 
-  /* ===== AUTOPLAY / RESET FOR HTML5 VIDEO ===== */
   useEffect(() => {
     if (!videoRef.current) return;
 
@@ -85,7 +72,6 @@ export function VideoPopup({
     }
   }, [isOpen]);
 
-  /* ===== ESC KEY HANDLER ===== */
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -95,6 +81,7 @@ export function VideoPopup({
 
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
@@ -106,8 +93,7 @@ export function VideoPopup({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/50">
-      {/* ===== CLOSE BUTTON ===== */}
+    <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
       <Button
         variant="ghost"
         size="icon"
@@ -117,23 +103,22 @@ export function VideoPopup({
         <X className="w-6 h-6" />
       </Button>
 
-      {/* ===== VIDEO CONTAINER ===== */}
-      <div className="size-full py-10 px-15 flex items-center justify-center">
+      <div className="w-full h-full max-w-6xl max-h-[90vh] py-10 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
         {isYouTube || isVimeo ? (
           <iframe
             src={embedUrl}
-            className="w-full h-full"
+            className="w-full h-full rounded-lg"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
+            loading="lazy"
           />
         ) : (
           <video
             ref={videoRef}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain rounded-lg"
             controls
             autoPlay
             playsInline
-            poster="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-bZf3fotTJM4HBj85kpzRJ189kUN3io.png"
           >
             <source src={videoSrc} type="video/mp4" />
             Your browser does not support the video tag.
@@ -141,10 +126,9 @@ export function VideoPopup({
         )}
       </div>
 
-      {/* ===== TITLE ===== */}
       {title && (
         <div className="absolute bottom-4 left-4 right-4 text-white">
-          <h3 className="text-4xl font-semibold">{title}</h3>
+          <h3 className="text-2xl sm:text-4xl font-semibold">{title}</h3>
         </div>
       )}
     </div>

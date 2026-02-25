@@ -15,6 +15,7 @@ type KorcomptenzImageProps = Omit<ImageProps, "src" | "alt"> & {
   height?: number;
   className?: string;
   src?: ImageType | string;
+  isLCP?: boolean;
 };
 
 const KorcomptenzImage = (props: KorcomptenzImageProps) => {
@@ -24,14 +25,19 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
   const alt = (props?.src as ImageType)?.alternativeText
     ? (props?.src as ImageType)?.alternativeText
     : props?.alt || "";
+
+  // Determine priority based on LCP flag
+  const priority = props?.isLCP ? true : props?.priority || false;
+
   return (
     <Image
       placeholder={imagePlaceholder}
       {...props}
       src={(src || "/assets/placeholder.png") as string}
       alt={alt || "/assets/placeholder.png"}
-      loading="lazy"
-      priority={false}
+      priority={priority}
+      quality={85}
+      fetchPriority={priority ? "high" : "auto"}
       className={cn(
         props?.nonAnimate &&
           "object-cover transition-transform duration-300 hover:scale-110",
