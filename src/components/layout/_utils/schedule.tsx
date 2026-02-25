@@ -17,7 +17,7 @@ const ScheduleCall = ({
         "bg-custom-black lg:min-h-150  flex items-center py-4 md:py-0",
         {
           "-mb-10 md:-mb-24": isLastIndex,
-        }
+        },
       )}
       data-debug={"home.schedule-call"}
     >
@@ -31,7 +31,7 @@ const ScheduleCall = ({
                   ? "Expert-led Transformation. Impact-led Growth"
                   : scheduleCall?.topDescription}
               </p>
-              <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl  font-bold text-white leading-tight whitespace-pre-wrap">
+              <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl  font-bold text-white leading-tight ">
                 {scheduleCall?.title}
               </h2>
 
