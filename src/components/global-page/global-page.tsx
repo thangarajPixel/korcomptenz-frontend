@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import dynamic from "next/dynamic";
 import { InsightsSection } from "../insight-section";
 import InspireSection from "../inspire-section";
 import Opportunities from "../opportunities";
@@ -32,7 +35,6 @@ import OurStory from "../our-story";
 import PeopleShowcaseSection from "../people-showcase-section";
 import StatsSection from "../stats-section";
 import MediaSliderSection from "../media-slider-section";
-import MasonryGallerySection from "../masonry-gallery-section/masonry-gallery-section";
 import AchievementSection from "../achievements-section";
 import NotFound from "../not-found";
 import PanchatattvaSection from "../panchatattva-section";
@@ -53,8 +55,6 @@ import DemoOpportunities from "@/app/(default)/live-demo/_utils/demo-opportuniti
 import DemoWhyAttend from "@/app/(default)/live-demo/_utils/demo-why-attend";
 import { ScrollFadeIn } from "../ui/scroll-fade-in";
 import BuildDemo from "../build-connect/build-Demo";
-import PricingSection from "../pricing-section";
-import KorCareBuildData from "../kor-care-build-data";
 import KorCareImpactDescription from "../kor-care-impact-description";
 import KorCareAward from "../kor-care-award-section/kor-care-award";
 import KorCareSlider from "../kor-care-slider-section";
@@ -64,7 +64,6 @@ import { DescriptionOnly, TitleDescription } from "../description-section";
 import { CombinedSection, NewsRoomSlider, ServiceProvider } from "../news-room";
 import VideoBannerSection from "../video-banner-section";
 import NewsRoomBuild from "../news-room/_utils/news-room-build";
-
 import DigitialBenefits from "../digitial-benefits/digitial-benefits";
 import KpiPartner from "../kpi-partner";
 import DigitalServiceSection from "../digitial-services-section";
@@ -72,7 +71,6 @@ import { DigitialCardSlider } from "../digitial-card-slider";
 import { DigitialAboutSection } from "../digitial-about-section";
 import { DigitalErpList } from "../digitial-erp-list";
 import DigitialAnalytics from "../digitial-analytics/digitial-analytics";
-
 import { DigitialLifeCycle } from "../digitial-life-cycle";
 import DigitialInsightSlider from "../dark-slider copy";
 import CombinedAboutCardSlider from "../digitial-combined/digitial-combined";
@@ -92,13 +90,25 @@ import FabconDecisionFabric from "../fabcon-decision-fabric";
 import FabconBanner from "../fabcon-banner/fabcon-banner";
 import FabconMidMarket from "../fabcon-midmarket";
 
+// Lazy-load below-fold sections
+const MasonryGallerySection = dynamic(
+  () => import("../masonry-gallery-section/masonry-gallery-section"),
+  { ssr: false },
+);
+const PricingSection = dynamic(() => import("../pricing-section"), {
+  ssr: false,
+});
+const KorCareBuildData = dynamic(
+  () => import("../kor-care-build-data/kor-care-build-data"),
+  { ssr: false },
+);
+
 type Props = {
   data: ComponentPropsType[];
 };
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-  
 
   return data?.map((item, index) => {
     switch (item?.__component) {

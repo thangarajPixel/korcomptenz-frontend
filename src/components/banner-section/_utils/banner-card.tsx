@@ -28,7 +28,9 @@ const BannerCard = ({
           <KorcomptenzImage
             src={data?.image}
             fill
-            loading="eager"
+            priority={isFirst}
+            quality={isFirst ? 85 : 75}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
             className="w-full h-full object-cover object-right  "
           />
           <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-[5]  " />
@@ -225,6 +227,9 @@ const BannerCard = ({
             src={data?.imageMobile}
             width={1000}
             height={800}
+            priority={isFirst}
+            quality={isFirst ? 85 : 75}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
             className="w-full h-full object-cover"
           />
         </div>

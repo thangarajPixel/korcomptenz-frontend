@@ -1,4 +1,4 @@
-"use";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -10,11 +10,20 @@ const ReadMoreHtml = ({ html }: { html: string }) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (contentRef.current) {
-      const el = contentRef.current;
-      // Detect overflow (real rendered height)
-      setShowToggle(el.scrollHeight > el.clientHeight);
-    }
+    const el = contentRef.current;
+    if (!el) return;
+
+    // Use ResizeObserver to avoid forced reflows
+    const resizeObserver = new ResizeObserver(() => {
+      // Batch DOM reads
+      requestAnimationFrame(() => {
+        setShowToggle(el.scrollHeight > el.clientHeight);
+      });
+    });
+
+    resizeObserver.observe(el);
+
+    return () => resizeObserver.disconnect();
   }, [html]);
 
   return (
@@ -23,7 +32,7 @@ const ReadMoreHtml = ({ html }: { html: string }) => {
         ref={contentRef}
         className={cn(
           "text-custom-black-1 text-lg md:text-xl leading-relaxed",
-          !expanded && "line-clamp-6"
+          !expanded && "line-clamp-6",
         )}
       >
         <DangerousHtml html={html} />

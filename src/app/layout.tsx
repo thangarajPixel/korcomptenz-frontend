@@ -39,6 +39,18 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
+        {/* Preconnect to critical resources */}
+        <link
+          rel="preconnect"
+          href="https://aue2kormlworkspacetest01.blob.core.windows.net"
+        />
+        <link
+          rel="dns-prefetch"
+          href="https://aue2kormlworkspacetest01.blob.core.windows.net"
+        />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
         {/* <link rel="canonical" href="https://www.korcomptenz.com/" /> */}
         {/* Google Tag Manager */}
 

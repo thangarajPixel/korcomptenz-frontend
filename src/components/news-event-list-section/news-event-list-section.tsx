@@ -75,21 +75,26 @@ export default function NewsEventListSection({
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sectionElements = document.querySelectorAll("[data-section]");
-      let currentActive = activeSection;
-      sectionElements.forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 150 && rect.bottom > 150) {
-          currentActive =
-            element.getAttribute("data-section") || data?.[0]?.id || "";
-        }
-      });
-      setActiveSection(currentActive);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection]);
+    const sectionElements = document.querySelectorAll("[data-section]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute("data-section");
+            if (sectionId) {
+              setActiveSection(sectionId);
+            }
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: "-150px 0px -50% 0px" },
+    );
+
+    sectionElements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
   const handleSectionClick = (sectionId: string) => {
     const sectionElement = document.querySelector(
       `[data-section="${sectionId}"]`,
