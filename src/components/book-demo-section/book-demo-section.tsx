@@ -17,11 +17,6 @@ const defaultValues = {
   email: "",
   organization: "",
 };
-type ErrorType = {
-  error: {
-    message: string;
-  };
-};
 
 const BookDemoSection = ({
   essential,
@@ -77,7 +72,8 @@ const BookDemoSection = ({
         notify(response);
         reset(defaultValues);
       } catch (error: unknown) {
-        const errorMessage = (error as ErrorType)?.error?.message || "An error occurred";
+        const errorMessage =
+          (error as ErrorType)?.error?.message || "An error occurred";
         notify({ message: errorMessage });
         errorSet(error, setError);
       }

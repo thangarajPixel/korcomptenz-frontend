@@ -68,7 +68,10 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
           router.push("/thank-you");
           if (!response.success) return;
           reset({ ...defaultValues });
-        } catch (error) {
+        } catch (error: unknown) {
+          const errorMessage =
+            (error as ErrorType)?.error?.message || "An error occurred";
+          notify({ message: errorMessage });
           errorSet(error, setError);
         }
       },

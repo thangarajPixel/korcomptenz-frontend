@@ -28,8 +28,7 @@ const SliderCard: React.FC<Props> = ({ slide }) => {
     rounded-3xl 
     p-6 
     w-[85%] md:w-full
-    min-h-[320px] 
-    md:min-h-[380px]
+    
     flex 
     flex-col 
     justify-between

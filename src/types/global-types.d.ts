@@ -796,3 +796,9 @@ type AiCardType = {
   buttonLink: string;
   isTarget: boolean;
 };
+
+type ErrorType = {
+  error: {
+    message: string;
+  };
+};

@@ -77,8 +77,11 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
           blogId,
         });
         setOpen(false);
-      } catch (error) {
-        errorSet(error, setError, blogId);
+      } catch (error: unknown) {
+        const errorMessage =
+          (error as ErrorType)?.error?.message || "An error occurred";
+        notify({ message: errorMessage });
+        errorSet(error, setError);
       }
     },
     [mutateAsync, reset],

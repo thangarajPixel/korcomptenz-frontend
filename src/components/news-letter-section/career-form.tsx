@@ -61,7 +61,10 @@ const CareerForm = () => {
           const response = await mutateAsync(data2);
           notify(response);
           reset({ ...defaultValues });
-        } catch (error) {
+        } catch (error: unknown) {
+          const errorMessage =
+            (error as ErrorType)?.error?.message || "An error occurred";
+          notify({ message: errorMessage });
           errorSet(error, setError);
         }
       },
