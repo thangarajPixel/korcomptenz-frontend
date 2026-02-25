@@ -17,6 +17,12 @@ const defaultValues = {
   email: "",
   organization: "",
 };
+type ErrorType = {
+  error: {
+    message: string;
+  };
+};
+
 const BookDemoSection = ({
   essential,
   item,
@@ -70,7 +76,9 @@ const BookDemoSection = ({
         const response = await mutateAsync(formdata);
         notify(response);
         reset(defaultValues);
-      } catch (error) {
+      } catch (error: unknown) {
+        const errorMessage = (error as ErrorType)?.error?.message || "An error occurred";
+        notify({ message: errorMessage });
         errorSet(error, setError);
       }
     },
