@@ -11,7 +11,7 @@ const StickyTitleList = ({
       className="container-md "
       data-debug={"page-componets.sticky-title-list"}
     >
-      <div className="w-full px-0 b">
+      <div className="w-full px-0 ">
         <div className="flex flex-col lg:flex-row  gap-8 ">
           {/* Left Sidebar - Title */}
           <div className="w-full lg:w-1/2">

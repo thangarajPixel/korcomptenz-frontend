@@ -157,17 +157,20 @@ body {
     @apply px-0.5 max-w-full;
   }
   @variant xl {
-    @apply max-w-[96rem] px-8;
+    @apply max-w-[90rem] px-8;
   }
 }
 
 @utility container-md {
-  @apply container mx-auto max-w-7xl px-4;
+  @apply container mx-auto max-w-full  px-4;
   @variant sm {
     @apply px-6;
   }
+  @variant lg {
+    @apply px-0.5 max-w-full;
+  }
   @variant xl {
-    @apply !max-w-[90rem] px-8;
+    @apply max-w-[90rem] px-8;
   }
 }
 @utility container-lg {
