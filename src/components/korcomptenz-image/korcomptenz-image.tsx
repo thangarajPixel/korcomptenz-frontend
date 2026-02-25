@@ -15,6 +15,7 @@ type KorcomptenzImageProps = Omit<ImageProps, "src" | "alt"> & {
   height?: number;
   className?: string;
   src?: ImageType | string;
+  priority?: boolean;
 };
 
 const KorcomptenzImage = (props: KorcomptenzImageProps) => {
@@ -24,14 +25,24 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
   const alt = (props?.src as ImageType)?.alternativeText
     ? (props?.src as ImageType)?.alternativeText
     : props?.alt || "";
+
+  const loading = props?.priority ? "eager" : props?.loading || "lazy";
+  const fetchPriority = props?.priority ? "high" : "auto";
+
   return (
     <Image
       placeholder={imagePlaceholder}
       {...props}
       src={(src || "/assets/placeholder.png") as string}
       alt={alt || "/assets/placeholder.png"}
-      loading="lazy"
-      priority={false}
+      loading={loading}
+      fetchPriority={fetchPriority}
+      priority={props?.priority || false}
+      quality={props?.quality || 75}
+      sizes={
+        props?.sizes ||
+        "(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
+      }
       className={cn(
         props?.nonAnimate &&
           "object-cover transition-transform duration-300 hover:scale-110",
