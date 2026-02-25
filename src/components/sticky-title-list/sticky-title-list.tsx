@@ -13,7 +13,7 @@ const StickyTitleList = ({
     >
       <div className="w-full px-0 b">
         <div className="flex flex-col lg:flex-row  gap-8 ">
-          s{/* Left Sidebar - Title */}
+          {/* Left Sidebar - Title */}
           <div className="w-full lg:w-1/2">
             <div className={`lg:sticky lg:top-28`}>
               <h2 className="text-6xl  md:text-9xl font-bold text-foreground mb-3 ">
