@@ -14,8 +14,8 @@ export const queryClient = new QueryClient({
       gcTime: 1000 * 60 * 120, // 2 hours cache time
       staleTime: 1000 * 60 * 5, // 5 minutes before data is considered stale
       refetchOnWindowFocus: false,
-      refetchOnReconnect: false, // Don't refetch on reconnect
-      refetchOnMount: false, // Don't refetch on mount if data exists
+      refetchOnReconnect: "stale", // Only refetch if data is stale
+      refetchOnMount: "stale", // Only refetch if data is stale
     },
     mutations: {
       retry: 1,

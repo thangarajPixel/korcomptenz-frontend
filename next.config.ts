@@ -44,13 +44,47 @@ const nextConfig: NextConfig = {
       "embla-carousel-react",
     ],
     optimizeCss: true,
+    // Enable Turbopack for faster builds
   },
 
-  // Turbopack configuration (Next.js 16+ default bundler)
-  turbopack: {
-    resolveAlias: {
-      "@": "./src",
-    },
+  // Webpack optimization for code splitting
+  webpack: (config) => {
+    config.optimization = {
+      ...config.optimization,
+      splitChunks: {
+        chunks: "all",
+        cacheGroups: {
+          // Separate vendor chunks
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            priority: 10,
+            reuseExistingChunk: true,
+          },
+          // Separate UI library chunks
+          ui: {
+            test: /[\\/]node_modules[\\/](@radix-ui|shadcn)[\\/]/,
+            name: "ui-libs",
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+          // Separate animation libraries
+          animations: {
+            test: /[\\/]node_modules[\\/](framer-motion|embla-carousel)[\\/]/,
+            name: "animation-libs",
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+          // Common chunks shared between pages
+          common: {
+            minChunks: 2,
+            priority: 5,
+            reuseExistingChunk: true,
+          },
+        },
+      },
+    };
+    return config;
   },
   redirects: async () => [
     {
