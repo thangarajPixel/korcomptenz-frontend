@@ -15,6 +15,7 @@ type KorcomptenzImageProps = Omit<ImageProps, "src" | "alt"> & {
   height?: number;
   className?: string;
   src?: ImageType | string;
+  priority?: boolean;
 };
 
 const KorcomptenzImage = (props: KorcomptenzImageProps) => {
@@ -24,13 +25,14 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
   const alt = (props?.src as ImageType)?.alternativeText
     ? (props?.src as ImageType)?.alternativeText
     : props?.alt || "";
+
   return (
     <Image
       placeholder={imagePlaceholder}
       {...props}
       src={(src || "/assets/placeholder.png") as string}
       alt={alt || "/assets/placeholder.png"}
-      loading="lazy"
+      loading={"lazy"}
       priority={false}
       className={cn(
         props?.nonAnimate &&

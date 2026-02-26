@@ -3,6 +3,13 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: "Outfit";
+    font-display: swap;
+  }
+}
+
 @theme {
   --font-sans:
     "Outfit", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",

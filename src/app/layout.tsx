@@ -10,6 +10,8 @@ export const dynamic = "force-dynamic";
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 export async function generateMetadata(): Promise<Metadata> {

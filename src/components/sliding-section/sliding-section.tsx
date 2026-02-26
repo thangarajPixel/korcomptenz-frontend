@@ -48,6 +48,7 @@ export default function SlidingSection({
                 src={isMobile ? slide?.mobile_image : slide?.image}
                 width={1000}
                 height={1000}
+                priority={index === 0}
                 className="w-full h-full object-cover"
               />
             )}
@@ -58,6 +59,7 @@ export default function SlidingSection({
                   src={slide?.backgroundImage}
                   width={1000}
                   height={1000}
+                  priority={index === 0}
                   className="w-full h-full object-cover"
                 />
 
@@ -67,6 +69,7 @@ export default function SlidingSection({
                     src={slide?.bannerImage}
                     width={300}
                     height={300}
+                    priority={index === 0}
                     className="w-full h-full object-contain"
                   />
                 </div>
