@@ -110,21 +110,20 @@ function Carousel({
 
   const autoPlayRef = React.useRef<NodeJS.Timeout | null>(null);
 
-  const stopAutoPlay = React.useCallback(() => {
-    if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
-      autoPlayRef.current = null;
-    }
-  }, []);
-
   const startAutoPlay = React.useCallback(() => {
     if (!api) return;
     stopAutoPlay();
     autoPlayRef.current = setInterval(() => {
       api.scrollNext();
     }, autoPlayDelay || 3000);
-  }, [api, autoPlayDelay, stopAutoPlay]);
+  }, [api, autoPlayDelay]);
 
+  const stopAutoPlay = React.useCallback(() => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = null;
+    }
+  }, []);
   React.useEffect(() => {
     if (!api || !autoPlay) return;
     startAutoPlay();

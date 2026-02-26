@@ -14,12 +14,12 @@ interface ScrollFadeInProps {
 export function ScrollFadeIn({
   children,
   delay = 0,
-  duration = 0.8,
+  duration = 1.5,
   className,
   __component,
 }: ScrollFadeInProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.section
@@ -29,11 +29,10 @@ export function ScrollFadeIn({
       transition={{
         duration,
         delay,
-        ease: "easeOut",
+        ease: [0.25, 0.1, 0.25, 1],
       }}
       className={className}
       data-component={__component}
-      style={{ willChange: "opacity, transform" }}
     >
       {children}
     </motion.section>

@@ -117,7 +117,7 @@ export function DigitalServiceSection({
                 className="h-full w-full rounded-3xl object-cover mb-4"
                 width={1000}
                 height={1000}
-                priority={value === content?.list?.[0]?.label}
+                priority={true}
               />
             </div>
           </motion.div>

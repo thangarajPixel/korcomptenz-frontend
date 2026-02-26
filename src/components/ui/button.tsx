@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Loader2, ChevronRight } from "lucide-react";
 
@@ -39,7 +40,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  },
+  }
 );
 
 function Button({
@@ -57,9 +58,10 @@ function Button({
     isLoading?: boolean;
     arrow?: boolean;
     disabled?: boolean;
-  }) {
+  } & import("framer-motion").HTMLMotionProps<"button"> &
+  VariantProps<typeof buttonVariants>) {
   return (
-    <button
+    <motion.button
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
       disabled={isLoading || disabled}
@@ -79,7 +81,7 @@ function Button({
           </React.Fragment>
         )}
       </span>
-    </button>
+    </motion.button>
   );
 }
 

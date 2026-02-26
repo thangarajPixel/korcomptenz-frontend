@@ -773,7 +773,7 @@ ul.key_list li::before {
   }
 }
 .load-wrap {
-  perspective: none;
+  perspective: 800px; /* REQUIRED for side effect */
 }
 
 .load-wrap img {
@@ -781,14 +781,15 @@ ul.key_list li::before {
   height: 100px;
   animation: rotateSide 1s linear infinite;
   transform-origin: center;
+  transform-style: preserve-3d;
 }
 
 @keyframes rotateSide {
   from {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateY(360deg);
   }
 }
 

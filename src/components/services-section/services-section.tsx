@@ -121,7 +121,7 @@ export function AnimatedTabsHero({
                   className="h-full w-full rounded-xl object-contain cursor-pointer"
                   width={1000}
                   height={1000}
-                  priority={value === content?.[0]?.label}
+                  priority={true}
                   onClick={() =>
                     setIsVideoOpen({
                       link: activeContent.videoLink || "#",
@@ -135,7 +135,7 @@ export function AnimatedTabsHero({
                   className="h-full w-full rounded-xl object-contain"
                   width={1000}
                   height={1000}
-                  priority={value === content?.[0]?.label}
+                  priority={true}
                 />
               )}
             </div>
