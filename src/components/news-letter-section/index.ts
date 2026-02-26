@@ -1,4 +1,4 @@
 import ContactUsNewsletter from "./news-letter";
-import CareerForm from "./career-form";
+import CareerForm from "./_utils/career-form";
 
 export { ContactUsNewsletter, CareerForm };

@@ -500,6 +500,7 @@ type MediaSliderCardType = {
 
 type AchievementscardType = {
   id: string;
+  image: ImageType;
   column: { id: string; image: ImageType }[];
 };
 // type InsightCardType = {
@@ -616,6 +617,9 @@ type InsightResponse = {
 type InsightItem = {
   id: number;
   date: string;
+  publishedAt: string;
+  updatedAt: string;
+
   asset: {
     slug: string;
     file: ImageType;

@@ -1,4 +1,40 @@
 import { z } from "zod";
+
+const businessEmail = z
+  .string()
+  .min(1, "Email is required")
+  .email("Invalid email address")
+  .refine(
+    (email) => {
+      const lowerEmail = email.toLowerCase();
+      const domain = lowerEmail.split("@")[1];
+      const BLOCKED_EMAIL_DOMAINS =
+        process.env.NEXT_PUBLIC_BLOCKED_EMAIL_DOMAINS?.split(",").map((d) =>
+          d.trim().toLowerCase(),
+        ) ?? [];
+
+      const BLOCKED_TLDS =
+        process.env.NEXT_PUBLIC_BLOCKED_TLDS?.split(",").map((t) =>
+          t.trim().toLowerCase(),
+        ) ?? [];
+
+      if (!domain) return false;
+
+      if (BLOCKED_EMAIL_DOMAINS.includes(domain)) {
+        return false;
+      }
+
+      if (BLOCKED_TLDS.some((tld) => domain.endsWith(tld))) {
+        return false;
+      }
+
+      return true;
+    },
+    {
+      message: "Please enter valid Business Email ID",
+    },
+  );
+
 const essential = z
   .object({
     connect: z.array(
@@ -15,10 +51,7 @@ export const contactSchema = z.object({
     .string()
     .min(1, "First name is required")
     .regex(/^[A-Z\s]+$/i, "First name must contain only letters and spaces"),
-  email: z
-    .string()
-    .min(1, "Email is required")
-    .pipe(z.email("Invalid email address")),
+  email: businessEmail,
   phone: z.string().optional(),
 
   message: z.string().optional(),
@@ -31,10 +64,7 @@ export const bookADemoSchema = z.object({
     .string()
     .min(1, "Name is required")
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
-  email: z
-    .string()
-    .min(1, "Email is required")
-    .pipe(z.email("Invalid email address")),
+  email: businessEmail,
   organization: z.string().min(1, "Organization is required"),
 });
 
@@ -77,7 +107,7 @@ export const ContactUsFormSchema = z.object({
     .min(1, "Last name is required")
     .regex(/^[A-Za-z\s]+$/, "Last name must contain only letters and spaces"),
 
-  email: z.string().min(1, "Email is required").email("Invalid email address"),
+  email: businessEmail,
 
   company: z.string().min(1, "Company name is required"),
 
@@ -120,7 +150,7 @@ export const freeConsultationLeadSchema = z.object({
     .string()
     .min(1, "Name is required")
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
-  email: z.string().min(1, "Email is required").email("Invalid email address"),
+  email: businessEmail,
 
   location: z.string().min(1, "Location is required"),
   message: z.string().min(1, "Message is required"),
@@ -139,7 +169,7 @@ export const webinarReserveFormSchema = z.object({
     .string()
     .min(1, "Name is required")
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
-  email: z.string().min(1, "Email is required").email("Invalid email address"),
+  email: businessEmail,
 
   mobile: z
     .string()
@@ -160,7 +190,7 @@ export const newsRoomFormSchema = z.object({
     .string()
     .min(1, "Name is required")
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
-  email: z.string().min(1, "Email is required").email("Invalid email address"),
+  email: businessEmail,
 });
 
 export const fabconDecisionLeadSchema = z.object({
@@ -169,7 +199,7 @@ export const fabconDecisionLeadSchema = z.object({
     .min(1, "Name is required")
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
 
-  email: z.string().min(1, "Email is required").email("Invalid email address"),
+  email: businessEmail,
 
   timeSlot: z.string().min(1, "Preferred time slot is required"),
 
@@ -184,9 +214,15 @@ export const blogFormSchema = z.object({
     .string()
     .min(1, "Name is required")
     .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
-  email: z.string().min(1, "Email is required").email("Invalid email address"),
-  organization: z.string().min(1, "company is required"),
+  email: businessEmail,
+  organization: z
+    .string()
+    .optional()
+    .refine((val) => val && val.trim().length > 0, "Organization is required"),
   blogId: z.string().optional(),
+});
+export const subscriptionFormSchema = z.object({
+  email: businessEmail,
 });
 
 export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
@@ -202,3 +238,4 @@ export type NewsRoomFormSchema = z.infer<typeof newsRoomFormSchema>;
 
 export type FabconDecisionLeadSchema = z.infer<typeof fabconDecisionLeadSchema>;
 export type BlogFormSchema = z.infer<typeof blogFormSchema>;
+export type SubscriptionFormSchema = z.infer<typeof subscriptionFormSchema>;

@@ -8,7 +8,7 @@ const ContactUsCorporate = ({
 }) => {
   return (
     <div className="container-md ">
-      <div className="rounded-2xl bg-light-gray py-12 px-4">
+      <div className="rounded-2xl bg-light-gray py-12 px-5 md:px-8">
         <h2 className="text-2xl font-semibold text-foreground mb-8">
           {corporateData?.title}
         </h2>
@@ -32,7 +32,7 @@ const ContactUsCorporate = ({
               <p className="text-center text-4xl font-semibold text-gray-900 mb-3">
                 {corporate?.country}
               </p>
-              <p className="text-center text-lg text-gray-600 mb-4 leading-relaxed">
+              <p className="text-center text-lg text-black mb-4 leading-relaxed">
                 {corporate?.address}
               </p>
               <div className="space-y-1 text-lg text-primary">
