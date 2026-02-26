@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
+
+  // Image optimization for LCP and bundle size
   images: {
     remotePatterns: [
       {
@@ -19,6 +21,70 @@ const nextConfig: NextConfig = {
         hostname: process.env.NEXT_PUBLIC_IMAGE_DOMAIN || "korcomptenz.com",
       },
     ],
+    // Optimize image sizes for different devices
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Enable modern formats for smaller file sizes
+    formats: ["image/avif", "image/webp"],
+    // Cache images for 1 year (immutable)
+    minimumCacheTTL: 31536000,
+    // Disable static imports to reduce bundle
+    disableStaticImages: false,
+  },
+
+  // Experimental optimizations for bundle size and performance
+  experimental: {
+    optimizePackageImports: [
+      "lucide-react",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-popover",
+      "@radix-ui/react-tabs",
+      "framer-motion",
+      "embla-carousel-react",
+    ],
+    optimizeCss: true,
+    // Enable Turbopack for faster builds
+  },
+
+  // Webpack optimization for code splitting
+  webpack: (config) => {
+    config.optimization = {
+      ...config.optimization,
+      splitChunks: {
+        chunks: "all",
+        cacheGroups: {
+          // Separate vendor chunks
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            priority: 10,
+            reuseExistingChunk: true,
+          },
+          // Separate UI library chunks
+          ui: {
+            test: /[\\/]node_modules[\\/](@radix-ui|shadcn)[\\/]/,
+            name: "ui-libs",
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+          // Separate animation libraries
+          animations: {
+            test: /[\\/]node_modules[\\/](framer-motion|embla-carousel)[\\/]/,
+            name: "animation-libs",
+            priority: 20,
+            reuseExistingChunk: true,
+          },
+          // Common chunks shared between pages
+          common: {
+            minChunks: 2,
+            priority: 5,
+            reuseExistingChunk: true,
+          },
+        },
+      },
+    };
+    return config;
   },
   redirects: async () => [
     {
