@@ -165,11 +165,28 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
             className=" p-2 rounded-md text-black bg-[#F2F2F2] placeholder:text-black border-none "
           />
         </div>
+        <div className="space-y-2">
+          {form?.list?.map((item, index) => (
+            <div key={index} className="flex ">
+              <div className="mt-1">
+                {" "}
+                <KorcomptenzImage
+                  src="/assets/check 1.png"
+                  width={20}
+                  height={20}
+                />
+              </div>
 
+              <p className="text-md md:text-lg text-white md:text-black">
+                {item?.description}
+              </p>
+            </div>
+          ))}
+        </div>
         {/* Submit button */}
-        <div className="pt-4">
+        <div className="pt-2">
           <Button
-            size="lg"
+            size="xl"
             variant="outline"
             className="hover:bg-primary border-primary text-primary hover:text-white"
             arrow
@@ -179,24 +196,6 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
             Submit
           </Button>
         </div>
-      </div>
-      <div className="space-y-2">
-        {form?.list?.map((item, index) => (
-          <div key={index} className="flex ">
-            <div className="mt-1">
-              {" "}
-              <KorcomptenzImage
-                src="/assets/check 1.png"
-                width={20}
-                height={20}
-              />
-            </div>
-
-            <p className="text-md md:text-lg text-white md:text-black">
-              {item?.description}
-            </p>
-          </div>
-        ))}
       </div>
     </form>
   );
