@@ -85,7 +85,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
       className="space-y-8 bg-white rounded-2xl p-4 md:p-5"
       noValidate
     >
-      <div className="grid gap-y-8 mt-5">
+      <div className="grid gap-y-8 mt-2">
         {/* Name + Email */}
         <div className="grid grid-cols-2 gap-4">
           <Input
