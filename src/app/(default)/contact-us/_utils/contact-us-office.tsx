@@ -83,7 +83,7 @@ const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
                     <p className="text-lg md:text-[21px] text-foreground mb-1">
                       Please send your enquiries to:
                     </p>
-                    <Link href={officesData?.email || "#"}>
+                    <Link href={"mailto:${officesData?.email}"}>
                       {officesData?.email}
                     </Link>
                   </div>
