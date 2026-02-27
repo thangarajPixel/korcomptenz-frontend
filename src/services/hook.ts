@@ -201,3 +201,10 @@ export const useBlogFormHook = () => {
     mutationFn: PAGE.blogFormDownloadLead,
   });
 };
+
+export const useSubscriptionFormSchemaHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.NEW_LETTER_SUBSCRIPTION],
+    mutationFn: PAGE.createSubcription,
+  });
+};

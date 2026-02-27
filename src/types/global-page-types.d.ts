@@ -8,7 +8,7 @@ type SlidingSectionType = {
   buttonText: string;
   buttonAction: string;
   mobile_image: ImageType;
-  description?: string;
+  description: string;
   logo?: ImageType;
   link: string;
   design: string;
@@ -641,6 +641,9 @@ type NewsletterData = {
   buttonText: string;
   isForm?: boolean;
   image: ImageType;
+  form: {
+    forms: { buttonText: string; email: string; __component: string }[];
+  };
 };
 
 type OfficesDataType = {
@@ -796,6 +799,7 @@ type AchievementsType = {
   id: string;
   title: string;
   isColumnFour: boolean;
+  logo: AchievementscardType[];
   list: AchievementscardType[];
 };
 type DemoListType = {
@@ -843,6 +847,12 @@ type OpenJobsType = {
 type ContactUsFormSectionType = {
   id: string;
   title: string;
+
+  backgroundImage: ImageType;
+  listLeft: {
+    title: string;
+    description: string;
+  }[];
   images: {
     id: string;
     image: ImageType;
@@ -1520,6 +1530,11 @@ type ComponentPropsMap = {
   FabconMidMarket: WhyKorcomptenzType & {
     id: string;
     __component: "page-componets.midmarket-enterprises";
+  };
+
+  LogoSlider: AchievementSectionProps & {
+    id: string;
+    __component: "contact-us.logo-slider";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

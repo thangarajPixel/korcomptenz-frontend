@@ -1,4 +1,5 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import Link from "next/link";
 import React from "react";
 
 const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
@@ -8,7 +9,7 @@ const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
       className="container-md "
       id="our-office"
     >
-      <div className="rounded-2xl  py-10 px-5  bg-custom-gray-6">
+      <div className="rounded-2xl p-5 md:py-10 md:px-12 bg-custom-gray-6">
         {/* Header */}
         <div className="mb-5">
           <h2 className="text-[50px] font-bold text-foreground mb-2">
@@ -55,7 +56,7 @@ const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
 
                   {/* Address */}
                   <div>
-                    <p className="text-lg text-muted-foreground whitespace-pre-wrap">
+                    <p className="text-lg text-foreground whitespace-pre-wrap">
                       {officesData?.address}
                     </p>
                   </div>
@@ -79,11 +80,12 @@ const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
 
                   {/* Email */}
                   <div className="pt-2 text-primary">
-                    <p className="text-sm text-muted-foreground mb-1">
+                    <p className="text-lg md:text-[21px] text-foreground mb-1">
                       Please send your enquiries to:
                     </p>
-
-                    {officesData?.email}
+                    <Link href={"mailto:${officesData?.email}"}>
+                      {officesData?.email}
+                    </Link>
                   </div>
                 </div>
               </div>

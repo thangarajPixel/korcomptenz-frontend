@@ -2,9 +2,8 @@
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
-import React from "react";
-
-import CareerForm from "./career-form";
+import SubscriptionForm from "./_utils/subcription-form";
+import CareerForm from "./_utils/career-form";
 
 const ContactUsNewsletter = ({
   newsletterData,
@@ -26,10 +25,11 @@ const ContactUsNewsletter = ({
               {newsletterData.title}
             </h2>
 
-            <p className="text-base text-xl text-white/90 mb-6 md:mb-8 leading-relaxed">
+            <p className="text-base text-xl text-white/90 mb-6 md:mb-8 leading-relaxed max-w-lg">
               {newsletterData.description}
             </p>
-            {newsletterData.buttonText && (
+
+            {newsletterData?.buttonText && newsletterData?.isForm === false && (
               <div className="flex items-center">
                 <Button
                   arrow
@@ -41,7 +41,13 @@ const ContactUsNewsletter = ({
                 </Button>
               </div>
             )}
-            {newsletterData?.isForm && <CareerForm />}
+
+            {newsletterData?.form?.forms?.[0]?.__component ===
+            "form-fields.newsletter-subscription" ? (
+              <SubscriptionForm />
+            ) : (
+              <CareerForm />
+            )}
           </div>
 
           {/* Image Section - 30% on mobile, 50% on desktop */}

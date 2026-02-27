@@ -91,6 +91,7 @@ import FabconComposableIntelligence from "../fabcon-composable-intelligence";
 import FabconDecisionFabric from "../fabcon-decision-fabric";
 import FabconBanner from "../fabcon-banner/fabcon-banner";
 import FabconMidMarket from "../fabcon-midmarket";
+import LogoSlider from "../logo-slider";
 
 type Props = {
   data: ComponentPropsType[];
@@ -98,8 +99,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-  
-
+ 
   return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
@@ -1002,6 +1002,15 @@ const GlobalPage = (props: Props) => {
             key={`midmarket-enterprises-${item?.__component}-${item?.id}`}
           >
             <FabconMidMarket data={item} />
+          </ScrollFadeIn>
+        );
+      case "contact-us.logo-slider":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`logo-slider-${item?.__component}-${item?.id}`}
+          >
+            <LogoSlider data={item} />
           </ScrollFadeIn>
         );
       default:

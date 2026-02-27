@@ -1473,11 +1473,7 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/kanban-vs-scrum",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
+
     {
       source: "/blog/managed-services-provider",
       destination: "https://www.korcomptenz.com/insights/blog",
@@ -1571,11 +1567,6 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/power-bi-vs-tableau-comparison-guide",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
 
     {
       source: "/blog/quick-start-guide-on-kentico",
@@ -1628,11 +1619,6 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/sap-grc",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
 
     {
       source: "/blog/smart-speaker-technology",
@@ -1675,11 +1661,7 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/top-edi-service-providers",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
+
     {
       source: "/blog/top-reasons-to-choose-microsoft-dynamics-365",
       destination: "https://www.korcomptenz.com/insights/blog",
@@ -1700,11 +1682,7 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/what-is-a-local-area-network",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
+
     {
       source: "/blog/what-is-augmented-reality",
       destination: "https://www.korcomptenz.com/insights/blog",
@@ -1847,9 +1825,11 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/salesforce/salesforce-rescue-and-rapid-response",
-      destination: "https://www.korcomptenz.com/crm-implementation-services",
+      destination: "https://www.korcomptenz.com/crm/crm-implementation-rescue",
       permanent: true,
     },
+
+    //26.02.2026
   ],
 };
 

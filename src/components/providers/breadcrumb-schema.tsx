@@ -13,113 +13,92 @@ export function BreadcrumbSchema() {
 
   if (!mounted) return null;
 
-  // FAQ Schema for ERP Advisory URL
-  if (pathname.includes("/erp/erp-advisory-and-consulting-services")) {
-    const faqSchema = {
+  /* ================= HOME PAGE – VIDEO ================= */
+  if (pathname === "/") {
+    const homeVideoSchema = {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do you guide ERP strategy and vendor selection ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We run a structured , vendor-agnostic process capability mapping ,fit-gap ,TCO modelling, reference architecture and scenario-based demos scored against business KPIs-so you choose the platform that maximizes ROI with the least change debt (For many clients this includes Microsoft Dynamics 365 F&SCM evaluations)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do you link ERP to the P&L (not just \"IT Metrics\")",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Every requirement is tied to a financial lever-working capital (DSO/DPO) , margin, SG&A per order, OTIF, scrap/rework We instrument dashboards to Finance validates gains and we re-prioritize the roadmap based on realized details each quarter."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do you de-risk implementation or rescue a struggling program ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We establish outcome based governance right-size scope into phases run upfront data quality sprint and embed change leadership with business ownership for turnarounds we do a 3-4 week health check (scope, data, integrations, testing) and re-baseline plan, budget and value ."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What's Your integration and data strategy across ERP, CRM and analytics ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "API-first and event-driven for real-time moments governed pipelines for analytics. We define canonical models/MDM, unify telemetry into BI and ensure ERP talks cleanly to CRM, eCommerce ,WMS/TMS and shop-floor/IoT-so leaders get a single source of truth and faster decision."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Cloud ERP or on-prem How do we decide ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We assess compliance , latency and cost profiles then model TCO vs Agility Cloud ERP often wins on scale and time-to-value hybrid can bridge constraints , Either way, we design for portability security and exit options to avoid lock-in."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do You ensure adoption sticks after go-live ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Role-based enablement in-flow guidance ,super-user networks and incentives tied to KPI lift- not just training hours Post-go-live we run a continuous-improvement  backlog (release hygiene, enhancements) so benefits compound rather than decay."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What operating model and support do we need post-implementation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A product-line CoE with shared platforms, outcome SLAs, and 24×7 AMS to stabilize, optimize, and evolve. We pair this with FinOps-style cost governance (for cloud ERP) and a quarterly value review to keep spend aligned to business impact. Cloud ERP often wins on scale and time-to-value; hybrid can bridge constraints. Either way, we design for portability, security, and exit options to avoid lock-in."
-          }
-        }
-      ]
+      "@type": "VideoObject",
+      name: "Discover Expert-Led Transformation with Korcomptenz",
+      description:
+        "Korcomptenz is a technology solutions partner with global delivery capabilities, helping mid-market and enterprise organizations modernize and grow across Microsoft and other leading platforms. We specialize in ERP and CRM transformation, cloud modernization, data & analytics, AI-led automation, IoT, and digital engineering—bringing strategy and execution together to deliver measurable outcomes. Our work has also been recognized by leading analyst firms, including ISG and Forrester.",
+      thumbnailUrl:
+        "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/Video_Thumbnail_af745dd455.png",
+      uploadDate: "2025-12-30",
+      duration: "PT1M16S",
+      embedUrl: "https://youtu.be/zGpncr3-Uy8",
     };
 
     return (
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema)
+          __html: JSON.stringify(homeVideoSchema),
         }}
       />
     );
   }
 
-  // Breadcrumb Schema for Microsoft Dynamics URL
-  if (pathname.includes("/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-operations")) {
-    const breadcrumbSchema = {
+  /* ========== MICROSOFT DYNAMICS 365 – VIDEO ========== */
+  if (pathname === "/microsoft-dynamics-365") {
+    const mdVideoSchema = {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.korcomptenz.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Microsoft Dynamics 365",
-          "item": "https://www.korcomptenz.com/microsoft-dynamics-365"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Microsoft Dynamics 365 Finance and Operations",
-          "item": "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-operations"
-        }
-      ]
+      "@type": "VideoObject",
+      name: "A CIO’s Perspective: From Transformation to Tangible ROI",
+      description:
+        "In this strategic PSS session with our SMEs during Community Summit 2025, a veteran CIO joins our Korcomptenz team to dive deep into what truly matters when evaluating modern platforms, navigating transformation, and extracting ROI from technology investments.",
+      thumbnailUrl:
+        "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/ROI_Video_Thumbnail_5fd2ce9b30.webp",
+      uploadDate: "2025-11-11",
+      duration: "PT3M5S",
+      embedUrl: "https://youtu.be/D3z3MfkkDRA",
     };
 
     return (
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema)
+          __html: JSON.stringify(mdVideoSchema),
+        }}
+      />
+    );
+  }
+
+  /* ========== FINANCE & OPERATIONS – BREADCRUMB ========== */
+  if (
+    pathname.includes(
+      "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-operations",
+    )
+  ) {
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.korcomptenz.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Microsoft Dynamics 365",
+          item: "https://www.korcomptenz.com/microsoft-dynamics-365",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Microsoft Dynamics 365 Finance and Operations",
+          item: "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-operations",
+        },
+      ],
+    };
+
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
         }}
       />
     );

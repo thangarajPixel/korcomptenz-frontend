@@ -9,6 +9,7 @@ import {
 } from "../ui/accordion";
 import { DangerousHtml } from "../ui/dangerous-html";
 import { cn } from "@/lib/utils";
+import Script from "next/script";
 
 const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
   const [activeId, setActiveId] = useState<number | null>(null);
@@ -16,9 +17,28 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
   const handleToggle = (id: number) => {
     setActiveId(activeId === id ? null : id);
   };
-
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqData?.faq?.map((item) => ({
+      "@type": "Question",
+      name: item?.title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item?.description ? item.description.replace(/<[^>]*>/g, "") : "",
+      },
+    })),
+  };
   return (
     <section className="container-md" data-debug={"page-componets.faq-title"}>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
       <h2 className="text-6xl md:text-9xl font-semibold text-foreground mb-4">
         {faqData?.title}
       </h2>

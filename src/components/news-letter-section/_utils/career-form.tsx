@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { Input } from "../ui/input";
+import { Input } from "../../ui/input";
 import { Controller, useForm, type SubmitHandler } from "react-hook-form";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { Upload } from "lucide-react";
 import { useCareerNewLetterHook, useDepartmentListHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
@@ -11,7 +11,7 @@ import {
   CareerNewLetterSchema,
   type CareerNewLetterFormData,
 } from "@/utils/validation.schema";
-import { ComboboxField } from "../ui/combobox";
+import { ComboboxField } from "../../ui/combobox";
 import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
