@@ -72,7 +72,7 @@ export function ComboboxField<T extends FieldValues>({
   }, [options, searchQuery]);
 
   return (
-    <div className="size-full">
+    <div className="size-full ">
       <Popover modal open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <button
@@ -80,12 +80,12 @@ export function ComboboxField<T extends FieldValues>({
             role="combobox"
             aria-expanded={open}
             className={cn(
-              "flex items-center justify-between w-full bg-white h-10 min-h-10 px-3 text-base text-left",
+              "flex items-center justify-between w-full bg-white h-10 min-h-10 px-3 text-base text-left ",
               className,
             )}
             onClick={() => setOpen(!open)}
           >
-            <span className="flex-1 truncate text-left text-black">
+            <span className="flex-1 truncate text-left text-black ">
               {selectedOption ? selectedOption.label : placeholder}
             </span>
 

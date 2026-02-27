@@ -57,7 +57,7 @@ export default function ContactUsForm({
           <div className="hidden lg:block w-0.75 bg-white self-stretch mx-8 flex-shrink-0" />
 
           {/* RIGHT SIDE – FORM CARD (70%) */}
-          <div className="flex justify-end items-end lg:w-[60%] ml-auto">
+          <div className="flex justify-end items-end lg:w-[60%] ml-auto mt-6 md:mt-0">
             <div
               className="
                 w-full bg-transparent md:bg-white rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.25)] md:p-10"

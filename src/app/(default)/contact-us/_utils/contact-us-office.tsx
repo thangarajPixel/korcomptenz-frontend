@@ -1,4 +1,5 @@
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import Link from "next/link";
 import React from "react";
 
 const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
@@ -82,8 +83,9 @@ const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
                     <p className="text-lg md:text-[21px] text-foreground mb-1">
                       Please send your enquiries to:
                     </p>
-
-                    {officesData?.email}
+                    <Link href={officesData?.email || "#"}>
+                      {officesData?.email}
+                    </Link>
                   </div>
                 </div>
               </div>

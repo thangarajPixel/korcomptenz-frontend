@@ -7,30 +7,30 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/utils";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
+const RECAPTCHA_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
+
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <GoogleReCaptchaProvider
-      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY ?? ""}
-      scriptProps={{
-        async: true,
-        defer: true,
-        appendTo: "head",
-      }}
-    >
-      <NuqsAdapter>
-        <QueryClientProvider client={queryClient}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            // enableSystem
-            disableTransitionOnChange
+    <NuqsAdapter>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          disableTransitionOnChange
+        >
+          <GoogleReCaptchaProvider
+            reCaptchaKey={RECAPTCHA_KEY!}
+            scriptProps={{
+              async: true,
+              defer: true,
+              appendTo: "head",
+            }}
           >
-            {" "}
             {children}
             <Toaster richColors />
-          </ThemeProvider>
-        </QueryClientProvider>
-      </NuqsAdapter>
-    </GoogleReCaptchaProvider>
+          </GoogleReCaptchaProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </NuqsAdapter>
   );
 }

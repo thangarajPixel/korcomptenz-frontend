@@ -84,7 +84,7 @@ const SubscriptionForm = () => {
             placeholder="Enter Your Email"
             required
             name="email"
-            className="bg-transparent border-b border-b-white border-b-2"
+            className="bg-transparent border-b border-b-white border-b-2 text-white"
           />
         </div>
 

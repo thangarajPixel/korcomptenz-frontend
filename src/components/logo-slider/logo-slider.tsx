@@ -80,16 +80,16 @@ const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* <div className="flex md:hidden w-full justify-between items-center gap-6 mt-8">
-        <CarouselPrevious
-          className="relative -left-3 -top-30 hover:bg-primary hover:text-white size-10"
-          variant={"default"}
-        />
-        <CarouselNext
-          className="relative -right-3 -top-30 hover:bg-primary hover:text-white size-10"
-          variant={"default"}
-        />
-      </div> */}
+        <div className="flex lg:hidden w-full justify-center items-center gap-4 ">
+          <CarouselPrevious
+            className="relative left-0 top-10 hover:bg-primary hover:text-white size-12"
+            variant={"default"}
+          />
+          <CarouselNext
+            className="relative left-0  top-10 hover:bg-primary hover:text-white size-12"
+            variant={"default"}
+          />
+        </div>
       </Carousel>
     </div>
   );

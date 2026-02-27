@@ -93,14 +93,14 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
             name={"firstName"}
             required
             placeholder={form?.firstNameLabel}
-            className=" p-2 rounded-md text-black bg-[#F2F2F2] placeholder:text-black border-none"
+            className=" p-3 rounded-md text-black bg-[#F2F2F2] placeholder:text-black border-none"
           />
           <Input
             control={control}
             name="lastName"
             required
             placeholder={form?.lastNameLabel}
-            className=" p-2 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none"
+            className=" p-3 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none"
           />
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -109,14 +109,14 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
             name="email"
             required
             placeholder={form?.emailLabel}
-            className=" p-2 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none"
+            className=" p-3 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none"
           />
           <Input
             control={control}
             name="company"
             required
             placeholder={form?.companyLabel}
-            className=" p-2 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none "
+            className=" p-3 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none "
           />
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -125,7 +125,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
             name="phone"
             required
             placeholder={form?.phoneLabel}
-            className=" p-2 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none "
+            className=" p-3 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none "
           />
           <ComboboxField
             control={control}
@@ -138,7 +138,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
               })) || []
             }
             placeholder={form?.serviceLabel}
-            className="border-2 rounded-md  bg-[#F2F2F2] placeholder:text-black border-none border-none"
+            className="border-2 rounded-md  bg-[#F2F2F2] placeholder:text-black border-none border-none h-[48px]"
           />
         </div>
         <div className="grid grid-cols-1  gap-4">
@@ -153,7 +153,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
               })) || []
             }
             placeholder={form?.technologyLabel}
-            className=" rounded-md bg-[#F2F2F2]"
+            className=" rounded-md bg-[#F2F2F2] py-3 h-12"
           />
         </div>
         <div className="grid grid-cols-1  gap-4">
@@ -162,7 +162,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
             required
             name="message"
             placeholder={form?.messageLabel}
-            className=" p-2 rounded-md text-black bg-[#F2F2F2] placeholder:text-black border-none "
+            className=" p-3 rounded-md text-black bg-[#F2F2F2] placeholder:text-black border-none pt-7 "
           />
         </div>
         <div className="space-y-2">
@@ -188,9 +188,10 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
           <Button
             size="xl"
             variant="outline"
-            className="hover:bg-primary border-primary text-primary hover:text-white"
+            className="hover:bg-white bg-primary border-primary text-white hover:text-primary"
             arrow
             isLoading={isSubmitting}
+            disabled={!isReady}
             type="submit"
           >
             Submit
