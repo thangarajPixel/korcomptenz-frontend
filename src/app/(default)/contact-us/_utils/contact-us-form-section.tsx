@@ -39,7 +39,7 @@ export default function ContactUsForm({
         {/* MAIN GRID — stats | divider | form */}
         <div className="flex flex-col lg:flex-row items-stretch gap-0">
           {/* LEFT SIDE – STATS (30%) */}
-          <div className="flex flex-col justify-center gap-6 lg:w-[30%] pr-0 lg:pr-8">
+          <div className="flex flex-col justify-start gap-8 lg:w-[30%] pr-0 lg:pr-8">
             {data?.listLeft?.map((partner, index) => (
               <div key={index} className="text-white">
                 <p className="text-[50px] md:text-[80px] leading-10 md:leading-15 font-bold mb-1">
