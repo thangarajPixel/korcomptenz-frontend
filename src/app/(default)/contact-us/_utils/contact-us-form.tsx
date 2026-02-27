@@ -82,7 +82,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
     <form
       id="contact-us-form"
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="space-y-8 bg-transparent md:bg-white rounded-2xl md:p-5"
+      className="space-y-8 bg-white rounded-2xl p-4 md:p-5"
       noValidate
     >
       <div className="grid gap-y-8 mt-5">
@@ -177,7 +177,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
                 />
               </div>
 
-              <p className="text-md md:text-lg text-white md:text-black">
+              <p className="text-md md:text-lg text-black">
                 {item?.description}
               </p>
             </div>

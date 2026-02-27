@@ -8,7 +8,7 @@ type SlidingSectionType = {
   buttonText: string;
   buttonAction: string;
   mobile_image: ImageType;
-  description?: string;
+  description: string;
   logo?: ImageType;
   link: string;
   design: string;

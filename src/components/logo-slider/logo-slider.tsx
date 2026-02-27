@@ -2,7 +2,13 @@
 
 import React from "react";
 import KorcomptenzImage from "../korcomptenz-image";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
 
 interface AchievementSectionProps {
   data: AchievementsType;
@@ -14,44 +20,78 @@ const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
   const images = data.logo.map((item) => item.image);
 
   return (
-    <Carousel
-      className="container-md"
-      autoPlay
-      autoPlayDelay={3000}
-      data-debug="component.logo-slider"
-    >
-      {data.title && (
-        <h2 className="text-center text-foreground text-5xl font-semibold mb-10">
-          {data.title}
-        </h2>
-      )}
+    <div className="container-md">
+      <Carousel
+        autoPlay
+        autoPlayDelay={3000}
+        data-debug="component.logo-slider"
+      >
+        {data.title && (
+          <h2 className="text-center text-foreground text-5xl font-semibold mb-10">
+            {data.title}
+          </h2>
+        )}
+        <CarouselPrevious
+          className="absolute -left-6 top-1/2 -translate-y-1/2 z-10 size-10 bg-transparent  text-white"
+          variant="default"
+        />
+        <CarouselNext
+          className="absolute -right-6 top-1/2 -translate-y-1/2 z-10 size-10  bg-transparent text-white"
+          variant="default"
+        />
 
-      <CarouselContent className="items-center ml-3">
-        {images.map((img, index) => (
-          <CarouselItem
-            key={index}
-            className="
-              basis-auto
+        <CarouselContent className="items-center ml-3">
+          {images.map((img, index) => (
+            <CarouselItem
+              key={index}
+              className="
+              basic-full md:basis-auto
+              
               flex items-center justify-center
-              px-2
+              px-2 -ml-1 md:ml-0
             "
-          >
-            <div className="flex items-center justify-center">
-              <KorcomptenzImage
-                src={img}
-                width={img?.width && img?.width < 260 ? img?.width : 260}
-                height={120}
-                className="
-    w-auto
+            >
+              <>
+                <div className="hidden md:flex items-center justify-center">
+                  <KorcomptenzImage
+                    src={img}
+                    width={img?.width && img?.width < 320 ? img?.width : 320}
+                    height={120}
+                    className="
+  
    
     object-contain
   "
-              />
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-    </Carousel>
+                  />
+                </div>
+                <div className="flex  md:hidden items-center justify-center -ml-3">
+                  <KorcomptenzImage
+                    src={img}
+                    width={img?.width && img?.width < 250 ? img?.width : 250}
+                    height={120}
+                    className="
+  
+   
+    object-contain
+  "
+                  />
+                </div>
+              </>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {/* <div className="flex md:hidden w-full justify-between items-center gap-6 mt-8">
+        <CarouselPrevious
+          className="relative -left-3 -top-30 hover:bg-primary hover:text-white size-10"
+          variant={"default"}
+        />
+        <CarouselNext
+          className="relative -right-3 -top-30 hover:bg-primary hover:text-white size-10"
+          variant={"default"}
+        />
+      </div> */}
+      </Carousel>
+    </div>
   );
 };
 
