@@ -10,6 +10,11 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 const RECAPTCHA_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
 
 export default function Providers({ children }: { children: React.ReactNode }) {
+  if (!RECAPTCHA_KEY) {
+    // eslint-disable-next-line no-console
+    console.warn("⚠️ NEXT_PUBLIC_RECAPTCHA_KEY is missing");
+  }
+
   return (
     <NuqsAdapter>
       <QueryClientProvider client={queryClient}>
