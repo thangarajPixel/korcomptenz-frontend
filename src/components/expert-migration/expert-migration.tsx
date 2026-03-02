@@ -3,12 +3,18 @@ import React from "react";
 import Link from "next/link";
 import KorcomptenzImage from "../korcomptenz-image";
 import { DangerousHtml } from "../ui/dangerous-html";
+import { cn } from "@/lib/utils";
 
 const ExpertMigration = ({ data }: { data: ExpertMigrationType }) => {
   return (
-    <section className="w-full bg-light-gray py-12 md:py-16">
+    <section
+      className={cn(
+        "w-full  ",
+        data?.bgImage ? "" : "py-12 md:py-16 bg-light-gray",
+      )}
+    >
       <div
-        className="relative rounded-tr-[100px] overflow-visible container-md"
+        className="relative rounded-tr-[100px] overflow-hidden  container-md"
         style={{
           minHeight: "280px",
           ...(data.bgImage

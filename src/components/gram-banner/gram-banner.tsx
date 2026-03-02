@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { DangerousHtml } from "../ui/dangerous-html";
 import { cn } from "@/lib/utils";
 import ButtonLink from "../ui/button-link";
+import ImageCarousel from "./_utils/ImageCarousel";
 
 const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
   return (
@@ -71,36 +72,46 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
             )}
           </div>
 
-          {gramData?.image && (
-            <div className="p-5 hidden lg:flex items-center justify-center w-full h-full">
-              <KorcomptenzImage
-                src={gramData?.image}
-                width={gramData?.image?.width || 500}
-                height={gramData?.image?.height || 500}
-                className="w-full h-full object-contain"
+          {gramData?.image &&
+            (gramData?.isImageSlider ? (
+              <ImageCarousel
+                images={gramData?.imageList || []}
+                theme={gramData?.theme}
               />
-            </div>
-          )}
+            ) : (
+              <>
+                {/* Desktop static image */}
+                <div className="p-5 hidden lg:flex items-center justify-center w-full h-full">
+                  <KorcomptenzImage
+                    src={gramData.image}
+                    width={gramData.image?.width || 500}
+                    height={gramData.image?.height || 500}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-          <div className="p-5 lg:hidden">
-            {gramData?.mobileImage && (
-              <KorcomptenzImage
-                src={gramData?.mobileImage}
-                width={500}
-                height={500}
-                className="w-full h-auto object-cover"
-              />
-            )}
+                {/* Mobile static image */}
+                <div className="p-5 lg:hidden">
+                  {gramData?.mobileImage && (
+                    <KorcomptenzImage
+                      src={gramData.mobileImage}
+                      width={500}
+                      height={500}
+                      className="w-full h-auto object-cover"
+                    />
+                  )}
 
-            {gramData?.imageCaption && (
-              <div className="flex flex-col items-center gap-2 lg:mt-5">
-                <p className="text-md text-center">{gramData?.imageCaption}</p>
-                <Button className="items-center">
-                  {gramData?.buttonText || "Watch Now"}
-                </Button>
-              </div>
-            )}
-          </div>
+                  {gramData?.imageCaption && (
+                    <div className="flex flex-col items-center gap-2 mt-4">
+                      <p className="text-md text-center">
+                        {gramData.imageCaption}
+                      </p>
+                      <Button>{gramData.buttonText || "Watch Now"}</Button>
+                    </div>
+                  )}
+                </div>
+              </>
+            ))}
 
           {gramData?.isFooter && (
             <div className="mt-10 rounded-2xl bg-custom-black py-10 -mb-10">

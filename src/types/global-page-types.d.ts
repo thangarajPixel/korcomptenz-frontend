@@ -382,6 +382,7 @@ type DemonstrationSectionType = {
 };
 type BuildConnectSectionType = {
   title: string;
+  descriptiontitle: string;
   isBgGray: boolean;
   thumbnail: ImageType;
   button: {
@@ -541,6 +542,12 @@ type GramBannerType = {
   footerDescription: string;
   footerButtonLink: string;
   FooterbuttonText: string;
+  isImageSlider: boolean;
+  imageList: {
+    image: ImageType;
+    mobileImage: ImageType;
+    id: string;
+  }[];
 };
 type CaseStudyFormType = {
   __component: "form-fields.case-study-form";
@@ -1148,6 +1155,28 @@ type FabconBannerType = {
   location: string;
 };
 
+type SapImplementationType = {
+  title: string;
+  list: {
+    title: string;
+    description: string;
+    sublist: { title: string; description: string }[];
+  }[];
+};
+type SliderServiceSectionType = {
+  title: string;
+  tablist: {
+    title: string;
+
+    sublist: {
+      title: string;
+      description: string;
+      image: ImageType;
+      id: string;
+    }[];
+  }[];
+};
+
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
 type ComponentPropsMap = {
@@ -1535,6 +1564,14 @@ type ComponentPropsMap = {
   LogoSlider: AchievementSectionProps & {
     id: string;
     __component: "contact-us.logo-slider";
+  };
+  SapImplementation: SapImplementationType & {
+    id: string;
+    __component: "page-componets.sap-implementation";
+  };
+  SliderServiceSection: SliderServiceSectionType & {
+    id: string;
+    __component: "page-componets.slider-service-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

@@ -92,6 +92,8 @@ import FabconDecisionFabric from "../fabcon-decision-fabric";
 import FabconBanner from "../fabcon-banner/fabcon-banner";
 import FabconMidMarket from "../fabcon-midmarket";
 import LogoSlider from "../logo-slider";
+import SapImplementation from "../sap-implementation";
+import SliderServiceSection from "../slider-services-section/slider-services-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -99,7 +101,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
- 
+
   return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
@@ -1011,6 +1013,25 @@ const GlobalPage = (props: Props) => {
             key={`logo-slider-${item?.__component}-${item?.id}`}
           >
             <LogoSlider data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.sap-implementation":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`sap-implementation-${item?.__component}-${item?.id}`}
+          >
+            <SapImplementation data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.slider-service-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`slider-service-section-${item?.__component}-${item?.id}`}
+          >
+            <SliderServiceSection content={item} />
           </ScrollFadeIn>
         );
       default:
