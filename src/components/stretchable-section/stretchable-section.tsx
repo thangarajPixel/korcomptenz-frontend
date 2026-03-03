@@ -2,6 +2,7 @@
 import StretchableSectionCard from "./_utils/stretchable-card";
 import { useMobile } from "@/utils/custom-hooks";
 import CardSwiper from "../ui/card-swiper";
+import { DangerousHtml } from "../ui/dangerous-html";
 
 const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
   const isMobile = useMobile();
@@ -45,6 +46,9 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
           </div>
         )}
       </div>
+{item?.description &&(
+<DangerousHtml html={item?.description} className="text-foreground test-md md:test-lg leading-7.5"/>)}
+     
     </section>
   );
 };

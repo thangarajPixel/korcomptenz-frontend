@@ -45,6 +45,11 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
             </div>
           ))}
         </div>
+        {data?.bottomDescription && (
+          
+<DangerousHtml html={data?.bottomDescription} className="text-foreground test-md md:test-lg leading-7.5  mt-3" />
+        )} 
+         
       </div>
 
       {/* ---------- CASE STUDIES / READ MORE ---------- */}

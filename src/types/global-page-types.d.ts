@@ -512,6 +512,7 @@ type CompanyType = {
 
 type StretchableSectionType = {
   title: string;
+  description:string
   image: ImageType;
   list: {
     id: number;
@@ -728,6 +729,7 @@ type DigitialInsightType = {
   isTarget: boolean;
   list: {
     image1: ImageType;
+    title: string;
     image2: ImageType;
     isTarget: boolean;
     buttonText: string;
@@ -982,6 +984,7 @@ type VideoBannerItemType = {
 type DigitialAnalyticsType = {
   title: string;
   heading1: string;
+  bottomDescription: string;
   heading2: string;
   description: string;
   list1: {
@@ -1176,6 +1179,30 @@ type SliderServiceSectionType = {
     }[];
   }[];
 };
+
+type MicrosoftGoldCertifiedType = {
+    title: string;
+    description: string;
+    card1: {
+        buttonText: string;
+        buttonLink: string;
+        image: ImageType;
+         title: string;
+         isTarget:boolean
+    description: string;
+    };
+    card2: {
+        image: ImageType;
+         isTarget:boolean
+        title1: string;
+        title2: string;
+        title3: string;
+        description: string;
+        buttonText: string;
+        buttonIcon: ImageType;
+         buttonLink: string;
+    };
+}
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
@@ -1572,6 +1599,10 @@ type ComponentPropsMap = {
   SliderServiceSection: SliderServiceSectionType & {
     id: string;
     __component: "page-componets.slider-service-section";
+  };
+  MicrosoftGoldCertified: MicrosoftGoldCertifiedType & {
+    id: string;
+    __component: "page-componets.microsoft-gold-certified";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

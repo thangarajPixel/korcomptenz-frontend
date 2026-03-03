@@ -94,6 +94,7 @@ import FabconMidMarket from "../fabcon-midmarket";
 import LogoSlider from "../logo-slider";
 import SapImplementation from "../sap-implementation";
 import SliderServiceSection from "../slider-services-section/slider-services-section";
+import MicrosoftGoldCertified from "../microsoft-certified";
 
 type Props = {
   data: ComponentPropsType[];
@@ -101,7 +102,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-
+  
   return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
@@ -1032,8 +1033,19 @@ const GlobalPage = (props: Props) => {
             key={`slider-service-section-${item?.__component}-${item?.id}`}
           >
             <SliderServiceSection content={item} />
+            
           </ScrollFadeIn>
         );
+
+        case "page-componets.microsoft-gold-certified":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`microsoft-gold-certified-${item?.__component}-${item?.id}`}
+          >
+            <MicrosoftGoldCertified data={item}/>
+          </ScrollFadeIn>
+        )
       default:
         return;
     }

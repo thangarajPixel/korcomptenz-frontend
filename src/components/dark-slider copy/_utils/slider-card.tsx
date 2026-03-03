@@ -13,6 +13,7 @@ interface Props {
     buttonLink: string;
     description: string;
     imageText: string;
+    title: string;
     id: string;
   };
 }
@@ -49,6 +50,8 @@ const DigitialSliderCard: React.FC<Props> = ({ slide }) => {
       {/* Content */}
       <div className=" relative  flex flex-col gap-4 py-5">
         {/* Logo */}
+
+        <h3 className="text-lg md:text-3xl font-semibold text-foreground leading-7">{slide?.title}</h3>
 
         {/* Description */}
         <DangerousHtml
