@@ -469,6 +469,10 @@ type ScheduleCallType = {
 type WhyKorcomptenzType = {
   title: string;
   description: string;
+  isBackground: boolean;
+  topDescription: string;
+  topTitle: string;
+  backgroundImage: ImageType;
   isPerRowFive: boolean;
   subtitle: string;
   isBgGray: boolean;
