@@ -110,6 +110,12 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
+      source: "/brochure/CKVal-Cloud.pdf",
+      destination:
+        "https://content.korcomptenz.com/story/ckval-one-unified-platform-for-intelligent-it-operations/page/1",
+      permanent: true,
+    },
+    {
       source: "/rapid-erp-implementation",
       destination: "https://campaigns.korcomptenz.com/rapid-erp-implementation",
       permanent: true,
