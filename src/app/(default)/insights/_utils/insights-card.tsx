@@ -81,7 +81,7 @@ export function InsightCard({
       </p>
       <ButtonLink
         link={getLink() || "#"}
-        isTargetNew={!!data?.attachment?.url}
+        isTargetNew={!!data?.attachment?.url || data?.isTarget}
         buttonProps={{
           arrow: true,
           variant: "ghost",
