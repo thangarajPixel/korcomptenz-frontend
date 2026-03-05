@@ -20,7 +20,7 @@ const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
   const images = data.logo.map((item) => item.image);
 
   return (
-    <div className="container-md">
+    <div className="container-md px-16">
       <Carousel
         autoPlay
         autoPlayDelay={3000}
@@ -32,15 +32,17 @@ const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
           </h2>
         )}
         <CarouselPrevious
-          className="absolute -left-6 top-1/2 -translate-y-1/2 z-10 size-10 bg-transparent  text-white"
+          fontSize="size-8"
+          className="absolute -left-10 top-1/2 -translate-y-1/2 z-10 size-10 bg-transparent border-none  text-black hover:text-black"
           variant="default"
         />
         <CarouselNext
-          className="absolute -right-6 top-1/2 -translate-y-1/2 z-10 size-10  bg-transparent text-white"
+          fontSize="size-8"
+          className="absolute -right-10 top-1/2 -translate-y-1/2 z-10 size-10  bg-transparent text-black border-none hover:text-black"
           variant="default"
         />
 
-        <CarouselContent className="items-center ml-3">
+        <CarouselContent className="items-center ml-3 ">
           {images.map((img, index) => (
             <CarouselItem
               key={index}
