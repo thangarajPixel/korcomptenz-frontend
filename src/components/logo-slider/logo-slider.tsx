@@ -33,12 +33,12 @@ const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
         )}
         <CarouselPrevious
           fontSize="size-8"
-          className="absolute -left-10 top-1/2 -translate-y-1/2 z-10 size-10 bg-transparent border-none  text-black hover:text-black"
+          className="hidden lg:block absolute -left-10 top-1/2 -translate-y-1/2 z-10 size-10 bg-transparent border-none  text-black hover:text-black"
           variant="default"
         />
         <CarouselNext
           fontSize="size-8"
-          className="absolute -right-10 top-1/2 -translate-y-1/2 z-10 size-10  bg-transparent text-black border-none hover:text-black"
+          className="hidden lg:block absolute -right-10 top-1/2 -translate-y-1/2 z-10 size-10  bg-transparent text-black border-none hover:text-black"
           variant="default"
         />
 
