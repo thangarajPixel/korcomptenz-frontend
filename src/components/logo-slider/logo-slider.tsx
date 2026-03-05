@@ -15,9 +15,9 @@ interface AchievementSectionProps {
 }
 
 const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
-  if (!data || !data.logo?.length) return null;
+  if (!data || !data?.logo?.length) return null;
 
-  const images = data.logo.map((item) => item.image);
+  const images = data?.logo?.map((item) => item?.image);
 
   return (
     <div className="container-md px-16">
@@ -28,7 +28,7 @@ const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
       >
         {data.title && (
           <h2 className="text-center text-foreground text-5xl font-semibold mb-10">
-            {data.title}
+            {data?.title}
           </h2>
         )}
         <CarouselPrevious
@@ -43,7 +43,7 @@ const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
         />
 
         <CarouselContent className="items-center ml-3 ">
-          {images.map((img, index) => (
+          {images?.map((img, index) => (
             <CarouselItem
               key={index}
               className="

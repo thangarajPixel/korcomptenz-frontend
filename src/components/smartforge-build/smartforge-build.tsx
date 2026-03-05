@@ -58,7 +58,7 @@ export default function SmartForgeBuild({
                 arrow
                 className="text-primary hover:text-primary justify-start text-md hover:bg-transparent p-0"
               >
-                {card.buttontext}
+                {card?.buttontext}
               </Button>
             )}
           </div>
