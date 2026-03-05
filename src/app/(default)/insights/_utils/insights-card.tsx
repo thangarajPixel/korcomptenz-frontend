@@ -26,6 +26,9 @@ export function InsightCard({
         return `/webinar/${data?.slug}`;
       case "pre-webinar":
         return `/webinar/${data?.slug}`;
+      case "thirdparty-link":
+        return data?.thirdpartyLink;
+
       default:
         return null;
     }
@@ -78,7 +81,7 @@ export function InsightCard({
       </p>
       <ButtonLink
         link={getLink() || "#"}
-        isTargetNew={!!data?.attachment?.url}
+        isTargetNew={!!data?.attachment?.url || data?.isTarget}
         buttonProps={{
           arrow: true,
           variant: "ghost",

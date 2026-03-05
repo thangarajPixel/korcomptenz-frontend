@@ -12,7 +12,13 @@ import {
 } from "@/components/ui/dialog";
 import Link from "next/link";
 
-export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
+export function DialogDemo({
+  data,
+  isAdvisoryBoard = false,
+}: {
+  data: PeopleShowcaseCardType;
+  isAdvisoryBoard?: boolean;
+}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -20,16 +26,26 @@ export function DialogDemo({ data }: { data: PeopleShowcaseCardType }) {
   return (
     <>
       {/* Trigger Button */}
-      {data?.buttonText && (
-        <Button
-          variant="ghost"
-          arrow
-          onClick={handleOpen}
-          className="mb-8 ml-8 text-primary hover:text-primary justify-start hover:bg-transparent p-[-2px]"
-        >
-          {data?.buttonText}
-        </Button>
-      )}
+      {data?.buttonText &&
+        (!isAdvisoryBoard ? (
+          <Button
+            variant="ghost"
+            arrow
+            onClick={handleOpen}
+            className="mb-8 ml-8 text-primary hover:text-primary justify-start hover:bg-transparent p-[-2px]"
+          >
+            {data?.buttonText}
+          </Button>
+        ) : (
+          <Button
+            size="xl"
+            arrow
+            onClick={handleOpen}
+            className="md:mb-0 mb-4 px-5 "
+          >
+            {data?.buttonText}
+          </Button>
+        ))}
 
       {/* Controlled Dialog */}
       <Dialog open={open} onOpenChange={setOpen}>

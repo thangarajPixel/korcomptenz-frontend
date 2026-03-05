@@ -516,7 +516,7 @@ type CompanyType = {
 
 type StretchableSectionType = {
   title: string;
-  description:string
+  description: string;
   image: ImageType;
   list: {
     id: number;
@@ -629,6 +629,7 @@ type PeopleShowcaseSectionType = {
   buttontext: string;
   description: string;
   id: string;
+  isAdvisoryBoard: boolean;
   title: string;
   perRow: number;
   list: PeopleShowcaseCardType[];
@@ -1185,28 +1186,28 @@ type SliderServiceSectionType = {
 };
 
 type MicrosoftGoldCertifiedType = {
+  title: string;
+  description: string;
+  card1: {
+    buttonText: string;
+    buttonLink: string;
+    image: ImageType;
     title: string;
+    isTarget: boolean;
     description: string;
-    card1: {
-        buttonText: string;
-        buttonLink: string;
-        image: ImageType;
-         title: string;
-         isTarget:boolean
+  };
+  card2: {
+    image: ImageType;
+    isTarget: boolean;
+    title1: string;
+    title2: string;
+    title3: string;
     description: string;
-    };
-    card2: {
-        image: ImageType;
-         isTarget:boolean
-        title1: string;
-        title2: string;
-        title3: string;
-        description: string;
-        buttonText: string;
-        buttonIcon: ImageType;
-         buttonLink: string;
-    };
-}
+    buttonText: string;
+    buttonIcon: ImageType;
+    buttonLink: string;
+  };
+};
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 

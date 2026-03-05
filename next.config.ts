@@ -1380,11 +1380,7 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/edge-computing-vs-cloud-computing",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
+
     {
       source: "/blog/edi-in-logistics",
       destination: "https://www.korcomptenz.com/insights/blog",
@@ -1835,7 +1831,61 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
 
-    //26.02.2026
+    //05.03.2026
+    {
+      source: "/microsoft-dynamics-365-business-central-product-configurator",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365-business-central-quality-control",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-business-central-quality-control",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365-customer-engagement",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-customer-engagement",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365-customer-insights",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-customer-insights",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365-managed-services",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-managed-services",
+      permanent: true,
+    },
+    {
+      source:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-erp-advisory-and-consulting",
+      destination:
+        "https://www.korcomptenz.com/erp/erp-advisory-and-consulting-services",
+      permanent: true,
+    },
+    {
+      source: "/cloud/cloud-managed-services",
+      destination:
+        "https://www.korcomptenz.com/cloud/ai-powered-infrastructure-managed-services",
+      permanent: true,
+    },
+    {
+      source: "/cloud/cloud-migration-services",
+      destination:
+        "https://www.korcomptenz.com/cloud/ai-powered-cloud-migration-services",
+      permanent: true,
+    },
+    {
+      source: "/cloud/enterprise-analytics-cloud-services/",
+      destination: "https://www.korcomptenz.com/modern-cloud-data-services",
+      permanent: true,
+    },
   ],
 };
 

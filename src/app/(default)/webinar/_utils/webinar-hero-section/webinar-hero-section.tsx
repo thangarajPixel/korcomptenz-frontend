@@ -15,11 +15,11 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
 
           <div className="relative z-10 container-lg">
             <div className="w-7/12">
-              <h2 className="text-3xl md:text-9xl   mb-4 leading-tight font-semibold">
+              <h1 className="text-3xl md:text-9xl   mb-4 leading-tight font-semibold">
                 {data?.title}
-              </h2>
+              </h1>
 
-              <p className="text-base lg:text-lg mb-6 leading-relaxed font-semibold whitespace-pre-wrap">
+              <p className="text-3xl md:text-5xl mb-6 leading-relaxed font-normal whitespace-pre-wrap">
                 {data?.heroSection?.description}
               </p>
             </div>
@@ -41,7 +41,7 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
           {data?.title}
         </h1>
 
-        <p className="text-lg mb-6 leading-6 font-semibold">
+        <p className="text-3xl md:text-5xl mb-6 leading-6 font-normal">
           {data?.heroSection?.description}
         </p>
       </div>

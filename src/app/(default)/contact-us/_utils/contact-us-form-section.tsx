@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
 export default function ContactUsForm({
   data,
@@ -77,8 +78,6 @@ export default function ContactUsForm({
               autoPlayDelay={3000}
               opts={{ align: "start" }}
             >
-              {/* PREVIOUS */}
-
               <CarouselContent className="-ml-2">
                 {data.images.slice(0, 6).map((partner) => (
                   <CarouselItem
@@ -111,12 +110,24 @@ export default function ContactUsForm({
         </div>
 
         {/* DESKTOP & TABLET */}
-        <div className="mt-14 hidden md:block">
+        <div className="mt-14 hidden md:block px-5">
           <Carousel
             className="w-full [&>*]:rounded-none "
             autoPlay
             autoPlayDelay={3000}
           >
+            <CarouselPrevious
+              fontSize="size-12"
+              className={cn(
+                "hidden md:flex absolute -left-10 top-1/2 -translate-y-1/2 z-10 bg-transparent hover:bg-transparent border-none  text-white ",
+              )}
+            />
+            <CarouselNext
+              fontSize="size-12"
+              className={cn(
+                "hidden md:flex absolute -right-10 top-1/2 -translate-y-1/2 z-10 bg-transparent hover:bg-transparent border-none text-white ",
+              )}
+            />
             <CarouselContent className="items-center">
               {data.images.slice(0, 6).map((partner) => (
                 <CarouselItem
