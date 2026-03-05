@@ -26,6 +26,9 @@ export function InsightCard({
         return `/webinar/${data?.slug}`;
       case "pre-webinar":
         return `/webinar/${data?.slug}`;
+      case "thirdparty-link":
+        return data?.thirdpartyLink;
+
       default:
         return null;
     }

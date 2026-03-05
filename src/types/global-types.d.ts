@@ -271,6 +271,8 @@ type CaseStudyData = {
   list: NotFoundType[];
   isLinkOnly: boolean;
   isAttachment: boolean;
+  thirdpartyLink: string;
+  isTarget: boolean;
   title: string;
   seo: SEO;
   study: string;
@@ -474,6 +476,7 @@ type PeopleShowcaseCardType = {
   image: ImageType;
   title: string;
   id: string;
+  isAdvisoryBoard: boolean;
   miniDescription: string;
   position: string;
   socialPlatform: {
