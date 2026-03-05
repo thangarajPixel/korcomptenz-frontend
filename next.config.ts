@@ -1882,7 +1882,7 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/cloud/enterprise-analytics-cloud-services/",
+      source: "/cloud/enterprise-analytics-cloud-services",
       destination: "https://www.korcomptenz.com/modern-cloud-data-services",
       permanent: true,
     },
