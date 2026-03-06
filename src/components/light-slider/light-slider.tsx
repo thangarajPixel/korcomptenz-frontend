@@ -10,7 +10,7 @@ import Link from "next/link";
 
 const LightSlider = ({ data }: { data: LightSliderType }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: false,
+    loop: true,
     align: "start",
   });
 

@@ -110,22 +110,22 @@ export default function ContactUsForm({
         </div>
 
         {/* DESKTOP & TABLET */}
-        <div className="mt-14 hidden md:block px-5">
+        <div className="mt-14 hidden md:block px-12">
           <Carousel
             className="w-full [&>*]:rounded-none "
             autoPlay
             autoPlayDelay={3000}
           >
             <CarouselPrevious
-              fontSize="size-12"
+              fontSize="size-8"
               className={cn(
-                "hidden md:flex absolute -left-10 top-1/2 -translate-y-1/2 z-10 bg-transparent hover:bg-transparent border-none  text-white ",
+                "hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10 ",
               )}
             />
             <CarouselNext
-              fontSize="size-12"
+              fontSize="size-8"
               className={cn(
-                "hidden md:flex absolute -right-10 top-1/2 -translate-y-1/2 z-10 bg-transparent hover:bg-transparent border-none text-white ",
+                "hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10 ",
               )}
             />
             <CarouselContent className="items-center">

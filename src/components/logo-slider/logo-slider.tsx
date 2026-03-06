@@ -25,6 +25,7 @@ const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
         autoPlay
         autoPlayDelay={3000}
         data-debug="component.logo-slider"
+        className="[&>*]:rounded-none"
       >
         {data.title && (
           <h2 className="text-center text-foreground text-5xl font-semibold mb-10">
@@ -33,16 +34,16 @@ const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
         )}
         <CarouselPrevious
           fontSize="size-8"
-          className="hidden lg:block absolute -left-10 top-1/2 -translate-y-1/2 z-10 size-10 bg-transparent border-none  text-black hover:text-black"
+          className="hidden lg:block absolute -left-10 top-1/2 -translate-y-1/2 z-10 size-10 bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10"
           variant="default"
         />
         <CarouselNext
           fontSize="size-8"
-          className="hidden lg:block absolute -right-10 top-1/2 -translate-y-1/2 z-10 size-10  bg-transparent text-black border-none hover:text-black"
+          className="hidden lg:block absolute -right-10 top-1/2 -translate-y-1/2 z-10 size-10  bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10"
           variant="default"
         />
 
-        <CarouselContent className="items-center ml-3 ">
+        <CarouselContent className="items-center ml-3  ">
           {images?.map((img, index) => (
             <CarouselItem
               key={index}
