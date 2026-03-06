@@ -38,7 +38,12 @@ const DemoBannerCard = ({
         {/* ✅ Centered + Responsive container */}
         <div className="relative z-10 py-12">
           <div className="container-md  flex flex-col gap-2 px-6 md:px-10 ">
-            <h1 className="text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 mt-5">
+            <h1
+              className={cn(
+                "text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 ",
+                !data?.isListPage ? "mt-5" : "mt-25",
+              )}
+            >
               {data?.title}
             </h1>
 
