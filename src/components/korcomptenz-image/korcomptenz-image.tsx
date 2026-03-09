@@ -24,6 +24,7 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
   const alt = (props?.src as ImageType)?.alternativeText
     ? (props?.src as ImageType)?.alternativeText
     : props?.alt || "";
+  const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
   return (
     <Image
       placeholder={imagePlaceholder}
@@ -31,6 +32,7 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
       src={(src || "/assets/placeholder.png") as string}
       alt={alt || "/assets/placeholder.png"}
       loading="lazy"
+      unoptimized={isGif}
       priority={false}
       className={cn(
         props?.nonAnimate &&
