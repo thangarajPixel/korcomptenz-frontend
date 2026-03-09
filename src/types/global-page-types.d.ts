@@ -1209,6 +1209,29 @@ type MicrosoftGoldCertifiedType = {
   };
 };
 
+type SapQuestionnaireType = {
+  sap_questionnaire_form_label: {
+    formLabel: {
+      designationLabel: string;
+      emailLabel: string;
+      messageLabel: string;
+      nameLabel: string;
+      question1Label: string;
+      question2Label: string;
+      question3Label: string;
+      question4Label: string;
+      question5Label: string;
+      question6Label: string;
+      question7Label: string;
+      question8Label: string;
+      question9Label: string;
+      question10Label: string;
+      question11Label: string;
+      question12Label: string;
+    }[];
+  };
+};
+
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
 type ComponentPropsMap = {
@@ -1608,6 +1631,10 @@ type ComponentPropsMap = {
   MicrosoftGoldCertified: MicrosoftGoldCertifiedType & {
     id: string;
     __component: "page-componets.microsoft-gold-certified";
+  };
+  SapQuestionnaire: SapQuestionnaireType & {
+    id: string;
+    __component: "page-componets.sap-questionnaire";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

@@ -1,4 +1,3 @@
-import React from "react";
 import { InsightsSection } from "../insight-section";
 import InspireSection from "../inspire-section";
 import Opportunities from "../opportunities";
@@ -64,7 +63,6 @@ import { DescriptionOnly, TitleDescription } from "../description-section";
 import { CombinedSection, NewsRoomSlider, ServiceProvider } from "../news-room";
 import VideoBannerSection from "../video-banner-section";
 import NewsRoomBuild from "../news-room/_utils/news-room-build";
-
 import DigitialBenefits from "../digitial-benefits/digitial-benefits";
 import KpiPartner from "../kpi-partner";
 import DigitalServiceSection from "../digitial-services-section";
@@ -72,7 +70,6 @@ import { DigitialCardSlider } from "../digitial-card-slider";
 import { DigitialAboutSection } from "../digitial-about-section";
 import { DigitalErpList } from "../digitial-erp-list";
 import DigitialAnalytics from "../digitial-analytics/digitial-analytics";
-
 import { DigitialLifeCycle } from "../digitial-life-cycle";
 import DigitialInsightSlider from "../dark-slider copy";
 import CombinedAboutCardSlider from "../digitial-combined/digitial-combined";
@@ -95,6 +92,7 @@ import LogoSlider from "../logo-slider";
 import SapImplementation from "../sap-implementation";
 import SliderServiceSection from "../slider-services-section/slider-services-section";
 import MicrosoftGoldCertified from "../microsoft-certified";
+import SapQuestionnaire from "../sap-questionnaire";
 
 type Props = {
   data: ComponentPropsType[];
@@ -102,7 +100,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-  
+
   return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
@@ -1033,19 +1031,27 @@ const GlobalPage = (props: Props) => {
             key={`slider-service-section-${item?.__component}-${item?.id}`}
           >
             <SliderServiceSection content={item} />
-            
           </ScrollFadeIn>
         );
 
-        case "page-componets.microsoft-gold-certified":
+      case "page-componets.microsoft-gold-certified":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`microsoft-gold-certified-${item?.__component}-${item?.id}`}
           >
-            <MicrosoftGoldCertified data={item}/>
+            <MicrosoftGoldCertified data={item} />
           </ScrollFadeIn>
-        )
+        );
+      case "page-componets.sap-questionnaire":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`sap-questionnaire-${item?.__component}-${item?.id}`}
+          >
+            <SapQuestionnaire data={item} />
+          </ScrollFadeIn>
+        );
       default:
         return;
     }
