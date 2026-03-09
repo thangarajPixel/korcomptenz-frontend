@@ -267,6 +267,7 @@ type CaseStudyTestimonial = {
 
 type CaseStudyData = {
   id: string;
+  offeringTitle: string;
   documentId: string;
   list: NotFoundType[];
   isLinkOnly: boolean;
@@ -306,6 +307,14 @@ type CaseStudyData = {
     };
   }[];
   relatedCaseStudies: CaseStudyData[];
+  offeringList: {
+    title: string;
+    description: string;
+    image: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+  }[];
 };
 type CaseStudySingleData = CaseStudyData;
 

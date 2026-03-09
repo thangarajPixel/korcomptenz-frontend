@@ -4,6 +4,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import React from "react";
 import { ShareButton } from "./share-button";
+import ButtonLink from "@/components/ui/button-link";
 
 export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
   const handleDescription = React.useCallback(
@@ -124,6 +125,47 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
             </div>
             <div className="mt-5">
               <ShareButton />
+            </div>
+            <div className="max-w-sm">
+              <h3 className="text-primary text-2xl md:text-5xl font-semibold mb-6">
+                {data?.offeringTitle}
+              </h3>
+
+              {data?.offeringList?.map((item, index) => (
+                <div key={index} className="flex gap-5 items-start mb-6">
+                  {/* Image */}
+                  <KorcomptenzImage
+                    src={item?.image}
+                    width={100}
+                    height={100}
+                    className=" object-cover rounded-xl"
+                  />
+
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="text-md md:text-lg font-semibold text-gray-800">
+                      {item?.title}
+                    </h3>
+
+                    <DangerousHtml
+                      html={item?.description}
+                      className="text-md md:text-[15px] leading-5.5 text-foreground"
+                    />
+                    <ButtonLink
+                      link={item?.buttonLink || "#"}
+                      isTargetNew={item?.isTarget}
+                      buttonProps={{
+                        arrow: true,
+                        variant: "ghost",
+                        className:
+                          "text-primary hover:text-primary justify-start  hover:bg-transparent p-[-2px] text-sm md:text-lg ",
+                      }}
+                    >
+                      {item?.buttonText}
+                    </ButtonLink>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
