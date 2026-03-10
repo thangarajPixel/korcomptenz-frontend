@@ -158,9 +158,7 @@ export const getCaseStudyPDFPage = async ({
 }: {
   id: string;
 }): Promise<string> => {
-  const res: { url: string } = await http.get(
-    `${CASESTUDYPDF}/${encodeURIComponent(id)}`,
-  );
+  const res: { url: string } = await http.get(`${CASESTUDYPDF}/${id}`);
 
   return res?.url as never;
 };
