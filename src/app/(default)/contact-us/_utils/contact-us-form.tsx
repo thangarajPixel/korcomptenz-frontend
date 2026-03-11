@@ -138,7 +138,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
               })) || []
             }
             placeholder={form?.serviceLabel}
-            className="border-2 rounded-md  bg-[#F2F2F2] placeholder:text-black border-none border-none h-[48px]"
+            className="border-2 rounded-md  bg-[#F2F2F2] placeholder:text-black border-none h-12"
           />
         </div>
         <div className="grid grid-cols-1  gap-4">
