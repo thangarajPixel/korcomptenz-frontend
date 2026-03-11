@@ -1963,6 +1963,17 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
+      source: "/smb-sales-marketing-clickdimensionsredirect/:path*",
+      has: [
+        {
+          type: "host",
+          value: "dev01_korcomptenz.korcomptenz.com",
+        },
+      ],
+      destination: "https://www.korcomptenz.com",
+      permanent: true,
+    },
+    {
       source: "/microsoft-dynamics-solutions/book-a-consultation",
       destination: "https://www.korcomptenz.com/book-consultation/",
       permanent: true,
