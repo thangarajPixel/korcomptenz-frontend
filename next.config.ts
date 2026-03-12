@@ -1970,7 +1970,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/microsoft-dynamics-solutions/book-a-free-demo/",
-      destination: "https://www.korcomptenz.com/book-consultation/",
+      destination: "https://www.korcomptenz.com/book-consultation",
       permanent: true,
     },
   ],
