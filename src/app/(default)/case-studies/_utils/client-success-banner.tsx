@@ -65,7 +65,7 @@ const ClientSuccessBanner = ({
 
               <KorcomptenzImage
                 src={data?.images?.[0]?.image}
-                className="rounded-3xl border border-border object-cover w-full h-[200px] md:h-[240px]"
+                className="rounded-3xl border border-border object-cover w-full h-50 md:h-60"
                 width={1000}
                 height={1000}
               />
@@ -74,7 +74,7 @@ const ClientSuccessBanner = ({
               <KorcomptenzImage
                 src={data?.images?.[1]?.image}
                 alt="Engineers reviewing production dashboards"
-                className="rounded-3xl border border-border object-cover w-full row-span-2 h-[440px] md:h-[520px]"
+                className="rounded-3xl border border-border object-cover w-full row-span-2 h-110 md:h-130"
                 width={1000}
                 height={1000}
               />
@@ -83,7 +83,7 @@ const ClientSuccessBanner = ({
               <KorcomptenzImage
                 src={data?.images?.[2]?.image}
                 alt="Precision manufacturing on CNC machine"
-                className="rounded-3xl border border-border object-cover w-full h-[260px] md:h-[320px]"
+                className="rounded-3xl border border-border object-cover w-full h-65 md:h-80"
                 width={1000}
                 height={1000}
               />

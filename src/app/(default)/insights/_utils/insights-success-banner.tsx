@@ -77,7 +77,7 @@ const InsightsSuccessBanner = ({
                 src={image1 || data?.images?.[0]?.image}
                 className={cn(
                   imageClassName,
-                  "h-[200px] md:h-[240px] object-contain",
+                  "h-50 md:h-60 object-contain",
                 )}
                 width={1000}
                 height={1000}
@@ -88,7 +88,7 @@ const InsightsSuccessBanner = ({
                 src={image2 || data?.images?.[1]?.image}
                 className={cn(
                   imageClassName,
-                  "row-span-2 h-[440px] md:h-[520px]",
+                  "row-span-2 h-110 md:h-130",
                 )}
                 width={1000}
                 height={1000}
@@ -97,7 +97,7 @@ const InsightsSuccessBanner = ({
               {/* Bottom left image (large) */}
               <KorcomptenzImage
                 src={image3 || data?.images?.[2]?.image}
-                className={cn(imageClassName, "h-[260px] md:h-[320px]")}
+                className={cn(imageClassName, "h-65 md:h-80")}
                 width={1000}
                 height={1000}
               />

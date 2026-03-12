@@ -21,7 +21,7 @@ export const CaseStudyCardSkeleton = () => {
 
         <div
           className={cn(
-            "relative w-full h-[300px] rounded-4xl animate-pulse bg-gray-200"
+            "relative w-full h-75 rounded-4xl animate-pulse bg-gray-200"
           )}
         />
       </motion.div>

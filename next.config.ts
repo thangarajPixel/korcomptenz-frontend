@@ -1886,6 +1886,93 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/modern-cloud-data-services",
       permanent: true,
     },
+    //11.3.2026
+
+    {
+      source: "/salesforce-einstein-ai-and-analytics-services",
+      destination:
+        "https://www.korcomptenz.com/salesforce/salesforce-einstein-ai-and-analytics",
+      permanent: true,
+    },
+    {
+      source: "/banking-and-financial-services",
+      destination:
+        "https://www.korcomptenz.com/industries/banking-and-financial-services",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/salesforce-crm-construction-materials-case-study",
+      destination: "https://www.korcomptenz.com/case-studies",
+      permanent: true,
+    },
+    {
+      source: "/healthcare",
+      destination: "https://www.korcomptenz.com/industries/healthcare",
+      permanent: true,
+    },
+
+    {
+      source: "/kor-bank-iq",
+      has: [
+        {
+          type: "host",
+          value: "dev01_korcomptenz.korcomptenz.com",
+        },
+      ],
+      destination:
+        "https://www.korcomptenz.com/ai-assisted-retail-banking-microsoft-fabric",
+      permanent: true,
+    },
+    {
+      source: "/logistics",
+      destination:
+        "https://www.korcomptenz.com/industries/logistics-and-transportation",
+      permanent: true,
+    },
+    {
+      source: "/crm-consulting-services",
+      destination:
+        "https://www.korcomptenz.com/crm-advisory-and-consulting-services",
+      permanent: true,
+    },
+    {
+      source: "/fashion-and-retail",
+      destination: "https://www.korcomptenz.com/industries/retail",
+      permanent: true,
+    },
+    {
+      source: "/fashion-and-retail/microsoft-dynamics-365-for-retail",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-unified-commerce",
+      permanent: true,
+    },
+    {
+      source: "/fashion-and-retail/k3-pebblestone",
+      destination: "https://www.korcomptenz.com",
+      permanent: true,
+    },
+    {
+      source: "/smb-sales-marketing-clickdimensions/:path*",
+      has: [
+        {
+          type: "host",
+          value: "dev01_korcomptenz.korcomptenz.com",
+        },
+      ],
+      destination: "https://www.korcomptenz.com",
+      permanent: true,
+    },
+
+    {
+      source: "/microsoft-dynamics-solutions/book-a-consultation",
+      destination: "https://www.korcomptenz.com/book-consultation/",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-solutions/book-a-free-demo/",
+      destination: "https://www.korcomptenz.com/book-consultation/",
+      permanent: true,
+    },
   ],
 };
 
