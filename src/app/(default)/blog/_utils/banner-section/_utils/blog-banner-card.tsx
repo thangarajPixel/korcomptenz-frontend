@@ -42,11 +42,11 @@ const BlogBannerCard = ({
 
           {/* Centered content */}
           <div className="flex flex-col justify-center h-full gap-8">
-            <h1 className="text-7xl font-semibold leading-[1.1] text-white ">
+            <h1 className="text-7xl font-semibold leading-[1.1] text-white max-w-[800px]">
               {data?.title}
             </h1>
 
-            <p className="text-3xl md:text-5xl leading-tight font-normal text-white max-w-lg">
+            <p className="text-3xl md:text-5xl leading-tight font-normal text-white ">
               {tableTitle}
             </p>
           </div>
