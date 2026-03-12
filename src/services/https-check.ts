@@ -1,8 +1,7 @@
 import axios from "axios";
 import https from "https";
 
-const API_BASE_URL = "https://admin-korcomptenz.designonline.in/api";
-// const API_BASE_URL = "https://stage03-admin-korcomptenz.korcomptenz.com/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_HTTP_URL;
 
 const TIMEOUT = 30000;
 
