@@ -1973,6 +1973,11 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/book-consultation",
       permanent: true,
     },
+    {
+      source: "/microsoft-fabric-ai-reporting-cloud-manufacturing",
+      destination: "https://www.korcomptenz.com/enterprise-ai-platform",
+      permanent: true,
+    },
   ],
 };
 
