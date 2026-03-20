@@ -271,6 +271,8 @@ type CaseStudyData = {
   list: NotFoundType[];
   isLinkOnly: boolean;
   isAttachment: boolean;
+  thirdpartyLink: string;
+  isTarget: boolean;
   title: string;
   seo: SEO;
   study: string;
@@ -474,6 +476,7 @@ type PeopleShowcaseCardType = {
   image: ImageType;
   title: string;
   id: string;
+  isAdvisoryBoard: boolean;
   miniDescription: string;
   position: string;
   socialPlatform: {
@@ -500,6 +503,7 @@ type MediaSliderCardType = {
 
 type AchievementscardType = {
   id: string;
+  image: ImageType;
   column: { id: string; image: ImageType }[];
 };
 // type InsightCardType = {
@@ -616,6 +620,9 @@ type InsightResponse = {
 type InsightItem = {
   id: number;
   date: string;
+  publishedAt: string;
+  updatedAt: string;
+
   asset: {
     slug: string;
     file: ImageType;

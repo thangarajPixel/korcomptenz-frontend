@@ -7,6 +7,7 @@ import { useMobile } from "@/utils/custom-hooks";
 
 import Link from "next/link";
 import CardSwiperArrowWhite from "./_utils/card-swiper-arrow";
+import { DangerousHtml } from "../ui/dangerous-html";
 
 export default function SlidingSection({
   slides,
@@ -114,9 +115,13 @@ export default function SlidingSection({
                     </h1>
                   )}
                   {!slide?.description && <div className="h-0 md:h-16 " />}
-                  <p className="text-3xl md:text-5xl mb-8 leading-tight  text-pretty">
+                  {/* <p className="text-3xl md:text-5xl mb-8 leading-tight  text-pretty">
                     {slide?.description}
-                  </p>
+                  </p> */}
+                  <DangerousHtml
+                    html={slide?.description}
+                    className="text-3xl md:text-5xl mb-8 leading-tight  text-pretty"
+                  />
                   {slide?.buttonText && (
                     <Link href={slide?.link || "#"}>
                       <Button

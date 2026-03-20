@@ -39,16 +39,16 @@ const CardSwiperArrow = ({
         {/* arrows */}
         <button
           onClick={scrollPrev}
-          className="hidden lg:flex absolute -left-18 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full text-primary"
+          className="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full text-white"
         >
-          <ChevronLeft className="w-16 h-16 stroke-[2.5]" />
+          <ChevronLeft className="w-16 h-16 stroke-[1.5]" />
         </button>
 
         <button
           onClick={scrollNext}
-          className="hidden lg:flex absolute -right-18 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full text-primary"
+          className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full text-white"
         >
-          <ChevronRight className="w-16 h-16 stroke-[2.5]" />
+          <ChevronRight className="w-16 h-16 stroke-[1.5]" />
         </button>
       </div>
     </section>

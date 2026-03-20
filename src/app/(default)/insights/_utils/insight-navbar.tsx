@@ -43,9 +43,9 @@ export function InsightNavbar({
       <Tabs value={value} onValueChange={goTo}>
         <TabsList
           className={cn(
-            "relative lg:h-[50px] sm:h-16",
+            "relative lg:h-12.5 sm:h-16",
             "bg-secondary p-0 shadow-none border-none !ml-0 flex w-full",
-            "overflow-x-auto overflow-y-hidden whitespace-nowrap scroll-hide"
+            "overflow-x-auto overflow-y-hidden whitespace-nowrap scroll-hide",
           )}
         >
           {/* ⭐ category ALL */}
@@ -55,7 +55,7 @@ export function InsightNavbar({
             className={cn(
               "relative !cursor-pointer h-full z-10 text-white rounded-none lg:px-6 px-2 py-3 shadow-none border-none text-md sm:text-base font-semibold",
               "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary",
-              "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
+              "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85",
             )}
           >
             <span className="z-50 text-xs md:text-xl leading-normal">
@@ -79,7 +79,7 @@ export function InsightNavbar({
               className={cn(
                 "relative !cursor-pointer h-full z-10 text-white rounded-none lg:px-6 px-2 py-3 shadow-none border-none text-md sm:text-base font-semibold",
                 "transition-all duration-200 hover:bg-secondary-foreground hover:text-secondary",
-                "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85"
+                "data-[state=active]:bg-secondary-foreground data-[state=active]:text-secondary data-[state=inactive]:opacity-85",
               )}
             >
               <span className="z-50 text-xs md:text-xl leading-normal">

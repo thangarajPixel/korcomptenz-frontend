@@ -35,14 +35,16 @@ const BuildConnect = ({
         )}
       >
         {buildData?.isSwap && (
-          <h2 className=" text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-15">
+          <h2 className=" text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-15 mb-12">
             {buildData?.title}
           </h2>
         )}
         <div
           className={cn(
             "grid grid-cols-1 lg:grid-cols-[55%_45%] space-x-12 space-y-6 ",
-            buildData?.isSwap && "mt-3",
+            buildData?.isSwap
+              ? "mt-3 lg:grid-cols-[45%_55%] gap-8 "
+              : "lg:grid-cols-[55%_45%]",
           )}
         >
           <div
@@ -54,6 +56,11 @@ const BuildConnect = ({
             {!buildData?.isSwap && (
               <h2 className="text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-12">
                 {buildData?.title}
+              </h2>
+            )}
+            {buildData?.isSwap && (
+              <h2 className="text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-12">
+                {buildData?.descriptiontitle}
               </h2>
             )}
             {buildData?.description && (

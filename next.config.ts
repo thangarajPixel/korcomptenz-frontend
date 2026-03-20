@@ -117,6 +117,12 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
+      source: "/brochure/CKVal-Cloud.pdf",
+      destination:
+        "https://content.korcomptenz.com/story/ckval-one-unified-platform-for-intelligent-it-operations/page/1",
+      permanent: true,
+    },
+    {
       source: "/rapid-erp-implementation",
       destination: "https://campaigns.korcomptenz.com/rapid-erp-implementation",
       permanent: true,
@@ -1381,11 +1387,7 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/edge-computing-vs-cloud-computing",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
+
     {
       source: "/blog/edi-in-logistics",
       destination: "https://www.korcomptenz.com/insights/blog",
@@ -1480,11 +1482,7 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/kanban-vs-scrum",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
+
     {
       source: "/blog/managed-services-provider",
       destination: "https://www.korcomptenz.com/insights/blog",
@@ -1578,11 +1576,6 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/power-bi-vs-tableau-comparison-guide",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
 
     {
       source: "/blog/quick-start-guide-on-kentico",
@@ -1635,11 +1628,6 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/sap-grc",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
 
     {
       source: "/blog/smart-speaker-technology",
@@ -1682,11 +1670,7 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/top-edi-service-providers",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
+
     {
       source: "/blog/top-reasons-to-choose-microsoft-dynamics-365",
       destination: "https://www.korcomptenz.com/insights/blog",
@@ -1707,11 +1691,7 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/insights/blog",
       permanent: false,
     },
-    {
-      source: "/blog/what-is-a-local-area-network",
-      destination: "https://www.korcomptenz.com/insights/blog",
-      permanent: false,
-    },
+
     {
       source: "/blog/what-is-augmented-reality",
       destination: "https://www.korcomptenz.com/insights/blog",
@@ -1844,7 +1824,7 @@ const nextConfig: NextConfig = {
       permanent: false,
     },
 
-    //25.02.2026
+    //25.02.2026??
 
     {
       source: "/cloud/ai-powered-cloud-managed-services",
@@ -1854,7 +1834,155 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/salesforce/salesforce-rescue-and-rapid-response",
-      destination: "https://www.korcomptenz.com/crm-implementation-services",
+      destination: "https://www.korcomptenz.com/crm/crm-implementation-rescue",
+      permanent: true,
+    },
+
+    //05.03.2026
+    {
+      source: "/microsoft-dynamics-365-business-central-product-configurator",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365-business-central-quality-control",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-business-central-quality-control",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365-customer-engagement",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-customer-engagement",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365-customer-insights",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-customer-insights",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365-managed-services",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-managed-services",
+      permanent: true,
+    },
+    {
+      source:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-erp-advisory-and-consulting",
+      destination:
+        "https://www.korcomptenz.com/erp/erp-advisory-and-consulting-services",
+      permanent: true,
+    },
+    {
+      source: "/cloud/cloud-managed-services",
+      destination:
+        "https://www.korcomptenz.com/cloud/ai-powered-infrastructure-managed-services",
+      permanent: true,
+    },
+    {
+      source: "/cloud/cloud-migration-services",
+      destination:
+        "https://www.korcomptenz.com/cloud/ai-powered-cloud-migration-services",
+      permanent: true,
+    },
+    {
+      source: "/cloud/enterprise-analytics-cloud-services",
+      destination: "https://www.korcomptenz.com/modern-cloud-data-services",
+      permanent: true,
+    },
+    //11.3.2026
+
+    {
+      source: "/salesforce-einstein-ai-and-analytics-services",
+      destination:
+        "https://www.korcomptenz.com/salesforce/salesforce-einstein-ai-and-analytics",
+      permanent: true,
+    },
+    {
+      source: "/banking-and-financial-services",
+      destination:
+        "https://www.korcomptenz.com/industries/banking-and-financial-services",
+      permanent: true,
+    },
+    {
+      source: "/case-studies/salesforce-crm-construction-materials-case-study",
+      destination: "https://www.korcomptenz.com/case-studies",
+      permanent: true,
+    },
+    {
+      source: "/healthcare",
+      destination: "https://www.korcomptenz.com/industries/healthcare",
+      permanent: true,
+    },
+
+    {
+      source: "/kor-bank-iq",
+      has: [
+        {
+          type: "host",
+          value: "dev01_korcomptenz.korcomptenz.com",
+        },
+      ],
+      destination:
+        "https://www.korcomptenz.com/ai-assisted-retail-banking-microsoft-fabric",
+      permanent: true,
+    },
+    {
+      source: "/logistics",
+      destination:
+        "https://www.korcomptenz.com/industries/logistics-and-transportation",
+      permanent: true,
+    },
+    {
+      source: "/crm-consulting-services",
+      destination:
+        "https://www.korcomptenz.com/crm-advisory-and-consulting-services",
+      permanent: true,
+    },
+    {
+      source: "/fashion-and-retail",
+      destination: "https://www.korcomptenz.com/industries/retail",
+      permanent: true,
+    },
+    {
+      source: "/fashion-and-retail/microsoft-dynamics-365-for-retail",
+      destination:
+        "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-unified-commerce",
+      permanent: true,
+    },
+    {
+      source: "/fashion-and-retail/k3-pebblestone",
+      destination: "https://www.korcomptenz.com",
+      permanent: true,
+    },
+    {
+      source: "/smb-sales-marketing-clickdimensions/:path*",
+      has: [
+        {
+          type: "host",
+          value: "dev01_korcomptenz.korcomptenz.com",
+        },
+      ],
+      destination: "https://www.korcomptenz.com",
+      permanent: true,
+    },
+
+    {
+      source: "/microsoft-dynamics-solutions/book-a-consultation",
+      destination: "https://www.korcomptenz.com/book-consultation/",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-solutions/book-a-free-demo/",
+      destination: "https://www.korcomptenz.com/book-consultation/",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-fabric-ai-reporting-cloud-manufacturing",
+      destination: "https://www.korcomptenz.com/enterprise-ai-platform",
       permanent: true,
     },
   ],

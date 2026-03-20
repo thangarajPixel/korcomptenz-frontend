@@ -14,13 +14,35 @@ export default function FabconMidMarket({
     <section
       className="py-12"
       style={{
-        backgroundColor: data?.backgroundColor || "#313941",
+        backgroundColor: !data?.isBackground
+          ? data?.backgroundColor || "#313941"
+          : undefined,
+        backgroundImage:
+          data?.isBackground && data?.backgroundImage?.url
+            ? `url(${data?.backgroundImage?.url})`
+            : undefined,
+        backgroundSize: data?.isBackground ? "cover" : undefined,
+        backgroundPosition: data?.isBackground ? "center" : undefined,
+        backgroundRepeat: data?.isBackground ? "no-repeat" : undefined,
       }}
     >
       <div className="container-md">
         {/* Header */}
-        <div className="text-start md:mb-6">
-          <h2 className="text-5xl md:text-6xl font-semibold text-white mb-2 leading-8 mb-8">
+        <div className="text-start md:mb-6 grid gap-4">
+          {data?.topTitle && (
+            <h2 className="text-5xl md:text-6xl font-semibold text-white mb-2 leading-8 ">
+              {data?.topTitle}
+            </h2>
+          )}
+
+          {data?.topDescription && (
+            <DangerousHtml
+              html={data?.topDescription}
+              className="text-md md:test-lg leading-7.5 text-white"
+            />
+          )}
+
+          <h2 className="text-5xl md:text-6xl font-semibold text-white mb-2 leading-8 ">
             {data?.title}
           </h2>
         </div>
@@ -72,7 +94,7 @@ export default function FabconMidMarket({
                   }}
                 >
                   {" "}
-                  {card.buttontext}
+                  {card?.buttontext}
                 </ButtonLink>
                 // <Button
                 //   variant="ghost"

@@ -34,7 +34,7 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
               <div className="flex absolute bottom-0 right-0 justify-end items-end z-10">
                 <KorcomptenzImage
                   className={cn(
-                    `rounded-br-4xl  p-0 h-auto w-54  object-cover`,
+                    "rounded-br-4xl p-0 h-auto w-54 object-cover max-[1200px]:w-42",
                   )}
                   width={500}
                   height={500}

@@ -9,7 +9,7 @@ export default function FabconExperts({ data }: { data: ExpertsSectionType }) {
         className="absolute inset-0 -z-10 bg-cover bg-right bg-no-repeat"
         style={{
           backgroundImage: data?.backgroundImage?.url
-            ? `url(${data.backgroundImage.url})`
+            ? `url(${data?.backgroundImage?.url})`
             : undefined,
         }}
       />

@@ -10,6 +10,7 @@ import type {
   FabconDecisionLeadSchema,
   FreeConsultationLeadSchema,
   NewsRoomFormSchema,
+  SubscriptionFormSchema,
   WebinarReserveFormSchema,
 } from "@/utils/validation.schema";
 import https from "./https-check";
@@ -51,6 +52,7 @@ export const FABCON_BANNER_LEAD = "/fabcon-book-meet-leads";
 export const FABCON_DECISION_LEAD = "/fabcon-reserve-leads";
 export const BLOG_FORM_LEAD = "/forrester-reports";
 export const ASSETPDF = "/assets/by-slug";
+export const NEW_LETTER_SUBSCRIPTION = "/newsletter-subscriptions";
 
 /*************  ✨ Windsurf Command ⭐  *************/
 /**
@@ -156,9 +158,7 @@ export const getCaseStudyPDFPage = async ({
 }: {
   id: string;
 }): Promise<string> => {
-  const res: { url: string } = await http.get(
-    `${CASESTUDYPDF}/${encodeURIComponent(id)}`,
-  );
+  const res: { url: string } = await http.get(`${CASESTUDYPDF}/${id}`);
 
   return res?.url as never;
 };
@@ -345,4 +345,9 @@ export const getAssetPDFPage = async ({
   const res: { data: ImageType } = await http.get(`${ASSETPDF}/${id}`);
 
   return res?.data?.url as string;
+};
+
+export const createSubcription = async (formData: SubscriptionFormSchema) => {
+  const { data } = await http.post(NEW_LETTER_SUBSCRIPTION, { data: formData });
+  return data;
 };

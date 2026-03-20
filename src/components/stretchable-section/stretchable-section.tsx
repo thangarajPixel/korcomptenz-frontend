@@ -2,6 +2,7 @@
 import StretchableSectionCard from "./_utils/stretchable-card";
 import { useMobile } from "@/utils/custom-hooks";
 import CardSwiper from "../ui/card-swiper";
+import { DangerousHtml } from "../ui/dangerous-html";
 
 const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
   const isMobile = useMobile();
@@ -10,7 +11,7 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
       data-debug="page-componets.stretchable-section"
       className="container-md"
     >
-      <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-12  lg:mb-16  text-balance">
+      <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6  lg:mb-8  text-balance">
         {item?.title}
       </h2>
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-4">
@@ -45,6 +46,12 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
           </div>
         )}
       </div>
+      {item?.description && (
+        <DangerousHtml
+          html={item?.description}
+          className="text-foreground text-md md:text-lg leading-7.5 mt-4"
+        />
+      )}
     </section>
   );
 };

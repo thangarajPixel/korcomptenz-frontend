@@ -82,44 +82,50 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
     <form
       id="contact-us-form"
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="space-y-8"
+      className="space-y-8 bg-white rounded-2xl p-4 md:p-5"
+      noValidate
     >
-      <div className="grid gap-y-8 mt-5">
+      <div className="grid gap-y-8 mt-2">
         {/* Name + Email */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4">
           <Input
             control={control}
             name={"firstName"}
+            required
             placeholder={form?.firstNameLabel}
-            className=" p-2 rounded-md text-black bg-white placeholder:text-black "
+            className=" p-3 rounded-md text-black bg-[#F2F2F2] placeholder:text-black border-none"
           />
           <Input
             control={control}
             name="lastName"
+            required
             placeholder={form?.lastNameLabel}
-            className=" p-2 rounded-md text-black bg-white placeholder:text-black "
+            className=" p-3 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none"
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4">
           <Input
             control={control}
             name="email"
+            required
             placeholder={form?.emailLabel}
-            className=" p-2 rounded-md text-black bg-white placeholder:text-black "
+            className=" p-3 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none"
           />
           <Input
             control={control}
             name="company"
+            required
             placeholder={form?.companyLabel}
-            className=" p-2 rounded-md text-black bg-white placeholder:text-black "
+            className=" p-3 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none "
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4">
           <Input
             control={control}
             name="phone"
+            required
             placeholder={form?.phoneLabel}
-            className=" p-2 rounded-md text-black bg-white placeholder:text-black "
+            className=" p-3 rounded-md text-black  bg-[#F2F2F2] placeholder:text-black border-none "
           />
           <ComboboxField
             control={control}
@@ -132,7 +138,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
               })) || []
             }
             placeholder={form?.serviceLabel}
-            className="border-2 rounded-md bg-white"
+            className="border-2 rounded-md  bg-[#F2F2F2] placeholder:text-black border-none h-12"
           />
         </div>
         <div className="grid grid-cols-1  gap-4">
@@ -147,46 +153,50 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
               })) || []
             }
             placeholder={form?.technologyLabel}
-            className="border-2 rounded-md bg-white"
+            className=" rounded-md bg-[#F2F2F2] py-3 h-12"
           />
         </div>
         <div className="grid grid-cols-1  gap-4">
           <Textarea
             control={control}
+            required
             name="message"
             placeholder={form?.messageLabel}
-            className=" p-2 rounded-md text-black bg-white placeholder:text-black "
+            className=" p-3 rounded-md text-black bg-[#F2F2F2] placeholder:text-black border-none pt-7 "
           />
         </div>
+        <div className="space-y-2">
+          {form?.list?.map((item, index) => (
+            <div key={index} className="flex ">
+              <div className="mt-1">
+                {" "}
+                <KorcomptenzImage
+                  src="/assets/check 1.png"
+                  width={20}
+                  height={20}
+                />
+              </div>
 
+              <p className="text-md md:text-lg text-black">
+                {item?.description}
+              </p>
+            </div>
+          ))}
+        </div>
         {/* Submit button */}
-        <div className="pt-4">
+        <div className="pt-2">
           <Button
-            size="lg"
+            size="xl"
             variant="outline"
-            className="hover:bg-primary border-primary text-primary hover:text-white"
+            className="hover:bg-white bg-primary border-primary text-white hover:text-primary"
             arrow
             isLoading={isSubmitting}
+            disabled={!isReady}
             type="submit"
           >
             Submit
           </Button>
         </div>
-
-        {form?.list?.map((item, index) => (
-          <div key={index} className="flex">
-            <div className="mt-1">
-              {" "}
-              <KorcomptenzImage
-                src="/assets/check 1.png"
-                width={20}
-                height={20}
-              />
-            </div>
-
-            <p>{item?.description}</p>
-          </div>
-        ))}
       </div>
     </form>
   );

@@ -18,7 +18,7 @@ const BlogBannerCard = ({
   return (
     <div className={cn(className)}>
       {/* Desktop view */}
-      <div className="relative w-full md:h-[513px] h-full overflow-hidden rounded-4xl hidden lg:block  ">
+      <div className="relative w-full md:h-[450px] h-full overflow-hidden rounded-4xl hidden lg:block  ">
         <KorcomptenzImage
           src={data?.heroSection?.image}
           width={1000}
@@ -30,36 +30,25 @@ const BlogBannerCard = ({
 
         <div
           className={cn(
-            " absolute top-0 left-10 p-5 z-10 w-5/8 h-full flex flex-col gap-6 justify-between  ",
+            "absolute top-0 left-10 p-5 z-10 w-[75%] h-full flex flex-col",
           )}
         >
-          {" "}
-          <p className="text-white text-2xl">
-            <BreadcrumbFromUrl slug={data?.slug} />
-          </p>
-          <div className="grid justify-between gap-10">
-            <h1 className="text-7xl font-semibold leading-14 text-white mb-4 max-w-lg">
+          {/* Breadcrumb always at top */}
+          <div className="absolute top-5 left-5">
+            <p className="text-white text-2xl">
+              <BreadcrumbFromUrl slug={data?.slug} />
+            </p>
+          </div>
+
+          {/* Centered content */}
+          <div className="flex flex-col justify-center h-full gap-8">
+            <h1 className="text-7xl font-semibold leading-[1.1] text-white max-w-[800px]">
               {data?.title}
             </h1>
 
-            <p className="text-3xl md:text-5xl leading-tight font-normal text-white mb-4 md:mb-8 max-w-lg">
-              {tableTitle}{" "}
+            <p className="text-3xl md:text-5xl leading-tight font-normal text-white ">
+              {tableTitle}
             </p>
-
-            {/* <div className="flex flex-row gap-4">
-                {data?.buttonText && (
-                  <ButtonLink
-                    link={data?.link || "#"}
-                    buttonProps={{
-                      arrow: true,
-                      className: "hover:bg-transparent ",
-                      size: "xl",
-                    }}
-                  >
-                    {data?.buttonText}
-                  </ButtonLink>
-                )}
-              </div> */}
           </div>
         </div>
       </div>

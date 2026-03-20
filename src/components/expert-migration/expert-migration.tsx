@@ -3,22 +3,28 @@ import React from "react";
 import Link from "next/link";
 import KorcomptenzImage from "../korcomptenz-image";
 import { DangerousHtml } from "../ui/dangerous-html";
+import { cn } from "@/lib/utils";
 
 const ExpertMigration = ({ data }: { data: ExpertMigrationType }) => {
   return (
-    <section className="w-full bg-light-gray py-12 md:py-16">
+    <section
+      className={cn(
+        "w-full  ",
+        data?.bgImage ? "" : "py-12 md:py-16 bg-light-gray",
+      )}
+    >
       <div
-        className="relative rounded-tr-[100px] overflow-visible container-md"
+        className="relative rounded-tr-[100px] overflow-hidden  container-md"
         style={{
           minHeight: "280px",
-          ...(data.bgImage
+          ...(data?.bgImage
             ? {
-                backgroundImage: `url(${data.backgroundImage?.url})`,
+                backgroundImage: `url(${data?.backgroundImage?.url})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }
             : {
-                backgroundColor: data.bgColor,
+                backgroundColor: data?.bgColor,
               }),
         }}
       >
@@ -26,14 +32,14 @@ const ExpertMigration = ({ data }: { data: ExpertMigrationType }) => {
         <div
           className="absolute inset-0  overflow-hidden -z-10"
           style={{
-            ...(data.bgImage
+            ...(data?.bgImage
               ? {
-                  backgroundImage: `url(${data.backgroundImage?.url})`,
+                  backgroundImage: `url(${data?.backgroundImage?.url})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }
               : {
-                  backgroundColor: data.bgColor,
+                  backgroundColor: data?.bgColor,
                 }),
           }}
         />
@@ -53,8 +59,8 @@ const ExpertMigration = ({ data }: { data: ExpertMigrationType }) => {
             )}
 
             <Link
-              href={data.buttonLink || "#"}
-              target={data.isTarget ? "_blank" : "_self"}
+              href={data?.buttonLink || "#"}
+              target={data?.isTarget ? "_blank" : "_self"}
             >
               <button className="bg-white text-gray-900 font-semibold text-sm md:text-base px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 shadow-md cursor-pointer">
                 {data.buttonText || "GET EXPERT MIGRATION"}

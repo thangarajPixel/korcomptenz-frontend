@@ -168,6 +168,7 @@ const BannerCard = ({
 
                 <div className="bg-[#2b2b2b] flex items-center h-[90px] relative">
                   {/* LEFT ARROW SECTION */}
+
                   <div
                     className="flex items-center px-6 h-full text-white  text-3xl font-medium  pl-10"
                     style={{

@@ -15,7 +15,7 @@ import ButtonLink from "../ui/button-link";
 import Link from "next/link";
 
 const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
-  const firstValue = data?.list?.[0] ? `item-${data.list[0].id}` : undefined;
+  const firstValue = data?.list?.[0] ? `item-${data?.list[0]?.id}` : undefined;
 
   const [activeValue, setActiveValue] = useState<string | undefined>(
     firstValue,
@@ -25,7 +25,7 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
     ? Number(activeValue.split("-")[1])
     : data?.list?.[0]?.id;
 
-  const activeItem = data?.list?.find((item) => item.id === activeId);
+  const activeItem = data?.list?.find((item) => item?.id === activeId);
 
   return (
     <div className="container-md">
@@ -90,7 +90,7 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
                 >
                   {/* TOP TRIGGER */}
                   <AccordionTrigger className="flex justify-between items-start text-left text-lg md:text-4xl font-semibold leading-7 md:leading-9 text-foreground">
-                    <span>{item.title}</span>
+                    <span>{item?.title}</span>
 
                     <ChevronDownIcon
                       className={cn(
@@ -107,7 +107,7 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
                     {item?.description && (
                       <DangerousHtml
                         className="mt-2 text-lg text-[#0E0E0E] leading-7.5"
-                        html={item.description}
+                        html={item?.description}
                       />
                     )}
                   </AccordionContent>

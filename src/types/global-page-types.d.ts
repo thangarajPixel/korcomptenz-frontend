@@ -8,7 +8,7 @@ type SlidingSectionType = {
   buttonText: string;
   buttonAction: string;
   mobile_image: ImageType;
-  description?: string;
+  description: string;
   logo?: ImageType;
   link: string;
   design: string;
@@ -382,6 +382,7 @@ type DemonstrationSectionType = {
 };
 type BuildConnectSectionType = {
   title: string;
+  descriptiontitle: string;
   isBgGray: boolean;
   thumbnail: ImageType;
   button: {
@@ -468,6 +469,10 @@ type ScheduleCallType = {
 type WhyKorcomptenzType = {
   title: string;
   description: string;
+  isBackground: boolean;
+  topDescription: string;
+  topTitle: string;
+  backgroundImage: ImageType;
   isPerRowFive: boolean;
   subtitle: string;
   isBgGray: boolean;
@@ -511,6 +516,7 @@ type CompanyType = {
 
 type StretchableSectionType = {
   title: string;
+  description: string;
   image: ImageType;
   list: {
     id: number;
@@ -541,6 +547,12 @@ type GramBannerType = {
   footerDescription: string;
   footerButtonLink: string;
   FooterbuttonText: string;
+  isImageSlider: boolean;
+  imageList: {
+    image: ImageType;
+    mobileImage: ImageType;
+    id: string;
+  }[];
 };
 type CaseStudyFormType = {
   __component: "form-fields.case-study-form";
@@ -617,6 +629,7 @@ type PeopleShowcaseSectionType = {
   buttontext: string;
   description: string;
   id: string;
+  isAdvisoryBoard: boolean;
   title: string;
   perRow: number;
   list: PeopleShowcaseCardType[];
@@ -641,6 +654,9 @@ type NewsletterData = {
   buttonText: string;
   isForm?: boolean;
   image: ImageType;
+  form: {
+    forms: { buttonText: string; email: string; __component: string }[];
+  };
 };
 
 type OfficesDataType = {
@@ -718,6 +734,7 @@ type DigitialInsightType = {
   isTarget: boolean;
   list: {
     image1: ImageType;
+    title: string;
     image2: ImageType;
     isTarget: boolean;
     buttonText: string;
@@ -796,6 +813,7 @@ type AchievementsType = {
   id: string;
   title: string;
   isColumnFour: boolean;
+  logo: AchievementscardType[];
   list: AchievementscardType[];
 };
 type DemoListType = {
@@ -843,6 +861,12 @@ type OpenJobsType = {
 type ContactUsFormSectionType = {
   id: string;
   title: string;
+
+  backgroundImage: ImageType;
+  listLeft: {
+    title: string;
+    description: string;
+  }[];
   images: {
     id: string;
     image: ImageType;
@@ -965,6 +989,7 @@ type VideoBannerItemType = {
 type DigitialAnalyticsType = {
   title: string;
   heading1: string;
+  bottomDescription: string;
   heading2: string;
   description: string;
   list1: {
@@ -1136,6 +1161,52 @@ type FabconBannerType = {
   description: string;
   date: string;
   location: string;
+};
+
+type SapImplementationType = {
+  title: string;
+  list: {
+    title: string;
+    description: string;
+    sublist: { title: string; description: string }[];
+  }[];
+};
+type SliderServiceSectionType = {
+  title: string;
+  tablist: {
+    title: string;
+
+    sublist: {
+      title: string;
+      description: string;
+      image: ImageType;
+      id: string;
+    }[];
+  }[];
+};
+
+type MicrosoftGoldCertifiedType = {
+  title: string;
+  description: string;
+  card1: {
+    buttonText: string;
+    buttonLink: string;
+    image: ImageType;
+    title: string;
+    isTarget: boolean;
+    description: string;
+  };
+  card2: {
+    image: ImageType;
+    isTarget: boolean;
+    title1: string;
+    title2: string;
+    title3: string;
+    description: string;
+    buttonText: string;
+    buttonIcon: ImageType;
+    buttonLink: string;
+  };
 };
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -1520,6 +1591,23 @@ type ComponentPropsMap = {
   FabconMidMarket: WhyKorcomptenzType & {
     id: string;
     __component: "page-componets.midmarket-enterprises";
+  };
+
+  LogoSlider: AchievementSectionProps & {
+    id: string;
+    __component: "contact-us.logo-slider";
+  };
+  SapImplementation: SapImplementationType & {
+    id: string;
+    __component: "page-componets.sap-implementation";
+  };
+  SliderServiceSection: SliderServiceSectionType & {
+    id: string;
+    __component: "page-componets.slider-service-section";
+  };
+  MicrosoftGoldCertified: MicrosoftGoldCertifiedType & {
+    id: string;
+    __component: "page-componets.microsoft-gold-certified";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
