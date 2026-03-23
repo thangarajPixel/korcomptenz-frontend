@@ -9,9 +9,15 @@ export function cn(...inputs: ClassValue[]) {
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: false,
+      retry: 1,
       gcTime: 1000 * 60 * 120, // 2 hours
+      staleTime: 1000 * 60 * 10, // 10 minutes
       refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      refetchOnMount: false,
+    },
+    mutations: {
+      retry: 1,
     },
   },
 });
