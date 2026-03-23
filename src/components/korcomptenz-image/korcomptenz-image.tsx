@@ -26,6 +26,7 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
     ? (props?.src as ImageType)?.alternativeText
     : props?.alt || "";
   const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
+
   return (
     <Image
       placeholder={imagePlaceholder}
@@ -36,10 +37,12 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
       unoptimized={isGif}
       priority={false}
       className={cn(
+        "object-cover",
         props?.nonAnimate &&
-          "object-cover transition-transform duration-300 hover:scale-110",
+          "transition-transform duration-300 hover:scale-110",
         props?.className,
       )}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
     />
   );
 };

@@ -4,7 +4,8 @@ import { getHomeService } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
 import { cache } from "react";
 
-export const dynamic = "force-dynamic";
+// Enable ISR with 1 hour revalidation for better performance
+export const revalidate = 3600;
 
 const getHomeServiceCache = cache(getHomeService);
 

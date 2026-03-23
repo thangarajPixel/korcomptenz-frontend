@@ -33,6 +33,7 @@ export function ScrollFadeIn({
       }}
       className={className}
       data-component={__component}
+      style={{ willChange: isInView ? "auto" : "transform, opacity" }}
     >
       {children}
     </motion.section>

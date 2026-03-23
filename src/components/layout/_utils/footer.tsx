@@ -15,7 +15,7 @@ export const Footer = ({ data }: { data: LayoutType }) => {
       <div className="container-md py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Company Info */}
-          <CompanyInfo data={data.company} />
+          <CompanyInfo data={data?.company} />
 
           {/* Services */}
           <FooterLinksGroup
