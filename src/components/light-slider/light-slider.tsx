@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 import { DangerousHtml } from "../ui/dangerous-html";
 import Link from "next/link";
 
-const LightSlider = ({ data }: { data: LightSliderType }) => {
+const LightSlider = React.memo(({ data }: { data: LightSliderType }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
@@ -176,6 +176,6 @@ const LightSlider = ({ data }: { data: LightSliderType }) => {
       </div>
     </section>
   );
-};
+});
 
 export default LightSlider;

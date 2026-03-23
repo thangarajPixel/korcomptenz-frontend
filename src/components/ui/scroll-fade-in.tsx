@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useRef, type ReactNode, useMemo } from "react";
 
 interface ScrollFadeInProps {
   children: ReactNode;
@@ -21,11 +21,21 @@ export function ScrollFadeIn({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  // Memoize animation variants to prevent recreation
+  const variants = useMemo(
+    () => ({
+      hidden: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0 },
+    }),
+    [],
+  );
+
   return (
     <motion.section
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={variants}
       transition={{
         duration,
         delay,
@@ -33,7 +43,10 @@ export function ScrollFadeIn({
       }}
       className={className}
       data-component={__component}
-      style={{ willChange: isInView ? "auto" : "transform, opacity" }}
+      style={{
+        willChange: isInView ? "auto" : "transform, opacity",
+        contain: "layout style paint",
+      }}
     >
       {children}
     </motion.section>

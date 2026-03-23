@@ -41,19 +41,32 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        {/* Preconnect to critical domains */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* Preconnect to critical domains with crossOrigin */}
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossOrigin="anonymous"
+        />
         <link
           rel="preconnect"
           href="https://aue2kormlworkspacetest01.blob.core.windows.net"
+          crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://js.hs-scripts.com" />
 
+        {/* Preload critical font for LCP improvement */}
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+          as="style"
+          crossOrigin="anonymous"
+        />
+
         {/* Inline critical CSS for faster FCP */}
         <style
           dangerouslySetInnerHTML={{
-            __html: `html,body{margin:0;padding:0}body{background:#fff;color:#313941}.dark{background:#0a0a0a;color:#fff}main{flex:1}`,
+            __html: `html,body{margin:0;padding:0}body{background:#fff;color:#313941}.dark{background:#0a0a0a;color:#fff}main{flex:1}*{box-sizing:border-box}`,
           }}
         />
 

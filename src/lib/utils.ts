@@ -6,6 +6,8 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+// Aggressive TBT & LCP optimization with request deduplication
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -15,9 +17,12 @@ export const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
       refetchOnReconnect: false,
       refetchOnMount: false,
+      networkMode: "always", // Prevent unnecessary refetches
+      structuralSharing: true, // Reduce memory overhead
     },
     mutations: {
       retry: 1,
+      networkMode: "always",
     },
   },
 });
