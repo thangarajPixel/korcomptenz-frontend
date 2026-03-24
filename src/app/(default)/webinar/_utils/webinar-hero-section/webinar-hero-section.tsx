@@ -37,9 +37,9 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
         />
       </div>
       <div className="px-4 block md:hidden">
-        <h1 className="text-[34px] leading-[44px]  mb-4  font-semibold">
+        <h4 className="text-[34px] leading-[44px]  mb-4  font-semibold">
           {data?.title}
-        </h1>
+        </h4>
 
         <p className="text-3xl md:text-5xl mb-6 leading-6 font-normal">
           {data?.heroSection?.description}
