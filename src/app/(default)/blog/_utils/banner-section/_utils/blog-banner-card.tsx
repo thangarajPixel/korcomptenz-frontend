@@ -63,9 +63,9 @@ const BlogBannerCard = ({
         />
       </div>
       <div className="gap-6 justify-center items-start p-4 md:p-8 w-full lg:hidden  h-full">
-        <h1 className="text-4xl font-bold text-foreground mb-2 md:mb-4">
+        <h4 className="text-[34px] leading-[44px] font-bold text-foreground mb-2 md:mb-4">
           {data?.title}
-        </h1>
+        </h4>
 
         <DangerousHtml
           className="text-lg md:text-base [&>span]:!text-black mb-4 md:mb-8 max-w-md"

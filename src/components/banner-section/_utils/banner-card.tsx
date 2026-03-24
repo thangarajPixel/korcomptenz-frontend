@@ -9,11 +9,11 @@ import React from "react";
 const BannerCard = ({
   data,
   className,
-  isFirst = false,
+ 
 }: {
   data: BannerSectionType;
   className?: string;
-  isFirst?: boolean;
+  
 }) => {
   return (
     <div className={cn(className)}>
@@ -86,15 +86,13 @@ const BannerCard = ({
                 " absolute top-0 left-10 p-10 z-10 w-5/8 h-full flex flex-col gap-2 justify-center items-start max-w-2xl ",
               )}
             >
-              {!isFirst ? (
+           
                 <h1 className="text-9xl font-semibold leading-14 text-white  ">
                   {data?.title}
                 </h1>
-              ) : (
-                <h1 className="text-8xl font-semibold leading-14 text-white ">
-                  {data?.title}
-                </h1>
-              )}
+              
+              
+             
               {data?.description && (
                 <DangerousHtml
                   className="text-3xl md:text-5xl leading-tight font-normal text-white mb-4 md:mb-4 "
@@ -284,9 +282,9 @@ const BannerCard = ({
             className="w-[300px] h-auto object-contain mb-2 md:mb-4 opacity-65"
           />
         ) : (
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-2 md:mb-4">
+          <h4 className="text-[34px] leading-[44px] font-bold text-foreground mb-2 md:mb-4">
             {data?.title}
-          </h1>
+          </h4>
         )}
         {data?.description && (
           <DangerousHtml

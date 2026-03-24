@@ -130,9 +130,9 @@ const DemoBannerCard = ({
             className="w-[250px] md:w-[300px] h-auto object-contain opacity-80 mb-2"
           />
         ) : (
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+          <h4 className="text-[34px] leading-[44px] font-bold text-foreground">
             {data?.title}
-          </h1>
+          </h4>
         )}
         {data?.description && (
           <DangerousHtml

@@ -12,15 +12,15 @@ const BannerSection = ({
       data-debug={"page-componets.banner-section-list"}
     >
       {BannerSectionData?.length < 2 ? (
-        <BannerCard data={BannerSectionData[0]} isFirst />
+        <BannerCard data={BannerSectionData[0]} />
       ) : (
         <CardSwiperArrow>
-          {BannerSectionData?.map((data, index) => (
+          {BannerSectionData?.map((data) => (
             <BannerCard
               key={`banner-card-${data?.id}`}
               data={data}
               className="embla__custom_slide"
-              isFirst={index === 0}
+              
             />
           ))}
         </CardSwiperArrow>
