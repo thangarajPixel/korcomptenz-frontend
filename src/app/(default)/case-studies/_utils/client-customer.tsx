@@ -23,7 +23,7 @@ export default function ClientCustomer({
                 className="flex flex-col items-start border-l-2 border-gray-300 pl-6"
               >
                 <div className="text-8xl font-bold tracking-tight lg:text-6xl">
-                  <span className="text-gray-900">{stat.title}</span>
+                  <span className="text-gray-900">{stat?.title}</span>
 
                   <span className="text-blue-600">+</span>
                 </div>

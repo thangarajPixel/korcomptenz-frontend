@@ -52,7 +52,7 @@ export function ShareButton({ data }: { data: SocialPlatformType[] }) {
                   href={`${link?.link}${encodedPrompt}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title={link.label}
+                  title={link?.label}
                   className="flex items-center justify-center w-10 h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
                 >
                   <KorcomptenzImage src={link?.icon} width={25} height={25} />

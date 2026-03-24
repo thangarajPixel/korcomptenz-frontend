@@ -63,18 +63,18 @@ export default function BlogAuthor({
           <div className="flex items-center justify-center md:justify-start gap-2">
             {essential?.blogAiPlatform.map((tool) => (
               <Link
-                key={tool.id}
-                href={`${tool.link}${encodedPrompt}`}
+                key={tool?.id}
+                href={`${tool?.link}${encodedPrompt}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                title={tool.label}
+                title={tool?.label}
                 className="flex items-center justify-center h-14 w-14 rounded-lg "
               >
                 <KorcomptenzImage
-                  src={tool.icon}
+                  src={tool?.icon}
                   width={30}
                   height={30}
-                  alt={tool.label}
+                  alt={tool?.label}
                 />
               </Link>
             ))}

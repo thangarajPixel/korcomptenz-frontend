@@ -98,15 +98,15 @@ export function ClientSuccessFilter({
   return (
     <div className="grid lg:flex items-center gap-3 lg:py-4  bg-background">
       <div className="flex items-center gap-3 flex-1 flex-wrap">
-        {filterLabel.map((label) => (
+        {filterLabel?.map((label) => (
           <DropdownMenu key={label?.filterKey}>
             <FilterLabel
-              label={label.label}
+              label={label?.label}
               count={
-                label.isMultiple
-                  ? (filter?.[label.filterKey as FilterType]?.length ?? 0)
-                  : data?.[label.filterKey]?.some(
-                        (item) => normalize(item.slug) === activeSlug,
+                label?.isMultiple
+                  ? (filter?.[label?.filterKey as FilterType]?.length ?? 0)
+                  : data?.[label?.filterKey]?.some(
+                        (item) => normalize(item?.slug) === activeSlug,
                       )
                     ? 1
                     : undefined
@@ -125,16 +125,16 @@ export function ClientSuccessFilter({
                         href={`/case-study/${tech.slug}`}
                         className={cn(
                           "flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors ",
-                          label.isDesignedDropdown && "text-lg leading-6.5",
+                          label?.isDesignedDropdown && "text-lg leading-6.5",
                           "text-lg truncate",
                           normalize(activeSlug) == tech.slug &&
                             "text-white bg-primary p-2 hover:bg-primary",
                         )}
                       >
-                        {label.isDesignedDropdown && (
+                        {label?.isDesignedDropdown && (
                           <span className="text-2xl flex-shrink-0">
                             <KorcomptenzImage
-                              src={tech.image}
+                              src={tech?.image}
                               width={26}
                               height={22}
                             />
@@ -143,11 +143,11 @@ export function ClientSuccessFilter({
                         <span
                           className={cn(
                             "text-lg truncate",
-                            normalize(activeSlug) == tech.slug &&
+                            normalize(activeSlug) == tech?.slug &&
                               "text-white bg-primary ",
                           )}
                         >
-                          {tech.label}
+                          {tech?.label}
                         </span>
                       </Link>
                     ))}
@@ -157,24 +157,24 @@ export function ClientSuccessFilter({
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                     {data?.[label.filterKey]?.map((item) => (
                       <label
-                        key={item.id}
+                        key={item?.id}
                         className="flex items-center gap-3 cursor-pointer hover:bg-accent/50 rounded-md transition-colors"
                       >
-                        {label.isMultiple && (
+                        {label?.isMultiple && (
                           <Checkbox
                             checked={filter?.[
-                              label.filterKey as FilterType
-                            ]?.includes(item.id)}
+                              label?.filterKey as FilterType
+                            ]?.includes(item?.id)}
                             onCheckedChange={(checked) =>
                               handleFilterChange(
-                                label.filterKey as FilterType,
-                                item.id,
+                                label?.filterKey as FilterType,
+                                item?.id,
                                 checked as boolean,
                               )
                             }
                           />
                         )}
-                        <span className="text-lg truncate">{item.label}</span>
+                        <span className="text-lg truncate">{item?.label}</span>
                       </label>
                     ))}
                   </div>
@@ -211,7 +211,7 @@ export function ClientSuccessFilter({
               className="w-full text-left px-3 py-2 cursor-pointer rounded-md text-sm hover:bg-accent transition-colors"
               onClick={() => onSortChange?.(item.sort)}
             >
-              {item.label}
+              {item?.label}
             </button>
           ))}
         </DropdownMenuContent>

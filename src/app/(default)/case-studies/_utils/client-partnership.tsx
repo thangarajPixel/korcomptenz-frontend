@@ -44,7 +44,7 @@ export default function ClientPartnership({
                   )}
                 >
                   <KorcomptenzImage
-                    src={badge.logo}
+                    src={badge?.logo}
                     fill
                     className="object-contain"
                   />
@@ -56,7 +56,7 @@ export default function ClientPartnership({
                     data?.isSingleLine && "font-bold",
                   )}
                 >
-                  {badge.name}
+                  {badge?.name}
                 </p>
               </div>
 
