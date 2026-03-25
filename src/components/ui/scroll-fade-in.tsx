@@ -19,18 +19,19 @@ export function ScrollFadeIn({
   __component,
 }: ScrollFadeInProps) {
   const ref = useRef(null);
-  // Optimize intersection observer with larger margin for Speed Index
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  // Larger margin for better Speed Index, once: true prevents re-animation
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   // Memoize animation variants to prevent recreation
   const variants = useMemo(
     () => ({
-      hidden: { opacity: 0, y: 15 },
+      hidden: { opacity: 0, y: 10 },
       visible: { opacity: 1, y: 0 },
     }),
     [],
   );
 
+  // Memoize style config
   const styleConfig = useMemo(
     () => ({
       willChange: isInView ? "auto" : "transform, opacity",
@@ -47,9 +48,9 @@ export function ScrollFadeIn({
       animate={isInView ? "visible" : "hidden"}
       variants={variants}
       transition={{
-        duration,
+        duration: Math.min(duration, 0.5),
         delay,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       }}
       className={className}
       data-component={__component}

@@ -22,8 +22,6 @@ const LogoSlider: React.FC<AchievementSectionProps> = ({ data }) => {
   return (
     <div className="container-md px-16">
       <Carousel
-        autoPlay
-        autoPlayDelay={3000}
         data-debug="component.logo-slider"
         className="[&>*]:rounded-none"
       >

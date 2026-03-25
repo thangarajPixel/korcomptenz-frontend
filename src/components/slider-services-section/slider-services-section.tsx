@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -104,7 +105,7 @@ export function SliderServiceSection({ content }: Props) {
             exit={{ opacity: 0, x: -40 }}
             transition={{ duration: 0.3 }}
           >
-            <Carousel autoPlay autoPlayDelay={3000}>
+            <Carousel>
               {/* Arrows Desktop */}
               <CarouselPrevious
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 size-10  bg-primary text-white"
@@ -123,9 +124,11 @@ export function SliderServiceSection({ content }: Props) {
                   >
                     <div className="space-y-4">
                       {item?.image && (
-                        <img
+                        <Image
                           src={item?.image?.url}
                           alt={item?.title}
+                          width={64}
+                          height={64}
                           className="h-16 w-16 object-contain"
                         />
                       )}

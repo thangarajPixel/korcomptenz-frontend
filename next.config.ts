@@ -39,6 +39,8 @@ const nextConfig: NextConfig = {
     ],
     // Optimize server components
     esmExternals: true,
+    // Reduce JavaScript parsing time
+    optimizeCss: true,
   },
   headers: async () => [
     {
