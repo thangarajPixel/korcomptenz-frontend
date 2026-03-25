@@ -19,7 +19,8 @@ export function ScrollFadeIn({
   __component,
 }: ScrollFadeInProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  // Optimize intersection observer with larger margin for Speed Index
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   // Memoize animation variants to prevent recreation
   const variants = useMemo(
@@ -28,6 +29,15 @@ export function ScrollFadeIn({
       visible: { opacity: 1, y: 0 },
     }),
     [],
+  );
+
+  const styleConfig = useMemo(
+    () => ({
+      willChange: isInView ? "auto" : "transform, opacity",
+      contain: "layout style paint",
+      backfaceVisibility: "hidden" as const,
+    }),
+    [isInView],
   );
 
   return (
@@ -39,14 +49,11 @@ export function ScrollFadeIn({
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: "easeInOut",
       }}
       className={className}
       data-component={__component}
-      style={{
-        willChange: isInView ? "auto" : "transform, opacity",
-        contain: "layout style paint",
-      }}
+      style={styleConfig}
     >
       {children}
     </motion.section>

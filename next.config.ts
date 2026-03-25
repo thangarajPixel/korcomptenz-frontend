@@ -24,6 +24,7 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 365,
     dangerouslyAllowSVG: true,
+    unoptimized: false,
   },
   experimental: {
     optimizePackageImports: ["@radix-ui/react-dialog", "lucide-react"],
@@ -61,6 +62,15 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/_next/static/:path*",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "public, max-age=31536000, immutable",
+        },
+      ],
+    },
+    {
+      source: "/assets/:path*",
       headers: [
         {
           key: "Cache-Control",

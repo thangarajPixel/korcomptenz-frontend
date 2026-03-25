@@ -6,7 +6,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/utils";
 import dynamic from "next/dynamic";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState, useCallback } from "react";
 
 // Lazy load reCAPTCHA provider with no SSR to defer initialization
 const GoogleReCaptchaProvider = dynamic(
@@ -21,22 +21,41 @@ const RECAPTCHA_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
+  const [themeReady, setThemeReady] = useState(false);
 
   // Defer theme provider initialization to reduce TBT
   useEffect(() => {
     setMounted(true);
+    // Use requestIdleCallback for non-critical theme setup
+    if (typeof requestIdleCallback !== "undefined") {
+      requestIdleCallback(() => setThemeReady(true), { timeout: 2000 });
+    } else {
+      setTimeout(() => setThemeReady(true), 0);
+    }
   }, []);
+
+  const renderThemeProvider = useCallback(
+    (content: React.ReactNode) => {
+      if (!themeReady) return content;
+      return (
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          disableTransitionOnChange
+          storageKey="theme-preference"
+        >
+          {content}
+        </ThemeProvider>
+      );
+    },
+    [themeReady],
+  );
 
   return (
     <NuqsAdapter>
       <QueryClientProvider client={queryClient}>
-        {mounted && (
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            disableTransitionOnChange
-            storageKey="theme-preference"
-          >
+        {mounted ? (
+          renderThemeProvider(
             <Suspense fallback={null}>
               {RECAPTCHA_KEY ? (
                 <GoogleReCaptchaProvider
@@ -56,10 +75,14 @@ export default function Providers({ children }: { children: React.ReactNode }) {
                   <Toaster richColors position="top-right" />
                 </>
               )}
-            </Suspense>
-          </ThemeProvider>
+            </Suspense>,
+          )
+        ) : (
+          <>
+            {children}
+            <Toaster richColors position="top-right" />
+          </>
         )}
-        {!mounted && children}
       </QueryClientProvider>
     </NuqsAdapter>
   );
