@@ -14,18 +14,18 @@ interface ScrollFadeInProps {
 export function ScrollFadeIn({
   children,
   delay = 0,
-  duration = 1.5,
+  duration = 0.8,
   className,
   __component,
 }: ScrollFadeInProps) {
   const ref = useRef(null);
   // Optimize intersection observer with larger margin for Speed Index
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   // Memoize animation variants to prevent recreation
   const variants = useMemo(
     () => ({
-      hidden: { opacity: 0, y: 20 },
+      hidden: { opacity: 0, y: 15 },
       visible: { opacity: 1, y: 0 },
     }),
     [],
@@ -49,7 +49,7 @@ export function ScrollFadeIn({
       transition={{
         duration,
         delay,
-        ease: "easeInOut",
+        ease: "easeOut",
       }}
       className={className}
       data-component={__component}

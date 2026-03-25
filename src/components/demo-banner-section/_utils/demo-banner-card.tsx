@@ -9,6 +9,7 @@ const DemoBannerCard = ({
   data,
   item,
   className,
+  isFirst = false,
 }: {
   data: BannerSectionType;
   className?: string;
@@ -29,6 +30,7 @@ const DemoBannerCard = ({
           src={data?.image}
           width={1920}
           height={1080}
+          priority={isFirst}
           className="absolute inset-0 w-full h-full object-cover"
         />
 
@@ -100,6 +102,7 @@ const DemoBannerCard = ({
           src={data?.imageMobile || data?.image}
           width={1000}
           height={800}
+          priority={isFirst}
           className="w-full h-full object-cover"
         />
       </div>{" "}

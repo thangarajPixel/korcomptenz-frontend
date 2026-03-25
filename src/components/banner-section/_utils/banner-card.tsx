@@ -4,16 +4,14 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-import React from "react";
-
 const BannerCard = ({
   data,
   className,
- 
+  isPriority = false,
 }: {
   data: BannerSectionType;
   className?: string;
-  
+  isPriority?: boolean;
 }) => {
   return (
     <div className={cn(className)}>
@@ -28,7 +26,7 @@ const BannerCard = ({
           <KorcomptenzImage
             src={data?.image}
             fill
-            loading="eager"
+            priority={isPriority}
             className="w-full h-full object-cover object-right  "
           />
           <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-[5]  " />
@@ -86,13 +84,10 @@ const BannerCard = ({
                 " absolute top-0 left-10 p-10 z-10 w-5/8 h-full flex flex-col gap-2 justify-center items-start max-w-2xl ",
               )}
             >
-           
-                <h1 className="text-9xl font-semibold leading-14 text-white  ">
-                  {data?.title}
-                </h1>
-              
-              
-             
+              <h1 className="text-9xl font-semibold leading-14 text-white  ">
+                {data?.title}
+              </h1>
+
               {data?.description && (
                 <DangerousHtml
                   className="text-3xl md:text-5xl leading-tight font-normal text-white mb-4 md:mb-4 "
@@ -205,7 +200,6 @@ const BannerCard = ({
           </>
         )}
       </>
-      {/* Mobile view */}
       <div
         className={cn(
           "w-full lg:hidden overflow-hidden ",
@@ -224,6 +218,7 @@ const BannerCard = ({
             src={data?.imageMobile}
             width={1000}
             height={800}
+            priority={isPriority}
             className="w-full h-full object-cover"
           />
         </div>

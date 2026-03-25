@@ -27,15 +27,20 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
     : props?.alt || "";
   const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
 
+  // Use priority from props, default to false for lazy loading
+  const priority = props?.priority ?? false;
+  // Use loading from props, default to lazy unless priority is true
+  const loading = priority ? undefined : ("lazy" as const);
+
   return (
     <Image
       placeholder={imagePlaceholder}
       {...props}
       src={(src || "/assets/placeholder.png") as string}
       alt={alt || "/assets/placeholder.png"}
-      loading="lazy"
+      loading={loading}
       unoptimized={isGif}
-      priority={false}
+      priority={priority}
       className={cn(
         "object-cover",
         props?.nonAnimate &&

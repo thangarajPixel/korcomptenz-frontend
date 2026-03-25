@@ -22,17 +22,29 @@ const RECAPTCHA_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
   const [themeReady, setThemeReady] = useState(false);
+  const [recaptchaReady, setRecaptchaReady] = useState(false);
 
   // Defer theme provider initialization to reduce TBT
   useEffect(() => {
     setMounted(true);
     // Use requestIdleCallback for non-critical theme setup
     if (typeof requestIdleCallback !== "undefined") {
-      requestIdleCallback(() => setThemeReady(true), { timeout: 2000 });
+      requestIdleCallback(() => setThemeReady(true), { timeout: 1500 });
     } else {
       setTimeout(() => setThemeReady(true), 0);
     }
   }, []);
+
+  // Defer reCAPTCHA initialization even further
+  useEffect(() => {
+    if (themeReady && RECAPTCHA_KEY) {
+      if (typeof requestIdleCallback !== "undefined") {
+        requestIdleCallback(() => setRecaptchaReady(true), { timeout: 3000 });
+      } else {
+        setTimeout(() => setRecaptchaReady(true), 500);
+      }
+    }
+  }, [themeReady]);
 
   const renderThemeProvider = useCallback(
     (content: React.ReactNode) => {
@@ -57,7 +69,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         {mounted ? (
           renderThemeProvider(
             <Suspense fallback={null}>
-              {RECAPTCHA_KEY ? (
+              {RECAPTCHA_KEY && recaptchaReady ? (
                 <GoogleReCaptchaProvider
                   reCaptchaKey={RECAPTCHA_KEY}
                   scriptProps={{

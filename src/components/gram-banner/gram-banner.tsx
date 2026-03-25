@@ -86,6 +86,7 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
                     src={gramData.image}
                     width={gramData.image?.width || 500}
                     height={gramData.image?.height || 500}
+                    priority={true}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -97,6 +98,7 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
                       src={gramData.mobileImage}
                       width={500}
                       height={500}
+                      priority={true}
                       className="w-full h-auto object-cover"
                     />
                   )}

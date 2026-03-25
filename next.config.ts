@@ -27,7 +27,13 @@ const nextConfig: NextConfig = {
     unoptimized: false,
   },
   experimental: {
-    optimizePackageImports: ["@radix-ui/react-dialog", "lucide-react"],
+    optimizePackageImports: [
+      "@radix-ui/react-dialog",
+      "lucide-react",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-popover",
+      "@radix-ui/react-tabs",
+    ],
   },
   headers: async () => [
     {
