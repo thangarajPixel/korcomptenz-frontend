@@ -14,6 +14,14 @@ const outfitSans = Outfit({
   weight: ["400", "500", "600", "700"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  colorScheme: "light dark",
+};
+
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers();
   const host = headersList.get("host") || "www.korcomptenz.com";
@@ -41,6 +49,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
+        {/* Resource Hints for Performance */}
+        <link rel="prefetch" href="/" />
+        
         {/* Preconnect to critical domains with crossOrigin */}
         <link
           rel="preconnect"
@@ -49,20 +60,21 @@ export default function RootLayout({
         />
         <link
           rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
           href="https://aue2kormlworkspacetest01.blob.core.windows.net"
           crossOrigin="anonymous"
         />
+        
+        {/* DNS Prefetch for third-party services */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://js.hs-scripts.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
         {/* Preload critical fonts to improve LCP */}
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
-          as="style"
-        />
-
-        {/* Preload critical font for LCP improvement */}
         <link
           rel="preload"
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
@@ -73,8 +85,14 @@ export default function RootLayout({
         {/* Inline critical CSS for faster FCP */}
         <style
           dangerouslySetInnerHTML={{
-            __html: `html,body{margin:0;padding:0}body{background:#fff;color:#313941}.dark{background:#0a0a0a;color:#fff}main{flex:1}*{box-sizing:border-box}`,
+            __html: `html,body{margin:0;padding:0;font-family:'Outfit',system-ui,sans-serif}body{background:#fff;color:#313941}html.dark,html.dark body{background:#0a0a0a;color:#fff}main{flex:1}*{box-sizing:border-box}@media(prefers-color-scheme:dark){html{color-scheme:dark}}`,
           }}
+        />
+
+        {/* Async font stylesheet loading */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
         />
 
         {/* Schema.org Structured Data */}
@@ -121,26 +139,26 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Tag Manager - Deferred to afterInteractive for better performance */}
+        {/* Google Tag Manager - Deferred to lazyOnload for maximum performance */}
         <Script
           id="gtm-script"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDLSJSX');`,
           }}
         />
 
-        {/* HubSpot - Deferred to afterInteractive */}
+        {/* HubSpot - Deferred to lazyOnload */}
         <Script
           id="hs-script-loader"
           src="//js.hs-scripts.com/7991245.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
-        {/* Mirabel's Marketing Manager - Deferred to afterInteractive */}
+        {/* Mirabel's Marketing Manager - Deferred to lazyOnload */}
         <Script
           id="mirabel-tracking"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `!function () {
         var e, t;
@@ -159,10 +177,10 @@ export default function RootLayout({
           }}
         />
 
-        {/* AdRoll - Deferred to afterInteractive */}
+        {/* AdRoll - Deferred to lazyOnload */}
         <Script
           id="adroll-tracking"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `adroll_adv_id = "6AFFI77P25EMLITUU77QLL"; adroll_pix_id = "MBYLSCHWRRDSPAI7HHOHMI"; adroll_version = "2.0"; (function(w, d, e, o, a) { w.adroll_tag_source = w.adroll_tag_source || "manual"; w.__adroll_loaded = true; w.adroll = w.adroll || []; w.adroll.f = [ 'setProperties', 'identify', 'track', 'identify_email', 'get_cookie' ]; var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js"; for (a = 0; a < w.adroll.f.length; a++) { w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) { return function() { w.adroll.push([ n, arguments ]) } })(w.adroll.f[a]) } e = d.createElement('script'); o = d.getElementsByTagName('script')[0]; e.async = 1; e.src = roundtripUrl; o.parentNode.insertBefore(e, o); })(window, document); adroll.track("pageview");`,
           }}

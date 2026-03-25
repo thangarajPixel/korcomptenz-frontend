@@ -1,100 +1,474 @@
-import React from "react";
-import { InsightsSection } from "../insight-section";
-import InspireSection from "../inspire-section";
-import Opportunities from "../opportunities";
-import ServicesSection from "../services-section";
-import SlidingSection from "../sliding-section";
-import { StickyCards, CaseStudyStickyCards } from "../sticky-cards";
-import WeAreKorcomptenzSection from "../we-are-korcomptenz";
-import BannerSection from "../banner-section";
-import SapSection from "../sap-section";
-import LightSlider from "../light-slider";
-import DarkSlider from "../dark-slider";
-import { DomainSection, CaseStudyDomainSection } from "../domain-section";
-import BenefitSection from "../benefit-section";
-import FaqSection from "../faq-section";
-import { StickyTitleList } from "../sticky-title-list";
-import DemonstrateSection from "../demonstrate-section";
-import BuildConnect from "../build-connect";
-import TechPartner from "../tech-partner-section";
-import ScheduleCall from "../layout/_utils/schedule";
-import StretchableSection from "../stretchable-section";
-import WhyKorcomptenz from "../why-korcomptenz/why-korcomptenz";
-import GramBanner from "../gram-banner/gram-banner";
-import { GlobalForm } from "../global-form";
+import dynamic from "next/dynamic";
+import { ScrollFadeIn } from "../ui/scroll-fade-in";
 import {
   ClientPartnership,
   ClientTestimonial,
 } from "@/app/(default)/case-studies/_utils";
-import ContentShowcaseSection from "../content-showcase-section";
-import MapSection from "../map-section";
-import OurStory from "../our-story";
-import PeopleShowcaseSection from "../people-showcase-section";
-import StatsSection from "../stats-section";
-import MediaSliderSection from "../media-slider-section";
-import MasonryGallerySection from "../masonry-gallery-section/masonry-gallery-section";
-import AchievementSection from "../achievements-section";
-import NotFound from "../not-found";
-import PanchatattvaSection from "../panchatattva-section";
-import OpenJobs from "../open-jobs";
-import { ContactUsNewsletter } from "../news-letter-section";
 import {
   ContactUsCorporate,
   ContactUsInsight,
   ContactUsOffice,
 } from "@/app/(default)/contact-us/_utils";
-import FixedFooter from "../fixed-footer";
-import ContactUsForm from "@/app/(default)/contact-us/_utils/contact-us-form-section";
-import DemoBannerSection from "../demo-banner-section";
-import LiveDemoList from "@/app/(default)/live-demo/_utils/live-demo-list";
-import DemoPartnership from "@/app/(default)/live-demo/_utils/demo-partnership";
-import DemoExperts from "@/app/(default)/live-demo/_utils/demo-experts";
-import DemoOpportunities from "@/app/(default)/live-demo/_utils/demo-opportunities";
-import DemoWhyAttend from "@/app/(default)/live-demo/_utils/demo-why-attend";
-import { ScrollFadeIn } from "../ui/scroll-fade-in";
-import BuildDemo from "../build-connect/build-Demo";
-import PricingSection from "../pricing-section";
-import KorCareBuildData from "../kor-care-build-data";
-import KorCareImpactDescription from "../kor-care-impact-description";
-import KorCareAward from "../kor-care-award-section/kor-care-award";
-import KorCareSlider from "../kor-care-slider-section";
-import KorCareImpactHighlight from "../kor-care-impact-highlight";
-import NewsEventListSection from "../news-event-list-section";
-import { DescriptionOnly, TitleDescription } from "../description-section";
-import { CombinedSection, NewsRoomSlider, ServiceProvider } from "../news-room";
-import VideoBannerSection from "../video-banner-section";
-import NewsRoomBuild from "../news-room/_utils/news-room-build";
 
-import DigitialBenefits from "../digitial-benefits/digitial-benefits";
-import KpiPartner from "../kpi-partner";
-import DigitalServiceSection from "../digitial-services-section";
-import { DigitialCardSlider } from "../digitial-card-slider";
-import { DigitialAboutSection } from "../digitial-about-section";
-import { DigitalErpList } from "../digitial-erp-list";
-import DigitialAnalytics from "../digitial-analytics/digitial-analytics";
+// Ultra-lightweight skeleton loader for better LCP
+const SectionLoader = () => (
+  <div
+    className="w-full bg-gray-100 animate-pulse"
+    style={{ minHeight: "400px" }}
+  />
+);
 
-import { DigitialLifeCycle } from "../digitial-life-cycle";
-import DigitialInsightSlider from "../dark-slider copy";
-import CombinedAboutCardSlider from "../digitial-combined/digitial-combined";
-import OperationalRoadblock from "../smartforge-operational-Roadblock";
-import SmartForgeEnterprises from "../smartforge-enterprises";
-import SmartForgeBuild from "../smartforge-build";
-import DigitialCard from "../digitial-card/digitial-card";
-import ExpertMigration from "../expert-migration/expert-migration";
-import FabconAiPowered from "../fabcon-ai-powered/fabcon-ai-powered";
-import FabconAbout from "../fabcon-about";
-import FabconAnalytics from "../fabcon-analytics";
-import FabconSmartForge from "../fabcon-smart-forge";
-import FabconExperts from "../fabcon-experts";
-import FabconLedTransform from "../fabcon-led-transform";
-import FabconComposableIntelligence from "../fabcon-composable-intelligence";
-import FabconDecisionFabric from "../fabcon-decision-fabric";
-import FabconBanner from "../fabcon-banner/fabcon-banner";
-import FabconMidMarket from "../fabcon-midmarket";
-import LogoSlider from "../logo-slider";
-import SapImplementation from "../sap-implementation";
-import SliderServiceSection from "../slider-services-section/slider-services-section";
-import MicrosoftGoldCertified from "../microsoft-certified";
+// Dynamic imports with loading states and lazy loading strategy
+// Hero/Hero-like sections load immediately for LCP
+const SlidingSection = dynamic(() => import("../sliding-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+// Below-fold sections load with delay for better FCP
+const InsightsSection = dynamic(
+  () => import("../insight-section").then((mod) => mod.InsightsSection),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const InspireSection = dynamic(() => import("../inspire-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const Opportunities = dynamic(() => import("../opportunities"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const ServicesSection = dynamic(() => import("../services-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const StickyCards = dynamic(
+  () => import("../sticky-cards").then((mod) => mod.StickyCards),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const CaseStudyStickyCards = dynamic(
+  () => import("../sticky-cards").then((mod) => mod.CaseStudyStickyCards),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const WeAreKorcomptenzSection = dynamic(() => import("../we-are-korcomptenz"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const BannerSection = dynamic(() => import("../banner-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const SapSection = dynamic(() => import("../sap-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const LightSlider = dynamic(() => import("../light-slider"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const DarkSlider = dynamic(() => import("../dark-slider"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const DomainSection = dynamic(
+  () => import("../domain-section").then((mod) => mod.DomainSection),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const CaseStudyDomainSection = dynamic(
+  () => import("../domain-section").then((mod) => mod.CaseStudyDomainSection),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const BenefitSection = dynamic(() => import("../benefit-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const FaqSection = dynamic(() => import("../faq-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const StickyTitleList = dynamic(
+  () => import("../sticky-title-list").then((mod) => mod.StickyTitleList),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DemonstrateSection = dynamic(() => import("../demonstrate-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const BuildConnect = dynamic(() => import("../build-connect"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const TechPartner = dynamic(() => import("../tech-partner-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const ScheduleCall = dynamic(() => import("../layout/_utils/schedule"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const StretchableSection = dynamic(() => import("../stretchable-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const WhyKorcomptenz = dynamic(
+  () => import("../why-korcomptenz/why-korcomptenz"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const GramBanner = dynamic(() => import("../gram-banner/gram-banner"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const GlobalForm = dynamic(
+  () => import("../global-form").then((mod) => mod.GlobalForm),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const ContentShowcaseSection = dynamic(
+  () => import("../content-showcase-section"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const MapSection = dynamic(() => import("../map-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const OurStory = dynamic(() => import("../our-story"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const PeopleShowcaseSection = dynamic(
+  () => import("../people-showcase-section"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const StatsSection = dynamic(() => import("../stats-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const MediaSliderSection = dynamic(() => import("../media-slider-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const MasonryGallerySection = dynamic(
+  () =>
+    import("../masonry-gallery-section/masonry-gallery-section").then(
+      (mod) => mod.default,
+    ),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const AchievementSection = dynamic(() => import("../achievements-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const NotFound = dynamic(() => import("../not-found"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const PanchatattvaSection = dynamic(() => import("../panchatattva-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const OpenJobs = dynamic(() => import("../open-jobs"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const ContactUsNewsletter = dynamic(
+  () => import("../news-letter-section").then((mod) => mod.ContactUsNewsletter),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const FixedFooter = dynamic(() => import("../fixed-footer"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const ContactUsForm = dynamic(
+  () => import("@/app/(default)/contact-us/_utils/contact-us-form-section"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DemoBannerSection = dynamic(() => import("../demo-banner-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const LiveDemoList = dynamic(
+  () => import("@/app/(default)/live-demo/_utils/live-demo-list"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DemoPartnership = dynamic(
+  () => import("@/app/(default)/live-demo/_utils/demo-partnership"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DemoExperts = dynamic(
+  () => import("@/app/(default)/live-demo/_utils/demo-experts"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DemoOpportunities = dynamic(
+  () => import("@/app/(default)/live-demo/_utils/demo-opportunities"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DemoWhyAttend = dynamic(
+  () => import("@/app/(default)/live-demo/_utils/demo-why-attend"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const BuildDemo = dynamic(() => import("../build-connect/build-Demo"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const PricingSection = dynamic(() => import("../pricing-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const KorCareBuildData = dynamic(() => import("../kor-care-build-data"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const KorCareImpactDescription = dynamic(
+  () => import("../kor-care-impact-description"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const KorCareAward = dynamic(
+  () => import("../kor-care-award-section/kor-care-award"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const KorCareSlider = dynamic(() => import("../kor-care-slider-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const KorCareImpactHighlight = dynamic(
+  () => import("../kor-care-impact-highlight"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const NewsEventListSection = dynamic(
+  () => import("../news-event-list-section"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DescriptionOnly = dynamic(
+  () => import("../description-section").then((mod) => mod.DescriptionOnly),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const TitleDescription = dynamic(
+  () => import("../description-section").then((mod) => mod.TitleDescription),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const CombinedSection = dynamic(
+  () => import("../news-room").then((mod) => mod.CombinedSection),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const NewsRoomSlider = dynamic(
+  () => import("../news-room").then((mod) => mod.NewsRoomSlider),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const ServiceProvider = dynamic(
+  () => import("../news-room").then((mod) => mod.ServiceProvider),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const VideoBannerSection = dynamic(() => import("../video-banner-section"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const NewsRoomBuild = dynamic(
+  () => import("../news-room/_utils/news-room-build"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DigitialBenefits = dynamic(
+  () => import("../digitial-benefits/digitial-benefits"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const KpiPartner = dynamic(() => import("../kpi-partner"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const DigitalServiceSection = dynamic(
+  () => import("../digitial-services-section"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DigitialCardSlider = dynamic(
+  () => import("../digitial-card-slider").then((mod) => mod.DigitialCardSlider),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DigitialAboutSection = dynamic(
+  () =>
+    import("../digitial-about-section").then((mod) => mod.DigitialAboutSection),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DigitalErpList = dynamic(
+  () => import("../digitial-erp-list").then((mod) => mod.DigitalErpList),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DigitialAnalytics = dynamic(
+  () => import("../digitial-analytics/digitial-analytics"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DigitialLifeCycle = dynamic(
+  () => import("../digitial-life-cycle").then((mod) => mod.DigitialLifeCycle),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const DigitialInsightSlider = dynamic(() => import("../dark-slider copy"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const CombinedAboutCardSlider = dynamic(
+  () => import("../digitial-combined/digitial-combined"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const OperationalRoadblock = dynamic(
+  () => import("../smartforge-operational-Roadblock"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const SmartForgeEnterprises = dynamic(
+  () => import("../smartforge-enterprises"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const SmartForgeBuild = dynamic(() => import("../smartforge-build"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const DigitialCard = dynamic(() => import("../digitial-card/digitial-card"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const ExpertMigration = dynamic(
+  () => import("../expert-migration/expert-migration"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const FabconAiPowered = dynamic(
+  () => import("../fabcon-ai-powered/fabcon-ai-powered"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const FabconAbout = dynamic(() => import("../fabcon-about"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const FabconAnalytics = dynamic(() => import("../fabcon-analytics"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const FabconSmartForge = dynamic(() => import("../fabcon-smart-forge"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const FabconExperts = dynamic(() => import("../fabcon-experts"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const FabconLedTransform = dynamic(() => import("../fabcon-led-transform"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const FabconComposableIntelligence = dynamic(
+  () => import("../fabcon-composable-intelligence"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const FabconDecisionFabric = dynamic(
+  () => import("../fabcon-decision-fabric"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const FabconBanner = dynamic(() => import("../fabcon-banner/fabcon-banner"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const FabconMidMarket = dynamic(() => import("../fabcon-midmarket"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const LogoSlider = dynamic(() => import("../logo-slider"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const SapImplementation = dynamic(() => import("../sap-implementation"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
+const SliderServiceSection = dynamic(
+  () => import("../slider-services-section/slider-services-section"),
+  { loading: () => <SectionLoader />, ssr: true },
+);
+
+const MicrosoftGoldCertified = dynamic(() => import("../microsoft-certified"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
 
 type Props = {
   data: ComponentPropsType[];
@@ -102,7 +476,7 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-  
+
   return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
@@ -1033,19 +1407,18 @@ const GlobalPage = (props: Props) => {
             key={`slider-service-section-${item?.__component}-${item?.id}`}
           >
             <SliderServiceSection content={item} />
-            
           </ScrollFadeIn>
         );
 
-        case "page-componets.microsoft-gold-certified":
+      case "page-componets.microsoft-gold-certified":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`microsoft-gold-certified-${item?.__component}-${item?.id}`}
           >
-            <MicrosoftGoldCertified data={item}/>
+            <MicrosoftGoldCertified data={item} />
           </ScrollFadeIn>
-        )
+        );
       default:
         return;
     }

@@ -33,7 +33,12 @@ const nextConfig: NextConfig = {
       "@radix-ui/react-accordion",
       "@radix-ui/react-popover",
       "@radix-ui/react-tabs",
+      "@radix-ui/react-slot",
+      "@tanstack/react-query",
+      "framer-motion",
     ],
+    // Optimize server components
+    esmExternals: true,
   },
   headers: async () => [
     {
