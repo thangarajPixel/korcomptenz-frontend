@@ -27,13 +27,19 @@ const CardSwiperArrowWhite = ({
     emblaApi?.scrollNext();
   }, [emblaApi]);
 
-  // Auto-slide
+  // Auto-slide with optimized timing
   React.useEffect(() => {
     if (!emblaApi || disableAutoSlide) return;
 
+    let lastScrollTime = Date.now();
+    const autoSlideDelay = 10000;
+
     const autoSlide = setInterval(() => {
-      emblaApi.scrollNext();
-    }, 10000);
+      if (Date.now() - lastScrollTime >= autoSlideDelay) {
+        emblaApi.scrollNext();
+        lastScrollTime = Date.now();
+      }
+    }, 500); // Check every 500ms instead of every frame
 
     return () => clearInterval(autoSlide);
   }, [emblaApi, disableAutoSlide]);

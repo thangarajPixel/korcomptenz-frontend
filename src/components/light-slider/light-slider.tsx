@@ -43,11 +43,14 @@ const LightSlider = React.memo(({ data }: { data: LightSliderType }) => {
     if (!emblaApi) return;
 
     stopAutoplay(); // safety
+    let lastScrollTime = Date.now();
+
     autoplayRef.current = setInterval(() => {
-      if (emblaApi.canScrollNext()) {
+      if (emblaApi.canScrollNext() && Date.now() - lastScrollTime >= 3000) {
         emblaApi.scrollNext();
+        lastScrollTime = Date.now();
       }
-    }, 3000);
+    }, 500); // Check every 500ms instead of every 3s
   }, [emblaApi]);
 
   const stopAutoplay = React.useCallback(() => {

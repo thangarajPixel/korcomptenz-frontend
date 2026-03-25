@@ -1,7 +1,6 @@
 "use client";
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Loader2, ChevronRight } from "lucide-react";
 
@@ -40,7 +39,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 function Button({
@@ -58,30 +57,29 @@ function Button({
     isLoading?: boolean;
     arrow?: boolean;
     disabled?: boolean;
-  } & import("framer-motion").HTMLMotionProps<"button"> &
-  VariantProps<typeof buttonVariants>) {
+  }) {
   return (
-    <motion.button
+    <button
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
       disabled={isLoading || disabled}
     >
-      <span className="relative flex items-center justify-center  gap-1">
+      <span className="relative flex items-center justify-center gap-1">
         {isLoading ? (
-          <span className="inline-flex h-6 w-full items-center  justify-center gap-2">
+          <span className="inline-flex h-6 w-full items-center justify-center gap-2">
             {children}
             <Loader2 className="mt-[-4px] size-4 animate-spin" />
           </span>
         ) : (
           <React.Fragment>
-            <span className="relative flex items-center justify-center text-lg  gap-1">
+            <span className="relative flex items-center justify-center text-lg gap-1">
               {children}
               {arrow && <ChevronRight className="size-5" strokeWidth={3} />}
             </span>
           </React.Fragment>
         )}
       </span>
-    </motion.button>
+    </button>
   );
 }
 

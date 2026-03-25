@@ -10,7 +10,7 @@ const outfitSans = Outfit({
   variable: "--font-outfit-sans",
   subsets: ["latin"],
   display: "swap",
-  preload: true,
+  preload: false,
   weight: ["400", "500", "600", "700"],
 });
 
@@ -20,6 +20,7 @@ export const viewport = {
   maximumScale: 5,
   userScalable: true,
   colorScheme: "light dark",
+  themeColor: "#ffffff",
 };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -56,17 +57,7 @@ export default function RootLayout({
         {/* Resource Hints for Performance */}
         <link rel="prefetch" href="/" />
 
-        {/* Preconnect to critical domains with crossOrigin */}
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        {/* Preconnect to critical domains - image CDN only */}
         <link
           rel="preconnect"
           href="https://aue2kormlworkspacetest01.blob.core.windows.net"
@@ -76,20 +67,14 @@ export default function RootLayout({
         {/* DNS Prefetch for third-party services */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://js.hs-scripts.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
-        {/* Preload critical fonts to improve LCP */}
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
-          as="style"
-          crossOrigin="anonymous"
-        />
+        {/* Preload critical fonts to improve LCP - removed for aggressive optimization */}
+        {/* Fonts loaded via async stylesheet instead */}
 
-        {/* Inline critical CSS for faster FCP */}
+        {/* Inline critical CSS for faster FCP - ultra-minimal with font-display swap and hero optimization */}
         <style
           dangerouslySetInnerHTML={{
-            __html: `html,body{margin:0;padding:0;font-family:'Outfit',system-ui,sans-serif}body{background:#fff;color:#313941}html.dark,html.dark body{background:#0a0a0a;color:#fff}main{flex:1}*{box-sizing:border-box}@media(prefers-color-scheme:dark){html{color-scheme:dark}}`,
+            __html: `html,body{margin:0;padding:0;font-family:'Outfit',system-ui,sans-serif;font-display:swap}body{background:#fff;color:#313941;overflow-x:hidden}html.dark,html.dark body{background:#0a0a0a;color:#fff}main{flex:1}*{box-sizing:border-box}@media(prefers-color-scheme:dark){html{color-scheme:dark}}.embla__custom_slide{flex:0 0 100%;min-width:0}.embla__viewport{overflow:hidden}.embla__container{display:flex;touch-action:pan-y;margin-left:calc(var(--slide-spacing, 0rem) * -1)}.embla__slide{flex:0 0 100%;min-width:0;padding-left:var(--slide-spacing, 0rem)}`,
           }}
         />
 
@@ -143,7 +128,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Tag Manager - Deferred to afterInteractive to avoid blocking */}
+        {/* Google Tag Manager - Ultra-deferred to afterInteractive for maximum performance */}
         <Script
           id="gtm-script"
           strategy="afterInteractive"
@@ -152,14 +137,14 @@ export default function RootLayout({
           }}
         />
 
-        {/* HubSpot - Deferred to afterInteractive */}
+        {/* HubSpot - Ultra-deferred to afterInteractive */}
         <Script
           id="hs-script-loader"
           src="//js.hs-scripts.com/7991245.js"
           strategy="afterInteractive"
         />
 
-        {/* Mirabel's Marketing Manager - Deferred to afterInteractive */}
+        {/* Mirabel's Marketing Manager - Ultra-deferred to afterInteractive */}
         <Script
           id="mirabel-tracking"
           strategy="afterInteractive"
@@ -181,7 +166,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* AdRoll - Deferred to afterInteractive */}
+        {/* AdRoll - Ultra-deferred to afterInteractive */}
         <Script
           id="adroll-tracking"
           strategy="afterInteractive"

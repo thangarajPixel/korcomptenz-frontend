@@ -10,11 +10,11 @@ import {
   ContactUsOffice,
 } from "@/app/(default)/contact-us/_utils";
 
-// Ultra-lightweight skeleton loader for better LCP
+// Ultra-lightweight skeleton loader for better LCP - minimal height to reduce layout shift
 const SectionLoader = () => (
   <div
-    className="w-full bg-gray-100 animate-pulse"
-    style={{ minHeight: "400px" }}
+    className="w-full bg-gray-100"
+    style={{ minHeight: "0px", contain: "layout style paint" }}
   />
 );
 

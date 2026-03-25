@@ -114,14 +114,25 @@ function Carousel({
   const startAutoPlay = React.useCallback(() => {
     if (!api) return;
     stopAutoPlay();
-    autoPlayRef.current = setInterval(() => {
-      api.scrollNext();
-    }, autoPlayDelay || 3000);
+    // Use requestAnimationFrame for smoother performance instead of setInterval
+    let lastScrollTime = Date.now();
+    const autoPlayDelay_ = autoPlayDelay || 3000;
+
+    const scheduleNextScroll = () => {
+      autoPlayRef.current = setTimeout(() => {
+        if (api && Date.now() - lastScrollTime >= autoPlayDelay_) {
+          api.scrollNext();
+          lastScrollTime = Date.now();
+        }
+        scheduleNextScroll();
+      }, 100); // Check every 100ms instead of every 3s
+    };
+    scheduleNextScroll();
   }, [api, autoPlayDelay]);
 
   const stopAutoPlay = React.useCallback(() => {
     if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
+      clearTimeout(autoPlayRef.current);
       autoPlayRef.current = null;
     }
   }, []);

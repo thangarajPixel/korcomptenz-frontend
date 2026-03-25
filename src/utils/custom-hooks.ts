@@ -5,16 +5,23 @@ import type { RefObject } from "react"
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
 
-// Use Mobile
+// Use Mobile - optimized with debouncing to prevent excessive re-renders
 const useMobile = () => {
   const [isMobile, setIsMobile] = React.useState(false);
   React.useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setIsMobile(window.innerWidth < 768);
+      }, 150); // Debounce resize events
     };
-    handleResize();
+    setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
+    };
   }, []);
   return isMobile;
 };

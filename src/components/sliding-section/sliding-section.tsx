@@ -25,13 +25,7 @@ export default function SlidingSection({
         >
           <div
             className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
-            // style={{
-            //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
-            //   backgroundSize: "cover",
-            //   backgroundPosition: "center",
-            //   backgroundRepeat: "no-repeat",
-            //   objectFit: "cover"
-            // }}
+            style={{ contain: "layout style paint" }}
           >
             {slide?.design === "video" && (
               <video
@@ -47,25 +41,33 @@ export default function SlidingSection({
             {slide?.design === "image" && (
               <KorcomptenzImage
                 src={isMobile ? slide?.mobile_image : slide?.image}
-                width={1000}
-                height={1000}
+                width={1280}
+                height={720}
                 priority={index === 0}
                 className="w-full h-full object-cover"
+                sizes="100vw"
               />
             )}
             {slide?.design === "bgcolor" && (
-              <div className="relative w-full h-full">
+              <div
+                className="relative w-full h-full"
+                style={{ contain: "layout style paint" }}
+              >
                 {/* Background Image */}
                 <KorcomptenzImage
                   src={slide?.backgroundImage}
-                  width={1000}
-                  height={1000}
+                  width={1280}
+                  height={720}
                   priority={index === 0}
                   className="w-full h-full object-cover"
+                  sizes="100vw"
                 />
 
                 {/* Overlay / Banner Image */}
-                <div className="absolute top-24 right-32 w-[300px] h-[300px]">
+                <div
+                  className="absolute top-24 right-32 w-[300px] h-[300px]"
+                  style={{ contain: "layout style paint" }}
+                >
                   <KorcomptenzImage
                     src={slide?.bannerImage}
                     width={300}
@@ -77,17 +79,12 @@ export default function SlidingSection({
               </div>
             )}
 
-            <div className="absolute inset-0  flex items-start mt-12 md:mt-0 md:items-center">
+            <div
+              className="absolute inset-0 flex items-start mt-12 md:mt-0 md:items-center"
+              style={{ contain: "layout style" }}
+            >
               <div className="container-md">
                 <div className="max-w-2xl text-white ml-12">
-                  {/* {slide?.logo && (
-                    <KorcomptenzImage
-                      src={slide?.logo}
-                      width={300}
-                      height={300}
-                      className="w-[300px] h-[300px] object-contain"
-                    />
-                  )} */}
                   <div
                     className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${
                       slide?.subtitle
@@ -102,25 +99,17 @@ export default function SlidingSection({
                       src={slide?.logo}
                       width={350}
                       height={350}
-                      className=" object-contain bg-white rounded-xl mb-2"
+                      priority={index === 0}
+                      className="object-contain bg-white rounded-xl mb-2"
                     />
                   )}
-                  {index === 0 ? (
-                    <h1 className="text-6xl md:text-7xl  font-semibold mb-4 leading-tight ">
-                      {slide?.title}
-                    </h1>
-                  ) : (
-                    <h1 className="text-6xl md:text-7xl  font-semibold mb-4 leading-tight ">
-                      {slide?.title}
-                    </h1>
-                  )}
-                  {!slide?.description && <div className="h-0 md:h-16 " />}
-                  {/* <p className="text-3xl md:text-5xl mb-8 leading-tight  text-pretty">
-                    {slide?.description}
-                  </p> */}
+                  <h1 className="text-6xl md:text-7xl font-semibold mb-4 leading-tight">
+                    {slide?.title}
+                  </h1>
+                  {!slide?.description && <div className="h-0 md:h-16" />}
                   <DangerousHtml
                     html={slide?.description}
-                    className="text-3xl md:text-5xl mb-8 leading-tight  text-pretty"
+                    className="text-3xl md:text-5xl mb-8 leading-tight text-pretty"
                   />
                   {slide?.buttonText && (
                     <Link href={slide?.link || "#"}>
