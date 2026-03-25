@@ -1,7 +1,9 @@
+"use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
+import { useMediaQuery } from "@uidotdev/usehooks";
 import Link from "next/link";
 
 import React from "react";
@@ -15,10 +17,13 @@ const BannerCard = ({
   className?: string;
   
 }) => {
+
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
   return (
     <div className={cn(className)}>
       {/* Desktop view */}
-      <>
+      {isDesktop ?
+      (<>
         <div
           className={cn(
             "relative w-full md:h-[513px] h-full overflow-hidden hidden lg:block rounded-4xl",
@@ -204,8 +209,9 @@ const BannerCard = ({
             )}
           </>
         )}
-      </>
-      {/* Mobile view */}
+      </>):
+     ( <>
+           {/* Mobile view */}
       <div
         className={cn(
           "w-full lg:hidden overflow-hidden ",
@@ -282,9 +288,9 @@ const BannerCard = ({
             className="w-[300px] h-auto object-contain mb-2 md:mb-4 opacity-65"
           />
         ) : (
-          <h4 className="text-[34px] leading-[44px] font-bold text-foreground mb-2 md:mb-4">
+          <h1 className="font-bold text-foreground mb-2 md:mb-4">
             {data?.title}
-          </h4>
+          </h1>
         )}
         {data?.description && (
           <DangerousHtml
@@ -324,6 +330,7 @@ const BannerCard = ({
           {data?.bannerCaption}
         </p>
       </div>
+</>)}
     </div>
   );
 };
