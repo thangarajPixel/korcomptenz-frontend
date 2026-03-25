@@ -2031,8 +2031,8 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/microsoft-dynamics-solutions/book-a-free-demo/",
-      destination: "https://www.korcomptenz.com/book-consultation/",
+      source: "/microsoft-dynamics-solutions/book-a-free-demo",
+      destination: "https://www.korcomptenz.com/book-consultation",
       permanent: true,
     },
     {
@@ -2040,6 +2040,14 @@ const nextConfig: NextConfig = {
       destination: "https://www.korcomptenz.com/enterprise-ai-platform",
       permanent: true,
     },
+
+
+    //24.03.2026
+    {
+      source: "/product-configurator-for-dynamics-365-business-central",
+      destination: "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
+      permanent: true,
+    }
   ],
 };
 

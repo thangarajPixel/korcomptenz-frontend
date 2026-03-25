@@ -1,6 +1,7 @@
 "use client";
 
 import ButtonLink from "@/components/ui/button-link";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 export function PricingCard({ plan }: { plan: PricingPlanType }) {
   return (
@@ -10,19 +11,17 @@ export function PricingCard({ plan }: { plan: PricingPlanType }) {
       }
     >
       <h3 className="text-center text-5xl font-semibold text-slate-800 leading-tight  max-w-sm mx-auto">
-        {plan.name}
+        {plan?.name}
       </h3>
 
       <div className="text-center">
         <div className="text-6xl font-bold text-primary mb-2">
-          ${plan.price}
+          ${plan?.price}
         </div>
-        <p className="text-sm text-primary font-medium">{plan.billing}</p>
+        <p className="text-sm text-primary font-medium">{plan?.billing}</p>
       </div>
-
-      <p className="text-center text-slate-700 text-sm leading-relaxed max-w-xs">
-        {plan.description}
-      </p>
+<DangerousHtml html={plan?.description} className="text-center text-slate-700 text-sm leading-relaxed max-w-xs"/>
+     
       <ButtonLink
         link={plan?.button?.link || "#"}
         buttonProps={{

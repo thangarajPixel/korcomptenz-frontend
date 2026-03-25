@@ -26,10 +26,10 @@ export function CaseStudyBanner({
           </p>
 
           <h1 className="text-7xl  text-custom-gray-9 mt-4  font-semibold  max-w-2xl leading-12 ">
-            {data.title}
+            {data?.title}
           </h1>
           <p className="mt-4 text-3xl md:text-5xl leading-tight  font-normal text-foreground ">
-            {data.description}
+            {data?.description}
           </p>
         </div>
         {/* Right Image */}

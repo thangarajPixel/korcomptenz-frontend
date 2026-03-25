@@ -15,18 +15,18 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
       {/* Header */}
       <div className="text-center md:mb-10">
         <h2 className="text-5xl md:text-6xl font-semibold text-foreground mb-2 leading-8">
-          {data.title}
+          {data?.title}
         </h2>
         <p className="text-xl font-normal text-foreground mb-2">
-          {data.description}
+          {data?.description}
         </p>
       </div>
 
       {/* Cards Grid */}
       <div
         className={cn(
-          "grid grid-cols-1 md:grid-cols-5  gap-5 ",
-          data.isPerRowFive ? "md:grid-cols-5" : "md:grid-cols-3"
+          "grid grid-cols-1  gap-5 ",
+          data.isPerRowFive ? "md:grid-cols-5" : `md:${data?.colSpan}`
         )}
       >
         {data.list.map((card) => (
@@ -55,7 +55,7 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
                 arrow
                 className="text-primary hover:text-primary justify-start text-md hover:bg-transparent p-0"
               >
-                {card.buttontext}
+                {card?.buttontext}
               </Button>
             )}
           </div>

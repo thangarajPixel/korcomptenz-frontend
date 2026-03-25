@@ -46,8 +46,8 @@ const ConsultationForm = ({
         ? {
             connect: [
               {
-                id: essential.id as number,
-                documentId: essential.documentId as string,
+                id: essential?.id as number,
+                documentId: essential?.documentId as string,
                 isTempory: false,
               },
             ],
