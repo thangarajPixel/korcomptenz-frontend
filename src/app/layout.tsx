@@ -38,6 +38,10 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: "/",
     },
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
 
@@ -51,7 +55,7 @@ export default function RootLayout({
       <head>
         {/* Resource Hints for Performance */}
         <link rel="prefetch" href="/" />
-        
+
         {/* Preconnect to critical domains with crossOrigin */}
         <link
           rel="preconnect"
@@ -68,7 +72,7 @@ export default function RootLayout({
           href="https://aue2kormlworkspacetest01.blob.core.windows.net"
           crossOrigin="anonymous"
         />
-        
+
         {/* DNS Prefetch for third-party services */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://js.hs-scripts.com" />
