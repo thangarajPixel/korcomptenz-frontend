@@ -81,14 +81,18 @@ function SliderServiceSection({ content }: Props) {
                   <motion.div
                     layoutId="active-pill"
                     transition={{
-                      type: "tween",
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30,
                       duration: prefersReducedMotion ? 0 : 0.2,
-                      ease: "easeOut",
                     }}
                     className={cn(
                       "absolute inset-0 z-0 bg-secondary-foreground",
                     )}
-                    style={{ willChange: "transform" }}
+                    style={{
+                      willChange: "transform",
+                      transform: "translateZ(0)",
+                    }}
                   />
                 )}
               </TabsTrigger>
@@ -133,6 +137,8 @@ function SliderServiceSection({ content }: Props) {
                           width={64}
                           height={64}
                           className="h-16 w-16 object-contain"
+                          loading="lazy"
+                          sizes="64px"
                         />
                       )}
 
