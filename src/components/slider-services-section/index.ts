@@ -1,3 +1,3 @@
-import ServicesSection from "./slider-services-section";
+import SliderServiceSection from "./slider-services-section";
 
-export default ServicesSection;
+export default SliderServiceSection;

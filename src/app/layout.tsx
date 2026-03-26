@@ -74,7 +74,7 @@ export default function RootLayout({
         {/* Inline critical CSS for faster FCP - ultra-minimal with font-display swap and hero optimization */}
         <style
           dangerouslySetInnerHTML={{
-            __html: `html,body{margin:0;padding:0;font-family:'Outfit',system-ui,sans-serif;font-display:swap}body{background:#fff;color:#313941;overflow-x:hidden}html.dark,html.dark body{background:#0a0a0a;color:#fff}main{flex:1}*{box-sizing:border-box}@media(prefers-color-scheme:dark){html{color-scheme:dark}}.embla__custom_slide{flex:0 0 100%;min-width:0}.embla__viewport{overflow:hidden}.embla__container{display:flex;touch-action:pan-y;margin-left:calc(var(--slide-spacing, 0rem) * -1)}.embla__slide{flex:0 0 100%;min-width:0;padding-left:var(--slide-spacing, 0rem)}`,
+            __html: `html,body{margin:0;padding:0;font-family:'Outfit',system-ui,sans-serif;font-display:swap}body{background:#fff;color:#313941;overflow-x:hidden}html.dark,html.dark body{background:#0a0a0a;color:#fff}main{flex:1}*{box-sizing:border-box}@media(prefers-color-scheme:dark){html{color-scheme:dark}}.embla__custom_slide{flex:0 0 100%;min-width:0}.embla__viewport{overflow:hidden}.embla__container{display:flex;touch-action:pan-y;margin-left:calc(var(--slide-spacing, 0rem) * -1)}.embla__slide{flex:0 0 100%;min-width:0;padding-left:var(--slide-spacing, 0rem)}*{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}`,
           }}
         />
 
@@ -128,26 +128,26 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Tag Manager - Ultra-deferred to afterInteractive for maximum performance */}
+        {/* Google Tag Manager - Deferred to lazyOnload for maximum performance */}
         <Script
           id="gtm-script"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDLSJSX');`,
           }}
         />
 
-        {/* HubSpot - Ultra-deferred to afterInteractive */}
+        {/* HubSpot - Deferred to lazyOnload */}
         <Script
           id="hs-script-loader"
           src="//js.hs-scripts.com/7991245.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
-        {/* Mirabel's Marketing Manager - Ultra-deferred to afterInteractive */}
+        {/* Mirabel's Marketing Manager - Deferred to lazyOnload */}
         <Script
           id="mirabel-tracking"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `!function () {
         var e, t;
@@ -166,10 +166,10 @@ export default function RootLayout({
           }}
         />
 
-        {/* AdRoll - Ultra-deferred to afterInteractive */}
+        {/* AdRoll - Deferred to lazyOnload */}
         <Script
           id="adroll-tracking"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `adroll_adv_id = "6AFFI77P25EMLITUU77QLL"; adroll_pix_id = "MBYLSCHWRRDSPAI7HHOHMI"; adroll_version = "2.0"; (function(w, d, e, o, a) { w.adroll_tag_source = w.adroll_tag_source || "manual"; w.__adroll_loaded = true; w.adroll = w.adroll || []; w.adroll.f = [ 'setProperties', 'identify', 'track', 'identify_email', 'get_cookie' ]; var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js"; for (a = 0; a < w.adroll.f.length; a++) { w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) { return function() { w.adroll.push([ n, arguments ]) } })(w.adroll.f[a]) } e = d.createElement('script'); o = d.getElementsByTagName('script')[0]; e.async = 1; e.src = roundtripUrl; o.parentNode.insertBefore(e, o); })(window, document); adroll.track("pageview");`,
           }}

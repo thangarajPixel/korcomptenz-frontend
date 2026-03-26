@@ -5,12 +5,12 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-
 import KorcomptenzImage from "../korcomptenz-image";
 import Link from "next/link";
 import { VideoPopup } from "../video-popup";
+import { usePrefersReducedMotion } from "@/utils/custom-hooks";
 
-export function AnimatedTabsHero({
+function AnimatedTabsHero({
   className,
   content,
 }: {
@@ -26,6 +26,7 @@ export function AnimatedTabsHero({
     link: null,
   });
 
+  const prefersReducedMotion = usePrefersReducedMotion();
   const activeContent =
     content?.find((c) => c?.label === value) || content?.[0];
 
@@ -71,10 +72,9 @@ export function AnimatedTabsHero({
                   <motion.div
                     layoutId="active-pill"
                     transition={{
-                      type: "spring",
-                      stiffness: 120,
-                      damping: 20,
-                      duration: 0.45,
+                      type: "tween",
+                      duration: prefersReducedMotion ? 0 : 0.2,
+                      ease: "easeOut",
                     }}
                     className={cn(
                       "absolute inset-0 z-0 bg-secondary-foreground",
@@ -95,8 +95,12 @@ export function AnimatedTabsHero({
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -40 }}
-            transition={{ duration: 0.3, ease: [0.22, 0.36, 0.22, 1] }}
+            transition={{
+              duration: prefersReducedMotion ? 0 : 0.15,
+              ease: [0.22, 0.36, 0.22, 1],
+            }}
             className="space-y-3 w-full flex flex-col-reverse lg:flex-row"
+            style={{ willChange: "transform, opacity" }}
           >
             <div className="space-y-3  w-full lg:w-1/2  ">
               <h2 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl mt-12">
@@ -168,4 +172,4 @@ export function AnimatedTabsHero({
   );
 }
 
-export default AnimatedTabsHero;
+export default React.memo(AnimatedTabsHero);

@@ -27,9 +27,13 @@ const CardSwiperArrowWhite = ({
     emblaApi?.scrollNext();
   }, [emblaApi]);
 
-  // Auto-slide with optimized timing
+  // Auto-slide with optimized timing - disabled on mobile for better performance
   React.useEffect(() => {
     if (!emblaApi || disableAutoSlide) return;
+
+    // Disable auto-slide on mobile to reduce TBT
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    if (isMobile) return;
 
     let lastScrollTime = Date.now();
     const autoSlideDelay = 10000;
