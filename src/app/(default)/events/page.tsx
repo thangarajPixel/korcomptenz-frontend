@@ -3,7 +3,9 @@ import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/utils/app-config";
 import { getEventListPage } from "@/services/page";
 
-export const dynamic = "force-dynamic";
+// Enable ISR: revalidate every 1 hour for better production performance
+export const revalidate = 3600;
+
 export async function generateMetadata() {
   const data = await getEventListPage();
   return {

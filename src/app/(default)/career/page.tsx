@@ -4,7 +4,8 @@ import { getCareer } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
 import React, { cache } from "react";
 
-export const dynamic = "force-dynamic";
+// Enable ISR: revalidate every 1 hour for better production performance
+export const revalidate = 3600;
 
 const getCareerCache = cache(getCareer);
 

@@ -5,7 +5,8 @@ import { getContactUs } from "@/services";
 import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/utils/app-config";
 
-export const dynamic = "force-dynamic";
+// Enable ISR: revalidate every 1 hour for better production performance
+export const revalidate = 3600;
 
 const getContactUsCache = cache(getContactUs);
 

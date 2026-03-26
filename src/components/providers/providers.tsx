@@ -6,7 +6,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/utils";
 import dynamic from "next/dynamic";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 
 // Lazy load reCAPTCHA provider with no SSR to defer initialization
 const GoogleReCaptchaProvider = dynamic(
@@ -20,12 +20,8 @@ const GoogleReCaptchaProvider = dynamic(
 const RECAPTCHA_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  const [mounted, setMounted] = useState(false);
-
-  // Single effect to set mounted state - reduces cascading renders
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Removed mounted state to fix hydration mismatch
+  // reCAPTCHA will load asynchronously without blocking content
 
   return (
     <NuqsAdapter>
@@ -37,7 +33,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           storageKey="theme-preference"
         >
           <Suspense fallback={null}>
-            {mounted && RECAPTCHA_KEY ? (
+            {RECAPTCHA_KEY ? (
               <GoogleReCaptchaProvider
                 reCaptchaKey={RECAPTCHA_KEY}
                 scriptProps={{

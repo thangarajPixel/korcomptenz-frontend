@@ -7,7 +7,9 @@ import { INITIAL_PAGINATION } from "@/utils/helper";
 import React, { cache } from "react";
 import CaseStudies from "./case-studies";
 
-export const dynamic = "force-dynamic";
+// Enable ISR: revalidate every 1 hour for better production performance
+export const revalidate = 3600;
+
 const getCaseStudiesPageCache = cache(getCaseStudiesPage);
 
 const ClientSuccessPage = async ({ slug }: { slug?: string }) => {
