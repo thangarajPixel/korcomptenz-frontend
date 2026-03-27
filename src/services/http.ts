@@ -4,10 +4,15 @@ import { APP_CONFIG } from '@/utils/app-config';
 
 const API_BASE_URL = APP_CONFIG?.API_URL;
 
-const TIMEOUT = 30000;
+const TIMEOUT = 15000; // Reduced from 30s for better TBT
 
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false,
+  keepAlive: true,
+  keepAliveMsecs: 1000,
+  maxSockets: 50,
+  maxFreeSockets: 10,
+  timeout: TIMEOUT,
 });
 
 const http = axios.create({

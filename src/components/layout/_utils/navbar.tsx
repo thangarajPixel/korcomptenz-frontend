@@ -15,7 +15,9 @@ import InsightMobile from "./mega-menu/_utils/insight-mobile";
 
 import EcosystemMobile from "./mega-menu/_utils/ecosytem-mobile";
 
-export function Navbar({ data }: { data: LayoutType }) {
+export function Navbar({ data }: { data: LayoutType | null }) {
+  if (!data) return null;
+
   // const targetRef = React.useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
