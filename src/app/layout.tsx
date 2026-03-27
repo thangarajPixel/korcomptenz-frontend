@@ -10,9 +10,8 @@ const outfitSans = Outfit({
   variable: "--font-outfit-sans",
   subsets: ["latin"],
   display: "swap",
-  preload: true,
+  preload: false,
   weight: ["400", "500", "600", "700"],
-  fallback: ["system-ui", "sans-serif"],
 });
 
 export const viewport = {

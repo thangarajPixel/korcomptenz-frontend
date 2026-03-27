@@ -72,18 +72,13 @@ function AnimatedTabsHero({
                   <motion.div
                     layoutId="active-pill"
                     transition={{
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 30,
+                      type: "tween",
                       duration: prefersReducedMotion ? 0 : 0.2,
+                      ease: "easeOut",
                     }}
                     className={cn(
                       "absolute inset-0 z-0 bg-secondary-foreground",
                     )}
-                    style={{
-                      willChange: "transform",
-                      transform: "translateZ(0)",
-                    }}
                   />
                 )}
               </TabsTrigger>
@@ -131,9 +126,6 @@ function AnimatedTabsHero({
                   width={1000}
                   height={1000}
                   priority={true}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Crect fill='%23f0f0f0' width='1000' height='1000'/%3E%3C/svg%3E"
                   onClick={() =>
                     setIsVideoOpen({
                       link: activeContent.videoLink || "#",
@@ -148,9 +140,6 @@ function AnimatedTabsHero({
                   width={1000}
                   height={1000}
                   priority={true}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Crect fill='%23f0f0f0' width='1000' height='1000'/%3E%3C/svg%3E"
                 />
               )}
             </div>
