@@ -20,18 +20,22 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           defaultTheme="light"
           disableTransitionOnChange
         >
-          <Suspense fallback={null}>
-            <GoogleReCaptchaProvider
-              reCaptchaKey={RECAPTCHA_KEY!}
-              scriptProps={{
-                async: true,
-                defer: true,
-                appendTo: "head",
-              }}
-            >
-              {children}
-            </GoogleReCaptchaProvider>
-          </Suspense>
+          {RECAPTCHA_KEY ? (
+            <Suspense fallback={null}>
+              <GoogleReCaptchaProvider
+                reCaptchaKey={RECAPTCHA_KEY}
+                scriptProps={{
+                  async: true,
+                  defer: true,
+                  appendTo: "head",
+                }}
+              >
+                {children}
+              </GoogleReCaptchaProvider>
+            </Suspense>
+          ) : (
+            children
+          )}
           <Toaster richColors />
           <WebVitals />
         </ThemeProvider>

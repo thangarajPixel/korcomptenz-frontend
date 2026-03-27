@@ -102,6 +102,14 @@ type Props = {
 const GlobalPage = (props: Props) => {
   const { data } = props;
 
+  if (!data || data.length === 0) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-lg text-muted-foreground">No content available</p>
+      </div>
+    );
+  }
+
   return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
