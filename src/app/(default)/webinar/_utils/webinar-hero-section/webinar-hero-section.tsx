@@ -1,50 +1,56 @@
+"use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
   return (
     <section className="relative w-full">
-      {/* Desktop Banner */}
-      <div className="hidden md:grid  w-full gap-0 min-h-[500px] lg:min-h-[600px]">
-        <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center size-full">
-          <KorcomptenzImage
-            src={data?.heroSection?.image}
-            fill
-            className="object-cover"
-            priority
-          />
+      {isDesktop ? (
+        <div className="hidden md:grid  w-full gap-0 min-h-[500px] lg:min-h-[600px]">
+          {/* Desktop Banner */}
+          <div className="relative text-white px-8 lg:px-16 py-12 lg:py-16 flex items-center size-full">
+            <KorcomptenzImage
+              src={data?.heroSection?.image}
+              fill
+              className="object-cover"
+              priority
+            />
 
-          <div className="relative z-10 container-lg">
-            <div className="w-7/12">
-              <h1 className="text-3xl md:text-9xl   mb-4 leading-tight font-semibold">
-                {data?.title}
-              </h1>
+            <div className="relative z-10 container-lg">
+              <div className="w-7/12">
+                <h1 className="text-3xl md:text-9xl   mb-4 leading-tight font-semibold">
+                  {data?.title}
+                </h1>
 
-              <p className="text-3xl md:text-5xl mb-6 leading-relaxed font-normal whitespace-pre-wrap">
-                {data?.heroSection?.description}
-              </p>
+                <p className="text-3xl md:text-5xl mb-6 leading-relaxed font-normal whitespace-pre-wrap">
+                  {data?.heroSection?.description}
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <>
+          {/* Mobile Banner */}
+          <div className="block md:hidden relative w-full">
+            <KorcomptenzImage
+              src={data?.heroSection?.mobileImage}
+              width={600}
+              height={1000}
+              className="object-contain w-full h-auto"
+            />
+          </div>
+          <div className="px-4 block md:hidden">
+            <h1 className=" mb-4  font-semibold">{data?.title}</h1>
 
-      {/* Mobile Banner */}
-      <div className="block md:hidden relative w-full">
-        <KorcomptenzImage
-          src={data?.heroSection?.mobileImage}
-          width={600}
-          height={1000}
-          className="object-contain w-full h-auto"
-        />
-      </div>
-      <div className="px-4 block md:hidden">
-        <h4 className="text-[34px] leading-[44px]  mb-4  font-semibold">
-          {data?.title}
-        </h4>
-
-        <p className="text-3xl md:text-5xl mb-6 leading-6 font-normal">
-          {data?.heroSection?.description}
-        </p>
-      </div>
+            <p className="text-3xl md:text-5xl mb-6 leading-6 font-normal">
+              {data?.heroSection?.description}
+            </p>
+          </div>
+        </>
+      )}
     </section>
   );
 };

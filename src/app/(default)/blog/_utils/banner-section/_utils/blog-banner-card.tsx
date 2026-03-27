@@ -1,3 +1,4 @@
+"use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
 import { DangerousHtml } from "@/components/ui/dangerous-html";
@@ -5,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 import React from "react";
 import BreadcrumbFromUrl from "./breadcrumbs";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 const BlogBannerCard = ({
   data,
@@ -15,63 +17,67 @@ const BlogBannerCard = ({
   className?: string;
   tableTitle: string;
 }) => {
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
   return (
     <div className={cn(className)}>
-      {/* Desktop view */}
-      <div className="relative w-full md:h-[450px] h-full overflow-hidden rounded-4xl hidden lg:block  ">
-        <KorcomptenzImage
-          src={data?.heroSection?.image}
-          width={1000}
-          height={800}
-          className="w-full h-full object-cover rounded-4xl "
-        />
+      {isDesktop ? (
+        <div className="relative w-full md:h-[450px] h-full overflow-hidden rounded-4xl hidden lg:block  ">
+          {/* Desktop view */}
+          <KorcomptenzImage
+            src={data?.heroSection?.image}
+            width={1000}
+            height={800}
+            className="w-full h-full object-cover rounded-4xl "
+          />
 
-        <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-[5] rounded-4xl" />
+          <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-[5] rounded-4xl" />
 
-        <div
-          className={cn(
-            "absolute top-0 left-10 p-5 z-10 w-[75%] h-full flex flex-col",
-          )}
-        >
-          {/* Breadcrumb always at top */}
-          <div className="absolute top-5 left-5">
-            <p className="text-white text-2xl">
-              <BreadcrumbFromUrl slug={data?.slug} />
-            </p>
+          <div
+            className={cn(
+              "absolute top-0 left-10 p-5 z-10 w-[75%] h-full flex flex-col",
+            )}
+          >
+            {/* Breadcrumb always at top */}
+            <div className="absolute top-5 left-5">
+              <p className="text-white text-2xl">
+                <BreadcrumbFromUrl slug={data?.slug} />
+              </p>
+            </div>
+
+            {/* Centered content */}
+            <div className="flex flex-col justify-center h-full gap-8">
+              <h1 className="text-7xl font-semibold leading-[1.1] text-white max-w-[800px]">
+                {data?.title}
+              </h1>
+
+              <p className="text-3xl md:text-5xl leading-tight font-normal text-white ">
+                {tableTitle}
+              </p>
+            </div>
           </div>
-
-          {/* Centered content */}
-          <div className="flex flex-col justify-center h-full gap-8">
-            <h1 className="text-7xl font-semibold leading-[1.1] text-white max-w-[800px]">
+        </div>
+      ) : (
+        <>
+          {/* Mobile view */}
+          <div className="w-full h-auto aspect-square overflow-hidden rounded-4xl lg:hidden items-center justify-center">
+            <KorcomptenzImage
+              src={data?.heroSection?.imageMobile}
+              width={1000}
+              height={800}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="gap-6 justify-center items-start p-4 md:p-8 w-full lg:hidden  h-full">
+            <h1 className="font-bold text-foreground mb-2 md:mb-4">
               {data?.title}
             </h1>
 
-            <p className="text-3xl md:text-5xl leading-tight font-normal text-white ">
-              {tableTitle}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile view */}
-      <div className="w-full h-auto aspect-square overflow-hidden rounded-4xl lg:hidden items-center justify-center">
-        <KorcomptenzImage
-          src={data?.heroSection?.imageMobile}
-          width={1000}
-          height={800}
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="gap-6 justify-center items-start p-4 md:p-8 w-full lg:hidden  h-full">
-        <h4 className="text-[34px] leading-[44px] font-bold text-foreground mb-2 md:mb-4">
-          {data?.title}
-        </h4>
-
-        <DangerousHtml
-          className="text-lg md:text-base [&>span]:!text-black mb-4 md:mb-8 max-w-md"
-          html={data?.heroSection?.description}
-        />
-        {/* <div className="flex flex-row gap-4">
+            <DangerousHtml
+              className="text-lg md:text-base [&>span]:!text-black mb-4 md:mb-8 max-w-md"
+              html={data?.heroSection?.description}
+            />
+            {/* <div className="flex flex-row gap-4">
           {data?.buttonText && (
             <ButtonLink
               link={data?.link || "#"}
@@ -84,7 +90,9 @@ const BlogBannerCard = ({
             </ButtonLink>
           )}
         </div> */}
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -16,6 +16,7 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
         <h2 className="text-5xl md:text-6xl font-semibold text-foreground mb-2 leading-8">
           {data?.title}
         </h2>
+
         <p className="text-xl font-normal text-foreground mb-2">
           {data?.description}
         </p>
@@ -24,8 +25,12 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
       {/* Cards Grid */}
       <div
         className={cn(
-          "grid grid-cols-1  gap-5 ",
-          data.isPerRowFive ? "md:grid-cols-5" : `md:${data?.colSpan}`,
+          "grid grid-cols-1 gap-5",
+          data.isPerRowFive
+            ? "md:grid-cols-5"
+            : data?.colSpan
+              ? `md:${data.colSpan}`
+              : "md:grid-cols-3",
         )}
       >
         {data.list.map((card) => (
