@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/lib/utils";
 import KorcomptenzImage from "../korcomptenz-image";
 import { Button } from "../ui/button";
@@ -26,7 +25,7 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
       <div
         className={cn(
           "grid grid-cols-1  gap-5 ",
-          data.isPerRowFive ? "md:grid-cols-5" : `md:${data?.colSpan}`
+          data.isPerRowFive ? "md:grid-cols-5" : `md:${data?.colSpan}`,
         )}
       >
         {data.list.map((card) => (

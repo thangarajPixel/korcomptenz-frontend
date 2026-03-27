@@ -40,6 +40,61 @@ body {
   }
 }
 
+/* Performance optimizations for LCP, TBT, SI */
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  /* Prevent layout shift from scrollbar */
+  scrollbar-gutter: stable;
+}
+
+/* Optimize image rendering for better performance - mobile first */
+img {
+  content-visibility: auto;
+  contain: layout style paint;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile-first touch optimization */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Disable smooth scroll on mobile for better performance */
+  * {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  input, textarea, button, select {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+}
+
+/* Optimize animations and transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --font-weight-bold: 600;

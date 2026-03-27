@@ -14,7 +14,7 @@ import {
 const SectionLoader = () => (
   <div
     className="w-full bg-gray-100"
-    style={{ minHeight: "0px", contain: "layout style paint" }}
+    style={{ minHeight: "200px", contain: "layout style paint" }}
   />
 );
 

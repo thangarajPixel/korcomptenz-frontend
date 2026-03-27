@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/lib/utils";
 import KorcomptenzImage from "../korcomptenz-image";
 import { Button } from "../ui/button";

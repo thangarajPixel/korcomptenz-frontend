@@ -20,7 +20,7 @@ export default function StickyCards({
   return (
     <section data-debug={stickyCards?.__component} className="relative">
       <div className="relative container-md">
-        <div className="sm:sticky relative sm:top-28 top-0 flex justify-between px-0 lg:px-4 xl:mb-[80px] sm:mb-5 mb-5">
+        <div className="sm:sticky relative sm:top-28 top-0 flex justify-between px-0 lg:px-4 xl:mb-[80px] sm:mb-5 mb-5 h-auto sm:h-[120px]">
           <h2 className="font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
             {stickyCards?.title}
           </h2>
@@ -42,7 +42,7 @@ export default function StickyCards({
             key={`sticky-card-${card?.id}`}
             className={cn(
               "sm:sticky relative sm:top-48 top-0 ",
-              `z-[${index + 10}] sm:mb-1`
+              `z-[${index + 10}] sm:mb-1`,
               // index !== cardData.length - 1 ? "mb-[8rem]" : "mb-[0]"
             )}
           >
@@ -52,7 +52,7 @@ export default function StickyCards({
                   "overflow-hidden bg-light-white border-0 w-full py-0 h-auto lg:min-h-[28rem]",
                   "flex flex-col md:flex-row md:items-stretch rounded-4xl ",
                   index && "sm:shadow-xl shadow-none",
-                  className
+                  className,
                 )}
               >
                 {/* ID */}
@@ -78,7 +78,7 @@ export default function StickyCards({
                           "mt-3 mb-3 rounded-full ",
                           !isMobile
                             ? "w-fit text-4xl px-6"
-                            : " text-xs px-2  bg-white text-primary border border-primary h-[44px] w-[155px]"
+                            : " text-xs px-2  bg-white text-primary border border-primary h-[44px] w-[155px]",
                         )}
                         arrow={true}
                       >
@@ -92,14 +92,17 @@ export default function StickyCards({
                 {card?.image && (
                   <div
                     className={cn(
-                      "relative overflow-hidden h-full order-1 md:h-auto md:w-96 md:flex-shrink-0 md:order-none"
+                      "relative overflow-hidden h-full order-1 md:h-auto md:w-96 md:flex-shrink-0 md:order-none",
                     )}
                   >
                     <KorcomptenzImage
                       className="w-full h-full object-cover"
                       src={card?.image}
-                      width={1000}
-                      height={1000}
+                      imageType="card"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      width={400}
+                      height={400}
+                      loading="lazy"
                     />
                   </div>
                 )}

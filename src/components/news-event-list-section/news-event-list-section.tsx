@@ -40,13 +40,14 @@ const NewsEventListSectionItem = ({
 
   return (
     <div key={`section-item-${item.id}`} className="bg-white ">
-      <div className="relative aspect-[4/3] w-full rounded-4xl mb-3">
+      <div className="relative aspect-4/3 w-full rounded-4xl mb-3">
         <KorcomptenzImage
           src={item?.image}
           height={1000}
           width={1000}
           className=" size-full rounded-4xl"
           priority={false}
+          loading="lazy"
         />
       </div>
 
