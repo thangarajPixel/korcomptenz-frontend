@@ -1,6 +1,6 @@
 import type { ImageProps } from "next/image";
 import Image from "next/image";
-import React from "react";
+import React, { useMemo } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -18,22 +18,41 @@ type KorcomptenzImageProps = Omit<ImageProps, "src" | "alt"> & {
 };
 
 const KorcomptenzImage = (props: KorcomptenzImageProps) => {
-  const src = (props?.src as ImageType)?.url
-    ? (props?.src as ImageType)?.url
-    : props.src || "";
-  const alt = (props?.src as ImageType)?.alternativeText
-    ? (props?.src as ImageType)?.alternativeText
-    : props?.alt || "";
-  const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
+  const src = useMemo(() => {
+    const imageSrc = (props?.src as ImageType)?.url
+      ? (props?.src as ImageType)?.url
+      : props.src || "";
+    return (imageSrc || "/assets/placeholder.png") as string;
+  }, [props?.src]);
+
+  const alt = useMemo(() => {
+    return (props?.src as ImageType)?.alternativeText
+      ? (props?.src as ImageType)?.alternativeText
+      : props?.alt || "";
+  }, [props?.src, props?.alt]);
+
+  const isGif = useMemo(() => {
+    return typeof src === "string" && src.toLowerCase().endsWith(".gif");
+  }, [src]);
+
+  const priority = useMemo(() => {
+    return props.priority || false;
+  }, [props.priority]);
+
+  const quality = useMemo(() => {
+    return props.quality || 65;
+  }, [props.quality]);
+
   return (
     <Image
       placeholder={imagePlaceholder}
       {...props}
-      src={(src || "/assets/placeholder.png") as string}
+      src={src}
       alt={alt || "/assets/placeholder.png"}
-      loading="lazy"
+      loading={priority ? "eager" : "lazy"}
       unoptimized={isGif}
-      priority={false}
+      priority={priority}
+      quality={quality}
       className={cn(
         props?.nonAnimate &&
           "object-cover transition-transform duration-300 hover:scale-110",

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useRef, type ReactNode, useMemo } from "react";
 
 interface ScrollFadeInProps {
   children: ReactNode;
@@ -9,28 +9,44 @@ interface ScrollFadeInProps {
   duration?: number;
   className?: string;
   __component?: string;
+  isAboveFold?: boolean;
 }
 
 export function ScrollFadeIn({
   children,
   delay = 0,
-  duration = 1.5,
+  duration = 0.6,
   className,
   __component,
+  isAboveFold = false,
 }: ScrollFadeInProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  const variants = useMemo(
+    () => ({
+      hidden: { opacity: isAboveFold ? 1 : 0, y: isAboveFold ? 0 : 10 },
+      visible: { opacity: 1, y: 0 },
+    }),
+    [isAboveFold],
+  );
+
+  const transitionConfig = useMemo(
+    () => ({
+      duration: isAboveFold ? 0 : duration,
+      delay: isAboveFold ? 0 : delay,
+      ease: "easeInOut" as const,
+    }),
+    [duration, delay, isAboveFold],
+  );
 
   return (
     <motion.section
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{
-        duration,
-        delay,
-        ease: [0.25, 0.1, 0.25, 1],
-      }}
+      initial={isAboveFold ? "visible" : "hidden"}
+      animate={isInView ? "visible" : "hidden"}
+      variants={variants}
+      transition={transitionConfig}
       className={className}
       data-component={__component}
     >

@@ -6,15 +6,14 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/utils";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import { memo, Suspense } from "react";
 
 const RECAPTCHA_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
 
-export default function Providers({ children }: { children: React.ReactNode }) {
-  if (!RECAPTCHA_KEY) {
-    // eslint-disable-next-line no-console
-    console.warn("⚠️ NEXT_PUBLIC_RECAPTCHA_KEY is missing");
-  }
+const ToasterComponent = memo(() => <Toaster richColors />);
+ToasterComponent.displayName = "ToasterComponent";
 
+function ProvidersContent({ children }: { children: React.ReactNode }) {
   return (
     <NuqsAdapter>
       <QueryClientProvider client={queryClient}>
@@ -24,7 +23,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           disableTransitionOnChange
         >
           <GoogleReCaptchaProvider
-            reCaptchaKey={RECAPTCHA_KEY!}
+            reCaptchaKey={RECAPTCHA_KEY || ""}
             scriptProps={{
               async: true,
               defer: true,
@@ -32,10 +31,14 @@ export default function Providers({ children }: { children: React.ReactNode }) {
             }}
           >
             {children}
-            <Toaster richColors />
+            <Suspense fallback={null}>
+              <ToasterComponent />
+            </Suspense>
           </GoogleReCaptchaProvider>
         </ThemeProvider>
       </QueryClientProvider>
     </NuqsAdapter>
   );
 }
+
+export default memo(ProvidersContent);
