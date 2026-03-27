@@ -20,7 +20,7 @@ const FabconBanner = ({ data }: { data: FabconBannerType }) => {
           {/* Title */}
           <span className="text-[32px] md:text-[40px]">{data?.title1}</span>
           <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
-            <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text   text-transparent">
               {data?.title2}
             </span>
           </h1>
