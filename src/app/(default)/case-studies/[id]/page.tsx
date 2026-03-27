@@ -6,10 +6,7 @@ import NotFound from "@/components/not-found";
 type Props = {
   params: Promise<{ id: string }>;
 };
-
-// Enable ISR: revalidate every 1 hour for better production performance
-export const revalidate = 3600;
-
+export const dynamic = "force-dynamic";
 const getCaseStudySingleCache = cache(getCaseStudyService);
 
 export async function generateMetadata({ params }: Props) {
