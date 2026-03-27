@@ -7,14 +7,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { DangerousHtml } from "../ui/dangerous-html";
 import Link from "next/link";
-import { useMobile } from "@/utils/custom-hooks";
 
 const LightSlider = React.memo(({ data }: { data: LightSliderType }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
   });
-  const isMobile = useMobile();
 
   const [prevBtnEnabled, setPrevBtnEnabled] = React.useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = React.useState(true);
@@ -42,7 +40,7 @@ const LightSlider = React.memo(({ data }: { data: LightSliderType }) => {
   const autoplayRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const startAutoplay = React.useCallback(() => {
-    if (!emblaApi || isMobile) return; // Disable autoplay on mobile
+    if (!emblaApi) return;
 
     stopAutoplay(); // safety
     let lastScrollTime = Date.now();
@@ -53,7 +51,7 @@ const LightSlider = React.memo(({ data }: { data: LightSliderType }) => {
         lastScrollTime = Date.now();
       }
     }, 500); // Check every 500ms instead of every 3s
-  }, [emblaApi, isMobile]);
+  }, [emblaApi]);
 
   const stopAutoplay = React.useCallback(() => {
     if (autoplayRef.current) {

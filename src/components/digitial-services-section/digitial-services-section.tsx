@@ -74,9 +74,10 @@ export function DigitalServiceSection({
                   <motion.div
                     layoutId="active-pill"
                     transition={{
-                      type: "tween",
-                      duration: 0.2,
-                      ease: "easeOut",
+                      type: "spring",
+                      stiffness: 120,
+                      damping: 20,
+                      duration: 0.45,
                     }}
                     className={cn(
                       "absolute inset-0 z-0 bg-secondary-foreground",

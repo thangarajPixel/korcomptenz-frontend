@@ -1,17 +1,11 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
-import React from "react";
-import {
-  ChevronRight,
-  FileQuestion,
-  AlertCircle,
-  RefreshCw,
-  Home,
-} from "lucide-react";
-import { Button } from "../ui/button";
-import { Card } from "../ui/card";
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
+import React from 'react';
+import { ChevronRight, FileQuestion, AlertCircle, RefreshCw, Home } from "lucide-react";
+import { Button } from '../ui/button';
+import { Card } from '../ui/card';
 
 type ErrorPageProps = {
   statusCode: number;
@@ -35,25 +29,25 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({
   const handleReset = React.useCallback(async () => {
     switch (statusCode) {
       case 400:
-        router.push("/posts");
+        router.push('/posts');
         break;
       case 429:
-        router.push("/posts");
+        router.push('/posts');
         break;
       case 401:
-        router.push("/login");
+        router.push('/login');
         break;
       case 404:
-        router.push("/posts");
+        router.push('/posts');
         break;
       case 500:
-        router.push("/posts");
+        router.push('/posts');
         break;
       case 403:
-        router.push("/login");
+        router.push('/login');
         break;
       default:
-        router.push("/posts");
+        router.push('/posts');
         break;
     }
   }, [router, statusCode]);
@@ -76,17 +70,25 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{
-                type: "tween",
-                duration: 0.3,
+                type: 'spring',
+                stiffness: 100,
+                damping: 10,
                 delay: 0.2,
               }}
               className="mb-6 flex justify-center"
             >
-              {statusCode === 404 ? (
-                <FileQuestion className="size-20 text-yellow-200" />
-              ) : (
-                <AlertCircle className="size-20 text-destructive" />
-              )}
+              {statusCode === 404
+                ? (
+
+                  <FileQuestion
+                    className="size-20 text-yellow-200"
+                  />
+                )
+                : (
+                  <AlertCircle
+                    className="size-20 text-destructive"
+                  />
+                )}
             </motion.div>
 
             <motion.div
@@ -96,7 +98,10 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({
               className="mb-4 text-center"
             >
               <h1 className="truncate text-2xl font-bold text-foreground md:text-3xl">
-                {statusCode} -{title}
+                {statusCode}
+                {' '}
+                -
+                {title}
               </h1>
             </motion.div>
 
@@ -106,15 +111,17 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({
               transition={{ delay: 0.4 }}
               className="mb-8 text-center"
             >
-              {typeof message === "string" ? (
-                <p className="text-medium text-foreground-500">{message}</p>
-              ) : (
-                Object.entries(message)?.map(([key, value]) => (
+              {typeof message === 'string'
+                ? (
+                  <p className="text-medium text-foreground-500">
+                    {message}
+                  </p>
+                )
+                : (Object.entries(message)?.map(([key, value]) => (
                   <p className="text-medium text-foreground-500" key={key}>
                     {value}
                   </p>
-                ))
-              )}
+                )))}
             </motion.div>
 
             <motion.div
@@ -127,20 +134,23 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({
                 onClick={() => {
                   router.back();
                 }}
-                size={"lg"}
-              >
+                size={'lg'} >
                 {helperTexts?.back}
                 <ChevronRight className="size-4" />
               </Button>
-              <Button onClick={handleReset} size={"lg"} variant={"outline"}>
+              <Button
+                onClick={handleReset}
+                size={'lg'}
+                variant={'outline'}
+              >
                 <RefreshCw className="size-4" />
                 {helperTexts?.retry}
               </Button>
               <Button
                 onClick={() => {
-                  router.push("/posts");
+                  router.push('/posts');
                 }}
-                size={"lg"}
+                size={'lg'}
               >
                 <Home className="size-4" />
                 {helperTexts?.home}
@@ -158,8 +168,8 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({
           >
             <p className="flex items-center justify-center gap-1 text-xs text-foreground-400">
               {/* <Icon icon="lucide:help-circle" className="size-4" /> */}
-              {helperTexts?.contact ||
-                "Still having issues? Contact us at"}{" "}
+              {helperTexts?.contact || 'Still having issues? Contact us at'}
+              {' '}
               <a
                 // href={`mailto:${AppConfig.supportEmail}`}
                 className="text-primary hover:underline"

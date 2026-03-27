@@ -12,29 +12,21 @@ export default function LiveDemoList({ data }: { data: DemoListType }) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let throttleTimer: NodeJS.Timeout | null = null;
     const handleScroll = () => {
-      if (throttleTimer) return;
-      throttleTimer = setTimeout(() => {
-        const sectionElements = document.querySelectorAll("[data-section]");
-        let currentActive = activeSection;
-        sectionElements.forEach((element) => {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom > 150) {
-            currentActive =
-              element.getAttribute("data-section") || data?.list[0]?.id || "";
-          }
-        });
-        setActiveSection(currentActive);
-        throttleTimer = null;
-      }, 100); // Throttle to 100ms
+      const sectionElements = document.querySelectorAll("[data-section]");
+      let currentActive = activeSection;
+      sectionElements.forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom > 150) {
+          currentActive =
+            element.getAttribute("data-section") || data?.list[0]?.id || "";
+        }
+      });
+      setActiveSection(currentActive);
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (throttleTimer) clearTimeout(throttleTimer);
-    };
-  }, [activeSection, data]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeSection]);
   const handleSectionClick = (sectionId: string) => {
     const sectionElement = document.querySelector(
       `[data-section="${sectionId}"]`,

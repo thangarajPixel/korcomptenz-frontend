@@ -26,21 +26,6 @@ const useMobile = () => {
   return isMobile;
 };
 
-// Detect if user prefers reduced motion
-const usePrefersReducedMotion = () => {
-  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(false);
-  React.useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-    const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
-  return prefersReducedMotion;
-};
-
 // MediaQueryList Event based useEventListener interface
 function useEventListener<K extends keyof MediaQueryListEventMap>(
   eventName: K,
@@ -165,4 +150,4 @@ function useOnClickOutside<T extends HTMLElement = HTMLElement>(
 
 // Export types
 export type { EventType };
-export { useEventListener, useMobile, usePrefersReducedMotion, useIsomorphicLayoutEffect, useOnClickOutside }
+export { useEventListener, useMobile, useIsomorphicLayoutEffect, useOnClickOutside }

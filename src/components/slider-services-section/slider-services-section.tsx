@@ -13,7 +13,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import { usePrefersReducedMotion } from "@/utils/custom-hooks";
 
 type SubItem = {
   id: number;
@@ -35,11 +34,10 @@ type Props = {
   };
 };
 
-function SliderServiceSection({ content }: Props) {
+export function SliderServiceSection({ content }: Props) {
   const tablist = content?.tablist || [];
 
   const [value, setValue] = React.useState<string>(tablist?.[0]?.title || "");
-  const prefersReducedMotion = usePrefersReducedMotion();
 
   const activeTab = tablist.find((tab) => tab?.title === value) || tablist[0];
 
@@ -81,14 +79,14 @@ function SliderServiceSection({ content }: Props) {
                   <motion.div
                     layoutId="active-pill"
                     transition={{
-                      type: "tween",
-                      duration: prefersReducedMotion ? 0 : 0.2,
-                      ease: "easeOut",
+                      type: "spring",
+                      stiffness: 120,
+                      damping: 20,
+                      duration: 0.45,
                     }}
                     className={cn(
                       "absolute inset-0 z-0 bg-secondary-foreground",
                     )}
-                    style={{ willChange: "transform" }}
                   />
                 )}
               </TabsTrigger>
@@ -105,8 +103,7 @@ function SliderServiceSection({ content }: Props) {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -40 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.15 }}
-            style={{ willChange: "transform, opacity" }}
+            transition={{ duration: 0.3 }}
           >
             <Carousel>
               {/* Arrows Desktop */}
@@ -166,4 +163,4 @@ function SliderServiceSection({ content }: Props) {
   );
 }
 
-export default React.memo(SliderServiceSection);
+export default SliderServiceSection;
