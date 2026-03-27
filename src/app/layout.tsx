@@ -40,29 +40,15 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         {/* <link rel="canonical" href="https://www.korcomptenz.com/" /> */}
+        {/* Google Tag Manager */}
 
-        {/* DNS Prefetch & Preconnect for critical resources */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://js.hs-scripts.com" />
-        <link
-          rel="dns-prefetch"
-          href="https://aue2kormlworkspacetest01.blob.core.windows.net"
-        />
-
-        {/* Google Tag Manager - Deferred */}
         <script
-          async
-          defer
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDLSJSX');`,
           }}
         />
+
+        {/* End Google Tag Manager */}
 
         {/* Schema.org Structured Data */}
         <script
@@ -119,28 +105,9 @@ export default function RootLayout({
         />
         {/* End HubSpot Embed Code */}
 
-        <link rel="icon" href="/assets/logo.png" sizes="any" />
-      </head>
-      <body className={`${outfitSans.variable} antialiased`}>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-WDLSJSX"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
-
-        <BreadcrumbSchema />
-        <Providers>{children}</Providers>
-
-        {/* Deferred Tracking Scripts - Moved to end of body for better LCP */}
+        {/* <!-- Mirabel's Marketing Manager Tracking Code Start --> */}
         <script
           type="text/javascript"
-          async
-          defer
           dangerouslySetInnerHTML={{
             __html: `!function () {
         var e, t;
@@ -158,14 +125,33 @@ export default function RootLayout({
       }();`,
           }}
         />
+        {/* <!-- Mirabel's Marketing Manager Tracking Code End --> */}
+
+        {/* AdRoll Tracking Script */}
         <script
           type="text/javascript"
-          async
-          defer
           dangerouslySetInnerHTML={{
             __html: `adroll_adv_id = "6AFFI77P25EMLITUU77QLL"; adroll_pix_id = "MBYLSCHWRRDSPAI7HHOHMI"; adroll_version = "2.0"; (function(w, d, e, o, a) { w.adroll_tag_source = w.adroll_tag_source || "manual"; w.__adroll_loaded = true; w.adroll = w.adroll || []; w.adroll.f = [ 'setProperties', 'identify', 'track', 'identify_email', 'get_cookie' ]; var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js"; for (a = 0; a < w.adroll.f.length; a++) { w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) { return function() { w.adroll.push([ n, arguments ]) } })(w.adroll.f[a]) } e = d.createElement('script'); o = d.getElementsByTagName('script')[0]; e.async = 1; e.src = roundtripUrl; o.parentNode.insertBefore(e, o); })(window, document); adroll.track("pageview");`,
           }}
         />
+        {/* End AdRoll Tracking Script */}
+
+        <link rel="icon" href="/assets/logo.png" sizes="any" />
+      </head>
+      <body className={`${outfitSans.variable} antialiased`}>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WDLSJSX"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
+
+        <BreadcrumbSchema />
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

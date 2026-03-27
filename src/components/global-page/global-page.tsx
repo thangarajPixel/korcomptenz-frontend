@@ -102,18 +102,14 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-
+  
   return data?.map((item, index) => {
-    const isAboveFold = index < 3;
-
     switch (item?.__component) {
       case "home.hero-section-one":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`sliding-section-${item?.__component}-${item?.id}`}
-            isAboveFold={isAboveFold}
-            duration={isAboveFold ? 0 : 0.4}
           >
             <SlidingSection
               key={`sliding-section-${item?.__component}-${item?.id}`}
@@ -126,8 +122,6 @@ const GlobalPage = (props: Props) => {
           <ScrollFadeIn
             __component={item?.__component}
             key={`sticky-cards-${item?.__component}-${item?.id}`}
-            isAboveFold={isAboveFold}
-            duration={isAboveFold ? 0 : 0.5}
           >
             <StickyCards stickyCards={item} />
           </ScrollFadeIn>
@@ -1039,18 +1033,19 @@ const GlobalPage = (props: Props) => {
             key={`slider-service-section-${item?.__component}-${item?.id}`}
           >
             <SliderServiceSection content={item} />
+            
           </ScrollFadeIn>
         );
 
-      case "page-componets.microsoft-gold-certified":
+        case "page-componets.microsoft-gold-certified":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`microsoft-gold-certified-${item?.__component}-${item?.id}`}
           >
-            <MicrosoftGoldCertified data={item} />
+            <MicrosoftGoldCertified data={item}/>
           </ScrollFadeIn>
-        );
+        )
       default:
         return;
     }
