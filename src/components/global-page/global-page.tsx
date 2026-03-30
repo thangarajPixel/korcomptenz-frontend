@@ -1,4 +1,3 @@
-import React from "react";
 import { InsightsSection } from "../insight-section";
 import InspireSection from "../inspire-section";
 import Opportunities from "../opportunities";
@@ -102,7 +101,15 @@ type Props = {
 
 const GlobalPage = (props: Props) => {
   const { data } = props;
-  
+
+  if (!data || data.length === 0) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-lg text-muted-foreground">No content available</p>
+      </div>
+    );
+  }
+
   return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
@@ -1033,19 +1040,18 @@ const GlobalPage = (props: Props) => {
             key={`slider-service-section-${item?.__component}-${item?.id}`}
           >
             <SliderServiceSection content={item} />
-            
           </ScrollFadeIn>
         );
 
-        case "page-componets.microsoft-gold-certified":
+      case "page-componets.microsoft-gold-certified":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`microsoft-gold-certified-${item?.__component}-${item?.id}`}
           >
-            <MicrosoftGoldCertified data={item}/>
+            <MicrosoftGoldCertified data={item} />
           </ScrollFadeIn>
-        )
+        );
       default:
         return;
     }

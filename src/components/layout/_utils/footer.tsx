@@ -9,7 +9,9 @@ import FooterTitle from "./footer-title";
 import FooterDescription from "./footer-description";
 import React from "react";
 
-export const Footer = ({ data }: { data: LayoutType }) => {
+export const Footer = ({ data }: { data: LayoutType | null }) => {
+  if (!data) return null;
+
   return (
     <footer className="bg-foreground text-white">
       <div className="container-md py-12">
