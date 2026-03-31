@@ -53,8 +53,8 @@ export const useTimeSlotListHook = () => {
   return useQuery({
     queryKey: [PAGE.TIME_SLOT_LIST],
     queryFn: () => PAGE.getTimeSlotList(),
-  });
-};
+  })
+}
 
 export const useCaseStudyListHook = ({
   options,
@@ -206,5 +206,28 @@ export const useSubscriptionFormSchemaHook = () => {
   return useMutation({
     mutationKey: [PAGE.NEW_LETTER_SUBSCRIPTION],
     mutationFn: PAGE.createSubcription,
+  });
+};
+
+export const useGlobalSearchHook = ({
+  query,
+  page = 1,
+  pageSize = 10,
+  category,
+  sort,
+  options,
+}: {
+  query?: string;
+  page?: number;
+  pageSize?: number;
+  category?: string;
+  sort?: "newest" | "oldest";
+  options?: OptionsType<GlobalSearchResponse>;
+}) => {
+  return useQuery({
+    queryKey: [PAGE.GLOBAL_SEARCH, query, page, pageSize, category, sort],
+    queryFn: () => PAGE.getGlobalSearch({ query, page, pageSize, category, sort }),
+    enabled: !!query && query.length > 1,
+    ...options,
   });
 };

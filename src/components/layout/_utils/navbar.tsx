@@ -1,9 +1,10 @@
 "use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
-import { X, ChevronRight, Plus, Minus } from "lucide-react";
+import { X, ChevronRight, Plus, Minus, Search } from "lucide-react";
 import React, { useState } from "react";
 import Link from "next/link";
+
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import MegaMenuContent from "./mega-menu/mega-menu-content";
@@ -12,7 +13,6 @@ import ServicesMobile from "./mega-menu/_utils/service-mobile";
 import IndustriesMobile from "./mega-menu/_utils/industries-mobile";
 import AboutMobile from "./mega-menu/_utils/about-mobile";
 import InsightMobile from "./mega-menu/_utils/insight-mobile";
-
 import EcosystemMobile from "./mega-menu/_utils/ecosytem-mobile";
 
 export function Navbar({ data }: { data: LayoutType | null }) {
@@ -22,6 +22,7 @@ export function Navbar({ data }: { data: LayoutType | null }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
+  
   const toggleExpand = (label: string) => {
     setExpandedItem(expandedItem === label ? null : label);
   };
@@ -86,7 +87,15 @@ export function Navbar({ data }: { data: LayoutType | null }) {
             </nav>
 
             {/* Enhanced Desktop CTA with animations */}
-            <div className="hidden min-[1120px]:flex items-center justify-between gap-10">
+            <div className="hidden min-[1120px]:flex items-center justify-between gap-4">
+              {/* Search icon */}
+              <Link
+                href="/search"
+                className="p-2 rounded-md text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Open search"
+              >
+                <Search className="h-5 w-5" />
+              </Link>
               <Button size="xl" className="variant:default  font-base ">
                 <Link
                   href={
@@ -104,7 +113,14 @@ export function Navbar({ data }: { data: LayoutType | null }) {
             </div>
 
             {/* Enhanced Mobile menu button with smooth animation */}
-            <div className="min-[1120px]:hidden  gap-2">
+            <div className="min-[1120px]:hidden flex items-center gap-2">
+              <Link
+                href="/search"
+                className="p-2 rounded-md text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Open search"
+              >
+                <Search className="h-5 w-5" />
+              </Link>
               <button
                 className="transition-all duration-300 ease-out cursor-pointer  p-2 rounded-md"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -1696,3 +1696,38 @@ type ServiceType = {
   label: string;
   slug: string;
 };
+
+type GlobalSearchItem = {
+  id: number;
+  title: string;
+  description: string | null;
+  slug: string;
+  date: string | null;
+  image: {
+    url: string;
+    alt: string;
+    width: number;
+    height: number;
+  } | null;
+  category: string;
+  type: "case-study" | "insight" | "page";
+};
+
+type GlobalSearchTab = {
+  label: string;
+  count: number;
+};
+
+type GlobalSearchResponse = {
+  data: GlobalSearchItem[];
+  meta: {
+    total: number;
+    query: string;
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+    };
+    tabs: GlobalSearchTab[];
+  };
+};
