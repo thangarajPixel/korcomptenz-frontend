@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import { Search, X, ChevronRight, ChevronDown } from "lucide-react";
+import { Search, X, ChevronRight, ChevronLeft, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -66,6 +66,7 @@ export default function SearchPage() {
   const [sortOpen, setSortOpen] = useState(false);
   const [frozenTabs, setFrozenTabs] = useState<GlobalSearchTab[]>([]);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
 
   const debouncedQuery = useDebounce(query, 400);
   const apiCategory = activeTab === "All" ? undefined : activeTab;
@@ -86,19 +87,22 @@ export default function SearchPage() {
 
   useEffect(() => { setFrozenTabs([]); }, [debouncedQuery]);
 
-  // Check if tabs row can scroll
+  // Check scroll position for both arrows
   useEffect(() => {
     const el = tabsRef.current;
     if (!el) return;
-    const check = () => setCanScrollRight(el.scrollWidth > el.clientWidth + el.scrollLeft + 2);
+    const check = () => {
+      setCanScrollLeft(el.scrollLeft > 2);
+      setCanScrollRight(el.scrollWidth > el.clientWidth + el.scrollLeft + 2);
+    };
     check();
     el.addEventListener("scroll", check);
     window.addEventListener("resize", check);
     return () => { el.removeEventListener("scroll", check); window.removeEventListener("resize", check); };
   }, [frozenTabs, data?.meta?.tabs]);
 
-  const scrollTabs = () => {
-    tabsRef.current?.scrollBy({ left: 200, behavior: "smooth" });
+  const scrollTabs = (dir: "left" | "right") => {
+    tabsRef.current?.scrollBy({ left: dir === "right" ? 200 : -200, behavior: "smooth" });
   };
 
   const handleTabChange = useCallback((label: string) => {
@@ -170,7 +174,12 @@ export default function SearchPage() {
                 {SORT_OPTIONS.map((opt) => (
                   <button
                     key={opt.value}
-                    onClick={() => { setSort(opt.value); setPage(1); setSortOpen(false); }}
+                    onMouseDown={(e) => {
+                      e.preventDefault(); // prevent blur before click
+                      setSort(opt.value);
+                      setPage(1);
+                      setSortOpen(false);
+                    }}
                     className={cn(
                       "w-full text-left px-4 py-2.5 text-[14px] transition-colors hover:bg-primary/5",
                       sort === opt.value ? "text-primary font-semibold" : "text-foreground",
@@ -184,12 +193,20 @@ export default function SearchPage() {
           </div>
         </div>
 
-        {/* Tabs — horizontal scroll with arrow */}
+        {/* Tabs — horizontal scroll with arrows */}
         {showResults && tabs.length > 0 && (
           <div className="flex items-center gap-2 mb-6">
+            {canScrollLeft && (
+              <button
+                onClick={() => scrollTabs("left")}
+                className="shrink-0 w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+            )}
             <div
               ref={tabsRef}
-              className="flex items-center gap-2 overflow-x-auto scrollbar-hide flex-nowrap"
+              className="flex items-center gap-4 overflow-x-auto flex-nowrap"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {tabs.map((tab) => (
@@ -197,7 +214,7 @@ export default function SearchPage() {
                   key={tab.label}
                   onClick={() => handleTabChange(tab.label)}
                   className={cn(
-                    "flex items-center gap-1.5 px-4 py-[7px] rounded-full border text-[17px] font-medium transition-all whitespace-nowrap shrink-0",
+                    "flex items-center gap-1.5 px-8 py-3 rounded-full border text-[17px] font-normal transition-all whitespace-nowrap shrink-0",
                     activeTab === tab.label
                       ? "bg-primary text-white border-primary"
                       : "border-primary text-primary bg-white hover:bg-primary/5",
@@ -208,10 +225,9 @@ export default function SearchPage() {
                 </button>
               ))}
             </div>
-            {/* Scroll arrow */}
             {canScrollRight && (
               <button
-                onClick={scrollTabs}
+                onClick={() => scrollTabs("right")}
                 className="shrink-0 w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
               >
                 <ChevronRight className="h-4 w-4" />
@@ -242,7 +258,7 @@ export default function SearchPage() {
         {/* Results */}
         {!isFetching && items.length > 0 && (
           <>
-            <div className="flex flex-col gap-3 bg-[#f5f5f5] p-10">
+            <div className="flex flex-col gap-3 bg-[#F3F7F4] p-10">
               {items.map((item) => {
                 const hasImage = !!item.image?.url;
 
