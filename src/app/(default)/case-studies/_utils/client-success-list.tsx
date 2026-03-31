@@ -49,6 +49,7 @@ const ClientSuccessList = ({
     },
     options: {
       initialData,
+      initialDataUpdatedAt: 0,
     },
   });
 
@@ -60,7 +61,7 @@ const ClientSuccessList = ({
         page: 1,
       }));
     },
-    [pagination],
+    [],
   );
 
   const handleFilterChange = React.useCallback(
@@ -77,7 +78,7 @@ const ClientSuccessList = ({
         page: 1,
       }));
     },
-    [filter],
+    [],
   );
 
   const handlePageChange = React.useCallback(
@@ -88,7 +89,7 @@ const ClientSuccessList = ({
         page: page,
       }));
     },
-    [pagination],
+    [],
   );
 
   const handleItemsPerPageChange = React.useCallback(
@@ -99,7 +100,7 @@ const ClientSuccessList = ({
         page: 1,
       }));
     },
-    [pagination],
+    [],
   );
 
   return (
@@ -116,7 +117,14 @@ const ClientSuccessList = ({
           filterLabel={filterLabel}
           popularFilter={popularFilter}
           onFilterChange={handleFilterChange}
-          onSortChange={setSort}
+         onSortChange={(s) => {
+            const sortMap: Record<string, string> = {
+              newest: "publishedAt:desc",
+              oldest: "publishedAt:asc",
+            };
+            setSort(sortMap[s] ?? s);
+            setPagination((prev) => ({ ...prev, page: 1 }));
+          }}
         />
         <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
           {data?.sponsor && (
