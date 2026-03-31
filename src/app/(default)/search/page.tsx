@@ -258,7 +258,7 @@ export default function SearchPage() {
         {/* Results */}
         {!isFetching && items.length > 0 && (
           <>
-            <div className="flex flex-col gap-3 bg-[#F3F7F4] p-10">
+            <div className="flex flex-col gap-3 bg-[#F3F7F4] p-0 md:p-10">
               {items.map((item) => {
                 const hasImage = !!item.image?.url;
 
@@ -269,7 +269,7 @@ export default function SearchPage() {
                     className="flex items-stretch rounded-2xl overflow-hidden bg-white border border-[#e5e7eb] hover:shadow-md transition-shadow group"
                   >
                     {/* Text content */}
-                    <div className="flex-1 min-w-0 px-6 py-5 flex flex-col justify-between gap-4">
+                    <div className="grid md:flex-1 min-w-0 px-3 md:px-6 py-5 md:flex md:flex-col justify-between gap-4">
                       <div>
                         <h3 className="text-[22px] md:text-[28px] leading-8.5 font-semibold line-clamp-2 transition-colors text-foreground hover:text-primary">
                           {item.title}
@@ -277,14 +277,14 @@ export default function SearchPage() {
                         {item.description && (
                           <DangerousHtml
                             html={item.description}
-                            className="text-md md:text-lg leading-7.5 text-foreground mt-2 line-clamp-2 font-medium"
+                            className="text-md md:text-lg leading-7.5 text-foreground mt-2 line-clamp-3 font-medium"
                           />
                         )}
                       </div>
 
-                      {/* Badges + CTA — single row, no wrap */}
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="flex items-center gap-2 shrink-0">
+                      {/* Badges + CTA */}
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-3">
+                        <div className="flex items-center justify-center md:justify-start gap-2 shrink-0">
                           <span className="text-[17px] px-5 py-2 rounded-2xl bg-[#26A17C59] text-black font-medium whitespace-nowrap">
                             {item.category}
                           </span>
@@ -294,7 +294,7 @@ export default function SearchPage() {
                             </span>
                           )}
                         </div>
-                        <span className="inline-flex items-center gap-1.5 text-[17px] font-normal text-white bg-primary px-5 py-3 rounded-full whitespace-nowrap shrink-0 group-hover:bg-primary/90 transition-colors">
+                        <span className="inline-flex items-center gap-1.5 text-[17px] font-normal text-white bg-primary px-5 py-3 rounded-full whitespace-nowrap shrink-0 group-hover:bg-primary/90 transition-colors self-start md:self-auto mx-auto md:mx-0">
                           {getButtonLabel(item.category)}
                           <ChevronRight className="h-4 w-4" />
                         </span>
@@ -303,7 +303,7 @@ export default function SearchPage() {
 
                     {/* Image */}
                     {hasImage && (
-                      <div className="relative w-[180px] shrink-0 self-stretch">
+                      <div className="relative w-[180px] shrink-0 self-stretch hidden md:block">
                         <Image
                           src={item.image!.url}
                           alt={item.image!.alt ?? item.title}
