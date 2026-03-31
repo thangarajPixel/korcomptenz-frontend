@@ -48,57 +48,28 @@ const InsightsSuccessList = ({
     },
     options: {
       initialData,
+      initialDataUpdatedAt: 0, // mark as stale so queryKey changes trigger refetch
     },
   });
 
-  const handleSearch = React.useCallback(
-    (term: string) => {
-      setSearchTerm(term);
-      setPagination((prev) => ({
-        ...prev,
-        page: 1,
-      }));
-    },
-    [pagination],
-  );
+  const handleSearch = React.useCallback((term: string) => {
+    setSearchTerm(term);
+    setPagination((prev) => ({ ...prev, page: 1 }));
+  }, []);
 
-  const handleFilterChange = React.useCallback(
-    (filters: { [key: string]: string[] }) => {
-      setFilter(
-        filters as {
-          service: string[];
-          technology: string[];
-        },
-      );
-      setPagination((prev) => ({
-        ...prev,
-        page: 1,
-      }));
-    },
-    [filter],
-  );
+  const handleFilterChange = React.useCallback((filters: { [key: string]: string[] }) => {
+    setFilter(filters as { service: string[]; technology: string[] });
+    setPagination((prev) => ({ ...prev, page: 1 }));
+  }, []);
 
-  const handlePageChange = React.useCallback(
-    (page: number) => {
-      window.scrollTo({ top: 750, behavior: "smooth" });
-      setPagination((prev) => ({
-        ...prev,
-        page: page,
-      }));
-    },
-    [pagination],
-  );
+  const handlePageChange = React.useCallback((page: number) => {
+    window.scrollTo({ top: 750, behavior: "smooth" });
+    setPagination((prev) => ({ ...prev, page }));
+  }, []);
 
-  const handleItemsPerPageChange = React.useCallback(
-    (value: number) => {
-      setPagination((prev) => ({
-        ...prev,
-        pageSize: value,
-        page: 1,
-      }));
-    },
-    [pagination],
-  );
+  const handleItemsPerPageChange = React.useCallback((value: number) => {
+    setPagination((prev) => ({ ...prev, pageSize: value, page: 1 }));
+  }, []);
 
   return (
     <React.Fragment>
@@ -117,7 +88,14 @@ const InsightsSuccessList = ({
           categoryAllLabel={categoryAllLabel}
           popularFilter={popularFilter}
           onFilterChange={handleFilterChange}
-          onSortChange={setSort}
+          onSortChange={(s) => {
+            const sortMap: Record<string, string> = {
+              newest: "publishedAt:desc",
+              oldest: "publishedAt:asc",
+            };
+            setSort(sortMap[s] ?? s);
+            setPagination((prev) => ({ ...prev, page: 1 }));
+          }}
         />
         <div className="grid grid-cols-12 gap-6 mb-8 md:py-10">
           {isLoading ? (
