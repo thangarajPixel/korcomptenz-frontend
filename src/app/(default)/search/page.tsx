@@ -179,7 +179,7 @@ export default function SearchPage() {
                       setSortOpen(false);
                     }}
                     className={cn(
-                      "w-full text-left px-4 py-2.5 text-[14px] transition-colors hover:bg-primary/5",
+                      "w-full text-left px-4 py-2.5 text-[14px] transition-colors hover:bg-primary/5 cursor-pointer",
                       sort === opt.value ? "text-primary font-semibold" : "text-foreground",
                     )}
                   >
