@@ -13,9 +13,15 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 // Category → URL prefix: explicit overrides + dynamic fallback (lowercase, spaces→hyphens)
 function getItemHref(item: GlobalSearchItem): string {
   if (item.thirdpartyLink) return item.thirdpartyLink;
+  if (!item.slug && item.buttonLink) return item.buttonLink;
+  if (item.type === "demo" && item.buttonLink) return item.buttonLink;
+  if (item.type === "event" && item.buttonLink) return item.buttonLink;
 
   const slug = item.slug;
-  if (item.type === "page") return slug.startsWith("/") ? slug : `/${slug}`;
+  if (item.type === "page" || item.type === "single-page") {
+    const clean = slug.startsWith("/") ? slug : `/${slug}`;
+    return clean.replace(/^\/pages\//, "/");
+  }
 
   const overrides: Record<string, string> = {
     "Case Studies": "/case-studies/",
@@ -36,17 +42,21 @@ function getItemHref(item: GlobalSearchItem): string {
 
 function formatDate(dateStr: string | null): string {
   if (!dateStr) return "";
-  const d = new Date(dateStr);
-  return d.toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
+  // Handle formats like "2026-03-25 12PM to 12.30PM" — extract date part only
+  const datePart = dateStr.split(" ")[0];
+  const d = new Date(datePart);
+  if (isNaN(d.getTime())) return "";
+  const day = String(d.getDate()).padStart(2, "0");
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const year = d.getFullYear();
+  return `${day}-${month}-${year}`;
 }
 
-// function getButtonLabel(category: string): string {
-//   return category === "Whitepaper" ? "Download Now" : "View Details";
-// }
+const DOWNLOAD_CATEGORIES = new Set(["Whitepaper", "Infographic", "Brochure", "eBook"]);
+
+function getButtonLabel(category: string): string {
+  return DOWNLOAD_CATEGORIES.has(category) ? "Download Now" : "View Details";
+}
 
 const SORT_OPTIONS: { label: string; value: "newest" | "oldest" }[] = [
   { label: "Most Recent", value: "newest" },
@@ -65,6 +75,19 @@ export default function SearchPage() {
   const [frozenTabs, setFrozenTabs] = useState<GlobalSearchTab[]>([]);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
+
+  // Restore search state from sessionStorage on back navigation
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem("search_state");
+      if (saved) {
+        const s = JSON.parse(saved) as { query: string; tab: string; page: number };
+        setQuery(s.query ?? "");
+        setActiveTab(s.tab ?? "All");
+        setPage(s.page ?? 1);
+      }
+    } catch { /* ignore */ }
+  }, []);
 
   const debouncedQuery = useDebounce(query, 400);
   const apiCategory = activeTab === "All" ? undefined : activeTab;
@@ -113,6 +136,13 @@ export default function SearchPage() {
     setPage(1);
     setActiveTab("All");
   }, []);
+
+  // Save state to sessionStorage for back-button restore
+  useEffect(() => {
+    if (query) {
+      sessionStorage.setItem("search_state", JSON.stringify({ query, tab: activeTab, page }));
+    }
+  }, [query, activeTab, page]);
 
   const handlePageSizeChange = useCallback((size: number) => {
     setPageSize(size);
@@ -259,6 +289,31 @@ export default function SearchPage() {
             <div className="flex flex-col gap-3 bg-[#F3F7F4] p-0 md:p-10 rounded-2xl ">
               {items.map((item) => {
                 const hasImage = !!item.image?.url;
+                const isPage = item.type === "page" || item.type === "single-page";
+                const btnLabel = getButtonLabel(item.category);
+
+                // Pages with no description — banner style card
+                if (isPage && !item.description) {
+                  return (
+                    <Link
+                      key={item.id}
+                      href={getItemHref(item)}
+                      target={item.isTarget ? "_blank" : undefined}
+                      rel={item.isTarget ? "noopener noreferrer" : undefined}
+                      className="flex items-center rounded-2xl overflow-hidden bg-white border border-[#e5e7eb] hover:shadow-md transition-shadow group px-6 py-5 gap-4"
+                    >
+                      {/* Green left accent bar */}
+                      <div className="w-1 self-stretch rounded-full bg-primary shrink-0" />
+                      <h3 className="flex-1 text-[22px] md:text-[28px] font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                        {item.bannerTitle || item.title}
+                      </h3>
+                      <span className="inline-flex items-center gap-1.5 text-[17px] font-normal text-white bg-primary px-5 py-3 rounded-full whitespace-nowrap shrink-0 group-hover:bg-primary/90 transition-colors">
+                        {btnLabel}
+                        <ChevronRight className="h-4 w-4" />
+                      </span>
+                    </Link>
+                  );
+                }
 
                 return (
                   <Link
@@ -272,7 +327,7 @@ export default function SearchPage() {
                     <div className="grid md:flex-1 min-w-0 px-3 md:px-6 py-5 md:flex md:flex-col justify-between gap-4">
                       <div>
                         <h3 className="text-[22px] md:text-[28px] leading-8.5 font-semibold line-clamp-2 transition-colors text-foreground hover:text-primary">
-                          {item.title}
+                          {item.bannerTitle || item.title}
                         </h3>
                         {item.description && (
                           <DangerousHtml
@@ -288,20 +343,20 @@ export default function SearchPage() {
                           <span className="text-[17px] px-5 py-2 rounded-2xl bg-[#26A17C59] text-black font-medium whitespace-nowrap">
                             {item.category}
                           </span>
-                          {item.date && (
+                          {item.date && item.type !== "page" && item.type !== "single-page" && (
                             <span className="text-[17px] text-foreground px-4 py-2 rounded-2xl bg-[#F1F1F1] font-medium whitespace-nowrap">
                               {formatDate(item.date)}
                             </span>
                           )}
                         </div>
                         <span className="inline-flex items-center gap-1.5 text-[17px] font-normal text-white bg-primary px-5 py-3 rounded-full whitespace-nowrap shrink-0 group-hover:bg-primary/90 transition-colors self-start md:self-auto mx-auto md:mx-0">
-                          View Details
+                          {btnLabel}
                           <ChevronRight className="h-4 w-4" />
                         </span>
                       </div>
                     </div>
 
-                    {/* Image */}
+                    {/* Image — shown for all types that have one */}
                     {hasImage && (
                       <div className="relative w-[180px] shrink-0 self-stretch hidden md:block">
                         <Image

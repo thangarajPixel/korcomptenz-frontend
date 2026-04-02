@@ -1710,9 +1710,11 @@ type GlobalSearchItem = {
     height: number;
   } | null;
   category: string;
-  type: "case-study" | "insight" | "page";
+  type: "case-study" | "insight" | "page" | "single-page" | "demo" | "event";
   thirdpartyLink?: string | null;
   isTarget?: boolean;
+  buttonLink?: string | null;
+  bannerTitle?: string | null;
 };
 
 type GlobalSearchTab = {
