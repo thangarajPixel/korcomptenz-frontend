@@ -197,7 +197,7 @@ export default function SearchPage() {
             {canScrollLeft && (
               <button
                 onClick={() => scrollTabs("left")}
-                className="shrink-0 w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                className="shrink-0 w-9 h-9 rounded-full bg-primary text-white flex cursor-pointer items-center justify-center hover:bg-primary/90 transition-colors"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
@@ -226,7 +226,7 @@ export default function SearchPage() {
             {canScrollRight && (
               <button
                 onClick={() => scrollTabs("right")}
-                className="shrink-0 w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                className="shrink-0 w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors cursor-pointer"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
