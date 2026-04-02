@@ -140,7 +140,7 @@ const ClientSuccessList = ({
               </div>
             ))
           ) : data?.results?.length ? (
-            data.results.map((item) => (
+            data?.results?.map((item) => (
               <div
                 key={item.id}
                 className="col-span-12 md:col-span-6 lg:col-span-4"

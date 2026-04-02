@@ -44,9 +44,9 @@ function formatDate(dateStr: string | null): string {
   });
 }
 
-function getButtonLabel(category: string): string {
-  return category === "Whitepaper" ? "Download Now" : "View Details";
-}
+// function getButtonLabel(category: string): string {
+//   return category === "Whitepaper" ? "Download Now" : "View Details";
+// }
 
 const SORT_OPTIONS: { label: string; value: "newest" | "oldest" }[] = [
   { label: "Most Recent", value: "newest" },
@@ -212,7 +212,7 @@ export default function SearchPage() {
                   key={tab.label}
                   onClick={() => handleTabChange(tab.label)}
                   className={cn(
-                    "flex items-center gap-1.5 px-8 py-3 rounded-full border text-[17px] font-normal transition-all whitespace-nowrap shrink-0",
+                    "flex items-center gap-1.5 px-8 py-3 rounded-full border text-[17px] font-normal transition-all whitespace-nowrap shrink-0 cursor-pointer",
                     activeTab === tab.label
                       ? "bg-primary text-white border-primary"
                       : "border-primary text-primary bg-white hover:bg-primary/5",
@@ -256,7 +256,7 @@ export default function SearchPage() {
         {/* Results */}
         {!isFetching && items.length > 0 && (
           <>
-            <div className="flex flex-col gap-3 bg-[#F3F7F4] p-0 md:p-10">
+            <div className="flex flex-col gap-3 bg-[#F3F7F4] p-0 md:p-10 rounded-2xl ">
               {items.map((item) => {
                 const hasImage = !!item.image?.url;
 
@@ -295,7 +295,7 @@ export default function SearchPage() {
                           )}
                         </div>
                         <span className="inline-flex items-center gap-1.5 text-[17px] font-normal text-white bg-primary px-5 py-3 rounded-full whitespace-nowrap shrink-0 group-hover:bg-primary/90 transition-colors self-start md:self-auto mx-auto md:mx-0">
-                          {getButtonLabel(item.category)}
+                          View Details
                           <ChevronRight className="h-4 w-4" />
                         </span>
                       </div>

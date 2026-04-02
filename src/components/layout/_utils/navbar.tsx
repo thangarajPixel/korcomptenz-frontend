@@ -1,7 +1,7 @@
 "use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
-import { X, ChevronRight, Plus, Minus, Search } from "lucide-react";
+import { X, ChevronRight, Plus, Minus } from "lucide-react";
 import React, { useState } from "react";
 import Link from "next/link";
 
@@ -91,10 +91,10 @@ export function Navbar({ data }: { data: LayoutType | null }) {
               {/* Search icon */}
               <Link
                 href="/search"
-                className="p-2 rounded-md text-muted-foreground hover:text-primary transition-colors"
+                className="p-2 rounded-md hover:opacity-80 transition-opacity"
                 aria-label="Open search"
               >
-                <Search className="h-5 w-5" />
+                <KorcomptenzImage src="/assets/Vector (7).png" alt="search" width={20} height={20} />
               </Link>
               <Button size="xl" className="variant:default  font-base ">
                 <Link
@@ -116,10 +116,10 @@ export function Navbar({ data }: { data: LayoutType | null }) {
             <div className="min-[1120px]:hidden flex items-center gap-2">
               <Link
                 href="/search"
-                className="p-2 rounded-md text-muted-foreground hover:text-primary transition-colors"
+                className="p-2 rounded-md hover:opacity-80 transition-opacity"
                 aria-label="Open search"
               >
-                <Search className="h-5 w-5" />
+                <KorcomptenzImage src="/assets/Vector (7).png" alt="search" width={20} height={20} />
               </Link>
               <button
                 className="transition-all duration-300 ease-out cursor-pointer  p-2 rounded-md"
