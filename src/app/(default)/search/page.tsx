@@ -12,8 +12,9 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 // Category → URL prefix: explicit overrides + dynamic fallback (lowercase, spaces→hyphens)
 function getItemHref(item: GlobalSearchItem): string {
-  const slug = item.slug;
+  if (item.thirdpartyLink) return item.thirdpartyLink;
 
+  const slug = item.slug;
   if (item.type === "page") return slug.startsWith("/") ? slug : `/${slug}`;
 
   const overrides: Record<string, string> = {
@@ -23,11 +24,8 @@ function getItemHref(item: GlobalSearchItem): string {
     "Webstories": "/webstories/",
   };
 
-  if (overrides[item.category]) {
-    return `${overrides[item.category]}${slug}`;
-  }
+  if (overrides[item.category]) return `${overrides[item.category]}${slug}`;
 
-  // Dynamic: "eBook" → "/ebook/", "Brochure" → "/brochure/", "Playbook" → "/playbook/"
   const prefix = "/" + item.category
     .toLowerCase()
     .replace(/\s+/g, "-")
@@ -266,6 +264,8 @@ export default function SearchPage() {
                   <Link
                     key={item.id}
                     href={getItemHref(item)}
+                    target={item.isTarget ? "_blank" : undefined}
+                    rel={item.isTarget ? "noopener noreferrer" : undefined}
                     className="flex items-stretch rounded-2xl overflow-hidden bg-white border border-[#e5e7eb] hover:shadow-md transition-shadow group"
                   >
                     {/* Text content */}

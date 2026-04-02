@@ -1711,6 +1711,8 @@ type GlobalSearchItem = {
   } | null;
   category: string;
   type: "case-study" | "insight" | "page";
+  thirdpartyLink?: string | null;
+  isTarget?: boolean;
 };
 
 type GlobalSearchTab = {
