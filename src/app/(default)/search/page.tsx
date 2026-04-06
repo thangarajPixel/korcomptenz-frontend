@@ -429,8 +429,8 @@ export default function SearchPage() {
                 pageCount={pagination.pageCount}
                 total={total}
                 pageSize={pageSize}
-                onPageChange={setPage}
-                onPageSizeChange={handlePageSizeChange}
+                onPageChange={(p) => { setPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                onPageSizeChange={(s) => { handlePageSizeChange(s); window.scrollTo({ top: 0, behavior: "smooth" }); }}
               />
             )}
           </>
