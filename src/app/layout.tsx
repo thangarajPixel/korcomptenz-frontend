@@ -6,8 +6,8 @@ import Providers from "@/components/providers";
 import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
 import { headers } from "next/headers";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 3600; // Cache for 1 hour where possible
+// Remove force-dynamic to enable caching
+export const revalidate = 3600; // Cache for 1 hour
 
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",

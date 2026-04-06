@@ -6,7 +6,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/utils";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy } from "react";
 
 const WebVitals = lazy(() =>
   import("./web-vitals").then((mod) => ({ default: mod.WebVitals })),
@@ -15,19 +15,6 @@ const WebVitals = lazy(() =>
 const RECAPTCHA_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  // Defer WebVitals monitoring to after page is interactive
-  useEffect(() => {
-    // Use requestIdleCallback if available for non-blocking monitoring
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(
-        () => {
-          // WebVitals will be loaded via Suspense
-        },
-        { timeout: 5000 },
-      );
-    }
-  }, []);
-
   return (
     <NuqsAdapter>
       <QueryClientProvider client={queryClient}>
