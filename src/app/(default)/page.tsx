@@ -1,12 +1,12 @@
-import GlobalPage from "@/components/global-page";
+import GlobalPageOptimized from "@/components/global-page/global-page-optimized";
 import { cn } from "@/lib/utils";
 import { getHomeService } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
 import { cache } from "react";
 import { Suspense } from "react";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 60; // Revalidate every 60 seconds
+// Use ISR instead of force-dynamic for better caching
+export const revalidate = 30; // Revalidate every 30 seconds
 
 const getHomeServiceCache = cache(getHomeService);
 
@@ -46,7 +46,7 @@ function HomeContent({ data }: { data: unknown }) {
 
   return (
     <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
-      <GlobalPage data={data as ComponentPropsType[]} />
+      <GlobalPageOptimized data={data as ComponentPropsType[]} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import SliderCard from "./_utils/slider-card";
 import {
   Carousel,
@@ -17,11 +17,19 @@ const DarkSlider = ({
 }) => {
   const isSwap = manuelSliderData?.isSwap;
 
+  // Memoize carousel configuration
+  const carouselConfig = useMemo(
+    () => ({
+      autoPlay: true,
+      autoPlayDelay: 5000, // Increased from 4s to reduce animation frequency
+    }),
+    [],
+  );
+
   return (
     <Carousel
       className="container-md overflow-hidden"
-      autoPlay
-      autoPlayDelay={4000}
+      {...carouselConfig}
       data-debug={"page-componets.dark-slider-list"}
     >
       <div

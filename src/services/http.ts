@@ -4,7 +4,7 @@ import { APP_CONFIG } from '@/utils/app-config';
 
 const API_BASE_URL = APP_CONFIG?.API_URL;
 
-const TIMEOUT = 15000; // Reduced from 30s for better TBT
+const TIMEOUT = 12000; // Reduced from 15s for better mobile performance
 
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false,

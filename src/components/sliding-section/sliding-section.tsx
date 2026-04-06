@@ -37,18 +37,20 @@ export default function SlidingSection({
               <video
                 className="absolute inset-0 w-full h-full object-cover"
                 src={isMobile ? slide?.mobileVideo?.url : slide?.video?.url}
-                autoPlay
+                autoPlay={index === 0}
                 loop
                 muted
                 playsInline
+                preload={index === 0 ? "auto" : "none"}
               />
             )}
 
             {slide?.design === "image" && (
               <KorcomptenzImage
                 src={isMobile ? slide?.mobile_image : slide?.image}
-                width={1000}
-                height={1000}
+                width={isMobile ? 750 : 1920}
+                height={isMobile ? 600 : 1080}
+                priority={index === 0}
                 className="w-full h-full object-cover"
               />
             )}

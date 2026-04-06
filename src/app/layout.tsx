@@ -7,12 +7,14 @@ import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
 import { headers } from "next/headers";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 3600; // Cache for 1 hour where possible
 
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",
   subsets: ["latin"],
   display: "swap",
   preload: true,
+  weight: ["400", "500", "600", "700"],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -42,6 +44,20 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
+        {/* Preconnect to critical domains */}
+        <link
+          rel="preconnect"
+          href="https://aue2kormlworkspacetest01.blob.core.windows.net"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://images.unsplash.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
         {/* <link rel="canonical" href="https://www.korcomptenz.com/" /> */}
 
         {/* Schema.org Structured Data - Critical for SEO */}
