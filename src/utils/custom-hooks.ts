@@ -144,3 +144,14 @@ function useOnClickOutside<T extends HTMLElement = HTMLElement>(
 // Export types
 export type { EventType };
 export { useEventListener, useMobile, useIsomorphicLayoutEffect, useOnClickOutside }
+
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = React.useState<T>(value);
+  React.useEffect(() => {
+    const timer = setTimeout(() => setDebouncedValue(value), delay);
+    return () => clearTimeout(timer);
+  }, [value, delay]);
+  return debouncedValue;
+}
+
+export { useDebounce };
