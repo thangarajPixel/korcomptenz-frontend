@@ -196,12 +196,12 @@ export default function StatusCarousel({
                       {/* Text Content inside wave */}
                       <div className="relative z-10 px-6 pt-4 pb-8">
                         <div className="space-y-3">
-                          <h2
+                          <h4
                             key={`title-${key}`}
-                            className="text-white text-3xl font-bold leading-tight animate-in slide-in-from-left duration-700"
+                            className="text-white text-3xl font-normal  animate-in slide-in-from-left duration-700 text-[28px] leading-8.5"
                           >
                             {currentItem.title}
-                          </h2>
+                          </h4>
                           {/* <p
                             key={`desc-${key}`}
                             className="text-white/95 text-base leading-relaxed animate-in slide-in-from-right duration-700 delay-150"
