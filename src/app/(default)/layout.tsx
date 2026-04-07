@@ -1,18 +1,8 @@
-import ServerLayout from "@/components/layout/server-layout";
-import React from "react";
-import { getLayoutService } from "@/services";
+import Layout from "@/components/layout"
+import React from "react"
 
-export default async function DefaultLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  let layoutData: LayoutType | null = null;
-  try {
-    layoutData = await getLayoutService();
-  } catch {
-    // render without layout data on error
-  }
-
-  return <ServerLayout data={layoutData}>{children}</ServerLayout>;
+export default async function DefaultLayout({ children }: { children: React.ReactNode }) {
+  return <Layout>
+    {children}
+  </Layout>
 }

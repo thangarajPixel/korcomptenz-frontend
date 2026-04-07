@@ -10,10 +10,10 @@ import FooterDescription from "./footer-description";
 import React from "react";
 
 export const Footer = ({ data }: { data: LayoutType | null }) => {
-  if (!data) return <footer className="bg-foreground" style={{ minHeight: 200 }} />;
+  if (!data) return null;
 
   return (
-    <footer className="bg-foreground text-white" style={{ contentVisibility: "auto", containIntrinsicSize: "0 800px" }}>
+    <footer className="bg-foreground text-white">
       <div className="container-md py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Company Info */}
