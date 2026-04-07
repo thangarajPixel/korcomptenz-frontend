@@ -16,6 +16,7 @@ type KorcomptenzImageProps = Omit<ImageProps, "src" | "alt"> & {
   className?: string;
   src?: ImageType | string;
   priority?: boolean;
+  sizes?: string;
 };
 
 const KorcomptenzImage = React.memo((props: KorcomptenzImageProps) => {
@@ -46,6 +47,10 @@ const KorcomptenzImage = React.memo((props: KorcomptenzImageProps) => {
     [props?.nonAnimate, props?.className],
   );
 
+  // Default responsive sizes for better mobile performance
+  const sizes =
+    props.sizes || "(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw";
+
   return (
     <Image
       placeholder={imagePlaceholder}
@@ -55,6 +60,7 @@ const KorcomptenzImage = React.memo((props: KorcomptenzImageProps) => {
       loading={props.priority ? undefined : "lazy"}
       unoptimized={isGif}
       priority={props.priority || false}
+      sizes={sizes}
       className={imageClassName}
     />
   );

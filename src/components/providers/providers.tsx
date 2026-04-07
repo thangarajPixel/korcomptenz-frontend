@@ -40,6 +40,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
             children
           )}
           <Toaster richColors />
+          {/* Defer Web Vitals to after page interactive */}
           <Suspense fallback={null}>
             <WebVitals />
           </Suspense>

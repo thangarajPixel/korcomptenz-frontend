@@ -78,17 +78,22 @@ export function withLazyLoading<P extends object>(
 /**
  * Aggressive lazy loading for mobile
  * Defers rendering until user scrolls close to section
+ * Uses larger rootMargin on mobile for better performance
  */
 export const AggressiveLazySectionWrapper = React.memo(
   ({
     children,
     fallback = <div className="h-96" />,
   }: Omit<LazySectionWrapperProps, "threshold" | "rootMargin">) => {
+    // Detect mobile and use more aggressive margins
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    const rootMargin = isMobile ? "300px" : "200px";
+
     return (
       <LazySectionWrapper
         fallback={fallback}
-        threshold={0.05}
-        rootMargin="200px"
+        threshold={0.01}
+        rootMargin={rootMargin}
       >
         {children}
       </LazySectionWrapper>

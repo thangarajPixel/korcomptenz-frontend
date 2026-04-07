@@ -11,14 +11,17 @@ export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 1,
-      gcTime: 1000 * 60 * 10, // 10 minutes (reduced from 1 hour)
-      staleTime: 1000 * 60 * 2, // 2 minutes (reduced from 5 minutes)
+      gcTime: 1000 * 60 * 5, // 5 minutes (reduced from 10 for mobile)
+      staleTime: 1000 * 60 * 1, // 1 minute (reduced from 2 for fresher data)
       refetchOnWindowFocus: false,
       refetchOnReconnect: false,
       refetchOnMount: false,
+      // Reduce network requests on mobile
+      networkMode: "always",
     },
     mutations: {
       retry: 1,
+      networkMode: "always",
     },
   },
 });

@@ -1,0 +1,72 @@
+/* Mobile Performance Optimizations - CSS Animations */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Disable expensive animations on mobile */
+  .framer-motion-container {
+    will-change: auto;
+  }
+
+  /* Optimize sticky positioning */
+  [data-sticky] {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Reduce animation complexity */
+  .carousel,
+  .slider {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Optimize scroll performance */
+  .scroll-fade-in {
+    will-change: opacity;
+  }
+
+  /* Disable hover effects on touch devices */
+  @media (hover: none) {
+    button:hover,
+    a:hover {
+      background-color: inherit;
+      color: inherit;
+    }
+  }
+}
+
+/* Image optimization */
+img {
+  /* Prevent layout shift */
+  display: block;
+  /* Enable GPU acceleration for lazy-loaded images */
+  will-change: opacity;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-display: swap;
+}
+
+/* Reduce paint areas */
+.container {
+  contain: layout style paint;
+}
+
+/* Optimize scrolling performance */
+.scrollable-section {
+  contain: layout style;
+  will-change: scroll-position;
+}
