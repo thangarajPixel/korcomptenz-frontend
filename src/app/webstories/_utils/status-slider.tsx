@@ -84,15 +84,20 @@ export default function StatusCarousel({
       />
       {/* Dark overlay to keep it subtle */}
       <div className="absolute inset-0 bg-black/40" />
-      <Link href="/insights/webstories">
-        <X className="w-5 h-5 text-gray-400" />
+      
+      {/* Close Button - Top Right */}
+      <Link 
+        href="/insights/webstories"
+        className="absolute top-6 right-6 z-50 flex items-center justify-center w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all"
+      >
+        <X className="w-5 h-5 text-white" />
       </Link>
       <div className="relative z-10 lg:max-w-xl w-full mx-auto h-full flex items-center py-0  justify-center md:px-4">
         <div className="flex items-center md:gap-6 gap-0 max-w-5xl w-full mx-auto justify-center">
           {/* Left Arrow */}
           <button
             onClick={goToPrevious}
-            className="hidden md:flex cursor-pointer flex-shrink-0 w-14 h-14 rounded-full bg-white/90 hover:bg-white  items-center justify-center transition-all shadow-xl hover:scale-110"
+            className="hidden md:flex cursor-pointer shrink-0 w-14 h-14 rounded-full bg-white/90 hover:bg-white items-center justify-center transition-all shadow-xl hover:scale-110"
             aria-label="Previous"
           >
             <ChevronLeft />
@@ -100,7 +105,7 @@ export default function StatusCarousel({
 
           {/* Card Container */}
           <div
-            className="relative w-full md:flex-1 md:max-w-md h-[100vh] md:h-[calc(100vh-50px)] md:rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
+            className="relative w-full md:flex-1 md:max-w-md h-screen md:h-[calc(100vh-50px)] md:rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
             onClick={goToNext}
           >
             {/* Progress Bars */}
@@ -168,21 +173,21 @@ export default function StatusCarousel({
 
             {/* Bottom Content Area — wave top + solid content below */}
             <div className="absolute bottom-0 left-0 right-0 z-20">
-              {/* Wave shape — original path, not touched */}
+              {/* Wave shape — smooth elegant curve with taller height */}
               <svg
-                viewBox="0 0 500 100"
+                viewBox="0 0 500 120"
                 preserveAspectRatio="none"
                 className="w-full block"
-                style={{ height: "80px", marginBottom: "-1px" }}
+                style={{ height: "120px", display: "block" }}
               >
                 <path
-                  d="M0,100 L0,60 C60,60 100,10 180,20 C260,30 300,70 500,50 L500,100 Z"
+                  d="M0,120 L0,110 Q125,30 250,65 T500,85 L500,220 Z"
                   fill="rgba(83,31,137,0.90)"
                 />
               </svg>
               {/* Solid content area — extends with content */}
-              <div style={{ backgroundColor: "rgba(83,31,137,0.90)" }}>
-                <div className="px-6 pt-2 pb-8">
+              <div style={{ backgroundColor: "rgba(83,31,137,0.90)",  }}>
+                <div className="px-6 pb-8" >
                   <div className="space-y-3">
                     <h4
                       key={`title-${key}`}
