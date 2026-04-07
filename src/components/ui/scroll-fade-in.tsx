@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState, type ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import { motion, useInView } from "framer-motion";
+import { useRef, type ReactNode, useMemo } from "react";
 
 interface ScrollFadeInProps {
   children: ReactNode;
@@ -14,44 +14,36 @@ interface ScrollFadeInProps {
 export function ScrollFadeIn({
   children,
   delay = 0,
-  duration = 0.6,
+  duration = 0.8,
   className,
   __component,
 }: ScrollFadeInProps) {
-  const ref = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "-80px" },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const variants = useMemo(
+    () => ({
+      hidden: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0 },
+    }),
+    [],
+  );
 
   return (
-    <section
+    <motion.section
       ref={ref}
-      data-component={__component}
-      className={cn(className)}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(16px)",
-        transition: `opacity ${duration}s ease-out ${delay}s, transform ${duration}s ease-out ${delay}s`,
-        willChange: visible ? "auto" : "opacity, transform",
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={variants}
+      transition={{
+        duration,
+        delay,
+        ease: "easeOut",
       }}
+      className={className}
+      data-component={__component}
     >
       {children}
-    </section>
+    </motion.section>
   );
 }
