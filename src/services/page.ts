@@ -53,6 +53,7 @@ export const FABCON_DECISION_LEAD = "/fabcon-reserve-leads";
 export const BLOG_FORM_LEAD = "/forrester-reports";
 export const ASSETPDF = "/assets/by-slug";
 export const NEW_LETTER_SUBSCRIPTION = "/newsletter-subscriptions";
+export const GLOBAL_SEARCH = "/global-search";
 
 /*************  ✨ Windsurf Command ⭐  *************/
 /**
@@ -350,4 +351,24 @@ export const getAssetPDFPage = async ({
 export const createSubcription = async (formData: SubscriptionFormSchema) => {
   const { data } = await http.post(NEW_LETTER_SUBSCRIPTION, { data: formData });
   return data;
+};
+
+export const getGlobalSearch = async ({
+  query = "",
+  page = 1,
+  pageSize = 10,
+  category,
+  sort,
+}: {
+  query?: string;
+  page?: number;
+  pageSize?: number;
+  category?: string;
+  sort?: "newest" | "oldest";
+}): Promise<GlobalSearchResponse> => {
+  const params: Record<string, string | number> = { q: query, page, pageSize };
+  if (category && category !== "All") params.category = category;
+  if (sort) params.sort = sort;
+  const res = await https.get(GLOBAL_SEARCH, { params });
+  return res as unknown as GlobalSearchResponse;
 };
