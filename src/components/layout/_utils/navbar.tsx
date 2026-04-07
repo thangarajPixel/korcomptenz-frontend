@@ -14,7 +14,11 @@ import InsightMobile from "./mega-menu/_utils/insight-mobile";
 import EcosystemMobile from "./mega-menu/_utils/ecosytem-mobile";
 
 export function Navbar({ data }: { data: LayoutType | null }) {
-  if (!data) return null;
+  if (!data) {
+    return (
+      <header className="sticky top-0 z-50 w-full border-b border-border bg-white h-[60px] lg:h-[100px]" />
+    );
+  }
 
   // const targetRef = React.useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
