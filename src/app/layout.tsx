@@ -6,8 +6,6 @@ import Providers from "@/components/providers";
 import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
 import { headers } from "next/headers";
 
-export const dynamic = "force-dynamic";
-
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",
   subsets: ["latin"],
@@ -100,8 +98,7 @@ export default function RootLayout({
         />
         <Script
           id="hs-script-loader"
-          async
-          defer
+          strategy="lazyOnload"
           src="//js.hs-scripts.com/7991245.js"
         />
         <Script

@@ -113,16 +113,12 @@ const GlobalPage = (props: Props) => {
   return data?.map((item, index) => {
     switch (item?.__component) {
       case "home.hero-section-one":
+        // Hero is above the fold — skip fade-in to avoid LCP penalty
         return (
-          <ScrollFadeIn
-            __component={item?.__component}
+          <SlidingSection
             key={`sliding-section-${item?.__component}-${item?.id}`}
-          >
-            <SlidingSection
-              key={`sliding-section-${item?.__component}-${item?.id}`}
-              slides={item?.list}
-            />
-          </ScrollFadeIn>
+            slides={item?.list}
+          />
         );
       case "page-componets.sticky-cards-list":
         return (
