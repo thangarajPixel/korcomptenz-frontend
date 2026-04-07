@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 import React from "react";
 import BreadcrumbFromUrl from "./breadcrumbs";
-import { useMobile } from "@/utils/custom-hooks";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 const BlogBannerCard = ({
   data,
@@ -17,7 +17,7 @@ const BlogBannerCard = ({
   className?: string;
   tableTitle: string;
 }) => {
-  const isDesktop = !useMobile();
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   return (
     <div className={cn(className)}>
