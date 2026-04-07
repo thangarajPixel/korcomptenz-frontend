@@ -25,13 +25,13 @@ export default function SlidingSection({
         >
           <div
             className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
-            // style={{
-            //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
-            //   backgroundSize: "cover",
-            //   backgroundPosition: "center",
-            //   backgroundRepeat: "no-repeat",
-            //   objectFit: "cover"
-            // }}
+          // style={{
+          //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
+          //   backgroundSize: "cover",
+          //   backgroundPosition: "center",
+          //   backgroundRepeat: "no-repeat",
+          //   objectFit: "cover"
+          // }}
           >
             {slide?.design === "video" && (
               <video
@@ -50,6 +50,7 @@ export default function SlidingSection({
                 width={1000}
                 height={1000}
                 className="w-full h-full object-cover"
+                priority={index === 0}
               />
             )}
             {slide?.design === "bgcolor" && (
@@ -60,6 +61,7 @@ export default function SlidingSection({
                   width={1000}
                   height={1000}
                   className="w-full h-full object-cover"
+                  priority={index === 0}
                 />
 
                 {/* Overlay / Banner Image */}
@@ -69,6 +71,7 @@ export default function SlidingSection({
                     width={300}
                     height={300}
                     className="w-full h-full object-contain"
+                    priority={index === 0}
                   />
                 </div>
               </div>
@@ -86,11 +89,10 @@ export default function SlidingSection({
                     />
                   )} */}
                   <div
-                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${
-                      slide?.subtitle
+                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide?.subtitle
                         ? "text-4xl md:text-9xl"
                         : "text-lg md:text-7xl font-medium"
-                    }`}
+                      }`}
                   >
                     {slide?.subtitle || slide?.subtitle2}
                   </div>

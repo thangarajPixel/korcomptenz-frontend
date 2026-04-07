@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import Script from "next/script";
@@ -5,8 +7,6 @@ import "../index.css";
 import Providers from "@/components/providers";
 import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
 import { headers } from "next/headers";
-
-export const dynamic = "force-dynamic";
 
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",
@@ -100,8 +100,7 @@ export default function RootLayout({
         />
         <Script
           id="hs-script-loader"
-          async
-          defer
+          strategy="lazyOnload"
           src="//js.hs-scripts.com/7991245.js"
         />
         <Script
