@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 import { getHomeService } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
 import { cache } from "react";
-import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 60; // Revalidate every 60 seconds
@@ -14,6 +13,13 @@ export async function generateMetadata() {
   try {
     const data = await getHomeServiceCache();
 
+    // Extract first hero slide image for LCP preload
+    const heroList = data?.list?.find(
+      (item: ComponentPropsType) => item.__component === "home.hero-section-one"
+    );
+    const firstSlide = heroList?.list?.[0] as SlidingSectionType | undefined;
+    const mobileImageUrl = firstSlide?.mobile_image?.url ?? firstSlide?.image?.url ?? null;
+
     return {
       title: data?.seo?.title || "Home",
       description: data?.seo?.description || "",
@@ -21,6 +27,12 @@ export async function generateMetadata() {
         title: data?.seo?.title || "Home",
         description: data?.seo?.description || "",
       },
+      ...(mobileImageUrl && {
+        other: {
+          // Next.js will render this as <link rel="preload"> in <head>
+          "preload-lcp-image": mobileImageUrl,
+        },
+      }),
     };
   } catch {
     return {
@@ -55,16 +67,26 @@ export default async function Home() {
   try {
     const data = await getHomeServiceCache();
 
+    // Extract first hero mobile image for LCP preload hint
+    const heroList = data?.list?.find(
+      (item: ComponentPropsType) => item.__component === "home.hero-section-one"
+    );
+    const firstSlide = heroList?.list?.[0] as SlidingSectionType | undefined;
+    const lcpImageUrl = firstSlide?.mobile_image?.url ?? firstSlide?.image?.url ?? null;
+
     return (
-      <Suspense
-        fallback={
-          <div className="min-h-screen flex items-center justify-center">
-            <p className="text-lg text-muted-foreground">Loading...</p>
-          </div>
-        }
-      >
+      <>
+        {lcpImageUrl && (
+          // eslint-disable-next-line @next/next/no-head-element
+          <link
+            rel="preload"
+            as="image"
+            href={`/_next/image?url=${encodeURIComponent(lcpImageUrl)}&w=828&q=75`}
+            fetchPriority="high"
+          />
+        )}
         <HomeContent data={data?.list} />
-      </Suspense>
+      </>
     );
   } catch {
     return (

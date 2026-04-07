@@ -24,7 +24,7 @@ export default function SlidingSection({
           className="embla__custom_slide"
         >
           <div
-            className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
+            className="relative w-full md:h-auto h-[calc(100svh-60px)] lg:h-[calc(100vh-100px)]"
           // style={{
           //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
           //   backgroundSize: "cover",
@@ -90,8 +90,8 @@ export default function SlidingSection({
                   )} */}
                   <div
                     className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide?.subtitle
-                        ? "text-4xl md:text-9xl"
-                        : "text-lg md:text-7xl font-medium"
+                      ? "text-4xl md:text-9xl"
+                      : "text-lg md:text-7xl font-medium"
                       }`}
                   >
                     {slide?.subtitle || slide?.subtitle2}

@@ -48,7 +48,8 @@ export function ScrollFadeIn({
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(16px)",
         transition: `opacity ${duration}s ease-out ${delay}s, transform ${duration}s ease-out ${delay}s`,
-        willChange: visible ? "auto" : "opacity, transform",
+        willChange: "opacity, transform",
+        contain: "layout style",
       }}
     >
       {children}
