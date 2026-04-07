@@ -404,8 +404,22 @@ export default function SearchPage() {
                 pageCount={pagination.pageCount}
                 total={total}
                 pageSize={pageSize}
-                onPageChange={(p) => { setPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                onPageSizeChange={(s) => { handlePageSizeChange(s); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                onPageChange={(p) => { 
+                  setPage(p); 
+                  // Firefox-compatible scroll to top
+                  requestAnimationFrame(() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+                  });
+                }}
+                onPageSizeChange={(s) => { 
+                  handlePageSizeChange(s); 
+                  // Firefox-compatible scroll to top
+                  requestAnimationFrame(() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+                  });
+                }}
               />
             )}
           </>
