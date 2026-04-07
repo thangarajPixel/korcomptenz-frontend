@@ -4,7 +4,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import DownloadForm from "@/components/news-room/_utils/download-form";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { useMobile } from "@/utils/custom-hooks";
 // import DownloadForm from "@/components/news-room/_utils/download-form";
 
 type VideoBannerCardProps = {
@@ -13,9 +13,8 @@ type VideoBannerCardProps = {
   className?: string;
 };
 
-const isDesktop = useMediaQuery("(min-width: 1024px)");
-
 const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
+  const isDesktop = !useMobile();
   return (
     <div className={cn("relative w-full ", className)}>
       {isDesktop ? (

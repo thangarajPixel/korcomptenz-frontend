@@ -1,9 +1,9 @@
 "use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { useMobile } from "@/utils/custom-hooks";
 
 const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isDesktop = !useMobile();
 
   return (
     <section className="relative w-full">
