@@ -1,9 +1,52 @@
-import React from "react";
 import ClientSuccessPage from "../../case-studies/_utils/client-success-page";
+import { getCaseStudyList } from "@/services";
+import { INITIAL_PAGINATION } from "@/utils/helper";
+import type { Metadata } from "next";
+import { cache } from "react";
 
+const getCaseStudyListCache = cache(getCaseStudyList);
 
-const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+type PageProps = {
+  params: Promise<{ slug?: string }>; // string not string[]
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
+
+
+
+  const data = await getCaseStudyListCache({
+    params: {
+      pagination: INITIAL_PAGINATION,
+      sort: ["createdAt:desc"],
+      slug,
+    },
+  });
+
+  if (slug && data) {
+    const matchedItem =
+      data?.service?.find((item: { slug: string }) => item?.slug === slug) ||
+      data?.technology?.find((item: { slug: string }) => item?.slug === slug);
+
+   
+
+    if (matchedItem?.seo) {
+      return {
+        title: matchedItem.seo.title || "Case Studies",
+        description: matchedItem.seo.description || "",
+        alternates: { canonical: `/case-study/${slug}` },
+      };
+    }
+  }
+
+  return {};
+}
+const Page = async ({ params }: PageProps) => {
+  const { slug } = await params;
+
   return <ClientSuccessPage slug={slug} />;
 };
 

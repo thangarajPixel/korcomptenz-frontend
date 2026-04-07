@@ -109,12 +109,20 @@ type CaseStudiesType = {
     title: string;
     description: string;
     label: string;
+    seo?: {
+      title: string;
+      description: string;
+    };
   }[];
   technology: {
     slug: string;
     title: string;
     description: string;
     label: string;
+    seo?: {
+      title: string;
+      description: string;
+    };
   }[];
 };
 
