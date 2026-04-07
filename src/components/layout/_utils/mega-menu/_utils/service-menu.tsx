@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import Link from "next/link";
@@ -26,11 +25,10 @@ const ServicesMenu = ({
               <div
                 key={`service-section-${section?.id}`}
                 onClick={() => setActiveServiceSection(section)}
-                className={`w-full group ${
-                  activeServiceSection?.id === section?.id
-                    ? "border-b-2 border-primary"
-                    : "border-b-2 border-transparent hover:border-primary"
-                }`}
+                className={`w-full group ${activeServiceSection?.id === section?.id
+                  ? "border-b-2 border-primary"
+                  : "border-b-2 border-transparent hover:border-primary"
+                  }`}
               >
                 <h4 className="relative font-medium text-2xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
                   <span>{section?.title}</span>
@@ -49,23 +47,18 @@ const ServicesMenu = ({
 
       {/* Content */}
       <div className="col-span-24 md:col-span-12 lg:col-span-12 border-l border-gray-100">
-        <motion.div
+        <div
           key={`service-section-content-${activeServiceSection?.id}`}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
-          className="bg-white "
+          className="bg-white"
         >
           <div className="grid grid-cols-2 gap-6">
             {/* Left */}
             <div>
               {activeServiceSection?.items
                 ?.filter((item) => item?.side === "left")
-                ?.map((item, idx) => (
-                  <motion.div
+                ?.map((item) => (
+                  <div
                     key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.1, duration: 0.3 }}
                     className="group"
                   >
                     <div className="px-5 mb-6">
@@ -89,11 +82,10 @@ const ServicesMenu = ({
                             >
                               <div
                                 key={`service-section-${activeServiceSection?.id}-ng-left-${item?.id}-sub-${sub?.id}`}
-                                className={`text-sm leading-6 cursor-pointer ${
-                                  sub?.type === "dark"
-                                    ? "font-normal text-black"
-                                    : "text-gray-500"
-                                }`}
+                                className={`text-sm leading-6 cursor-pointer ${sub?.type === "dark"
+                                  ? "font-normal text-black"
+                                  : "text-gray-500"
+                                  }`}
                               >
                                 {sub?.title}
                               </div>
@@ -102,7 +94,7 @@ const ServicesMenu = ({
                         </div>
                       )}
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
             </div>
 
@@ -110,12 +102,9 @@ const ServicesMenu = ({
             <div>
               {activeServiceSection?.items
                 ?.filter((item) => item?.side === "right")
-                ?.map((item, idx) => (
-                  <motion.div
+                ?.map((item) => (
+                  <div
                     key={`service-section-${activeServiceSection?.id}-ng-right-${item?.id}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.1, duration: 0.3 }}
                     className="group"
                   >
                     <div className="px-5 lg:mb-6">
@@ -141,11 +130,10 @@ const ServicesMenu = ({
                                 rel="noopener noreferrer"
                               >
                                 <div
-                                  className={`text-sm leading-6 ${
-                                    sub?.type === "dark"
-                                      ? "font-normal text-black"
-                                      : "text-gray-500 pl-2"
-                                  }`}
+                                  className={`text-sm leading-6 ${sub?.type === "dark"
+                                    ? "font-normal text-black"
+                                    : "text-gray-500 pl-2"
+                                    }`}
                                 >
                                   {sub?.title}
                                 </div>
@@ -157,11 +145,10 @@ const ServicesMenu = ({
                                 onClick={onClick}
                               >
                                 <div
-                                  className={`text-sm leading-6 ${
-                                    sub?.type === "dark"
-                                      ? "font-normal text-black"
-                                      : "text-gray-500 pl-2"
-                                  }`}
+                                  className={`text-sm leading-6 ${sub?.type === "dark"
+                                    ? "font-normal text-black"
+                                    : "text-gray-500 pl-2"
+                                    }`}
                                 >
                                   {sub?.title}
                                 </div>
@@ -171,11 +158,11 @@ const ServicesMenu = ({
                         </div>
                       )}
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Image */}

@@ -1,23 +1,20 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Header, Footer } from "./_utils";
 import { getLayoutService } from "@/services";
 import ScrollTopButton from "../ui/scroll-top";
-import { usePathname } from "next/navigation";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
   const [layoutData, setLayoutData] = useState<LayoutType | null>(null);
+  const fetched = useRef(false);
 
   useEffect(() => {
-    const load = async () => {
-      const response = await getLayoutService();
-      setLayoutData(response);
-    };
+    if (fetched.current) return;
+    fetched.current = true;
 
-    load();
-  }, [pathname]);
+    getLayoutService().then(setLayoutData).catch(() => { });
+  }, []);
 
   return (
     <div className="flex min-h-svh flex-col">
