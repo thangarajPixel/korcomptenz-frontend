@@ -36,10 +36,9 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
       loading={props.priority ? undefined : "lazy"}
       unoptimized={isGif}
       priority={props.priority || false}
-      fetchPriority={props.priority ? "high" : "auto"}
       className={cn(
         props?.nonAnimate &&
-        "object-cover transition-transform duration-300 hover:scale-110",
+          "object-cover transition-transform duration-300 hover:scale-110",
         props?.className,
       )}
     />

@@ -41,7 +41,6 @@ export default function SlidingSection({
                 loop
                 muted
                 playsInline
-                preload={index === 0 ? "auto" : "none"}
               />
             )}
 
@@ -50,7 +49,6 @@ export default function SlidingSection({
                 src={isMobile ? slide?.mobile_image : slide?.image}
                 width={1000}
                 height={1000}
-                sizes="(max-width: 768px) 100vw, 100vw"
                 className="w-full h-full object-cover"
                 priority={index === 0}
               />
@@ -62,7 +60,6 @@ export default function SlidingSection({
                   src={slide?.backgroundImage}
                   width={1000}
                   height={1000}
-                  sizes="(max-width: 768px) 100vw, 100vw"
                   className="w-full h-full object-cover"
                   priority={index === 0}
                 />
@@ -73,7 +70,6 @@ export default function SlidingSection({
                     src={slide?.bannerImage}
                     width={300}
                     height={300}
-                    sizes="300px"
                     className="w-full h-full object-contain"
                     priority={index === 0}
                   />
@@ -94,8 +90,8 @@ export default function SlidingSection({
                   )} */}
                   <div
                     className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide?.subtitle
-                      ? "text-4xl md:text-9xl"
-                      : "text-lg md:text-7xl font-medium"
+                        ? "text-4xl md:text-9xl"
+                        : "text-lg md:text-7xl font-medium"
                       }`}
                   >
                     {slide?.subtitle || slide?.subtitle2}

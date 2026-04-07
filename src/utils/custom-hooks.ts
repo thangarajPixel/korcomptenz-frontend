@@ -7,16 +7,14 @@ const useIsomorphicLayoutEffect =
 
 // Use Mobile
 const useMobile = () => {
-  const [isMobile, setIsMobile] = React.useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    return window.innerWidth < 768;
-  });
+  const [isMobile, setIsMobile] = React.useState(false);
   React.useEffect(() => {
-    const mql = window.matchMedia("(max-width: 767px)");
-    setIsMobile(mql.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mql.addEventListener("change", handler);
-    return () => mql.removeEventListener("change", handler);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
   return isMobile;
 };
