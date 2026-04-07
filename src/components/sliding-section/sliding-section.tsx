@@ -46,87 +46,75 @@ export default function SlidingSection({
               </>
             )}
 
-            {slide?.design === "image" && (() => {
-              const mobileUrl = (slide?.mobile_image as ImageType)?.url ?? (slide?.mobile_image as string) ?? "";
-              const desktopUrl = (slide?.image as ImageType)?.url ?? (slide?.image as string) ?? "";
-              const mobileAlt = (slide?.mobile_image as ImageType)?.alternativeText ?? "";
-              const desktopAlt = (slide?.image as ImageType)?.alternativeText ?? "";
-              return (
-                <>
-                  {/* Mobile image — shown on small screens */}
-                  {mobileUrl && (
-                    <Image
-                      src={mobileUrl}
-                      alt={mobileAlt}
-                      fill
-                      sizes="100vw"
-                      className="object-cover block lg:hidden"
-                      priority={index === 0}
-                      fetchPriority={index === 0 ? "high" : "auto"}
-                      placeholder="empty"
-                    />
-                  )}
-                  {/* Desktop image — shown on large screens */}
-                  {desktopUrl && (
-                    <Image
-                      src={desktopUrl}
-                      alt={desktopAlt}
-                      fill
-                      sizes="100vw"
-                      className="object-cover hidden lg:block"
-                      priority={index === 0}
-                      fetchPriority={index === 0 ? "high" : "auto"}
-                      placeholder="empty"
-                    />
-                  )}
-                </>
-              );
-            })()}
+            {slide?.design === "image" && (
+              <>
+                {/* Mobile image — shown on small screens */}
+                {slide?.mobile_image?.url && (
+                  <Image
+                    src={slide.mobile_image.url}
+                    alt={slide.mobile_image.alternativeText ?? ""}
+                    fill
+                    sizes="100vw"
+                    className="object-cover block lg:hidden"
+                    priority={index === 0}
+                    fetchPriority={index === 0 ? "high" : "auto"}
+                    placeholder="empty"
+                  />
+                )}
+                {/* Desktop image — shown on large screens */}
+                {slide?.image?.url && (
+                  <Image
+                    src={slide.image.url}
+                    alt={slide.image.alternativeText ?? ""}
+                    fill
+                    sizes="100vw"
+                    className="object-cover hidden lg:block"
+                    priority={index === 0}
+                    fetchPriority={index === 0 ? "high" : "auto"}
+                    placeholder="empty"
+                  />
+                )}
+              </>
+            )}
 
-            {slide?.design === "bgcolor" && (() => {
-              const bgUrl = (slide?.backgroundImage as ImageType)?.url ?? (slide?.backgroundImage as string) ?? "";
-              const bgAlt = (slide?.backgroundImage as ImageType)?.alternativeText ?? "";
-              const bannerUrl = (slide?.bannerImage as ImageType)?.url ?? (slide?.bannerImage as string) ?? "";
-              const bannerAlt = (slide?.bannerImage as ImageType)?.alternativeText ?? "";
-              return (
-                <div className="relative w-full h-full">
-                  {bgUrl && (
+            {slide?.design === "bgcolor" && (
+              <div className="relative w-full h-full">
+                {slide?.backgroundImage?.url && (
+                  <Image
+                    src={slide.backgroundImage.url}
+                    alt={slide.backgroundImage.alternativeText ?? ""}
+                    fill
+                    sizes="100vw"
+                    className="object-cover"
+                    priority={index === 0}
+                    fetchPriority={index === 0 ? "high" : "auto"}
+                    placeholder="empty"
+                  />
+                )}
+                {slide?.bannerImage?.url && (
+                  <div className="absolute top-24 right-32 w-[300px] h-[300px]">
                     <Image
-                      src={bgUrl}
-                      alt={bgAlt}
-                      fill
-                      sizes="100vw"
-                      className="object-cover"
+                      src={slide.bannerImage.url}
+                      alt={slide.bannerImage.alternativeText ?? ""}
+                      width={300}
+                      height={300}
+                      sizes="300px"
+                      className="w-full h-full object-contain"
                       priority={index === 0}
-                      fetchPriority={index === 0 ? "high" : "auto"}
                       placeholder="empty"
                     />
-                  )}
-                  {bannerUrl && (
-                    <div className="absolute top-24 right-32 w-[300px] h-[300px]">
-                      <Image
-                        src={bannerUrl}
-                        alt={bannerAlt}
-                        width={300}
-                        height={300}
-                        sizes="300px"
-                        className="w-full h-full object-contain"
-                        priority={index === 0}
-                        placeholder="empty"
-                      />
-                    </div>
-                  )}
-                </div>
-              );
-            })()}
+                  </div>
+                )}
+              </div>
+            )}
 
             <div className="absolute inset-0 flex items-start mt-12 md:mt-0 md:items-center">
               <div className="container-md">
                 <div className="max-w-2xl text-white ml-12">
                   <div
                     className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide?.subtitle
-                        ? "text-4xl md:text-9xl"
-                        : "text-lg md:text-7xl font-medium"
+                      ? "text-4xl md:text-9xl"
+                      : "text-lg md:text-7xl font-medium"
                       }`}
                   >
                     {slide?.subtitle || slide?.subtitle2}
