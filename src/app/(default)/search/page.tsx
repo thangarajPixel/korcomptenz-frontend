@@ -336,32 +336,7 @@ export default function SearchPage() {
             <div className="flex flex-col gap-3 bg-[#F3F7F4] p-0 md:p-10 rounded-2xl ">
               {items.map((item) => {
                 const hasImage = !!item.image?.url;
-                const isPage =
-                  item.type === "page" || item.type === "single-page";
                 const btnLabel = getButtonLabel(item.category);
-
-                // Pages with no description — banner style card
-                if (isPage && !item.description) {
-                  return (
-                    <Link
-                      key={item.id}
-                      href={getItemHref(item)}
-                      target={item.isTarget ? "_blank" : undefined}
-                      rel={item.isTarget ? "noopener noreferrer" : undefined}
-                      className="flex items-center rounded-2xl overflow-hidden bg-white border border-[#e5e7eb] hover:shadow-md transition-shadow group px-6 py-5 gap-4"
-                    >
-                      {/* Green left accent bar */}
-                      <div className="w-1 self-stretch rounded-full bg-primary shrink-0" />
-                      <h3 className="flex-1 text-[22px] md:text-[28px] font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                        {item.bannerTitle || item.title}
-                      </h3>
-                      <span className="inline-flex items-center gap-1.5 text-[17px] font-normal text-white bg-primary px-5 py-3 rounded-full whitespace-nowrap shrink-0 group-hover:bg-primary/90 transition-colors">
-                        {btnLabel}
-                        <ChevronRight className="h-4 w-4" />
-                      </span>
-                    </Link>
-                  );
-                }
 
                 return (
                   <Link
@@ -429,8 +404,8 @@ export default function SearchPage() {
                 pageCount={pagination.pageCount}
                 total={total}
                 pageSize={pageSize}
-                onPageChange={setPage}
-                onPageSizeChange={handlePageSizeChange}
+                onPageChange={(p) => { setPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                onPageSizeChange={(s) => { handlePageSizeChange(s); window.scrollTo({ top: 0, behavior: "smooth" }); }}
               />
             )}
           </>
