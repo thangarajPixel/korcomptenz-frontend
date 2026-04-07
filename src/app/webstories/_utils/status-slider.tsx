@@ -189,12 +189,15 @@ export default function StatusCarousel({
               <div style={{ backgroundColor: "rgba(83,31,137,0.90)",  }}>
                 <div className="px-6 pb-8" >
                   <div className="space-y-3">
-                    <h4
+                    {currentItem.title && (
+ <h4
                       key={`title-${key}`}
                       className="text-white text-3xl font-normal animate-in slide-in-from-left duration-700 text-[28px] leading-8.5"
                     >
                       {currentItem.title}
                     </h4>
+                    )}
+                   
                     {currentItem?.buttonText ? (
                       <ButtonLink
                         link={currentItem?.link || "#"}
