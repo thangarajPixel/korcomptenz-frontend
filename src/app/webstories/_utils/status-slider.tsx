@@ -9,7 +9,6 @@ import {
 } from "../../../../public/svg/all-svg";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
-
 import ButtonLink from "@/components/ui/button-link";
 import { X } from "lucide-react";
 import Link from "next/link";
@@ -21,34 +20,19 @@ export default function StatusCarousel({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [progress, setProgress] = useState(0);
   const [key, setKey] = useState(0);
 
   useEffect(() => {
     if (isPaused) return;
-
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % carouselData.length);
     }, 5000);
-
     return () => clearInterval(timer);
   }, [isPaused]);
 
   useEffect(() => {
     setKey((prev) => prev + 1);
-    setProgress(0);
-
-    if (isPaused) return;
-
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) return 0;
-        return prev + 2;
-      });
-    }, 200);
-
-    return () => clearInterval(progressInterval);
-  }, [currentIndex, isPaused]);
+  }, [currentIndex]);
 
   const goToPrevious = () => {
     setCurrentIndex(
@@ -77,26 +61,43 @@ export default function StatusCarousel({
 
   const currentItem = carouselData[currentIndex];
   const isLastSlide = currentIndex === carouselData.length - 1;
+  const currentImageUrl = typeof currentItem.image === "string"
+    ? currentItem.image
+    : (currentItem.image as { url?: string })?.url ?? "";
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
+      <style>{`
+        @keyframes progress-fill {
+          from { transform: scaleX(0); }
+          to   { transform: scaleX(1); }
+        }
+      `}</style>
+      {/* Blurred background — shows image color only */}
       <div
-        className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-        style={{ backgroundImage: `url(${currentItem.image})` }}
+        className="absolute inset-0 bg-cover bg-center scale-110"
+        style={{
+          backgroundImage: currentImageUrl ? `url(${currentImageUrl})` : undefined,
+          filter: "blur(40px) saturate(1.5)",
+          transition: "background-image 0.7s ease",
+        }}
       />
-
-      <div className="absolute inset-0 backdrop-blur-3xl bg-gradient-to-b from-gray-900/70 via-gray-800/60 to-gray-900/80" />
-
-      <div className="absolute inset-0 bg-indigo-950/10" />
-      <Link href="/insights/webstories">
-        <X className="w-5 h-5 text-gray-400" />
+      {/* Dark overlay to keep it subtle */}
+      <div className="absolute inset-0 bg-black/40" />
+      
+      {/* Close Button - Top Right */}
+      <Link 
+        href="/insights/webstories"
+        className="absolute top-6 right-6 z-50 flex items-center justify-center w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all"
+      >
+        <X className="w-5 h-5 text-white" />
       </Link>
       <div className="relative z-10 lg:max-w-xl w-full mx-auto h-full flex items-center py-0  justify-center md:px-4">
         <div className="flex items-center md:gap-6 gap-0 max-w-5xl w-full mx-auto justify-center">
           {/* Left Arrow */}
           <button
             onClick={goToPrevious}
-            className="hidden md:flex cursor-pointer flex-shrink-0 w-14 h-14 rounded-full bg-white/90 hover:bg-white  items-center justify-center transition-all shadow-xl hover:scale-110"
+            className="hidden md:flex cursor-pointer shrink-0 w-14 h-14 rounded-full bg-white/90 hover:bg-white items-center justify-center transition-all shadow-xl hover:scale-110"
             aria-label="Previous"
           >
             <ChevronLeft />
@@ -104,7 +105,7 @@ export default function StatusCarousel({
 
           {/* Card Container */}
           <div
-            className="relative w-full md:flex-1 md:max-w-md h-[100vh] md:h-[calc(100vh-50px)] md:rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
+            className="relative w-full md:flex-1 md:max-w-md h-screen md:h-[calc(100vh-50px)] md:rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
             onClick={goToNext}
           >
             {/* Progress Bars */}
@@ -116,15 +117,21 @@ export default function StatusCarousel({
                     className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden"
                   >
                     <div
-                      className="h-full bg-white transition-all duration-200 ease-linear"
-                      style={{
-                        width:
-                          i === currentIndex
-                            ? `${progress}%`
-                            : i < currentIndex
-                            ? "100%"
-                            : "0%",
-                      }}
+                      key={i === currentIndex ? `bar-${key}` : i}
+                      className="h-full bg-white"
+                      style={
+                        i === currentIndex
+                          ? {
+                              width: "100%",
+                              transformOrigin: "left",
+                              transform: "scaleX(0)",
+                              animation: isPaused
+                                ? "none"
+                                : `progress-fill 5s linear forwards`,
+                              animationPlayState: isPaused ? "paused" : "running",
+                            }
+                          : { width: i < currentIndex ? "100%" : "0%" }
+                      }
                     />
                   </div>
                 ))}
@@ -164,71 +171,51 @@ export default function StatusCarousel({
               className="absolute inset-0 w-full h-full object-cover"
             />
 
-            {/* Bottom Content Area with Wave Shape */}
+            {/* Bottom Content Area — wave top + solid content below */}
             <div className="absolute bottom-0 left-0 right-0 z-20">
-              {/* Wave Container */}
-              <div className="relative">
-                {/* Wave Background with dynamic height */}
-                <div className="relative">
-                  {/* Wavy top border using SVG */}
-                  <div
-                    className="absolute bottom-0 left-0 right-0 text-white "
-                    style={{
-                      backgroundColor: currentItem?.id
-                        ? "rgba(57, 41, 175, 0.70)"
-                        : "",
-                      paddingTop: "20px",
-
-                      clipPath:
-                        "path('M0,90 C90,10 170,40 250,70 C330,100 420,50 500,90 L500,300 L0,600 Z')",
-                    }}
-                  >
-                    {/* Main content area with solid bottom */}
-                    <div
-                      className={
-                        currentItem?.id ? "bg-[rgba(88,28,135,0.85)]" : ""
-                      }
-                      style={{ paddingTop: "80px" }}
+              {/* Wave shape — smooth elegant curve with taller height */}
+              <svg
+                viewBox="0 0 500 120"
+                preserveAspectRatio="none"
+                className="w-full block"
+                style={{ height: "120px", display: "block" }}
+              >
+                <path
+                  d="M0,120 L0,110 Q125,30 250,65 T500,85 L500,220 Z"
+                  fill="rgba(83,31,137,0.90)"
+                />
+              </svg>
+              {/* Solid content area — extends with content */}
+              <div style={{ backgroundColor: "rgba(83,31,137,0.90)",  }}>
+                <div className="px-6 pb-8" >
+                  <div className="space-y-3">
+                    {currentItem.title && (
+ <h4
+                      key={`title-${key}`}
+                      className="text-white text-3xl font-normal animate-in slide-in-from-left duration-700 text-[28px] leading-8.5"
                     >
-                      {/* Additional dark overlay for depth */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
-
-                      {/* Text Content inside wave */}
-                      <div className="relative z-10 px-6 pt-4 pb-8">
-                        <div className="space-y-3">
-                          <h4
-                            key={`title-${key}`}
-                            className="text-white text-3xl font-normal  animate-in slide-in-from-left duration-700 text-[28px] leading-8.5"
-                          >
-                            {currentItem.title}
-                          </h4>
-                          {/* <p
-                            key={`desc-${key}`}
-                            className="text-white/95 text-base leading-relaxed animate-in slide-in-from-right duration-700 delay-150"
-                          >
-                            {currentItem.description} */}
-                          {/* </p> */}
-                          {currentItem?.buttonText ? (
-                            <ButtonLink
-                              link={currentItem?.link || "#"}
-                              buttonProps={{
-                                className:
-                                  " bg-[#b06] whitespace-normal text-center break-words hover:bg-[#b06] hover:text-white/90 border-none",
-                                size: "xl",
-                              }}
-                            >
-                              {currentItem?.buttonText}
-                            </ButtonLink>
-                          ) : (
-                            <DangerousHtml
-                              key={`html-${key}`}
-                              html={currentItem?.description}
-                              className="text-white/95 text-base leading-relaxed animate-in slide-in-from-right duration-700 delay-150"
-                            />
-                          )}
-                        </div>
-                      </div>
-                    </div>
+                      {currentItem.title}
+                    </h4>
+                    )}
+                   
+                    {currentItem?.buttonText ? (
+                      <ButtonLink
+                        link={currentItem?.link || "#"}
+                        buttonProps={{
+                          className:
+                            "bg-[#b06] whitespace-normal text-center break-words hover:bg-[#b06] hover:text-white/90 border-none",
+                          size: "xl",
+                        }}
+                      >
+                        {currentItem?.buttonText}
+                      </ButtonLink>
+                    ) : (
+                      <DangerousHtml
+                        key={`html-${key}`}
+                        html={currentItem?.description}
+                        className="text-white/95 text-base leading-relaxed animate-in slide-in-from-right duration-700 delay-150"
+                      />
+                    )}
                   </div>
                 </div>
               </div>
