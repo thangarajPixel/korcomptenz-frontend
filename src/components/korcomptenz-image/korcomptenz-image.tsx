@@ -29,7 +29,7 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
 
   return (
     <Image
-      placeholder={imagePlaceholder}
+      placeholder={props.priority ? "empty" : imagePlaceholder}
       {...props}
       src={(src || "/assets/placeholder.png") as string}
       alt={alt || "/assets/placeholder.png"}
