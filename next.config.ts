@@ -3436,8 +3436,8 @@ const nextConfig: NextConfig = {
     permanent: true,
   },
   {
-    source: "/sap/sap-ibp-services",
-    destination: "https://www.korcomptenz.com/sap/sap-ibp-services",
+    source: "/sap-integrated-business-planning",
+    destination: "/sap/sap-ibp-services",
     permanent: true,
   },
   {
