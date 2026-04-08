@@ -3276,7 +3276,7 @@ const nextConfig: NextConfig = {
     permanent: true,
   },
   {
-    source: "/quality-control-for-dynamics-365-business-central?trk=products_details_guest_primary_call_to_action",
+    source: "/quality-control-for-dynamics-365-business-central-trk=products_details_guest_primary_call_to_action",
     destination: "https://www.korcomptenz.com/microsoft-dynamics-365/microsoft-dynamics-365-business-central-quality-control",
     permanent: true,
   },
