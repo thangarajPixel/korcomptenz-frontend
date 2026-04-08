@@ -13,9 +13,8 @@ type VideoBannerCardProps = {
   className?: string;
 };
 
-const isDesktop = useMediaQuery("(min-width: 1024px)");
-
 const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
   return (
     <div className={cn("relative w-full ", className)}>
       {isDesktop ? (
