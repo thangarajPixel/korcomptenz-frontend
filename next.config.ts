@@ -2126,13 +2126,13 @@ const nextConfig: NextConfig = {
     permanent: true,
   },
   {
-    source: "/case-study/dynamics-365-fo-optical-equipment-manufacturer",
+    source: "/case-study/streamline-field-service-customer-experience-salesforce-implementation",
     destination: "https://www.korcomptenz.com/case-studies/salesforce-field-service-manufacturing-case-study",
     permanent: true,
   },
   {
     source: "/case-study/salesforce-field-service-manufacturing-case-study",
-    destination: "https://www.korcomptenz.com/case-study/salesforce-field-service-manufacturing-case-study",
+    destination: "https://www.korcomptenz.com/case-studies/salesforce-field-service-manufacturing-case-study",
     permanent: true,
   },
   {
@@ -2421,7 +2421,7 @@ const nextConfig: NextConfig = {
     permanent: true,
   },
   {
-    source: "/case-studies/ira-onboarding-automation-salesforce-case-study",
+    source: "/case-study/ira-onboarding-automation-salesforce-case-study",
     destination: "https://www.korcomptenz.com/case-studies/ira-onboarding-automation-salesforce-case-study",
     permanent: true,
   },
@@ -3052,7 +3052,7 @@ const nextConfig: NextConfig = {
   },
   {
     source: "/sap-on-microsoft-azure",
-    destination: "https://www.korcomptenz.com/en/newsroom-and-events",
+    destination: "https://www.korcomptenz.com/sap/sap-on-azure",
     permanent: true,
   },
   {
