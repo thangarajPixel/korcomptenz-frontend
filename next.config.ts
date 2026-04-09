@@ -3431,7 +3431,7 @@ const nextConfig: NextConfig = {
     permanent: true,
   },
   {
-    source: "/sap/sap-consulting-services",
+    source: "/sap-services",
     destination: "https://www.korcomptenz.com/sap/sap-consulting-services",
     permanent: true,
   },
@@ -3441,17 +3441,17 @@ const nextConfig: NextConfig = {
     permanent: true,
   },
   {
-    source: "/supply-chain-management",
+    source: "/supply-chain-management-services",
     destination: "https://www.korcomptenz.com/supply-chain-management",
     permanent: true,
   },
   {
-    source: "/webinar/cloud-azure-synapse-analytics-services",
+    source: "/au/webinar/cloud-azure-synapse-analytics-services",
     destination: "https://www.korcomptenz.com/webinar/cloud-azure-synapse-analytics-services",
     permanent: true,
   },
   {
-    source: "/webinar/prevailing-through-disruption-with-rapid-adoption-of-technologies",
+    source: "/prevailing-through-disruption-with-rapid-adoption-of-technologies",
     destination: "https://www.korcomptenz.com/webinar/prevailing-through-disruption-with-rapid-adoption-of-technologies",
     permanent: true,
   },
