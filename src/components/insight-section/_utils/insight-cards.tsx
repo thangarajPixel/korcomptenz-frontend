@@ -18,6 +18,8 @@ interface InsightCardType {
   isTargetBlank?: boolean;
 }
 
+
+
 export function InsightCard(props: InsightCardType) {
   const {
     title,
@@ -42,7 +44,7 @@ export function InsightCard(props: InsightCardType) {
       >
         <motion.div className="relative rounded-4xl">
           {category && (
-            <span className=" mx-3 my-5  pointer-events-none absolute  group-hover:text-primary left-3 top-3 z-10 rounded-full bg-white/90 px-5 py-2 text-md font-medium text-black ring-1 ring-gray-200 backdrop-blur">
+            <span className=" mx-3 my-5  pointer-events-none absolute  group-hover:text-primary left-3 top-3 z-10 rounded-full bg-white px-5 py-2 text-md font-medium text-black ring-1 ring-gray-200 backdrop-blur">
               {category}
             </span>
           )}

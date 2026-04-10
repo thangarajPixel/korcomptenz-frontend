@@ -15,5 +15,5 @@ export default async function BlogePdfSection({ params }: Props) {
     id: fullSlug,
   });
 
-  return <PdfViewSection blobUrl={data} />;
+  return <PdfViewSection blobUrl={data?.url} />;
 }

@@ -334,7 +334,7 @@ export const createFabconBannerLead = async (
 
 export const blogFormDownloadLead = async (formData: BlogFormSchema) => {
   const { data } = await http.post(BLOG_FORM_LEAD, { data: formData });
-  data?.attachment?.url && (await getDownloadService(data?.attachment));
+  data?.attachment?.url && (await getDownloadService(data?.attachment));  
   return data;
 };
 
@@ -342,10 +342,10 @@ export const getAssetPDFPage = async ({
   id,
 }: {
   id: string;
-}): Promise<string> => {
-  const res: { data: ImageType } = await http.get(`${ASSETPDF}/${id}`);
+}) => {
+  const  { data } = await http.get(`${ASSETPDF}/${id}`);
 
-  return res?.data?.url as string;
+  return data;
 };
 
 export const createSubcription = async (formData: SubscriptionFormSchema) => {
