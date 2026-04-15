@@ -19,7 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Fetch sitemap data from backend
     const response = await http.get("/sitemap");
     
-    // http.get already returns response.data due to interceptor
+  
     const data = response as unknown as SitemapResponse;
 
     // Check if we have valid data
