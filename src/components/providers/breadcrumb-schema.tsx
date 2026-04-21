@@ -1,17 +1,8 @@
-"use client";
+import { headers } from "next/headers";
 
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-
-export function BreadcrumbSchema() {
-  const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
+export async function BreadcrumbSchema() {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") || "/";
 
   /* ================= HOME PAGE – VIDEO ================= */
   if (pathname === "/") {
@@ -43,7 +34,7 @@ export function BreadcrumbSchema() {
     const mdVideoSchema = {
       "@context": "https://schema.org",
       "@type": "VideoObject",
-      name: "A CIO’s Perspective: From Transformation to Tangible ROI",
+      name: "A CIO's Perspective: From Transformation to Tangible ROI",
       description:
         "In this strategic PSS session with our SMEs during Community Summit 2025, a veteran CIO joins our Korcomptenz team to dive deep into what truly matters when evaluating modern platforms, navigating transformation, and extracting ROI from technology investments.",
       thumbnailUrl:
@@ -55,7 +46,7 @@ export function BreadcrumbSchema() {
 
     return (
       <script
-        type="application/ld+json"
+        type="VideoObject"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(mdVideoSchema),
         }}
@@ -96,7 +87,7 @@ export function BreadcrumbSchema() {
 
     return (
       <script
-        type="application/ld+json"
+        type="VideoObject"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema),
         }}
