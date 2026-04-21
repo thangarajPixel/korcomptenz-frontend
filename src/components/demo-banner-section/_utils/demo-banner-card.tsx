@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import ButtonLink from "@/components/ui/button-link";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
-import { useMediaQuery } from "@uidotdev/usehooks";
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 
 const DemoBannerCard = ({
   data,
@@ -17,7 +17,19 @@ const DemoBannerCard = ({
   isFirst?: boolean;
   item?: DemoBannerDetailsType;
 }) => {
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+
+  useEffect(() => {
+    // Only run on client
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
 
   return (
  <div className={cn("relative w-full overflow-hidden", className)}>

@@ -4,7 +4,8 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import DownloadForm from "@/components/news-room/_utils/download-form";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
-import { useMediaQuery } from "@uidotdev/usehooks";
+
+import { useEffect, useState } from "react";
 // import DownloadForm from "@/components/news-room/_utils/download-form";
 
 type VideoBannerCardProps = {
@@ -14,7 +15,19 @@ type VideoBannerCardProps = {
 };
 
 const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+ const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+
+  useEffect(() => {
+    // Only run on client
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
   return (
     <div className={cn("relative w-full ", className)}>
       {isDesktop ? (

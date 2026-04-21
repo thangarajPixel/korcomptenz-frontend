@@ -1,9 +1,21 @@
 "use client";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { useEffect, useState } from "react";
 
 const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+   const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+
+  useEffect(() => {
+    // Only run on client
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
 
   return (
     <section className="relative w-full">
