@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Link as LinkIcon } from "lucide-react";
 
@@ -10,19 +10,20 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 export function ShareButton({ data }: { data: SocialPlatformType[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [articleUrl, setArticleUrl] = useState("");
 
-  const pageUrl =
-    typeof window !== "undefined"
-      ? window.location.href
-      : "https://www.korcomptenz.com/";
+  useEffect(() => {
+    setArticleUrl(window.location.href);
+  }, []);
+
+  const pageUrl = articleUrl || "https://www.korcomptenz.com/";
 
   const handleCopyLink = async () => {
     await navigator.clipboard.writeText(pageUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
-  const articleUrl = window.location.href;
-  // const prompt = `Visit this URL and summarize this post for me: ${articleUrl}`;
+
   const encodedPrompt = encodeURIComponent(articleUrl);
   return (
     <div className="relative inline-block mb-10 ">

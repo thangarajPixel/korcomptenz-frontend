@@ -1,4 +1,4 @@
-import React, { cache } from "react";
+import { cache } from "react";
 import { getBlogPage, getInsightPage } from "@/services";
 import BlogBannerSection from "../_utils/banner-section";
 import BlogAuthor from "../_utils/blog-author";
@@ -6,15 +6,17 @@ import DocumentationLayout from "../_utils/blog-content";
 import BlogContentShowcase from "../_utils/content-showcase";
 import { GlobalForm } from "@/components/global-form";
 import FaqSection from "@/components/faq-section";
-
 import NotFound from "@/components/not-found";
+import { ScrollToTop } from "../_utils/scroll-to-top";
+
+import type { Metadata } from "next";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
 const getBlogPageCache = cache(getBlogPage);
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const data = await getBlogPageCache({ id });
 
@@ -91,7 +93,7 @@ const Page = async ({ params }: Props) => {
 
   return (
     <>
-      {" "}
+      <ScrollToTop />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -108,24 +110,24 @@ const Page = async ({ params }: Props) => {
             BannerSectionData={data?.insight}
             tableTitle={pageLayout?.tableTitle}
           />
-          <BlogAuthor data={data?.insight} essential={pageLayout} />
-          <DocumentationLayout data={data} essential={pageLayout} />
-          {data?.insight?.blog?.faq && (
+           <BlogAuthor data={data?.insight} essential={pageLayout} />
+          <DocumentationLayout data={data} essential={pageLayout} /> 
+           {data?.insight?.blog?.faq && (
             <FaqSection faqData={data?.insight?.blog?.faq} />
-          )}
+          )} 
 
-          <GlobalForm
+           <GlobalForm
             form={pageLayout?.form}
             essential={{
               id: data?.insight?.id,
               documentId: data?.insight?.documentId,
             }}
-          />
+          /> 
 
-          <BlogContentShowcase
+           <BlogContentShowcase
             data={data?.relatedInsight}
             relatedCase={pageLayout?.relatedCase}
-          />
+          /> 
         </div>
       )}
     </>
