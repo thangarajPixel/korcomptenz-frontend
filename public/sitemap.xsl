@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="2.0"
+                xmlns:html="http://www.w3.org/TR/REC-html40"
+                xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
+  <xsl:template match="/">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+        <title>XML Sitemap</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css">
+          body {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 0;
+            padding: 12px;
+            line-height: 1.4;
+          }
+          
+          .header {
+            color: #ffffff;
+            border-bottom: 3px solid #faf6f6ff;
+            padding-bottom: 2px;
+            margin-bottom: 6px;
+            font-size: 15px;
+            font-family: "Times New Roman", Times, serif;
+          }
+          
+          .breadcrumb {
+            color: #9CDCFE;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+          }
+          
+          .breadcrumb a {
+            color: #4FC3F7;
+            text-decoration: none;
+            margin: 0 4px;
+          }
+          
+          .breadcrumb a:hover {
+            text-decoration: underline;
+          }
+          
+          .breadcrumb-separator {
+            color: #808080;
+            margin: 0 4px;
+          }
+          
+          .xml-line {
+            margin: 0;
+            padding: 0;
+          }
+          
+          .tag-bracket {
+            color: #808080;
+          }
+          
+          .tag-name {
+            color: #4EC9B0;
+          }
+          
+          .attr-name {
+            color: #9CDCFE;
+          }
+          
+          .attr-value {
+            color: #CE9178;
+          }
+          
+          .text-content {
+            color: #ffffff;
+          }
+          
+          .url-link {
+            color: #4FC3F7;
+            text-decoration: none;
+            cursor: pointer;
+          }
+          
+          .url-link:hover {
+            text-decoration: underline;
+          }
+          
+          .arrow {
+            color: #6B7280;
+            user-select: none;
+            cursor: pointer;
+            display: inline-block;
+            width: 12px;
+          }
+          
+          .collapsible-content {
+            display: block;
+          }
+          
+          .collapsed {
+            display: none;
+          }
+          
+          .indent-1 { margin-left: 16px; }
+          .indent-2 { margin-left: 32px; }
+          .indent-3 { margin-left: 48px; }
+        </style>
+        <script type="text/javascript">
+          <![CDATA[
+          function toggleCollapse(id) {
+            var element = document.getElementById(id);
+            var arrow = document.getElementById('arrow-' + id);
+            if (element.classList.contains('collapsed')) {
+              element.classList.remove('collapsed');
+              arrow.textContent = '▼';
+            } else {
+              element.classList.add('collapsed');
+              arrow.textContent = '▶';
+            }
+          }
+          
+          function navigateToPath(url) {
+            var currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set('path', url);
+            window.location.href = currentUrl.toString();
+          }
+          
+          function navigateToRoot() {
+            var currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.delete('path');
+            window.location.href = currentUrl.toString();
+          }
+          ]]>
+        </script>
+      </head>
+      <body>
+        <div class="header">
+          This XML file does not appear to have any style information associated with it. The document tree is shown below.
+        </div>
+        
+        <xsl:variable name="currentPath" select="substring-after(substring-before(concat(/processing-instruction('xml-stylesheet'), '?'), '?'), 'path=')" />
+        
+     
+        
+        <div class="xml-line">
+          <span class="arrow">▼</span>
+          <span class="tag-bracket">&lt;</span>
+          <span class="tag-name">urlset</span>
+          <span class="attr-name"> xmlns</span>
+          <span class="tag-bracket">=</span>
+          <span class="attr-value">"http://www.sitemaps.org/schemas/sitemap/0.9"</span>
+          <span class="tag-bracket">&gt;</span>
+        </div>
+        
+        <xsl:for-each select="sitemap:urlset/sitemap:url">
+          <xsl:variable name="url-id" select="concat('url-', position())" />
+          <xsl:variable name="has-children" select="sitemap:hasChildren = 'true'" />
+          
+          <div class="xml-line indent-1">
+            <span class="arrow" id="arrow-{$url-id}" onclick="toggleCollapse('{$url-id}')">▼</span>
+            <span class="tag-bracket">&lt;</span>
+            <span class="tag-name">url</span>
+            <span class="tag-bracket">&gt;</span>
+          </div>
+          
+          <div id="{$url-id}" class="collapsible-content">
+            <div class="xml-line indent-2">
+              <span class="tag-bracket">&lt;</span>
+              <span class="tag-name">loc</span>
+              <span class="tag-bracket">&gt;</span>
+              <xsl:choose>
+                <xsl:when test="$has-children">
+                  <a class="url-link" href="javascript:navigateToPath('{sitemap:loc}')">
+                    <xsl:value-of select="sitemap:loc"/>
+                  </a>
+                </xsl:when>
+                <xsl:otherwise>
+                  <span class="text-content">
+                    <xsl:value-of select="sitemap:loc"/>
+                  </span>
+                </xsl:otherwise>
+              </xsl:choose>
+              <span class="tag-bracket">&lt;/</span>
+              <span class="tag-name">loc</span>
+              <span class="tag-bracket">&gt;</span>
+            </div>
+            
+            <xsl:if test="sitemap:lastmod">
+              <div class="xml-line indent-2">
+                <span class="tag-bracket">&lt;</span>
+                <span class="tag-name">lastmod</span>
+                <span class="tag-bracket">&gt;</span>
+                <span class="text-content"><xsl:value-of select="sitemap:lastmod"/></span>
+                <span class="tag-bracket">&lt;/</span>
+                <span class="tag-name">lastmod</span>
+                <span class="tag-bracket">&gt;</span>
+              </div>
+            </xsl:if>
+            
+            <xsl:if test="sitemap:changefreq">
+              <div class="xml-line indent-2">
+                <span class="tag-bracket">&lt;</span>
+                <span class="tag-name">changefreq</span>
+                <span class="tag-bracket">&gt;</span>
+                <span class="text-content"><xsl:value-of select="sitemap:changefreq"/></span>
+                <span class="tag-bracket">&lt;/</span>
+                <span class="tag-name">changefreq</span>
+                <span class="tag-bracket">&gt;</span>
+              </div>
+            </xsl:if>
+            
+            <xsl:if test="sitemap:priority">
+              <div class="xml-line indent-2">
+                <span class="tag-bracket">&lt;</span>
+                <span class="tag-name">priority</span>
+                <span class="tag-bracket">&gt;</span>
+                <span class="text-content"><xsl:value-of select="sitemap:priority"/></span>
+                <span class="tag-bracket">&lt;/</span>
+                <span class="tag-name">priority</span>
+                <span class="tag-bracket">&gt;</span>
+              </div>
+            </xsl:if>
+          </div>
+          
+          <div class="xml-line indent-1">
+            <span class="tag-bracket">&lt;/</span>
+            <span class="tag-name">url</span>
+            <span class="tag-bracket">&gt;</span>
+          </div>
+        </xsl:for-each>
+        
+        <div class="xml-line">
+          <span class="tag-bracket">&lt;/</span>
+          <span class="tag-name">urlset</span>
+          <span class="tag-bracket">&gt;</span>
+        </div>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>
