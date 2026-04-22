@@ -31,7 +31,7 @@ function getItemHref(item: GlobalSearchItem): string {
 
   const overrides: Record<string, string> = {
     "Case Studies": "/case-studies/",
-    Blog: "/blog/",
+    Blogs: "/blog/",
     "Web Stories": "/webstories/",
     Webstories: "/webstories/",
   };
