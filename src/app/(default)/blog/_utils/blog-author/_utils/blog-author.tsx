@@ -4,6 +4,7 @@ import { ShareButton } from "./share-button";
 import dayjs from "dayjs";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function BlogAuthor({
   data,
@@ -12,7 +13,12 @@ export default function BlogAuthor({
   data: InsightItem;
   essential: InsightPageType;
 }) {
-  const articleUrl = window.location.href;
+  const [articleUrl, setArticleUrl] = useState("");
+
+  useEffect(() => {
+    setArticleUrl(window.location.href);
+  }, []);
+
   const prompt = `Visit this URL and summarize this post for me: ${articleUrl}`;
   const encodedPrompt = encodeURIComponent(prompt);
 

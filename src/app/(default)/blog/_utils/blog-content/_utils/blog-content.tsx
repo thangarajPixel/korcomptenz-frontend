@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import { Link as LinkIcon, ChevronRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
@@ -16,11 +16,15 @@ export default function DocumentationLayout({
   essential: InsightPageType;
 }) {
   const [copied, setCopied] = useState(false);
+  const [articleUrl, setArticleUrl] = useState("");
+  const [mounted, setMounted] = useState(false);
 
-  const pageUrl =
-    typeof window !== "undefined"
-      ? window.location.href
-      : "https://www.korcomptenz.com/";
+  useEffect(() => {
+    setMounted(true);
+    setArticleUrl(window.location.href);
+  }, []);
+
+  const pageUrl = articleUrl || "https://www.korcomptenz.com/";
 
   const handleCopyLink = async () => {
     await navigator.clipboard.writeText(pageUrl);
@@ -28,41 +32,41 @@ export default function DocumentationLayout({
     setTimeout(() => setCopied(false), 1500);
   };
 
-  // const parser = new DOMParser();
-  // const doc = parser.parseFromString(data?.insight?.blog?.content, "text/html");
-
-  // const h2Array = Array.from(doc.querySelectorAll("h2")).map((h2) =>
-  //   h2.textContent.trim()
-  // );
-  const articleUrl = window.location.href;
-
   const encodedPrompt = encodeURIComponent(articleUrl);
 
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(
-    data?.insight?.blog?.content || "",
-    "text/html",
-  );
+  const { h2Array, updatedHtml } = useMemo(() => {
+    if (!mounted || typeof window === "undefined") {
+      return { h2Array: [], updatedHtml: data?.insight?.blog?.content || "" };
+    }
 
-  // helper to create URL-safe IDs
-  const slugify = (text: string) =>
-    text
-      .toLowerCase()
-      .replace(/[^\w]+/g, "-")
-      .replace(/^-+|-+$/g, "");
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(
+      data?.insight?.blog?.content || "",
+      "text/html",
+    );
 
-  const h2Elements = Array.from(doc.querySelectorAll("h2"));
+    // helper to create URL-safe IDs
+    const slugify = (text: string) =>
+      text
+        .toLowerCase()
+        .replace(/[^\w]+/g, "-")
+        .replace(/^-+|-+$/g, "");
 
-  const h2Array = h2Elements.map((h2) => {
-    const text = h2.textContent?.trim() || "";
-    const id = slugify(text);
-    h2.setAttribute("id", id);
-    h2.style.scrollMarginTop = "120px";
-    return { text, id };
-  });
+    const h2Elements = Array.from(doc.querySelectorAll("h2"));
 
-  // final HTML with IDs injected
-  const updatedHtml = doc.body.innerHTML;
+    const h2Array = h2Elements.map((h2) => {
+      const text = h2.textContent?.trim() || "";
+      const id = slugify(text);
+      h2.setAttribute("id", id);
+      h2.style.scrollMarginTop = "120px";
+      return { text, id };
+    });
+
+    // final HTML with IDs injected
+    const updatedHtml = doc.body.innerHTML;
+
+    return { h2Array, updatedHtml };
+  }, [mounted, data?.insight?.blog?.content]);
 
   return (
     <section className="container-md">

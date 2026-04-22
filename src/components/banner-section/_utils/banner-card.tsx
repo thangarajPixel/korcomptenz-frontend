@@ -3,10 +3,10 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
-import { useMediaQuery } from "@uidotdev/usehooks";
+
 import Link from "next/link";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const BannerCard = ({
   data,
@@ -18,7 +18,19 @@ const BannerCard = ({
   
 }) => {
 
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+   const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+
+  useEffect(() => {
+    // Only run on client
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
   return (
     <div className={cn(className)}>
       {/* Desktop view */}
