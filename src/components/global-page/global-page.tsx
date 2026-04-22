@@ -176,15 +176,12 @@ const GlobalPage = (props: Props) => {
         );
       case "page-componets.banner-section-list":
         return (
-          <ScrollFadeIn
-            __component={item?.__component}
-            key={`banner-section-list-${item?.__component}-${item?.id}`}
-          >
+         
             <BannerSection
               key={`banner-${item?.__component}-${item?.id}`}
               BannerSectionData={item?.list}
             />
-          </ScrollFadeIn>
+          
         );
       case "demo-page.demo-banner-list":
         return (
