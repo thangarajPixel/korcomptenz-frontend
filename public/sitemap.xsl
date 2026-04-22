@@ -11,49 +11,52 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <style type="text/css">
           body {
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 13px;
-            background-color: #1e1e1e;
-            color: #ffffff;
+            font-family: monospace;
+            font-size: 12px;
+            background-color: black;
+            color: #d4d4d4;
             margin: 0;
-            padding: 12px;
-            line-height: 1.4;
+            padding: 10px;
+            line-height: 1.3;
           }
           
           .header {
-            color: #ffffff;
-            border-bottom: 3px solid #faf6f6ff;
-            padding-bottom: 2px;
-            margin-bottom: 6px;
-            font-size: 15px;
+            color: #f3f3f3ff;
+            font-size: 15.5px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
             font-family: "Times New Roman", Times, serif;
+            border-bottom: 2px solid #f3f3f3ff;
+            font-weight: 500;
           }
           
           .breadcrumb {
-            color: #9CDCFE;
-            margin-bottom: 12px;
-            padding: 8px 0;
-            border-bottom: 1px solid #333;
+            color: #569cd6;
+            margin-bottom: 10px;
+            padding: 6px 0;
+            font-size: 12px;
+            border: none;
           }
           
           .breadcrumb a {
-            color: #4FC3F7;
-            text-decoration: none;
-            margin: 0 4px;
+            color: #569cd6;
+            text-decoration: underline;
+            margin: 0 2px;
           }
           
           .breadcrumb a:hover {
-            text-decoration: underline;
+            color: #9cdcfe;
           }
           
           .breadcrumb-separator {
-            color: #808080;
+            color: #d4d4d4;
             margin: 0 4px;
           }
           
           .xml-line {
             margin: 0;
             padding: 0;
+            white-space: pre;
           }
           
           .tag-bracket {
@@ -61,23 +64,23 @@
           }
           
           .tag-name {
-            color: #4EC9B0;
+            color: #569cd6;
           }
           
           .attr-name {
-            color: #9CDCFE;
+            color: #9cdcfe;
           }
           
           .attr-value {
-            color: #CE9178;
+            color: #ce9178;
           }
           
           .text-content {
-            color: #ffffff;
+            color: #d4d4d4;
           }
           
           .url-link {
-            color: #4FC3F7;
+            color: #d4d4d4;
             text-decoration: none;
             cursor: pointer;
           }
@@ -87,11 +90,12 @@
           }
           
           .arrow {
-            color: #6B7280;
+            color: #808080;
             user-select: none;
             cursor: pointer;
             display: inline-block;
-            width: 12px;
+            width: 10px;
+            font-size: 10px;
           }
           
           .collapsible-content {
@@ -102,9 +106,9 @@
             display: none;
           }
           
-          .indent-1 { margin-left: 16px; }
-          .indent-2 { margin-left: 32px; }
-          .indent-3 { margin-left: 48px; }
+          .indent-1 { margin-left: 0; padding-left: 20px; }
+          .indent-2 { margin-left: 0; padding-left: 40px; }
+          .indent-3 { margin-left: 0; padding-left: 60px; }
         </style>
         <script type="text/javascript">
           <![CDATA[
@@ -123,14 +127,53 @@
           function navigateToPath(url) {
             var currentUrl = new URL(window.location.href);
             currentUrl.searchParams.set('path', url);
-            window.location.href = currentUrl.toString();
+            
+            // Use History API to hide query params in URL bar
+            window.history.pushState({path: url}, '', '/sitemap.xml');
+            
+            // Fetch and reload with new path
+            fetch(currentUrl.toString())
+              .then(response => response.text())
+              .then(data => {
+                document.open();
+                document.write(data);
+                document.close();
+              });
           }
           
           function navigateToRoot() {
             var currentUrl = new URL(window.location.href);
             currentUrl.searchParams.delete('path');
-            window.location.href = currentUrl.toString();
+            
+            // Use History API to keep clean URL
+            window.history.pushState({}, '', '/sitemap.xml');
+            
+            // Fetch and reload root
+            fetch(currentUrl.toString())
+              .then(response => response.text())
+              .then(data => {
+                document.open();
+                document.write(data);
+                document.close();
+              });
           }
+          
+          // Handle browser back/forward buttons
+          window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.path) {
+              var currentUrl = new URL(window.location.origin + '/sitemap.xml');
+              currentUrl.searchParams.set('path', event.state.path);
+              fetch(currentUrl.toString())
+                .then(response => response.text())
+                .then(data => {
+                  document.open();
+                  document.write(data);
+                  document.close();
+                });
+            } else {
+              location.reload();
+            }
+          });
           ]]>
         </script>
       </head>
