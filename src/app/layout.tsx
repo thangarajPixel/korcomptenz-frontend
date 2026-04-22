@@ -71,6 +71,8 @@ export default function RootLayout({
       <head>
         {/* <link rel="canonical" href="https://www.korcomptenz.com/" /> */}
 
+        <link rel="icon" href="/assets/logo.png" sizes="any" />
+
         {/* Schema.org Structured Data - Critical for SEO */}
         <script
           type="application/ld+json"
@@ -114,25 +116,27 @@ export default function RootLayout({
             }),
           }}
         />
-
-        <link rel="icon" href="/assets/logo.png" sizes="any" />
-
         {/* Defer non-critical third-party scripts using Next.js Script component */}
+        {/* GTM: Critical for analytics, load after interactive */}
         <Script
           id="gtm-script"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDLSJSX');`,
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.defer=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDLSJSX');`,
           }}
         />
+        {/* HubSpot: Non-critical, defer until browser idle */}
         <Script
           id="hs-script-loader"
           strategy="lazyOnload"
           src="//js.hs-scripts.com/7991245.js"
+          async
+          defer
         />
+        {/* Mirabel Tracking: Non-critical, defer until browser idle */}
         <Script
           id="mirabel-tracking"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `!function () {
         var e, t;
@@ -150,11 +154,12 @@ export default function RootLayout({
       }();`,
           }}
         />
+        {/* AdRoll Tracking: Non-critical, defer until browser idle */}
         <Script
           id="adroll-tracking"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
-            __html: `adroll_adv_id = "6AFFI77P25EMLITUU77QLL"; adroll_pix_id = "MBYLSCHWRRDSPAI7HHOHMI"; adroll_version = "2.0"; (function(w, d, e, o, a) { w.adroll_tag_source = w.adroll_tag_source || "manual"; w.__adroll_loaded = true; w.adroll = w.adroll || []; w.adroll.f = [ 'setProperties', 'identify', 'track', 'identify_email', 'get_cookie' ]; var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js"; for (a = 0; a < w.adroll.f.length; a++) { w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) { return function() { w.adroll.push([ n, arguments ]) } })(w.adroll.f[a]) } e = d.createElement('script'); o = d.getElementsByTagName('script')[0]; e.async = 1; e.src = roundtripUrl; o.parentNode.insertBefore(e, o); })(window, document); adroll.track("pageView");`,
+            __html: `adroll_adv_id = "6AFFI77P25EMLITUU77QLL"; adroll_pix_id = "MBYLSCHWRRDSPAI7HHOHMI"; adroll_version = "2.0"; (function(w, d, e, o, a) { w.adroll_tag_source = w.adroll_tag_source || "manual"; w.__adroll_loaded = true; w.adroll = w.adroll || []; w.adroll.f = [ 'setProperties', 'identify', 'track', 'identify_email', 'get_cookie' ]; var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js"; for (a = 0; a < w.adroll.f.length; a++) { w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) { return function() { w.adroll.push([ n, arguments ]) } })(w.adroll.f[a]) } e = d.createElement('script'); o = d.getElementsByTagName('script')[0]; e.async = 1; e.defer = true; e.src = roundtripUrl; o.parentNode.insertBefore(e, o); })(window, document); adroll.track("pageView");`,
           }}
         />
       </head>
