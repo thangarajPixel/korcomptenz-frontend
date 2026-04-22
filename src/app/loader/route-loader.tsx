@@ -1,8 +1,8 @@
 "use client";
 
-import Loader from "@/app/loading";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Loader from "../loading";
 
 export default function RouteLoader() {
   const pathname = usePathname();
@@ -13,11 +13,12 @@ export default function RouteLoader() {
 
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 600); // adjust duration
+    }, 100); // minimal delay for route transition
 
     return () => clearTimeout(timeout);
   }, [pathname]);
 
+  // Show minimal loading indicator instead of full-page blocker
   if (!loading) return null;
 
   return <Loader />;
