@@ -69,7 +69,19 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        {/* <link rel="canonical" href="https://www.korcomptenz.com/" /> */}
+        <meta charSet="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="keywords" content="digital transformation company, AI
+solutions, cloud services, ERP consulting, CRM consulting, data
+analytics services"/>
+<meta name="robots" content="index, follow"/>
+<link rel="shortcut icon"
+href="https://www.korcomptenz.com/favicon.ico"/>
+ <meta name="geo.region" content="US-NJ"/>
+ <meta name="geo.placename" content="New Jersey, USA"/>
+ <meta name="geo.position" content="40.7128;-74.0060"/>
+ <meta name="ICBM" content="40.7128, -74.0060"/>
+<meta name="author" content="Korcomptenz"/>
 
         <link rel="icon" href="/assets/logo.png" sizes="any" />
 
