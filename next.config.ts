@@ -3628,6 +3628,25 @@ const nextConfig: NextConfig = {
     destination: "https://www.korcomptenz.com/sap/sap-grow-fast-implementation",
     permanent: true,
   },
+
+  {
+    source: "/insights/playbook/",
+    destination: "https://www.korcomptenz.com/insights/decision-guides",
+    permanent: true,
+  },
+
+  {
+    source: "/insights/playbooks/",
+    destination: "https://www.korcomptenz.com/insights/decision-guides",
+    permanent: true,
+  },
+
+  {
+    source: "/insights/web-stories/",
+    destination: "https://www.korcomptenz.com/insights/webstories",
+    permanent: true,
+  },
+
   ],
 };
 
