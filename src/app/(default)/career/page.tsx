@@ -3,9 +3,10 @@ import { cn } from "@/lib/utils";
 import { getCareer } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
 import { generatePageMetadata } from "@/utils/metadata";
-import React, { cache } from "react";
+import { cache } from "react";
 
-export const dynamic = "force-dynamic";
+// SSG Configuration: Pre-render at build time, revalidate every hour
+export const revalidate = 3600; // ISR: 1 hour
 
 const getCareerCache = cache(getCareer);
 

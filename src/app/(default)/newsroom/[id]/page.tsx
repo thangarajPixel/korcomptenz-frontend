@@ -18,7 +18,8 @@ export async function generateMetadata({ params }: Props) {
     title: data?.seo?.title,
     description: data?.seo?.description,
     path: `/newsroom/${id}`,
-    image: data?.heroSection?.image?.url,
+    image: (data as { heroSection?: { image?: { url: string } } })?.heroSection
+      ?.image?.url,
   });
 }
 

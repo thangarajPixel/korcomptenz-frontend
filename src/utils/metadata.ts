@@ -48,7 +48,7 @@ export function generatePageMetadata({
     twitter: {
       card: "summary_large_image",
       title,
-      description: twitterDescription,
+      description: description || twitterDescription,
       images: image,
     },
   };

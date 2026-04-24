@@ -20,7 +20,7 @@ export async function generateMetadata({
     title: matchedItem?.seo?.title || data?.seo?.title,
     description: matchedItem?.seo?.description || data?.seo?.description,
     path: `/insights/${slug}`,
-    image: matchedItem?.image?.url,
+    image: (matchedItem as { image1?: { url: string } })?.image1?.url,
   });
 }
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {

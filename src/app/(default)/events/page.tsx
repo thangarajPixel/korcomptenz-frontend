@@ -4,7 +4,9 @@ import { APP_CONFIG } from "@/utils/app-config";
 import { getEventListPage } from "@/services/page";
 import { generatePageMetadata } from "@/utils/metadata";
 
-export const dynamic = "force-dynamic";
+// SSG Configuration: Pre-render at build time, revalidate every hour
+export const revalidate = 3600; // ISR: 1 hour
+
 export async function generateMetadata() {
   const data = await getEventListPage();
   return generatePageMetadata({

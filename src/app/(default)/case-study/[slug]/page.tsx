@@ -35,7 +35,7 @@ export async function generateMetadata({
         title: matchedItem.seo.title,
         description: matchedItem.seo.description,
         path: `/case-study/${slug}`,
-        image: matchedItem?.image?.url,
+        image: (matchedItem as { image?: { url: string } })?.image?.url,
       });
     }
   }
