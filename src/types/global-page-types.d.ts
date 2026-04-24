@@ -1667,6 +1667,11 @@ type CaseStudiesPageType = {
     image1: ImageType;
     image2: ImageType;
     image3: ImageType;
+    slug: string;
+    seo:{
+      title: string;
+      description: string;
+    }
   }[];
 };
 type CaseStudyPageType = {

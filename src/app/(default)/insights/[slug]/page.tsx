@@ -11,10 +11,12 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const data = await getInsightsPageCache();
+ 
+  const matchedItem = data?.category?.find((item) => item?.slug === slug);
 
   return {
-    title: data?.seo?.title || "Home",
-    description: data?.seo?.description || "",
+    title:matchedItem?.seo?.title || data?.seo?.title || "Home",
+    description: matchedItem?.seo?.description ||data?.seo?.description || "",
     alternates: {
       canonical: "/insights/" + slug,
     },
