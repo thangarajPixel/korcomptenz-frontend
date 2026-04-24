@@ -34,6 +34,13 @@ function getItemHref(item: GlobalSearchItem): string {
     Blogs: "/blog/",
     "Web Stories": "/webstories/",
     Webstories: "/webstories/",
+    "Whitepapers": "/whitepaper/",
+    "Webinars": "/webinar/",
+    "Brochures": "/brochure/",
+    "Infographics": "/infographic/",
+    "Podcasts": "/podcast/",
+    "News Room": "/newsroom/",
+      eBooks: "/ebook/",
   };
 
   if (overrides[item.category]) return `${overrides[item.category]}${slug}`;
