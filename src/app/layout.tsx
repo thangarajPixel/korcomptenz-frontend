@@ -71,17 +71,22 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta name="keywords" content="digital transformation company, AI
+        <meta
+          name="keywords"
+          content="digital transformation company, AI
 solutions, cloud services, ERP consulting, CRM consulting, data
-analytics services"/>
-<meta name="robots" content="index, follow"/>
-<link rel="shortcut icon"
-href="https://www.korcomptenz.com/favicon.ico"/>
- <meta name="geo.region" content="US-NJ"/>
- <meta name="geo.placename" content="New Jersey, USA"/>
- <meta name="geo.position" content="40.7128;-74.0060"/>
- <meta name="ICBM" content="40.7128, -74.0060"/>
-<meta name="author" content="Korcomptenz"/>
+analytics services"
+        />
+        <meta name="robots" content="index, follow" />
+        <link
+          rel="shortcut icon"
+          href="https://www.korcomptenz.com/favicon.ico"
+        />
+        <meta name="geo.region" content="US-NJ" />
+        <meta name="geo.placename" content="New Jersey, USA" />
+        <meta name="geo.position" content="40.7128;-74.0060" />
+        <meta name="ICBM" content="40.7128, -74.0060" />
+        <meta name="author" content="Korcomptenz" />
 
         <link rel="icon" href="/assets/logo.png" sizes="any" />
 
@@ -129,10 +134,10 @@ href="https://www.korcomptenz.com/favicon.ico"/>
           }}
         />
         {/* Defer non-critical third-party scripts using Next.js Script component */}
-        {/* GTM: Critical for analytics, load after interactive */}
+        {/* GTM: Deferred with lazyOnLoad to improve Core Web Vitals */}
         <Script
           id="gtm-script"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.defer=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDLSJSX');`,
           }}
@@ -174,6 +179,7 @@ href="https://www.korcomptenz.com/favicon.ico"/>
             __html: `adroll_adv_id = "6AFFI77P25EMLITUU77QLL"; adroll_pix_id = "MBYLSCHWRRDSPAI7HHOHMI"; adroll_version = "2.0"; (function(w, d, e, o, a) { w.adroll_tag_source = w.adroll_tag_source || "manual"; w.__adroll_loaded = true; w.adroll = w.adroll || []; w.adroll.f = [ 'setProperties', 'identify', 'track', 'identify_email', 'get_cookie' ]; var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js"; for (a = 0; a < w.adroll.f.length; a++) { w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) { return function() { w.adroll.push([ n, arguments ]) } })(w.adroll.f[a]) } e = d.createElement('script'); o = d.getElementsByTagName('script')[0]; e.async = 1; e.defer = true; e.src = roundtripUrl; o.parentNode.insertBefore(e, o); })(window, document); adroll.track("pageView");`,
           }}
         />
+        <BreadcrumbSchema />
       </head>
       <body className={`${outfitSans.variable} antialiased`}>
         {/* Google Tag Manager (noscript) */}
@@ -186,8 +192,6 @@ href="https://www.korcomptenz.com/favicon.ico"/>
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-
-        <BreadcrumbSchema />
         <Providers>{children}</Providers>
       </body>
     </html>

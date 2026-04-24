@@ -1,11 +1,12 @@
-import React, { cache } from "react";
+import { cache } from "react";
 
 import GlobalPage from "@/components/global-page";
 import { getContactUs } from "@/services";
 import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/utils/app-config";
 
-export const dynamic = "force-dynamic";
+// SSG Configuration: Pre-render at build time, revalidate every hour
+export const revalidate = 3600; // ISR: 1 hour
 
 const getContactUsCache = cache(getContactUs);
 

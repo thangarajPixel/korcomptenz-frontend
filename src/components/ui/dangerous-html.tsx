@@ -1,31 +1,31 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { cn } from '@/lib/utils'
+import React from "react";
+import { cn } from "@/lib/utils";
 
 export const DangerousHtml = React.memo(
   ({ html, className }: { html: string; className?: string }) => {
-    const [cleanHtml, setCleanHtml] = React.useState("Loading...")
+    const [cleanHtml, setCleanHtml] = React.useState("");
 
     React.useEffect(() => {
-      let active = true
+      let active = true;
       const sanitize = async () => {
-        const DOMPurify = (await import('dompurify')).default
-        if (typeof window !== 'undefined' && active) {
-          setCleanHtml(DOMPurify.sanitize(html || ''))
+        const DOMPurify = (await import("dompurify")).default;
+        if (typeof window !== "undefined" && active) {
+          setCleanHtml(DOMPurify.sanitize(html || ""));
         }
-      }
-      sanitize()
+      };
+      sanitize();
       return () => {
-        active = false
-      }
-    }, [html])
+        active = false;
+      };
+    }, [html]);
 
     return (
       <div
-        className={cn('rich-text', className)}
+        className={cn("rich-text", className)}
         dangerouslySetInnerHTML={{ __html: cleanHtml }}
       />
-    )
-  }
-)
+    );
+  },
+);

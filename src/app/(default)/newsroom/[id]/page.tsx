@@ -3,6 +3,7 @@ import { cache } from "react";
 
 import GlobalPage from "@/components/global-page";
 import { cn } from "@/lib/utils";
+import { generatePageMetadata } from "@/utils/metadata";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -13,13 +14,13 @@ export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const data = await getNewsRoomPageCache({ id });
 
-  return {
-    title: data?.seo?.title || id,
-    description: data?.seo?.description || "",
-    alternates: {
-      canonical: "/newsroom/" + id,
-    },
-  };
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: `/newsroom/${id}`,
+    image: (data as { heroSection?: { image?: { url: string } } })?.heroSection
+      ?.image?.url,
+  });
 }
 
 const Page = async ({ params }: Props) => {

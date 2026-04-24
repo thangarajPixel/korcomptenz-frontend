@@ -2,11 +2,18 @@ import GlobalPage from "@/components/global-page";
 import { cn } from "@/lib/utils";
 import { getHomeService } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
+import { generatePageMetadata } from "@/utils/metadata";
 import { cache } from "react";
 import { Suspense } from "react";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 60; // Revalidate every 60 seconds
+/**
+ * SSG Configuration for Homepage
+ * - Pre-renders static HTML at build time
+ * - Revalidates every 1 hour (ISR)
+ * - All crawlers see full content (H1, body copy, schema) on arrival
+ * - No JavaScript rendering delay for SEO bots
+ */
+export const revalidate = 3600;
 
 const getHomeServiceCache = cache(getHomeService);
 
@@ -14,19 +21,13 @@ export async function generateMetadata() {
   try {
     const data = await getHomeServiceCache();
 
-    return {
-      title: data?.seo?.title || "Home",
-      description: data?.seo?.description || "",
-      openGraph: {
-        title: data?.seo?.title || "Home",
-        description: data?.seo?.description || "",
-      },
-    };
+    return generatePageMetadata({
+      title: data?.seo?.title,
+      description: data?.seo?.description,
+      path: "/",
+    });
   } catch {
-    return {
-      title: "Home",
-      description: "Korcomptenz",
-    };
+    return generatePageMetadata({ path: "/" });
   }
 }
 

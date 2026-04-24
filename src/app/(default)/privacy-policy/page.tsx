@@ -1,18 +1,17 @@
 import { cache } from "react";
 import { getPrivacyPolicy } from "@/services/page";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
+import { generatePageMetadata } from "@/utils/metadata";
 
 const getCachePrivacyPolicy = cache(getPrivacyPolicy);
 
 export async function generateMetadata() {
   const data = await getCachePrivacyPolicy();
-  return {
-    title: data?.seo?.title || "Privacy Policy",
-    description: data?.seo?.description || "Privacy Policy",
-    alternates: {
-      canonical: "/privacy-policy",
-    },
-  };
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: "/privacy-policy",
+  });
 }
 
 const Page = async () => {

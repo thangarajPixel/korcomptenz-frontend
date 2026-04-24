@@ -1,25 +1,28 @@
-import React, { cache } from "react";
+import { cache } from "react";
 import CaseStudy from "./_utils/case-study";
 import { getCaseStudyPage, getCaseStudyService } from "@/services";
 import NotFound from "@/components/not-found";
+import { generatePageMetadata } from "@/utils/metadata";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
-export const dynamic = "force-dynamic";
+
+// SSG Configuration: Pre-render at build time, revalidate every hour
+export const revalidate = 3600; // ISR: 1 hour
+
 const getCaseStudySingleCache = cache(getCaseStudyService);
 
 export async function generateMetadata({ params }: Props) {
   const { id: slug } = await params;
   const data = await getCaseStudySingleCache({ slug });
 
-  return {
-    title: data?.seo?.title || slug,
-    description: data?.seo?.description || "",
-    alternates: {
-      canonical: `/case-studies/${slug}`,
-    },
-  };
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: `/case-studies/${slug}`,
+    image: data?.heroSection?.image?.url,
+  });
 }
 const Page = async ({ params }: Props) => {
   const { id: slug } = await params;

@@ -2,22 +2,22 @@ import GlobalPage from "@/components/global-page";
 import { cn } from "@/lib/utils";
 import { getAboutUs } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
-import React, { cache } from "react";
+import { generatePageMetadata } from "@/utils/metadata";
+import { cache } from "react";
 
-export const dynamic = "force-dynamic";
+// SSG Configuration: Pre-render at build time, revalidate every hour
+export const revalidate = 3600; // ISR: 1 hour
 
 const getAboutUsCache = cache(getAboutUs);
 
 export async function generateMetadata() {
   const data = await getAboutUsCache();
 
-  return {
-    title: data?.seo?.title || "About us",
-    description: data?.seo?.description || "",
-    alternates: {
-      canonical: "/about-us",
-    },
-  };
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: "/about-us",
+  });
 }
 
 export default async function AboutUsPage() {

@@ -2,6 +2,8 @@ import React, { cache } from "react";
 import StatusCarousel from "../_utils/status-slider";
 import { getBlogPage } from "@/services";
 import NotFound from "@/components/not-found";
+import { generatePageMetadata } from "@/utils/metadata";
+
 type Props = {
   params: Promise<{ id: string }>;
 };
@@ -11,13 +13,12 @@ export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const data = await getBlogPageCache({ id });
 
-  return {
-    title: data?.seo?.title || "Career",
-    description: data?.seo?.description || "",
-    alternates: {
-      canonical: "/webstories/" + id,
-    },
-  };
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: `/webstories/${id}`,
+    image: data?.heroSection?.image?.url,
+  });
 }
 
 const Page = async ({ params }: Props) => {

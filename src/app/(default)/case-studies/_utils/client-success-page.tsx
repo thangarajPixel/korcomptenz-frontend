@@ -4,10 +4,12 @@ import {
   getCaseStudySearchPage,
 } from "@/services";
 import { INITIAL_PAGINATION } from "@/utils/helper";
-import React, { cache } from "react";
+import { cache } from "react";
 import CaseStudies from "./case-studies";
 
-export const dynamic = "force-dynamic";
+// SSG Configuration: Pre-render at build time, revalidate every hour
+export const revalidate = 3600; // ISR: 1 hour
+
 const getCaseStudiesPageCache = cache(getCaseStudiesPage);
 
 const ClientSuccessPage = async ({ slug }: { slug?: string }) => {

@@ -2,22 +2,22 @@ import GlobalPage from "@/components/global-page";
 import { cn } from "@/lib/utils";
 import { getCareer } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
-import React, { cache } from "react";
+import { generatePageMetadata } from "@/utils/metadata";
+import { cache } from "react";
 
-export const dynamic = "force-dynamic";
+// SSG Configuration: Pre-render at build time, revalidate every hour
+export const revalidate = 3600; // ISR: 1 hour
 
 const getCareerCache = cache(getCareer);
 
 export async function generateMetadata() {
   const data = await getCareerCache();
 
-  return {
-    title: data?.seo?.title || "Career",
-    description: data?.seo?.description || "",
-    alternates: {
-      canonical: "/career",
-    },
-  };
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: "/career",
+  });
 }
 
 export default async function CareerPage() {
