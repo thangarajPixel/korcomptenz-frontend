@@ -3,16 +3,16 @@ import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/utils/app-config";
 import { getNewsletterPage } from "@/services/page";
 import { cache } from "react";
+import { generatePageMetadata } from "@/utils/metadata";
+
 const getNewsletterPageCache = cache(getNewsletterPage);
 export async function generateMetadata() {
   const data = await getNewsletterPageCache();
-  return {
-    title: data?.seo?.title || "Newsletter",
-    description: data?.seo?.description || "",
-    alternates: {
-      canonical: "/newsletter",
-    },
-  };
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: "/newsletter",
+  });
 }
 const Page = async () => {
   const data = await getNewsletterPageCache();

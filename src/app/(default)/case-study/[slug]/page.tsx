@@ -1,6 +1,7 @@
 import ClientSuccessPage from "../../case-studies/_utils/client-success-page";
 import { getCaseStudyList } from "@/services";
 import { INITIAL_PAGINATION } from "@/utils/helper";
+import { generatePageMetadata } from "@/utils/metadata";
 import type { Metadata } from "next";
 import { cache } from "react";
 
@@ -16,8 +17,6 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
 
-
-
   const data = await getCaseStudyListCache({
     params: {
       pagination: INITIAL_PAGINATION,
@@ -31,18 +30,17 @@ export async function generateMetadata({
       data?.service?.find((item: { slug: string }) => item?.slug === slug) ||
       data?.technology?.find((item: { slug: string }) => item?.slug === slug);
 
-   
-
     if (matchedItem?.seo) {
-      return {
-        title: matchedItem.seo.title || "Case Studies",
-        description: matchedItem.seo.description || "",
-        alternates: { canonical: `/case-study/${slug}` },
-      };
+      return generatePageMetadata({
+        title: matchedItem.seo.title,
+        description: matchedItem.seo.description,
+        path: `/case-study/${slug}`,
+        image: matchedItem?.image?.url,
+      });
     }
   }
 
-  return {};
+  return generatePageMetadata({ path: "/case-study" });
 }
 const Page = async ({ params }: PageProps) => {
   const { slug } = await params;

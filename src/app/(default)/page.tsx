@@ -2,6 +2,7 @@ import GlobalPage from "@/components/global-page";
 import { cn } from "@/lib/utils";
 import { getHomeService } from "@/services";
 import { APP_CONFIG } from "@/utils/app-config";
+import { generatePageMetadata } from "@/utils/metadata";
 import { cache } from "react";
 import { Suspense } from "react";
 
@@ -14,19 +15,13 @@ export async function generateMetadata() {
   try {
     const data = await getHomeServiceCache();
 
-    return {
-      title: data?.seo?.title || "Home",
-      description: data?.seo?.description || "",
-      openGraph: {
-        title: data?.seo?.title || "Home",
-        description: data?.seo?.description || "",
-      },
-    };
+    return generatePageMetadata({
+      title: data?.seo?.title,
+      description: data?.seo?.description,
+      path: "/",
+    });
   } catch {
-    return {
-      title: "Home",
-      description: "Korcomptenz",
-    };
+    return generatePageMetadata({ path: "/" });
   }
 }
 

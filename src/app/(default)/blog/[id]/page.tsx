@@ -8,6 +8,7 @@ import { GlobalForm } from "@/components/global-form";
 import FaqSection from "@/components/faq-section";
 import NotFound from "@/components/not-found";
 import { ScrollToTop } from "../_utils/scroll-to-top";
+import { generatePageMetadata } from "@/utils/metadata";
 
 import type { Metadata } from "next";
 
@@ -20,13 +21,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const data = await getBlogPageCache({ id });
 
-  return {
-    title: data?.insight?.seo?.title || id,
-    description: data?.insight?.seo?.description || "",
-    alternates: {
-      canonical: `/blog/${id}`,
-    },
-  };
+  return generatePageMetadata({
+    title: data?.insight?.seo?.title,
+    description: data?.insight?.seo?.description,
+    path: `/blog/${id}`,
+    image: data?.insight?.heroSection?.image?.url,
+  });
 }
 
 const Page = async ({ params }: Props) => {
@@ -110,24 +110,24 @@ const Page = async ({ params }: Props) => {
             BannerSectionData={data?.insight}
             tableTitle={pageLayout?.tableTitle}
           />
-           <BlogAuthor data={data?.insight} essential={pageLayout} />
-          <DocumentationLayout data={data} essential={pageLayout} /> 
-           {data?.insight?.blog?.faq && (
+          <BlogAuthor data={data?.insight} essential={pageLayout} />
+          <DocumentationLayout data={data} essential={pageLayout} />
+          {data?.insight?.blog?.faq && (
             <FaqSection faqData={data?.insight?.blog?.faq} />
-          )} 
+          )}
 
-           <GlobalForm
+          <GlobalForm
             form={pageLayout?.form}
             essential={{
               id: data?.insight?.id,
               documentId: data?.insight?.documentId,
             }}
-          /> 
+          />
 
-           <BlogContentShowcase
+          <BlogContentShowcase
             data={data?.relatedInsight}
             relatedCase={pageLayout?.relatedCase}
-          /> 
+          />
         </div>
       )}
     </>

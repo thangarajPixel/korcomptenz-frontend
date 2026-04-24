@@ -3,6 +3,7 @@ import { getPageService } from "@/services";
 import GlobalPage from "@/components/global-page";
 import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/utils/app-config";
+import { generatePageMetadata } from "@/utils/metadata";
 
 type Props = {
   params: Promise<{ slug: string[] }>;
@@ -14,14 +15,13 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
 
   const data = await getPageServiceCache({ slug });
+  const path = "/" + slug.join("/");
 
-  return {
-    title: data?.seo?.title || slug.join(" "),
-    description: data?.seo?.description || "",
-    alternates: {
-      canonical: "/" + slug.join("/"),
-    },
-  };
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path,
+  });
 }
 
 const Page = async ({ params }: Props) => {

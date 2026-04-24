@@ -13,6 +13,7 @@ import { getBlogPage, getInsightPage } from "@/services";
 
 import { GlobalForm } from "@/components/global-form";
 import NotFound from "@/components/not-found";
+import { generatePageMetadata } from "@/utils/metadata";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -23,10 +24,12 @@ export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const data = await getBlogPageCache({ id });
 
-  return {
-    title: data?.seo?.title || "Career",
-    description: data?.seo?.description || "",
-  };
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: `/webinar/${id}`,
+    image: data?.heroSection?.image?.url,
+  });
 }
 
 const Page = async ({ params }: Props) => {

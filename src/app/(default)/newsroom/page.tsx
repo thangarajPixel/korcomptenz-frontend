@@ -3,18 +3,17 @@ import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/utils/app-config";
 import { getNewsroomPage } from "@/services/page";
 import { cache } from "react";
+import { generatePageMetadata } from "@/utils/metadata";
 
 const getNewsroomPageCache = cache(getNewsroomPage);
 
 export async function generateMetadata() {
   const data = await getNewsroomPageCache();
-  return {
-    title: data?.seo?.title || "Newsroom",
-    description: data?.seo?.description || "",
-    alternates: {
-      canonical: "/newsroom",
-    },
-  };
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: "/newsroom",
+  });
 }
 const Page = async () => {
   const data = await getNewsroomPageCache();
