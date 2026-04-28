@@ -33,7 +33,7 @@ const ServicesMenu = ({
                 }`}
               >
                 <h4 className="relative font-medium text-2xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
-                  <span>{section?.title}</span>
+                  {section?.title && <span>{section?.title}</span>}
                   {activeServiceSection?.id === section?.id && (
                     <ChevronRight className="w-5 h-5 font-extrabold" />
                   )}
@@ -70,14 +70,16 @@ const ServicesMenu = ({
                   >
                     <div className="px-5 mb-6">
                       <Link href={item?.href?.slug || "#"} onClick={onClick}>
-                        <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
-                          <span className="border-b-2 border-transparent group-hover:border-primary">
-                            {item?.title}
-                          </span>
-                          {item?.child?.length > 0 && (
-                            <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                          )}
-                        </h4>
+                        {item?.title && (
+                          <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
+                            <span className="border-b-2 border-transparent group-hover:border-primary">
+                              {item?.title}
+                            </span>
+                            {item?.child?.length > 0 && (
+                              <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                            )}
+                          </h4>
+                        )}
                       </Link>
                       {item?.child && item?.child?.length > 0 && (
                         <div className="space-y-2 max-h-0 overflow-hidden transition-all duration-2000 ease-in-out group-hover:max-h-[300px]">
@@ -121,14 +123,16 @@ const ServicesMenu = ({
                     <div className="px-5 lg:mb-6">
                       {" "}
                       <Link href={item?.href?.slug || "#"} onClick={onClick}>
-                        <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
-                          <span className="border-b-2 border-transparent group-hover:border-primary">
-                            {item?.title}
-                          </span>
-                          {item?.child?.length > 0 && (
-                            <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                          )}
-                        </h4>
+                        {item?.title && (
+                          <h4 className="group relative font-normal text-lg text-primary mb-4 inline-flex items-center cursor-pointer">
+                            <span className="border-b-2 border-transparent group-hover:border-primary">
+                              {item?.title}
+                            </span>
+                            {item?.child?.length > 0 && (
+                              <ChevronRight className="ml-2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                            )}
+                          </h4>
+                        )}
                       </Link>
                       {item?.child && item?.child?.length > 0 && (
                         <div className="space-y-2 max-h-0 overflow-hidden transition-all duration-2000 ease-in-out group-hover:max-h-[300px]">

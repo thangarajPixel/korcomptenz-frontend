@@ -44,7 +44,9 @@ const EcosystemDrawer = ({
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
             <Link href={menu?.item?.link || "#"} onClick={closeMenu}>
-              <h4 className="font-medium text-lg text-primary">{menu?.menu}</h4>
+              {menu?.menu && (
+                <h4 className="font-medium text-lg text-primary">{menu?.menu}</h4>
+              )}
             </Link>
           </div>
           <button

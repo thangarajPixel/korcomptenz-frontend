@@ -37,9 +37,11 @@ const AboutDrawer = ({
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
-            <h4 className="text-lg font-normal text-primary">
-              {data?.aboutMenu?.whoWeAre?.title}
-            </h4>
+            {data?.aboutMenu?.whoWeAre?.title && (
+              <h4 className="text-lg font-normal text-primary">
+                {data?.aboutMenu?.whoWeAre?.title}
+              </h4>
+            )}
           </div>
           <button
             onClick={onClose}
