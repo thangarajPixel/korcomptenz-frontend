@@ -11,10 +11,10 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
         {data?.title && (
           <h2 className="text-sm font-semibold  ">{data?.title}</h2>
         )}
-
-        <h3 className="text-foreground text-2xl md:text-4xl font-semibold leading-tight text-primary">
+{data?.heading1 &&(<h3 className="text-foreground text-2xl md:text-4xl font-semibold leading-tight text-primary">
           {data?.heading1}
-        </h3>
+        </h3>)}
+        
 
         <DangerousHtml
           html={data?.description}
@@ -24,9 +24,12 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
 
       {/* ---------- PLAYBOOK SECTION ---------- */}
       <div className="mt-3">
-        <h3 className="text-primary text-2xl md:text-4xl font-semibold mb-4">
+        {data?.heading2 &&(
+ <h3 className="text-primary text-2xl md:text-4xl font-semibold mb-4">
           {data?.heading2}
         </h3>
+        )}
+       
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  ">
           {data?.list1?.map((item) => (
@@ -34,9 +37,11 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
               key={item?.id}
               className="border border-foreground rounded-2xl p-6 flex flex-col gap-4 bg-[#f7f5f8] "
             >
-              <h4 className="text-3xl font-semibold text-foreground">
-                {item?.title}
-              </h4>
+              {item?.title && (
+                <h4 className="text-3xl font-semibold text-foreground">
+                  {item?.title}
+                </h4>
+              )}
 
               <DangerousHtml
                 html={item?.description}
