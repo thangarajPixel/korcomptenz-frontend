@@ -49,7 +49,10 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
               />
             </div>
             {/* Title */}
-            <h3 className="text-2xl font-semibold text-black">{card?.title}</h3>
+            {card?.title &&(
+<h3 className="text-2xl font-semibold text-black">{card?.title}</h3>
+            )}
+            
 
             {/* Description */}
             <DangerousHtml html={card?.description} />
