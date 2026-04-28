@@ -20,9 +20,11 @@ const TechCard = ({
   return (
     <section className={cn(className, "p-4 flex flex-col ")}>
       <div className="flex flex-col gap-2">
-        <h3 className="text-2xl lg:text-5xl font-normal text-background">
-          {data?.title}
-        </h3>
+        {data?.title && (
+          <h3 className="text-2xl lg:text-5xl font-normal text-background">
+            {data?.title}
+          </h3>
+        )}
         <p className="text-sm lg:text-lg text-background">
           {data?.description}
         </p>
