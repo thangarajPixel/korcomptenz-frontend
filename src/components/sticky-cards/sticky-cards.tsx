@@ -21,10 +21,11 @@ export default function StickyCards({
     <section data-debug={stickyCards?.__component} className="relative">
       <div className="relative container-md">
         <div className="sm:sticky relative sm:top-28 top-0 flex justify-between px-0 lg:px-4 xl:mb-[80px] sm:mb-5 mb-5">
-          {stickyCards?.title &&( <h2 className="font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
-            {stickyCards?.title}
-          </h2>)}
-         
+          {stickyCards?.title && (
+            <h2 className="font-semibold lg:text-8xl text-6xl lg:leading-[52px] tracking-[0]">
+              {stickyCards?.title}
+            </h2>
+          )}
 
           {stickyCards?.buttonText && (
             <Link href={stickyCards?.link || "/"}>
@@ -43,7 +44,7 @@ export default function StickyCards({
             key={`sticky-card-${card?.id}`}
             className={cn(
               "sm:sticky relative sm:top-48 top-0 ",
-              `z-[${index + 10}] sm:mb-1`
+              `z-[${index + 10}] sm:mb-1`,
               // index !== cardData.length - 1 ? "mb-[8rem]" : "mb-[0]"
             )}
           >
@@ -53,7 +54,7 @@ export default function StickyCards({
                   "overflow-hidden bg-light-white border-0 w-full py-0 h-auto lg:min-h-[28rem]",
                   "flex flex-col md:flex-row md:items-stretch rounded-4xl ",
                   index && "sm:shadow-xl shadow-none",
-                  className
+                  className,
                 )}
               >
                 {/* ID */}
@@ -64,12 +65,12 @@ export default function StickyCards({
                 {/* Content */}
                 <div className="p-2 px-4 lg:pt-14 lg:pb-16 lg:px-10 flex flex-col justify-between order-2 md:flex-1 md:order-none">
                   <div className="space-y-4">
-                    {card?.title &&(
- <h3 className="text-4xl lg:text-6xl font-bold text-black leading-tight">
-                      {card?.title}
-                    </h3>
+                    {card?.title && (
+                      <h3 className="text-4xl lg:text-6xl font-bold text-black leading-tight">
+                        {card?.title}
+                      </h3>
                     )}
-                   
+
                     <p className="text-custom-black-1  text-lg md:xl leading-relaxed">
                       {card?.description}
                     </p>
@@ -82,7 +83,7 @@ export default function StickyCards({
                           "mt-3 mb-3 rounded-full ",
                           !isMobile
                             ? "w-fit text-4xl px-6"
-                            : " text-xs px-2  bg-white text-primary border border-primary h-[44px] w-[155px]"
+                            : " text-xs px-2  bg-white text-primary border border-primary h-[44px] w-[155px]",
                         )}
                         arrow={true}
                       >
@@ -96,7 +97,7 @@ export default function StickyCards({
                 {card?.image && (
                   <div
                     className={cn(
-                      "relative overflow-hidden h-full order-1 md:h-auto md:w-96 md:flex-shrink-0 md:order-none"
+                      "relative overflow-hidden h-full order-1 md:h-auto md:w-96 md:flex-shrink-0 md:order-none",
                     )}
                   >
                     <KorcomptenzImage

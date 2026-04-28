@@ -11,10 +11,11 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
         {data?.title && (
           <h2 className="text-sm font-semibold  ">{data?.title}</h2>
         )}
-{data?.heading1 &&(<h3 className="text-foreground text-2xl md:text-4xl font-semibold leading-tight text-primary">
-          {data?.heading1}
-        </h3>)}
-        
+        {data?.heading1 && (
+          <h3 className="text-foreground text-2xl md:text-4xl font-semibold leading-tight text-primary">
+            {data?.heading1}
+          </h3>
+        )}
 
         <DangerousHtml
           html={data?.description}
@@ -24,12 +25,11 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
 
       {/* ---------- PLAYBOOK SECTION ---------- */}
       <div className="mt-3">
-        {data?.heading2 &&(
- <h3 className="text-primary text-2xl md:text-4xl font-semibold mb-4">
-          {data?.heading2}
-        </h3>
+        {data?.heading2 && (
+          <h3 className="text-primary text-2xl md:text-4xl font-semibold mb-4">
+            {data?.heading2}
+          </h3>
         )}
-       
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  ">
           {data?.list1?.map((item) => (
@@ -51,10 +51,11 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
           ))}
         </div>
         {data?.bottomDescription && (
-          
-<DangerousHtml html={data?.bottomDescription} className="text-foreground test-md md:test-lg leading-7.5  mt-3" />
-        )} 
-         
+          <DangerousHtml
+            html={data?.bottomDescription}
+            className="text-foreground test-md md:test-lg leading-7.5  mt-3"
+          />
+        )}
       </div>
 
       {/* ---------- CASE STUDIES / READ MORE ---------- */}

@@ -44,10 +44,11 @@ export function CaseStudyCard({ data }: { data: CaseStudyData }) {
           />
         </div>
       </motion.div>
-
-      <h3 className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black ">
-        {data?.title || data?.heroSection?.title}
-      </h3>
+      {(data?.title || data?.heroSection?.title) && (
+        <h3 className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black ">
+          {data?.title || data?.heroSection?.title}
+        </h3>
+      )}
       <p className="text-lg text-black font-normal mb-5 mt-5 line-clamp-3 ">
         {data?.heroSection?.description}
       </p>
