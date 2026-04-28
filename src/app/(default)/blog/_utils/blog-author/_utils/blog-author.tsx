@@ -37,9 +37,11 @@ export default function BlogAuthor({
             </div>
 
             <div className="md:pt-5">
-              <h4 className="text-3xl md:text-5xl font-semibold text-foreground">
-                {data?.author?.name}
-              </h4>
+              {data?.author?.name && (
+                <h4 className="text-3xl md:text-5xl font-semibold text-foreground">
+                  {data?.author?.name}
+                </h4>
+              )}
               <p className="text:sm md:text-lg text-muted-foreground">
                 {dayjs(data?.date || data?.author?.publishedAt).format(
                   "DD MMM YYYY",
