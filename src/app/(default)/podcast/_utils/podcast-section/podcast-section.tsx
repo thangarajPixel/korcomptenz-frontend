@@ -27,9 +27,11 @@ const PodcastSection = ({ data }: { data: InsightResponse }) => {
         {/* Wrapper with flex for mobile reordering */}
         <div className="flex flex-col">
           {/* Title - First on desktop, Second on mobile */}
-          <h2 className="text-2xl md:text-[75px] font-medium text-center mb-4 md:mb-6 text-gray-900 leading-tight md:leading-[118%] order-2 md:order-1">
-            {data?.podcast?.title}
-          </h2>
+          {data?.podcast?.title && (
+            <h2 className="text-2xl md:text-[75px] font-medium text-center mb-4 md:mb-6 text-gray-900 leading-tight md:leading-[118%] order-2 md:order-1">
+              {data?.podcast?.title}
+            </h2>
+          )}
 
           {/* Description - Second on desktop, Third on mobile */}
           <p className="text-center text-[#3C3C3C] text-sm md:text-[29px] font-normal mx-auto leading-relaxed md:leading-[40px] px-4 mb-8 md:mb-16 order-3 md:order-2">
@@ -57,9 +59,11 @@ const PodcastSection = ({ data }: { data: InsightResponse }) => {
 
               {/* Speaker Info */}
               <div className="text-center">
-                <h3 className="text-lg md:text-[28px] font-bold mb-0.5 md:mb-1 text-[#24A07B]">
-                  {data?.author?.name}
-                </h3>
+                {data?.author?.name && (
+                  <h3 className="text-lg md:text-[28px] font-bold mb-0.5 md:mb-1 text-[#24A07B]">
+                    {data?.author?.name}
+                  </h3>
+                )}
                 <p className="text-sm md:text-[18px] font-normal text-[#020202]">
                   {data?.author?.role}
                 </p>
