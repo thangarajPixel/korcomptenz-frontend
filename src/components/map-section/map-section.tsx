@@ -17,9 +17,11 @@ const MapSection = ({ data }: { data: MapSectionType }) => {
   return (
     <div className="relative container-md">
       <div className="items-center">
-        <h2 className="text-foreground text-center font-semibold text-9xl mb-5">
-          {data?.title}
-        </h2>
+        {data?.title && (
+          <h2 className="text-foreground text-center font-semibold text-9xl mb-5">
+            {data?.title}
+          </h2>
+        )}
         <p className="text-center text-[#6C6C6C] text-lg max-w-3xl mx-auto mb-5">
           {data?.description}
         </p>
