@@ -25,15 +25,19 @@ const FabconComposableIntelligence = ({
 
       <div className="container-md">
         {/* Title */}
-        {data?.title1 &&(
+       
  <div className="flex flex-wrap justify-center gap-2 mb-14 text-center">
-          <h2 className="text-white">{data?.title1}</h2>
+  {data?.title1 &&(
+    <h2 className="text-white">{data?.title1}</h2> 
+  )}
+         {data?.title2 && (
           <h2 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
             {data?.title2}
           </h2>
-          <h2 className="text-white">{data?.title3}</h2>
-        </div>
         )}
+          {data?.title3 && <h2 className="text-white">{data?.title3}</h2>}
+        </div>
+        
        
 
         {/* ───────────────── MOBILE LAYOUT ───────────────── */}
