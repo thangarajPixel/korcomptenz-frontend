@@ -4,9 +4,11 @@ import { DangerousHtml } from "@/components/ui/dangerous-html";
 export default function DemoExperts({ data }: { data: ExpertsSectionType }) {
   return (
     <section className="container-md rounded-4xl p-8">
-      <h2 className="text-7xl font-semibold mb-12 text-balance text-center text-black">
-        {data?.title}
-      </h2>
+      {data?.title && (
+        <h2 className="text-7xl font-semibold mb-12 text-balance text-center text-black">
+          {data?.title}
+        </h2>
+      )}
 
       <div
         className={`grid gap-12 justify-items-center ${
@@ -26,9 +28,11 @@ export default function DemoExperts({ data }: { data: ExpertsSectionType }) {
               height={200}
               className="object-contain"
             />
-            <h4 className="text-2xl font-semibold text-muted">
-              {partner?.title}
-            </h4>
+            {partner?.title && (
+              <h4 className="text-2xl font-semibold text-muted">
+                {partner?.title}
+              </h4>
+            )}
             <DangerousHtml html={partner?.description} className="text-muted" />
           </div>
         ))}
