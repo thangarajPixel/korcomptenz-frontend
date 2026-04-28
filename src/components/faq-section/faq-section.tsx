@@ -39,12 +39,16 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
           __html: JSON.stringify(faqSchema),
         }}
       />
-      <h2 className="text-6xl md:text-9xl font-semibold text-foreground mb-4">
-        {faqData?.title}
-      </h2>
-      <h3 className="text-lg md:text-[21px] font-semibold text-[#1e2939] mb-4">
-        {faqData?.subtitle}
-      </h3>
+      {faqData?.title && (
+        <h2 className="text-6xl md:text-9xl font-semibold text-foreground mb-4">
+          {faqData?.title}
+        </h2>
+      )}
+      {faqData?.subtitle && (
+        <h3 className="text-lg md:text-[21px] font-semibold text-[#1e2939] mb-4">
+          {faqData?.subtitle}
+        </h3>
+      )}
       <DangerousHtml
         html={faqData?.description}
         className="text-[#1e2939] text-base md:text-lg leading-7.5 "
@@ -82,9 +86,11 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
                       key={`list-item-${listItem?.id}`}
                       className="text-center flex items-center flex-col gap-3 bg-white rounded-2xl p-6 shadow-sm"
                     >
-                      <h3 className="text-lg md:text-5xl font-semibold">
-                        {listItem?.title}
-                      </h3>
+                      {listItem?.title && (
+                        <h3 className="text-lg md:text-5xl font-semibold">
+                          {listItem?.title}
+                        </h3>
+                      )}
                       <p className="text-base md:text-lg lg:text-xl text-[#0E0E0E] leading-relaxed flex-1">
                         {listItem?.description}
                       </p>
