@@ -76,9 +76,11 @@ const LightSlider = ({ data }: { data: LightSliderType }) => {
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-12">
           <div className="grid gap-3">
-            <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
-              {data?.title}
-            </h2>
+            {data?.title && (
+              <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
+                {data?.title}
+              </h2>
+            )}
 
             <p className="text-custom-gray-9 text-md md:text-lg leading-relaxed">
               {data?.description}
@@ -146,9 +148,11 @@ const LightSlider = ({ data }: { data: LightSliderType }) => {
                         key={`solution-${solution?.id}`}
                         className="space-y-2"
                       >
-                        <h3 className="text-4xl mg:text-5xl font-semibold text-foreground">
-                          {solution?.title}
-                        </h3>
+                        {solution?.title && (
+                          <h3 className="text-4xl mg:text-5xl font-semibold text-foreground">
+                            {solution?.title}
+                          </h3>
+                        )}
                         <DangerousHtml
                           html={solution?.description}
                           className="text-custom-gray-9 text-md md:text-lg leading-relaxed"
