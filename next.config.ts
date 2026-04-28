@@ -3492,6 +3492,162 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
 
+  {
+    source: "/blog/crm-in-banking-urgent-impertive-for-financial-institutions",
+    destination: "https://www.korcomptenz.com/blog/crm-in-banking-industry-ai-powered-growth",
+    permanent: true,
+  },
+
+  {
+    source: "/wp-content/uploads/2025/04/ISG-Provider-Lens-Quadrant-Report.pdf",
+    destination: "https://www.korcomptenz.com/asset/report/ISG-Provider-Lens-Quadrant-Report.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/case-study/Transforming-CRM-Salesforce-Implementation-Financial-Organization.pdf",
+    destination: "https://www.korcomptenz.com/case-studies-asset/Transforming-CRM-Salesforce-Implementation-Financial-Organization.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/it-infrastructure/it-infrastructure-modernization",
+    destination: "https://www.korcomptenz.com/cloud/it-infrastructure-modernization",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/Top-priorities-for-nonprofits.pdf",
+    destination: "https://www.korcomptenz.com/brochure/Top-priorities-for-nonprofits.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/Fundraising-and-Engagement.pdf",
+    destination: "https://www.korcomptenz.com/brochure/Fundraising-and-Engagement.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/Journaling.pdf",
+    destination: "https://www.korcomptenz.com/brochure/Journaling.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/Travelogue.pdf",
+    destination: "https://www.korcomptenz.com/brochure/Travelogue.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/A-Passion-for-Passion.pdf",
+    destination: "https://www.korcomptenz.com/brochure/A-Passion-for-Passion.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/Customer-Experience-Kentico.pdf",
+    destination: "https://www.korcomptenz.com/brochure/Customer-Experience-Kentico.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/AWS-Cloud-Services.pdf",
+    destination: "https://www.korcomptenz.com/brochure/AWS-Cloud-Services.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/M365-Frontline-Workers.pdf",
+    destination: "https://www.korcomptenz.com/brochure/M365-Frontline-Workers.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/Connected-Retail-for-Fashion-and-Textile.pdf",
+    destination: "https://www.korcomptenz.com/brochure/Connected-Retail-for-Fashion-and-Textile.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/Korcomptenz-Solutions-for-Fashion-and-Textile.pdf",
+    destination: "https://www.korcomptenz.com/brochure/Korcomptenz-Solutions-for-Fashion-and-Textile.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/KOR-ArtificialIntelligence.pdf",
+    destination: "https://www.korcomptenz.com/brochure/KOR-ArtificialIntelligence.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/Corporate-Brochure-UAE-2023.pdf",
+    destination: "https://www.korcomptenz.com/brochure/Corporate-Brochure-UAE-2023.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/Dynamics-Support-Service-Packages.pdf",
+    destination: "https://www.korcomptenz.com/brochure/Dynamics-Support-Service-Packages.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/ISG-Provider-Lens-Microsoft-AI-and-Cloud-Ecosystem.pdf",
+    destination: "https://www.korcomptenz.com/brochure/ISG-Provider-Lens-Microsoft-AI-and-Cloud-Ecosystem.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/SAP-Public-Cloud-Edition.pdf",
+    destination: "https://www.korcomptenz.com/brochure/SAP-Public-Cloud-Edition.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/ESG-Reporting-Solution-with-Microsoft-Fabric.pdf",
+    destination: "https://www.korcomptenz.com/brochure/ESG-Reporting-Solution-with-Microsoft-Fabric.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/Personalize-Banking-Experiences-Dynamics-365.pdf",
+    destination: "https://www.korcomptenz.com/brochure/Personalize-Banking-Experiences-Dynamics-365.pdf",
+    permanent: true,
+  },
+
+  {
+    source: "/assets/brochure/SAP-Capability.pdf",
+    destination: "https://www.korcomptenz.com/brochure/SAP-Capability.pdf",
+    permanent: true,
+  },
+  
+  {
+    source: "/sap-grow-fast-implementation",
+    destination: "https://www.korcomptenz.com/sap/sap-grow-fast-implementation",
+    permanent: true,
+  },
+
+  {
+    source: "/insights/playbook/",
+    destination: "https://www.korcomptenz.com/insights/decision-guides",
+    permanent: true,
+  },
+
+  {
+    source: "/insights/playbooks/",
+    destination: "https://www.korcomptenz.com/insights/decision-guides",
+    permanent: true,
+  },
+
+  {
+    source: "/insights/web-stories/",
+    destination: "https://www.korcomptenz.com/insights/webstories",
+    permanent: true,
+  },
+
   ],
 };
 
