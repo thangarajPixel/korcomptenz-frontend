@@ -42,10 +42,12 @@ const FabconAbout = ({ data }: { data: FabconAboutType }) => {
         <div className="lg:px-5 space-y-4 md:mt-8">
           {/* Title */}
           <div className="flex items-center gap-2 md:whitespace-nowrap">
-            <h2 className="text-foreground">{data?.title1}</h2>
-            <h2 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
-              {data?.title2}
-            </h2>
+            {data?.title1 && <h2 className="text-foreground">{data?.title1}</h2>}
+            {data?.title2 && (
+              <h2 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
+                {data?.title2}
+              </h2>
+            )}
           </div>
 
           {/* Description */}
