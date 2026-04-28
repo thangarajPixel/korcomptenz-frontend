@@ -16,13 +16,15 @@ export default function FabconExperts({ data }: { data: ExpertsSectionType }) {
       <div className="container-md">
         {/* Title Row */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-12 text-center ">
-          <h2 className="text-black">{data?.title1}</h2>
+          {data?.title1 && <h2 className="text-black">{data?.title1}</h2>}
 
-          <h2 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
-            {data?.title2}
-          </h2>
+          {data?.title2 && (
+            <h2 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
+              {data?.title2}
+            </h2>
+          )}
 
-          <h2 className="text-black">{data?.title3}</h2>
+          {data?.title3 && <h2 className="text-black">{data?.title3}</h2>}
         </div>
 
         {/* Cards Grid */}
@@ -45,9 +47,11 @@ export default function FabconExperts({ data }: { data: ExpertsSectionType }) {
                 className="object-contain"
               />
 
-              <h4 className="text-2xl font-semibold text-[#020202] mt-2">
-                {partner?.title}
-              </h4>
+              {partner?.title && (
+                <h4 className="text-2xl font-semibold text-[#020202] mt-2">
+                  {partner?.title}
+                </h4>
+              )}
 
               <DangerousHtml
                 html={partner?.description}
