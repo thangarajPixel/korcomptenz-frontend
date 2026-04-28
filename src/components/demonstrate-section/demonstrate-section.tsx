@@ -14,7 +14,8 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
       <div className="">
         <div className="flex flex-col gap-9 text-start lg:text-center items-start lg:items-center justify-center leading-14  text-foreground  ">
           <div className="grid gap-3">
-            <h2
+              {data?.title &&(
+ <h2
               className={cn(
                 "text-6xl md:text-9xl whitespace-pre-wrap text-balance font-semibold text-foreground mb-10 lg:mb-0",
                 data?.description && "mb-0",
@@ -22,6 +23,8 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
             >
               {data?.title}
             </h2>
+              )}
+           
             {data?.description && (
               <p className="text-lg font-normal text-foreground leading-6 whitespace-pre-wrap line-clamp-2">
                 {data?.description}
@@ -60,11 +63,14 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
                     className="object-cover w-full h-full rounded-4xl "
                   />
                 </div>
-                <div>
+                  {card?.title &&(
+  <div>
                   <h5 className="lg:text-3xl text-xl leading-6.75 font-semibold text-foreground  group-hover:text-primary line-clamp-2">
                     {card?.title}
                   </h5>
                 </div>
+                  )}
+              
 
                 <p className="text-lg font-normal text-foreground leading-6 break-words line-clamp-2">
                   {card?.description}
