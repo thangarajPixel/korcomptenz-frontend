@@ -28,9 +28,11 @@ const ServiceProvider = ({
 }) => {
   return (
     <div className="container-md space-y-5">
-      <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-10    text-balance">
-        {data?.thirdSection?.title}
-      </h2>
+      {data?.thirdSection?.title && (
+        <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-10    text-balance">
+          {data?.thirdSection?.title}
+        </h2>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
         {data?.thirdSection?.list.map((item, index) => (
           <div
