@@ -10,9 +10,12 @@ export default function ClientPartnership({
 }) {
   return (
     <section className="container-md">
-      <h2 className="text-7xl font-semibold text-foreground mb-7.5 text-balance font-sans">
+      {data?.title &&(
+<h2 className="text-7xl font-semibold text-foreground mb-7.5 text-balance font-sans">
         {data?.title}
       </h2>
+      )}
+      
 
       {/* Partner Badges Grid */}
       <div

@@ -31,13 +31,13 @@ const FabconLedTransform = ({ data }: { data: FabconLedTransformType }) => {
     <div className="container-md">
       {/* TITLE */}
       <div className="grid md:flex items-start gap-2 md:whitespace-nowrap mb-12">
-        {data?.title1 && <h2 className="text-foreground">{data?.title1}</h2>}
+        {data?.title1 && (<h2 className="text-foreground">{data?.title1}</h2>)}
         {data?.title2 && (
           <h2 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
             {data?.title2}
           </h2>
         )}
-        {data?.title3 && <h2 className="text-foreground">{data?.title3}</h2>}
+        {data?.title3 && (<h2 className="text-foreground">{data?.title3}</h2>)}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-x-10 gap-y-10">

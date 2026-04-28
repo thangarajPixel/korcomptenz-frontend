@@ -31,14 +31,14 @@ export function DigitialCardSlider({
       id="kor-solution"
     >
       <div className="container-md">
-        {content?.title &&(
- <div className="mb-4">
-          <h2 className="font-bold text-foreground leading-10 lg:leading-12 max-w-5xl">
-            {content?.title}
-          </h2>
-        </div>
+        {content?.title && (
+          <div className="mb-4">
+            <h2 className="font-bold text-foreground leading-10 lg:leading-12 max-w-5xl">
+              {content?.title}
+            </h2>
+          </div>
         )}
-       
+
         {/* Top rounded segmented tabs */}
         <div className="relative">
           <Tabs

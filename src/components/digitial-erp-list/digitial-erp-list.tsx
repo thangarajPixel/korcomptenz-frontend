@@ -23,9 +23,11 @@ export default function DigitalErpList({ data }: { data: DigitalErpListType }) {
                   key={`section-item-${item.id}`}
                   className="bg-white text-foreground "
                 >
-                  <h3 className="text-xl font-semibold  leading-6.5 line-clamp-2 mb-3">
-                    {item?.title}
-                  </h3>
+                  {item?.title && (
+                    <h3 className="text-xl font-semibold  leading-6.5 line-clamp-2 mb-3">
+                      {item?.title}
+                    </h3>
+                  )}
 
                   <p className=" text-lg mb-2  font-normal leading-7.5">
                     {item?.description}
@@ -50,18 +52,22 @@ export default function DigitalErpList({ data }: { data: DigitalErpListType }) {
         )}
         {data?.list2?.length > 0  && (
           <div className={cn("mb-6 pb-6 ")}>
-            <h2 className="text-7xl font-semibold text-foreground mb-8 ">
-              {data?.title2}
-            </h2>
+            {data?.title2 && (
+              <h2 className="text-7xl font-semibold text-foreground mb-8 ">
+                {data?.title2}
+              </h2>
+            )}
             <div className="grid grid-cols-1  lg:grid-cols-2 gap-7.5">
               {data?.list2?.map((item) => (
                 <div
                   key={`section-item-${item.id}`}
                   className="bg-[#E2EBE4] p-5 rounded-2xl text-foreground"
                 >
-                  <h3 className="text-xl font-semibold  leading-6.5 line-clamp-2 mb-3">
-                    {item?.title}
-                  </h3>
+                  {item?.title && (
+                    <h3 className="text-xl font-semibold  leading-6.5 line-clamp-2 mb-3">
+                      {item?.title}
+                    </h3>
+                  )}
 
                   <p className="text-gray-600 text-lg mb-2 leading-7.5 font-normal">
                     {item?.description}

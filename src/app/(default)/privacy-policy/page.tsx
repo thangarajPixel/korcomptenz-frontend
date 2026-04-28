@@ -19,9 +19,12 @@ const Page = async () => {
   return (
     <article className="container-md py-16 md:py-24">
       {/* Main Heading */}
-      <h1 className="mb-8 text-4xl font-bold text-blue-900 md:text-5xl">
-        {data?.title}
-      </h1>
+      {data?.title && (
+        <h1 className="mb-8 text-4xl font-bold text-blue-900 md:text-5xl">
+          {data?.title}
+        </h1>
+      )}
+     
       {data?.description?.map((item, index) => (
         <section key={index} className="mb-8 space-y-4">
           {item.title && (

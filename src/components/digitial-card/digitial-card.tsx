@@ -5,9 +5,11 @@ import { DangerousHtml } from "../ui/dangerous-html";
 const DigitialCard = ({ data }: { data: DigitialCardType }) => {
   return (
     <div className="container-md">
-      <h2 className="font-bold leading-tight text-foreground mb-4 text-center">
-        {data?.title}
-      </h2>
+      {data?.title && (
+        <h2 className="font-bold leading-tight text-foreground mb-4 text-center">
+          {data?.title}
+        </h2>
+      )}
       <DangerousHtml
         html={data?.description}
         className="text-md md:text-lg leading-7.5 text-foreground font-normal mb-4 text-center"
@@ -19,9 +21,10 @@ const DigitialCard = ({ data }: { data: DigitialCardType }) => {
             key={item?.id}
             className="border-2 border-gray-300 rounded-2xl p-6 "
           >
+            {item?.title && (
             <h3 className="text-lg md:text-[21px] font-semibold text-foreground mb-2">
               {item?.title}
-            </h3>
+            </h3>)}
 
             <DangerousHtml
               html={item?.description}

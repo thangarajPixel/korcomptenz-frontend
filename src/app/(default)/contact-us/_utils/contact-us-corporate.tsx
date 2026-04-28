@@ -9,9 +9,12 @@ const ContactUsCorporate = ({
   return (
     <div className="container-md ">
       <div className="rounded-2xl bg-light-gray py-12 px-5 md:px-8">
-        <h2 className="text-2xl font-semibold text-foreground mb-8">
+        {corporateData?.title &&(
+ <h2 className="text-2xl font-semibold text-foreground mb-8">
           {corporateData?.title}
         </h2>
+        )}
+       
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 rounded-3xl">
           {corporateData?.list.map((corporate, index) => (
