@@ -51,7 +51,9 @@ const DigitialSliderCard: React.FC<Props> = ({ slide }) => {
       <div className=" relative  flex flex-col gap-4 py-5">
         {/* Logo */}
 
-        <h3 className="text-lg md:text-3xl font-semibold text-foreground leading-7">{slide?.title}</h3>
+        {slide?.title && (
+          <h3 className="text-lg md:text-3xl font-semibold text-foreground leading-7">{slide?.title}</h3>
+        )}
 
         {/* Description */}
         <DangerousHtml
