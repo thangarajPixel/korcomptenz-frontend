@@ -80,14 +80,14 @@ solutions, cloud services, ERP consulting, CRM consulting, data
 analytics services"
         />
         <meta name="robots" content="index, follow" />
-        
+
         {/* Preconnect to external domains for faster loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://js.hs-scripts.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://s.adroll.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://mkmpages.korcomptenz.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://aue2kormlworkspacetest01.blob.core.windows.net" />
-        
+
         <link
           rel="shortcut icon"
           href="https://www.korcomptenz.com/favicon.ico"
@@ -146,19 +146,19 @@ analytics services"
         {/* Defer non-critical third-party scripts - load after interaction */}
         <Script
           id="gtm-script"
-          strategy="worker"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WDLSJSX');`,
           }}
         />
         <Script
           id="hs-script-loader"
-          strategy="worker"
+          strategy="lazyOnload"
           src="https://js.hs-scripts.com/7991245.js"
         />
         <Script
           id="mirabel-tracking"
-          strategy="worker"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `!function () {
         var e, t;
@@ -177,7 +177,7 @@ analytics services"
         />
         <Script
           id="adroll-tracking"
-          strategy="worker"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `adroll_adv_id = "6AFFI77P25EMLITUU77QLL"; adroll_pix_id = "MBYLSCHWRRDSPAI7HHOHMI"; adroll_version = "2.0"; (function(w, d, e, o, a) { w.adroll_tag_source = w.adroll_tag_source || "manual"; w.__adroll_loaded = true; w.adroll = w.adroll || []; w.adroll.f = [ 'setProperties', 'identify', 'track', 'identify_email', 'get_cookie' ]; var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js"; for (a = 0; a < w.adroll.f.length; a++) { w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) { return function() { w.adroll.push([ n, arguments ]) } })(w.adroll.f[a]) } e = d.createElement('script'); o = d.getElementsByTagName('script')[0]; e.async = 1; e.src = roundtripUrl; o.parentNode.insertBefore(e, o); })(window, document); adroll.track("pageView");`,
           }}
