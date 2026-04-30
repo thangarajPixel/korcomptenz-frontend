@@ -18,7 +18,7 @@ type KorcomptenzImageProps = Omit<ImageProps, "src" | "alt"> & {
   priority?: boolean;
 };
 
-const KorcomptenzImage = (props: KorcomptenzImageProps) => {
+const KorcomptenzImage = React.memo((props: KorcomptenzImageProps) => {
   const src = (props?.src as ImageType)?.url
     ? (props?.src as ImageType)?.url
     : props.src || "";
@@ -33,16 +33,20 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
       {...props}
       src={(src || "/assets/placeholder.png") as string}
       alt={alt || "/assets/placeholder.png"}
-      loading={props.priority ? undefined : "lazy"}
+      // loading={props.priority ? undefined : "lazy"}
       unoptimized={isGif}
-      priority={props.priority || false}
+      priority
+      sizes={
+        props.sizes ||
+        "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      }
       className={cn(
         props?.nonAnimate &&
-          "object-cover transition-transform duration-300 hover:scale-110",
+        "object-cover transition-transform duration-300 hover:scale-110",
         props?.className,
       )}
     />
   );
-};
+});
 
 export default KorcomptenzImage;
