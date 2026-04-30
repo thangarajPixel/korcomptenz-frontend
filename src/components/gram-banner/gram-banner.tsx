@@ -115,9 +115,11 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
 
           {gramData?.isFooter && (
             <div className="mt-10 rounded-2xl bg-custom-black py-10 -mb-10">
-              <h2 className="text-5xl md:text-8xl leading-7 break-words font-bold text-center lg:px-10 text-white mb-2">
-                {gramData?.footerHeading}
-              </h2>
+              {gramData?.footerHeading && (
+                <h2 className="text-5xl md:text-8xl leading-7 break-words font-bold text-center lg:px-10 text-white mb-2">
+                  {gramData?.footerHeading}
+                </h2>
+              )}
 
               <DangerousHtml
                 html={gramData?.footerDescription}

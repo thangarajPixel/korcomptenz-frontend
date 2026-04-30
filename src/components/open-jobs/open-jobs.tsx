@@ -239,6 +239,13 @@ catch (e: unknown) {
           </div>
         </div>
       )}
+      <div className="mt-16">
+        <iframe
+          src={data.iframeLink}
+          title="Open Jobs iframe"
+          className="w-full h-[700px]"
+        ></iframe>
+      </div>
     </section>
   );
 };

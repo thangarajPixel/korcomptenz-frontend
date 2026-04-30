@@ -12,7 +12,7 @@ const ContactUsNewsletter = ({
 }) => {
   return (
     <section
-      id={newsletterData.isForm ? "career-form" : "contact-us.news-letter"}
+      id={newsletterData?.isForm ? "career-form" : "contact-us.news-letter"}
       data-debug={"contact-us.news-letter"}
       className="container-md "
     >
@@ -21,12 +21,14 @@ const ContactUsNewsletter = ({
         <div className="flex flex-col md:flex-row md:gap-0 md:rounded-3xl md:overflow-hidden ">
           {/* Content Section - 70% on mobile, 50% on desktop */}
           <div className="flex flex-col justify-center px-6 py-8 md:w-[60%] md:px-20 md:py-12 bg-secondary   ">
-            <h2 className="text-5xl  font-semibold text-white mb-4 md:mb-6">
-              {newsletterData.title}
-            </h2>
+            {newsletterData?.title && (
+              <h2 className="text-5xl  font-semibold text-white mb-4 md:mb-6">
+                {newsletterData?.title}
+              </h2>
+            )}
 
             <p className="text-base text-xl text-white/90 mb-6 md:mb-8 leading-relaxed max-w-lg">
-              {newsletterData.description}
+              {newsletterData?.description}
             </p>
 
             {newsletterData?.buttonText && newsletterData?.isForm === false && (
@@ -37,7 +39,7 @@ const ContactUsNewsletter = ({
                   size="xl"
                   className="bg-white text-primary hover:text-primary"
                 >
-                  {newsletterData.buttonText}
+                  {newsletterData?.buttonText}
                 </Button>
               </div>
             )}
@@ -53,7 +55,7 @@ const ContactUsNewsletter = ({
           {/* Image Section - 30% on mobile, 50% on desktop */}
           <div className="relative w-full h-40 md:w-[40%] md:h-auto md:min-h-80">
             <KorcomptenzImage
-              src={newsletterData.image}
+              src={newsletterData?.image}
               fill
               className="object-cover"
               priority

@@ -33,9 +33,12 @@ const WebinarContentSection = ({
         <div className="mb-16">
           <div className="grid md:grid-cols-2 gap-8 items-start">
             <div>
-              <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold mb-4 text-[#313941]">
-                {summary.title}
-              </h2>
+              {summary.title && (
+                <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold mb-4 text-[#313941]">
+                  {summary.title}
+                </h2>
+              )}
+
               <p className="text-custom-blue-1 leading-[25px] text-[18px] font-normal">
                 {summary.description}
               </p>
@@ -95,9 +98,11 @@ const WebinarContentSection = ({
 
                 {/* Card */}
                 <div className="bg-[#E8F4F0] rounded-3xl p-8 pt-24 text-center hover:shadow-lg transition-shadow">
-                  <h3 className="text-2xl md:text-[28px] leading-[34px] font-semibold mb-2 text-[#313941]]">
-                    {expert.name}
-                  </h3>
+                  {expert.name && (
+                    <h3 className="text-2xl md:text-[28px] leading-[34px] font-semibold mb-2 text-[#313941]]">
+                      {expert.name}
+                    </h3>
+                  )}
                   <p className="text-lg md:text-[16px] leading-[25px] text-[#000000] font-normal mb-4">
                     {expert.title}
                   </p>

@@ -44,9 +44,12 @@ export default function ClientTestimonial({
         {/* Carousel content */}
         <div className="relative lg:p-8 p-4 rounded-xl bg-[#C9F5FF]">
           <div className="space-y-3 ">
-            <h2 className="text-5xl font-semibold text-muted">
-              {currentTestimonial?.title}
-            </h2>
+            {currentTestimonial?.title && (
+              <h2 className="text-5xl font-semibold text-muted">
+                {currentTestimonial?.title}
+              </h2>
+            )}
+
             <DangerousHtml
               html={currentTestimonial?.description}
               className="md:text-5xl text-xl text-muted leading-7.5 md:leading-12 font-medium"

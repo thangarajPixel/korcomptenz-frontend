@@ -13,10 +13,12 @@ const BlogBuildDemo = ({
   return (
     <section data-debug="page-componets.build-data">
       <div className="container-md  ">
-        <h3 className="text-6xl md:text-9xl font-semibold text-muted mb-10 ">
-          {" "}
-          {form?.title}
-        </h3>
+        {form?.title && (
+          <h3 className="text-6xl md:text-9xl font-semibold text-muted mb-10 ">
+            {" "}
+            {form?.title}
+          </h3>
+        )}
         <div className={cn("grid grid-cols-1 lg:grid-cols-2 gap-x-10")}>
           <div className="w-full h-full">
             <KorcomptenzImage

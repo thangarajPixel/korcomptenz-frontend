@@ -98,9 +98,11 @@ const DemoRequestForm = ({
     >
       <div className="grid rounded-4xl shadow-2xl p-10 gap-y-2 w-full md:w-3/4">
         {/* Name + Email */}
-        <h3 className="text-5xl font-semibold text-center text-foreground mb-5">
-          {form?.title || "Reserve My Spot"}
-        </h3>
+       
+          <h3 className="text-5xl font-semibold text-center text-foreground mb-5">
+            {form?.title || "Reserve My Spot"}
+          </h3>
+      
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
           <Input
             control={control}

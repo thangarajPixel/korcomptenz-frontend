@@ -12,9 +12,11 @@ const BenefitSection = ({
       className="container-md"
       data-debug={"page-componets.benefit-data"}
     >
-      <h2 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 w-full">
-        {benefitData?.title}
-      </h2>
+      {benefitData?.title && (
+        <h2 className="text-6xl md:text-9xl font-semibold text-foreground mb-6 w-full">
+          {benefitData?.title}
+        </h2>
+      )}
       <p className="text-2xl md:text-4xl font-normal text-foreground mb-6 w-full">
         {benefitData?.description}
       </p>

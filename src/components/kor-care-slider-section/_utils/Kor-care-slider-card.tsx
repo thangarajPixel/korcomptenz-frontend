@@ -21,7 +21,7 @@ const KorCareSliderCard: React.FC<Props> = ({ slide }) => {
         {/* IMAGE */}
         <div className="w-full">
           <KorcomptenzImage
-            src={slide.image}
+            src={slide?.image}
             width={800}
             height={500}
             className="w-full h-56 object-cover"
@@ -31,20 +31,22 @@ const KorCareSliderCard: React.FC<Props> = ({ slide }) => {
         {/* CONTENT */}
         <div className="lg:p-4 p-4 space-y-2">
           {/* CATEGORY TEXT (buttonText) */}
-          {slide.buttonText && (
+          {slide?.buttonText && (
             <p className="text-primary font-semibold text-sm">
-              {slide.buttonText}
+              {slide?.buttonText}
             </p>
           )}
 
           {/* TITLE */}
-          <h3 className="text-3xl font-semibold text-foreground leading-7">
-            {slide.title}
-          </h3>
+          {slide?.title && (
+            <h3 className="text-3xl font-semibold text-foreground leading-7">
+              {slide?.title}
+            </h3>
+          )}
 
           {/* DESCRIPTION */}
           <DangerousHtml
-            html={slide.description}
+            html={slide?.description}
             className="text-foreground text-md leading-6 break-words font-normal"
           />
         </div>

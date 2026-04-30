@@ -15,9 +15,11 @@ const WhyAttendSection = ({ data }: { data: BuildConnectSectionType }) => {
 
           {/* Right - Content */}
           <div className="bg-[#E8F4F0] p-8 md:p-12 lg:p-16">
-            <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold text-[#313941] mb-6">
-              {data?.title}
-            </h2>
+            {data?.title && (
+              <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold text-[#313941] mb-6">
+                {data?.title}
+              </h2>
+            )}
             {/* <ul className="space-y-4">
               {reasons.map((reason, index) => (
                 <li key={index} className="flex items-start gap-3">

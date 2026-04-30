@@ -33,13 +33,15 @@ const DigitialInsightSlider = ({
       >
         <div className={"flex flex-col gap-4"}>
           <div className="col-span-18 lg:col-span-8 flex flex-col gap-5">
-            <h2
-              className={cn(
-                "text-5xl md:text-7xl font-bold leading-tight text-foreground  lg:px-0 mb-5 lg:mb-0 md:mx-12",
-              )}
-            >
+
+            {manuelSliderData?.title && (
+              <h2
+                className={cn(
+                  "text-5xl md:text-7xl font-bold leading-tight text-foreground  lg:px-0 mb-5 lg:mb-0 md:mx-12",
+                )}
+              >
               {manuelSliderData?.title}
-            </h2>
+            </h2>)}
 
             {/* <div className="hidden lg:flex ms-5 lg:ms-0  items-center gap-4">
             <CarouselPrevious

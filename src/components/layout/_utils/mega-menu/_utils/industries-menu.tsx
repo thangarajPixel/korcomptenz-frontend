@@ -49,9 +49,11 @@ const IndustriesMenu = ({
                   >
                     {" "}
                     <Link href={section.href?.slug || "/"} onClick={onClick}>
-                      <h4 className="text-lg font-normal text-primary leading-6.5 mb-4 whitespace-break-spaces">
-                        {section.title}
-                      </h4>
+                      {section.title && (
+                        <h4 className="text-lg font-normal text-primary leading-6.5 mb-4 whitespace-break-spaces">
+                          {section.title}
+                        </h4>
+                      )}
                     </Link>
                     {section?.items?.length > 0 && (
                       <div className="space-y-2">

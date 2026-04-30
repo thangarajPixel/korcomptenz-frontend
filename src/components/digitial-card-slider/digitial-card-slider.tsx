@@ -31,11 +31,14 @@ export function DigitialCardSlider({
       id="kor-solution"
     >
       <div className="container-md">
-        <div className="mb-4">
-          <h2 className="font-bold text-foreground leading-10 lg:leading-12 max-w-5xl">
-            {content?.title}
-          </h2>
-        </div>
+        {content?.title && (
+          <div className="mb-4">
+            <h2 className="font-bold text-foreground leading-10 lg:leading-12 max-w-5xl">
+              {content?.title}
+            </h2>
+          </div>
+        )}
+
         {/* Top rounded segmented tabs */}
         <div className="relative">
           <Tabs
@@ -113,9 +116,11 @@ export function DigitialCardSlider({
               className=" w-full flex flex-col-reverse lg:flex-row"
             >
               <div className="space-y-3  md:p-5  w-full  ">
-                <h5 className=" lg:text-[24px] text-2xl font-semibold leading-tight text-foreground md:text-8xl ">
-                  {activeContent?.title}
-                </h5>
+                {activeContent?.title && (
+                  <h5 className=" lg:text-[24px] text-2xl font-semibold leading-tight text-foreground md:text-8xl ">
+                    {activeContent?.title}
+                  </h5>
+                )}
 
                 <DangerousHtml
                   html={activeContent?.description}

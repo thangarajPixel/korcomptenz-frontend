@@ -69,7 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <meta charSet="utf-8" />
+        {/* <meta charSet="utf-8" /> */}
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta
           name="keywords"

@@ -15,9 +15,11 @@ export const InspireSectionContent = ({
 }) => {
   return (
     <div className={cn("p-6", topClassName)}>
-      <h3 className={cn("text-3xl md:text-4xl font-semibold mb-4", className)}>
-        {card.title}
-      </h3>
+      {card.title && (
+        <h3 className={cn("text-3xl md:text-4xl font-semibold mb-4", className)}>
+          {card.title}
+        </h3>
+      )}
       <DangerousHtml
         html={card.description}
         className="md:text-lg text-md mb-4"

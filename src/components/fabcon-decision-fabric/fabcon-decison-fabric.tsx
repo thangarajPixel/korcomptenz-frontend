@@ -30,16 +30,17 @@ const FabconDecisionFabric = ({ data }: { data: FabconDecisionFabricType }) => {
             mx-auto
             text-center lg:text-left
           "
-        >
+        >{data?.title1 && (
           <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
             {data?.title1}{" "}
-          </h2>
+          </h2>)}
+          {data?.title2 && (
           <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
             {data?.title2}{" "}
             <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
               {data?.title3}
             </span>
-          </h2>
+          </h2>)}
         </div>
 
         {/* ================= FORM ================= */}

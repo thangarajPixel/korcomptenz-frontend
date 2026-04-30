@@ -30,7 +30,7 @@ const EcosystemMenu = ({
                 }`}
               >
                 <h4 className="relative font-medium text-3xl text-primary  leading-10 flex items-center justify-between cursor-pointer">
-                  <span>{item?.menu}</span>
+                  {item?.menu && <span>{item?.menu}</span>}
                   {activeSideBar?.id === item?.id && (
                     <ChevronRight className="w-5 h-5 font-extrabold" />
                   )}
