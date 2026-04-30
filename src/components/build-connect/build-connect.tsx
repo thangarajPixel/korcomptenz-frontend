@@ -34,7 +34,7 @@ const BuildConnect = ({
           buildData?.isBgGray && "bg-custom-gray-6 rounded-2xl p-4 md:p-8 ",
         )}
       >
-        {buildData?.isSwap && (
+        {buildData?.isSwap && buildData?.title && (
           <h2 className=" text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-15 mb-12">
             {buildData?.title}
           </h2>
@@ -53,12 +53,12 @@ const BuildConnect = ({
               buildData?.isSwap && "order-2",
             )}
           >
-            {!buildData?.isSwap && (
+            {!buildData?.isSwap && buildData?.title && (
               <h2 className="text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-12">
                 {buildData?.title}
               </h2>
             )}
-            {buildData?.isSwap && (
+            {buildData?.isSwap && buildData?.descriptiontitle && (
               <h2 className="text-6xl md:text-7xl font-bold text-foreground leading-10 lg:leading-12">
                 {buildData?.descriptiontitle}
               </h2>

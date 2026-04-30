@@ -36,9 +36,11 @@ const IndustryDrawer = ({
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
             <Link href={industry?.href?.slug || "#"} onClick={closeMenu}>
-              <h4 className="text-lg font-normal text-primary">
-                {industry?.title}
-              </h4>
+              {industry?.title && (
+                <h4 className="text-lg font-normal text-primary">
+                  {industry?.title}
+                </h4>
+              )}
             </Link>
           </div>
           <button

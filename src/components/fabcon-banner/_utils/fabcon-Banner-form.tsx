@@ -98,9 +98,11 @@ const FabconBannerForm = ({ form }: { form: fromDataType }) => {
            space-y-6 md:space-y-4
          "
     >
-      <h3 className="text-[#1EBFA1] text-xl md:text-4xl font-bold mb-4">
-        {form?.forms?.[0]?.title}
-      </h3>
+      {form?.forms?.[0]?.title && (
+        <h3 className="text-[#1EBFA1] text-xl md:text-4xl font-bold mb-4">
+          {form?.forms?.[0]?.title}
+        </h3>
+      )}
       {/* Inputs */}
       <div className="space-y-6 md:space-y-4">
         {/* Row 1 */}

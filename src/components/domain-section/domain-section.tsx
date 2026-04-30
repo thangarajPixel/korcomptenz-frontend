@@ -6,13 +6,18 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
   return (
     <section className="container-md" data-debug={"page-componets.domain-data"}>
       <div className="rounded-2xl  bg-custom-gray-6">
+
+          {domainData?.title &&(
         <div className="flex items-start justify-center  pt-6 md:pt-20">
           <div className="border-b-4 hidden lg:block border-custom-gray-7 w-1/3 mt-4"></div>
-          <h2 className="text-6xl md:text-9xl font-semibold text-foreground mx-4 py-4 lg:text-center">
+        
+         <h2 className="text-6xl md:text-9xl font-semibold text-foreground mx-4 py-4 lg:text-center">
             {domainData?.title}
           </h2>
+      
+         
           <div className="border-b-4 hidden lg:block border-custom-gray-7 w-1/3 mt-4"></div>
-        </div>
+        </div>    )}
         {domainData?.description && (
           <p className="lg:py-5 lg:px-36 text-center ">
             {domainData?.description}
@@ -34,9 +39,11 @@ const DomainSection = ({ domainData }: { domainData: DomainSectionType }) => {
                   />
                 </div>
                 <div>
-                  <h5 className="lg:text-3xl text-xl leading-6.75 font-semibold text-foreground break-words">
-                    {slide?.title}
-                  </h5>
+                  {slide?.title && (
+                    <h5 className="lg:text-3xl text-xl leading-6.75 font-semibold text-foreground break-words">
+                      {slide?.title}
+                    </h5>
+                  )}
                 </div>
                 <div>
                   <p className="text-lg font-normal text-foreground leading-6 break-words">

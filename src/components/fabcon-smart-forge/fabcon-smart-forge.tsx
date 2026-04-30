@@ -24,13 +24,15 @@ const FabconSmartForge = ({ data }: { data: FabconSmartForgeType }) => {
         {/* ================= LEFT CONTENT ================= */}
         <div className="space-y-6 text-white max-w-md mx-auto">
           {/* Title */}
-          <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
-            {data?.title1}{" "}
-            <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
-              {data?.title2}
-            </span>{" "}
-            {data?.title3}
-          </h2>
+          {data?.title1 && (
+            <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
+              {data?.title1}{" "}
+              <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
+                {data?.title2}
+              </span>{" "}
+              {data?.title3}
+            </h2>
+          )}
 
           {/* Description */}
           <DangerousHtml

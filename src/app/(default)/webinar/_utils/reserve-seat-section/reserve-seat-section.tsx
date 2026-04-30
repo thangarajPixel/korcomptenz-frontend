@@ -92,9 +92,11 @@ const ReserveSeatSection = ({
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           {/* Left - Content */}
           <div>
-            <h3 className="text-2xl md:text-[40px] leading-snug md:leading-12 font-semibold text-[#313941] mb-4 md:mb-6">
-              {form?.title}
-            </h3>
+            {form?.title && (
+              <h3 className="text-2xl md:text-[40px] leading-snug md:leading-12 font-semibold text-[#313941] mb-4 md:mb-6">
+                {form?.title}
+              </h3>
+            )}
 
             <p className="text-custom-blue-1 text-[16px] md:text-[18px] leading-6 md:leading-6.25 font-normal">
               {form?.description}
@@ -111,9 +113,11 @@ const ReserveSeatSection = ({
               >
                 <div className="grid rounded-4xl shadow-2xl p-6 md:p-10 gap-y-4">
                   {/* Title */}
-                  <h3 className="text-3xl md:text-5xl font-semibold text-center text-foreground mb-4 md:mb-5">
-                    {form?.title || "Reserve My Spot"}
-                  </h3>
+                
+                    <h3 className="text-3xl md:text-5xl font-semibold text-center text-foreground mb-4 md:mb-5">
+                      {form?.title || "Reserve My Spot"}
+                    </h3>
+                  
 
                   {/* Name + Email */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

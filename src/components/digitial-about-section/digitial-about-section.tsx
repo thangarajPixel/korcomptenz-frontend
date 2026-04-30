@@ -32,9 +32,10 @@ export function DigitialAboutSection({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Title */}
             <div className="pt-8">
+               {data?.title && (
               <h2 className="text-5xl md:text-6xl font-bold text-white mb-2">
                 {data?.title}
-              </h2>
+              </h2>)}
               <p className="text-lg md:text-xl text-gray-300 font-semibold">
                 {data?.description}
               </p>
@@ -68,13 +69,14 @@ export function DigitialAboutSection({
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {data?.stats?.map((stat) => (
               <div key={stat?.id} className="text-center">
+                {stat?.value &&(
                 <h3
                   className={cn(
                     "text-5xl md:text-7xl font-semibold mb-2 text-primary text-left",
                   )}
                 >
                   {stat?.value}
-                </h3>
+                </h3>)}
                 <p className="text-[#FFFFFF] text-sm md:text-base text-left">
                   {stat?.label}
                 </p>

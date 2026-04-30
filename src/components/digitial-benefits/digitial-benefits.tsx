@@ -17,10 +17,10 @@ const DigitialBenefits = ({ data }: { data: DigitalBenefitsType }) => {
               ? "bg-[#f7f8f8] rounded-4xl shadow-2xl py-10 px-2"
               : "",
           )}
-        >
+        >{data?.title &&(
           <h2 className="text-4xl md:text-6xl font-semibold text-center mb-8 text-foreground max-w-4xl mx-auto">
             {data?.title}
-          </h2>
+          </h2>)}
 
           {/* Cards Grid */}
           <div

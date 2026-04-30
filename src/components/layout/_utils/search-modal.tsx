@@ -195,14 +195,16 @@ export function SearchModal({ open, onClose, navbarHeight = 100 }: SearchModalPr
                             {/* Text */}
                             <div className="flex-1 min-w-0 p-5 flex flex-col justify-between gap-3">
                               <div>
-                                <h3 className={cn(
-                                  "text-sm font-bold line-clamp-2 transition-colors",
-                                  isBlog
-                                    ? "text-primary"
-                                    : "text-foreground group-hover:text-primary",
-                                )}>
-                                  {item.title}
-                                </h3>
+                                {item.title && (
+                                  <h3 className={cn(
+                                    "text-sm font-bold line-clamp-2 transition-colors",
+                                    isBlog
+                                      ? "text-primary"
+                                      : "text-foreground group-hover:text-primary",
+                                  )}>
+                                    {item.title}
+                                  </h3>
+                                )}
                                 {item.description && (
                                   <p className="text-xs text-muted-foreground mt-1.5 line-clamp-2 leading-relaxed">
                                     {item.description}

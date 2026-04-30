@@ -143,9 +143,11 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
 
               <div className="grid rounded-4xl shadow-2xl p-6 md:p-10 gap-y-4">
                 {/* Title */}
-                <h3 className="text-3xl md:text-5xl font-semibold text-center text-foreground mb-4 md:mb-5">
-                  {data?.insight?.form?.title}
-                </h3>
+                {data?.insight?.form?.title && (
+                  <h3 className="text-3xl md:text-5xl font-semibold text-center text-foreground mb-4 md:mb-5">
+                    {data?.insight?.form?.title}
+                  </h3>
+                )}
 
                 {/* Name */}
                 <Input

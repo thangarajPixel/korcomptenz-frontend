@@ -16,9 +16,11 @@ const MicrosoftGoldCertified = ({
           {/* Text Content — top portion */}
           <div className="px-10 pt-12 pb-4 text-center flex-1 flex flex-col items-center">
             {/* Heading */}
-            <h2 className="text-4xl md:text-[30px] font-medium leading-[36px] ">
-              {data?.card1?.title}
-            </h2>
+            {data?.card1?.title && (
+              <h2 className="text-4xl md:text-[30px] font-medium leading-[36px] ">
+                {data?.card1?.title}
+              </h2>
+            )}
 
             {/* Sub text */}
 
@@ -69,13 +71,15 @@ const MicrosoftGoldCertified = ({
 
           {/* Text content */}
           <div className="px-4 md:px-8 pt-6 pb-8 flex flex-col flex-1">
-            <h2 className="text-4xl md:text-[30px] font-medium leading-[36px] text-black">
-              {data?.card2?.title1}{" "}
-              <span className="text-primary font-bold">
-                {data?.card2?.title2}
-              </span>{" "}
-              {data?.card2?.title3}
-            </h2>
+            {data?.card2?.title1 && (
+              <h2 className="text-4xl md:text-[30px] font-medium leading-[36px] text-black">
+                {data?.card2?.title1}{" "}
+                <span className="text-primary font-bold">
+                  {data?.card2?.title2}
+                </span>{" "}
+                {data?.card2?.title3}
+              </h2>
+            )}
 
             <DangerousHtml
               html={data?.card2?.description}

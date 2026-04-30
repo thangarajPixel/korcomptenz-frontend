@@ -13,9 +13,11 @@ export default function SmartForgeEnterprises({
     <section className="container-md ">
       {/* Header */}
       <div className="text-center md:mb-10">
-        <h2 className="text-5xl md:text-6xl font-semibold text-[#1e2939] mb-2 leading-8 mb-8">
-          {data?.title}
-        </h2>
+        {data?.title && (
+          <h2 className="text-5xl md:text-6xl font-semibold text-[#1e2939] mb-2 leading-8 mb-8">
+            {data?.title}
+          </h2>
+        )}
         <p className="text-md md:text-lg font-normal  mb-2 text-[#1e2939]">
           {data?.subtitle}
         </p>
@@ -38,9 +40,11 @@ export default function SmartForgeEnterprises({
               />
             </div>
             {/* Title */}
-            <h3 className="text-md md:text-xl font-semibold text-[#1e2939] text-center">
-              {card?.title}
-            </h3>
+            {card?.title && (
+              <h3 className="text-md md:text-xl font-semibold text-[#1e2939] text-center">
+                {card?.title}
+              </h3>
+            )}
 
             {/* Description */}
             <DangerousHtml

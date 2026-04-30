@@ -13,7 +13,9 @@ const PanchatattvaSection = ({
     <React.Fragment>
       <div className="container-md  flex flex-col gap-12 ">
         <div className="text-center space-y-5 ">
-          <h2 className="text-8xl font-semibold">{buildData?.title}</h2>
+          {buildData?.title && (
+            <h2 className="text-8xl font-semibold">{buildData?.title}</h2>
+          )}
           <p className="text-lg px-2">{buildData?.titleDescription}</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 ">
@@ -42,9 +44,11 @@ const PanchatattvaSection = ({
             </button>
           </div>
           <div className="flex flex-col justify-center ">
-            <h3 className="text-4xl text-primary font-semibold mb-5">
-              {buildData?.descriptionTitle}
-            </h3>
+            {buildData?.descriptionTitle && (
+              <h3 className="text-4xl text-primary font-semibold mb-5">
+                {buildData?.descriptionTitle}
+              </h3>
+            )}
             <p className="text-lg">{buildData?.description}</p>
           </div>
         </div>

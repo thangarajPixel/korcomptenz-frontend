@@ -37,9 +37,11 @@ const StickyTitleCard = ({ data }: { data: GlobalFieldType }) => {
             </div>
           )}
 
-          <h3 className=" text-foreground  text-5xl  md:text-6xl font-bold leading-tight">
-            {title}
-          </h3>
+          {title && (
+            <h3 className=" text-foreground  text-5xl  md:text-6xl font-bold leading-tight">
+              {title}
+            </h3>
+          )}
           {description && (
             <div className="flex flex-row gap-4">
               <ExpandableHtml

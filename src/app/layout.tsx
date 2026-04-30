@@ -77,7 +77,7 @@ export default function RootLayout({
 solutions, cloud services, ERP consulting, CRM consulting, data
 analytics services"
         />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="noindex, nofollow" />
         <link
           rel="shortcut icon"
           href="https://www.korcomptenz.com/favicon.ico"

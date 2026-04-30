@@ -20,9 +20,11 @@ const SummarySection = ({ data }: { data: SummaryType }) => {
         {data?.thumbnail ? (
           <div className="grid md:grid-cols-2 gap-8 items-start">
             <div>
-              <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold mb-4 text-[#313941]">
-                {data?.title}
-              </h2>
+              {data?.title && (
+                <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold mb-4 text-[#313941]">
+                  {data?.title}
+                </h2>
+              )}
               <p className="text-custom-blue-1 leading-[25px] text-[18px] font-normal">
                 {data?.description}
               </p>
@@ -40,9 +42,11 @@ const SummarySection = ({ data }: { data: SummaryType }) => {
           </div>
         ) : (
           <div className="">
-            <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold mb-6 text-[#313941]">
-              {data?.title}
-            </h2>
+            {data?.title && (
+              <h2 className="text-3xl md:text-[40px] leading-[48px] font-semibold mb-6 text-[#313941]">
+                {data?.title}
+              </h2>
+            )}
             <p className="text-custom-blue-1 leading-[28px] text-[16px] md:text-[18px] font-normal">
               {data?.description}
             </p>

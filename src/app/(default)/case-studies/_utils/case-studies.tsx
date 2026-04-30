@@ -22,7 +22,7 @@ const CaseStudies = async ({
       />
       <ClientPartnership data={data?.partnerSection} />
       <ClientCustomer data={data?.customerSection} />
-      <ClientTestimonial data={data?.testimonal} />
+      {data?.testimonal?.length > 0 && <ClientTestimonial data={data?.testimonal} />}
     </div>
   );
 };

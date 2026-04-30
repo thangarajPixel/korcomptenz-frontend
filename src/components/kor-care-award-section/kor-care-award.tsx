@@ -13,7 +13,9 @@ const KorCareAward = ({ data }: { data: KorCareAwardType }) => {
           className="mx-auto"
         />
 
-        <h2 className="text-6xl font-bold text-primary">{data.title}</h2>
+        {data.title && (
+          <h2 className="text-6xl font-bold text-primary">{data.title}</h2>
+        )}
 
         {/* Description with proper word wrap */}
         <p className="text-muted text-xl break-words max-w-2xl mx-auto">

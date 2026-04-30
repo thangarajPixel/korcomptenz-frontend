@@ -12,9 +12,11 @@ const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
       <div className="rounded-2xl p-5 md:py-10 md:px-12 bg-custom-gray-6">
         {/* Header */}
         <div className="mb-5">
-          <h2 className="text-[50px] font-bold text-foreground mb-2">
-            {officesData?.title}
-          </h2>
+          {officesData?.title && (
+            <h2 className="text-[50px] font-bold text-foreground mb-2">
+              {officesData?.title}
+            </h2>
+          )}
         </div>
 
         {/* Main Content - 50/50 Layout */}
@@ -36,9 +38,11 @@ const ContactUsOffice = ({ officesData }: { officesData: OfficesDataType }) => {
             <div className="space-y-4">
               {/* Office Title */}
               <div>
-                <h3 className="text-5xl font-normal text-foreground mb-5">
-                  {officesData?.subtitle}
-                </h3>
+                {officesData?.subtitle && (
+                  <h3 className="text-5xl font-normal text-foreground mb-5">
+                    {officesData?.subtitle}
+                  </h3>
+                )}
                 <p className="text-3xl font-medium text-foreground">
                   {officesData?.country}
                 </p>

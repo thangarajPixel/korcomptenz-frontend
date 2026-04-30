@@ -5,9 +5,11 @@ const KpiPartner = ({ data }: { data: KpiPartnerType }) => {
   return (
     <section className="container-md">
       {/* Heading */}
-      <h2 className="text-4xl md:text-5xl font-bold text-center mb-5 text-[#2C3E50]">
-        {data?.title}
-      </h2>
+      {data?.title && (
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-5 text-[#2C3E50]">
+          {data?.title}
+        </h2>
+      )}
 
       {/* KPI Grid */}
       {/* <div></div> */}
