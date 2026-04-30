@@ -1,8 +1,9 @@
-import Layout from "@/components/layout"
-import React from "react"
+import Layout from "@/components/layout";
 
-export default async function DefaultLayout({ children }: { children: React.ReactNode }) {
-  return <Layout>
-    {children}
-  </Layout>
+export default function DefaultLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <Layout>{children}</Layout>;
 }
