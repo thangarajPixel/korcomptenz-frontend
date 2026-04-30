@@ -36,9 +36,13 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
       loading={props.priority ? undefined : "lazy"}
       unoptimized={isGif}
       priority={props.priority || false}
+      sizes={
+        props.sizes ||
+        "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      }
       className={cn(
         props?.nonAnimate &&
-          "object-cover transition-transform duration-300 hover:scale-110",
+        "object-cover transition-transform duration-300 hover:scale-110",
         props?.className,
       )}
     />
