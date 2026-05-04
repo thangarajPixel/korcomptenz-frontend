@@ -102,12 +102,6 @@ export default function RootLayout({
           11. Scripts - TrackingLoader in body
         */}
 
-        {/* Performance: Preconnect & DNS prefetch */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://js.hs-scripts.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://aue2kormlworkspacetest01.blob.core.windows.net" />
-        <link rel="icon" href="/assets/logo.png" sizes="any" />
-
         {/* 10. JSON-LD Structured Data Schemas */}
         <script
           type="application/ld+json"
