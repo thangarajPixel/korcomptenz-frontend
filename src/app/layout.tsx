@@ -103,63 +103,41 @@ export default function RootLayout({
         */}
 
         {/* Performance: Preconnect & DNS prefetch */}
-        {/* <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://js.hs-scripts.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://s.adroll.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://mkmpages.korcomptenz.com" crossOrigin="anonymous" />
-
         <link rel="dns-prefetch" href="https://aue2kormlworkspacetest01.blob.core.windows.net" />
-
-        <link rel="icon" href="/assets/logo.png" sizes="any" /> */}
+        <link rel="icon" href="/assets/logo.png" sizes="any" />
 
         {/* 10. JSON-LD Structured Data Schemas */}
-        {/* <script
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "Organization",
-                  name: "Korcomptenz",
-                  url: "https://www.korcomptenz.com/",
-                  logo: "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_b4df11a39a.svg",
-                  description:
-                    "Digitize businesses with Korcomptenz IT services to unlock new growth opportunities, maximize ROI and deliver superior customer experiences.",
-                  telephone: "+1-973-601-8770",
-                  email: "sales@korcomptenz.com",
-                  address: {
-                    "@type": "PostalAddress",
-                    streetAddress: "35 Waterview Blvd Suite 207",
-                    addressLocality: "Parsippany",
-                    addressRegion: "New Jersey",
-                    postalCode: "07054",
-                    addressCountry: "US",
-                  },
-                  sameAs: [
-                    "https://www.linkedin.com/company/korcomptenz/",
-                    "https://www.facebook.com/Korcomptenz/",
-                    "https://x.com/korcomptenz",
-                  ],
-                },
-                {
-                  "@type": "WebSite",
-                  url: "https://www.korcomptenz.com/",
-                  name: "Korcomptenz",
-                  publisher: {
-                    "@type": "Organization",
-                    name: "Korcomptenz",
-                  },
-                },
-              ],
               "@type": "Organization",
               name: "Korcomptenz",
               url: "https://www.korcomptenz.com/",
+              logo: "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_b4df11a39a.svg",
+              description:
+                "Digitize businesses with Korcomptenz IT services to unlock new growth opportunities, maximize ROI and deliver superior customer experiences.",
+              telephone: "+1-973-601-8770",
+              email: "sales@korcomptenz.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "35 Waterview Blvd Suite 207",
+                addressLocality: "Parsippany",
+                addressRegion: "New Jersey",
+                postalCode: "07054",
+                addressCountry: "US",
+              },
+              sameAs: [
+                "https://www.linkedin.com/company/korcomptenz/",
+                "https://www.facebook.com/Korcomptenz/",
+                "https://x.com/korcomptenz",
+              ],
             }),
           }}
         />
-
-        <BreadcrumbSchema /> */}
       </head>
 
       <body className={`${outfitSans.variable} antialiased`}>
