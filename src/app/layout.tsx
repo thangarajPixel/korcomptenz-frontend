@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
-import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
+// import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
 import { headers } from "next/headers";
 import TrackingLoader from "@/components/providers/TrackingLoader";
 
@@ -24,13 +24,22 @@ export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = `${protocol}://${host}`;
 
   return {
-    metadataBase: new URL(baseUrl),
     title: {
       default: "Korcomptenz",
       template: "%s | Korcomptenz",
     },
     description:
       "Digitize businesses with Korcomptenz IT services to unlock new growth opportunities, maximize ROI and deliver superior customer experiences.",
+    keywords: [
+      "digital transformation company",
+      "AI solutions",
+      "cloud services",
+      "ERP consulting",
+      "CRM consulting",
+      "data analytics services",
+    ],
+    robots: "index, follow",
+    metadataBase: new URL(baseUrl),
     alternates: {
       canonical: "/",
     },
@@ -60,6 +69,13 @@ export async function generateMetadata(): Promise<Metadata> {
         "Explore Korcomptenz services across AI, cloud, ERP, CRM and data analytics.",
       images: ["https://www.korcomptenz.com/assets/images/logo.png"],
     },
+    // other: {
+    //   "link[rel='preload'][as='image'][href='/assets/loading.png']": {
+    //     rel: "preload",
+    //     as: "image",
+    //     href: "/assets/loading.png",
+    //   },
+    // },
   };
 }
 
@@ -71,24 +87,33 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta
-          name="keywords"
-          content="digital transformation company, AI solutions, cloud services, ERP consulting, CRM consulting, data analytics services"
-        />
-        <meta name="robots" content="index, follow" />
+        {/* 
+          METADATA HEAD TAG ORDER (as per SEO best practices):
+          1. charset - auto-handled by Next.js
+          2. viewport - auto-handled by Next.js
+          3. title - auto-handled by generateMetadata()
+          4. meta description - auto-handled by generateMetadata()
+          5. keywords - auto-handled by generateMetadata()
+          6. robots - auto-handled by generateMetadata()
+          7. canonical - auto-handled by generateMetadata()
+          8. Open Graph tags - auto-handled by generateMetadata()
+          9. Twitter tags - auto-handled by generateMetadata()
+          10. JSON-LD schemas - below
+          11. Scripts - TrackingLoader in body
+        */}
 
-        {/* Preconnect (keep this 👍) */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        {/* Performance: Preconnect & DNS prefetch */}
+        {/* <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://js.hs-scripts.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://s.adroll.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://mkmpages.korcomptenz.com" crossOrigin="anonymous" />
 
         <link rel="dns-prefetch" href="https://aue2kormlworkspacetest01.blob.core.windows.net" />
 
-        <link rel="icon" href="/assets/logo.png" sizes="any" />
+        <link rel="icon" href="/assets/logo.png" sizes="any" /> */}
 
-        {/* ✅ Schema only (safe) */}
-        <script
+        {/* 10. JSON-LD Structured Data Schemas */}
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -134,7 +159,7 @@ export default function RootLayout({
           }}
         />
 
-        <BreadcrumbSchema />
+        <BreadcrumbSchema /> */}
       </head>
 
       <body className={`${outfitSans.variable} antialiased`}>
