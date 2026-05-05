@@ -11,49 +11,40 @@ type Props = {
 const getBlogPageCache = cache(getBlogPage);
 
 export async function generateMetadata({ params }: Props) {
-  try {
-    const { id } = await params;
-    const data = await getBlogPageCache({ id });
-    return {
-      title: data?.seo?.title || "Podcast",
-      description: data?.seo?.description || "",
-      alternates: { canonical: "/podcast/" + id },
-    };
-  } catch {
-    return { title: "Podcast" };
-  }
-}
+  const { id } = await params;
+  const data = await getBlogPageCache({ id });
 
+  return {
+    title: data?.seo?.title || "Career",
+    description: data?.seo?.description || "",
+    alternates: {
+      canonical: "/podcast/" + id,
+    },
+  };
+}
 const Page = async ({ params }: Props) => {
   const { id } = await params;
+  const [data, essential] = await Promise.all([
+    getBlogPageCache({ id }),
+    getInsightPage(),
+  ]);
 
-  try {
-    const [data, essential] = await Promise.all([
-      getBlogPageCache({ id }),
-      getInsightPage(),
-    ]);
-
-    return (
-      <React.Fragment>
-        {data?.seo?.title === "not-found" ? (
-          <div className="pb-10 md:pb-24">
-            <NotFound data={data?.list?.[0]} />
-          </div>
-        ) : (
-          <>
-            <PodcastSection data={data} />
-            <SubscribeSection data={data} essential={essential?.podcastPlatForm} />
-          </>
-        )}
-      </React.Fragment>
-    );
-  } catch {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-lg text-destructive">Error loading page. Please try again later.</p>
-      </div>
-    );
-  }
+  return (
+    <React.Fragment>
+      {data?.seo?.title === "not-found" ? (
+        <div className="pb-10 md:pb-24">
+          <NotFound data={data?.list?.[0]} />
+        </div>
+      ) : (
+        <>
+          <PodcastSection data={data} />
+          <SubscribeSection
+            data={data}
+            essential={essential?.podcastPlatForm}
+          />
+        </>
+      )}
+    </React.Fragment>
+  );
 };
-
 export default Page;

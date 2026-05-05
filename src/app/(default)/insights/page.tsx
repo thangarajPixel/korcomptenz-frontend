@@ -6,16 +6,13 @@ import { generatePageMetadata } from "@/utils/metadata";
 const getInsightsPageCache = cache(getInsightsPage);
 
 export async function generateMetadata() {
-  try {
-    const data = await getInsightsPageCache();
-    return generatePageMetadata({
-      title: data?.seo?.title,
-      description: data?.seo?.description,
-      path: "/insights",
-    });
-  } catch {
-    return generatePageMetadata({ path: "/insights" });
-  }
+  const data = await getInsightsPageCache();
+
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: "/insights",
+  });
 }
 
 const Page = async () => {

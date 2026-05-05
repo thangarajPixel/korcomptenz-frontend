@@ -1,12 +1,16 @@
 import React, { cache } from "react";
+
 import ExpertsSection from "../_utils/experts-section";
 import KeyTakeawaysSection from "../_utils/key-takeaways-section";
 import PreWebinarHeroSection from "../_utils/pre-webinar-hero-section";
+// import ReserveSeatSection from "../_utils/reserve-seat-section";
 import SummarySection from "../_utils/summary-section";
 import WebinarHeroSection from "../_utils/webinar-hero-section";
 import WhyAttendSection from "../_utils/why-attend-section";
+
 import DemonstrateSection from "@/components/demonstrate-section";
 import { getBlogPage, getInsightPage } from "@/services";
+
 import { GlobalForm } from "@/components/global-form";
 import NotFound from "@/components/not-found";
 import { generatePageMetadata } from "@/utils/metadata";
@@ -16,33 +20,28 @@ type Props = {
 };
 
 const getBlogPageCache = cache(getBlogPage);
-
 export async function generateMetadata({ params }: Props) {
-  try {
-    const { id } = await params;
-    const data = await getBlogPageCache({ id });
-    return generatePageMetadata({
-      title: data?.seo?.title,
-      description: data?.seo?.description,
-      path: `/webinar/${id}`,
-      image: data?.heroSection?.image?.url,
-    });
-  } catch {
-    return generatePageMetadata({ path: "/webinar" });
-  }
+  const { id } = await params;
+  const data = await getBlogPageCache({ id });
+
+  return generatePageMetadata({
+    title: data?.seo?.title,
+    description: data?.seo?.description,
+    path: `/webinar/${id}`,
+    image: data?.heroSection?.image?.url,
+  });
 }
 
 const Page = async ({ params }: Props) => {
   const { id } = await params;
+  const [webinarData, pageLayout] = await Promise.all([
+    getBlogPageCache({ id }),
+    getInsightPage(),
+  ]);
 
-  try {
-    const [webinarData, pageLayout] = await Promise.all([
-      getBlogPageCache({ id }),
-      getInsightPage(),
-    ]);
-
-    return (
-      <div>
+  return (
+    <div>
+      <>
         {webinarData?.seo?.title === "not-found" ? (
           <div className="pb-10 md:pb-24">
             <NotFound data={webinarData?.list?.[0]} />
@@ -54,8 +53,11 @@ const Page = async ({ params }: Props) => {
             ) : (
               <WebinarHeroSection data={webinarData} />
             )}
+
             <SummarySection data={webinarData?.webinar?.buildData} />
-            <KeyTakeawaysSection takeaways={webinarData?.webinar?.summary || []} />
+            <KeyTakeawaysSection
+              takeaways={webinarData?.webinar?.summary || []}
+            />
             {webinarData?.content === "pre-webinar" && (
               <WhyAttendSection data={webinarData?.preWebinar?.preSummary} />
             )}
@@ -63,23 +65,20 @@ const Page = async ({ params }: Props) => {
             {webinarData?.content === "pre-webinar" && (
               <GlobalForm
                 form={pageLayout?.webinarForm}
-                essential={{ id: webinarData?.id, documentId: webinarData?.documentId }}
+                essential={{
+                  id: webinarData?.id,
+                  documentId: webinarData?.documentId,
+                }}
               />
             )}
+
             {webinarData?.webinar?.demonstrate && (
               <DemonstrateSection data={webinarData?.webinar?.demonstrate} />
             )}
           </>
         )}
-      </div>
-    );
-  } catch {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-lg text-destructive">Error loading page. Please try again later.</p>
-      </div>
-    );
-  }
+      </>
+    </div>
+  );
 };
-
 export default Page;
