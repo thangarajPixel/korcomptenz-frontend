@@ -14,12 +14,12 @@ interface ScrollFadeInProps {
 export function ScrollFadeIn({
   children,
   delay = 0,
-  duration = 0.8,
+  duration = 0.5,
   className,
   __component,
 }: ScrollFadeInProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const variants = useMemo(
     () => ({

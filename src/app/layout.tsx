@@ -13,7 +13,7 @@ const outfitSans = Outfit({
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   fallback: ["system-ui", "arial"],
 });
 
@@ -87,22 +87,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* 
-          METADATA HEAD TAG ORDER (as per SEO best practices):
-          1. charset - auto-handled by Next.js
-          2. viewport - auto-handled by Next.js
-          3. title - auto-handled by generateMetadata()
-          4. meta description - auto-handled by generateMetadata()
-          5. keywords - auto-handled by generateMetadata()
-          6. robots - auto-handled by generateMetadata()
-          7. canonical - auto-handled by generateMetadata()
-          8. Open Graph tags - auto-handled by generateMetadata()
-          9. Twitter tags - auto-handled by generateMetadata()
-          10. JSON-LD schemas - below
-          11. Scripts - TrackingLoader in body
-        */}
+        {/* Preconnect to critical third-party origins */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://js.hs-scripts.com" />
+        <link rel="dns-prefetch" href="https://s.adroll.com" />
+        <link rel="dns-prefetch" href="https://mkmpages.korcomptenz.com" />
+        <link rel="preconnect" href="https://aue2kormlworkspacetest01.blob.core.windows.net" />
 
-        {/* 10. JSON-LD Structured Data Schemas */}
+        {/* JSON-LD Structured Data Schemas */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

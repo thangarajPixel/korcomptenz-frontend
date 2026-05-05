@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
   htmlLimitedBots: /.*/,
-  
+
   // Performance optimizations for mobile
   experimental: {
     optimizePackageImports: [
@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
     ],
     webpackBuildWorker: true,
   },
-  
+
   images: {
     remotePatterns: [
       {
@@ -76,6 +76,14 @@ const nextConfig: NextConfig = {
           {
             key: "X-DNS-Prefetch-Control",
             value: "on",
+          },
+          {
+            // Early hints: preconnect to image CDN and font origin
+            key: "Link",
+            value: [
+              "<https://aue2kormlworkspacetest01.blob.core.windows.net>; rel=preconnect",
+              "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+            ].join(", "),
           },
         ],
       },
