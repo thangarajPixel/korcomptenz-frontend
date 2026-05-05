@@ -38,10 +38,20 @@ export async function generateMetadata(): Promise<Metadata> {
       "CRM consulting",
       "data analytics services",
     ],
-    robots: "index, follow",
+    robots: "noindex, nofollow",
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: "/",
+    },
+    icons: {
+      shortcut: "https://www.korcomptenz.com/favicon.ico",
+    },
+    authors: [{ name: "Korcomptenz" }],
+    other: {
+      "geo.region": "US-NJ",
+      "geo.placename": "New Jersey, USA",
+      "geo.position": "40.7128;-74.0060",
+      "ICBM": "40.7128, -74.0060",
     },
     openGraph: {
       type: "website",
