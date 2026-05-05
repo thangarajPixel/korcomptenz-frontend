@@ -27,7 +27,7 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
     : props?.alt || "";
   const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
 
-  const isPriority = props.priority || false;
+  const isPriority = props.priority || true;
 
   return (
     <Image
