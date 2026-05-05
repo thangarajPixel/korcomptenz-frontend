@@ -29,7 +29,7 @@ const ConsultationForm = ({
   essential,
 }: {
   form: FreeConsultationFormType;
-  essential?: { id: string | number; [key: string]: unknown };
+  essential?: { id: string | number;[key: string]: unknown };
 }) => {
   const {
     control,
@@ -44,27 +44,23 @@ const ConsultationForm = ({
       ...defaultValues,
       insight: essential?.id
         ? {
-            connect: [
-              {
-                id: essential?.id as number,
-                documentId: essential?.documentId as string,
-                isTempory: false,
-              },
-            ],
-          }
+          connect: [
+            {
+              id: essential?.id as number,
+              documentId: essential?.documentId as string,
+              isTempory: false,
+            },
+          ],
+        }
         : null,
     },
   });
   const { mutateAsync } = useFreeConsultationLeadHook();
-  const { getToken, isReady } = useCaptchaToken();
+  const { getToken } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<FreeConsultationLeadSchema> =
     React.useCallback(
       async (formdata) => {
-        if (!isReady) {
-          notify({ message: "Captcha is loading. Please try again." });
-          return;
-        }
         let captchaToken: string;
         try {
           captchaToken = await getToken("freeconsultationlead");

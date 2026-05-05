@@ -34,7 +34,7 @@ const DownloadForm = () => {
     },
   });
   const { mutateAsync } = useNewsRoomHook();
-  const { getToken, isReady } = useCaptchaToken();
+  const { getToken } = useCaptchaToken();
   const newRoom = {
     connect: [
       {
@@ -47,11 +47,6 @@ const DownloadForm = () => {
 
   const handleFormSubmit: SubmitHandler<NewsRoomFormSchema> = React.useCallback(
     async (formdata) => {
-      if (!isReady) {
-        notify({ message: "Captcha is loading. Please try again." });
-        return;
-      }
-
       let captchaToken: string;
       try {
         captchaToken = await getToken("newsroomlead");

@@ -16,13 +16,20 @@ import InsightMobile from "./mega-menu/_utils/insight-mobile";
 import EcosystemMobile from "./mega-menu/_utils/ecosytem-mobile";
 
 export function Navbar({ data }: { data: LayoutType | null }) {
-  if (!data) return null;
+  // Render a fixed-height skeleton while data loads to prevent CLS
+  if (!data) {
+    return (
+      <header className="sticky top-0 z-50 w-full border-b border-border bg-white">
+        <div className="container-nav h-[60px] lg:h-[100px]" />
+      </header>
+    );
+  }
 
   // const targetRef = React.useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
-  
+
   const toggleExpand = (label: string) => {
     setExpandedItem(expandedItem === label ? null : label);
   };
@@ -130,18 +137,16 @@ export function Navbar({ data }: { data: LayoutType | null }) {
                     src="/assets/icn_mob_mob.svg"
                     alt="menu"
                     fill
-                    className={`absolute inset-0 transition-all duration-500 ease-out ${
-                      isMenuOpen
+                    className={`absolute inset-0 transition-all duration-500 ease-out ${isMenuOpen
                         ? "opacity-0 rotate-180 scale-75"
                         : "opacity-100 rotate-0 scale-100"
-                    }`}
+                      }`}
                   />
                   <X
-                    className={`absolute inset-0  transition-all w-8 h-8 -top-2 -right-2 stroke-[2px] duration-500 ease-out ${
-                      isMenuOpen
+                    className={`absolute inset-0  transition-all w-8 h-8 -top-2 -right-2 stroke-[2px] duration-500 ease-out ${isMenuOpen
                         ? "opacity-100 rotate-0 scale-100"
                         : "opacity-0 -rotate-180 scale-75"
-                    }`}
+                      }`}
                   />
                 </div>
               </button>
@@ -156,35 +161,31 @@ export function Navbar({ data }: { data: LayoutType | null }) {
       </header>
       {/* Enhanced Mobile Menu with smooth animations */}
       <div
-        className={`fixed inset-0 z-40 min-[1120px]:hidden  transition-all duration-500 ease-out ${
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 z-40 min-[1120px]:hidden  transition-all duration-500 ease-out ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
       >
         {/* Enhanced Backdrop with animation */}
         <div
-          className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-500 ease-out ${
-            isMenuOpen ? "opacity-100" : "opacity-0"
-          }`}
+          className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-all duration-500 ease-out ${isMenuOpen ? "opacity-100" : "opacity-0"
+            }`}
           onClick={() => setIsMenuOpen(false)}
         />
 
         {/* Enhanced Mobile Navigation Panel with slide animation */}
         <div
-          className={`fixed top-16 left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl transition-all duration-500 ease-out ${
-            isMenuOpen
+          className={`fixed top-16 left-0 right-0 bottom-0 bg-background border-t border-border shadow-xl transition-all duration-500 ease-out ${isMenuOpen
               ? "translate-y-0 opacity-100"
               : "-translate-y-4 opacity-0"
-          }`}
+            }`}
         >
           <div className="h-full overflow-y-auto bg-[#f2f2f2]">
             <div className="pb-5  space-y-6  ">
               {/* Enhanced Regular mobile nav items */}
               <div
-                className={`space-y-2 border-t border-border transition-all duration-500 ease-out overflow-scroll ${
-                  isMenuOpen
+                className={`space-y-2 border-t border-border transition-all duration-500 ease-out overflow-scroll ${isMenuOpen
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-4"
-                }`}
+                  }`}
                 style={{ transitionDelay: "300ms" }}
               >
                 {data?.navItems
@@ -202,11 +203,10 @@ export function Navbar({ data }: { data: LayoutType | null }) {
                       ) : (
                         <button
                           onClick={() => toggleExpand(item.label)}
-                          className={`w-full flex justify-between items-center mt-3 px-3 py-1 text-lg font-medium ${
-                            expandedItem === item.label
+                          className={`w-full flex justify-between items-center mt-3 px-3 py-1 text-lg font-medium ${expandedItem === item.label
                               ? "text-primary"
                               : "text-muted-foreground border-b-1 border-primary"
-                          }`}
+                            }`}
                         >
                           <span>{item.label}</span>
 
@@ -268,11 +268,10 @@ export function Navbar({ data }: { data: LayoutType | null }) {
               {/* Enhanced Mobile CTA buttons */}
               <div
                 className={`fixed bottom-0 left-0 w-full z-50 transition-all duration-500 ease-out  bg-[#f2f2f2]
-    ${
-      isMenuOpen
-        ? "opacity-100 translate-y-0"
-        : "opacity-0 translate-y-4 pointer-events-none"
-    }
+    ${isMenuOpen
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4 pointer-events-none"
+                  }
   `}
                 style={{ transitionDelay: "400ms" }}
               >

@@ -39,16 +39,11 @@ const SubscriptionForm = () => {
   });
 
   const { mutateAsync } = useSubscriptionFormSchemaHook();
-  const { getToken, isReady } = useCaptchaToken();
+  const { getToken } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<SubscriptionFormSchema> =
     React.useCallback(
       async (formdata) => {
-        if (!isReady) {
-          notify({ message: "Captcha is loading. Please try again." });
-          return;
-        }
-
         let captchaToken: string;
         try {
           captchaToken = await getToken("newslettersubscriptions");

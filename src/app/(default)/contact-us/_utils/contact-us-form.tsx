@@ -42,18 +42,13 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
   });
   const router = useRouter();
   const { mutateAsync } = useContactUsLeadHook();
-  const { getToken, isReady } = useCaptchaToken();
+  const { getToken } = useCaptchaToken();
 
   const { data } = useCaseStudyEssentialHook();
 
   const handleFormSubmit: SubmitHandler<ContactUsFormSchema> =
     React.useCallback(
       async (formdata) => {
-        if (!isReady) {
-          notify({ message: "Captcha is loading. Please try again." });
-          return;
-        }
-
         let captchaToken: string;
         try {
           captchaToken = await getToken("contactuslead");
@@ -191,7 +186,6 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
             className="hover:bg-white bg-primary border-primary text-white hover:text-primary"
             arrow
             isLoading={isSubmitting}
-            disabled={!isReady}
             type="submit"
           >
             Submit

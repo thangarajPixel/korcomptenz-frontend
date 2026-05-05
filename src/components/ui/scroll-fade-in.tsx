@@ -19,11 +19,13 @@ export function ScrollFadeIn({
   __component,
 }: ScrollFadeInProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  // Use a positive margin so elements animate in slightly before they enter the viewport,
+  // preventing content from appearing invisible on slow mobile devices
+  const isInView = useInView(ref, { once: true, margin: "0px" });
 
   const variants = useMemo(
     () => ({
-      hidden: { opacity: 0, y: 20 },
+      hidden: { opacity: 0, y: 12 },
       visible: { opacity: 1, y: 0 },
     }),
     [],
