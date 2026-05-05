@@ -70,7 +70,7 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         {/* <meta charSet="utf-8" /> */}
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="width=device-width, initial-scale=1.0"  />
         <meta
           name="keywords"
           content="digital transformation company, AI
