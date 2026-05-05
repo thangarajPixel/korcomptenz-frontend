@@ -35,7 +35,8 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
       src={(src || "/assets/placeholder.png") as string}
       alt={alt || "/assets/placeholder.png"}
       placeholder={isPriority ? "empty" : imagePlaceholder}
-      loading={isPriority ? undefined : "lazy"}
+      loading={isPriority ? "eager" : undefined}
+      fetchPriority={isPriority ? "high" : "auto"}
       unoptimized={isGif}
       priority={isPriority}
       sizes={
