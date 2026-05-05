@@ -9,7 +9,6 @@ import FaqSection from "@/components/faq-section";
 import NotFound from "@/components/not-found";
 import { ScrollToTop } from "../_utils/scroll-to-top";
 import { generatePageMetadata } from "@/utils/metadata";
-
 import type { Metadata } from "next";
 
 type Props = {
@@ -17,121 +16,86 @@ type Props = {
 };
 
 const getBlogPageCache = cache(getBlogPage);
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
-  const data = await getBlogPageCache({ id });
 
-  return generatePageMetadata({
-    title: data?.insight?.seo?.title,
-    description: data?.insight?.seo?.description,
-    path: `/blog/${id}`,
-    image: data?.insight?.heroSection?.image?.url,
-  });
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  try {
+    const { id } = await params;
+    const data = await getBlogPageCache({ id });
+    return generatePageMetadata({
+      title: data?.insight?.seo?.title,
+      description: data?.insight?.seo?.description,
+      path: `/blog/${id}`,
+      image: data?.insight?.heroSection?.image?.url,
+    });
+  } catch {
+    return generatePageMetadata({ path: "/blog" });
+  }
 }
 
 const Page = async ({ params }: Props) => {
   const { id } = await params;
 
-  const [data, pageLayout] = await Promise.all([
-    getBlogPageCache({ id }),
-    getInsightPage(),
-  ]);
+  try {
+    const [data, pageLayout] = await Promise.all([
+      getBlogPageCache({ id }),
+      getInsightPage(),
+    ]);
 
-  const breadcrumbSchema = {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Homepage",
-        item: "https://www.korcomptenz.com/",
+    const breadcrumbSchema = {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Homepage", item: "https://www.korcomptenz.com/" },
+        { "@type": "ListItem", position: 2, name: "Blogs", item: "https://www.korcomptenz.com/blog/" },
+        { "@type": "ListItem", position: 3, name: data?.insight?.title, item: `https://www.korcomptenz.com/blog/${data?.insight?.slug}` },
+      ],
+    };
+
+    const articleSchema = {
+      "@type": "Article",
+      mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.korcomptenz.com/blog/${data?.insight?.slug}` },
+      headline: data?.insight?.title,
+      description: data?.insight?.seo?.description,
+      image: data?.insight?.heroSection?.image?.url,
+      author: { "@type": "Person", name: data?.insight?.author?.name },
+      publisher: {
+        "@type": "Organization",
+        name: "Korcomptenz",
+        logo: { "@type": "ImageObject", url: "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_b4df11a39a.svg" },
       },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Blogs",
-        item: "https://www.korcomptenz.com/blog/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: data?.insight?.title,
-        item: `https://www.korcomptenz.com/blog/${data?.insight?.slug}`,
-      },
-    ],
-  };
+      datePublished: data?.insight?.publishedAt,
+      dateModified: data?.insight?.updatedAt,
+    };
 
-  const articleSchema = {
-    "@type": "Article",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://www.korcomptenz.com/blog/${data?.insight?.slug}`,
-    },
-    headline: data?.insight?.title,
-    description: data?.insight?.seo?.description,
-    image: data?.insight?.heroSection?.image?.url,
-    author: {
-      "@type": "Person",
-      name: data?.insight?.author?.name,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Korcomptenz",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_b4df11a39a.svg",
-      },
-    },
-    datePublished: data?.insight?.publishedAt,
-    dateModified: data?.insight?.updatedAt,
-  };
-
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@graph": [breadcrumbSchema, articleSchema],
-  };
-
-  return (
-    <>
-      <ScrollToTop />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
-      {data?.seo?.title === "not-found" ? (
-        <div className="pb-10 md:pb-24">
-          <NotFound data={data?.list?.[0]} />
-        </div>
-      ) : (
-        <div className="flex flex-col gap-16">
-          <BlogBannerSection
-            BannerSectionData={data?.insight}
-            tableTitle={pageLayout?.tableTitle}
-          />
-          <BlogAuthor data={data?.insight} essential={pageLayout} />
-          <DocumentationLayout data={data} essential={pageLayout} />
-          {data?.insight?.blog?.faq && (
-            <FaqSection faqData={data?.insight?.blog?.faq} />
-          )}
-
-          <GlobalForm
-            form={pageLayout?.form}
-            essential={{
-              id: data?.insight?.id,
-              documentId: data?.insight?.documentId,
-            }}
-          />
-
-          <BlogContentShowcase
-            data={data?.relatedInsight}
-            relatedCase={pageLayout?.relatedCase}
-          />
-        </div>
-      )}
-    </>
-  );
+    return (
+      <>
+        <ScrollToTop />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [breadcrumbSchema, articleSchema] }) }}
+        />
+        {data?.seo?.title === "not-found" ? (
+          <div className="pb-10 md:pb-24">
+            <NotFound data={data?.list?.[0]} />
+          </div>
+        ) : (
+          <div className="flex flex-col gap-16">
+            <BlogBannerSection BannerSectionData={data?.insight} tableTitle={pageLayout?.tableTitle} />
+            <BlogAuthor data={data?.insight} essential={pageLayout} />
+            <DocumentationLayout data={data} essential={pageLayout} />
+            {data?.insight?.blog?.faq && <FaqSection faqData={data?.insight?.blog?.faq} />}
+            <GlobalForm form={pageLayout?.form} essential={{ id: data?.insight?.id, documentId: data?.insight?.documentId }} />
+            <BlogContentShowcase data={data?.relatedInsight} relatedCase={pageLayout?.relatedCase} />
+          </div>
+        )}
+      </>
+    );
+  } catch {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-lg text-destructive">Error loading page. Please try again later.</p>
+      </div>
+    );
+  }
 };
 
 export default Page;

@@ -8,18 +8,31 @@ import { generatePageMetadata } from "@/utils/metadata";
 const getDemoCache = cache(getDemoPage);
 
 export async function generateMetadata() {
-  const data = await getDemoCache();
-  return generatePageMetadata({
-    title: data?.seo?.title,
-    description: data?.seo?.description,
-    path: "/live-demo",
-  });
+  try {
+    const data = await getDemoCache();
+    return generatePageMetadata({
+      title: data?.seo?.title,
+      description: data?.seo?.description,
+      path: "/live-demo",
+    });
+  } catch {
+    return generatePageMetadata({ path: "/live-demo" });
+  }
 }
+
 export default async function DemoPage() {
-  const data = await getDemoCache();
-  return (
-    <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
-      <GlobalPage data={data?.list} />
-    </div>
-  );
+  try {
+    const data = await getDemoCache();
+    return (
+      <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
+        <GlobalPage data={data?.list} />
+      </div>
+    );
+  } catch {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-lg text-destructive">Error loading page. Please try again later.</p>
+      </div>
+    );
+  }
 }

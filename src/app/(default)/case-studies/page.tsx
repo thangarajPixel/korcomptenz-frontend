@@ -4,14 +4,18 @@ import { getCaseStudiesPage } from "@/services";
 import { generatePageMetadata } from "@/utils/metadata";
 
 const getCaseStudiesPageCache = cache(getCaseStudiesPage);
-export async function generateMetadata() {
-  const data = await getCaseStudiesPageCache();
 
-  return generatePageMetadata({
-    title: data?.seo?.title,
-    description: data?.seo?.description,
-    path: "/case-studies",
-  });
+export async function generateMetadata() {
+  try {
+    const data = await getCaseStudiesPageCache();
+    return generatePageMetadata({
+      title: data?.seo?.title,
+      description: data?.seo?.description,
+      path: "/case-studies",
+    });
+  } catch {
+    return generatePageMetadata({ path: "/case-studies" });
+  }
 }
 
 const Page = async () => {
