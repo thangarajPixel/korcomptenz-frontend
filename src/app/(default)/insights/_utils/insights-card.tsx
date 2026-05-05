@@ -19,7 +19,23 @@ export function InsightCard({
         return `/podcast/${data?.slug}`;
       case "file":
         // return data?.attachment?.url;
-        return `/${data?.category?.slug}/${data?.slug}`;
+        // return `/${data?.category?.slug}/${data?.slug}`;
+        switch (data?.category?.slug) {
+          case "brochures":
+            return `/brochure/${data?.slug}`;
+
+          case "whitepapers":
+            return `/whitepaper/${data?.slug}`;
+
+          case "ebooks":
+            return `/ebook/${data?.slug}`;
+
+          case "infographics":
+            return `/infographic/${data?.slug}`;
+
+          default:
+            return `/${data?.category?.slug}/${data?.slug}`;
+        }
       case "web-stories":
         return `/webstories/${data?.slug}`;
       case "post-webinar":
@@ -66,14 +82,15 @@ export function InsightCard({
           />
         </div>
       </motion.div>
-      {data?.title && data?.heroSection?.title && (
-        <h3
-          title={data?.title || data?.heroSection?.title}
-          className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black "
-        >
-          {data?.title || data?.heroSection?.title}
-        </h3>
-      )}
+      {data?.title ||
+        (data?.heroSection?.title && (
+          <h3
+            title={data?.title || data?.heroSection?.title}
+            className="mt-4 left-0 line-clamp-2 top-0 max-w-fit text-start lg:text-5xl text-3xl flex-1  font-semibold leading-7 lg:leading-10 text-black "
+          >
+            {data?.title || data?.heroSection?.title}
+          </h3>
+        ))}
       <p
         title={data?.heroSection?.description}
         className="text-lg text-black font-normal mb-5 mt-5 line-clamp-3 "
