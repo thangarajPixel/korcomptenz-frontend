@@ -49,6 +49,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
               width={1920}
               height={1080}
               className="absolute inset-0 w-full h-full object-cover"
+              priority
             />
           )}
 
@@ -114,6 +115,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
               width={1000}
               height={600}
               className="w-full h-65 object-cover"
+              priority
             />
           )}
 
