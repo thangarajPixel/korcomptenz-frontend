@@ -25,13 +25,20 @@ const FabconComposableIntelligence = ({
 
       <div className="container-md">
         {/* Title */}
-        <div className="flex flex-wrap justify-center gap-2 mb-14 text-center">
-          <h2 className="text-white">{data?.title1}</h2>
+       
+ <div className="flex flex-wrap justify-center gap-2 mb-14 text-center">
+  {data?.title1 &&(
+    <h2 className="text-white">{data?.title1}</h2> 
+  )}
+         {data?.title2 && (
           <h2 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent">
             {data?.title2}
           </h2>
-          <h2 className="text-white">{data?.title3}</h2>
+        )}
+          {data?.title3 && <h2 className="text-white">{data?.title3}</h2>}
         </div>
+        
+       
 
         {/* ───────────────── MOBILE LAYOUT ───────────────── */}
         <div className="md:hidden space-y-6">
@@ -45,9 +52,11 @@ const FabconComposableIntelligence = ({
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
             <div className="absolute bottom-6 left-6 right-6 text-white">
-              <h3 className="text-2xl font-semibold mb-2">
-                {activeItem?.title}
-              </h3>
+              {activeItem?.title && (
+                <h3 className="text-2xl font-semibold mb-2">
+                  {activeItem?.title}
+                </h3>
+              )}
               <DangerousHtml
                 html={activeItem?.description}
                 className="text-base leading-7"
@@ -106,9 +115,11 @@ const FabconComposableIntelligence = ({
 
                 {isActive ? (
                   <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="text-3xl font-semibold mb-2">
-                      {item?.title}
-                    </h3>
+                    {item?.title && (
+                      <h3 className="text-3xl font-semibold mb-2">
+                        {item?.title}
+                      </h3>
+                    )}
                     <DangerousHtml
                       html={item.description}
                       className="text-lg leading-7"

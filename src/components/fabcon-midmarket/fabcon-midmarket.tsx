@@ -41,10 +41,11 @@ export default function FabconMidMarket({
               className="text-md md:test-lg leading-7.5 text-white"
             />
           )}
-
-          <h2 className="text-5xl md:text-6xl font-semibold text-white mb-2 leading-8 ">
-            {data?.title}
-          </h2>
+          {data?.title && (
+            <h2 className="text-5xl md:text-6xl font-semibold text-white mb-2 leading-8 ">
+              {data?.title}
+            </h2>
+          )}
         </div>
 
         {/* Cards Grid */}

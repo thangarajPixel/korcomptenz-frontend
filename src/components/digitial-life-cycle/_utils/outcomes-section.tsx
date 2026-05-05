@@ -16,9 +16,11 @@ export default function OutcomesSection({
               key={item?.id}
               className="bg-light-gray rounded-2xl p-6 md:p-8"
             >
-              <h3 className="text-lg md:text-[21px] font-semibold text-foreground mb-6">
-                {item?.title}
-              </h3>
+              {item?.title && (
+                <h3 className="text-lg md:text-[21px] font-semibold text-foreground mb-6">
+                  {item?.title}
+                </h3>
+              )}
               <DangerousHtml
                 html={item?.description}
                 className="text-sm md:text-lg text-foreground leading-7.5"

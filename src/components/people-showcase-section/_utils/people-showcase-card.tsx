@@ -13,9 +13,11 @@ const PeopleShowcaseCard = ({ data }: { data: PeopleShowcaseCardType }) => {
         <div className="flex flex-row size-full">
           <div className="flex flex-col justify-between   size-full">
             <div className="w-1/2 mt-8 ml-8 flex flex-col gap-3">
-              <h3 className=" text-foreground text-4xl font-bold leading-tight">
-                {title}
-              </h3>
+              {title && (
+                <h3 className=" text-foreground text-4xl font-bold leading-tight">
+                  {title}
+                </h3>
+              )}
               {miniDescription && (
                 <div className="flex md:flex-row md:gap-4">
                   <p className="text-foreground text-md leading-4xl z-10 whitespace-pre-wrap">

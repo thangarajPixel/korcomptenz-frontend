@@ -130,7 +130,9 @@ export function SliderServiceSection({ content }: Props) {
                         />
                       )}
 
-                      <h3 className="text-xl font-semibold">{item?.title}</h3>
+                      {item?.title && (
+                        <h3 className="text-xl font-semibold">{item?.title}</h3>
+                      )}
 
                       <DangerousHtml
                         html={item?.description}

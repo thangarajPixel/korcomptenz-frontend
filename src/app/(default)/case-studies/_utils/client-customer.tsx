@@ -9,9 +9,12 @@ export default function ClientCustomer({
         <div className="flex flex-col  lg:flex-row lg:items-center lg:justify-between">
           {/* Left side - Heading */}
           <div className="">
-            <h2 className="text-balance text-9xl font-bold  text-gray-900 ">
-              {data?.title}
-            </h2>
+            {data?.title && (
+              <h2 className="text-balance text-9xl font-bold  text-gray-900 ">
+                {data?.title}
+              </h2>
+            )}
+
             <p className="mt-4 text-lg text-gray-600">{data?.description}</p>
           </div>
 

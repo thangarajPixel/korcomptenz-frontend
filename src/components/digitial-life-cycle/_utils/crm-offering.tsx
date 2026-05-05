@@ -13,9 +13,11 @@ export default function CrmOfferingsSection({
     >
       <div className="container-md ">
         {/* Section Title */}
-        <h2 className=" font-bold mb-4 md:mb-6 text-left">
-          {offerings?.title}
-        </h2>
+        {offerings?.title && (
+          <h2 className=" font-bold mb-4 md:mb-6 text-left">
+            {offerings?.title}
+          </h2>
+        )}
 
         {/* Offerings Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
@@ -30,9 +32,11 @@ export default function CrmOfferingsSection({
               />
 
               {/* Title */}
-              <h3 className="text-lg md:text-xl font-semibold mb-4 text-left text-[#f7f8f8] ">
-                {offering?.title}
-              </h3>
+              {offering?.title && (
+                <h3 className="text-lg md:text-xl font-semibold mb-4 text-left text-[#f7f8f8] ">
+                  {offering?.title}
+                </h3>
+              )}
 
               {/* Description */}
               <DangerousHtml

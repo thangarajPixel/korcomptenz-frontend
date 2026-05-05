@@ -35,9 +35,11 @@ export default function ClosingSection({
       {/* CONTENT */}
       <div className="relative container-md py-24">
         <div className="text-left">
-          <h2 className="text-2xl md:text-4xl font-semibold leading-tight mb-6">
-            {data?.title}
-          </h2>
+          {data?.title && (
+            <h2 className="text-2xl md:text-4xl font-semibold leading-tight mb-6">
+              {data?.title}
+            </h2>
+          )}
 
           <DangerousHtml
             html={data?.description}

@@ -28,9 +28,11 @@ export function DigitalServiceSection({
       data-debug={"home.services-section"}
     >
       <div className="mb-5">
-        <h2 className="font-bold text-foreground leading-10 lg:leading-12 max-w-5xl">
-          {content?.title}
-        </h2>
+        {content?.title && (
+          <h2 className="font-bold text-foreground leading-10 lg:leading-12 max-w-5xl">
+            {content?.title}
+          </h2>
+        )}
 
         <DangerousHtml
           html={content?.description}
@@ -102,9 +104,11 @@ export function DigitalServiceSection({
             className="space-y-3 w-full flex flex-col-reverse lg:flex-row"
           >
             <div className="space-y-3  w-full lg:w-1/2  ">
-              <h2 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl  ">
-                {activeContent?.heading}
-              </h2>
+              {activeContent?.heading && (
+                <h2 className="text-pretty lg:text-9xl text-6xl font-semibold leading-tight text-custom-gray md:text-8xl  ">
+                  {activeContent?.heading}
+                </h2>
+              )}
 
               <DangerousHtml
                 html={activeContent?.description}

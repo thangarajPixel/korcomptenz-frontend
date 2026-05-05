@@ -47,9 +47,11 @@ const ExpertMigration = ({ data }: { data: ExpertMigrationType }) => {
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between h-full min-h-[280px] relative">
           {/* Left Content Section */}
           <div className="flex-1 z-10 px-8 md:px-12 lg:px-16 pt-10 md:py-12">
-            <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2  leading-tight max-w-6xl">
-              {data?.title}
-            </h2>
+            {data?.title && (
+              <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2  leading-tight max-w-6xl">
+                {data?.title}
+              </h2>
+            )}
 
             {data?.description && (
               <DangerousHtml

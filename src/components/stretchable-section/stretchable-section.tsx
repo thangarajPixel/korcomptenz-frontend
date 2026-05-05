@@ -11,9 +11,11 @@ const StretchableSection = ({ item }: { item: StretchableSectionType }) => {
       data-debug="page-componets.stretchable-section"
       className="container-md"
     >
-      <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6  lg:mb-8  text-balance">
-        {item?.title}
-      </h2>
+      {item?.title && (
+        <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6  lg:mb-8  text-balance">
+          {item?.title}
+        </h2>
+      )}
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-4">
         {isMobile ? (
           <CardSwiper disableAutoSlide>

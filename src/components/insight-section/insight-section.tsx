@@ -18,12 +18,15 @@ export default function InsightsSection({
     >
       {insights?.title && (
         <SplitDivider>
-          <motion.h2
+          {insights?.title &&(
+ <motion.h2
             id="insights-heading"
             className="text-pretty lg:text-9xl text-6xl font-semibold text-gray-900 break-words md:text-7xl  "
           >
             {insights?.title}
           </motion.h2>
+          )}
+         
         </SplitDivider>
       )}
       <div aria-labelledby="insights-heading" className="container-md mt-7">

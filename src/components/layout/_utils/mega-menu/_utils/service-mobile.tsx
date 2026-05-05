@@ -124,9 +124,11 @@ const ServicesMobile = ({
                 >
                   <ChevronLeft className="w-5 h-5 text-primary" />
                 </button>
-                <h4 className="items-center font-medium text-lg leading-[26px] text-primary">
-                  {serviceDrawer?.service?.title}
-                </h4>
+                {serviceDrawer?.service?.title && (
+                  <h4 className="items-center font-medium text-lg leading-[26px] text-primary">
+                    {serviceDrawer?.service?.title}
+                  </h4>
+                )}
               </div>
             </div>
 

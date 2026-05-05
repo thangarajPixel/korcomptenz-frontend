@@ -19,9 +19,11 @@ const MobileInfoSection = ({
       <div className="container mx-auto px-4">
         <div className="">
           {/* Title */}
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
-            {title}
-          </h2>
+          {title && (
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
+              {title}
+            </h2>
+          )}
 
           {/* Description */}
           <p className="text-base text-gray-700 mb-6 leading-relaxed">

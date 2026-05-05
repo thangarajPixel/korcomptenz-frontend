@@ -6,18 +6,22 @@ const SapImplementation = ({ data }: { data: SapImplementationType }) => {
   return (
     <section className="container-md py-12">
       {/* Main Title */}
-      <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">
-        {data?.title}
-      </h2>
+      {data?.title && (
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">
+          {data?.title}
+        </h2>
+      )}
 
       <div className="space-y-12">
         {data?.list?.map((list, index) => {
           return (
             <div key={index} className="space-y-3">
               {/* Section Subtitle */}
-              <h3 className="text-[26px] md:text-[32px] font-semibold">
-                {list?.title}
-              </h3>
+              {list?.title && (
+                <h3 className="text-[26px] md:text-[32px] font-semibold">
+                  {list?.title}
+                </h3>
+              )}
 
               {/* Description */}
               <DangerousHtml
@@ -36,9 +40,11 @@ const SapImplementation = ({ data }: { data: SapImplementationType }) => {
                         "md:col-span-2 md:justify-self-center md:w-1/2",
                     )}
                   >
-                    <h4 className="font-medium mb-4 text-lg md:text-[22px] text-foreground">
-                      {sub?.title}
-                    </h4>
+                    {sub?.title && (
+                      <h4 className="font-medium mb-4 text-lg md:text-[22px] text-foreground">
+                        {sub?.title}
+                      </h4>
+                    )}
 
                     <DangerousHtml
                       html={sub?.description}

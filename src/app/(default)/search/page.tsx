@@ -356,9 +356,11 @@ export default function SearchPage() {
                     {/* Text content */}
                     <div className="grid md:flex-1 min-w-0 px-3 md:px-6 py-5 md:flex md:flex-col justify-between gap-4">
                       <div>
-                        <h3 className="text-[22px] md:text-[28px] leading-8.5 font-semibold line-clamp-2 transition-colors text-foreground hover:text-primary">
-                          {item.bannerTitle || item.title}
-                        </h3>
+                        {(item.bannerTitle || item.title) && (
+                          <h3 className="text-[22px] md:text-[28px] leading-8.5 font-semibold line-clamp-2 transition-colors text-foreground hover:text-primary">
+                            {item.bannerTitle || item.title}
+                          </h3>
+                        )}
                         {item.description && (
                           <DangerousHtml
                             html={item.description}

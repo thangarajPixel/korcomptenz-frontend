@@ -97,9 +97,11 @@ const AboutMenu = ({
                     {/* Text - 50% */}
                     <div className="w-1/2 pr-2 grid items-center gap-3 bg-light-white">
                       <div>
-                        <h3 className="text-3xl font-normal text-primary leading-7">
-                          {section?.title}
-                        </h3>
+                        {section?.title && (
+                          <h3 className="text-3xl font-normal text-primary leading-7">
+                            {section?.title}
+                          </h3>
+                        )}
                       </div>
                       <div
                         className="group w-8 h-8 rounded-full flex items-center justify-center 

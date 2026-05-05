@@ -26,10 +26,12 @@ const MasonryGallery = ({ data }: { data: MasonryGallerySectionType }) => {
       <Carousel className="w-full mb-5">
         <div className="flex mb-5  justify-between w-full">
           <div />
-          <h2 className="text-7xl text-center font-bold  text-foreground">
-            {data?.title}{" "}
-            <span className="text-primary">{data?.highLightText}</span>
-          </h2>
+          {data?.title && (
+            <h2 className="text-7xl text-center font-bold  text-foreground">
+              {data?.title}{" "}
+              <span className="text-primary">{data?.highLightText}</span>
+            </h2>
+          )}
           <div className="flex items-center ">
             <CarouselPrevious
               className="relative top-1/2 -left-5 hover:bg-primary hover:text-white size-9"

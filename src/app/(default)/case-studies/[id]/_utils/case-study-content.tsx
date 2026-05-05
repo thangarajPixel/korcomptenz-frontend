@@ -40,12 +40,14 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                   className="space-y-4 py-5"
                   key={index}
                 >
-                  <h2
-                    id="content-title"
-                    className="text-7xl text-primary  font-semibold tracking-tight"
-                  >
-                    {item.title}
-                  </h2>
+                  {item.title && (
+                    <h2
+                      id="content-title"
+                      className="text-7xl text-primary  font-semibold tracking-tight"
+                    >
+                      {item?.title}
+                    </h2>
+                  )}
 
                   <DangerousHtml
                     html={item.description}
@@ -99,11 +101,15 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
                                 width={40}
                                 height={40}
                               />
-                              <h3 className="text-5xl font-semibold">
-                                {section?.isPreTitle !== true
-                                  ? section?.title
-                                  : section?.preTitle?.title}
-                              </h3>
+                              {(section?.isPreTitle !== true
+                                ? section?.title
+                                : section?.preTitle?.title) && (
+                                <h3 className="text-5xl font-semibold">
+                                  {section?.isPreTitle !== true
+                                    ? section?.title
+                                    : section?.preTitle?.title}
+                                </h3>
+                              )}
                             </div>
                             <p className="text-lg text-white">
                               {section.isCustomDescripition

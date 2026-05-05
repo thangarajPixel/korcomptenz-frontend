@@ -31,9 +31,11 @@ const ScheduleCall = ({
                   ? "Expert-led Transformation. Impact-led Growth"
                   : scheduleCall?.topDescription}
               </p>
-              <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl  font-bold text-white leading-tight ">
-                {scheduleCall?.title}
-              </h2>
+              {scheduleCall?.title && (
+                <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl  font-bold text-white leading-tight ">
+                  {scheduleCall?.title}
+                </h2>
+              )}
 
               <DangerousHtml
                 html={scheduleCall?.description}

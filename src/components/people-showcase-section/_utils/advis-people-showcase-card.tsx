@@ -44,9 +44,11 @@ const AdvisoryPeopleShowcaseCard = ({
 
           {/* Text content — offset left to clear person image */}
           <div className="flex flex-col justify-center md:gap-2 pl-40 lg:pl-60 pr-8  md:py-6 w-full max-[400px]:mt-10 md:max-[1200px]:mt-15">
-            <h3 className="text-white text-[20px] lg:text-[28px] font-bold leading-tight max-w-[180px] md:max-w-[220px]">
-              {title}
-            </h3>
+            {title && (
+              <h3 className="text-white text-[20px] lg:text-[28px] font-bold leading-tight max-w-[180px] md:max-w-[220px]">
+                {title}
+              </h3>
+            )}
             {miniDescription && (
               <p className="text-white/70 text-[16px] leading-7.5 max-w-[250px] line-clamp-2">
                 {miniDescription}

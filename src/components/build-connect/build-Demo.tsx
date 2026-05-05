@@ -12,7 +12,7 @@ const BuildDemo = ({
   return (
     <section data-debug="page-componets.build-data">
       <div className="container-md">
-        {buildData?.isSwap && (
+        {buildData?.isSwap && buildData?.title && (
           <h2 className=" text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
             {buildData?.title}
           </h2>
@@ -26,7 +26,7 @@ const BuildDemo = ({
           <div
             className={cn("px-5 space-y-3 ", buildData?.isSwap && "order-2")}
           >
-            {!buildData?.isSwap && (
+            {!buildData?.isSwap && buildData?.title && (
               <h2 className="text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
                 {buildData?.title}
               </h2>

@@ -10,9 +10,11 @@ export function PricingCard({ plan }: { plan: PricingPlanType }) {
         "rounded-3xl p-8 flex flex-col items-center justify-center gap-6 transition-all bg-gray-200 hover:bg-gray-300"
       }
     >
-      <h3 className="text-center text-5xl font-semibold text-slate-800 leading-tight  max-w-sm mx-auto">
-        {plan?.name}
-      </h3>
+      {plan?.name && (
+        <h3 className="text-center text-5xl font-semibold text-slate-800 leading-tight  max-w-sm mx-auto">
+          {plan?.name}
+        </h3>
+      )}
 
       <div className="text-center">
         <div className="text-6xl font-bold text-primary mb-2">

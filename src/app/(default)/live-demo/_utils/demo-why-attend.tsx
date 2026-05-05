@@ -14,10 +14,11 @@ const DemoWhyAttend = ({
           {/* Header dividers and title */}
           <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 mb-5">
             <div className="flex-1 h-1 bg-gray-400 lg:-ml-12 hidden sm:block"></div>
-
-            <h2 className="text-4xl md:text-7xl  font-semibold text-foreground text-center font-sans max-w-[90%] sm:max-w-[70%] md:max-w-none">
-              {whyAttendData.title}
-            </h2>
+            {whyAttendData?.title && (
+              <h2 className="text-4xl md:text-7xl  font-semibold text-foreground text-center font-sans max-w-[90%] sm:max-w-[70%] md:max-w-none">
+                {whyAttendData?.title}
+              </h2>
+            )}
 
             <div className="flex-1 h-1 bg-gray-400 lg:-mr-12 hidden sm:block"></div>
           </div>
@@ -30,7 +31,7 @@ const DemoWhyAttend = ({
           <div
             className={cn(
               "grid   gap-x-8 gap-y-6 mb-12",
-              whyAttendData?.isHasFooter ? "grid-cols-1 " : "grid-cols-2"
+              whyAttendData?.isHasFooter ? "grid-cols-1 " : "grid-cols-2",
             )}
           >
             {whyAttendData?.list.map((benefit, index) => (

@@ -18,12 +18,14 @@ const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
       <div className="container-md py-16 text-white">
         {/* ================= TITLE ================= */}
         <div className="text-center  mb-14">
-          <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
-            {data?.title1}
-            <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent ml-2">
-              {data?.title2}
-            </span>
-          </h2>
+          {data?.title1 && (
+            <h2 className="text-3xl md:text-5xl font-semibold leading-tight">
+              {data?.title1}
+              <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent ml-2">
+                {data?.title2}
+              </span>
+            </h2>
+          )}
         </div>
 
         {/* ================= TOP CARDS ================= */}
@@ -41,9 +43,9 @@ const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
                   className="object-contain"
                 />
               </div>
-
-              <h3
-                className="
+              {item?.title && (
+                <h3
+                  className="
     text-lg md:text-xl
     font-semibold
     mb-1
@@ -51,9 +53,10 @@ const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
     line-clamp-2
     min-h-[2rem] md:min-h-[3rem]
   "
-              >
-                {item?.title}
-              </h3>
+                >
+                  {item?.title}
+                </h3>
+              )}
 
               {/* <DangerousHtml
                 html={item.description || ""}
@@ -71,12 +74,13 @@ const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
 
         {/* ================= STATS ================= */}
         <div>
+          {data?.mid?.title1 && (
           <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-center mb-6 md:mb-12 ">
             {data?.mid?.title1}
             <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent ml-2">
               {data?.mid?.title2}
             </span>
-          </h2>
+          </h2>)}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
             {data?.mid?.midList?.map((stat) => (
               <div
