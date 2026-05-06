@@ -52,16 +52,11 @@ const FabconDecisionForm = ({ form }: { form: fromDataType }) => {
 
   const { mutateAsync } = useFabconDecisionLeadHook();
   const { data } = useTimeSlotListHook();
-  const { getToken, isReady } = useCaptchaToken();
+  const { getToken } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<FabconDecisionLeadSchema> =
     React.useCallback(
       async (formdata) => {
-        if (!isReady) {
-          notify({ message: "Captcha is loading. Please try again." });
-          return;
-        }
-
         let captchaToken: string;
         try {
           captchaToken = await getToken("fabconreservelead");
@@ -77,11 +72,11 @@ const FabconDecisionForm = ({ form }: { form: fromDataType }) => {
           const response = await mutateAsync(data);
           notify(response);
           reset(defaultValues);
-        }  catch (error: unknown) {
-        const errorMessage = (error as ErrorType)?.error?.message || "An error occurred";
-        notify({ message: errorMessage });
-        errorSet(error, setError);
-      }
+        } catch (error: unknown) {
+          const errorMessage = (error as ErrorType)?.error?.message || "An error occurred";
+          notify({ message: errorMessage });
+          errorSet(error, setError);
+        }
       },
       [mutateAsync, reset, setError],
     );

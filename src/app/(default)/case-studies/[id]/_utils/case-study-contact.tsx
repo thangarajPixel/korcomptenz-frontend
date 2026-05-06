@@ -43,14 +43,9 @@ export function CaseStudyForm({
   });
 
   const { mutateAsync } = useCaseStudyLeadHook();
-  const { getToken, isReady } = useCaptchaToken();
+  const { getToken } = useCaptchaToken();
   const handleFormSubmit: SubmitHandler<ContactFormData> = React.useCallback(
     async (formdata) => {
-      if (!isReady) {
-        notify({ message: "Captcha is loading. Please try again." });
-        return;
-      }
-
       let captchaToken: string;
       try {
         captchaToken = await getToken("casestudylead");

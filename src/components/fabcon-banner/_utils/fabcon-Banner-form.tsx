@@ -50,16 +50,11 @@ const FabconBannerForm = ({ form }: { form: fromDataType }) => {
   });
 
   const { mutateAsync } = useFabconBannerLeadHook();
-  const { getToken, isReady } = useCaptchaToken();
+  const { getToken } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<FabconDecisionLeadSchema> =
     React.useCallback(
       async (formdata) => {
-        if (!isReady) {
-          notify({ message: "Captcha is loading. Please try again." });
-          return;
-        }
-
         let captchaToken: string;
         try {
           captchaToken = await getToken("fabconbookmeetlead");

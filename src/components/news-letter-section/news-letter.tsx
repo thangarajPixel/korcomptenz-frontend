@@ -4,6 +4,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import { Button } from "@/components/ui/button";
 import SubscriptionForm from "./_utils/subcription-form";
 import CareerForm from "./_utils/career-form";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 const ContactUsNewsletter = ({
   newsletterData,
@@ -44,12 +45,14 @@ const ContactUsNewsletter = ({
               </div>
             )}
 
-            {newsletterData?.form?.forms?.[0]?.__component ===
-            "form-fields.newsletter-subscription" ? (
-              <SubscriptionForm />
-            ) : (
-              <CareerForm />
-            )}
+            <RecaptchaProvider>
+              {newsletterData?.form?.forms?.[0]?.__component ===
+                "form-fields.newsletter-subscription" ? (
+                <SubscriptionForm />
+              ) : (
+                <CareerForm />
+              )}
+            </RecaptchaProvider>
           </div>
 
           {/* Image Section - 30% on mobile, 50% on desktop */}

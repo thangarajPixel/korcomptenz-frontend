@@ -7,6 +7,7 @@ import Link from "next/link";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { BlogFormPopup } from "./popup";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 export default function DocumentationLayout({
   data,
@@ -114,7 +115,11 @@ export default function DocumentationLayout({
               </div>
             </div>
           </article>
-          {data?.insight?.form?.forms?.[0] && <BlogFormPopup data={data} />}
+          {data?.insight?.form?.forms?.[0] && (
+            <RecaptchaProvider>
+              <BlogFormPopup data={data} />
+            </RecaptchaProvider>
+          )}
 
           <div className="mt-5">
             <div className="flex gap-3 items-center">

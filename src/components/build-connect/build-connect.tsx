@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import ButtonLink from "../ui/button-link";
 import { VideoPopup } from "../video-popup";
 import Link from "next/link";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 const BuildConnect = ({
   buildData,
@@ -88,14 +89,73 @@ const BuildConnect = ({
 
           {(buildData?.rightSection?.content === "image" ||
             buildData?.rightSection?.content === "video") && (
-            <div>
-              <div
-                className={cn(
-                  "hidden lg:block ",
-                  buildData?.isBgGray ? "pt-5" : "p-5",
-                )}
-              >
-                <div className="w-[525px] h-[400px] -mt-5 rounded-4xl overflow-hidden flex items-center justify-center">
+              <div>
+                <div
+                  className={cn(
+                    "hidden lg:block ",
+                    buildData?.isBgGray ? "pt-5" : "p-5",
+                  )}
+                >
+                  <div className="w-[525px] h-[400px] -mt-5 rounded-4xl overflow-hidden flex items-center justify-center">
+                    <Link
+                      href={
+                        buildData?.rightSection?.responsiveImage?.imageLink || "#"
+                      }
+                      target={
+                        buildData?.rightSection?.responsiveImage?.isTarget
+                          ? "_blank"
+                          : "_self"
+                      }
+                      className="block w-full h-full"
+                    >
+                      <KorcomptenzImage
+                        src={buildData?.rightSection?.responsiveImage?.image}
+                        width={525}
+                        height={400}
+                        className="w-full h-full object-cover rounded-4xl cursor-pointer"
+                        onClick={() =>
+                          setIsVideoOpen({
+                            link: buildData?.rightSection?.videoLink || "",
+                            open: true,
+                          })
+                        }
+                      />
+                    </Link>
+                  </div>
+
+                  {buildData?.imageCaption && (
+                    <div className="flex flex-col items-center gap-4 lg:mt-5">
+                      <p className="text-3xl">{buildData?.imageCaption}</p>
+                      {buildData?.rightSection?.content === "image" && (
+                        <ButtonLink
+                          link={buildData?.link || "#"}
+                          buttonProps={{
+                            size: "xl",
+                            arrow: true,
+                            className: "items-center",
+                          }}
+                        >
+                          {buildData?.buttonText}
+                        </ButtonLink>
+                      )}
+                      {buildData?.rightSection?.content === "video" && (
+                        <Button
+                          className="items-center"
+                          onClick={() =>
+                            setIsVideoOpen({
+                              link: buildData?.rightSection?.videoLink || "",
+                              open: true,
+                            })
+                          }
+                        >
+                          {buildData?.rightSection?.videoButtonText ||
+                            "Watch Now"}
+                        </Button>
+                      )}
+                    </div>
+                  )}
+                </div>
+                <div className="md:p-5 lg:hidden ">
                   <Link
                     href={
                       buildData?.rightSection?.responsiveImage?.imageLink || "#"
@@ -105,121 +165,61 @@ const BuildConnect = ({
                         ? "_blank"
                         : "_self"
                     }
-                    className="block w-full h-full"
                   >
                     <KorcomptenzImage
-                      src={buildData?.rightSection?.responsiveImage?.image}
-                      width={525}
-                      height={400}
-                      className="w-full h-full object-cover rounded-4xl cursor-pointer"
-                      onClick={() =>
-                        setIsVideoOpen({
-                          link: buildData?.rightSection?.videoLink || "",
-                          open: true,
-                        })
-                      }
+                      src={buildData?.rightSection?.responsiveImage?.mobileImage}
+                      width={500}
+                      height={500}
+                      className={cn(
+                        "w-full h-auto object-cover rounded-4xl",
+                        buildData?.rightSection?.content === "video" &&
+                        "cursor-pointer",
+                      )}
                     />
                   </Link>
+                  {buildData?.imageCaption && (
+                    <div className="flex flex-col items-center gap-2 lg:mt-5">
+                      <p className="text-md text-center">
+                        {buildData?.imageCaption}
+                      </p>
+                      {buildData?.rightSection?.content === "image" && (
+                        <ButtonLink
+                          link={buildData?.link || "#"}
+                          buttonProps={{
+                            size: "xl",
+                            arrow: true,
+                            className: "items-center",
+                          }}
+                        >
+                          {buildData?.buttonText}
+                        </ButtonLink>
+                      )}
+                      {buildData?.rightSection?.content === "video" && (
+                        <Button
+                          className="items-center"
+                          onClick={() =>
+                            setIsVideoOpen({
+                              link: buildData?.rightSection?.videoLink || "",
+                              open: true,
+                            })
+                          }
+                        >
+                          {buildData?.rightSection?.videoButtonText ||
+                            "Watch Now"}
+                        </Button>
+                      )}
+                    </div>
+                  )}
                 </div>
-
-                {buildData?.imageCaption && (
-                  <div className="flex flex-col items-center gap-4 lg:mt-5">
-                    <p className="text-3xl">{buildData?.imageCaption}</p>
-                    {buildData?.rightSection?.content === "image" && (
-                      <ButtonLink
-                        link={buildData?.link || "#"}
-                        buttonProps={{
-                          size: "xl",
-                          arrow: true,
-                          className: "items-center",
-                        }}
-                      >
-                        {buildData?.buttonText}
-                      </ButtonLink>
-                    )}
-                    {buildData?.rightSection?.content === "video" && (
-                      <Button
-                        className="items-center"
-                        onClick={() =>
-                          setIsVideoOpen({
-                            link: buildData?.rightSection?.videoLink || "",
-                            open: true,
-                          })
-                        }
-                      >
-                        {buildData?.rightSection?.videoButtonText ||
-                          "Watch Now"}
-                      </Button>
-                    )}
-                  </div>
-                )}
               </div>
-              <div className="md:p-5 lg:hidden ">
-                <Link
-                  href={
-                    buildData?.rightSection?.responsiveImage?.imageLink || "#"
-                  }
-                  target={
-                    buildData?.rightSection?.responsiveImage?.isTarget
-                      ? "_blank"
-                      : "_self"
-                  }
-                >
-                  <KorcomptenzImage
-                    src={buildData?.rightSection?.responsiveImage?.mobileImage}
-                    width={500}
-                    height={500}
-                    className={cn(
-                      "w-full h-auto object-cover rounded-4xl",
-                      buildData?.rightSection?.content === "video" &&
-                        "cursor-pointer",
-                    )}
-                  />
-                </Link>
-                {buildData?.imageCaption && (
-                  <div className="flex flex-col items-center gap-2 lg:mt-5">
-                    <p className="text-md text-center">
-                      {buildData?.imageCaption}
-                    </p>
-                    {buildData?.rightSection?.content === "image" && (
-                      <ButtonLink
-                        link={buildData?.link || "#"}
-                        buttonProps={{
-                          size: "xl",
-                          arrow: true,
-                          className: "items-center",
-                        }}
-                      >
-                        {buildData?.buttonText}
-                      </ButtonLink>
-                    )}
-                    {buildData?.rightSection?.content === "video" && (
-                      <Button
-                        className="items-center"
-                        onClick={() =>
-                          setIsVideoOpen({
-                            link: buildData?.rightSection?.videoLink || "",
-                            open: true,
-                          })
-                        }
-                      >
-                        {buildData?.rightSection?.videoButtonText ||
-                          "Watch Now"}
-                      </Button>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
+            )}
 
           {buildData?.rightSection?.content === "description" && (
             <div
-              className={`${buildData?.rightSection?.isBgGray || ""} ${
-                buildData?.rightSection?.isBgGray
-                  ? "bg-gray-100 p-10 rounded-3xl"
-                  : ""
-              }`}
+              className={`${buildData?.rightSection?.isBgGray || ""} ${buildData?.rightSection?.isBgGray
+                ? "bg-gray-100 p-10 rounded-3xl"
+                : ""
+                }`}
             >
               <DangerousHtml
                 html={buildData?.rightSection?.description}
@@ -254,11 +254,13 @@ const BuildConnect = ({
           )}
 
           {buildData?.rightSection?.content === "form" && (
-            <BookDemoSection
-              essential={
-                buildData?.rightSection?.form?.forms[0] as BookDemoFormType
-              }
-            />
+            <RecaptchaProvider>
+              <BookDemoSection
+                essential={
+                  buildData?.rightSection?.form?.forms[0] as BookDemoFormType
+                }
+              />
+            </RecaptchaProvider>
           )}
         </div>
       </div>

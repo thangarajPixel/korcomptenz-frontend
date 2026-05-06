@@ -17,20 +17,20 @@ const BlogBannerCard = ({
   className?: string;
   tableTitle: string;
 }) => {
- const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
- 
-   useEffect(() => {
-     // Only run on client
-     const checkDevice = () => {
-       setIsDesktop(window.innerWidth >= 1024);
-     };
- 
-     checkDevice();
-     window.addEventListener("resize", checkDevice);
- 
-     return () => window.removeEventListener("resize", checkDevice);
-   }, []);
-  
+  const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+
+  useEffect(() => {
+    // Only run on client
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
+
 
   return (
     <div className={cn(className)}>
@@ -41,7 +41,7 @@ const BlogBannerCard = ({
             src={data?.heroSection?.image}
             width={1000}
             height={800}
-            className="w-full h-full object-cover rounded-4xl "
+            className="w-full h-full object-cover rounded-4xl"
           />
 
           <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-[5] rounded-4xl" />

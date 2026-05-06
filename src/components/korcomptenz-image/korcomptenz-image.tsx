@@ -27,18 +27,25 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
     : props?.alt || "";
   const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
 
+  const isPriority = props.priority || true;
+
   return (
     <Image
-      placeholder={imagePlaceholder}
       {...props}
       src={(src || "/assets/placeholder.png") as string}
       alt={alt || "/assets/placeholder.png"}
-      loading={props.priority ? undefined : "lazy"}
+      placeholder={isPriority ? "empty" : imagePlaceholder}
+      loading={isPriority ? "eager" : undefined}
+      fetchPriority={isPriority ? "high" : "auto"}
       unoptimized={isGif}
-      priority={props.priority || false}
+      priority={isPriority}
+      sizes={
+        props.sizes ||
+        "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      }
       className={cn(
         props?.nonAnimate &&
-          "object-cover transition-transform duration-300 hover:scale-110",
+        "object-cover transition-transform duration-300 hover:scale-110",
         props?.className,
       )}
     />

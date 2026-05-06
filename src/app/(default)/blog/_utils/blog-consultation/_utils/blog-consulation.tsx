@@ -2,13 +2,14 @@
 import { cn } from "@/lib/utils";
 import ConsultationForm from "./consultation-form";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 const BlogBuildDemo = ({
   form,
   essential,
 }: {
   form: FreeConsultationFormType;
-  essential?: { id: string | number; [key: string]: unknown };
+  essential?: { id: string | number;[key: string]: unknown };
 }) => {
   return (
     <section data-debug="page-componets.build-data">
@@ -29,7 +30,9 @@ const BlogBuildDemo = ({
             />
           </div>
 
-          <ConsultationForm form={form} essential={essential} />
+          <RecaptchaProvider>
+            <ConsultationForm form={form} essential={essential} />
+          </RecaptchaProvider>
         </div>
       </div>
     </section>

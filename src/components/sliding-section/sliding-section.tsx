@@ -37,10 +37,11 @@ export default function SlidingSection({
               <video
                 className="absolute inset-0 w-full h-full object-cover"
                 src={isMobile ? slide?.mobileVideo?.url : slide?.video?.url}
-                autoPlay
+                autoPlay={!isMobile}
                 loop
                 muted
                 playsInline
+                preload={isMobile ? "none" : "auto"}
               />
             )}
 
@@ -51,6 +52,7 @@ export default function SlidingSection({
                 height={1000}
                 className="w-full h-full object-cover"
                 priority={index === 0}
+                sizes={index === 0 ? "(max-width: 768px) 100vw, 100vw" : "(max-width: 768px) 100vw, 100vw"}
               />
             )}
             {slide?.design === "bgcolor" && (
@@ -90,8 +92,8 @@ export default function SlidingSection({
                   )} */}
                   <div
                     className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide?.subtitle
-                        ? "text-4xl md:text-9xl"
-                        : "text-lg md:text-7xl font-medium"
+                      ? "text-4xl md:text-9xl"
+                      : "text-lg md:text-7xl font-medium"
                       }`}
                   >
                     {slide?.subtitle || slide?.subtitle2}

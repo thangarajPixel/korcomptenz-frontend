@@ -5,9 +5,10 @@ import type { RefObject } from "react"
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
 
-// Use Mobile
+// Use Mobile — defaults to true (mobile-first) to avoid loading desktop
+// images on mobile before hydration, which hurts LCP and causes CLS.
 const useMobile = () => {
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(true);
   React.useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);

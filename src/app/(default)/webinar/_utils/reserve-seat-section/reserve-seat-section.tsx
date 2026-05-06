@@ -24,7 +24,7 @@ const ReserveSeatSection = ({
   essential,
 }: {
   form: WebinarReserveFormType;
-  essential?: { id: string | number; [key: string]: unknown };
+  essential?: { id: string | number;[key: string]: unknown };
 }) => {
   const {
     control,
@@ -41,7 +41,7 @@ const ReserveSeatSection = ({
   });
 
   const { mutateAsync } = useWebinarReserveMySpotHook();
-  const { getToken, isReady } = useCaptchaToken();
+  const { getToken } = useCaptchaToken();
   const insight = {
     connect: [
       {
@@ -55,11 +55,6 @@ const ReserveSeatSection = ({
   const handleFormSubmit: SubmitHandler<WebinarReserveFormSchema> =
     React.useCallback(
       async (formdata) => {
-        if (!isReady) {
-          notify({ message: "Captcha is loading. Please try again." });
-          return;
-        }
-
         let captchaToken: string;
         try {
           captchaToken = await getToken("webinarreservelead");

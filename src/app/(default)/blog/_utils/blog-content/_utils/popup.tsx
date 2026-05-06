@@ -46,15 +46,10 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
   });
 
   const { mutateAsync } = useBlogFormHook();
-  const { getToken, isReady } = useCaptchaToken();
+  const { getToken } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<BlogFormSchema> = React.useCallback(
     async (formdata) => {
-      if (!isReady) {
-        notify({ message: "Captcha is loading. Please try again." });
-        return;
-      }
-
       let captchaToken: string;
       try {
         captchaToken = await getToken("forresterreport");

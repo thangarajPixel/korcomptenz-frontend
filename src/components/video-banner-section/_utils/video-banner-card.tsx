@@ -4,6 +4,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import DownloadForm from "@/components/news-room/_utils/download-form";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 import { useEffect, useState } from "react";
 // import DownloadForm from "@/components/news-room/_utils/download-form";
@@ -15,7 +16,7 @@ type VideoBannerCardProps = {
 };
 
 const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
- const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+  const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
 
   useEffect(() => {
     // Only run on client
@@ -48,6 +49,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
               width={1920}
               height={1080}
               className="absolute inset-0 w-full h-full object-cover"
+              priority
             />
           )}
 
@@ -84,7 +86,9 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
               {data?.form && (
                 <div className="col-span-4 flex  justify-end">
                   <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
-                    <DownloadForm />
+                    <RecaptchaProvider>
+                      <DownloadForm />
+                    </RecaptchaProvider>
                   </div>
                 </div>
               )}
@@ -111,6 +115,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
               width={1000}
               height={600}
               className="w-full h-65 object-cover"
+              priority
             />
           )}
 
@@ -122,7 +127,9 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
           </div>
           {data?.form && (
             <div className="p-5 rounded-2xl shadow-2xl">
-              <DownloadForm />
+              <RecaptchaProvider>
+                <DownloadForm />
+              </RecaptchaProvider>
             </div>
           )}
         </div>

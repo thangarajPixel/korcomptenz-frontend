@@ -7,7 +7,7 @@ import { CaseStudyCard } from "@/components/case-study-section";
 import { cn } from "@/lib/utils";
 import ButtonLink from "@/components/ui/button-link";
 import { ScrollFadeIn } from "@/components/ui/scroll-fade-in";
-
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 import CaseStudyVideo from "./case-study-video";
 import { ClientTestimonial } from "@/app/(default)/case-studies/_utils";
 
@@ -81,7 +81,9 @@ const CaseStudy = ({
         </ScrollFadeIn>
       )}
       <ScrollFadeIn>
-        <CaseStudyForm data={data} essential={essential} />
+        <RecaptchaProvider>
+          <CaseStudyForm data={data} essential={essential} />
+        </RecaptchaProvider>
       </ScrollFadeIn>
     </React.Fragment>
   );
