@@ -25,13 +25,13 @@ export default function SlidingSection({
         >
           <div
             className="relative w-full md:h-auto h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)]"
-          // style={{
-          //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
-          //   backgroundSize: "cover",
-          //   backgroundPosition: "center",
-          //   backgroundRepeat: "no-repeat",
-          //   objectFit: "cover"
-          // }}
+            // style={{
+            //   background: `url(${isMobile ? slide.mobileImage : slide.image || "/assets/placeholder.png"})`,
+            //   backgroundSize: "cover",
+            //   backgroundPosition: "center",
+            //   backgroundRepeat: "no-repeat",
+            //   objectFit: "cover"
+            // }}
           >
             {slide?.design === "video" && (
               <video
@@ -52,7 +52,11 @@ export default function SlidingSection({
                 height={1000}
                 className="w-full h-full object-cover"
                 priority={index === 0}
-                sizes={index === 0 ? "(max-width: 768px) 100vw, 100vw" : "(max-width: 768px) 100vw, 100vw"}
+                sizes={
+                  index === 0
+                    ? "(max-width: 768px) 100vw, 100vw"
+                    : "(max-width: 768px) 100vw, 100vw"
+                }
               />
             )}
             {slide?.design === "bgcolor" && (
@@ -90,20 +94,28 @@ export default function SlidingSection({
                       className="w-[300px] h-[300px] object-contain"
                     />
                   )} */}
-                  <div
-                    className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance ${slide?.subtitle
-                      ? "text-4xl md:text-9xl"
-                      : "text-lg md:text-7xl font-medium"
-                      }`}
-                  >
-                    {slide?.subtitle || slide?.subtitle2}
-                  </div>
+
+                  {slide?.subtitle && (
+                    <div
+                      className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance text-4xl`}
+                    >
+                      {slide?.subtitle}
+                    </div>
+                  )}
+                  {slide?.subtitle2 && (
+                    <div
+                      className={`whitespace-pre-wrap font-bold mb-4 leading-tight text-balance text-lg md:text-5xl`}
+                    >
+                      {slide?.subtitle2}
+                    </div>
+                  )}
+
                   {slide?.logo && (
                     <KorcomptenzImage
                       src={slide?.logo}
                       width={350}
                       height={350}
-                      className=" object-contain bg-white rounded-xl mb-2"
+                      className=" object-contain rounded-xl mb-2"
                     />
                   )}
                   {index === 0 ? (
