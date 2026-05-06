@@ -41,10 +41,10 @@ const [applyJobId, setApplyJobId] = useState<string | null>(null);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [isApplyOpen, setIsApplyOpen] = useState(false);
   
-const ITEMS_PER_BATCH = 3; // 3 cols × 2 rows
+const ITEMS_PER_BATCH = 12; // 3 cols × 2 rows
 const [visibleCount, setVisibleCount] = useState(ITEMS_PER_BATCH);
 const loadMoreRef = useRef<HTMLDivElement | null>(null);
-const visibleJobs = jobs.slice(0, visibleCount);
+//const visibleJobs = jobs.slice(0, visibleCount);
 
 
 
@@ -62,21 +62,48 @@ const [applyData, setApplyData] = useState({
 });
 
 const [resumeBase64, setResumeBase64] = useState("");
+const [filters, setFilters] = useState({
+  location: "",
+  keyword: "",
+  jobType: "",
+});
 
+const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
+const [locations, setLocations] = useState<string[]>([]);
 
   // ✅ Fetch job list
  
+
 useEffect(() => {
   async function fetchJobs() {
-    const res = await fetch("http://localhost:4000/api/jobs");
+const res = await fetch(process.env.NEXT_PUBLIC_JOBS_API_URL as string);
     const result = await res.json();
-    setJobs(result?.data || []);
-  //  setFilteredJobs(result?.data || []); // ✅ important
+
+    const jobList: Job[] = result?.data || [];
+
+    setJobs(jobList);
+    setFilteredJobs(jobList);
     setLoading(false);
+
+    // ✅ Extract unique locations safely
+    const uniqueLocations: string[] = Array.from(
+      new Set(
+        jobList.flatMap((job) =>
+          Array.isArray(job.location)
+            ? job.location.filter(
+                (loc): loc is string => typeof loc === "string"
+              )
+            : []
+        )
+      )
+    ).sort();
+
+    setLocations(uniqueLocations);
   }
 
   fetchJobs();
 }, []);
+
 
 
 useEffect(() => {
@@ -291,6 +318,42 @@ function isValidEmail(email: string) {
     year: "numeric",
   });
 }
+function applyFilters() {
+  const result = jobs.filter((job) => {
+    const matchLocation =
+      !filters.location ||
+      job.location?.some((loc) =>
+        loc.toLowerCase().includes(filters.location.toLowerCase())
+      );
+
+    const matchKeyword =
+      !filters.keyword ||
+      job.job_title
+        .toLowerCase()
+        .includes(filters.keyword.toLowerCase());
+
+    const matchJobType =
+      !filters.jobType ||
+      job.employee_type
+        ?.toLowerCase()
+        .includes(filters.jobType.toLowerCase());
+
+    return matchLocation && matchKeyword && matchJobType;
+  });
+
+  setFilteredJobs(result);
+  //setVisibleCount(ITEMS_PER_BATCH); // ✅ reset infinite scroll
+}
+function resetFilters() {
+  setFilters({
+    location: "",
+    keyword: "",
+    jobType: "",
+  });
+
+  setFilteredJobs(jobs);
+  //setVisibleCount(ITEMS_PER_BATCH);
+}
 function cleanWordHtml(html: string = "") {
   if (!html) return "";
 
@@ -342,15 +405,72 @@ function cleanWordHtml(html: string = "") {
       <h2 className="text-center font-semibold text-8xl text-foreground">
         {data.title}
       </h2>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+  {/* Location */}
+ <select
+  className="border p-3 rounded"
+  value={filters.location}
+  onChange={(e) =>
+    setFilters({ ...filters, location: e.target.value })
+  }
+>
+  <option value="">Select Location</option>
 
+  {locations.map((loc) => (
+    <option key={loc} value={loc}>
+      {loc}
+    </option>
+  ))}
+</select>
+
+  {/* Keywords */}
+  <input
+    type="text"
+    placeholder="Enter Keywords"
+    className="border rounded px-4 py-3"
+    value={filters.keyword}
+    onChange={(e) =>
+      setFilters({ ...filters, keyword: e.target.value })
+    }
+  />
+
+  {/* Job Type */}
+  <select
+    className="border rounded px-4 py-3"
+    value={filters.jobType}
+    onChange={(e) =>
+      setFilters({ ...filters, jobType: e.target.value })
+    }
+  >
+    <option value="">Select Preferred Job Types</option>
+    <option value="Full Time">Full Time</option>
+    <option value="Contract">Contract</option>
+  </select>
+</div>
+<div className="flex gap-4 mt-6">
+  <Button
+    variant="outline"
+    onClick={resetFilters}
+  >
+    Reset
+  </Button>
+
+  <Button onClick={applyFilters}>
+    Go →
+  </Button>
+</div>
       {/* ✅ Job Grid */}
       {loading ? (
         <p className="text-center mt-10">Loading jobs...</p>
       ) : jobs.length === 0 ? (
         <p className="text-center mt-10">No jobs found</p>
       ) : (
+
+
+
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 max-w-none h-[500px] overflow-y-auto">
-         {visibleJobs.map((job) => (
+        {filteredJobs.map((job) => (
             <div
               key={job.job_id}
              
