@@ -60,12 +60,13 @@ export function CaseStudyForm({
 
       try {
         const response = await mutateAsync(data2);
-        notify(response);
-
-        window.open(
-          `/case-studies-asset/${response.attachment.name}`,
-          "_blank",
-        );
+        notify({ message: response?.message });
+        if (response?.attachment?.name) {
+          window.open(
+            `/case-studies-asset/${response.attachment.name}`,
+            "_blank",
+          );
+        }
 
         reset({ ...defaultValues, caseStudyId: String(data.id) });
       } catch (error: unknown) {
