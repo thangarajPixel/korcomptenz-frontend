@@ -55,12 +55,12 @@ const BannerCard = ({
                   className="w-20 md:w-[200px] h-auto object-contain"
                 />
               )}
-              <h1 className="text-9xl font-semibold leading-14 text-white ">
+              <h1 className="text-9xl font-semibold leading-14 text-white">
                 {data?.title}
               </h1>
               {data?.description && (
                 <DangerousHtml
-                  className="text-3xl md:text-5xl leading-tight font-normal text-white mb-4 md:mb-4 "
+                  className="text-3xl md:text-5xl leading-tight font-normal text-white"
                   html={data?.description}
                 />
               )}
