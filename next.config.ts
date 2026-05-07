@@ -3728,6 +3728,12 @@ const nextConfig: NextConfig = {
     destination: "/whitepaper/Altiaris-Microsoft-Fabric-AI-and-Cloud-for-Manufacturing.pdf",
     permanent: true,
   },
+  
+  {
+    source: "/microsoft-dynamics-365/microsoft-dynamics-365-managed-services",
+    destination: "/microsoft-dynamics-365/microsoft-dynamics-365-support-services",
+    permanent: true,
+  },
 
   ],
 };
