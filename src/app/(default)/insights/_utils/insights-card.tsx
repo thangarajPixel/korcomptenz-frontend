@@ -33,6 +33,9 @@ export function InsightCard({
           case "infographics":
             return `/infographic/${data?.slug}`;
 
+          case "battlecards":
+            return `/battlecard/${data?.slug}`;
+
           default:
             return `/${data?.category?.slug}/${data?.slug}`;
         }
@@ -44,8 +47,6 @@ export function InsightCard({
         return `/webinar/${data?.slug}`;
       case "thirdparty-link":
         return data?.thirdpartyLink;
-      case "battlecards":
-        return `/battlecard/${data?.slug}`;
 
       default:
         return null;
