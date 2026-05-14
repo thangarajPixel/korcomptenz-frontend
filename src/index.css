@@ -807,3 +807,12 @@ ul.key_list li::before {
 .grecaptcha-badge:hover {
   width: 256px !important;
 }
+
+
+/* Korcomptenz Team Start */
+
+.rich-text p {
+  padding-bottom: 10px;
+}
+
+/* Korcomptenz Team END */
