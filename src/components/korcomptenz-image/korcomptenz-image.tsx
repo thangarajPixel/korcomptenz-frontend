@@ -40,8 +40,9 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
       unoptimized={isGif}
       priority={isPriority}
       sizes={
-        props.sizes ||
-        "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        props.sizes || "100vw"
+        // ||
+        // "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       }
       className={cn(
         props?.nonAnimate &&
