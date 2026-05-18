@@ -94,7 +94,9 @@ import LogoSlider from "../logo-slider";
 import SapImplementation from "../sap-implementation";
 import SliderServiceSection from "../slider-services-section/slider-services-section";
 import MicrosoftGoldCertified from "../microsoft-certified";
-
+import DemandHowKORSection from "../demand-how-kor-section";
+import KeyMetricsSection from "../key-metrics-section";
+import PageGridView from "../page-grid-view";
 type Props = {
   data: ComponentPropsType[];
 };
@@ -176,12 +178,10 @@ const GlobalPage = (props: Props) => {
         );
       case "page-componets.banner-section-list":
         return (
-         
-            <BannerSection
-              key={`banner-${item?.__component}-${item?.id}`}
-              BannerSectionData={item?.list}
-            />
-          
+          <BannerSection
+            key={`banner-${item?.__component}-${item?.id}`}
+            BannerSectionData={item?.list}
+          />
         );
       case "demo-page.demo-banner-list":
         return (
@@ -242,6 +242,34 @@ const GlobalPage = (props: Props) => {
             key={`benefit-section-${item?.__component}-${item?.id}`}
           >
             <BenefitSection benefitData={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.demand-how-kor-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`demand-how-kor-section-${item?.__component}-${item?.id}`}
+          >
+            <DemandHowKORSection DemandData={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.key-metrics-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`page-componets.key-metrics-section-${item?.__component}-${item?.id}`}
+          >
+            <KeyMetricsSection KeyMetricsData={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.page-grid-view":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`page-componets.page-grid-view-section-${item?.__component}-${item?.id}`}
+          >
+            <PageGridView Data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.faq-title":
