@@ -1731,7 +1731,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/blog/top-10-advantages-of-sap-implementation",
-      destination: "/insights/blog",
+      destination: "/blog/the-top-10-advantages-of-sap-implementation",
       permanent: false,
     },
     {
@@ -3866,6 +3866,12 @@ const nextConfig: NextConfig = {
       destination: "/",
       permanent: true,
     },
+
+    {
+      source: "https://d365.korcomptenz.com/",
+      destination: "/microsoft-dynamics-365",
+      permanent: true,
+    }
 
   ],
 };
