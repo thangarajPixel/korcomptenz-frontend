@@ -3866,13 +3866,6 @@ const nextConfig: NextConfig = {
       destination: "/",
       permanent: true,
     },
-
-    {
-      source: "https://d365.korcomptenz.com/",
-      destination: "/microsoft-dynamics-365",
-      permanent: true,
-    }
-
   ],
 };
 
