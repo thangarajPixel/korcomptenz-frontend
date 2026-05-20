@@ -1731,7 +1731,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/blog/top-10-advantages-of-sap-implementation",
-      destination: "/insights/blog",
+      destination: "/blog/the-top-10-advantages-of-sap-implementation",
       permanent: false,
     },
     {
@@ -3734,7 +3734,138 @@ const nextConfig: NextConfig = {
     destination: "/microsoft-dynamics-365/microsoft-dynamics-365-support-services",
     permanent: true,
   },
-
+  {
+      source: "/sap-advisory-services",
+      destination: "/sap/sap-consulting-services",
+      permanent: true,
+    },
+    {
+      source: "/sap/ams",
+      destination: "/sap/sap-application-managed-services",
+      permanent: true,
+    },
+    {
+      source: "/sap/grow-with-sap-2",
+      destination: "/sap/grow-with-sap",
+      permanent: true,
+    },
+    {
+      source: "/sap/sap-staffing/feed",
+      destination: "/blog/sap-staffing-solutions-for-your-business-in-the-usa",
+      permanent: true,
+    },
+    {
+      source: "/sap/sap-integration",
+      destination: "/sap/sap-integration-services",
+      permanent: true,
+    },
+    {
+      source: "/:country(ca|ae|au|en|en_au|en_ca|en_AE|en_AU)/:path*",
+      destination: "/:path*",
+      permanent: true,
+    },
+    {
+      source: "/page/10",
+      has: [
+        {
+          type: "query",
+          key: "s",
+          value: "(.*)",
+        },
+      ],
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/page/58",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/116/119",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/116/122",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/116/129",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/15/8/145/147",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/2023/03/14",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/2023/03/14",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/2024/03/27",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/2025/01/20",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/2025/04/04",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/2022/01/05/",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/insights/page/:page",
+      destination: "/insights",
+      permanent: true,
+    },
+    {
+      source: "/wp-admin/admin-ajax.php",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/wp-admin/admin-ajax.php/page/:page",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/img/image-masking/svg-shapes",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/wp-content/uploads/2022/01/Education-client-boost-sales-and-marketing-with-MSD365.pdf",
+      destination: "/case-studies-asset/Education-client-boost-sales-and-marketing-with-MSD365.pdf",
+      permanent: true,
+    },
+    {
+      source: "/wp-content/uploads/2024/06/EDI-Partner-Integration-Success-Case-Study.pdf",
+      destination: "/",
+      permanent: true,
+    },
+    {
+      source: "/wp-json/",
+      destination: "/",
+      permanent: true,
+    },
   ],
 };
 
