@@ -66,7 +66,7 @@ const BannerCard = ({
                 />
               )}
 
-              <h1 className="!text-[25px] text-white">
+              <h1 className="!text-3xl leading-tight text-white">
                 {data?.bannerH1Tag ? data.bannerH1Tag : pageTitle}
               </h1>
 
