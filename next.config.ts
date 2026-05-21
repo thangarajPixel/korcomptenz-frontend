@@ -3873,7 +3873,7 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
+      source: "/microsoft-dynamics-365/migrate-microsoft-dynamics-gp-to-dynamics-365-business-central",
       destination: "/microsoft-dynamics-365/migrate-microsoft-dynamics-gp-to-dynamics-365-finance-supply-chain-management",
       permanent: true,
     },
