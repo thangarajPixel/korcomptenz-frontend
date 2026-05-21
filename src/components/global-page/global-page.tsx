@@ -94,6 +94,7 @@ import LogoSlider from "../logo-slider";
 import SapImplementation from "../sap-implementation";
 import SliderServiceSection from "../slider-services-section/slider-services-section";
 import MicrosoftGoldCertified from "../microsoft-certified";
+import KeyMetricsSection from "../key-metrics-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -176,12 +177,10 @@ const GlobalPage = (props: Props) => {
         );
       case "page-componets.banner-section-list":
         return (
-         
-            <BannerSection
-              key={`banner-${item?.__component}-${item?.id}`}
-              BannerSectionData={item?.list}
-            />
-          
+          <BannerSection
+            key={`banner-${item?.__component}-${item?.id}`}
+            BannerSectionData={item?.list}
+          />
         );
       case "demo-page.demo-banner-list":
         return (
@@ -224,6 +223,15 @@ const GlobalPage = (props: Props) => {
             key={`dark-slider-${item?.__component}-${item?.id}`}
           >
             <DarkSlider manuelSliderData={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.key-metrics-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`page-componets.key-metrics-section-${item?.__component}-${item?.id}`}
+          >
+            <KeyMetricsSection KeyMetricsData={item} />
           </ScrollFadeIn>
         );
       case "page-componets.domain-data":
