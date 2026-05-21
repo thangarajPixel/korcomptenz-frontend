@@ -70,9 +70,9 @@ const BannerCard = ({
                 {data?.bannerH1Tag ? data.bannerH1Tag : pageTitle}
               </h1>
 
-              <div className="text-9xl font-semibold leading-14 text-white">
+              <h2 className="!text-[50px] !leading-[60px] !font-semibold text-white">
                 {data?.title}
-              </div>
+              </h2>
               {data?.description && (
                 <DangerousHtml
                   className="text-3xl md:text-5xl leading-tight font-normal text-white"
