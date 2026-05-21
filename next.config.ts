@@ -3866,6 +3866,27 @@ const nextConfig: NextConfig = {
       destination: "/",
       permanent: true,
     },
+
+    {
+      source: "/dynamics-365-business-central",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
+      destination: "/microsoft-dynamics-365/migrate-microsoft-dynamics-gp-to-dynamics-365-finance-supply-chain-management",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-crm-implementation-partners",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-implementation",
+      permanent: true,
+    },
+    {
+      source: "/sap-consulting-services",
+      destination: "/sap/sap-consulting-services",
+      permanent: true,
+    },
   ],
 };
 
