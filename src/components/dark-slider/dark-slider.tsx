@@ -20,8 +20,6 @@ const DarkSlider = ({
   return (
     <Carousel
       className="container-md overflow-hidden"
-      autoPlay
-      autoPlayDelay={4000}
       data-debug={"page-componets.dark-slider-list"}
     >
       <div
