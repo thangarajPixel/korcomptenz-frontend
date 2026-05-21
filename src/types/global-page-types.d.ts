@@ -1618,6 +1618,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.microsoft-gold-certified";
   };
+    KeyMetricsSection: KeyMetricsSectionType & {
+    id: string;
+    __component: "page-componets.key-metrics-section";
+  };
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
@@ -1691,7 +1695,16 @@ type DepartmentType = {
     label: string;
   }[];
 };
+type KeyMetricsSectionType = {
+  id: string;
+  title: string;
 
+  backgroundImage: ImageType;
+  listLeft: {
+    title: string;
+    description: string;
+  }[];
+};
 type TimeSlotType = {
   data: {
     id: number;
