@@ -95,6 +95,10 @@ import SapImplementation from "../sap-implementation";
 import SliderServiceSection from "../slider-services-section/slider-services-section";
 import MicrosoftGoldCertified from "../microsoft-certified";
 
+import IndustryBannerSection from "../industry-banner";
+import IndustryAbout from "../industry-about";
+import IndustrySpotlight from "../industry-spotlight";
+
 type Props = {
   data: ComponentPropsType[];
 };
@@ -176,12 +180,10 @@ const GlobalPage = (props: Props) => {
         );
       case "page-componets.banner-section-list":
         return (
-         
-            <BannerSection
-              key={`banner-${item?.__component}-${item?.id}`}
-              BannerSectionData={item?.list}
-            />
-          
+          <BannerSection
+            key={`banner-${item?.__component}-${item?.id}`}
+            BannerSectionData={item?.list}
+          />
         );
       case "demo-page.demo-banner-list":
         return (
@@ -1043,6 +1045,33 @@ const GlobalPage = (props: Props) => {
             key={`microsoft-gold-certified-${item?.__component}-${item?.id}`}
           >
             <MicrosoftGoldCertified data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.banking-financial-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`banking-financial-banner-${item?.__component}-${item?.id}`}
+          >
+            <IndustryBannerSection BannerSectionData={[item]} />
+          </ScrollFadeIn>
+        );
+        case "page-componets.industry-build-data":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-build-data-${item?.__component}-${item?.id}`}
+          >
+            <IndustryAbout data={item} />
+          </ScrollFadeIn>
+        );
+        case "page-componets.industry-solution-spotlight":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-solution-spotlight-${item?.__component}-${item?.id}`}
+          >
+            <IndustrySpotlight data={item} />
           </ScrollFadeIn>
         );
       default:

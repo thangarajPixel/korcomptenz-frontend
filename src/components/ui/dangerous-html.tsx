@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 type DangerousHtmlProps = {
   html: string;
   className?: string;
-  as?: "div" | "h1" | "h2";
+  as?: "div" | "h1" | "h2"|"h3";
 };
 
 export const DangerousHtml = React.memo(
