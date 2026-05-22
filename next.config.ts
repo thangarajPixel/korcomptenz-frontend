@@ -3887,6 +3887,11 @@ const nextConfig: NextConfig = {
       destination: "/sap/sap-consulting-services",
       permanent: true,
     },
+     {
+      source: "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-operations",
+      destination : "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-supply-chain-management",
+      permanent: true,
+    },
   ],
 };
 
