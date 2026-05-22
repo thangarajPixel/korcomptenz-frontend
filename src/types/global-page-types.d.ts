@@ -203,19 +203,30 @@ type BannerSectionType = {
   imageMobile: ImageType;
   isListPage: boolean;
   isHasFooter: boolean;
-  isTarget: boolean;
+  isTarget: boolean | null;
   image: ImageType;
   alt: string;
   logo?: ImageType;
   logoMobile?: ImageType;
   altMobile: ImageType;
   title: string;
+  subtitle?: string;
   description: string;
   buttonText: string;
+  buttonLink?: string | null;
   bannerCaption: string;
   link: string | null;
   secondButton: string;
   secondLink: string;
+  noofcolumns?: string;
+  list?: {
+    id: number;
+    title: string;
+    description: string;
+    image?: ImageType;
+    buttonText?: string | null;
+    buttonLink?: string | null;
+  }[];
   customFooter: {
     backgroundImage: ImageType;
     image: ImageType;
@@ -825,6 +836,11 @@ type AchievementsType = {
   logo: AchievementscardType[];
   list: AchievementscardType[];
 };
+
+
+type AchievementSectionProps ={
+  data: AchievementsType;
+}
 type DemoListType = {
   id: string;
   list: DemoList[];
@@ -1066,6 +1082,8 @@ type ExpertMigrationType = {
 };
 type FabconAboutType = {
   title1: string;
+  subHeading: string;
+  title: string;
   title2: string;
   image: ImageType;
   backgroundImage: ImageType;
@@ -1181,15 +1199,17 @@ type SapImplementationType = {
   }[];
 };
 type SliderServiceSectionType = {
+  id: number;
   title: string;
   tablist: {
+    id: number;
     title: string;
 
     sublist: {
       title: string;
       description: string;
       image: ImageType;
-      id: string;
+      id: number;
     }[];
   }[];
 };
@@ -1217,6 +1237,20 @@ type MicrosoftGoldCertifiedType = {
     buttonLink: string;
   };
 };
+type IndustrySpotlightType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    id: string;
+    title: string;
+    description: string;
+    image: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+  }[];
+}
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
@@ -1602,7 +1636,7 @@ type ComponentPropsMap = {
     __component: "page-componets.midmarket-enterprises";
   };
 
-  LogoSlider: AchievementSectionProps & {
+  LogoSlider: AchievementsType & {
     id: string;
     __component: "contact-us.logo-slider";
   };
@@ -1611,13 +1645,25 @@ type ComponentPropsMap = {
     __component: "page-componets.sap-implementation";
   };
   SliderServiceSection: SliderServiceSectionType & {
-    id: string;
+    id: number;
     __component: "page-componets.slider-service-section";
   };
   MicrosoftGoldCertified: MicrosoftGoldCertifiedType & {
     id: string;
     __component: "page-componets.microsoft-gold-certified";
   };
+  IndustryBannerCard: BannerSectionType & {
+    id: string;
+    __component: "page-componets.banking-financial-banner";
+  };
+  IndustryAbout:FabconAboutType & {
+    id: string;
+    __component: "page-componets.industry-build-data";
+  }
+  IndustrySpotlight:IndustrySpotlightType & {
+    id: string;
+    __component: "page-componets.industry-solution-spotlight";
+  }
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
