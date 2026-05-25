@@ -10,6 +10,8 @@ import { DangerousHtml } from "../ui/dangerous-html";
 import IndustrySliderCard from "./_utils/industry-slider-card";
 
 const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
+
+  let length = data?.list?.length || 0;
   return (
     <section className="container-md py-10 lg:py-16">
       {/* Heading Section */}
@@ -31,10 +33,7 @@ const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
       </div>
 
       <div></div>
-      <Carousel
-      
-        data-debug={"page-componets.dark-slider-list"}
-      >
+      <Carousel data-debug={"page-componets.dark-slider-list"}>
         <div className={"flex flex-col gap-4  md:px-0 "}>
           <div className={cn("md:px-10 ")}>
             <CarouselContent firstItemClassName="rounded-none">
@@ -49,7 +48,7 @@ const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-
+{length >0 &&(
             <div className="hidden lg:flex">
               <CarouselPrevious
                 fontSize="size-8"
@@ -63,29 +62,21 @@ const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
                   "hidden md:flex absolute -right-2 top-1/3 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10 ",
                 )}
               />
-            </div>
-            {/* <div className="flex lg:hidden ">
-              <CarouselPrevious
-                className="left-0 top-1/2 size-8 hover:bg-primary hover:text-white "
-                variant={"default"}
-              />
-              <CarouselNext
-                className="right-0 top-1/2 hover:bg-primary hover:text-white size-8"
-                variant={"default"}
-              />
-            </div> */}
+            </div>)}
+          
           </div>
         </div>
+        {length > 0 &&(
         <div className="flex lg:hidden w-full justify-center items-center gap-4 mt-8">
-        <CarouselPrevious
-          className="relative left-0 hover:bg-primary hover:text-white size-12"
-          variant={"default"}
-        />
-        <CarouselNext
-          className="relative left-0 hover:bg-primary hover:text-white size-12"
-          variant={"default"}
-        />
-      </div>
+          <CarouselPrevious
+            className="relative left-0 hover:bg-primary hover:text-white size-12"
+            variant={"default"}
+          />
+          <CarouselNext
+            className="relative left-0 hover:bg-primary hover:text-white size-12"
+            variant={"default"}
+          />
+        </div>)}
       </Carousel>
     </section>
   );

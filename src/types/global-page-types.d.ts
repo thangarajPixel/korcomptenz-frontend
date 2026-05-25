@@ -1262,6 +1262,7 @@ type IndustrySpotlightType = {
   list: {
     id: string;
     title: string;
+    bgColor: string;
     description: string;
     image: ImageType;
     buttonText: string;
@@ -1296,6 +1297,7 @@ isBgImage: boolean;
 bgColor: string;
     title: string;
     description: string;
+    buttonColor: string;
     image: ImageType;
     buttonText: string;
     buttonLink: string;

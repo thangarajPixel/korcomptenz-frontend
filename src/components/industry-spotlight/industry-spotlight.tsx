@@ -34,18 +34,14 @@ const IndustrySpotlight = ({ data }: { data: IndustrySpotlightType }) => {
 
       {/* Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-3">
-        {data?.list?.map((item, index) => {
-          const isFirst = index === 0;
-
+        {data?.list?.map((item,) => {
           return (
             <div
               key={item?.id}
-              className={`rounded-[28px] p-6 md:p-8 flex flex-col justify-between 
-                ${
-                  isFirst
-                    ? "bg-[#2E3743] border-2 border-[#2D9CFF]"
-                    : "bg-[#25A87B]"
-                }`}
+              className="rounded-[28px] p-6 md:p-8 flex flex-col justify-between"
+              style={{
+                backgroundColor: item?.bgColor || "#25A87B",
+              }}
             >
               {/* Top Content */}
               <div>
@@ -63,8 +59,8 @@ const IndustrySpotlight = ({ data }: { data: IndustrySpotlightType }) => {
                   <DangerousHtml
                     as="h3"
                     html={item?.title}
-                    className={`max-w-lg text-[24px] md:text-[28px] leading-[33px] font-semibold
-                    ${isFirst ? "text-[#2D9CFF]" : "text-white"}`}
+                    className={`max-w-lg text-[24px] md:text-[28px] leading-[33px] font-semibold text-white
+                    `}
                   />
                 )}
                 {item?.description && (

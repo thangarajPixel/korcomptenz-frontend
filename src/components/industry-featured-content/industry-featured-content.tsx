@@ -27,17 +27,22 @@ const IndustryFeaturedContent = ({
   return (
     <section className="container-md py-10 lg:py-16">
       {/* Heading */}
-      <div className="max-w-5xl space-y-2">
-        <DangerousHtml
-          className="text-[24px] leading-[28px] font-semibold text-foreground"
-          html={data?.subHeading}
-        />
 
-        <DangerousHtml
-          as="h2"
-          html={data?.title}
-          className="text-foreground"
-        />
+      <div className="max-w-5xl space-y-2">
+        {data?.subHeading && (
+          <DangerousHtml
+            className="text-[24px] leading-[28px] font-semibold text-foreground"
+            html={data?.subHeading}
+          />
+        )}
+
+        {data?.title && (
+          <DangerousHtml
+            as="h2"
+            html={data?.title}
+            className="text-foreground"
+          />
+        )}
 
         {data?.description && (
           <DangerousHtml
@@ -51,9 +56,13 @@ const IndustryFeaturedContent = ({
       <div className="mt-10 grid grid-cols-1 gap-[1px] bg-[#D9D9D9] md:grid-cols-2 lg:grid-cols-4">
         {cards.map((item, index) => {
           const isHero = item?.isFirstCard;
-          const isVideo =
-            item?.linkType?.toLowerCase() === "video";
-
+          const isVideo = item?.linkType?.toLowerCase() === "video";
+          const buttonTextColor =
+            item?.buttonColor?.toLowerCase() === "blue"
+              ? "text-[#23A1EF]"
+              : item?.buttonColor?.toLowerCase() === "black"
+                ? "text-[#444444]"
+                : "text-white";
           const backgroundStyle = !isHero
             ? item?.isBgImage && item?.bgImage?.url
               ? {
@@ -72,9 +81,7 @@ const IndustryFeaturedContent = ({
             <div
               key={item?.id || index}
               className={`relative overflow-hidden ${
-                isHero
-                  ? "lg:col-span-2 min-h-[360px]"
-                  : "min-h-[360px] p-6"
+                isHero ? "lg:col-span-2 min-h-[360px]" : "min-h-[360px] p-6"
               }`}
               style={backgroundStyle}
             >
@@ -101,17 +108,17 @@ const IndustryFeaturedContent = ({
                   <div className="relative z-10 flex h-full flex-col justify-end p-8 lg:p-10">
                     <DangerousHtml
                       html={item?.title}
-                      className="text-[#00A3FF] text-[22px] lg:text-[26px] font-semibold leading-[32px]"
+                      className="text-[#00A3FF] text-[22px] font-semibold leading-[32px]"
                     />
 
                     {item?.description && (
                       <DangerousHtml
                         html={item.description}
-                        className="mt-3 max-w-[520px] text-white text-[15px] leading-7"
+                        className="mt-3 max-w-[520px] text-white text-md md:text-lg leading-7.5"
                       />
                     )}
 
-                    <div className="pt-5">
+                    <div className="">
                       {isVideo ? (
                         <button
                           onClick={() =>
@@ -129,7 +136,9 @@ const IndustryFeaturedContent = ({
                           link={item?.buttonLink || "#"}
                           isTargetNew={item?.isTarget}
                           buttonProps={{
-                            className: "text-[#00A3FF]",
+                            arrow: true,
+                            className:
+                              " bg-transparent hover:bg-transparent text-white  hover:text-white  border-none hover:border-none -ml-3",
                           }}
                         >
                           {item?.buttonText || "Read More"}
@@ -149,19 +158,15 @@ const IndustryFeaturedContent = ({
                     {/* Title */}
                     <DangerousHtml
                       html={item?.title}
-                      className={`font-semibold text-xl ${
-                        item?.isBgImage
-                          ? "text-white"
-                          : "text-[#242424]"
+                      className={`text-[22px]  font-semibold leading-[32px] ${
+                        item?.isBgImage ? "text-white" : "text-[#242424]"
                       }`}
                     />
 
                     {/* Image */}
                     {item?.image?.url && (
                       <div
-                        className={`my-4 ${
-                          isVideo ? "cursor-pointer" : ""
-                        }`}
+                        className={`my-4 ${isVideo ? "cursor-pointer" : ""}`}
                         onClick={() =>
                           isVideo
                             ? setIsVideoOpen({
@@ -185,16 +190,14 @@ const IndustryFeaturedContent = ({
                     {item?.description && (
                       <DangerousHtml
                         html={item.description}
-                        className={`mt-3 text-sm leading-6 ${
-                          item?.isBgImage
-                            ? "text-white"
-                            : "text-[#242424]"
+                        className={`mt-3 text-md md:text-lg leading-7.5 ${
+                          item?.isBgImage ? "text-white" : "text-[#242424]"
                         }`}
                       />
                     )}
 
                     {/* CTA */}
-                    <div className="mt-auto pt-6">
+                    <div className="mt-auto ">
                       {isVideo ? (
                         <button
                           onClick={() =>
@@ -203,7 +206,7 @@ const IndustryFeaturedContent = ({
                               open: true,
                             })
                           }
-                          className="font-medium text-[#00A3FF] hover:underline"
+                          className={`font-medium ${buttonTextColor} hover:underline cursor-pointer`}
                         >
                           {item?.buttonText || "Play Video"}
                         </button>
@@ -212,7 +215,8 @@ const IndustryFeaturedContent = ({
                           link={item?.buttonLink || "#"}
                           isTargetNew={item?.isTarget}
                           buttonProps={{
-                            className: "text-[#00A3FF]",
+                            
+                            className: `bg-transparent border-none -ml-3 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace('text-', '')} hover:border-none`,
                           }}
                         >
                           {item?.buttonText || "Read More"}

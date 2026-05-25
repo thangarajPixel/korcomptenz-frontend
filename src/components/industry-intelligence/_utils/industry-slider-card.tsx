@@ -18,7 +18,6 @@ interface Props {
 }
 
 const IndustrySliderCard: React.FC<Props> = ({ slide }) => {
-  
   return (
     <div className="flex-shrink-0 w-full h-full mt-3">
       <div className="relative">
@@ -31,18 +30,22 @@ const IndustrySliderCard: React.FC<Props> = ({ slide }) => {
         />
 
         {/* OVERLAP CONTENT BOX */}
-        <div className="relative z-10 bg-white rounded-[18px] shadow-2xl mx-2 md:mx-10 -mt-10 px-5 py-4 md:mb-10">
+        <div className="relative z-10 bg-white rounded-[18px] shadow-2xl mx-2 md:mx-10 -mt-10 px-5 py-4 mb-10">
           {/* TITLE */}
-          <DangerousHtml
-            html={slide?.title}
-            className="text-[16px] md:text-[18px] font-semibold text-[#242424] leading-[1.3]"
-          />
+
+          {slide?.title && (
+            <DangerousHtml
+              html={slide?.title}
+              className="text-[16px] md:text-[16px] font-semibold text-[#242424] leading-[1.3]"
+            />
+          )}
 
           {/* DESCRIPTION */}
-          <DangerousHtml
+          {slide?.description &&(<DangerousHtml
             html={slide?.description}
-            className="text-[15px] lg:text-[16px] md:text-base text-[#4B4B4B] leading-6 "
-          />
+            className="text-md  md:text-[16px] text-[#4B4B4B] leading-6 -mt-1 "
+          />)}
+          
 
           {/* BUTTON */}
           {slide?.buttonText && (
@@ -53,7 +56,6 @@ const IndustrySliderCard: React.FC<Props> = ({ slide }) => {
                 buttonProps={{ className: "text-[15px]", arrow: true }}
               >
                 {slide?.buttonText}
-                
               </ButtonLink>
             </div>
           )}
