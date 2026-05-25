@@ -98,6 +98,8 @@ import MicrosoftGoldCertified from "../microsoft-certified";
 import IndustryBannerSection from "../industry-banner";
 import IndustryAbout from "../industry-about";
 import IndustrySpotlight from "../industry-spotlight";
+import IndustryIntelligence from "../industry-intelligence";
+import IndustryFeaturedContent from "../industry-featured-content/industry-featured-content";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1074,6 +1076,25 @@ const GlobalPage = (props: Props) => {
             <IndustrySpotlight data={item} />
           </ScrollFadeIn>
         );
+        case "page-componets.industry-intelligent-experience":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-intelligent-experience-${item?.__component}-${item?.id}`}
+          >
+            <IndustryIntelligence data={item} />
+          </ScrollFadeIn>
+        );
+       case "page-componets.industry-featured-content":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-featured-content-${item?.__component}-${item?.id}`}
+          >
+            <IndustryFeaturedContent data={item} />
+          </ScrollFadeIn>
+        );
+
       default:
         return;
     }

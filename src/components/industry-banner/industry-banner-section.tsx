@@ -9,7 +9,7 @@ const IndustryBannerSection = ({
 }) => {
   return (
     <section
-      className="container-md mt-2 lg:mt-10"
+      className=""
       data-debug={"page-componets.banking-financial-banner"}
     >
       {BannerSectionData?.length < 2 ? (

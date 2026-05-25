@@ -22,7 +22,7 @@ const IndustryBannerCard = ({
   className?: string;
 }) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true);
- 
+
   useEffect(() => {
     const checkDevice = () => {
       setIsDesktop(window.innerWidth >= 1024);
@@ -46,8 +46,7 @@ const IndustryBannerCard = ({
           {/* Hero card */}
           <div
             className={cn(
-              "relative w-full md:h-[513px] h-full overflow-hidden hidden lg:block rounded-4xl",
-              data?.isHasFooter && "rounded-b-none",
+              "relative w-full md:h-[513px] h-full overflow-hidden hidden lg:block overflow-hidden"
             )}
           >
             <KorcomptenzImage
@@ -60,23 +59,27 @@ const IndustryBannerCard = ({
             <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-5" />
 
             {/* Text content */}
-            <div className="absolute top-0 left-10 p-10 z-10 w-5/8 h-full flex flex-col gap-4 justify-center items-start max-w-3xl">
+            <div className="absolute top-0 left-10 p-10 z-10 w-5/8 h-full flex flex-col  justify-center items-start max-w-3xl">
               {data?.subtitle && (
-                <span className="text-primary font-semibold text-lg border border-primary px-3 py-1 rounded-sm">
+                <span className="text-white font-bold md:text-[25px] ">
                   {data.subtitle}
                 </span>
               )}
 
-              <DangerousHtml as="h1" html={data?.title} className="text-white" />
+              <DangerousHtml
+                as="h1"
+                html={data?.title}
+                className="text-white"
+              />
 
               {data?.description && (
                 <DangerousHtml
-                  className="text-[22px] md:text-[28px] leading-[35px] font-normal text-white"
+                  className="text-[22px] md:text-[28px] leading-[35px] font-normal text-white mt-3"
                   html={data.description}
                 />
               )}
 
-              <div className="flex flex-row gap-4">
+              <div className="flex flex-row gap-4 mt-3">
                 {data?.buttonText && (
                   <ButtonLink
                     link={buttonHref}
@@ -96,7 +99,7 @@ const IndustryBannerCard = ({
 
           {/* Footer bar */}
           {data?.isHasFooter && data?.list && data.list.length > 0 && (
-            <div className="hidden lg:block bg-[#2b2b2b] rounded-b-4xl px-10">
+            <div className="hidden lg:block bg-[#2b2b2b]  px-16">
               <ul className={cn("grid", gridCols)}>
                 {data.list.map((item) => (
                   <li key={item.id} className="h-full">
@@ -139,8 +142,7 @@ const IndustryBannerCard = ({
           <div
             className={cn(
               "w-full lg:hidden overflow-hidden",
-              data?.customFooter ? "rounded-t-4xl" : "rounded-4xl",
-              data?.isHasFooter && "rounded-b-none",
+             
             )}
           >
             {/* Banner image with overlaid text */}
@@ -173,19 +175,20 @@ const IndustryBannerCard = ({
                 ) : null}
 
                 {data?.subtitle && (
-                  <span className="text-primary font-semibold text-sm border border-primary px-3 py-1 rounded-sm self-start">
+                  <span className="text-white font-bold text-[18px]  self-start">
                     {data.subtitle}
                   </span>
                 )}
 
                 <DangerousHtml
                   html={data?.title}
+                  as="h1"
                   className="text-2xl font-semibold leading-tight text-white"
                 />
 
                 {data?.description && (
                   <DangerousHtml
-                    className="text-sm leading-relaxed font-normal text-white/90 **:text-white!"
+                    className="text-[18px] leading-7 font-normal text-white/90 **:text-white!"
                     html={data.description}
                   />
                 )}
@@ -206,7 +209,7 @@ const IndustryBannerCard = ({
 
             {/* Mobile footer bar */}
             {data?.isHasFooter && data?.list && data.list.length > 0 && (
-              <div className="bg-[#2b2b2b] rounded-b-4xl px-4 py-5">
+              <div className="bg-[#2b2b2b]  px-4 py-5">
                 <ul className="grid grid-cols-1 gap-4">
                   {data.list.map((item) => (
                     <li key={item.id} className="flex items-center gap-2">
@@ -222,13 +225,13 @@ const IndustryBannerCard = ({
                         {item?.title && (
                           <DangerousHtml
                             html={item.title}
-                            className="text-white text-[14px] font-semibold leading-[16px] mt-2 "
+                            className="text-white text-[16px] font-bold leading-[18px] mt-2 "
                           />
                         )}
                         {item?.description && (
                           <DangerousHtml
                             html={item.description}
-                            className="text-white/70 text-[14px] leading-[16px] **:text-white/70! -mt-2"
+                            className="text-white text-[16px] leading-[18px] font-normal -mt-2"
                           />
                         )}
                       </div>

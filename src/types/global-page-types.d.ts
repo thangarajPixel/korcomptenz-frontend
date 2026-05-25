@@ -729,6 +729,23 @@ type WebinarReserveFormType = {
 
   list: { id: string; description: string }[];
 };
+
+type IndustryFormType = {
+  __component: "form-fields.industry-form";
+  title: string;
+  description: string;
+  disclaimerDescription: string;
+  buttonText: string;
+  companyLabel: string;
+  emailLabel: string;
+  firstNameLabel: string;
+  lastNameLabel: string;
+  messageLabel: string;
+  phoneLabel: string;
+  serviceLabel: string;
+  id: string;
+};
+
 type KorCareImpactDescriptionType = {
   title: string;
   description: string;
@@ -745,6 +762,7 @@ type FormMap = {
   ContactUsFormType: ContactUsFormType;
   DemoRequestFormType: DemoRequestFormType;
   WebinarReserveFormType: WebinarReserveFormType;
+  IndustryFormType: IndustryFormType;
 };
 type DigitialInsightType = {
   title: string;
@@ -837,10 +855,9 @@ type AchievementsType = {
   list: AchievementscardType[];
 };
 
-
-type AchievementSectionProps ={
+type AchievementSectionProps = {
   data: AchievementsType;
-}
+};
 type DemoListType = {
   id: string;
   list: DemoList[];
@@ -1250,7 +1267,43 @@ type IndustrySpotlightType = {
     buttonLink: string;
     isTarget: boolean;
   }[];
-}
+};
+
+type IndustryIntelligenceType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    id: string;
+    title: string;
+    description: string;
+    image: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+    linkType: string;
+  }[];
+};
+
+type IndustryFeaturedContentType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    id: string;
+isBgImage: boolean;
+bgColor: string;
+    title: string;
+    description: string;
+    image: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+    linkType: string;
+    bgImage: ImageType;
+    isFirstCard: boolean;
+  }[];
+};
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
@@ -1656,14 +1709,23 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.banking-financial-banner";
   };
-  IndustryAbout:FabconAboutType & {
+  IndustryAbout: FabconAboutType & {
     id: string;
     __component: "page-componets.industry-build-data";
-  }
-  IndustrySpotlight:IndustrySpotlightType & {
+  };
+  IndustrySpotlight: IndustrySpotlightType & {
     id: string;
     __component: "page-componets.industry-solution-spotlight";
-  }
+  };
+  IndustryIntelligence: IndustryIntelligenceType & {
+    id: string;
+    __component: "page-componets.industry-intelligent-experience";
+  };
+
+  IndustryFeaturedContent: IndustryFeaturedContentType & {
+    id: string;
+    __component: "page-componets.industry-featured-content";
+  };
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
@@ -1714,10 +1776,10 @@ type CaseStudiesPageType = {
     image2: ImageType;
     image3: ImageType;
     slug: string;
-    seo:{
+    seo: {
       title: string;
       description: string;
-    }
+    };
   }[];
 };
 type CaseStudyPageType = {

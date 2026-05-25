@@ -809,3 +809,12 @@ type ErrorType = {
     message: string;
   };
 };
+
+
+type IndustryServiceListType={
+  data: {
+    id: string;
+    title: string;
+    slug: string;
+  }[];
+}
