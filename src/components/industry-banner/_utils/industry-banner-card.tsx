@@ -104,6 +104,7 @@ const IndustryBannerCard = ({
                 {data.list.map((item) => (
                   <li key={item.id} className="h-full">
                     <a
+                      target={item?.isTarget ? "_blank" : "_self"}
                       href={item?.buttonLink || "#"}
                       className="flex items-center gap-3 px-2 py-1"
                     >

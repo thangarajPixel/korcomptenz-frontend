@@ -7,7 +7,7 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
 
   return (
     <div className="container-md">
-      <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] md:gap-x-10 gap-y-10">
+      <div className="grid grid-cols-1 lg:grid-cols-[52%_45%] md:gap-x-10 gap-y-10">
         {" "}
         {/* CONTENT SECTION */}
         <div className="lg:px-5 space-y-2 md:mt-8">
@@ -45,19 +45,19 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
           )}
         </div>
         {/* IMAGE SECTION */}
-        <div className="relative md:pb-16 md:pr-10">
+        <div className="relative md:pb-16 md:pr-3">
           <div className="relative inline-block w-full">
             {/* Foreground image (on top) */}
             <KorcomptenzImage
               src={data?.image}
-              width={500}
+              width={510}
               height={500}
-              className="relative z-10 w-[500px] h-auto object-cover rounded-2xl"
+              className="relative z-10 w-[510px] h-auto object-cover rounded-2xl md:ml-7"
             />
 
             {/* Purple accent block — anchored to bottom-right of image */}
             <div
-              className="absolute -bottom-8 -right-9 z-0 hidden md:block w-[55%] h-[280px] rounded-2xl mr-[40px]"
+              className="absolute -bottom-8 -right-9 z-0 hidden md:block w-[300px] h-[280px] rounded-2xl mr-[40px]"
               style={{ backgroundColor: "#5647D8" }}
             />
 
