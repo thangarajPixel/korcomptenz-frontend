@@ -222,6 +222,7 @@ type BannerSectionType = {
   list?: {
     id: number;
     title: string;
+    isTarget: boolean;
     description: string;
     image?: ImageType;
     buttonText?: string | null;

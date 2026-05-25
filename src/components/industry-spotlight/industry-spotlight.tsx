@@ -9,19 +9,27 @@ const IndustrySpotlight = ({ data }: { data: IndustrySpotlightType }) => {
       {/* Heading Section */}
       <div className="space-y-2 max-w-5xl">
         {/* Sub Heading */}
-        <DangerousHtml
-          className="text-[24px] leading-[28px] font-semibold font-foreground"
-          html={data?.subHeading}
-        />
+        {data?.subHeading && (
+          <DangerousHtml
+            className="text-[24px] leading-[28px] font-semibold font-foreground"
+            html={data?.subHeading}
+          />
+        )}
 
         {/* Main Title */}
-        <DangerousHtml as="h2" html={data?.title} className="text-foreground" />
-
-        {/* Description */}
-        <DangerousHtml
-          html={data?.description}
-          className="text-[#242424] text-base md:text-lg leading-7 break-words"
-        />
+        {data?.title && (
+          <DangerousHtml
+            as="h2"
+            html={data?.title}
+            className="text-foreground"
+          />
+        )}
+        {data?.description && (
+          <DangerousHtml
+            html={data?.description}
+            className="text-[#242424] text-base md:text-lg leading-7.5 break-words"
+          />
+        )}
       </div>
 
       {/* Cards */}
@@ -51,20 +59,20 @@ const IndustrySpotlight = ({ data }: { data: IndustrySpotlightType }) => {
                     className="h-[50px] w-auto object-contain mb-3"
                   />
                 )}
-
-                {/* Title */}
-                <DangerousHtml
-                  as="h3"
-                  html={item?.title}
-                  className={`max-w-lg text-[24px] md:text-[28px] leading-[33px] font-semibold
+                {item?.title && (
+                  <DangerousHtml
+                    as="h3"
+                    html={item?.title}
+                    className={`max-w-lg text-[24px] md:text-[28px] leading-[33px] font-semibold
                     ${isFirst ? "text-[#2D9CFF]" : "text-white"}`}
-                />
-
-                {/* Description */}
-                <DangerousHtml
-                  html={item?.description}
-                  className="text-white text-base md:text-lg leading-7 mt-3 max-w-[480px]"
-                />
+                  />
+                )}
+                {item?.description && (
+                  <DangerousHtml
+                    html={item?.description}
+                    className="text-white text-base md:text-lg leading-7.5 mt-3 max-w-[480px]"
+                  />
+                )}
               </div>
 
               {/* Button */}

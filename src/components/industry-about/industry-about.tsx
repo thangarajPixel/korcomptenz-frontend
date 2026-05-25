@@ -4,7 +4,6 @@ import ButtonLink from "../ui/button-link";
 import KorcomptenzImage from "../korcomptenz-image";
 
 const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
-
   return (
     <div className="container-md">
       <div className="grid grid-cols-1 lg:grid-cols-[52%_45%] md:gap-x-10 gap-y-10">
@@ -12,28 +11,34 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
         {/* CONTENT SECTION */}
         <div className="lg:px-5 space-y-2 md:mt-8">
           {/* Title */}
-          <DangerousHtml className="text-[24px] leading-[28px] font-semibold font-foreground"
-           html={data?.subHeading}
-          />
-          <div className="flex items-center gap-2  max-w-4xl">
+          {data?.subHeading && (
             <DangerousHtml
-              as="h2"
-              html={data?.title}
-              className="text-foreground"
+              className="text-[24px] leading-[28px] font-semibold font-foreground"
+              html={data?.subHeading}
             />
-          </div>
-
-          {/* Description */}
-          <DangerousHtml
-            html={data?.description}
-            className="text-md md:text-lg text-[#242424] leading-7.5 break-words"
-          />
+          )}
+          {data?.title && (
+            <div className="flex items-center gap-2  max-w-4xl">
+              <DangerousHtml
+                as="h2"
+                html={data?.title}
+                className="text-foreground"
+              />
+            </div>
+          )}
+          {data?.description && (
+            <DangerousHtml
+              html={data?.description}
+              className="text-md md:text-lg text-[#242424] leading-7.5 break-words"
+            />
+          )}
 
           {/* Button */}
           {data?.buttonText && (
             <div className="pt-2">
               <ButtonLink
                 link={data?.buttonLink || "#"}
+                isTargetNew={data?.isTarget}
                 buttonProps={{
                   size: "xl",
                   arrow: true,
@@ -52,12 +57,12 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
               src={data?.image}
               width={510}
               height={500}
-              className="relative z-10 w-[510px] h-auto object-cover rounded-2xl md:ml-7"
+              className="relative z-10 w-[365px] md:w-[510px] h-auto object-cover rounded-2xl md:ml-7"
             />
 
             {/* Purple accent block — anchored to bottom-right of image */}
             <div
-              className="absolute -bottom-8 -right-9 z-0 hidden md:block w-[300px] h-[280px] rounded-2xl mr-[40px]"
+              className="absolute -bottom-8 -right-9 z-0 w-[170px] h-[180px]  md:block md:w-[300px] md:h-[280px] rounded-2xl mr-[40px]"
               style={{ backgroundColor: "#5647D8" }}
             />
 
