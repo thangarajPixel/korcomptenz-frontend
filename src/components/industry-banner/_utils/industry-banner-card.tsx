@@ -149,8 +149,7 @@ const IndustryBannerCard = ({
             <div
               className={cn(
                 "relative w-full overflow-hidden",
-                data?.customFooter ? "rounded-t-4xl" : "rounded-t-4xl",
-                !data?.isHasFooter && "rounded-b-4xl",
+                
               )}
             >
               <KorcomptenzImage
