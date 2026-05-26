@@ -100,6 +100,7 @@ import IndustryAbout from "../industry-about";
 import IndustrySpotlight from "../industry-spotlight";
 import IndustryIntelligence from "../industry-intelligence";
 import IndustryFeaturedContent from "../industry-featured-content/industry-featured-content";
+import IndustryServicePortfolio from "../industry-service-portfolio";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1092,6 +1093,15 @@ const GlobalPage = (props: Props) => {
             key={`industry-featured-content-${item?.__component}-${item?.id}`}
           >
             <IndustryFeaturedContent data={item} />
+          </ScrollFadeIn>
+        );
+        case "page-componets.industry-service-portfolio":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-service-portfolio-${item?.__component}-${item?.id}`}
+          >
+            <IndustryServicePortfolio data={item} />
           </ScrollFadeIn>
         );
 

@@ -1293,8 +1293,8 @@ type IndustryFeaturedContentType = {
   description: string;
   list: {
     id: string;
-isBgImage: boolean;
-bgColor: string;
+    isBgImage: boolean;
+    bgColor: string;
     title: string;
     description: string;
     buttonColor: string;
@@ -1306,6 +1306,23 @@ bgColor: string;
     bgImage: ImageType;
     isFirstCard: boolean;
   }[];
+};
+type IndustryServicePortfolioType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  list: {
+    title: string;
+    description: string;
+    list: {
+      tabTitle: string;
+      image: ImageType;
+      subList: { title: string; description:{ description:string}[] };
+    }[];
+  };
 };
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -1728,6 +1745,10 @@ type ComponentPropsMap = {
   IndustryFeaturedContent: IndustryFeaturedContentType & {
     id: string;
     __component: "page-componets.industry-featured-content";
+  };
+  IndustryServicePortfolio: IndustryServicePortfolioType & {
+    id: string;
+    __component: "page-componets.industry-service-portfolio";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

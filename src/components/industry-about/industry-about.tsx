@@ -9,7 +9,7 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
       <div className="grid grid-cols-1 lg:grid-cols-[52%_45%] md:gap-x-10 gap-y-10">
         {" "}
         {/* CONTENT SECTION */}
-        <div className="lg:px-5 space-y-2 md:mt-8">
+        <div className="lg:px-5  md:mt-8">
           {/* Title */}
           {data?.subHeading && (
             <DangerousHtml
@@ -49,10 +49,11 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
             </div>
           )}
         </div>
-        {/* IMAGE SECTION */}
+        {/* IMAGE SECTION */} {data?.image &&(
         <div className="relative md:pb-16 md:pr-3">
           <div className="relative inline-block w-full">
             {/* Foreground image (on top) */}
+           
             <KorcomptenzImage
               src={data?.image}
               width={510}
@@ -78,7 +79,7 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
               </div>
             )} */}
           </div>
-        </div>
+        </div>)} 
       </div>
     </div>
   );

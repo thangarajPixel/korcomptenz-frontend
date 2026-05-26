@@ -15,7 +15,7 @@ const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
   return (
     <section className="container-md py-10 lg:py-16">
       {/* Heading Section */}
-      <div className="space-y-2 max-w-5xl">
+      <div className="max-w-5xl">
         {/* Sub Heading */}
         <DangerousHtml
           className="text-[24px] leading-[28px] font-semibold font-foreground"

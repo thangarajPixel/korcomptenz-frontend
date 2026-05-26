@@ -7,7 +7,7 @@ const IndustrySpotlight = ({ data }: { data: IndustrySpotlightType }) => {
   return (
     <section className="container-md py-10 lg:py-16">
       {/* Heading Section */}
-      <div className="space-y-2 max-w-5xl">
+      <div className=" max-w-5xl">
         {/* Sub Heading */}
         {data?.subHeading && (
           <DangerousHtml
