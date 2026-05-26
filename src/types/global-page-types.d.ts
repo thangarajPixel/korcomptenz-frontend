@@ -1320,7 +1320,7 @@ type IndustryServicePortfolioType = {
     list: {
       tabTitle: string;
       image: ImageType;
-      subList: { title: string; description:{ description:string ;link:string; isTarget: boolean}[] };
+      subList: { title: string; descriptionList:{ description:string ;link:string; isTarget: boolean}[] };
     }[];
   };
 };

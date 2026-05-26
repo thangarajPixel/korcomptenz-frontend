@@ -122,7 +122,7 @@ const IndustryServicePortfolio = ({
             />
 
             <div className="grid md:grid-cols-2 gap-x-6 gap-y-3">
-              {activeItem?.subList?.description?.map((service, idx) => (
+              {activeItem?.subList?.descriptionList?.map((service, idx) => (
                 <div key={idx} className="flex items-start gap-2">
                   <Link
                     href={service?.link || "#"}
@@ -130,7 +130,7 @@ const IndustryServicePortfolio = ({
                   >
                     <DangerousHtml
                       html={service?.description}
-                      className="text-base md:text-lg leading-7.5 text-foreground  cursor-pointer hover:text-[#1EBFA1] transition-colors"
+                      className="text-base md:text-lg leading-7.5 text-foreground  cursor-pointer transition-colors"
                     />
                   </Link>
                 </div>

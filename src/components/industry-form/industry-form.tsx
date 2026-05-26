@@ -78,7 +78,7 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
 
   return (
     <section className="container-md py-10 lg:py-16">
-      <div className="space-y-2 max-w-5xl">
+      <div className=" max-w-5xl">
         {/* Sub Heading */}
 
         {/* Main Title */}
@@ -93,7 +93,7 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
       <form
         id="contact-us-form"
         onSubmit={handleSubmit(handleFormSubmit)}
-        className="space-y-8 bg-white rounded-2xl  md:p-5"
+        className="space-y-8 bg-white rounded-2xl  "
         noValidate
       >
         <div className="grid gap-y-8 mt-2">

@@ -30,14 +30,14 @@ const ThankYouPage = () => {
             Thank you
           </p>
           <KorcomptenzImage
-            src="https://s.w.org/images/core/emoji/16.0.1/svg/1f642.svg"
+            src="/assets/1f642.svg"
             width={80}
             height={80}
             className="hidden md:block"
           />
 
           <KorcomptenzImage
-            src="https://s.w.org/images/core/emoji/16.0.1/svg/1f642.svg"
+            src="/assets/1f642.svg"
             width={40}
             height={40}
             className="block md:hidden"
