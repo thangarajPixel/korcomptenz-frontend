@@ -7,10 +7,9 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
   return (
     <div className="container-md">
       <div className="grid grid-cols-1 lg:grid-cols-[52%_45%] md:gap-x-10 gap-y-10">
-        {" "}
+
         {/* CONTENT SECTION */}
-        <div className="lg:px-5  md:mt-8">
-          {/* Title */}
+        <div className="lg:px-5 md:mt-8">
           {data?.subHeading && (
             <DangerousHtml
               className="text-[24px] leading-[28px] font-semibold font-foreground"
@@ -18,7 +17,7 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
             />
           )}
           {data?.title && (
-            <div className="flex items-center gap-2  max-w-4xl">
+            <div className="flex items-center gap-2 max-w-4xl">
               <DangerousHtml
                 as="h2"
                 html={data?.title}
@@ -32,54 +31,49 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
               className="text-md md:text-lg text-[#242424] leading-7.5 break-words"
             />
           )}
-
-          {/* Button */}
           {data?.buttonText && (
             <div className="pt-2">
               <ButtonLink
                 link={data?.buttonLink || "#"}
                 isTargetNew={data?.isTarget}
-                buttonProps={{
-                  size: "xl",
-                  arrow: true,
-                }}
+                buttonProps={{ size: "xl", arrow: true }}
               >
                 {data?.buttonText || "Watch Now"}
               </ButtonLink>
             </div>
           )}
         </div>
-        {/* IMAGE SECTION */} {data?.image &&(
-        <div className="relative md:pb-16 md:pr-3">
-          <div className="relative inline-block w-full">
-            {/* Foreground image (on top) */}
-           
+
+        {/* IMAGE SECTION */}
+        {data?.image && (
+          <div
+            className="relative"
+            style={{
+              // Reserve space for the purple block offset at the bottom & right
+              paddingBottom: "2rem",
+              paddingRight: "2rem",
+            }}
+          >
+            {/* Purple accent block — sized relative to the wrapper, always behind the image */}
+            <div
+              className="absolute bottom-0 right-0 z-0 rounded-2xl"
+              style={{
+                backgroundColor: "#5647D8",
+                // Use percentages so it scales with the column width on every breakpoint
+                width: "60%",
+                height: "75%",
+              }}
+            />
+
+            {/* Foreground image — pushes the purple block to bottom-right naturally */}
             <KorcomptenzImage
               src={data?.image}
               width={510}
               height={500}
-              className="relative z-10 w-[365px] md:w-[510px] h-auto object-cover rounded-2xl md:ml-7"
+              className="relative z-10 w-full h-auto object-cover rounded-2xl"
             />
-
-            {/* Purple accent block — anchored to bottom-right of image */}
-            <div
-              className="absolute -bottom-8 -right-9 z-0 w-[170px] h-[180px]  md:block md:w-[300px] md:h-[280px] rounded-2xl mr-[40px]"
-              style={{ backgroundColor: "#5647D8" }}
-            />
-
-            {/* Background texture/image on top of purple block */}
-            {/* {data?.backgroundImage && (
-              <div className="absolute -bottom-8 -right-9 z-[5] hidden md:block w-[55%] h-[40%] rounded-2xl overflow-hidden opacity-70">
-                <KorcomptenzImage
-                  src={data?.backgroundImage}
-                  width={500}
-                  height={450}
-                  className="w-[500px] h-full object-cover"
-                />
-              </div>
-            )} */}
           </div>
-        </div>)} 
+        )}
       </div>
     </div>
   );
