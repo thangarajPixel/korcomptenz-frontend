@@ -40,6 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     robots: "noindex, nofollow",
     metadataBase: new URL(baseUrl),
+
     alternates: {
       canonical: "/",
     },
@@ -51,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "geo.region": "US-NJ",
       "geo.placename": "New Jersey, USA",
       "geo.position": "40.7128;-74.0060",
-      "ICBM": "40.7128, -74.0060",
+      ICBM: "40.7128, -74.0060",
     },
     openGraph: {
       type: "website",
@@ -102,7 +103,14 @@ export default function RootLayout({
         <link rel="preconnect" href="https://js.hs-scripts.com" />
         <link rel="dns-prefetch" href="https://s.adroll.com" />
         <link rel="dns-prefetch" href="https://mkmpages.korcomptenz.com" />
-        <link rel="preconnect" href="https://aue2kormlworkspacetest01.blob.core.windows.net" />
+        <link
+          rel="preconnect"
+          href="https://aue2kormlworkspacetest01.blob.core.windows.net"
+        />
+        <meta
+          name="google-site-verification"
+          content="8yPY0q0KPyH9ZtIG6Dk8tKfAGC_Ci7rAcKEekso8KQs"
+        />
 
         {/* JSON-LD Structured Data Schemas */}
         <script
