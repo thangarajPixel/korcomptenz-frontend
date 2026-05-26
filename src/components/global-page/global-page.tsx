@@ -96,6 +96,13 @@ import SliderServiceSection from "../slider-services-section/slider-services-sec
 import MicrosoftGoldCertified from "../microsoft-certified";
 import KeyMetricsSection from "../key-metrics-section";
 
+import type GlobalPage from ".";
+import SapWhyKorcomptenz from "../sap-why-korcomptenz";
+import WhattoExpect from "../what-to-expect";
+import { SAPPracticeAreas } from "../sap-practice-areas";
+import SAPClientTestimonial from "../client-testimonial";
+import CertificationsSection from "../certifications-section";
+import RequestConsultation from "../request-consultation";
 type Props = {
   data: ComponentPropsType[];
 };
@@ -232,6 +239,51 @@ const GlobalPage = (props: Props) => {
             key={`page-componets.key-metrics-section-${item?.__component}-${item?.id}`}
           >
             <KeyMetricsSection KeyMetricsData={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.sap-why-korcomptenz":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`sap-why-korcomptenz-section-${item?.__component}-${item?.id}`}
+          >
+            <SapWhyKorcomptenz data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.what-to-expect":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`what-to-expect-${item?.__component}-${item?.id}`}
+          >
+            <WhattoExpect data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.client-testimonial":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`client-testimonial-${item?.__component}-${item?.id}`}
+          >
+            <SAPClientTestimonial data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.certifications-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`certifications-section-${item?.__component}-${item?.id}`}
+          >
+            <CertificationsSection data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.request-consultation":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`request-consultation-${item?.__component}-${item?.id}`}
+          >
+            <RequestConsultation data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.domain-data":
@@ -1053,6 +1105,17 @@ const GlobalPage = (props: Props) => {
             <MicrosoftGoldCertified data={item} />
           </ScrollFadeIn>
         );
+
+      case "page-componets.sap-practice-areas":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`sap-practice-areas-${item?.__component}-${item?.id}`}
+          >
+            <SAPPracticeAreas data={item} />
+          </ScrollFadeIn>
+        );
+
       default:
         return;
     }
