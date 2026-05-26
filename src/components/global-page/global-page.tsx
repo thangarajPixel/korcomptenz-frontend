@@ -96,7 +96,6 @@ import SliderServiceSection from "../slider-services-section/slider-services-sec
 import MicrosoftGoldCertified from "../microsoft-certified";
 import KeyMetricsSection from "../key-metrics-section";
 
-import type GlobalPage from ".";
 import SapWhyKorcomptenz from "../sap-why-korcomptenz";
 import WhattoExpect from "../what-to-expect";
 import { SAPPracticeAreas } from "../sap-practice-areas";
