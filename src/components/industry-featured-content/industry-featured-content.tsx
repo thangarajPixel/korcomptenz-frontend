@@ -28,7 +28,7 @@ const IndustryFeaturedContent = ({
     <section className="container-md py-10 lg:py-16">
       {/* Heading */}
 
-      <div className="max-w-5xl space-y-2">
+      <div className="max-w-5xl ">
         {data?.subHeading && (
           <DangerousHtml
             className="text-[24px] leading-[28px] font-semibold text-foreground"
@@ -53,7 +53,7 @@ const IndustryFeaturedContent = ({
       </div>
 
       {/* Cards */}
-      <div className="mt-10 grid grid-cols-1 gap-[1px] bg-[#D9D9D9] md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-5 grid grid-cols-1 gap-[1px] md:grid-cols-2 lg:grid-cols-4">
         {cards.map((item, index) => {
           const isHero = item?.isFirstCard;
           const isVideo = item?.linkType?.toLowerCase() === "video";
@@ -166,7 +166,7 @@ const IndustryFeaturedContent = ({
                     {/* Image */}
                     {item?.image?.url && (
                       <div
-                        className={`my-4 ${isVideo ? "cursor-pointer" : ""}`}
+                        className={`relative my-4 ${isVideo ? "cursor-pointer" : ""}`}
                         onClick={() =>
                           isVideo
                             ? setIsVideoOpen({
@@ -183,6 +183,18 @@ const IndustryFeaturedContent = ({
                           height={250}
                           className="h-[120px] w-full rounded-lg object-cover"
                         />
+
+                        {isVideo && (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-white/20 ">
+                              <img
+                                src="/assets/play-button.png"
+                                alt="Play"
+                                className="h-6 w-6"
+                              />
+                            </div>
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -215,8 +227,7 @@ const IndustryFeaturedContent = ({
                           link={item?.buttonLink || "#"}
                           isTargetNew={item?.isTarget}
                           buttonProps={{
-                            
-                            className: `bg-transparent border-none -ml-3 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace('text-', '')} hover:border-none`,
+                            className: `bg-transparent border-none -ml-3 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace("text-", "")} hover:border-none`,
                           }}
                         >
                           {item?.buttonText || "Read More"}

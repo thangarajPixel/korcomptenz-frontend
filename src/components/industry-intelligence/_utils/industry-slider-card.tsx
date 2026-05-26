@@ -43,7 +43,7 @@ const IndustrySliderCard: React.FC<Props> = ({ slide }) => {
           {/* DESCRIPTION */}
           {slide?.description &&(<DangerousHtml
             html={slide?.description}
-            className="text-md  md:text-[16px] text-[#4B4B4B] leading-6 -mt-1 "
+            className="text-[15px]  md:text-[16px] text-[#4B4B4B] leading-6 -mt-1 "
           />)}
           
 
@@ -53,7 +53,7 @@ const IndustrySliderCard: React.FC<Props> = ({ slide }) => {
               <ButtonLink
                 link={slide?.buttonLink || "#"}
                 isTargetNew={slide?.isTarget}
-                buttonProps={{ className: "text-[15px]", arrow: true }}
+                buttonProps={{ className: "text-[15px] md:text-[16px]! text-white", arrow: true }}
               >
                 {slide?.buttonText}
               </ButtonLink>

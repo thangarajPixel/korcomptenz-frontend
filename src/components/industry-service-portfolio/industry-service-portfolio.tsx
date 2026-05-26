@@ -5,6 +5,7 @@ import { DangerousHtml } from "../ui/dangerous-html";
 import ButtonLink from "../ui/button-link";
 import KorcomptenzImage from "../korcomptenz-image";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const IndustryServicePortfolio = ({
   data,
@@ -123,15 +124,19 @@ const IndustryServicePortfolio = ({
             <div className="grid md:grid-cols-2 gap-x-6 gap-y-3">
               {activeItem?.subList?.description?.map((service, idx) => (
                 <div key={idx} className="flex items-start gap-2">
-                  <DangerousHtml
-                    html={service?.description}
-                    className="text-base md:text-lg leading-7.5 text-foreground  cursor-pointer hover:text-[#1EBFA1] transition-colors"
-                  />
+                  <Link
+                    href={service?.link || "#"}
+                    target={service?.isTarget ? "_blank" : "_self"}
+                  >
+                    <DangerousHtml
+                      html={service?.description}
+                      className="text-base md:text-lg leading-7.5 text-foreground  cursor-pointer hover:text-[#1EBFA1] transition-colors"
+                    />
+                  </Link>
                 </div>
               ))}
             </div>
           </div>
-          {/* )} */}
         </div>
       </div>
     </section>
