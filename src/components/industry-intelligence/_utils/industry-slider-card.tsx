@@ -30,7 +30,7 @@ const IndustrySliderCard: React.FC<Props> = ({ slide }) => {
         />
 
         {/* OVERLAP CONTENT BOX */}
-        <div className="relative z-10 bg-white rounded-[18px] shadow-2xl mx-2 md:mx-10 -mt-10 px-5 py-4 mb-10">
+        <div className="relative z-10 bg-white rounded-[18px] shadow-lg mx-2 md:mx-10 -mt-10 px-5 py-4 mb-10">
           {/* TITLE */}
 
           {slide?.title && (

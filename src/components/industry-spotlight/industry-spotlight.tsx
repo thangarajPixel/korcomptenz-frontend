@@ -5,7 +5,7 @@ import KorcomptenzImage from "../korcomptenz-image";
 
 const IndustrySpotlight = ({ data }: { data: IndustrySpotlightType }) => {
   return (
-    <section className="container-md py-10 lg:py-16">
+    <section className="container-md ">
       {/* Heading Section */}
       <div className=" max-w-5xl">
         {/* Sub Heading */}
@@ -52,7 +52,7 @@ const IndustrySpotlight = ({ data }: { data: IndustrySpotlightType }) => {
                     alt="solution-logo"
                     width={180}
                     height={60}
-                    className="h-[50px] w-auto object-contain mb-3"
+                    className="h-[80px] w-auto object-contain mb-6"
                   />
                 )}
                 {item?.title && (

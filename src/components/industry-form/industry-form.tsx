@@ -5,7 +5,6 @@ import { useIndustryLeadHook, useIndustryServiceHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
- 
   industryformSchema,
   type IndustryFormSchema,
 } from "@/utils/validation.schema";
@@ -77,7 +76,7 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
   );
 
   return (
-    <section className="container-md py-10 lg:py-16">
+    <section className="container-md ">
       <div className=" max-w-5xl">
         {/* Sub Heading */}
 
@@ -104,14 +103,14 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
               name={"firstName"}
               required
               placeholder={form?.firstNameLabel}
-              className=" w-full h-[52px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-sm outline-none focus:border-black focus:ring-0 py-2"
+              className=" w-full h-[70px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
             />
             <Input
               control={control}
               name="lastName"
               required
               placeholder={form?.lastNameLabel}
-              className=" w-full h-[52px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-sm outline-none focus:border-black focus:ring-0 py-2"
+              className=" w-full h-[70px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
             />
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -120,14 +119,14 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
               name="email"
               required
               placeholder={form?.emailLabel}
-              className=" w-full h-[52px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-sm outline-none focus:border-black focus:ring-0 py-2"
+              className=" w-full h-[70px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
             />
             <Input
               control={control}
               name="company"
               required
               placeholder={form?.companyLabel}
-              className=" w-full h-[52px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-sm outline-none focus:border-black focus:ring-0 py-2"
+              className=" w-full h-[70px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
             />
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -136,7 +135,7 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
               name="phone"
               required
               placeholder={form?.phoneLabel}
-              className=" w-full h-[52px] px-4 rounded-[6px] border-2  border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-sm outline-none focus:border-black focus:ring-0 py-2"
+              className=" w-full h-[70px] px-4 rounded-[6px] border-2  border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
             />
             <ComboboxField
               control={control}
@@ -150,7 +149,7 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
                 })) || []
               }
               placeholder={form?.serviceLabel}
-              className="w-full h-[52px] px-4 rounded-[6px] border-2  border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-sm outline-none focus:border-black focus:ring-0 py-2"
+              className="w-full h-[70px] px-4 rounded-[6px] border-2  border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
             />
           </div>
 
@@ -160,7 +159,7 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
               required
               name="message"
               placeholder={form?.messageLabel}
-              className=" w-full h-[100px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-sm outline-none focus:border-black focus:ring-0 py-2"
+              className=" w-full h-[120px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
             />
           </div>
 
@@ -169,11 +168,11 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
             className="text-xs text-[#9A9A9A] -mt-7 text-md md:text-lg leading-7.5"
           />
           {/* Submit button */}
-          <div className="pt-2">
+          <div className="pt-2 flex justify-center items-center -mt-5">
             <Button
-              size="xl"
+              size="lg"
               variant="outline"
-              className="hover:bg-white bg-primary border-primary text-white hover:text-primary"
+              className="hover:bg-white bg-primary border-primary text-white hover:text-primary px-10 py-4"
               arrow
               isLoading={isSubmitting}
               type="submit"

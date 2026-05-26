@@ -17,10 +17,10 @@ const IndustryServicePortfolio = ({
   const activeItem = tabs[activeIdx];
 
   return (
-    <section className="container-md py-10 lg:py-16">
+    <section className="container-md ">
       {/* ── Top header ── */}
       <div className="flex flex-col lg:flex-row justify-between items-start gap-6 mb-8">
-        <div className=" max-w-2xl">
+        <div className=" max-w-4xl">
           {data?.subHeading && (
             <DangerousHtml
               className="text-[#1EBFA1] text-[20px] md:text-[24px] font-semibold"
@@ -43,7 +43,7 @@ const IndustryServicePortfolio = ({
         </div>
 
         {data?.buttonText && (
-          <div className="shrink-0 mt-1">
+          <div className="shrink-0 mt-12">
             <ButtonLink
               link={data.buttonLink || "#"}
               isTargetNew={!!data.isTarget}
@@ -56,7 +56,7 @@ const IndustryServicePortfolio = ({
       </div>
 
       {/* ── Card ── */}
-      <div className="bg-[#EAF3FF] rounded-2xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-[45%_55%] gap-6 lg:gap-8">
+      <div className="bg-[#EAF3FF] rounded-2xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-[50%_50%] gap-6 lg:gap-8">
         {/* LEFT — list title + description + tabs */}
         <div className="flex flex-col gap-3 mt-10">
           {data?.list?.title && (
@@ -83,7 +83,7 @@ const IndustryServicePortfolio = ({
         ${activeIdx === idx ? "bg-white " : "bg-[#EAF3FF] hover:bg-white/60"}`}
               >
                 {/* Short center green line */}
-                <span className="absolute left-0 top-10 -translate-y-1/2 w-[3px] h-[45%] bg-[#1EBFA1] rounded-r-sm" />
+                <span className="absolute left-0 top-10 -translate-y-1/2 w-[5px] h-[45%] bg-[#1EBFA1] rounded-r-sm" />
 
                 {item?.tabTitle && (
                   <DangerousHtml

@@ -13,7 +13,8 @@ const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
 
   let length = data?.list?.length || 0;
   return (
-    <section className="container-md py-10 lg:py-16">
+    <section className="bg-[#EDF6FF] py-10 ">
+      <div className="container-md ">
       {/* Heading Section */}
       <div className="max-w-5xl">
         {/* Sub Heading */}
@@ -77,7 +78,7 @@ const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
             variant={"default"}
           />
         </div>)}
-      </Carousel>
+      </Carousel></div>
     </section>
   );
 };

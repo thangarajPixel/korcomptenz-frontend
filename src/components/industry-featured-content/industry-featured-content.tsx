@@ -25,7 +25,7 @@ const IndustryFeaturedContent = ({
   const cards = firstCard ? [firstCard, ...otherCards] : data?.list || [];
 
   return (
-    <section className="container-md py-10 lg:py-16">
+    <section className="container-md ">
       {/* Heading */}
 
       <div className="max-w-5xl ">

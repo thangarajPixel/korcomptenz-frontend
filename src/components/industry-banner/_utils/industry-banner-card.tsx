@@ -59,7 +59,8 @@ const IndustryBannerCard = ({
             <div className="absolute inset-0 [background:linear-gradient(to_right,rgba(0,0,0,0.9)_5%,rgba(0,0,0,0)_70%)] z-5" />
 
             {/* Text content */}
-            <div className="absolute top-0 left-10 p-10 z-10 w-5/8 h-full flex flex-col  justify-center items-start max-w-3xl">
+            <div className="container-md">
+            <div className="absolute top-0  py-10 z-10 w-5/8 h-full flex flex-col  justify-center items-start max-w-3xl ">
               {data?.subtitle && (
                 <span className="text-white font-bold md:text-[25px] ">
                   {data.subtitle}
@@ -94,12 +95,13 @@ const IndustryBannerCard = ({
                   </ButtonLink>
                 )}
               </div>
-            </div>
+            </div></div>
           </div>
 
           {/* Footer bar */}
           {data?.isHasFooter && data?.list && data.list.length > 0 && (
-            <div className="hidden lg:block bg-[#2b2b2b]  px-16">
+            <div className="bg-[#2b2b2b] ">
+            <div className="hidden lg:block container-md ">
               <ul className={cn("grid", gridCols)}>
                 {data.list.map((item) => (
                   <li key={item.id} className="h-full">
@@ -134,7 +136,7 @@ const IndustryBannerCard = ({
                   </li>
                 ))}
               </ul>
-            </div>
+            </div></div>
           )}
         </>
       ) : (
