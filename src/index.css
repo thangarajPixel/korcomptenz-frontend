@@ -742,7 +742,7 @@ ul.key_list li::before {
 @layer base {
   /* ---------- H1 ---------- */
   h1 {
-    @apply text-[50px] leading-[60px] font-semibold;
+    @apply !text-[50px] !leading-[60px] !font-semibold;
   }
 
   /* ---------- H2 ---------- */
