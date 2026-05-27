@@ -110,6 +110,7 @@ import CloudFirstCall from "../cloud-first-call";
 import CloudAiPowered from "../cloud-ai-powered";
 import CloudBuildPeople from "../cloud-build-people";
 import CloudKeyOfferings from "../cloud-key-offerings";
+import CloudReadiness from "../cloud-Readiness/cloud-Readiness";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1196,6 +1197,16 @@ const GlobalPage = (props: Props) => {
             key={`cloud-key-offerings-${item?.__component}-${item?.id}`}
           >
             <CloudKeyOfferings data={item} />
+          </ScrollFadeIn>
+        );
+
+        case "page-componets.cloud-readiness-report":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component} 
+            key={`cloud-readiness-report-cloud-form-${item?.__component}-${item?.id}`}
+          >
+            <CloudReadiness data={item} />
           </ScrollFadeIn>
         );
       default:

@@ -15,7 +15,6 @@ import type {
   WebinarReserveFormSchema,
 } from "@/utils/validation.schema";
 
-
 const HOME = "/home";
 const ABOUT_US = "/about-us";
 const GLOBAL_PAGE = "/page";
@@ -57,7 +56,9 @@ export const NEW_LETTER_SUBSCRIPTION = "/newsletter-subscriptions";
 export const GLOBAL_SEARCH = "/global-search";
 export const INDUSTRY_SERVICE_LIST = "/industry-services";
 export const INDUSTRY_LEAD = "/industry-leads";
-
+export const CLOUD_ROLE_LIST = "/cloud-roles";
+export const CLOUD_INFRASTRUCTURE_LIST = "/cloud-infrastructures";
+export const CLOUD_MIGRATION_LIST = "/cloud-migration-urgencies";
 
 /*************  ✨ Windsurf Command ⭐  *************/
 /**
@@ -338,16 +339,12 @@ export const createFabconBannerLead = async (
 
 export const blogFormDownloadLead = async (formData: BlogFormSchema) => {
   const { data } = await http.post(BLOG_FORM_LEAD, { data: formData });
-  data?.attachment?.url && (await getDownloadService(data?.attachment));  
+  data?.attachment?.url && (await getDownloadService(data?.attachment));
   return data;
 };
 
-export const getAssetPDFPage = async ({
-  id,
-}: {
-  id: string;
-}) => {
-  const  { data } = await http.get(`${ASSETPDF}/${id}`);
+export const getAssetPDFPage = async ({ id }: { id: string }) => {
+  const { data } = await http.get(`${ASSETPDF}/${id}`);
 
   return data;
 };
@@ -377,16 +374,34 @@ export const getGlobalSearch = async ({
   return res as unknown as GlobalSearchResponse;
 };
 
-
 export const getIndustryServiceList =
   async (): Promise<IndustryServiceListType> => {
     const data = await http.get(INDUSTRY_SERVICE_LIST);
-  
+
     return data as never;
   };
 
-
-  export const createIndustryLead = async (formData: IndustryFormSchema) => {
+export const createIndustryLead = async (formData: IndustryFormSchema) => {
   const { data } = await http.post(INDUSTRY_LEAD, { data: formData });
   return data;
 };
+
+export const getCloudRoleList = async (): Promise<IndustryServiceListType> => {
+  const data = await http.get(CLOUD_ROLE_LIST);
+
+  return data as never;
+};
+
+export const getCloudInfrastructureList =
+  async (): Promise<IndustryServiceListType> => {
+    const data = await http.get(CLOUD_INFRASTRUCTURE_LIST);
+
+    return data as never;
+  };
+
+export const getCloudMigrationList =
+  async (): Promise<IndustryServiceListType> => {
+    const data = await http.get(CLOUD_MIGRATION_LIST);
+
+    return data as never;
+  };

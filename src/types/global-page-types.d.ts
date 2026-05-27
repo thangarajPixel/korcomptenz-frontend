@@ -1381,7 +1381,7 @@ type CloudFirstCallType = {
   description: string;
   subHeading: string;
   listOne: {
-    title: string;    
+    title: string;
     description: string;
     duration: string;
   };
@@ -1407,7 +1407,27 @@ type CloudFirstCallType = {
   };
 };
 
+type CloudAiPoweredType = {
+  title: string;
 
+  description: string;
+  subHeading: string;
+  list: {
+    tabTitle: string;
+    image: ImageType;
+    title: string;
+    description: string;
+    bgColor: string;
+    bgImage: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+    subList: {
+      title: string;
+      description: string;
+    }[];
+  }[];
+};
 
 type CloudBuildPeopleType = {
   title: string;
@@ -1419,6 +1439,41 @@ type CloudBuildPeopleType = {
     message: string;
     description: string;
   }[];
+};
+
+type CloudKeyOfferingsType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    title: string;
+    subList: {
+      description: string;
+    };
+  }[];
+};
+
+type CloudReadinessType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  form: {
+    forms: CloudFormType[];
+  };
+};
+
+type CloudFormType = {
+  title: string;
+  roleLabel: string;
+  migrationUrgencyLabel: string;
+  lastNameLabel: string;
+  infrastructureLabel: string;
+  firstNameLabel: string;
+  companyLabel: string;
+  buttonText: string;
 };
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -1882,6 +1937,10 @@ type ComponentPropsMap = {
   CloudKeyOfferings: CloudKeyOfferingsType & {
     id: string;
     __component: "page-componets.cloud-key-offerings";
+  };
+  CloudForm: CloudFormType & {
+    id: string;
+    __component: "page-componets.cloud-readiness-report-cloud-form";
   };
 };
 type ComponentType = keyof ComponentPropsMap;

@@ -2,7 +2,7 @@
 
 import { DangerousHtml } from "../ui/dangerous-html";
 
-const CloudKeyOfferings = ({ data }: { data: CloudBuildPeopleType }) => {
+const CloudKeyOfferings = ({ data }: { data: CloudKeyOfferingsType }) => {
   return (
     <section className="container-md ">
       {/* Heading */}

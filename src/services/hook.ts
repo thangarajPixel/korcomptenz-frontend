@@ -246,3 +246,23 @@ export const useIndustryLeadHook = () => {
     mutationFn: PAGE.createIndustryLead,
   });
 };
+
+
+export const useRoleHook = () => {
+  return useQuery({
+    queryKey: [PAGE.CLOUD_ROLE_LIST],
+    queryFn: () => PAGE.getCloudRoleList(),
+  });
+};
+export const useInfrastructureHook = () => {
+  return useQuery({
+    queryKey: [PAGE.CLOUD_INFRASTRUCTURE_LIST],
+    queryFn: () => PAGE.getCloudInfrastructureList(),
+  });
+};
+export const useMigrationHook = () => {
+  return useQuery({
+    queryKey: [PAGE.CLOUD_MIGRATION_LIST],
+    queryFn: () => PAGE.getCloudMigrationList(),
+  });
+};
