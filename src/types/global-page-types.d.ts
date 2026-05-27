@@ -1325,6 +1325,12 @@ type IndustryServicePortfolioType = {
   };
 };
 
+type CloudRecognitionSliderType={
+  title: string;
+  description: string;  
+  list:{image:ImageType;isTitleDescription:boolean}[]
+}
+
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
 type ComponentPropsMap = {
@@ -1750,6 +1756,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.industry-service-portfolio";
   };
+  CloudRecognitionSlider: CloudRecognitionSliderType & {
+    id: string;
+    __component: "page-componets.cloud-recognition";
+  }
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];

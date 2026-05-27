@@ -101,6 +101,7 @@ import IndustrySpotlight from "../industry-spotlight";
 import IndustryIntelligence from "../industry-intelligence";
 import IndustryFeaturedContent from "../industry-featured-content/industry-featured-content";
 import IndustryServicePortfolio from "../industry-service-portfolio";
+import CloudRecognitionSlider from "../cloud-recognition-slider/cloud-recognition-slider";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1104,6 +1105,15 @@ const GlobalPage = (props: Props) => {
             <IndustryServicePortfolio data={item} />
           </ScrollFadeIn>
         );
+        case "page-componets.cloud-recognition":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-recognition-${item?.__component}-${item?.id}`}
+          >
+            <CloudRecognitionSlider data={item} />
+          </ScrollFadeIn>
+        )
 
       default:
         return;
