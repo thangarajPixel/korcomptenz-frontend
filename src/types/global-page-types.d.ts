@@ -1109,6 +1109,8 @@ type FabconAboutType = {
   buttonText: string;
   buttonLink: string;
   isTarget: boolean;
+  isVideoUrl: boolean;
+  videoUrl: string;
 };
 
 type FabconAiPoweredType = {
@@ -1371,6 +1373,51 @@ type CloudTechnologyType = {
   list: {
     isTitleDescription: boolean;
     image: ImageType;
+  }[];
+};
+
+type CloudFirstCallType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  listOne: {
+    title: string;    
+    description: string;
+    duration: string;
+  };
+  listTwo: {
+    title: string;
+    description: string;
+    duration: string;
+  };
+  listThree: {
+    title: string;
+    description: string;
+    duration: string;
+  };
+  listFour: {
+    title: string;
+    description: string;
+    duration: string;
+  };
+  listFive: {
+    title: string;
+    description: string;
+    duration: string;
+  };
+};
+
+
+
+type CloudBuildPeopleType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  list: {
+    roleTitle: string;
+    roleSubtitle: string;
+    message: string;
+    description: string;
   }[];
 };
 
@@ -1814,6 +1861,27 @@ type ComponentPropsMap = {
   CloudTechnology: CloudTechnologyType & {
     id: string;
     __component: "page-componets.cloud-technology";
+  };
+  CloudOnePlatform: FabconAboutType & {
+    id: string;
+    __component: "page-componets.cloud-one-platform";
+  };
+  CloudFirstCall: CloudFirstCallType & {
+    id: string;
+    __component: "page-componets.cloud-first-call";
+  };
+  CloudAiPowered: CloudAiPoweredType & {
+    id: string;
+    __component: "page-componets.cloud-ai-power";
+  };
+  CloudBuildPeople: CloudBuildPeopleType & {
+    id: string;
+    __component: "page-componets.cloud-built-people";
+  };
+
+  CloudKeyOfferings: CloudKeyOfferingsType & {
+    id: string;
+    __component: "page-componets.cloud-key-offerings";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
