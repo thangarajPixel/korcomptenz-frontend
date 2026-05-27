@@ -16,12 +16,15 @@ const BannerCard = ({
   className?: string;
 }) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+  const [pageTitle, setPageTitle] = useState<string>("");
 
   useEffect(() => {
     // Only run on client
     const checkDevice = () => {
       setIsDesktop(window.innerWidth >= 1024);
     };
+
+    setPageTitle(document.title);
 
     checkDevice();
     window.addEventListener("resize", checkDevice);
@@ -55,9 +58,13 @@ const BannerCard = ({
                   className="w-20 md:w-[200px] h-auto object-contain"
                 />
               )}
-              <h1 className="text-9xl font-semibold leading-14 text-white">
-                {data?.title}
+
+              <h1 className="!text-3xl leading-tight text-white">
+                {data?.bannerH1Tag ? data.bannerH1Tag : pageTitle}
               </h1>
+              <h2 className="!text-[50px] !leading-[60px] !font-semibold text-white">
+                {data?.title}
+              </h2>
               {data?.description && (
                 <DangerousHtml
                   className="text-3xl md:text-5xl leading-tight font-normal text-white"
