@@ -94,6 +94,7 @@ import LogoSlider from "../logo-slider";
 import SapImplementation from "../sap-implementation";
 import SliderServiceSection from "../slider-services-section/slider-services-section";
 import MicrosoftGoldCertified from "../microsoft-certified";
+import KeyMetricsSection from "../key-metrics-section";
 
 import IndustryBannerSection from "../industry-banner";
 import IndustryAbout from "../industry-about";
@@ -103,6 +104,12 @@ import IndustryFeaturedContent from "../industry-featured-content/industry-featu
 import IndustryServicePortfolio from "../industry-service-portfolio";
 import CloudRecognitionSlider from "../cloud-recognition-slider/cloud-recognition-slider";
 
+import SapWhyKorcomptenz from "../sap-why-korcomptenz";
+import WhattoExpect from "../what-to-expect";
+import { SAPPracticeAreas } from "../sap-practice-areas";
+import SAPClientTestimonial from "../client-testimonial";
+import CertificationsSection from "../certifications-section";
+import RequestConsultation from "../request-consultation";
 type Props = {
   data: ComponentPropsType[];
 };
@@ -230,6 +237,60 @@ const GlobalPage = (props: Props) => {
             key={`dark-slider-${item?.__component}-${item?.id}`}
           >
             <DarkSlider manuelSliderData={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.key-metrics-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`page-componets.key-metrics-section-${item?.__component}-${item?.id}`}
+          >
+            <KeyMetricsSection KeyMetricsData={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.sap-why-korcomptenz":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`sap-why-korcomptenz-section-${item?.__component}-${item?.id}`}
+          >
+            <SapWhyKorcomptenz data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.what-to-expect":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`what-to-expect-${item?.__component}-${item?.id}`}
+          >
+            <WhattoExpect data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.client-testimonial":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`client-testimonial-${item?.__component}-${item?.id}`}
+          >
+            <SAPClientTestimonial data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.certifications-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`certifications-section-${item?.__component}-${item?.id}`}
+          >
+            <CertificationsSection data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.request-consultation":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`request-consultation-${item?.__component}-${item?.id}`}
+          >
+            <RequestConsultation data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.domain-data":
@@ -1114,6 +1175,16 @@ const GlobalPage = (props: Props) => {
             <CloudRecognitionSlider data={item} />
           </ScrollFadeIn>
         )
+
+      case "page-componets.sap-practice-areas":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`sap-practice-areas-${item?.__component}-${item?.id}`}
+          >
+            <SAPPracticeAreas data={item} />
+          </ScrollFadeIn>
+        );
 
       default:
         return;

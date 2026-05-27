@@ -173,6 +173,71 @@ type InsightsSectionType = {
   list: InsightsMobileCarouselType[];
 };
 
+type SAPPracticeAreasType = {
+  title: string;
+  subtext: string;
+  buttontext: string;
+  buttonLink: string;
+  gridlisting: SAPPracticeAreasMobileCarouselType[];
+};
+type WhattoExpectType = {
+  title: string;
+  subtext: string;
+  description: string;
+  buttontext: string;
+  buttonLink: string;
+  gridlisting: WhattoExpectTypeGrid[];
+};
+
+type TestimonialItem = {
+  id: number;
+  title?: string;
+  subtext: string;
+  testimonials: {
+    id: number;
+    title: string;
+    clientname: string;
+    designation: string;
+    content: string;
+    star: number;
+  }[];
+};
+
+type CertificationsSection = {
+  id: number;
+  title: string;
+  subtext: string;
+  description: string;
+  backgroundimage: ImageType;
+  partnerlogos: {
+    id: number;
+    logoimage: ImageType;
+  }[];
+};
+type RequestConsultation = {
+  id: number;
+  title: string;
+  subtext: string;
+  description: string;
+  form: GlobalFormType;
+  item: GlobalFormItemType;
+};
+
+type WhattoExpectTypeGrid = {
+  buttontext: string;
+  description: string;
+  id: string | number;
+  buttonurl: string;
+  title: string;
+}
+type SAPPracticeAreasMobileCarouselType = {
+  buttontext: string;
+  description: string;
+  id: string | number;
+  image: ImageType;
+  buttonurl: string;
+  title: string;
+}
 type OpportunitiesType = {
   description: string;
   button: ButtonType;
@@ -200,6 +265,7 @@ type WeAreKorcomptenzSectionType = {
 
 type BannerSectionType = {
   id: number;
+  bannerH1Tag: string;
   imageMobile: ImageType;
   isListPage: boolean;
   isHasFooter: boolean;
@@ -354,6 +420,15 @@ type BenefitSectionType = {
     description: string;
   }[];
 };
+type DemandHowKORSectionType = {
+  title: string;
+  howkorlist: {
+    id: number;
+    pointnumber: string;
+    title: string;
+    Description: string;
+  }[];
+};
 type KpiPartnerType = {
   title: string;
   items: {
@@ -477,6 +552,38 @@ type TechPartnerSectionType = {
     isTargetBlank: boolean;
   }[];
 };
+
+type RichTextChild = {
+  text: string;
+};
+
+type RichTextBlock = {
+  type: "paragraph"; // you can expand later
+  children: RichTextChild[];
+};
+
+type PageGridViewType = {
+  Title: string;
+  description: RichTextBlock[];
+  tag: string;
+  gridlist: {
+    id: number;
+    listtitle: string;
+    listdescription: RichTextBlock[];
+    buttontext: string;
+    buttonurl: string;
+  }[];
+};
+type KeyMetricsSectionType = {
+  id: string;
+  title: string;
+
+  backgroundImage: ImageType;
+  listLeft: {
+    title: string;
+    description: string;
+  }[];
+};
 type ScheduleCallType = {
   title: string;
   buttonText: string;
@@ -533,6 +640,22 @@ type CompanyType = {
     icon: string;
   }[];
   companyDarkLogo: ImageType;
+};
+
+type InterlinkType = {
+  urlname: string;
+  urllink: string;
+};
+
+type ColumnTitleType = {
+  divtitle: string;
+  interlinks: InterlinkType[];
+};
+
+type OurOfferingsType = {
+  subtitle: string;
+  title: string;
+  columntitle: ColumnTitleType[];
 };
 
 type StretchableSectionType = {
@@ -1398,6 +1521,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.benefit-data";
   };
+  DemandHowKORSection: DemandHowKORSectionType & {
+    id: string;
+    __component: "page-componets.demand-how-kor-section";
+  };
   FaqSection: FaqSectionType & {
     id: string;
     __component: "page-componets.faq-title";
@@ -1417,6 +1544,14 @@ type ComponentPropsMap = {
   TechpartnerSection: TechPartnerSectionType & {
     id: string;
     __component: "page-componets.tech-data";
+  };
+  KeyMetricsSection: KeyMetricsSectionType & {
+    id: string;
+    __component: "page-componets.key-metrics-section";
+  };
+  OurOfferingsSection: OurOfferingsType & {
+    id: string;
+    __component: "page-componets.our-offerings-section";
   };
   ScheduleCall: ScheduleCallType & {
     id: string;
@@ -1760,7 +1895,17 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-recognition";
   }
+  PageGridView: PageGridViewType & {
+    id: string;
+    __component: "page-componets.page-grid-view";
+  };
+  SapWhyKorcomptenz: SapWhyKorcomptenzType & {
+    id: string;
+    __component: "page-componets.sap-why-korcomptenz";
+  };
 };
+
+
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
 
@@ -1833,7 +1978,6 @@ type DepartmentType = {
     label: string;
   }[];
 };
-
 type TimeSlotType = {
   data: {
     id: number;
@@ -1889,4 +2033,26 @@ type GlobalSearchResponse = {
     };
     tabs: GlobalSearchTab[];
   };
+
 };
+type SapWhyKorcomptenzType = {
+
+
+  subtext: string;
+  title: string;
+  image: ImageType;
+  description: string; // ✅ IMPORTANT (richtext = string)
+  listbox: {
+    id: number;
+    title: string;
+    description: string;
+    icon?: ImageType;
+  }[];
+
+
+};
+// type GlobalSearchItem = {
+//   id: number;
+//   title: string;
+//   description: string | null;
+// };
