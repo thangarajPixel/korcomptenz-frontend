@@ -181,7 +181,7 @@ const IndustryFeaturedContent = ({
                           alt={item?.title || ""}
                           width={400}
                           height={250}
-                          className="h-[120px] w-full rounded-lg object-cover"
+                          className="h-[120px] w-[250px] md:h-[120px] md:w-full rounded-lg object-cover"
                         />
 
                         {isVideo && (
