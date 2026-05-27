@@ -95,6 +95,14 @@ import SapImplementation from "../sap-implementation";
 import SliderServiceSection from "../slider-services-section/slider-services-section";
 import MicrosoftGoldCertified from "../microsoft-certified";
 
+import KeyMetricsSection from "../key-metrics-section";
+import SapWhyKorcomptenz from "../sap-why-korcomptenz";
+import WhattoExpect from "../what-to-expect";
+import { SAPPracticeAreas } from "../sap-practice-areas";
+import SAPClientTestimonial from "../client-testimonial";
+import CertificationsSection from "../certifications-section";
+import RequestConsultation from "../request-consultation";
+
 import IndustryBannerSection from "../industry-banner";
 import IndustryAbout from "../industry-about";
 import IndustrySpotlight from "../industry-spotlight";
@@ -1063,7 +1071,7 @@ const GlobalPage = (props: Props) => {
             <IndustryBannerSection BannerSectionData={[item]} />
           </ScrollFadeIn>
         );
-        case "page-componets.industry-build-data":
+      case "page-componets.industry-build-data":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1072,7 +1080,7 @@ const GlobalPage = (props: Props) => {
             <IndustryAbout data={item} />
           </ScrollFadeIn>
         );
-        case "page-componets.industry-solution-spotlight":
+      case "page-componets.industry-solution-spotlight":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1081,7 +1089,7 @@ const GlobalPage = (props: Props) => {
             <IndustrySpotlight data={item} />
           </ScrollFadeIn>
         );
-        case "page-componets.industry-intelligent-experience":
+      case "page-componets.industry-intelligent-experience":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1090,7 +1098,7 @@ const GlobalPage = (props: Props) => {
             <IndustryIntelligence data={item} />
           </ScrollFadeIn>
         );
-       case "page-componets.industry-featured-content":
+      case "page-componets.industry-featured-content":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1099,7 +1107,7 @@ const GlobalPage = (props: Props) => {
             <IndustryFeaturedContent data={item} />
           </ScrollFadeIn>
         );
-        case "page-componets.industry-service-portfolio":
+      case "page-componets.industry-service-portfolio":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1108,7 +1116,7 @@ const GlobalPage = (props: Props) => {
             <IndustryServicePortfolio data={item} />
           </ScrollFadeIn>
         );
-        case "page-componets.cloud-recognition":
+      case "page-componets.cloud-recognition":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1116,37 +1124,104 @@ const GlobalPage = (props: Props) => {
           >
             <CloudRecognitionSlider data={item} />
           </ScrollFadeIn>
-        )
+        );
 
-        case "page-componets.cloud-warning-signs":
+      case "page-componets.cloud-warning-signs":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`cloud-warning-signs-${item?.__component}-${item?.id}`}
           >
-            <CloudWarning data={item} />  
+            <CloudWarning data={item} />
           </ScrollFadeIn>
         );
 
-        case "page-componets.cloud-migration-handle":
+      case "page-componets.cloud-migration-handle":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`cloud-migration-handle-${item?.__component}-${item?.id}`}
           >
-            <CloudMigrationHandle data={item} />  
+            <CloudMigrationHandle data={item} />
           </ScrollFadeIn>
         );
 
-        case"page-componets.cloud-technology":
+      case "page-componets.cloud-technology":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`cloud-technology-${item?.__component}-${item?.id}`}
           >
-            <CloudTechnology data={item} />  
+            <CloudTechnology data={item} />
           </ScrollFadeIn>
-        )
+        );
+
+      /* KOR DEV Team Start */
+      case "page-componets.key-metrics-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`page-componets.key-metrics-section-${item?.__component}-${item?.id}`}
+          >
+            <KeyMetricsSection KeyMetricsData={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.sap-why-korcomptenz":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`sap-why-korcomptenz-section-${item?.__component}-${item?.id}`}
+          >
+            <SapWhyKorcomptenz data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.what-to-expect":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`what-to-expect-${item?.__component}-${item?.id}`}
+          >
+            <WhattoExpect data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.client-testimonial":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`client-testimonial-${item?.__component}-${item?.id}`}
+          >
+            <SAPClientTestimonial data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.certifications-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`certifications-section-${item?.__component}-${item?.id}`}
+          >
+            <CertificationsSection data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.request-consultation":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`request-consultation-${item?.__component}-${item?.id}`}
+          >
+            <RequestConsultation data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.sap-practice-areas":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`sap-practice-areas-${item?.__component}-${item?.id}`}
+          >
+            <SAPPracticeAreas data={item} />
+          </ScrollFadeIn>
+        );
+      /* KOR DEV Team End */
 
       default:
         return;

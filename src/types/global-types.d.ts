@@ -810,11 +810,10 @@ type ErrorType = {
   };
 };
 
-
-type IndustryServiceListType={
+type IndustryServiceListType = {
   data: {
     id: string;
     title: string;
     slug: string;
   }[];
-}
+};
