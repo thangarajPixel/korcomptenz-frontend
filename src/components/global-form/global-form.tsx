@@ -4,6 +4,7 @@ import ContactusForm from "@/app/(default)/contact-us/_utils/contact-us-form";
 import DemoRequestForm from "@/app/(default)/live-demo/_utils/demo-request-form";
 import ReserveSeatSection from "@/app/(default)/webinar/_utils/reserve-seat-section";
 import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import IndustryForm from "../industry-form";
 
 const GlobalForm = ({
   form,
@@ -55,6 +56,8 @@ const GlobalForm = ({
                 form={form}
               />
             );
+          case "form-fields.industry-form":
+            return <IndustryForm key={`industry-form-${form.id}`} form={form} />;
           default:
             return "";
         }

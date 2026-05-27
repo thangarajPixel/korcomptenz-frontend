@@ -173,7 +173,6 @@ type InsightsSectionType = {
   list: InsightsMobileCarouselType[];
 };
 
-
 type OpportunitiesType = {
   description: string;
   button: ButtonType;
@@ -201,23 +200,34 @@ type WeAreKorcomptenzSectionType = {
 
 type BannerSectionType = {
   id: number;
-  bannerH1Tag: string;
   imageMobile: ImageType;
   isListPage: boolean;
   isHasFooter: boolean;
-  isTarget: boolean;
+  isTarget: boolean | null;
   image: ImageType;
   alt: string;
   logo?: ImageType;
   logoMobile?: ImageType;
   altMobile: ImageType;
   title: string;
+  subtitle?: string;
   description: string;
   buttonText: string;
+  buttonLink?: string | null;
   bannerCaption: string;
   link: string | null;
   secondButton: string;
   secondLink: string;
+  noofcolumns?: string;
+  list?: {
+    id: number;
+    title: string;
+    isTarget: boolean;
+    description: string;
+    image?: ImageType;
+    buttonText?: string | null;
+    buttonLink?: string | null;
+  }[];
   customFooter: {
     backgroundImage: ImageType;
     image: ImageType;
@@ -467,6 +477,7 @@ type TechPartnerSectionType = {
     isTargetBlank: boolean;
   }[];
 };
+
 type SocialPlatformType = {
   id: string;
   label: string;
@@ -504,6 +515,7 @@ type InterlinkType = {
   urlname: string;
   urllink: string;
 };
+
 type StretchableSectionType = {
   title: string;
   description: string;
@@ -699,6 +711,23 @@ type WebinarReserveFormType = {
 
   list: { id: string; description: string }[];
 };
+
+type IndustryFormType = {
+  __component: "form-fields.industry-form";
+  title: string;
+  description: string;
+  disclaimerDescription: string;
+  buttonText: string;
+  companyLabel: string;
+  emailLabel: string;
+  firstNameLabel: string;
+  lastNameLabel: string;
+  messageLabel: string;
+  phoneLabel: string;
+  serviceLabel: string;
+  id: string;
+};
+
 type KorCareImpactDescriptionType = {
   title: string;
   description: string;
@@ -715,6 +744,7 @@ type FormMap = {
   ContactUsFormType: ContactUsFormType;
   DemoRequestFormType: DemoRequestFormType;
   WebinarReserveFormType: WebinarReserveFormType;
+  IndustryFormType: IndustryFormType;
 };
 type DigitialInsightType = {
   title: string;
@@ -805,6 +835,10 @@ type AchievementsType = {
   isColumnFour: boolean;
   logo: AchievementscardType[];
   list: AchievementscardType[];
+};
+
+type AchievementSectionProps = {
+  data: AchievementsType;
 };
 type DemoListType = {
   id: string;
@@ -1047,6 +1081,8 @@ type ExpertMigrationType = {
 };
 type FabconAboutType = {
   title1: string;
+  subHeading: string;
+  title: string;
   title2: string;
   image: ImageType;
   backgroundImage: ImageType;
@@ -1162,15 +1198,17 @@ type SapImplementationType = {
   }[];
 };
 type SliderServiceSectionType = {
+  id: number;
   title: string;
   tablist: {
+    id: number;
     title: string;
 
     sublist: {
       title: string;
       description: string;
       image: ImageType;
-      id: string;
+      id: number;
     }[];
   }[];
 };
@@ -1198,11 +1236,126 @@ type MicrosoftGoldCertifiedType = {
     buttonLink: string;
   };
 };
+type IndustrySpotlightType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    id: string;
+    title: string;
+    bgColor: string;
+    description: string;
+    image: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+  }[];
+};
 
+type IndustryIntelligenceType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    id: string;
+    title: string;
+    description: string;
+    image: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+    linkType: string;
+  }[];
+};
 
+type IndustryFeaturedContentType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    id: string;
+    isBgImage: boolean;
+    bgColor: string;
+    title: string;
+    description: string;
+    buttonColor: string;
+    image: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+    linkType: string;
+    bgImage: ImageType;
+    isFirstCard: boolean;
+  }[];
+};
+type IndustryServicePortfolioType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  list: {
+    title: string;
+    description: string;
+    list: {
+      tabTitle: string;
+      image: ImageType;
+      subList: {
+        title: string;
+        descriptionList: {
+          description: string;
+          link: string;
+          isTarget: boolean;
+        }[];
+      };
+    }[];
+  };
+};
+
+type CloudWarningType = {
+  title: string;
+  subHeading: string;
+  description: string;
+  list: {
+    title: string;
+    description: string;
+  }[];
+};
+
+type CloudMigrationType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  list: {
+    tabTitle: string;
+    title: string;
+    description: string;
+    disclaimer: string;
+    image: ImageType;
+    subList: {
+      description;
+    }[];
+  }[];
+};
+
+type CloudRecognitionSliderType = {
+  title: string;
+  description: string;
+  list: { image: ImageType; isTitleDescription: boolean }[];
+};
+
+type CloudTechnologyType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  list: {
+    isTitleDescription: boolean;
+    image: ImageType;
+  }[];
+};
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
-
 
 type ComponentPropsMap = {
   SlidingSection: {
@@ -1268,10 +1421,6 @@ type ComponentPropsMap = {
   BenefitSection: BenefitSectionType & {
     id: string;
     __component: "page-componets.benefit-data";
-  };
-  DemandHowKORSection: DemandHowKORSectionType & {
-    id: string;
-    __component: "page-componets.demand-how-kor-section";
   };
   FaqSection: FaqSectionType & {
     id: string;
@@ -1595,7 +1744,7 @@ type ComponentPropsMap = {
     __component: "page-componets.midmarket-enterprises";
   };
 
-  LogoSlider: AchievementSectionProps & {
+  LogoSlider: AchievementsType & {
     id: string;
     __component: "contact-us.logo-slider";
   };
@@ -1604,7 +1753,7 @@ type ComponentPropsMap = {
     __component: "page-componets.sap-implementation";
   };
   SliderServiceSection: SliderServiceSectionType & {
-    id: string;
+    id: number;
     __component: "page-componets.slider-service-section";
   };
   MicrosoftGoldCertified: MicrosoftGoldCertifiedType & {
@@ -1617,9 +1766,47 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.key-metrics-section";
   };
-  SapWhyKorcomptenz: SapWhyKorcomptenzType & {
+
+  IndustryBannerCard: BannerSectionType & {
     id: string;
-    __component: "page-componets.sap-why-korcomptenz";
+    __component: "page-componets.banking-financial-banner";
+  };
+  IndustryAbout: FabconAboutType & {
+    id: string;
+    __component: "page-componets.industry-build-data";
+  };
+  IndustrySpotlight: IndustrySpotlightType & {
+    id: string;
+    __component: "page-componets.industry-solution-spotlight";
+  };
+  IndustryIntelligence: IndustryIntelligenceType & {
+    id: string;
+    __component: "page-componets.industry-intelligent-experience";
+  };
+
+  IndustryFeaturedContent: IndustryFeaturedContentType & {
+    id: string;
+    __component: "page-componets.industry-featured-content";
+  };
+  IndustryServicePortfolio: IndustryServicePortfolioType & {
+    id: string;
+    __component: "page-componets.industry-service-portfolio";
+  };
+  CloudRecognitionSlider: CloudRecognitionSliderType & {
+    id: string;
+    __component: "page-componets.cloud-recognition";
+  };
+  CloudWarning: CloudWarningType & {
+    id: string;
+    __component: "page-componets.cloud-warning-signs";
+  };
+  CloudMigrationHandle: CloudMigrationHandleType & {
+    id: string;
+    __component: "page-componets.cloud-migration-handle";
+  };
+  CloudTechnology: CloudTechnologyType & {
+    id: string;
+    __component: "page-componets.cloud-technology";
   };
   PageGridView: PageGridViewType & {
     id: string;
@@ -1648,8 +1835,6 @@ type ComponentPropsMap = {
   };
   /* Kordev */
 };
-
-
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
 
@@ -1702,7 +1887,7 @@ type CaseStudiesPageType = {
     seo: {
       title: string;
       description: string;
-    }
+    };
   }[];
 };
 type CaseStudyPageType = {
@@ -1722,6 +1907,7 @@ type DepartmentType = {
     label: string;
   }[];
 };
+
 type TimeSlotType = {
   data: {
     id: number;
@@ -1777,9 +1963,7 @@ type GlobalSearchResponse = {
     };
     tabs: GlobalSearchTab[];
   };
-
 };
-
 
 /* kordev Team */
 
@@ -1793,7 +1977,6 @@ type KeyMetricsSectionType = {
     description: string;
   }[];
 };
-
 
 type SAPPracticeAreasType = {
   title: string;
@@ -1851,10 +2034,8 @@ type WhattoExpectTypeGrid = {
   id: string | number;
   buttonurl: string;
   title: string;
-}
+};
 type SapWhyKorcomptenzType = {
-
-
   subtext: string;
   title: string;
   image: ImageType;
@@ -1865,8 +2046,6 @@ type SapWhyKorcomptenzType = {
     description: string;
     icon?: ImageType;
   }[];
-
-
 };
 type SAPPracticeAreasMobileCarouselType = {
   buttontext: string;
@@ -1875,7 +2054,7 @@ type SAPPracticeAreasMobileCarouselType = {
   image: ImageType;
   buttonurl: string;
   title: string;
-}
+};
 
 type ColumnTitleType = {
   divtitle: string;
@@ -1946,8 +2125,6 @@ type DemandHowKORSectionType = {
   }[];
 };
 /* kordev Team */
-
-
 
 // type GlobalSearchItem = {
 //   id: number;

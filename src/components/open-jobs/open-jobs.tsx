@@ -38,8 +38,7 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
   // const ITEMS_PER_BATCH = 12; // 3 cols × 2 rows
   // const [visibleCount, setVisibleCount] = useState(ITEMS_PER_BATCH);
   // const loadMoreRef = useRef<HTMLDivElement | null>(null);
-
-  const [viewType, setViewType] = useState<"list" | "grid">("list");
+  const [viewType, setViewType] = useState<"grid" | "list">("grid");
   //const visibleJobs = jobs.slice(0, visibleCount);
 
   //const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
@@ -75,8 +74,6 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
 
       setJobs(jobList);
       setFilteredJobs(jobList);
-      // filteredJobs.map((job) => renderList(job));
-      // setViewType("grid");
       //  setLoading(false);
 
       // ✅ Extract unique locations safely
@@ -336,7 +333,7 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
     return (
       <div
         key={job.job_id}
-        className="job-card rounded-xl border p-6 hover:bg-[#dae2e1] bg-white"
+        className="job-card rounded-xl border p-6 hover:shadow-md bg-white"
       >
         <a href="/" className="block mb-4">
           <img
@@ -366,7 +363,7 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
               alt="Korcomptenz"
               className="h-5 w-auto mr-2"
             />{" "}
-            0 - 30 days
+            {formatJobDate(job.job_updated_timestamp)}
           </span>
         </p>
 
@@ -406,8 +403,7 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
     return (
       <div
         key={job.job_id}
-        className="job-card rounded-xl border p-10 bg-[#fff] flex 
-hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
+        className="job-card rounded-xl border p-6 hover:shadow-md bg-[#e2ebe4] flex"
       >
         {/* LEFT SECTION */}
         <div className="flex items-center gap-4 flex-1">
@@ -457,7 +453,8 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                   />
                 </span>
                 <span>
-                  <strong>Notice Period :</strong> 0 - 30 days
+                  <strong>Notice Period:</strong>{" "}
+                  {formatJobDate(job.job_updated_timestamp)}
                 </span>
               </div>
 
@@ -546,7 +543,7 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
       <h2 className="text-center font-semibold text-8xl text-foreground">
         {data.title}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
         {/* Location */}
         <select
           className="border p-3 rounded"
@@ -581,20 +578,22 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
           <option value="Full Time">Full Time</option>
           <option value="Contract">Contract</option>
         </select>
-        <div className="flex gap-2">
-          <Button variant="outline" onClick={resetFilters}>
-            Reset
-          </Button>
+      </div>
+      <div className="flex gap-4 mt-6">
+        <Button variant="outline" onClick={resetFilters}>
+          Reset
+        </Button>
 
-          <Button onClick={applyFilters}>Go →</Button>
-        </div>
+        <Button onClick={applyFilters}>Go →</Button>
       </div>
 
       <div className="flex justify-end gap-3 mt-6">
         {/* Grid Icon */}
         <button
           onClick={() => setViewType("grid")}
-          className={`p-2 border rounded ${viewType === "grid" ? "" : ""}`}
+          className={`p-2 border rounded ${
+            viewType === "grid" ? " text-white" : "bg-white"
+          }`}
         >
           <img src="svg/card-view-icon.svg" />
         </button>
@@ -628,7 +627,7 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
           onClick={() => setIsDetailOpen(false)}
         >
           <div
-            className="relative w-full max-w-6xl bg-white rounded-xl p-6"
+            className="relative w-full max-w-3xl bg-white rounded-xl p-6"
             onClick={(e) => e.stopPropagation()} // ✅ REQUIRED
           >
             <button
@@ -639,61 +638,74 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
             </button>
 
             {detailLoading ? (
-              <div className="bg-white p-6">Loading...</div>
+              <p>Loading job details...</p>
             ) : jobDetail ? (
               <>
-                {/* ✅ DARK HEADER */}
+                <h3 className="text-2xl font-semibold">
+                  {jobDetail.job_title}
+                </h3>
 
-                {/* HEADER */}
-                <div className="bg-[#2f3a42] text-white p-6 shrink-0 rounded-t-2xl">
-                  <h2 className="text-2xl font-semibold mb-4">
-                    {jobDetail.job_title}
-                  </h2>
+                <p className="mt-2 text-gray-600">{jobDetail.location?.[0]}</p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-                    <p>
-                      <strong>Department :</strong> {jobDetail.department}
-                    </p>
-                    <p>
-                      <strong>Notice Period :</strong> 0 - 30 days
-                    </p>
-                    <p>
-                      <strong>Job type :</strong> {jobDetail.employee_type}
-                    </p>
-                    <p>
-                      <strong>Locations :</strong>{" "}
-                      {jobDetail.location?.join(", ")}
-                    </p>
-                    <p>
-                      <strong>Created By :</strong>{" "}
-                      {formatJobDate(jobDetail.job_created_timestamp)}
-                    </p>
-                  </div>
+                <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                  <span className="rounded  px-3 py-1">
+                    {jobDetail.employee_type}
+                  </span>
+
+                  {jobDetail.department && (
+                    <span className="rounded bg-[#26A17D] text-white px-3 py-1">
+                      {jobDetail.department}
+                    </span>
+                  )}
+
+                  {jobDetail.business_unit && (
+                    <span className="rounded bg-gray-100 px-3 py-1">
+                      {jobDetail.business_unit}
+                    </span>
+                  )}
                 </div>
 
-                {/* ✅ LIGHT CONTENT SECTION */}
-                <div className="bg-gray-100 p-6 relative">
-                  {/* Apply Button */}
-                  <div className="flex justify-end mb-4">
-                    <Button
-                      className="bg-[#26A17D] text-white px-6 py-2 rounded-full"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openApply(jobDetail.job_id);
-                      }}
-                    >
-                      Apply Now →
-                    </Button>
-                  </div>
+                <div className="mt-6 space-y-2 text-sm text-gray-700">
+                  {jobDetail.group_company && (
+                    <p>
+                      <b>Company:</b> {jobDetail.group_company}
+                    </p>
+                  )}
 
-                  {/* ✅ Scrollable Content */}
-                  <div className="prose prose-sm max-w-none text-gray-800 max-h-[200px] overflow-y-auto pr-2">
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: cleanWordHtml(jobDetail.job_decription),
-                      }}
-                    />
-                  </div>
+                  {(jobDetail.experience_from || jobDetail.experience_to) && (
+                    <p>
+                      <b>Experience:</b> {jobDetail.experience_from} –{" "}
+                      {jobDetail.experience_to}
+                    </p>
+                  )}
+
+                  {jobDetail.job_created_timestamp && (
+                    <p>
+                      <b>Posted on:</b>{" "}
+                      {formatJobDate(jobDetail.job_created_timestamp)}
+                    </p>
+                  )}
+                </div>
+
+                <div
+                  className="prose prose-sm max-w-none text-gray-700 mt-4 h-[200px] overflow-y-auto"
+                  dangerouslySetInnerHTML={{
+                    __html: cleanWordHtml(jobDetail.job_decription),
+                  }}
+                />
+
+                {/* ✅ IMPORTANT CHANGE */}
+                <div className="mt-8 text-right">
+                  <Button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation(); // ✅ MOST IMPORTANT LINE
+                      openApply(jobDetail!.job_id);
+                    }}
+                  >
+                    Apply Now
+                  </Button>
                 </div>
               </>
             ) : null}
@@ -704,7 +716,7 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
       {isApplyOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
           <div
-            className="relative w-full max-w-6xl bg-white rounded-xl p-6"
+            className="relative w-full max-w-2xl bg-white rounded-xl p-6"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
@@ -715,16 +727,9 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
               ✕
             </button>
 
-            <h3 className="text-3xl font-semibold mb-6 text-center">
+            <h3 className="text-xl font-semibold mb-6">
               Apply for {jobDetail?.job_title}
             </h3>
-            <p className="text-center mb-5">
-              Calling all talented individuals! We’re on the hunt for new team
-              members to join our growing company. If you’re passionate,
-              hardworking, and ready for a challenge, we want to hear from you.
-              Submit your resume now and let’s build something amazing
-              together! 
-            </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* First Name */}
@@ -865,7 +870,7 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                 ? "Application Submitted"
                 : applyLoading
                   ? "Submitting..."
-                  : "Submit your application"}
+                  : "Submit Application"}
             </Button>
 
             {/* ✅ Success Message */}

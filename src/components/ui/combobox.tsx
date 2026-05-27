@@ -38,6 +38,7 @@ interface ComboboxFieldProps<T extends FieldValues> {
   emptyMessage?: string;
   className?: string;
   errormessage?: string;
+  textColor?: string;
 }
 
 export function ComboboxField<T extends FieldValues>({
@@ -47,6 +48,7 @@ export function ComboboxField<T extends FieldValues>({
   placeholder = "Select an option...",
   emptyMessage = "No results found.",
   className,
+  textColor = "text-black",
 }: ComboboxFieldProps<T>) {
   const [open, setOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -85,7 +87,10 @@ export function ComboboxField<T extends FieldValues>({
             )}
             onClick={() => setOpen(!open)}
           >
-            <span className="flex-1 truncate text-left text-black ">
+            <span
+              className="flex-1 truncate text-left"
+              style={{ color: textColor }}
+            >
               {selectedOption ? selectedOption.label : placeholder}
             </span>
 

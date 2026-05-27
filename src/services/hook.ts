@@ -231,3 +231,18 @@ export const useGlobalSearchHook = ({
     ...options,
   });
 };
+
+export const useIndustryServiceHook = () => {
+  return useQuery({
+    queryKey: [PAGE.INDUSTRY_SERVICE_LIST],
+    queryFn: () => PAGE.getIndustryServiceList(),
+  });
+};
+
+
+export const useIndustryLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.INDUSTRY_LEAD],
+    mutationFn: PAGE.createIndustryLead,
+  });
+};

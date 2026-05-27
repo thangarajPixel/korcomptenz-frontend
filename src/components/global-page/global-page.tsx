@@ -94,14 +94,18 @@ import LogoSlider from "../logo-slider";
 import SapImplementation from "../sap-implementation";
 import SliderServiceSection from "../slider-services-section/slider-services-section";
 import MicrosoftGoldCertified from "../microsoft-certified";
-import KeyMetricsSection from "../key-metrics-section";
 
-import SapWhyKorcomptenz from "../sap-why-korcomptenz";
-import WhattoExpect from "../what-to-expect";
-import { SAPPracticeAreas } from "../sap-practice-areas";
-import SAPClientTestimonial from "../client-testimonial";
-import CertificationsSection from "../certifications-section";
-import RequestConsultation from "../request-consultation";
+import IndustryBannerSection from "../industry-banner";
+import IndustryAbout from "../industry-about";
+import IndustrySpotlight from "../industry-spotlight";
+import IndustryIntelligence from "../industry-intelligence";
+import IndustryFeaturedContent from "../industry-featured-content/industry-featured-content";
+import IndustryServicePortfolio from "../industry-service-portfolio";
+import CloudRecognitionSlider from "../cloud-recognition-slider/cloud-recognition-slider";
+import CloudWarning from "../cloud-warning";
+import CloudMigrationHandle from "../cloud-migration-handle/cloud-migration-handle";
+import CloudTechnology from "../cloud-technology";
+
 type Props = {
   data: ComponentPropsType[];
 };
@@ -229,60 +233,6 @@ const GlobalPage = (props: Props) => {
             key={`dark-slider-${item?.__component}-${item?.id}`}
           >
             <DarkSlider manuelSliderData={item} />
-          </ScrollFadeIn>
-        );
-      case "page-componets.key-metrics-section":
-        return (
-          <ScrollFadeIn
-            __component={item?.__component}
-            key={`page-componets.key-metrics-section-${item?.__component}-${item?.id}`}
-          >
-            <KeyMetricsSection KeyMetricsData={item} />
-          </ScrollFadeIn>
-        );
-      case "page-componets.sap-why-korcomptenz":
-        return (
-          <ScrollFadeIn
-            __component={item?.__component}
-            key={`sap-why-korcomptenz-section-${item?.__component}-${item?.id}`}
-          >
-            <SapWhyKorcomptenz data={item} />
-          </ScrollFadeIn>
-        );
-      case "page-componets.what-to-expect":
-        return (
-          <ScrollFadeIn
-            __component={item?.__component}
-            key={`what-to-expect-${item?.__component}-${item?.id}`}
-          >
-            <WhattoExpect data={item} />
-          </ScrollFadeIn>
-        );
-      case "page-componets.client-testimonial":
-        return (
-          <ScrollFadeIn
-            __component={item?.__component}
-            key={`client-testimonial-${item?.__component}-${item?.id}`}
-          >
-            <SAPClientTestimonial data={item} />
-          </ScrollFadeIn>
-        );
-      case "page-componets.certifications-section":
-        return (
-          <ScrollFadeIn
-            __component={item?.__component}
-            key={`certifications-section-${item?.__component}-${item?.id}`}
-          >
-            <CertificationsSection data={item} />
-          </ScrollFadeIn>
-        );
-      case "page-componets.request-consultation":
-        return (
-          <ScrollFadeIn
-            __component={item?.__component}
-            key={`request-consultation-${item?.__component}-${item?.id}`}
-          >
-            <RequestConsultation data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.domain-data":
@@ -1104,16 +1054,99 @@ const GlobalPage = (props: Props) => {
             <MicrosoftGoldCertified data={item} />
           </ScrollFadeIn>
         );
-
-      case "page-componets.sap-practice-areas":
+      case "page-componets.banking-financial-banner":
         return (
           <ScrollFadeIn
             __component={item?.__component}
-            key={`sap-practice-areas-${item?.__component}-${item?.id}`}
+            key={`banking-financial-banner-${item?.__component}-${item?.id}`}
           >
-            <SAPPracticeAreas data={item} />
+            <IndustryBannerSection BannerSectionData={[item]} />
           </ScrollFadeIn>
         );
+        case "page-componets.industry-build-data":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-build-data-${item?.__component}-${item?.id}`}
+          >
+            <IndustryAbout data={item} />
+          </ScrollFadeIn>
+        );
+        case "page-componets.industry-solution-spotlight":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-solution-spotlight-${item?.__component}-${item?.id}`}
+          >
+            <IndustrySpotlight data={item} />
+          </ScrollFadeIn>
+        );
+        case "page-componets.industry-intelligent-experience":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-intelligent-experience-${item?.__component}-${item?.id}`}
+          >
+            <IndustryIntelligence data={item} />
+          </ScrollFadeIn>
+        );
+       case "page-componets.industry-featured-content":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-featured-content-${item?.__component}-${item?.id}`}
+          >
+            <IndustryFeaturedContent data={item} />
+          </ScrollFadeIn>
+        );
+        case "page-componets.industry-service-portfolio":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-service-portfolio-${item?.__component}-${item?.id}`}
+          >
+            <IndustryServicePortfolio data={item} />
+          </ScrollFadeIn>
+        );
+        case "page-componets.cloud-recognition":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-recognition-${item?.__component}-${item?.id}`}
+          >
+            <CloudRecognitionSlider data={item} />
+          </ScrollFadeIn>
+        )
+
+        case "page-componets.cloud-warning-signs":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-warning-signs-${item?.__component}-${item?.id}`}
+          >
+            <CloudWarning data={item} />  
+          </ScrollFadeIn>
+        );
+
+        case "page-componets.cloud-migration-handle":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-migration-handle-${item?.__component}-${item?.id}`}
+          >
+            <CloudMigrationHandle data={item} />  
+          </ScrollFadeIn>
+        );
+
+        case"page-componets.cloud-technology":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-technology-${item?.__component}-${item?.id}`}
+          >
+            <CloudTechnology data={item} />  
+          </ScrollFadeIn>
+        )
 
       default:
         return;

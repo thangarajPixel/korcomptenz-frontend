@@ -9,6 +9,7 @@ import type {
   DemoRequestFormSchema,
   FabconDecisionLeadSchema,
   FreeConsultationLeadSchema,
+  IndustryFormSchema,
   NewsRoomFormSchema,
   SubscriptionFormSchema,
   WebinarReserveFormSchema,
@@ -54,6 +55,9 @@ export const BLOG_FORM_LEAD = "/forrester-reports";
 export const ASSETPDF = "/assets/by-slug";
 export const NEW_LETTER_SUBSCRIPTION = "/newsletter-subscriptions";
 export const GLOBAL_SEARCH = "/global-search";
+export const INDUSTRY_SERVICE_LIST = "/industry-services";
+export const INDUSTRY_LEAD = "/industry-leads";
+
 
 /*************  ✨ Windsurf Command ⭐  *************/
 /**
@@ -371,4 +375,18 @@ export const getGlobalSearch = async ({
   if (sort) params.sort = sort;
   const res = await http.get(GLOBAL_SEARCH, { params });
   return res as unknown as GlobalSearchResponse;
+};
+
+
+export const getIndustryServiceList =
+  async (): Promise<IndustryServiceListType> => {
+    const data = await http.get(INDUSTRY_SERVICE_LIST);
+  
+    return data as never;
+  };
+
+
+  export const createIndustryLead = async (formData: IndustryFormSchema) => {
+  const { data } = await http.post(INDUSTRY_LEAD, { data: formData });
+  return data;
 };

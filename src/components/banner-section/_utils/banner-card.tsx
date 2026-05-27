@@ -8,12 +8,6 @@ import Link from "next/link";
 
 import React, { useEffect, useState } from "react";
 
-/* import { cache } from "react";
-import { getPageService } from "@/services";
-
-const getPageServiceCache = cache(getPageService);
-const pageTitle = await getPageServiceCache(title);
- */
 const BannerCard = ({
   data,
   className,
@@ -22,7 +16,6 @@ const BannerCard = ({
   className?: string;
 }) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
-  const [pageTitle, setPageTitle] = useState<string>("");
 
   useEffect(() => {
     // Only run on client
@@ -30,14 +23,11 @@ const BannerCard = ({
       setIsDesktop(window.innerWidth >= 1024);
     };
 
-    setPageTitle(document.title);
-
     checkDevice();
     window.addEventListener("resize", checkDevice);
 
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
-
   return (
     <div className={cn(className)}>
       {/* Desktop view */}
@@ -65,14 +55,9 @@ const BannerCard = ({
                   className="w-20 md:w-[200px] h-auto object-contain"
                 />
               )}
-
-              <h1 className="!text-3xl leading-tight text-white">
-                {data?.bannerH1Tag ? data.bannerH1Tag : pageTitle}
-              </h1>
-
-              <h2 className="!text-[50px] !leading-[60px] !font-semibold text-white">
+              <h1 className="text-9xl font-semibold leading-14 text-white">
                 {data?.title}
-              </h2>
+              </h1>
               {data?.description && (
                 <DangerousHtml
                   className="text-3xl md:text-5xl leading-tight font-normal text-white"
