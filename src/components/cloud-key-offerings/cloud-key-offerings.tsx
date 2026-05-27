@@ -2,8 +2,7 @@
 
 import { DangerousHtml } from "../ui/dangerous-html";
 
-const CloudWarning = ({ data }: { data: CloudWarningType }) => {
-
+const CloudKeyOfferings = ({ data }: { data: CloudBuildPeopleType }) => {
   return (
     <section className="container-md ">
       {/* Heading */}
@@ -27,14 +26,12 @@ const CloudWarning = ({ data }: { data: CloudWarningType }) => {
         {data?.description && (
           <DangerousHtml
             html={data?.description}
-            className="text-[#242424] text-base md:text-lg leading-7 break-words"
+            className="text-[#242424] text-md md:text-lg leading-7 break-words"
           />
         )}
       </div>
-
-      
     </section>
   );
 };
 
-export default CloudWarning;
+export default CloudKeyOfferings;

@@ -26,7 +26,7 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
         {data?.description && (
           <DangerousHtml
             html={data?.description}
-            className="text-[#242424] text-base md:text-lg leading-7 break-words"
+            className="text-[#242424] text-md md:text-lg leading-7 break-words"
           />
         )}
       </div>
