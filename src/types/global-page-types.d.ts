@@ -173,71 +173,7 @@ type InsightsSectionType = {
   list: InsightsMobileCarouselType[];
 };
 
-type SAPPracticeAreasType = {
-  title: string;
-  subtext: string;
-  buttontext: string;
-  buttonLink: string;
-  gridlisting: SAPPracticeAreasMobileCarouselType[];
-};
-type WhattoExpectType = {
-  title: string;
-  subtext: string;
-  description: string;
-  buttontext: string;
-  buttonLink: string;
-  gridlisting: WhattoExpectTypeGrid[];
-};
 
-type TestimonialItem = {
-  id: number;
-  title?: string;
-  subtext: string;
-  testimonials: {
-    id: number;
-    title: string;
-    clientname: string;
-    designation: string;
-    content: string;
-    star: number;
-  }[];
-};
-
-type CertificationsSection = {
-  id: number;
-  title: string;
-  subtext: string;
-  description: string;
-  backgroundimage: ImageType;
-  partnerlogos: {
-    id: number;
-    logoimage: ImageType;
-  }[];
-};
-type RequestConsultation = {
-  id: number;
-  title: string;
-  subtext: string;
-  description: string;
-  form: GlobalFormType;
-  item: GlobalFormItemType;
-};
-
-type WhattoExpectTypeGrid = {
-  buttontext: string;
-  description: string;
-  id: string | number;
-  buttonurl: string;
-  title: string;
-}
-type SAPPracticeAreasMobileCarouselType = {
-  buttontext: string;
-  description: string;
-  id: string | number;
-  image: ImageType;
-  buttonurl: string;
-  title: string;
-}
 type OpportunitiesType = {
   description: string;
   button: ButtonType;
@@ -408,15 +344,6 @@ type BenefitSectionType = {
     description: string;
   }[];
 };
-type DemandHowKORSectionType = {
-  title: string;
-  howkorlist: {
-    id: number;
-    pointnumber: string;
-    title: string;
-    Description: string;
-  }[];
-};
 type KpiPartnerType = {
   title: string;
   items: {
@@ -540,63 +467,6 @@ type TechPartnerSectionType = {
     isTargetBlank: boolean;
   }[];
 };
-
-type RichTextChild = {
-  text: string;
-};
-
-type RichTextBlock = {
-  type: "paragraph"; // you can expand later
-  children: RichTextChild[];
-};
-
-type PageGridViewType = {
-  Title: string;
-  description: RichTextBlock[];
-  tag: string;
-  gridlist: {
-    id: number;
-    listtitle: string;
-    listdescription: RichTextBlock[];
-    buttontext: string;
-    buttonurl: string;
-  }[];
-};
-type KeyMetricsSectionType = {
-  id: string;
-  title: string;
-
-  backgroundImage: ImageType;
-  listLeft: {
-    title: string;
-    description: string;
-  }[];
-};
-type ScheduleCallType = {
-  title: string;
-  buttonText: string;
-  link: string;
-  image: string;
-  description: string;
-  topDescription: string;
-};
-
-type WhyKorcomptenzType = {
-  title: string;
-  description: string;
-  colSpan: string;
-  isBackground: boolean;
-  topDescription: string;
-  topTitle: string;
-  backgroundImage: ImageType;
-  isPerRowFive: boolean;
-  subtitle: string;
-  isBgGray: boolean;
-  backgroundColor: string;
-  noOfColumn: string;
-  isBgGrey: boolean;
-  list: IndustryItem[];
-};
 type SocialPlatformType = {
   id: string;
   label: string;
@@ -634,18 +504,6 @@ type InterlinkType = {
   urlname: string;
   urllink: string;
 };
-
-type ColumnTitleType = {
-  divtitle: string;
-  interlinks: InterlinkType[];
-};
-
-type OurOfferingsType = {
-  subtitle: string;
-  title: string;
-  columntitle: ColumnTitleType[];
-};
-
 type StretchableSectionType = {
   title: string;
   description: string;
@@ -1341,7 +1199,10 @@ type MicrosoftGoldCertifiedType = {
   };
 };
 
+
+
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
+
 
 type ComponentPropsMap = {
   SlidingSection: {
@@ -1432,10 +1293,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.tech-data";
   };
-  KeyMetricsSection: KeyMetricsSectionType & {
-    id: string;
-    __component: "page-componets.key-metrics-section";
-  };
+
   OurOfferingsSection: OurOfferingsType & {
     id: string;
     __component: "page-componets.our-offerings-section";
@@ -1753,14 +1611,42 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.microsoft-gold-certified";
   };
-  PageGridView: PageGridViewType & {
+
+  /* Kordev */
+  KeyMetricsSection: KeyMetricsSectionType & {
     id: string;
-    __component: "page-componets.page-grid-view";
+    __component: "page-componets.key-metrics-section";
   };
   SapWhyKorcomptenz: SapWhyKorcomptenzType & {
     id: string;
     __component: "page-componets.sap-why-korcomptenz";
   };
+  PageGridView: PageGridViewType & {
+    id: string;
+    __component: "page-componets.page-grid-view";
+  };
+  SAPPracticeAreas: SAPPracticeAreasType & {
+    id: string;
+    __component: "page-componets.sap-practice-areas";
+  };
+  WhattoExpect: WhattoExpectType & {
+    id: string;
+    __component: "page-componets.what-to-expects";
+  };
+  ClientTestimonial: TestimonialItem & {
+    id: string;
+    __component: "page-componets.client-testimonial";
+  };
+
+  CertificationsSection: CertificationsSection & {
+    id: string;
+    __component: "page-componets.certifications-section";
+  };
+  RequestConsultation: RequestConsultation & {
+    id: string;
+    __component: "page-componets.request-consultation";
+  };
+  /* Kordev */
 };
 
 
@@ -1893,6 +1779,79 @@ type GlobalSearchResponse = {
   };
 
 };
+
+
+/* kordev Team */
+
+type KeyMetricsSectionType = {
+  id: string;
+  title: string;
+
+  backgroundImage: ImageType;
+  listLeft: {
+    title: string;
+    description: string;
+  }[];
+};
+
+
+type SAPPracticeAreasType = {
+  title: string;
+  subtext: string;
+  buttontext: string;
+  buttonLink: string;
+  gridlisting: SAPPracticeAreasMobileCarouselType[];
+};
+type WhattoExpectType = {
+  title: string;
+  subtext: string;
+  description: string;
+  buttontext: string;
+  buttonLink: string;
+  gridlisting: WhattoExpectTypeGrid[];
+};
+
+type TestimonialItem = {
+  id: number;
+  title?: string;
+  subtext: string;
+  testimonials: {
+    id: number;
+    title: string;
+    clientname: string;
+    designation: string;
+    content: string;
+    star: number;
+  }[];
+};
+
+type CertificationsSection = {
+  id: number;
+  title: string;
+  subtext: string;
+  description: string;
+  backgroundimage: ImageType;
+  partnerlogos: {
+    id: number;
+    logoimage: ImageType;
+  }[];
+};
+type RequestConsultation = {
+  id: number;
+  title: string;
+  subtext: string;
+  description: string;
+  form: GlobalFormType;
+  item: GlobalFormItemType;
+};
+
+type WhattoExpectTypeGrid = {
+  buttontext: string;
+  description: string;
+  id: string | number;
+  buttonurl: string;
+  title: string;
+}
 type SapWhyKorcomptenzType = {
 
 
@@ -1909,6 +1868,87 @@ type SapWhyKorcomptenzType = {
 
 
 };
+type SAPPracticeAreasMobileCarouselType = {
+  buttontext: string;
+  description: string;
+  id: string | number;
+  image: ImageType;
+  buttonurl: string;
+  title: string;
+}
+
+type ColumnTitleType = {
+  divtitle: string;
+  interlinks: InterlinkType[];
+};
+
+type OurOfferingsType = {
+  subtitle: string;
+  title: string;
+  columntitle: ColumnTitleType[];
+};
+
+type RichTextChild = {
+  text: string;
+};
+
+type RichTextBlock = {
+  type: "paragraph"; // you can expand later
+  children: RichTextChild[];
+};
+
+type PageGridViewType = {
+  Title: string;
+  description: RichTextBlock[];
+  tag: string;
+  gridlist: {
+    id: number;
+    listtitle: string;
+    listdescription: RichTextBlock[];
+    buttontext: string;
+    buttonurl: string;
+  }[];
+};
+
+type ScheduleCallType = {
+  title: string;
+  buttonText: string;
+  link: string;
+  image: string;
+  description: string;
+  topDescription: string;
+};
+
+type WhyKorcomptenzType = {
+  title: string;
+  description: string;
+  colSpan: string;
+  isBackground: boolean;
+  topDescription: string;
+  topTitle: string;
+  backgroundImage: ImageType;
+  isPerRowFive: boolean;
+  subtitle: string;
+  isBgGray: boolean;
+  backgroundColor: string;
+  noOfColumn: string;
+  isBgGrey: boolean;
+  list: IndustryItem[];
+};
+
+type DemandHowKORSectionType = {
+  title: string;
+  howkorlist: {
+    id: number;
+    pointnumber: string;
+    title: string;
+    Description: string;
+  }[];
+};
+/* kordev Team */
+
+
+
 // type GlobalSearchItem = {
 //   id: number;
 //   title: string;
