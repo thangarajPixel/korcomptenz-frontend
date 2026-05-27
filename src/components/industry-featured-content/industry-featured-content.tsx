@@ -40,7 +40,7 @@ const IndustryFeaturedContent = ({
           <DangerousHtml
             as="h2"
             html={data?.title}
-            className="text-foreground"
+            className="text-[#020202]"
           />
         )}
 

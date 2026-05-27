@@ -31,13 +31,13 @@ const IndustryServicePortfolio = ({
             <DangerousHtml
               as="h2"
               html={data.title}
-              className="text-foreground"
+              className="text-[#020202]"
             />
           )}
           {data?.description && (
             <DangerousHtml
               html={data.description}
-              className="text-muted-foreground text-base md:text-lg leading-7.5"
+              className="text-[#242424] text-base md:text-lg leading-7.5"
             />
           )}
         </div>

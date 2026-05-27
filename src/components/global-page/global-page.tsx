@@ -102,6 +102,9 @@ import IndustryIntelligence from "../industry-intelligence";
 import IndustryFeaturedContent from "../industry-featured-content/industry-featured-content";
 import IndustryServicePortfolio from "../industry-service-portfolio";
 import CloudRecognitionSlider from "../cloud-recognition-slider/cloud-recognition-slider";
+import CloudWarning from "../cloud-warning";
+import CloudMigrationHandle from "../cloud-migration-handle/cloud-migration-handle";
+import CloudTechnology from "../cloud-technology";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1112,6 +1115,36 @@ const GlobalPage = (props: Props) => {
             key={`cloud-recognition-${item?.__component}-${item?.id}`}
           >
             <CloudRecognitionSlider data={item} />
+          </ScrollFadeIn>
+        )
+
+        case "page-componets.cloud-warning-signs":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-warning-signs-${item?.__component}-${item?.id}`}
+          >
+            <CloudWarning data={item} />  
+          </ScrollFadeIn>
+        );
+
+        case "page-componets.cloud-migration-handle":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-migration-handle-${item?.__component}-${item?.id}`}
+          >
+            <CloudMigrationHandle data={item} />  
+          </ScrollFadeIn>
+        );
+
+        case"page-componets.cloud-technology":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-technology-${item?.__component}-${item?.id}`}
+          >
+            <CloudTechnology data={item} />  
           </ScrollFadeIn>
         )
 

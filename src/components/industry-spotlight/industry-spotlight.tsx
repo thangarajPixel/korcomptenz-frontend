@@ -21,7 +21,7 @@ const IndustrySpotlight = ({ data }: { data: IndustrySpotlightType }) => {
           <DangerousHtml
             as="h2"
             html={data?.title}
-            className="text-foreground"
+            className="text-[#020202]"
           />
         )}
         {data?.description && (
@@ -34,7 +34,7 @@ const IndustrySpotlight = ({ data }: { data: IndustrySpotlightType }) => {
 
       {/* Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-3">
-        {data?.list?.map((item,) => {
+        {data?.list?.map((item) => {
           return (
             <div
               key={item?.id}

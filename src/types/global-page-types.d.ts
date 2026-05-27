@@ -1320,16 +1320,59 @@ type IndustryServicePortfolioType = {
     list: {
       tabTitle: string;
       image: ImageType;
-      subList: { title: string; descriptionList:{ description:string ;link:string; isTarget: boolean}[] };
+      subList: {
+        title: string;
+        descriptionList: {
+          description: string;
+          link: string;
+          isTarget: boolean;
+        }[];
+      };
     }[];
   };
 };
 
-type CloudRecognitionSliderType={
+type CloudWarningType = {
   title: string;
-  description: string;  
-  list:{image:ImageType;isTitleDescription:boolean}[]
-}
+  subHeading: string;
+  description: string;
+  list: {
+    title: string;
+    description: string;
+  }[];
+};
+
+type CloudMigrationType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  list: {
+    tabTitle: string;
+    title: string;
+    description: string;
+    disclaimer: string;
+    image: ImageType;
+    subList: {
+      description;
+    }[];
+  }[];
+};
+
+type CloudRecognitionSliderType = {
+  title: string;
+  description: string;
+  list: { image: ImageType; isTitleDescription: boolean }[];
+};
+
+type CloudTechnologyType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  list: {
+    isTitleDescription: boolean;
+    image: ImageType;
+  }[];
+};
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
@@ -1759,7 +1802,19 @@ type ComponentPropsMap = {
   CloudRecognitionSlider: CloudRecognitionSliderType & {
     id: string;
     __component: "page-componets.cloud-recognition";
-  }
+  };
+  CloudWarning: CloudWarningType & {
+    id: string;
+    __component: "page-componets.cloud-warning-signs";
+  };
+  CloudMigrationHandle: CloudMigrationHandleType & {
+    id: string;
+    __component: "page-componets.cloud-migration-handle";
+  };
+  CloudTechnology: CloudTechnologyType & {
+    id: string;
+    __component: "page-componets.cloud-technology";
+  };
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
