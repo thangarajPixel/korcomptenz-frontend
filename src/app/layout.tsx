@@ -174,7 +174,6 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        /* Mirabel Tracking Code Start*/
         <noscript>
           <p>
             <img
@@ -184,7 +183,6 @@ export default function RootLayout({
             />
           </p>
         </noscript>
-        /* Mirabel Tracking Code End*/
         <Providers>{children}</Providers>
         {/* 🔥 KEY: Load tracking after interaction */}
         <TrackingLoader />
