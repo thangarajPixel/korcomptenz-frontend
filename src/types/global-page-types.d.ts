@@ -1449,7 +1449,7 @@ type CloudKeyOfferingsType = {
     title: string;
     subList: {
       description: string;
-    };
+    }[];
   }[];
 };
 

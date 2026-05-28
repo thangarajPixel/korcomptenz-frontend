@@ -5,7 +5,7 @@ import { DangerousHtml } from "../ui/dangerous-html";
 const CloudWarning = ({ data }: { data: CloudWarningType }) => {
 
   return (
-    <section className="container-md ">
+    <section className="container-md">
       {/* Heading */}
 
       <div className="">
