@@ -137,7 +137,7 @@ export default function RootLayout({
             }),
           }}
         />
-        /* Mirabel Tracking Code Start*/
+        {/* Mirabel Tracking Code Start*/}
         <Script
           id="mirabel-tracking"
           strategy="afterInteractive"
@@ -161,7 +161,7 @@ export default function RootLayout({
             `,
           }}
         />
-        /* Mirabel Tracking Code End*/
+        {/* Mirabel Tracking Code End*/}
       </head>
 
       <body className={`${outfitSans.variable} antialiased`}>
@@ -174,6 +174,8 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+
+        {/* Mirabel Tracking Code Start*/}
         <noscript>
           <p>
             <img
@@ -183,6 +185,7 @@ export default function RootLayout({
             />
           </p>
         </noscript>
+        {/* Mirabel Tracking Code End*/}
         <Providers>{children}</Providers>
         {/* 🔥 KEY: Load tracking after interaction */}
         <TrackingLoader />
