@@ -1344,6 +1344,13 @@ type CloudWarningType = {
   }[];
 };
 
+type CloudMigrationStep = {
+  id: number;
+  title: string;
+  description: string;
+  duration: string;
+};
+
 type CloudMigrationType = {
   title: string;
   description: string;
@@ -1358,6 +1365,11 @@ type CloudMigrationType = {
       description;
     }[];
   }[];
+  listOne: CloudMigrationStep;
+  listTwo: CloudMigrationStep;
+  listThree: CloudMigrationStep;
+  listFour: CloudMigrationStep;
+  listFive: CloudMigrationStep;
 };
 
 type CloudRecognitionSliderType = {
