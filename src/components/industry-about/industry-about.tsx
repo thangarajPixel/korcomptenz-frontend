@@ -9,7 +9,7 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
       <div className="grid grid-cols-1 lg:grid-cols-[52%_45%] md:gap-x-10 gap-y-10">
 
         {/* CONTENT SECTION */}
-        <div className="lg:px-5 md:mt-8">
+        <div className="md:mt-8">
           {data?.subHeading && (
             <DangerousHtml
               className="text-[24px] leading-[28px] font-semibold text-[#5648D8]"
