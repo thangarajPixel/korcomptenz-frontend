@@ -39,7 +39,7 @@ const CloudReadiness = ({ data }: { data: CloudReadinessType }) => {
               <ButtonLink
                 link={data?.buttonLink || "#"}
                 isTargetNew={data?.isTarget}
-                buttonProps={{ size: "xl", arrow: true }}
+                buttonProps={{ size: "xl", arrow: true,className:"text-2xl"}}
               >
                 {data?.buttonText || "Watch Now"}
               </ButtonLink>

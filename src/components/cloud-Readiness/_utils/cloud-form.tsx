@@ -1,12 +1,17 @@
 "use client";
 import React from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { useIndustryLeadHook,  useInfrastructureHook, useMigrationHook, useRoleHook } from "@/services";
+import {
+  useCloudLeadHook,
+  useInfrastructureHook,
+  useMigrationHook,
+  useRoleHook,
+} from "@/services";
 import { errorSet, notify } from "@/utils/helper";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  industryformSchema,
-  type IndustryFormSchema,
+  cloudformSchema,
+  type CloudFormSchema,
 } from "@/utils/validation.schema";
 import { ComboboxField } from "@/components/ui/combobox";
 import { Input } from "@/components/ui/input";
@@ -15,20 +20,16 @@ import { useRouter } from "next/navigation";
 
 import { useCaptchaToken } from "@/lib/recaptcha";
 
-
 const defaultValues = {
   firstName: "",
   lastName: "",
-  email: "",
   company: "",
-  phone: "",
-  service: undefined,
-  technology: undefined,
-  message: "",
+  role: undefined,
+  infrastructure: undefined,
+  migrationUrgency: undefined,
 };
 
 const cloudForm = ({ form }: { form: CloudFormType }) => {
-
   const {
     control,
     handleSubmit,
@@ -36,29 +37,27 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
 
     reset,
     formState: { isSubmitting },
-  } = useForm<IndustryFormSchema>({
+  } = useForm<CloudFormSchema>({
     mode: "onSubmit",
-    resolver: zodResolver(industryformSchema),
+    resolver: zodResolver(cloudformSchema),
     defaultValues: {
       ...defaultValues,
     },
   });
   const router = useRouter();
-  const { mutateAsync } = useIndustryLeadHook();
+  const { mutateAsync } = useCloudLeadHook();
   const { getToken } = useCaptchaToken();
 
-const { data: datarole } = useRoleHook();
-const { data: datainfrastructure } = useInfrastructureHook();
-const { data: datamigration } = useMigrationHook();
+  const { data: datarole } = useRoleHook();
 
+  const { data: datainfrastructure } = useInfrastructureHook();
+  const { data: datamigration } = useMigrationHook();
 
-
-
-  const handleFormSubmit: SubmitHandler<IndustryFormSchema> = React.useCallback(
+  const handleFormSubmit: SubmitHandler<CloudFormSchema> = React.useCallback(
     async (formdata) => {
       let captchaToken: string;
       try {
-        captchaToken = await getToken("industrylead");
+        captchaToken = await getToken("cloudlead");
       } catch {
         notify({ message: "Captcha verification failed. Please try again." });
         return;
@@ -81,46 +80,41 @@ const { data: datamigration } = useMigrationHook();
   );
 
   return (
-    <section >
-      
+    <section>
       <form
         id="contact-us-form"
         onSubmit={handleSubmit(handleFormSubmit)}
-        className="space-y-8 bg-white rounded-2xl  "
+        className=" border border-[#CFCFCF] rounded-3xl p-4 md:p-6"
         noValidate
       >
-        <div className="grid gap-y-8 mt-2">
+        <div className="grid  mt-2">
           {/* Name + Email */}
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-4 mb-1">
             <Input
               control={control}
               name={"firstName"}
-           
               placeholder={form?.firstNameLabel}
-              className=" w-full h-[70px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
+              className=" w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
             />
             <Input
               control={control}
               name="lastName"
-             
               placeholder={form?.lastNameLabel}
-              className=" w-full h-[70px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
+              className=" w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
             />
           </div>
-          <div className="grid md:grid-cols-2 gap-4">
-            
+          <div className="grid md:grid-cols-2 gap-4 mb-1">
             <Input
               control={control}
               name="company"
-           
               placeholder={form?.companyLabel}
-              className=" w-full h-[70px] px-4 rounded-[6px] border-2 border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
+              className=" w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
             />
 
             <ComboboxField
               control={control}
               textColor="#9A9A9A"
-              name="service"
+              name="role"
               options={
                 datarole?.data?.map((item) => ({
                   ...item,
@@ -129,59 +123,54 @@ const { data: datamigration } = useMigrationHook();
                 })) || []
               }
               placeholder={form?.roleLabel}
-              className="w-full h-[70px] px-4 rounded-[6px] border-2  border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
+              className="w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
             />
           </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-4">
-           
-            <ComboboxField
-              control={control}
-              textColor="#9A9A9A"
-              name="service"
-              options={
-                datamigration?.data?.map((item) => ({
-                  ...item,
-                  label: item?.title,
-                  value: item.id,
-                })) || []
-              }
-              placeholder={form?.migrationUrgencyLabel}
-              className="w-full h-[70px] px-4 rounded-[6px] border-2  border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
-            />
-            <ComboboxField
-              control={control}
-              textColor="#9A9A9A"
-              name="service"
-              options={
-                datainfrastructure?.data?.map((item) => ({
-                  ...item,
-                  label: item?.title,
-                  value: item.id,
-                })) || []
-              }
-              placeholder={form?.infrastructureLabel}
-              className="w-full h-[70px] px-4 rounded-[6px] border-2  border-[#7A7A7A] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 py-2"
-            />
-          </div>
+        </div>
+        <div className="grid md:grid-cols-2 gap-4 mb-1">
+          <ComboboxField
+            control={control}
+            textColor="#9A9A9A"
+            name="infrastructure"
+            options={
+              datamigration?.data?.map((item) => ({
+                ...item,
+                label: item?.title,
+                value: item.id,
+              })) || []
+            }
+            placeholder={form?.migrationUrgencyLabel}
+            className="w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
+          />
+          <ComboboxField
+            control={control}
+            textColor="#9A9A9A"
+            name="migrationUrgency"
+            options={
+              datainfrastructure?.data?.map((item) => ({
+                ...item,
+                label: item?.title,
+                value: item.id,
+              })) || []
+            }
+            placeholder={form?.infrastructureLabel}
+            className="w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
+          />
+        </div>
 
-         
-
-        
-          {/* Submit button */}
-          <div className="pt-2 flex justify-center items-center -mt-5">
-            <Button
-              size="lg"
-              variant="outline"
-              className="hover:bg-white bg-primary border-primary text-white hover:text-primary px-10 py-4"
-              arrow
-              isLoading={isSubmitting}
-              type="submit"
-            >
-              Submit
-            </Button>
-          </div>
-       
+        {/* Submit button */}
+        <div className="pt-2 flex justify-end md:justify-start  mt-5">
+          <Button
+            size="lg"
+            variant="outline"
+            className="hover:bg-white bg-primary border-primary text-white hover:text-primary px-8 py-4"
+            arrow
+            isLoading={isSubmitting}
+            type="submit"
+          >
+            Submit
+          </Button>
+        </div>
       </form>
     </section>
   );

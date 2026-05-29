@@ -266,3 +266,10 @@ export const useMigrationHook = () => {
     queryFn: () => PAGE.getCloudMigrationList(),
   });
 };
+
+export const useCloudLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.CLOUD_LEAD],
+    mutationFn: PAGE.createCloudLead,
+  });
+};

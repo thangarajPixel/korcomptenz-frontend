@@ -249,11 +249,23 @@ export const industryformSchema = z.object({
   service: z.any(),
   message: z.string().min(1, "Message is required"),
 });
+export const cloudformSchema = z.object({
+  firstName: z
+    .string()
+    .min(1, "First name is required")
+    .regex(/^[A-Za-z\s]+$/, "First name must contain only letters and spaces"),
 
+  lastName: z
+    .string()
+    .min(1, "Last name is required")
+    .regex(/^[A-Za-z\s]+$/, "Last name must contain only letters and spaces"),
 
+  company: z.string().min(1, "Company name is required"),
 
-
-
+  role: z.any(),
+  migrationUrgency: z.any(),
+  infrastructure: z.any(),
+});
 
 export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
 export type FreeConsultationLeadSchema = z.infer<
@@ -271,3 +283,4 @@ export type BlogFormSchema = z.infer<typeof blogFormSchema>;
 export type SubscriptionFormSchema = z.infer<typeof subscriptionFormSchema>;
 
 export type IndustryFormSchema = z.infer<typeof industryformSchema>;
+export type CloudFormSchema = z.infer<typeof cloudformSchema>;

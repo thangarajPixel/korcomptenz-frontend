@@ -4,6 +4,7 @@ import type {
   BlogFormSchema,
   BookADemoFormData,
   CareerNewLetterFormData,
+  CloudFormSchema,
   ContactFormData,
   ContactUsFormSchema,
   DemoRequestFormSchema,
@@ -59,6 +60,7 @@ export const INDUSTRY_LEAD = "/industry-leads";
 export const CLOUD_ROLE_LIST = "/cloud-roles";
 export const CLOUD_INFRASTRUCTURE_LIST = "/cloud-infrastructures";
 export const CLOUD_MIGRATION_LIST = "/cloud-migration-urgencies";
+export const CLOUD_LEAD = "/cloud-leads";
 
 /*************  ✨ Windsurf Command ⭐  *************/
 /**
@@ -405,3 +407,8 @@ export const getCloudMigrationList =
 
     return data as never;
   };
+
+export const createCloudLead = async (formData: CloudFormSchema) => {
+  const { data } = await http.post(CLOUD_LEAD, { data: formData });
+  return data;
+};
