@@ -1399,6 +1399,8 @@ type CloudTechnologyType = {
   subHeading: string;
   list: {
     isTitleDescription: boolean;
+    isTargetNew?: boolean;
+    link: string;
     image: ImageType;
   }[];
 };
