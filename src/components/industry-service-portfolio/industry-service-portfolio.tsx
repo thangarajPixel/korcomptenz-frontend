@@ -23,7 +23,7 @@ const IndustryServicePortfolio = ({
         <div className=" max-w-4xl">
           {data?.subHeading && (
             <DangerousHtml
-              className="text-[#1EBFA1] text-[20px] md:text-[24px] font-semibold"
+              className="text-[#5648D8] text-[20px] md:text-[24px] font-semibold"
               html={data.subHeading}
             />
           )}

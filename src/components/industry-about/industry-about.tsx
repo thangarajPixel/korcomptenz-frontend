@@ -12,7 +12,7 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
         <div className="lg:px-5 md:mt-8">
           {data?.subHeading && (
             <DangerousHtml
-              className="text-[24px] leading-[28px] font-semibold font-foreground"
+              className="text-[24px] leading-[28px] font-semibold text-[#5648D8]"
               html={data?.subHeading}
             />
           )}

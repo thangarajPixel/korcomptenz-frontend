@@ -11,7 +11,7 @@ const IndustrySpotlight = ({ data }: { data: IndustrySpotlightType }) => {
         {/* Sub Heading */}
         {data?.subHeading && (
           <DangerousHtml
-            className="text-[24px] leading-[28px] font-semibold font-foreground"
+            className="text-[24px] leading-[28px] font-semibold font-foreground text-[#5648D8]"
             html={data?.subHeading}
           />
         )}

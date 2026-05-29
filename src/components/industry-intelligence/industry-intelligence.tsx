@@ -18,7 +18,7 @@ const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
         <div className="max-w-5xl">
           {/* Sub Heading */}
           <DangerousHtml
-            className="text-[24px] leading-[28px] font-semibold font-foreground"
+            className="text-[24px] leading-[28px] font-semibold text-[#5648D8]"
             html={data?.subHeading}
           />
 

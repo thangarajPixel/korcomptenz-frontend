@@ -31,7 +31,7 @@ const IndustryFeaturedContent = ({
       <div className="max-w-5xl ">
         {data?.subHeading && (
           <DangerousHtml
-            className="text-[24px] leading-[28px] font-semibold text-foreground"
+            className="text-[24px] leading-[28px] font-semibold text-[#5648D8]"
             html={data?.subHeading}
           />
         )}
@@ -137,8 +137,7 @@ const IndustryFeaturedContent = ({
                           isTargetNew={item?.isTarget}
                           buttonProps={{
                             arrow: true,
-                            className:
-                              " bg-transparent hover:bg-transparent text-white  hover:text-white  border-none hover:border-none -ml-3",
+                            className:"bg-transparent text-white border-none shadow-none hover:bg-transparent hover:text-white hover:border-none hover:shadow-none",
                           }}
                         >
                           {item?.buttonText || "Read More"}
@@ -227,7 +226,7 @@ const IndustryFeaturedContent = ({
                           link={item?.buttonLink || "#"}
                           isTargetNew={item?.isTarget}
                           buttonProps={{
-                            className: `bg-transparent border-none -ml-3 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace("text-", "")} hover:border-none`,
+                            className: `bg-transparent border-none -ml-3 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace("text-", "")} hover:border-none shadow-none hover:shadow-none`,
                           }}
                         >
                           {item?.buttonText || "Read More"}
