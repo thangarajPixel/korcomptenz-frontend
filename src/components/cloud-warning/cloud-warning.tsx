@@ -53,7 +53,7 @@ const CloudWarning = ({ data }: { data: CloudWarningType }) => {
               {item?.description && (
                 <DangerousHtml
                   html={item.description}
-                  className="text-[#242424] text-[16px] md:text-[18px] xl:text-[20px] leading-5.75 md:leading-5 xl:leading-7.5"
+                  className="text-[#242424] text-[16px] md:text-[18px]  leading-5.75 md:leading-5 xl:leading-7.5"
                 />
               )}
             </div>

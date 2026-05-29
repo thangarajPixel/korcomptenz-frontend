@@ -5,7 +5,7 @@ import { DangerousHtml } from "../ui/dangerous-html";
 
 const STEPS_KEY = ["listOne", "listTwo", "listThree", "listFour", "listFive"] as const;
 
-const CloudFirstCall = ({ data }: { data: CloudMigrationType }) => {
+const CloudFirstCall = ({ data }: { data: CloudFirstCallType }) => {
   const steps = STEPS_KEY.map((key) => data?.[key]).filter(Boolean);
   const lineRef = useRef<HTMLDivElement>(null);
   const [lineWidth, setLineWidth] = useState(0);
@@ -105,7 +105,7 @@ const CloudFirstCall = ({ data }: { data: CloudMigrationType }) => {
               {step?.title && (
                 <DangerousHtml
                   html={step.title}
-                  className="text-[#242424] text-[20px] font-semibold mb-2
+                  className="text-[#242424] text-[20px] font-semibold -mb-1
               [&_p]:font-semibold [&_p]:text-[#242424]"
                 />
               )}

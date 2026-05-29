@@ -2,7 +2,7 @@
 
 import { DangerousHtml } from "../ui/dangerous-html";
 
-const CloudAiPowered = ({ data }: { data: CloudFirstCallType }) => {
+const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
   return (
     <section className="container-md ">
       {/* Heading */}

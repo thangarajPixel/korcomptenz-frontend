@@ -111,6 +111,7 @@ import CloudAiPowered from "../cloud-ai-powered";
 import CloudBuildPeople from "../cloud-build-people";
 import CloudKeyOfferings from "../cloud-key-offerings";
 import CloudReadiness from "../cloud-Readiness/cloud-Readiness";
+import CloudBanner from "../cloud-banner/cloud-banner";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1209,6 +1210,18 @@ const GlobalPage = (props: Props) => {
             <CloudReadiness data={item} />
           </ScrollFadeIn>
         );
+
+        case "page-componets.cloud-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-banner-${item?.__component}-${item?.id}`}
+          >
+            <CloudBanner data={item} />
+          </ScrollFadeIn>
+        )
+
+    
       default:
         return;
     }

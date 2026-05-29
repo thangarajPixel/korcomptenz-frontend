@@ -1199,6 +1199,15 @@ type FabconDecisionFabricType = {
 
 type FabconBannerType = {
   title1: string;
+  subHeading: string;
+  buttonTextOne: string;
+  buttonTextTwo: string;
+  buttonLinkOne: string;
+  buttonLinkTwo: string;
+  isTargetOne: boolean;
+  isTargetTwo: boolean;
+  image: ImageType;
+  title: string;
   title2: string;
   backgroundImage: ImageType;
   buttonText: string;
@@ -1208,6 +1217,12 @@ type FabconBannerType = {
   description: string;
   date: string;
   location: string;
+  list: {
+    title: string;
+    subList:{title : string
+      description: string
+    }[]
+  }
 };
 
 type SapImplementationType = {
@@ -1394,25 +1409,30 @@ type CloudFirstCallType = {
   subHeading: string;
   listOne: {
     title: string;
+    id: number;
     description: string;
     duration: string;
   };
   listTwo: {
+    id: number;
     title: string;
     description: string;
     duration: string;
   };
   listThree: {
+    id: number;
     title: string;
     description: string;
     duration: string;
   };
   listFour: {
+    id: number;
     title: string;
     description: string;
     duration: string;
   };
   listFive: {
+    id: number;
     title: string;
     description: string;
     duration: string;
@@ -1921,7 +1941,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-warning-signs";
   };
-  CloudMigrationHandle: CloudMigrationHandleType & {
+  CloudMigrationHandle: CloudMigrationType & {
     id: string;
     __component: "page-componets.cloud-migration-handle";
   };
@@ -1950,9 +1970,13 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-key-offerings";
   };
-  CloudForm: CloudFormType & {
+  CloudReadiness: CloudReadinessType & {
     id: string;
-    __component: "page-componets.cloud-readiness-report-cloud-form";
+    __component: "page-componets.cloud-readiness-report";
+  };
+  CloudBanner: FabconBannerType & {
+    id: string;
+    __component: "page-componets.cloud-banner";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
