@@ -50,19 +50,17 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`shrink-0 px-4 py-2 text-[24px] font-semibold rounded-[8px] whitespace-nowrap transition-colors
+                className={`shrink-0 px-4 py-2 text-[18px] font-semibold rounded-[8px] whitespace-nowrap transition-colors
         duration-200
-        ${
-          isActive
-            ? "bg-[#2AAC94] "
-            : "bg-white text-[#4A4A4A] border border-[#E0E0E0]"
-        }`}
+        ${isActive
+                    ? "bg-[#2AAC94] "
+                    : "bg-white text-[#4A4A4A] border border-[#E0E0E0]"
+                  }`}
               >
                 <DangerousHtml
                   html={item?.tabTitle}
-                  className={`[&_p]:text-[24px] [&_p]:font-semibold [&_p]:whitespace-nowrap [&_p]:!pb-0 ${
-                    isActive ? "[&_p]:text-white" : "[&_p]:text-[#4A4A4A]"
-                  }`}
+                  className={`[&_p]:text-[18px] [&_p]:font-semibold [&_p]:whitespace-nowrap [&_p]:!pb-0 ${isActive ? "[&_p]:text-white" : "[&_p]:text-[#4A4A4A]"
+                    }`}
                 />
               </button>
             );
@@ -127,25 +125,24 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
       </div>
 
       {/* ── DESKTOP layout ── */}
-      <div className="hidden md:flex rounded-[16px] border border-[#E0E0E0] overflow-hidden min-h-[500px] mt-10">
+      <div className="hidden md:flex rounded-[16px] border border-[#E0E0E0] overflow-hidden min-h-[600px] mt-10">
         {/* Desktop: vertical sidebar — wider + padded like Figma */}
-        <div className="w-[320px] shrink-0 bg-[#EAF5F2] flex flex-col p-4 gap-1 justify-between">
+        <div className="w-[340px] shrink-0 bg-[#EAF5F2] flex flex-col p-4 gap-1 justify-between">
           {data?.list?.map((item, index) => {
             const isActive = index === activeIndex;
             return (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-full text-left px-4 py-4 text-[16px] font-semibold rounded-[13px] transition-colors duration-200
-        ${
-          isActive
-            ? "bg-[#2AAC94] text-white"
-            : "text-[#4A4A4A] hover:bg-[#D5EDE8]"
-        }`}
+                className={`w-full text-left px-4 py-6 text-[24px] font-semibold rounded-[13px] transition-colors duration-200
+        ${isActive
+                    ? "bg-[#2AAC94] text-white"
+                    : "text-[#4A4A4A] hover:bg-[#D5EDE8]"
+                  }`}
               >
                 <DangerousHtml
                   html={item?.tabTitle}
-                  className={`font-semibold [&_p]:!pb-0 ${isActive ? "text-white" : "text-[#4A4A4A]"}`}
+                  className={`font-semibold text-2xl [&_p]:!pb-0 ${isActive ? "text-white" : "text-[#4A4A4A]"}`}
                 />
               </button>
             );
