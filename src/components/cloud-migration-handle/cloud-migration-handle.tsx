@@ -110,7 +110,7 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
               </ul>
             )}
             {activeItem?.disclaimer && (
-              <div className="mt-2 bg-[#F5F5F5] rounded-[8px] px-4 py-3 flex items-start gap-2">
+              <div className="mt-2 bg-[#E1F0E5] rounded-[8px] px-4 py-3 flex items-start gap-2">
                 <KorcomptenzImage
                   src="/public/assets/Clock.png"
                   width={16}
@@ -196,7 +196,7 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
               </ul>
             )}
             {activeItem?.disclaimer && (
-              <div className="mt-auto bg-[#F5F5F5] rounded-[8px] px-4 py-3 flex items-start gap-3 pl-5">
+              <div className="mt-auto bg-[#E1F0E5] rounded-[8px] px-4 py-3 flex items-start gap-3 pl-5">
                 <KorcomptenzImage
                   src="/assets/Clock.png"
                   width={20}
