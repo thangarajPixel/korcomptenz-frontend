@@ -52,15 +52,17 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
                 onClick={() => setActiveIndex(index)}
                 className={`shrink-0 px-4 py-2 text-[18px] font-semibold rounded-[8px] whitespace-nowrap transition-colors
         duration-200
-        ${isActive
-                    ? "bg-[#2AAC94] "
-                    : "bg-white text-[#4A4A4A] border border-[#E0E0E0]"
-                  }`}
+        ${
+          isActive
+            ? "bg-[#2AAC94] "
+            : "bg-white text-[#4A4A4A] border border-[#E0E0E0]"
+        }`}
               >
                 <DangerousHtml
                   html={item?.tabTitle}
-                  className={`[&_p]:text-[18px] [&_p]:font-semibold [&_p]:whitespace-nowrap [&_p]:!pb-0 ${isActive ? "[&_p]:text-white" : "[&_p]:text-[#4A4A4A]"
-                    }`}
+                  className={`[&_p]:text-[18px] [&_p]:font-semibold [&_p]:whitespace-nowrap [&_p]:!pb-0 ${
+                    isActive ? "[&_p]:text-white" : "[&_p]:text-[#4A4A4A]"
+                  }`}
                 />
               </button>
             );
@@ -109,9 +111,12 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
             )}
             {activeItem?.disclaimer && (
               <div className="mt-2 bg-[#F5F5F5] rounded-[8px] px-4 py-3 flex items-start gap-2">
-                <span className="text-[#888] text-[16px] shrink-0 mt-0.5">
-                  ⓘ
-                </span>
+                <KorcomptenzImage
+                  src="/public/assets/Clock.png"
+                  width={16}
+                  height={16}
+                  className="object-contain"
+                />
                 <DangerousHtml
                   html={activeItem.disclaimer}
                   className="text-[#242424] text-[13px] font-normal leading-[1.5]
@@ -135,10 +140,11 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`w-full text-left px-4 py-6 text-[24px] font-semibold rounded-[13px] transition-colors duration-200
-        ${isActive
-                    ? "bg-[#2AAC94] text-white"
-                    : "text-[#4A4A4A] hover:bg-[#D5EDE8]"
-                  }`}
+        ${
+          isActive
+            ? "bg-[#2AAC94] text-white"
+            : "text-[#4A4A4A] hover:bg-[#D5EDE8]"
+        }`}
               >
                 <DangerousHtml
                   html={item?.tabTitle}
@@ -190,10 +196,14 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
               </ul>
             )}
             {activeItem?.disclaimer && (
-              <div className="mt-auto bg-[#E1F0E5] rounded-[8px] px-4 py-3 flex items-start gap-3 pl-5">
-                <span className="text-[#888] text-[18px] shrink-0 mt-0.5">
-                  ⓘ
-                </span>
+              <div className="mt-auto bg-[#F5F5F5] rounded-[8px] px-4 py-3 flex items-start gap-3 pl-5">
+                <KorcomptenzImage
+                  src="/assets/Clock.png"
+                  width={20}
+                  height={20}
+                  className=" mt-1"
+                />
+
                 <DangerousHtml
                   html={activeItem.disclaimer}
                   className="text-[#242424] text-[15px] font-normal leading-[1.5]

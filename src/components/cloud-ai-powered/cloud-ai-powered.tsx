@@ -45,7 +45,7 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
 
       {/* ── Tab bar: horizontal scroll on both mobile & desktop ── */}
       <div
-        className="flex gap-0 overflow-x-auto mb-3 mx-15 "
+        className="flex gap-10 overflow-x-auto mb-3 mx-15  items-center justify-center"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {data?.list?.map((item, index) => {
@@ -55,16 +55,17 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
               key={index}
               onClick={() => setActiveIndex(index)}
               className={`relative shrink-0 px-4 md:px-6 py-3 text-[14px] md:text-[16px] font-medium whitespace-nowrap transition-colors duration-200 border-b-2
+              
                 ${
                   isActive
-                    ? "border-b-[#2AAC94] text-[#020202]"
-                    : "border-b-transparent text-[#6B6B6B] hover:text-[#020202]"
+                    ? "border-b-[#2AAC94] text-[#242424]"
+                    : "border-b-transparent text-[#242424]"
                 }`}
             >
               <DangerousHtml
                 html={item?.tabTitle}
                 className={`[&_p]:!pb-0 [&_p]:text-[18px] md:[&_p]:text-[21px] [&_p]:font-medium [&_p]:whitespace-nowrap
-                  ${isActive ? "[&_p]:text-[#020202]" : "[&_p]:text-[#6B6B6B]"}`}
+                  ${isActive ? "[&_p]:text-[#020202]" : "[&_p]:text-[#242424]"}`}
               />
             </button>
           );
@@ -106,7 +107,6 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
               )}
 
               {/* Corner dots — only shown when there's a coloured/image bg */}
-          
 
               <div className="relative z-10 flex flex-col gap-4 max-w-lg md:py-12">
                 {activeItem?.title && (
@@ -143,19 +143,23 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
 
             {/* ── RIGHT panel: strictly 50% width, always white ── */}
             {activeItem?.subList?.length > 0 && (
-              <div className="bg-[#FAFCFF] flex flex-col justify-center  md:px-10 py-6 md:py-8 w-full md:w-1/2 md:shrink-0 divide-y divide-[#E0E0E0] px-6">
+              <div className="bg-[#FAFCFF] flex flex-col justify-center md:px-10 py-6 md:py-8 w-full md:w-1/2 md:shrink-0 px-6">
                 {activeItem.subList.map((subItem, subIndex) => (
-                  <div key={subIndex} className="py-4 first:pt-0 last:pb-0 ">
+                  <div
+                    key={subIndex}
+                    className="py-4 border-b border-[#E0E0E0]"
+                  >
                     {subItem?.title && (
                       <DangerousHtml
                         html={subItem.title}
                         className="[&_p]:text-[#242424] [&_p]:text-[28px] md:[&_p]:text-[34px] [&_p]:font-bold [&_p]:leading-tight [&_p]:!pb-0"
                       />
                     )}
+
                     {subItem?.description && (
                       <DangerousHtml
                         html={subItem.description}
-                        className="[&_p]:text-[#242424] [&_p]:text-[16px] md:[&_p]:text-[18px] [&_p]:leading-[1.5] [&_p]:!pb-0 mt-1 "
+                        className="[&_p]:text-[#242424] [&_p]:text-[16px] md:[&_p]:text-[18px] [&_p]:leading-[1.5] [&_p]:!pb-0 mt-1"
                       />
                     )}
                   </div>

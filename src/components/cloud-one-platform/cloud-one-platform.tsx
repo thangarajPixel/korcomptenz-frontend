@@ -34,11 +34,11 @@ const CloudOnePlatform = ({ data }: { data: FabconAboutType }) => {
             }}
           >
             <div
-              className="absolute bottom-0 right-0 z-0 rounded-2xl"
+              className="absolute bottom-0 right-0 z-0 "
               style={{
                 backgroundColor: "#14007E",
-                width: "60%",
-                height: "75%",
+                width: "35%",
+                height: "50%",
               }}
             />
 
