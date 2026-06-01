@@ -1899,12 +1899,6 @@ type ComponentPropsMap = {
     __component: "page-componets.microsoft-gold-certified";
   };
 
-  /* Kordev */
-  KeyMetricsSection: KeyMetricsSectionType & {
-    id: string;
-    __component: "page-componets.key-metrics-section";
-  };
-
   IndustryBannerCard: BannerSectionType & {
     id: string;
     __component: "page-componets.banking-financial-banner";
@@ -1946,32 +1940,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-technology";
   };
-  PageGridView: PageGridViewType & {
-    id: string;
-    __component: "page-componets.page-grid-view";
-  };
-  SAPPracticeAreas: SAPPracticeAreasType & {
-    id: string;
-    __component: "page-componets.sap-practice-areas";
-  };
-  WhattoExpect: WhattoExpectType & {
-    id: string;
-    __component: "page-componets.what-to-expects";
-  };
-  ClientTestimonial: TestimonialItem & {
-    id: string;
-    __component: "page-componets.client-testimonial";
-  };
 
-  CertificationsSection: CertificationsSection & {
-    id: string;
-    __component: "page-componets.certifications-section";
-  };
-  RequestConsultation: RequestConsultation & {
-    id: string;
-    __component: "page-componets.request-consultation";
-  };
-  /* Kordev */
   CloudOnePlatform: FabconAboutType & {
     id: string;
     __component: "page-componets.cloud-one-platform";
@@ -2001,6 +1970,42 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-banner";
   };
+
+  /* Kordev */
+  KeyMetricsSection: KeyMetricsSectionType & {
+    id: string;
+    __component: "page-componets.key-metrics-section";
+  };
+  SapWhyKorcomptenz: SapWhyKorcomptenzType & {
+    id: string;
+    __component: "page-componets.sap-why-korcomptenz";
+  };
+  PageGridView: PageGridViewType & {
+    id: string;
+    __component: "page-componets.page-grid-view";
+  };
+  SAPPracticeAreas: SAPPracticeAreasType & {
+    id: string;
+    __component: "page-componets.sap-practice-areas";
+  };
+  WhattoExpect: WhattoExpectType & {
+    id: string;
+    __component: "page-componets.what-to-expect";
+  };
+  ClientTestimonial: TestimonialItem & {
+    id: string;
+    __component: "page-componets.client-testimonial";
+  };
+
+  CertificationsSection: CertificationsSection & {
+    id: string;
+    __component: "page-componets.certifications-section";
+  };
+  RequestConsultation: RequestConsultation & {
+    id: string;
+    __component: "page-componets.request-consultation";
+  };
+  /* Kordev */
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
