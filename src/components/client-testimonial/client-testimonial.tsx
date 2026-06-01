@@ -12,7 +12,7 @@ export default function ClientTestimonial({ data }: { data: TestimonialItem }) {
             </span>
           )}
 
-          <h2 className="text-3xl md:text-4xl font-semibold">
+          <h2 className="text-5xl md:text-6xl font-semibold leading-8">
             {data?.title || "Client Voices"}
           </h2>
         </div>
@@ -41,11 +41,11 @@ export default function ClientTestimonial({ data }: { data: TestimonialItem }) {
         </div>
 
         {/* Progress bar (static like UI) */}
-        <div className="mt-10">
+        {/* <div className="mt-10">
           <div className="w-full h-2 bg-white/30 rounded-full overflow-hidden">
             <div className="w-1/3 h-full bg-white rounded-full" />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

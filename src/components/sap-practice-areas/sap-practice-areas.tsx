@@ -13,9 +13,12 @@ export default function SAPPracticeAreas({
   return (
     <section
       data-debug={"page-componets.sap-practice-areas"}
-      className="font-sans"
+      className="bg-[#f9fcff]"
     >
-      <div aria-labelledby="insights-heading" className="container-md mt-7">
+      <div
+        aria-labelledby="insights-heading"
+        className="container-md font-sans bg-[#f9fcff] py-16"
+      >
         {data?.subtext && (
           <div className="inline-block px-4 py-1 text-sm border border-gray-300 rounded-full mb-4 text-gray-700">
             {data.subtext}
@@ -23,11 +26,11 @@ export default function SAPPracticeAreas({
         )}
         {/* Title */}
         {data?.title && (
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+          <h2 className="text-5xl md:text-6xl font-semibold text-[#1e2939] leading-8">
             {data.title}
           </h2>
         )}
-        <div className="flex flex-col items-center gap-6 text-center md:gap-8">
+        <div className="flex flex-col items-center gap-6 text-center md:gap-4">
           <InsightsMobileCarousel items={data?.gridlisting} />
           <motion.div
             className="md:flex flex-row  items-center justify-center hidden"
