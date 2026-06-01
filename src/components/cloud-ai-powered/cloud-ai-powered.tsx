@@ -143,7 +143,7 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
 
             {/* ── RIGHT panel: strictly 50% width, always white ── */}
             {activeItem?.subList?.length > 0 && (
-              <div className="bg-[#FAFCFF] flex flex-col justify-center  md:px-10 py-6 md:py-8 w-full md:w-1/2 md:shrink-0 divide-y divide-[#E0E0E0] px-10">
+              <div className="bg-[#FAFCFF] flex flex-col justify-center  md:px-10 py-6 md:py-8 w-full md:w-1/2 md:shrink-0 divide-y divide-[#E0E0E0] px-6">
                 {activeItem.subList.map((subItem, subIndex) => (
                   <div key={subIndex} className="py-4 first:pt-0 last:pb-0 ">
                     {subItem?.title && (

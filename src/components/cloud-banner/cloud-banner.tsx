@@ -19,7 +19,8 @@ const CloudBanner = ({ data }: { data: FabconBannerType }) => {
           <div className="text-white text-center lg:text-left">
             {data?.subHeading && (
               <DangerousHtml
-                className="inline-flex items-center justify-center text-[14px] md:text-[18px] leading-7.5 font-normal text-white border-2 border-white rounded-full px-4 md:px-6 py-2 md:py-3 mb-5 mx-auto lg:mx-0"
+                className="inline-flex items-center justify-center text-[14px] md:text-[18px] leading-7.5 font-normal text-white border-1 border-white rounded-full px-4 md:px-6 py-2 md:py-3 mb-5 mx-auto lg:mx-0 
+                [&_p]:!pb-0"
                 html={data?.subHeading}
               />
             )}
@@ -59,7 +60,7 @@ const CloudBanner = ({ data }: { data: FabconBannerType }) => {
           </div>
 
           {/* Right Card */}
-          <div className="w-full md:max-w-[455px] mx-auto lg:ml-auto border border-[#1EBFA1] rounded-3xl px-5 md:px-6 py-5 bg-[#182543]/80 backdrop-blur-sm text-white">
+          <div className="w-full md:max-w-[455px] mx-auto lg:ml-auto border border-[2.5px] border-[#1EBFA1] rounded-3xl px-5 md:px-6 py-5 bg-[#182543]/80 backdrop-blur-sm text-white">
             <h3 className="text-[22px] md:text-[32px] font-semibold text-[#1EBFA1] mb-5">
               {data?.list?.title}
             </h3>

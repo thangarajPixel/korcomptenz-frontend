@@ -1108,6 +1108,7 @@ type FabconAboutType = {
   description: string;
   buttonText: string;
   buttonLink: string;
+  mobileImage: ImageType;
   isTarget: boolean;
   isVideoUrl: boolean;
   videoUrl: string;

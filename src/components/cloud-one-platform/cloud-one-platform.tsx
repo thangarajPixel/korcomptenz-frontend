@@ -46,7 +46,13 @@ const CloudOnePlatform = ({ data }: { data: FabconAboutType }) => {
               src={data?.image}
               width={510}
               height={500}
-              className="relative z-10 w-full h-full object-cover rounded-2xl"
+              className="relative z-10 w-full h-full object-cover rounded-2xl hidden md:block"
+            />
+            <KorcomptenzImage
+              src={data?.mobileImage}
+              width={510}
+              height={400}
+              className="relative z-10 w-full h-full object-cover rounded-2xl md:hidden "
             />
           </div>
         )}
