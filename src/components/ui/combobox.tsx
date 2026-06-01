@@ -89,7 +89,7 @@ export function ComboboxField<T extends FieldValues>({
           >
             <span
               className="flex-1 truncate text-left"
-              style={{ color: textColor }}
+              style={!selectedOption ? { color: textColor } : {}}
             >
               {selectedOption ? selectedOption.label : placeholder}
             </span>

@@ -1090,7 +1090,10 @@ type FabconAboutType = {
   description: string;
   buttonText: string;
   buttonLink: string;
+  mobileImage: ImageType;
   isTarget: boolean;
+  isVideoUrl: boolean;
+  videoUrl: string;
 };
 
 type FabconAiPoweredType = {
@@ -1179,6 +1182,15 @@ type FabconDecisionFabricType = {
 
 type FabconBannerType = {
   title1: string;
+  subHeading: string;
+  buttonTextOne: string;
+  buttonTextTwo: string;
+  buttonLinkOne: string;
+  buttonLinkTwo: string;
+  isTargetOne: boolean;
+  isTargetTwo: boolean;
+  image: ImageType;
+  title: string;
   title2: string;
   backgroundImage: ImageType;
   buttonText: string;
@@ -1188,6 +1200,10 @@ type FabconBannerType = {
   description: string;
   date: string;
   location: string;
+  list: {
+    title: string;
+    subList: { title: string; description: string }[];
+  };
 };
 
 type SapImplementationType = {
@@ -1271,6 +1287,7 @@ type IndustryIntelligenceType = {
 
 type IndustryFeaturedContentType = {
   subHeading: string;
+  isSubHeadingButton: boolean;
   title: string;
   description: string;
   list: {
@@ -1317,11 +1334,19 @@ type IndustryServicePortfolioType = {
 type CloudWarningType = {
   title: string;
   subHeading: string;
+  isSubHeadingButton: boolean;
   description: string;
   list: {
     title: string;
     description: string;
   }[];
+};
+
+type CloudMigrationStep = {
+  id: number;
+  title: string;
+  description: string;
+  duration: string;
 };
 
 type CloudMigrationType = {
@@ -1338,6 +1363,11 @@ type CloudMigrationType = {
       description;
     }[];
   }[];
+  listOne: CloudMigrationStep;
+  listTwo: CloudMigrationStep;
+  listThree: CloudMigrationStep;
+  listFour: CloudMigrationStep;
+  listFive: CloudMigrationStep;
 };
 
 type CloudRecognitionSliderType = {
@@ -1352,8 +1382,115 @@ type CloudTechnologyType = {
   subHeading: string;
   list: {
     isTitleDescription: boolean;
+    isTargetNew?: boolean;
+    link: string;
     image: ImageType;
   }[];
+};
+
+type CloudFirstCallType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  listOne: {
+    title: string;
+    id: number;
+    description: string;
+    duration: string;
+  };
+  listTwo: {
+    id: number;
+    title: string;
+    description: string;
+    duration: string;
+  };
+  listThree: {
+    id: number;
+    title: string;
+    description: string;
+    duration: string;
+  };
+  listFour: {
+    id: number;
+    title: string;
+    description: string;
+    duration: string;
+  };
+  listFive: {
+    id: number;
+    title: string;
+    description: string;
+    duration: string;
+  };
+};
+
+type CloudAiPoweredType = {
+  title: string;
+
+  description: string;
+  subHeading: string;
+  list: {
+    tabTitle: string;
+    image: ImageType;
+    title: string;
+    description: string;
+    bgColor: string;
+    bgImage: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+    subList: {
+      title: string;
+      description: string;
+    }[];
+  }[];
+};
+
+type CloudBuildPeopleType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  list: {
+    roleTitle: string;
+    roleSubtitle: string;
+    message: string;
+    description: string;
+  }[];
+};
+
+type CloudKeyOfferingsType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    title: string;
+    subList: {
+      description: string;
+    }[];
+  }[];
+};
+
+type CloudReadinessType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  form: {
+    forms: CloudFormType[];
+  };
+};
+
+type CloudFormType = {
+  title: string;
+  roleLabel: string;
+  migrationUrgencyLabel: string;
+  lastNameLabel: string;
+  infrastructureLabel: string;
+  firstNameLabel: string;
+  companyLabel: string;
+  buttonText: string;
 };
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -1801,7 +1938,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-warning-signs";
   };
-  CloudMigrationHandle: CloudMigrationHandleType & {
+  CloudMigrationHandle: CloudMigrationType & {
     id: string;
     __component: "page-componets.cloud-migration-handle";
   };
@@ -1835,6 +1972,35 @@ type ComponentPropsMap = {
     __component: "page-componets.request-consultation";
   };
   /* Kordev */
+  CloudOnePlatform: FabconAboutType & {
+    id: string;
+    __component: "page-componets.cloud-one-platform";
+  };
+  CloudFirstCall: CloudFirstCallType & {
+    id: string;
+    __component: "page-componets.cloud-first-call";
+  };
+  CloudAiPowered: CloudAiPoweredType & {
+    id: string;
+    __component: "page-componets.cloud-ai-power";
+  };
+  CloudBuildPeople: CloudBuildPeopleType & {
+    id: string;
+    __component: "page-componets.cloud-built-people";
+  };
+
+  CloudKeyOfferings: CloudKeyOfferingsType & {
+    id: string;
+    __component: "page-componets.cloud-key-offerings";
+  };
+  CloudReadiness: CloudReadinessType & {
+    id: string;
+    __component: "page-componets.cloud-readiness-report";
+  };
+  CloudBanner: FabconBannerType & {
+    id: string;
+    __component: "page-componets.cloud-banner";
+  };
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];

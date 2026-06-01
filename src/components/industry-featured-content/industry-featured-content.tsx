@@ -24,6 +24,7 @@ const IndustryFeaturedContent = ({
 
   const cards = firstCard ? [firstCard, ...otherCards] : data?.list || [];
 
+
   return (
     <section className="container-md ">
       {/* Heading */}
@@ -31,7 +32,11 @@ const IndustryFeaturedContent = ({
       <div className="max-w-5xl ">
         {data?.subHeading && (
           <DangerousHtml
-            className="text-[24px] leading-[28px] font-semibold text-foreground"
+            className={
+              data?.isSubHeadingButton
+                ? "inline-flex items-center justify-center text-[16px] md:text-[18px] leading-7.5 font-normal text-[#151515] border-2 border-[#4C4C4C] rounded-full px-4 md:px-6 mb-4 bg-transparent md:pt-3 pt-2"
+                : "text-[24px] leading-[28px] font-semibold text-[#5648D8]"
+            }
             html={data?.subHeading}
           />
         )}
@@ -138,7 +143,7 @@ const IndustryFeaturedContent = ({
                           buttonProps={{
                             arrow: true,
                             className:
-                              " bg-transparent hover:bg-transparent text-white  hover:text-white  border-none hover:border-none -ml-3",
+                              "bg-transparent text-white border-none shadow-none hover:bg-transparent hover:text-white hover:border-none hover:shadow-none",
                           }}
                         >
                           {item?.buttonText || "Read More"}
@@ -227,7 +232,7 @@ const IndustryFeaturedContent = ({
                           link={item?.buttonLink || "#"}
                           isTargetNew={item?.isTarget}
                           buttonProps={{
-                            className: `bg-transparent border-none -ml-3 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace("text-", "")} hover:border-none`,
+                            className: `bg-transparent border-none -ml-3 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace("text-", "")} hover:border-none shadow-none hover:shadow-none`,
                           }}
                         >
                           {item?.buttonText || "Read More"}

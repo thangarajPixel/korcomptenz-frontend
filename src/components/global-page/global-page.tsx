@@ -113,6 +113,13 @@ import CloudRecognitionSlider from "../cloud-recognition-slider/cloud-recognitio
 import CloudWarning from "../cloud-warning";
 import CloudMigrationHandle from "../cloud-migration-handle/cloud-migration-handle";
 import CloudTechnology from "../cloud-technology";
+import CloudOnePlatform from "../cloud-one-platform";
+import CloudFirstCall from "../cloud-first-call";
+import CloudAiPowered from "../cloud-ai-powered";
+import CloudBuildPeople from "../cloud-build-people";
+import CloudKeyOfferings from "../cloud-key-offerings";
+import CloudReadiness from "../cloud-Readiness/cloud-Readiness";
+import CloudBanner from "../cloud-banner/cloud-banner";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1153,6 +1160,72 @@ const GlobalPage = (props: Props) => {
             key={`cloud-technology-${item?.__component}-${item?.id}`}
           >
             <CloudTechnology data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-one-platform":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`CloudOnePlatform-${item?.__component}-${item?.id}`}
+          >
+            <CloudOnePlatform data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-first-call":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-first-call-${item?.__component}-${item?.id}`}
+          >
+            <CloudFirstCall data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-ai-power":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-ai-power-${item?.__component}-${item?.id}`}
+          >
+            <CloudAiPowered data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-built-people":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-built-people-${item?.__component}-${item?.id}`}
+          >
+            <CloudBuildPeople data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.cloud-key-offerings":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-key-offerings-${item?.__component}-${item?.id}`}
+          >
+            <CloudKeyOfferings data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.cloud-readiness-report":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-readiness-report-cloud-form-${item?.__component}-${item?.id}`}
+          >
+            <CloudReadiness data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.cloud-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-banner-${item?.__component}-${item?.id}`}
+          >
+            <CloudBanner data={item} />
           </ScrollFadeIn>
         );
 

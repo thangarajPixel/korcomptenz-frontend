@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
+import { DangerousHtml } from "../ui/dangerous-html";
 
 const CloudRecognitionSlider = ({
   data,
@@ -26,34 +27,39 @@ const CloudRecognitionSlider = ({
         className="[&>*]:rounded-none"
       >
         {data.title && (
-          <h2 className="text-center text-foreground text-5xl font-semibold mb-10">
-            {data?.title}
-          </h2>
+          // <h2 className="text-center text-foreground text-5xl font-semibold mb-10">
+          //   {data?.title}
+          // </h2>
+          <DangerousHtml
+            className="text-center text-foreground text-5xl font-semibold mb-10"
+            html={data?.title}
+            as="h2"
+          />
         )}
         <CarouselPrevious
           fontSize="size-8"
-          className="hidden lg:block absolute -left-10 top-1/2 -translate-y-1/2 z-10 size-10 bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10"
+          className="hidden lg:block absolute -left-10 top-[60%] -translate-y-1/2 z-10 size-10 bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10"
           variant="default"
         />
         <CarouselNext
           fontSize="size-8"
-          className="hidden lg:block absolute -right-10 top-1/2 -translate-y-1/2 z-10 size-10  bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10"
+          className="hidden lg:block absolute -right-10 top-[60%] -translate-y-1/2 z-10 size-10  bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10"
           variant="default"
         />
 
-        <CarouselContent className="items-center ml-3  ">
+        <CarouselContent className="items-center md:justify-between">
           {images?.map((img, index) => (
             <CarouselItem
               key={index}
               className="
-              basic-full md:basis-auto
-              
-              flex items-center justify-center
-              px-2 -ml-1 md:ml-0
+              basis-full
+            md:basis-1/3
+            flex items-center justify-center
+            px-4
             "
             >
               <>
-                <div className="hidden md:flex items-center justify-center">
+                <div className="hidden md:flex items-center justify-center w-full">
                   <KorcomptenzImage
                     src={img}
                     width={img?.width && img?.width < 320 ? img?.width : 320}

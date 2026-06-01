@@ -90,7 +90,7 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
         />
       </div>
       <form
-        id="contact-us-form"
+        id="talk-to-us-form"
         onSubmit={handleSubmit(handleFormSubmit)}
         className="space-y-8 bg-white rounded-2xl  "
         noValidate

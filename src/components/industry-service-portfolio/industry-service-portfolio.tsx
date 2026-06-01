@@ -23,7 +23,7 @@ const IndustryServicePortfolio = ({
         <div className=" max-w-4xl">
           {data?.subHeading && (
             <DangerousHtml
-              className="text-[#1EBFA1] text-[20px] md:text-[24px] font-semibold"
+              className="text-[#5648D8] text-[20px] md:text-[24px] font-semibold"
               html={data.subHeading}
             />
           )}
@@ -56,9 +56,9 @@ const IndustryServicePortfolio = ({
       </div>
 
       {/* ── Card ── */}
-      <div className="bg-[#EAF3FF] rounded-2xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-[50%_50%] gap-6 lg:gap-8">
+      <div className="bg-[#EAF3FF] rounded-2xl grid grid-cols-1 lg:grid-cols-[50%_50%] gap-6 lg:gap-8">
         {/* LEFT — list title + description + tabs */}
-        <div className="flex flex-col gap-3 mt-10">
+        <div className="flex flex-col gap-3 mt-10 p-6 lg:p-12">
           {data?.list?.title && (
             <DangerousHtml
               as="h3"
@@ -69,26 +69,26 @@ const IndustryServicePortfolio = ({
           {data?.list?.description && (
             <DangerousHtml
               html={data.list.description}
-              className="text-muted-foreground text-base md:text-lg leading-7.5 "
+              className="text-[#0D0D0D] text-base md:text-lg leading-7.5 "
             />
           )}
 
           {/* Tabs */}
-          <div className="flex flex-col gap-2 mt-5 md:mb-0 mb-10">
+          <div className="flex flex-col gap-4 mt-5 md:mb-0 mb-10">
             {tabs.map((item, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveIdx(idx)}
-                className={`relative flex items-center px-4 py-6 rounded-xl overflow-hidden text-left w-full 
-        ${activeIdx === idx ? "bg-white " : "bg-[#EAF3FF] hover:bg-white/60"}`}
+                className={`relative flex items-center px-4 py-5 md:py-7.5 rounded-xl text-left w-full 
+        ${activeIdx === idx ? "bg-white " : "bg-[#EAF3FF] hover:bg-white/60 border border-black rounded-2xl"}`}
               >
                 {/* Short center green line */}
-                <span className="absolute left-0 top-10 -translate-y-1/2 w-[5px] h-[45%] bg-[#1EBFA1] rounded-r-sm" />
+                <span className="absolute left-0 top-10 -translate-y-1/2 w-[5px] h-[45%] bg-[#1EBFA1] rounded-r-sm rounded-l-sm z-10" />
 
                 {item?.tabTitle && (
                   <DangerousHtml
                     className={cn(
-                      "text-base text-[24px] md:text-[28px] font-semibold text-foreground leading-7.5 -mb-2 ",
+                      "text-base text-[24px] md:text-[28px] font-semibold text-foreground leading-7.5 -mb-2 md:px-4",
                       activeIdx === idx
                         ? "text-[#5648D8]"
                         : "text-muted-foreground",
@@ -102,7 +102,7 @@ const IndustryServicePortfolio = ({
         </div>
 
         {/* RIGHT — image + subList */}
-        <div className="flex flex-col gap-5 -mt-8 md:mx-0 -mx-6">
+        <div className="flex flex-col gap-5 md:mx-0 bg-[#F3F7F4]">
           {activeItem?.image && (
             <div className=" overflow-hidden aspect-video w-full">
               <KorcomptenzImage
@@ -115,13 +115,13 @@ const IndustryServicePortfolio = ({
           )}
 
           {/* {activeItem?.subList && activeItem.subList.length > 0 && ( */}
-          <div className="bg-[#EAF3FF] rounded-xl p-5">
+          <div className="rounded-xl px-8 md:px-10 bg-[#F3F7F4] pb-10 pt-6">
             <DangerousHtml
               html={activeItem?.subList?.title}
-              className="text-[#1EBFA1] text-[24px] font-semibold mb-4"
+              className="text-[#5648D8] text-[24px] font-semibold mb-4"
             />
 
-            <div className="grid md:grid-cols-2 gap-x-6 gap-y-3">
+            <div className="grid md:grid-cols-2 gap-x-6 gap-y-3 bg-[#F3F7F4]">
               {activeItem?.subList?.descriptionList?.map((service, idx) => (
                 <div key={idx} className="flex items-start gap-2">
                   <Link
@@ -130,7 +130,7 @@ const IndustryServicePortfolio = ({
                   >
                     <DangerousHtml
                       html={service?.description}
-                      className="text-base md:text-lg leading-7.5 text-foreground  cursor-pointer transition-colors"
+                      className="text-base md:text-lg leading-7.5 text-foreground  cursor-pointer transition-colors underline"
                     />
                   </Link>
                 </div>
