@@ -117,7 +117,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
               control={control}
               name="company"
               placeholder={form?.companyLabel}
-              className=" w-full h-[60px] border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
+              className=" w-full h-[60px] border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 !px-0"
             />
 
             <ComboboxField
@@ -132,7 +132,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
                 })) || []
               }
               placeholder={form?.roleLabel}
-              className="w-full h-[60px] border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#242424] text-[18px] outline-none focus:border-black focus:ring-0 "
+              className="w-full h-[60px] border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#242424] text-[18px] outline-none focus:border-black focus:ring-0 !px-0"
             />
           </div>
         </div>
@@ -149,7 +149,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
               })) || []
             }
             placeholder={form?.infrastructureLabel}
-            className="w-full h-[60px] border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
+            className="w-full h-[60px] border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 !px-0"
           />
           <ComboboxField
             control={control}
