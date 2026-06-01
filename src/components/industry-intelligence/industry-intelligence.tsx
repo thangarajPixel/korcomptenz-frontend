@@ -18,7 +18,7 @@ const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
         <div className="max-w-5xl">
           {/* Sub Heading */}
           <DangerousHtml
-            className="text-[24px] leading-[28px] font-semibold font-foreground"
+            className="text-[24px] leading-[28px] font-semibold text-[#5648D8]"
             html={data?.subHeading}
           />
 
@@ -39,7 +39,7 @@ const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
         <div></div>
         <Carousel data-debug={"page-componets.dark-slider-list"}>
           <div className={"flex flex-col gap-4  md:px-0 "}>
-            <div className={cn("md:px-10 ")}>
+            <div className={cn("")}>
               <CarouselContent firstItemClassName="rounded-none">
                 {data?.list?.map((slide, index) => (
                   <CarouselItem
@@ -55,15 +55,15 @@ const IndustryIntelligence = ({ data }: { data: IndustryIntelligenceType }) => {
               {length > 0 && (
                 <div className="hidden lg:flex">
                   <CarouselPrevious
-                    fontSize="size-8"
+                    fontSize="size-6"
                     className={cn(
-                      "hidden md:flex absolute -left-2 top-1/3 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10 ",
+                      "hidden md:flex absolute -left-10 top-1/2 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-8 h-8 ",
                     )}
                   />
                   <CarouselNext
-                    fontSize="size-8"
+                    fontSize="size-6"
                     className={cn(
-                      "hidden md:flex absolute -right-2 top-1/3 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10 ",
+                      "hidden md:flex absolute -right-10 top-1/2 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white  text-white hover:text-primary hover:border-b-primary border-primary w-8 h-8 ",
                     )}
                   />
                 </div>
