@@ -4,7 +4,8 @@ import { DangerousHtml } from "../ui/dangerous-html";
 
 const CloudKeyOfferings = ({ data }: { data: CloudKeyOfferingsType }) => {
   return (
-    <section className="container-md ">
+    <section className="bg-[#EDF6FF] py-10 md:py-12">
+    <div className="container-md ">
       {/* Heading */}
       <div className="">
         {data?.subHeading && (
@@ -60,7 +61,7 @@ const CloudKeyOfferings = ({ data }: { data: CloudKeyOfferingsType }) => {
             </div>
           ))}
         </div>
-      )}
+      )}</div>
     </section>
   );
 };
