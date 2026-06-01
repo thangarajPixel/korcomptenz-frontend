@@ -190,7 +190,7 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
               </ul>
             )}
             {activeItem?.disclaimer && (
-              <div className="mt-auto bg-[#F5F5F5] rounded-[8px] px-4 py-3 flex items-start gap-3 pl-5">
+              <div className="mt-auto bg-[#E1F0E5] rounded-[8px] px-4 py-3 flex items-start gap-3 pl-5">
                 <span className="text-[#888] text-[18px] shrink-0 mt-0.5">
                   ⓘ
                 </span>
