@@ -35,10 +35,10 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
       </div>
 
       {/* Tab + Content layout */}
-      <div className="flex md:hidden flex-col rounded-[16px] border border-[#E0E0E0] overflow-hidden">
+      <div className="flex md:hidden flex-col ">
         {/* Mobile: horizontal scrollable tab buttons with gap + padding */}
         <div
-          className="flex bg-[#EAF5F2] gap-2 px-3 py-3 overflow-x-auto"
+          className="flex  gap-2  py-3 overflow-x-auto"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
@@ -69,7 +69,7 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
 
         {/* Mobile content */}
         {activeItem && (
-          <div className="bg-white p-5 flex flex-col gap-3">
+          <div className="bg-white py-5 flex flex-col gap-3">
             {activeItem?.title && (
               <DangerousHtml
                 html={activeItem.title}

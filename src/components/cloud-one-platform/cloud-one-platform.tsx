@@ -21,7 +21,7 @@ const CloudOnePlatform = ({ data }: { data: FabconAboutType }) => {
         {/* IMAGE SECTION */}
         {data?.image && (
           <div
-            className="relative h-[400px] self-start cursor-pointer"
+            className=" order-2 lg:order-1 relative h-[400px] self-start cursor-pointer"
             onClick={() =>
               setIsVideoOpen({
                 link: data?.videoUrl || "#",
@@ -51,7 +51,7 @@ const CloudOnePlatform = ({ data }: { data: FabconAboutType }) => {
           </div>
         )}
         {/* CONTENT SECTION */}
-        <div className="lg:px-5">
+        <div className="order-1 lg:order-2 lg:px-5">
           {data?.subHeading && (
             <DangerousHtml
               className="text-[24px] leading-[28px] font-semibold font-foreground"

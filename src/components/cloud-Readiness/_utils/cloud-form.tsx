@@ -114,7 +114,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
 
             <ComboboxField
               control={control}
-              textColor="#9A9A9A"
+              textColor="#9a9a9a"
               name="role"
               options={
                 datarole?.data?.map((item) => ({
@@ -124,7 +124,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
                 })) || []
               }
               placeholder={form?.roleLabel}
-              className="w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
+              className="w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#242424] text-[18px] outline-none focus:border-black focus:ring-0 "
             />
           </div>
         </div>
@@ -134,20 +134,6 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
             textColor="#9A9A9A"
             name="infrastructure"
             options={
-              datamigration?.data?.map((item) => ({
-                ...item,
-                label: item?.title,
-                value: item.id,
-              })) || []
-            }
-            placeholder={form?.migrationUrgencyLabel}
-            className="w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
-          />
-          <ComboboxField
-            control={control}
-            textColor="#9A9A9A"
-            name="migrationUrgency"
-            options={
               datainfrastructure?.data?.map((item) => ({
                 ...item,
                 label: item?.title,
@@ -155,6 +141,20 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
               })) || []
             }
             placeholder={form?.infrastructureLabel}
+            className="w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
+          />
+          <ComboboxField
+            control={control}
+            textColor="#9A9A9A"
+            name="migrationUrgency"
+            options={
+              datamigration?.data?.map((item) => ({
+                ...item,
+                label: item?.title,
+                value: item.id,
+              })) || []
+            }
+            placeholder={form?.migrationUrgencyLabel}
             className="w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
           />
         </div>

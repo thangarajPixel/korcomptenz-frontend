@@ -6,13 +6,22 @@ import { DangerousHtml } from "../ui/dangerous-html";
 
 const CloudTechnology = ({ data }: { data: CloudTechnologyType }) => {
   return (
-    <section className="container-md ">
+    <section className="container-md py-8 md:py-12">
       {/* Heading */}
-
-      <div className="mb-5">
+      <div className="mb-8 md:mb-10">
         {data?.subHeading && (
           <DangerousHtml
-            className="inline-flex items-center justify-center text-[16px] md:text-[18px] leading-7.5 font-normal text-[#151515] border-2 border-[#4C4C4C] rounded-full px-4 md:px-6 mb-4 bg-transparent md:pt-3 pt-2"
+            className="
+              inline-flex items-center justify-center
+              text-[12px] md:text-[16px]
+              leading-normal
+              font-normal
+              text-[#151515]
+              border border-[#4C4C4C]
+              rounded-full
+              px-4 py-1
+              mb-4
+            "
             html={data?.subHeading}
           />
         )}
@@ -21,44 +30,60 @@ const CloudTechnology = ({ data }: { data: CloudTechnologyType }) => {
           <DangerousHtml
             as="h2"
             html={data?.title}
-            className="text-[#020202] mb-1"
+            className="text-[#020202] mb-4"
           />
         )}
 
         {data?.description && (
           <DangerousHtml
             html={data?.description}
-            className="text-[#242424] text-base md:text-lg leading-7 break-words"
+            className="
+              text-[#242424]
+              text-base
+              md:text-lg
+              leading-7
+            "
           />
         )}
       </div>
-      <div className="flex flex-wrap items-center justify-between gap-4 max-w-5xl">
-        {" "}
+
+      {/* Partner Logos */}
+      <div
+        className="
+          flex flex-col
+          md:flex-row
+          items-center
+          md:items-center
+          md:justify-between
+          gap-6 md:gap-8
+          max-w-5xl
+        "
+      >
         {data?.list?.map((partner, index) => (
           <ButtonLink
             key={index}
             link={partner.link}
+            isTargetNew={partner.isTargetNew}
             buttonProps={{
               arrow: false,
               size: "xl",
               className:
-                "p-0 border-0 bg-transparent shadow-none hover:shadow-none",
+                "p-0 border-0 bg-transparent shadow-none hover:shadow-none w-full md:w-auto",
             }}
-            isTargetNew={partner.isTargetNew}
           >
-            {/* Wrapper card with hover background */}
             <span
               className="
                 flex items-center justify-center
                 rounded-full
-                px-8 py-5
-                min-w-[200px] min-h-[80px]
-                bg-white
-               
-                transition-all duration-200 ease-in-out
+                w-full
+                max-w-[260px]
+                min-h-[72px]
+                md:min-h-[84px]
+                px-6 md:px-8
+                bg-transparent
+                transition-all duration-300 ease-in-out
                 hover:bg-[#E8F5FF]
-                hover:border-[#C5E4FA]
-                cursor-pointer shadow-none
+                active:bg-[#E8F5FF]
                 group
               "
             >
@@ -67,8 +92,11 @@ const CloudTechnology = ({ data }: { data: CloudTechnologyType }) => {
                 width={500}
                 height={250}
                 className="
-                  h-full w-[150px] object-contain
-                  transition-transform duration-200
+                  h-auto
+                  w-[140px]
+                  md:w-[180px]
+                  object-contain
+                  transition-transform duration-300
                   group-hover:scale-105
                 "
               />

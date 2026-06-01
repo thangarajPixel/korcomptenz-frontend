@@ -37,7 +37,7 @@ const CloudBuildPeople = ({ data }: { data: CloudBuildPeopleType }) => {
       {data?.list?.length > 0 && (
         <Carousel data-debug="page-componets.cloud-built-people">
           <div className="flex flex-col gap-4 md:px-0 mt-6">
-            <div className="md:px-10">
+            <div className="">
               <CarouselContent firstItemClassName="rounded-none">
                 {data.list.map((item, index) => (
                   <CarouselItem
@@ -54,11 +54,11 @@ const CloudBuildPeople = ({ data }: { data: CloudBuildPeopleType }) => {
                 <div className="hidden lg:flex">
                   <CarouselPrevious
                     fontSize="size-8"
-                    className="hidden md:flex absolute -left-2 top-1/2 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10"
+                    className="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10"
                   />
                   <CarouselNext
                     fontSize="size-8"
-                    className="hidden md:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10"
+                    className="hidden md:flex absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-primary !rounded-full hover:bg-white text-white hover:text-primary hover:border-b-primary border-primary w-10 h-10"
                   />
                 </div>
               )}
