@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
 import { useCaptchaToken } from "@/lib/recaptcha";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 const defaultValues = {
   firstName: "",
@@ -58,7 +59,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
       let captchaToken: string;
       try {
         captchaToken = await getToken("cloudlead");
-         
+
       } catch {
         notify({ message: "Captcha verification failed. Please try again." });
         return;
@@ -88,7 +89,14 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
         className=" border border-[#CFCFCF] rounded-3xl p-4 md:p-6"
         noValidate
       >
-        <div className="grid  mt-2 ">
+        {form?.title && (
+          <DangerousHtml
+            html={form.title}
+            className="text-[#383838] text-[22px] md:text-[26px] font-bold leading-[1.18] mb-6
+              [&_p]:font-bold [&_p]:text-[#383838] px-4"
+          />
+        )}
+        <div className="grid  mt-2 px-4">
           {/* Name + Email */}
           <div className="grid md:grid-cols-2 gap-6 py-1">
             <Input
@@ -128,7 +136,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
             />
           </div>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 py-1">
+        <div className="grid md:grid-cols-2 gap-6 py-1 px-4">
           <ComboboxField
             control={control}
             textColor="#9A9A9A"
@@ -160,7 +168,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
         </div>
 
         {/* Submit button */}
-        <div className="pt-2 flex justify-end md:justify-start  mt-5">
+        <div className="pt-2 flex justify-end md:justify-start px-4 mt-5">
           <Button
             size="lg"
             variant="outline"
