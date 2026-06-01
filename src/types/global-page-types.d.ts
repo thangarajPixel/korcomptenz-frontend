@@ -1307,6 +1307,7 @@ type IndustryIntelligenceType = {
 
 type IndustryFeaturedContentType = {
   subHeading: string;
+  isSubHeadingButton: boolean;
   title: string;
   description: string;
   list: {
@@ -1353,6 +1354,7 @@ type IndustryServicePortfolioType = {
 type CloudWarningType = {
   title: string;
   subHeading: string;
+  isSubHeadingButton: boolean;
   description: string;
   list: {
     title: string;

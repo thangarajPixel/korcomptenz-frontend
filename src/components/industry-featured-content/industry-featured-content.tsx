@@ -24,6 +24,7 @@ const IndustryFeaturedContent = ({
 
   const cards = firstCard ? [firstCard, ...otherCards] : data?.list || [];
 
+
   return (
     <section className="container-md ">
       {/* Heading */}
@@ -31,7 +32,11 @@ const IndustryFeaturedContent = ({
       <div className="max-w-5xl ">
         {data?.subHeading && (
           <DangerousHtml
-            className="text-[24px] leading-[28px] font-semibold text-[#5648D8]"
+            className={
+              data?.isSubHeadingButton
+                ? "inline-flex items-center justify-center text-[16px] md:text-[18px] leading-7.5 font-normal text-[#151515] border-2 border-[#4C4C4C] rounded-full px-4 md:px-6 mb-4 bg-transparent md:pt-3 pt-2"
+                : "text-[24px] leading-[28px] font-semibold text-[#5648D8]"
+            }
             html={data?.subHeading}
           />
         )}
@@ -66,22 +71,23 @@ const IndustryFeaturedContent = ({
           const backgroundStyle = !isHero
             ? item?.isBgImage && item?.bgImage?.url
               ? {
-                backgroundImage: `url(${item.bgImage.url})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }
+                  backgroundImage: `url(${item.bgImage.url})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }
               : {
-                backgroundColor: item?.bgColor || "#FFFFFF",
-              }
+                  backgroundColor: item?.bgColor || "#FFFFFF",
+                }
             : {
-              backgroundColor: item?.bgColor || "#323941",
-            };
+                backgroundColor: item?.bgColor || "#323941",
+              };
 
           return (
             <div
               key={item?.id || index}
-              className={`relative overflow-hidden ${isHero ? "lg:col-span-2 min-h-[360px]" : "min-h-[360px] p-6"
-                }`}
+              className={`relative overflow-hidden ${
+                isHero ? "lg:col-span-2 min-h-[360px]" : "min-h-[360px] p-6"
+              }`}
               style={backgroundStyle}
             >
               {/* ================= HERO CARD ================= */}
@@ -157,8 +163,9 @@ const IndustryFeaturedContent = ({
                     {/* Title */}
                     <DangerousHtml
                       html={item?.title}
-                      className={`text-[22px]  font-semibold leading-[32px] ${item?.isBgImage ? "text-white" : "text-[#242424]"
-                        }`}
+                      className={`text-[22px]  font-semibold leading-[32px] ${
+                        item?.isBgImage ? "text-white" : "text-[#242424]"
+                      }`}
                     />
 
                     {/* Image */}
@@ -168,9 +175,9 @@ const IndustryFeaturedContent = ({
                         onClick={() =>
                           isVideo
                             ? setIsVideoOpen({
-                              link: item?.buttonLink || "#",
-                              open: true,
-                            })
+                                link: item?.buttonLink || "#",
+                                open: true,
+                              })
                             : undefined
                         }
                       >
@@ -200,8 +207,9 @@ const IndustryFeaturedContent = ({
                     {item?.description && (
                       <DangerousHtml
                         html={item.description}
-                        className={`mt-3 text-md md:text-lg leading-7.5 ${item?.isBgImage ? "text-white" : "text-[#242424]"
-                          }`}
+                        className={`mt-3 text-md md:text-lg leading-7.5 ${
+                          item?.isBgImage ? "text-white" : "text-[#242424]"
+                        }`}
                       />
                     )}
 
