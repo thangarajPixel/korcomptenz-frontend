@@ -125,55 +125,13 @@
           }
           
           function navigateToPath(url) {
-            var currentUrl = new URL(window.location.href);
-            currentUrl.searchParams.set('path', url);
-            
-            // Use History API to hide query params in URL bar
-            window.history.pushState({path: url}, '', '/sitemap.xml');
-            
-            // Fetch and reload with new path
-            fetch(currentUrl.toString())
-              .then(response => response.text())
-              .then(data => {
-                document.open();
-                document.write(data);
-                document.close();
-              });
+            var targetUrl = '/sitemap.xml?path=' + encodeURIComponent(url);
+            window.location.href = targetUrl;
           }
           
           function navigateToRoot() {
-            var currentUrl = new URL(window.location.href);
-            currentUrl.searchParams.delete('path');
-            
-            // Use History API to keep clean URL
-            window.history.pushState({}, '', '/sitemap.xml');
-            
-            // Fetch and reload root
-            fetch(currentUrl.toString())
-              .then(response => response.text())
-              .then(data => {
-                document.open();
-                document.write(data);
-                document.close();
-              });
+            window.location.href = '/sitemap.xml';
           }
-          
-          // Handle browser back/forward buttons
-          window.addEventListener('popstate', function(event) {
-            if (event.state && event.state.path) {
-              var currentUrl = new URL(window.location.origin + '/sitemap.xml');
-              currentUrl.searchParams.set('path', event.state.path);
-              fetch(currentUrl.toString())
-                .then(response => response.text())
-                .then(data => {
-                  document.open();
-                  document.write(data);
-                  document.close();
-                });
-            } else {
-              location.reload();
-            }
-          });
           ]]>
         </script>
       </head>
@@ -234,7 +192,8 @@
                 <span class="tag-bracket">&lt;</span>
                 <span class="tag-name">lastmod</span>
                 <span class="tag-bracket">&gt;</span>
-                <span class="text-content"><xsl:value-of select="sitemap:lastmod"/></span>
+                <span class="text-content"><xsl:value-of 
+                select="sitemap:lastmod"/></span>
                 <span class="tag-bracket">&lt;/</span>
                 <span class="tag-name">lastmod</span>
                 <span class="tag-bracket">&gt;</span>
@@ -246,7 +205,8 @@
                 <span class="tag-bracket">&lt;</span>
                 <span class="tag-name">changefreq</span>
                 <span class="tag-bracket">&gt;</span>
-                <span class="text-content"><xsl:value-of select="sitemap:changefreq"/></span>
+                <span class="text-content"><xsl:value-of
+                 select="sitemap:changefreq"/></span>
                 <span class="tag-bracket">&lt;/</span>
                 <span class="tag-name">changefreq</span>
                 <span class="tag-bracket">&gt;</span>
@@ -258,7 +218,8 @@
                 <span class="tag-bracket">&lt;</span>
                 <span class="tag-name">priority</span>
                 <span class="tag-bracket">&gt;</span>
-                <span class="text-content"><xsl:value-of select="sitemap:priority"/></span>
+                <span class="text-content"><xsl:value-of 
+                select="sitemap:priority"/></span>
                 <span class="tag-bracket">&lt;/</span>
                 <span class="tag-name">priority</span>
                 <span class="tag-bracket">&gt;</span>
