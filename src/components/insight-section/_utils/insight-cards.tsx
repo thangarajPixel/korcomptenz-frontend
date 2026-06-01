@@ -16,9 +16,8 @@ interface InsightCardType {
   link?: string;
   buttonText?: string;
   isTargetBlank?: boolean;
+  isAlignCenter?: boolean;
 }
-
-
 
 export function InsightCard(props: InsightCardType) {
   const {
@@ -29,8 +28,8 @@ export function InsightCard(props: InsightCardType) {
     category,
     buttonText,
     isTargetBlank,
+    isAlignCenter,
   } = props;
-
   return (
     <Link href={props?.link || "#"} target={isTargetBlank ? "_blank" : "_self"}>
       <motion.article
@@ -63,12 +62,21 @@ export function InsightCard(props: InsightCardType) {
         </motion.div>
 
         {title && (
-          <h3 className="mt-4 left-0 top-0 max-w-fit text-start  text-3xl group-hover:text-primary  font-semibold leading-7 lg:leading-7 line-clamp-2">
+          <h3
+            className={`mt-4 top-0 max-w-fit text-3xl group-hover:text-primary font-semibold leading-7 lg:leading-7 line-clamp-2 ${
+              isAlignCenter ? "text-center mx-auto" : "text-start"
+            }`}
+          >
             {title}
           </h3>
         )}
+
         {description && (
-          <p className="mt-3 left-0 top-0 max-w-fit text-start  md:text-lg text-md leading-6.75  font-normal   line-clamp-3">
+          <p
+            className={`mt-3 top-0 max-w-fit md:text-lg text-md leading-6.75 font-normal line-clamp-3 ${
+            isAlignCenter ? "text-center mx-auto" : "text-start"
+            }`}
+          >
             {description}
           </p>
         )}

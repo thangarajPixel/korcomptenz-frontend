@@ -105,6 +105,13 @@ import CloudRecognitionSlider from "../cloud-recognition-slider/cloud-recognitio
 import CloudWarning from "../cloud-warning";
 import CloudMigrationHandle from "../cloud-migration-handle/cloud-migration-handle";
 import CloudTechnology from "../cloud-technology";
+import CloudOnePlatform from "../cloud-one-platform";
+import CloudFirstCall from "../cloud-first-call";
+import CloudAiPowered from "../cloud-ai-powered";
+import CloudBuildPeople from "../cloud-build-people";
+import CloudKeyOfferings from "../cloud-key-offerings";
+import CloudReadiness from "../cloud-Readiness/cloud-Readiness";
+import CloudBanner from "../cloud-banner/cloud-banner";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1063,7 +1070,7 @@ const GlobalPage = (props: Props) => {
             <IndustryBannerSection BannerSectionData={[item]} />
           </ScrollFadeIn>
         );
-        case "page-componets.industry-build-data":
+      case "page-componets.industry-build-data":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1072,7 +1079,7 @@ const GlobalPage = (props: Props) => {
             <IndustryAbout data={item} />
           </ScrollFadeIn>
         );
-        case "page-componets.industry-solution-spotlight":
+      case "page-componets.industry-solution-spotlight":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1081,7 +1088,7 @@ const GlobalPage = (props: Props) => {
             <IndustrySpotlight data={item} />
           </ScrollFadeIn>
         );
-        case "page-componets.industry-intelligent-experience":
+      case "page-componets.industry-intelligent-experience":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1090,7 +1097,7 @@ const GlobalPage = (props: Props) => {
             <IndustryIntelligence data={item} />
           </ScrollFadeIn>
         );
-       case "page-componets.industry-featured-content":
+      case "page-componets.industry-featured-content":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1099,7 +1106,7 @@ const GlobalPage = (props: Props) => {
             <IndustryFeaturedContent data={item} />
           </ScrollFadeIn>
         );
-        case "page-componets.industry-service-portfolio":
+      case "page-componets.industry-service-portfolio":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1108,7 +1115,7 @@ const GlobalPage = (props: Props) => {
             <IndustryServicePortfolio data={item} />
           </ScrollFadeIn>
         );
-        case "page-componets.cloud-recognition":
+      case "page-componets.cloud-recognition":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1116,38 +1123,105 @@ const GlobalPage = (props: Props) => {
           >
             <CloudRecognitionSlider data={item} />
           </ScrollFadeIn>
-        )
+        );
 
-        case "page-componets.cloud-warning-signs":
+      case "page-componets.cloud-warning-signs":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`cloud-warning-signs-${item?.__component}-${item?.id}`}
           >
-            <CloudWarning data={item} />  
+            <CloudWarning data={item} />
           </ScrollFadeIn>
         );
 
-        case "page-componets.cloud-migration-handle":
+      case "page-componets.cloud-migration-handle":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`cloud-migration-handle-${item?.__component}-${item?.id}`}
           >
-            <CloudMigrationHandle data={item} />  
+            <CloudMigrationHandle data={item} />
           </ScrollFadeIn>
         );
 
-        case"page-componets.cloud-technology":
+      case "page-componets.cloud-technology":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`cloud-technology-${item?.__component}-${item?.id}`}
           >
-            <CloudTechnology data={item} />  
+            <CloudTechnology data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-one-platform":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`CloudOnePlatform-${item?.__component}-${item?.id}`}
+          >
+            <CloudOnePlatform data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-first-call":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-first-call-${item?.__component}-${item?.id}`}
+          >
+            <CloudFirstCall data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-ai-power":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-ai-power-${item?.__component}-${item?.id}`}
+          >
+            <CloudAiPowered data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-built-people":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-built-people-${item?.__component}-${item?.id}`}
+          >
+            <CloudBuildPeople data={item} />
+          </ScrollFadeIn>
+        );
+
+        case "page-componets.cloud-key-offerings":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-key-offerings-${item?.__component}-${item?.id}`}
+          >
+            <CloudKeyOfferings data={item} />
+          </ScrollFadeIn>
+        );
+
+        case "page-componets.cloud-readiness-report":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component} 
+            key={`cloud-readiness-report-cloud-form-${item?.__component}-${item?.id}`}
+          >
+            <CloudReadiness data={item} />
+          </ScrollFadeIn>
+        );
+
+        case "page-componets.cloud-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-banner-${item?.__component}-${item?.id}`}
+          >
+            <CloudBanner data={item} />
           </ScrollFadeIn>
         )
 
+    
       default:
         return;
     }
