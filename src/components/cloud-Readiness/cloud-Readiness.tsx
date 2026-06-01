@@ -2,15 +2,12 @@ import React from "react";
 import { DangerousHtml } from "../ui/dangerous-html";
 import ButtonLink from "../ui/button-link";
 import CloudForm from "../cloud-Readiness/_utils/cloud-form";
-
-
+import { RecaptchaProvider } from "../providers/recaptcha-provider";
 
 const CloudReadiness = ({ data }: { data: CloudReadinessType }) => {
-
   return (
     <div className="container-md">
-      <div className="grid grid-cols-1 lg:grid-cols-[52%_45%] md:gap-x-10 gap-y-10">
-
+      <div className="grid grid-cols-1 lg:grid-cols-[55%_42%] md:gap-x-10 gap-y-10">
         {/* CONTENT SECTION */}
         <div className="lg:px-5 md:mt-8">
           {data?.subHeading && (
@@ -39,7 +36,7 @@ const CloudReadiness = ({ data }: { data: CloudReadinessType }) => {
               <ButtonLink
                 link={data?.buttonLink || "#"}
                 isTargetNew={data?.isTarget}
-                buttonProps={{ size: "xl", arrow: true,className:"text-2xl"}}
+                buttonProps={{ size: "xl", arrow: true, className: "text-2xl" }}
               >
                 {data?.buttonText || "Watch Now"}
               </ButtonLink>
@@ -47,12 +44,11 @@ const CloudReadiness = ({ data }: { data: CloudReadinessType }) => {
           )}
         </div>
 
-       <div>
-        <CloudForm form={data?.form?.forms?.[0]} />
-         </div>
-    
-         
-      
+        <div>
+          <RecaptchaProvider>
+            <CloudForm form={data?.form?.forms?.[0]} />{" "}
+          </RecaptchaProvider>
+        </div>
       </div>
     </div>
   );

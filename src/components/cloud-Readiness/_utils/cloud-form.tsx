@@ -58,6 +58,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
       let captchaToken: string;
       try {
         captchaToken = await getToken("cloudlead");
+         
       } catch {
         notify({ message: "Captcha verification failed. Please try again." });
         return;
@@ -82,14 +83,14 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
   return (
     <section>
       <form
-        id="contact-us-form"
+        id="cloud-form"
         onSubmit={handleSubmit(handleFormSubmit)}
         className=" border border-[#CFCFCF] rounded-3xl p-4 md:p-6"
         noValidate
       >
-        <div className="grid  mt-2">
+        <div className="grid  mt-2 ">
           {/* Name + Email */}
-          <div className="grid md:grid-cols-2 gap-4 mb-1">
+          <div className="grid md:grid-cols-2 gap-6 py-1">
             <Input
               control={control}
               name={"firstName"}
@@ -103,7 +104,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
               className=" w-full h-[60px] px-4  border-b-2 border-[#CECECE] bg-white text-[#242424] placeholder:text-[#9A9A9A] text-[18px] outline-none focus:border-black focus:ring-0 "
             />
           </div>
-          <div className="grid md:grid-cols-2 gap-4 mb-1">
+          <div className="grid md:grid-cols-2 gap-6 py-1">
             <Input
               control={control}
               name="company"
@@ -127,7 +128,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
             />
           </div>
         </div>
-        <div className="grid md:grid-cols-2 gap-4 mb-1">
+        <div className="grid md:grid-cols-2 gap-6 py-1">
           <ComboboxField
             control={control}
             textColor="#9A9A9A"
