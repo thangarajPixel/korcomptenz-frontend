@@ -19,23 +19,19 @@ export default function CertificationsSection({ data }: Props) {
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#165c7d]/90 to-[#3aa17e]/80 z-0" />
+        <div className="absolute inset-0 z-0 " />
 
         {/* LEFT CONTENT */}
-        <div className="relative z-10 text-white md:w-1/2">
+        <div className="relative z-10 text-white md:w-1/3">
           {data?.description && (
             <span className="border border-white px-4 py-1 rounded-full text-sm inline-block mb-4">
               {data.description}
             </span>
           )}
           {data?.title && (
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+            <h2 className="text-5xl md:text-6xl font-semibold leading-12">
               {data.title}
             </h2>
-          )}
-
-          {data?.description && (
-            <p className="text-sm opacity-90 max-w-md">{data.description}</p>
           )}
         </div>
 
@@ -43,17 +39,17 @@ export default function CertificationsSection({ data }: Props) {
         <div className="hidden md:block w-[1px] h-32 bg-white/50 relative z-10" />
 
         {/* RIGHT LOGOS */}
-        <div className="relative z-10 flex flex-wrap gap-6 items-center justify-center md:w-1/2">
+        <div className="relative z-10 flex flex-nowrap items-center justify-between md:w-1/2 gap-8">
           {data?.partnerlogos?.map((item) => (
             <div
               key={item.id}
-              className="bg-white/90 rounded-xl px-6 py-4 flex items-center justify-center"
+              className="flex flex-1 items-center justify-center"
             >
               <KorcomptenzImage
                 src={item.logoimage?.url}
-                width={50}
-                height={50}
-                className="h-10 object-contain"
+                width={350}
+                height={120}
+                className="h-12 md:h-14 lg:h-16 w-auto object-contain"
               />
             </div>
           ))}

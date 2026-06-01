@@ -8,7 +8,7 @@ export default function SapWhyKorcomptenz({
   data: SapWhyKorcomptenzType;
 }) {
   return (
-    <section className="bg-[#f8f8f8] py-16">
+    <section>
       <div className="container-md">
         {/* TOP SECTION */}
         <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -23,7 +23,7 @@ export default function SapWhyKorcomptenz({
 
             {/* Title */}
             {data?.title && (
-              <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-black mb-4">
                 {data.title}
               </h2>
             )}
@@ -40,7 +40,7 @@ export default function SapWhyKorcomptenz({
           {/* RIGHT IMAGE (STATIC / OPTIONAL STRAPI) */}
           <div className="rounded-2xl overflow-hidden">
             <KorcomptenzImage
-              src={data?.image}
+              src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/Why_KOR_Intro_91e8f8f414.svg"
               width={500}
               height={500}
               className="w-full h-auto object-cover rounded-4xl"
@@ -49,22 +49,28 @@ export default function SapWhyKorcomptenz({
         </div>
 
         {/* LIST BOX GRID */}
-        <div className="grid md:grid-cols-2 gap-6 mt-12">
+        <div className="grid relative md:grid-cols-2 gap-6 mt-12">
           {data?.listbox?.map((item) => (
             <div
               key={item.id}
-              className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-300"
+              style={{
+                background:
+                  "radial-gradient(circle at top left, #FFFFFF 0%, #F6F4FF 45%, #EEE9FF 100%)",
+              }}
+              className="rounded-[26px] border border-[#B7AFFF] p-8 shadow-[0px_2px_10px_rgba(124,58,237,0.06)] transition-all duration-300 hover:shadow-lg"
             >
-              {/* ICON PLACEHOLDER */}
-              <div className="w-12 h-12 flex items-center justify-center bg-indigo-500 rounded-lg mb-4 text-white">
-                ★
+              {/* ICON */}
+              <div className="w-12 h-12 flex items-center justify-center bg-indigo-500 rounded-lg p-2 mb-4 text-white">
+                <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/lp_icon_9c5aa6b591.svg" />
               </div>
 
               {/* TITLE */}
-              <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+              <h3 className="text-lg font-semibold mb-2 text-black">
+                {item.title}
+              </h3>
 
               {/* DESCRIPTION */}
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-700 text-sm leading-relaxed">
                 {item.description}
               </p>
             </div>

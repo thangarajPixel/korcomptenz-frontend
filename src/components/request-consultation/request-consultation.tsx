@@ -23,7 +23,7 @@ export default function RequestConsultation({
 
             {/* Title */}
             {data?.title && (
-              <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+              <h2 className="text-5xl md:text-6xl font-semibold text-[#1e2939] leading-12 mb-4">
                 {data.title}
               </h2>
             )}
@@ -38,7 +38,7 @@ export default function RequestConsultation({
           </div>
 
           {/* RIGHT IMAGE (STATIC / OPTIONAL STRAPI) */}
-          <div className="rounded-2xl overflow-hidden">
+          <div className="rounded-2xl overflow-hidden p-6">
             {data?.form && <GlobalForm form={data.form} item={data?.item} />}
           </div>
         </div>
