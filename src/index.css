@@ -742,33 +742,33 @@ ul.key_list li::before {
 @layer base {
   /* ---------- H1 ---------- */
   h1 {
-    @apply !text-[50px] !leading-[60px] !font-semibold;
+    @apply text-[50px] leading-[60px] font-semibold;
   }
 
   /* ---------- H2 ---------- */
   h2 {
-    @apply !text-[40px] !leading-[50px] !font-semibold;
+    @apply text-[40px] leading-[50px] font-semibold;
   }
 
   /* ---------- Tablet (<=1024px) ---------- */
   @media (max-width: 1024px) {
     h1 {
-      @apply !text-[36px] !leading-[42px];
+      @apply text-[36px] leading-[42px];
     }
 
     h2 {
-      @apply !text-[32px] !leading-[38px];
+      @apply text-[32px] leading-[38px];
     }
   }
 
   /* ---------- Mobile (<=768px) ---------- */
   @media (max-width: 768px) {
     h1 {
-      @apply !text-[34px] !leading-[44px];
+      @apply text-[34px] leading-[44px];
     }
 
     h2 {
-      @apply !text-[30px] !leading-[36px];
+      @apply text-[30px] leading-[36px];
     }
   }
 }

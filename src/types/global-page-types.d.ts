@@ -200,6 +200,7 @@ type WeAreKorcomptenzSectionType = {
 
 type BannerSectionType = {
   id: number;
+  bannerH1Tag: string;
   imageMobile: ImageType;
   isListPage: boolean;
   isHasFooter: boolean;
