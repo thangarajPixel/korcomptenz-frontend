@@ -19,7 +19,7 @@ export default function CertificationsSection({ data }: Props) {
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 z-0 " />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#165c7d]/90 to-[#3aa17e]/80 z-0" />
 
         {/* LEFT CONTENT */}
         <div className="relative z-10 text-white md:w-1/3">
