@@ -112,26 +112,31 @@ export function DigitialAboutSection({
 
         {/* Countries Section */}
         <section className="relative py-5 ">
-          <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-8 md:gap-12">
-            {data?.countries?.map((countries) => (
-              <div
-                key={countries?.id}
-                className="flex flex-col items-center gap-3 group cursor-normal"
-              >
-                <div className="w-10 h-10 lg:w-[50px] lg:h-[50px]">
-                  <KorcomptenzImage
-                    src={countries?.flag?.[0]}
-                    width={160}
-                    height={160}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+          <div className="w-full flex flex-col">
+            <div className="mb-5 mx-5">
+              <h3 className="text-2xl font-bold">Our Global Locations</h3>
+            </div>
+            <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-8 md:gap-12">
+              {data?.countries?.map((countries) => (
+                <div
+                  key={countries?.id}
+                  className="flex flex-col items-center gap-3 group cursor-normal"
+                >
+                  <div className="w-10 h-10 lg:w-[50px] lg:h-[50px]">
+                    <KorcomptenzImage
+                      src={countries?.flag?.[0]}
+                      width={160}
+                      height={160}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
 
-                <p className="text-[12px] lg:text-sm font-normal text-[#FFFFFF] text-center">
-                  {countries?.label}
-                </p>
-              </div>
-            ))}
+                  <p className="text-[12px] lg:text-sm font-normal text-[#FFFFFF] text-center">
+                    {countries?.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </div>
