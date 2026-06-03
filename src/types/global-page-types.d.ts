@@ -1044,6 +1044,7 @@ type VideoBannerItemType = {
   title: string;
   imageMobile: ImageType;
   form?: GlobalFormItemType;
+  isForm: boolean;
   image: ImageType;
   isVideo: boolean;
   description: string;

@@ -6,11 +6,7 @@ import { X } from "lucide-react";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { Input } from "@/components/ui/input";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import {
-
-  SapformSchema,
-  type SapFormSchema,
-} from "@/utils/validation.schema";
+import { SapformSchema, type SapFormSchema } from "@/utils/validation.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCaptchaToken } from "@/lib/recaptcha";
 import { errorSet, notify } from "@/utils/helper";
@@ -25,10 +21,6 @@ type SapBannerPopupProps = {
   formTitle?: string;
   formDescription?: string;
   formImage?: ImageType;
-  item?: {
-    documentId: string;
-    id: string;
-  };
 };
 const defaultValues = {
   fullName: "",
@@ -45,7 +37,6 @@ export function SapBannerPopup({
   formTitle,
   formDescription,
   formImage,
-  item,
 }: SapBannerPopupProps) {
   const {
     control,
@@ -62,15 +53,7 @@ export function SapBannerPopup({
     },
   });
   const { mutateAsync } = useSapLeadHook();
-  const pageSlug = {
-    connect: [
-      {
-        id: item?.id,
-        documentId: item?.documentId,
-        isTemporary: true,
-      },
-    ],
-  };
+
   const { getToken } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<SapFormSchema> = React.useCallback(
@@ -83,11 +66,11 @@ export function SapBannerPopup({
         return;
       }
       const currentUrl =
-        typeof window !== "undefined" ? window.location.href : "";
+        typeof window !== "undefined" ? window.location.pathname : "";
       const data = {
         ...formdata,
-        pageSlug,
-        frompage: currentUrl,
+        pageSlug: currentUrl,
+
         recaptchaToken: captchaToken,
       };
       try {
@@ -125,103 +108,110 @@ export function SapBannerPopup({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/50">
-      {/* Close Button */}
-
-      {/* Popup Container */}
-      <div className="size-full flex items-center justify-center px-4 py-10">
-        <div className="relative w-full max-w-6xl rounded-[32px] border border-[#7B3FF2] bg-[#313A45] px-6 py-8 md:px-12 md:py-10">
+    <div className="fixed inset-0 z-50 bg-black/50 md:overflow-hidden overflow-y-auto">
+      <div className="min-h-screen flex items-start md:items-center justify-center px-4 py-4 md:py-10">
+        <div className="relative w-full max-w-6xl max-h-[95vh] overflow-y-auto rounded-2xl md:rounded-[32px] border border-[#7B3FF2] bg-[#313A45] px-4 py-6 md:px-12 md:py-10">
+          {/* Close Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-4 right-4 z-10 text-white hover:bg-white/20"
+            className="absolute top-2 right-2 md:top-4 md:right-4 z-10 text-white hover:bg-white/20"
             onClick={onClose}
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5 md:w-6 md:h-6" />
           </Button>
+
           {/* Logo */}
           {formImage && (
             <KorcomptenzImage
               src={formImage}
               width={100}
               height={150}
-              className="absolute left-15 top-10 h-30 w-auto"
+              className="absolute left-4 top-4 md:left-15 md:top-10 h-14 md:h-30 w-auto"
             />
           )}
 
           {/* Heading */}
-          <div className="text-center mt-5">
+          <div className="text-center mt-12 md:mt-5">
             <DangerousHtml
-              html={formTitle || "SAP Services"}
+              html={formTitle||""}
               as="h3"
-              className="text-3xl md:text-[50px] font-bold text-white"
+              className="text-2xl md:text-[50px] font-bold text-white leading-tight"
             />
 
             <DangerousHtml
-              html={formDescription || "SAP Servicesss"}
-              className="mt-3 max-w-lg mx-auto text-center text-white text-[18px] leading-7.5 -mt-1"
+              html={formDescription || ""}
+              className="mt-3 max-w-lg mx-auto text-center text-white text-sm md:text-[18px] leading-6 md:leading-7.5"
             />
           </div>
 
           <form
             onSubmit={handleSubmit(handleFormSubmit)}
-            className="space-y-8  "
+            className="space-y-6 md:space-y-8"
             id="form"
             noValidate
           >
-            <div className="grid  p-10 gap-y-6 w-full ">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+            <div className="grid gap-y-6 w-full p-0 md:px-6 md:pt-4">
+              {/* First Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   control={control}
                   required
                   name="fullName"
                   placeholder={data?.fullNameLabel}
-                  className=" p-4   rounded-md  bg-white placeholder:text-[#000000]"
+                  className="h-12 md:h-auto p-4 rounded-md bg-white placeholder:text-[#000000]"
                 />
+
                 <Input
                   control={control}
                   name="businessEmail"
                   required
                   placeholder={data?.businessEmailLabel}
-                  className=" p-4   rounded-md text-foreground bg-white placeholder:text-[#000000]"
+                  className="h-12 md:h-auto p-4 rounded-md bg-white placeholder:text-[#000000]"
                 />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+
+              {/* Second Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   control={control}
                   name="phoneNumber"
                   required
                   placeholder={data?.phoneNumberLabel}
-                  className="p-4   rounded-md  text-foreground bg-white placeholder:text-[#000000]"
+                  className="h-12 md:h-auto p-4 rounded-md bg-white placeholder:text-[#000000]"
                 />
+
                 <Input
                   control={control}
                   name="organization"
                   required
                   placeholder={data?.organizationLabel}
-                  className="p-4   rounded-md  text-foreground bg-white placeholder:text-[#000000]"
+                  className="h-12 md:h-auto p-4 rounded-md bg-white placeholder:text-[#000000]"
                 />
               </div>
-              <div className="grid gap-4 ">
+
+              {/* Message */}
+              <div>
                 <Textarea
                   control={control}
                   name="message"
                   required
                   placeholder={data?.messageLabel}
-                  className=" p-4   rounded-md   text-foreground bg-white placeholder:text-[#000000]"
+                  className="min-h-[120px] p-4 rounded-md bg-white placeholder:text-[#000000]"
                 />
               </div>
 
-              {/* Submit button */}
-              <div className="pt-4 flex justify-center">
+              {/* Submit Button */}
+              <div className="pt-2 flex justify-center">
                 <Button
-                  size={"xl"}
+                  size="xl"
                   variant="default"
                   arrow
                   isLoading={isSubmitting}
                   type="submit"
+                  className="w-full md:w-auto"
                 >
-                  {data?.buttonText}
+                  {data?.buttonText||"Submit"}
                 </Button>
               </div>
             </div>

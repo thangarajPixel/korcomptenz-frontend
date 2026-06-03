@@ -1,5 +1,7 @@
 "use client";
+import { SapBannerPopup } from "@/components/banner-section/_utils/sap-popup";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 import ButtonLink from "@/components/ui/button-link";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { cn } from "@/lib/utils";
@@ -22,6 +24,7 @@ const IndustryBannerCard = ({
   className?: string;
 }) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     const checkDevice = () => {
@@ -46,7 +49,7 @@ const IndustryBannerCard = ({
           {/* Hero card */}
           <div
             className={cn(
-              "relative w-full md:h-[513px] h-full overflow-hidden hidden lg:block overflow-hidden"
+              "relative w-full md:h-[513px] h-full overflow-hidden hidden lg:block overflow-hidden",
             )}
           >
             <KorcomptenzImage
@@ -60,101 +63,112 @@ const IndustryBannerCard = ({
 
             {/* Text content */}
             <div className="container-md">
-            <div className="absolute top-0  py-10 z-10 w-5/8 h-full flex flex-col  justify-center items-start max-w-3xl ">
-              {data?.subtitle && (
-                <span className="text-white font-bold md:text-[25px] ">
-                  {data.subtitle}
-                </span>
-              )}
-
-              <DangerousHtml
-                as="h1"
-                html={data?.title}
-                className="text-white"
-              />
-
-              {data?.description && (
-                <DangerousHtml
-                  className="text-[22px] md:text-[28px] leading-[35px] font-normal text-white mt-3"
-                  html={data.description}
-                />
-              )}
-
-              <div className="flex flex-row gap-4 mt-3">
-                {data?.buttonText && (
-                  <ButtonLink
-                    link={buttonHref}
-                    isTargetNew={data?.isTarget ? true : false}
-                    buttonProps={{
-                      arrow: true,
-                      className: "hover:bg-transparent",
-                      size: "xl",
-                    }}
-                  >
-                    {data.buttonText}
-                  </ButtonLink>
+              <div className="absolute top-0  py-10 z-10 w-5/8 h-full flex flex-col  justify-center items-start max-w-3xl ">
+                {data?.subtitle && (
+                  <span className="text-white font-bold md:text-[25px] ">
+                    {data.subtitle}
+                  </span>
                 )}
+
+                <DangerousHtml
+                  as="h1"
+                  html={data?.title}
+                  className="text-white"
+                />
+
+                {data?.description && (
+                  <DangerousHtml
+                    className="text-[22px] md:text-[28px] leading-[35px] font-normal text-white mt-3"
+                    html={data.description}
+                  />
+                )}
+
+                <div className="flex flex-row gap-4 mt-3">
+                  {data?.buttonText && (
+                    <>
+                      {data?.isForm ? (
+                        <>
+                          <button onClick={() => setIsPopupOpen(true)}>
+                            <ButtonLink
+                              link="#"
+                              buttonProps={{
+                                arrow: true,
+                                className: "hover:bg-transparent",
+                                size: "xl",
+                              }}
+                            >
+                              {data?.buttonText}
+                            </ButtonLink>
+                          </button>
+                        </>
+                      ) : (
+                        <ButtonLink
+                          link={data?.link || "#"}
+                          isTargetNew={data?.isTarget ? true : false}
+                          buttonProps={{
+                            arrow: true,
+                            className: "hover:bg-transparent",
+                            size: "xl",
+                          }}
+                        >
+                          {data?.buttonText}
+                        </ButtonLink>
+                      )}
+                    </>
+                  )}
+                </div>
               </div>
-            </div></div>
+            </div>
           </div>
 
           {/* Footer bar */}
           {data?.isHasFooter && data?.list && data.list.length > 0 && (
             <div className="bg-[#2b2b2b] ">
-            <div className="hidden lg:block container-md ">
-              <ul className={cn("grid", gridCols)}>
-                {data.list.map((item) => (
-                  <li key={item.id} className="h-full">
-                    <a
-                      target={item?.isTarget ? "_blank" : "_self"}
-                      href={item?.buttonLink || "#"}
-                      className="flex items-center gap-3 px-2 py-1"
-                    >
-                      {item?.image && (
-                        <KorcomptenzImage
-                          src={item.image}
-                          width={40}
-                          height={40}
-                          className="w-15 h-24 object-contain shrink-0  mb-0.5"
-                        />
-                      )}
-                      <div className="grid ">
-                        {item?.title && (
-                          <DangerousHtml
-                            html={item.title}
-                            className="text-white text-[16px] font-semibold leading-[16px] "
+              <div className="hidden lg:block container-md ">
+                <ul className={cn("grid", gridCols)}>
+                  {data.list.map((item) => (
+                    <li key={item.id} className="h-full">
+                      <a
+                        target={item?.isTarget ? "_blank" : "_self"}
+                        href={item?.buttonLink || "#"}
+                        className="flex items-center gap-3 px-2 py-1"
+                      >
+                        {item?.image && (
+                          <KorcomptenzImage
+                            src={item.image}
+                            width={40}
+                            height={40}
+                            className="w-15 h-24 object-contain shrink-0  mb-0.5"
                           />
                         )}
-                        {item?.description && (
-                          <DangerousHtml
-                            html={item.description}
-                            className="text-white/70 text-[16px] leading-[16px] **:text-white/70!"
-                          />
-                        )}
-                      </div>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div></div>
+                        <div className="grid ">
+                          {item?.title && (
+                            <DangerousHtml
+                              html={item.title}
+                              className="text-white text-[16px] font-semibold leading-[16px] "
+                            />
+                          )}
+                          {item?.description && (
+                            <DangerousHtml
+                              html={item.description}
+                              className="text-white/70 text-[16px] leading-[16px] **:text-white/70!"
+                            />
+                          )}
+                        </div>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           )}
         </>
       ) : (
         <>
           {/* ── Mobile ── */}
-          <div
-            className={cn(
-              "w-full lg:hidden overflow-hidden",
-             
-            )}
-          >
+          <div className={cn("w-full lg:hidden overflow-hidden")}>
             {/* Banner image with overlaid text */}
-            <div
-              className={cn(
-                "relative w-full overflow-hidden",
-                
-              )}
-            >
+            <div className={cn("relative w-full overflow-hidden")}>
               <KorcomptenzImage
                 src={data?.imageMobile}
                 width={1000}
@@ -197,13 +211,36 @@ const IndustryBannerCard = ({
 
                 <div className="flex flex-col gap-3">
                   {data?.buttonText && (
-                    <ButtonLink
-                      link={buttonHref}
-                      isTargetNew={data?.isTarget ? true : false}
-                      buttonProps={{ arrow: true, size: "xl" }}
-                    >
-                      {data.buttonText}
-                    </ButtonLink>
+                    <>
+                      {data?.isForm ? (
+                        <>
+                          <button onClick={() => setIsPopupOpen(true)}>
+                            <ButtonLink
+                              link="#"
+                              buttonProps={{
+                                arrow: true,
+                                className: "hover:bg-transparent",
+                                size: "xl",
+                              }}
+                            >
+                              {data?.buttonText}
+                            </ButtonLink>
+                          </button>
+                        </>
+                      ) : (
+                        <ButtonLink
+                          link={buttonHref}
+                          isTargetNew={data?.isTarget ? true : false}
+                          buttonProps={{
+                            arrow: true,
+                            className: "hover:bg-transparent",
+                            size: "xl",
+                          }}
+                        >
+                          {data?.buttonText}
+                        </ButtonLink>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
@@ -245,6 +282,18 @@ const IndustryBannerCard = ({
           </div>
         </>
       )}
+      <>
+        <RecaptchaProvider>
+          <SapBannerPopup
+            data={data?.form?.forms?.[0]}
+            isOpen={isPopupOpen}
+            onClose={() => setIsPopupOpen(false)}
+            formTitle={data?.formTitle}
+            formDescription={data?.formDescription}
+            formImage={data?.formImage}
+          />
+        </RecaptchaProvider>
+      </>
     </div>
   );
 };
