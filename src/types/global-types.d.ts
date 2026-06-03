@@ -240,8 +240,15 @@ type CaseStudyDescription = {
 type CaseStudyHeroSection = {
   id: number;
   title: string;
+ formTitle?: string;
+  formDescription?: string;
+  formImage?: ImageType;
+  isForm: boolean;
   description: string;
   image: ImageType;
+form:{
+    forms:SapFormType[]
+  }
   buttonText: string;
   study: string;
   rightSection: {
@@ -267,6 +274,14 @@ type CaseStudyTestimonial = {
 
 type CaseStudyData = {
   id: string;
+  buttonText?: string;
+ formTitle?: string;
+  formDescription?: string;
+  formImage?: ImageType;
+  isForm: boolean;
+  form:{
+    forms:SapFormType[]
+  }
   documentId: string;
   list: NotFoundType[];
   isLinkOnly: boolean;
@@ -810,11 +825,10 @@ type ErrorType = {
   };
 };
 
-
-type IndustryServiceListType={
+type IndustryServiceListType = {
   data: {
     id: string;
     title: string;
     slug: string;
   }[];
-}
+};

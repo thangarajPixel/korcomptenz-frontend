@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
@@ -106,7 +106,6 @@ export function SapBannerPopup({
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
-
   return (
     <div className="fixed inset-0 z-50 bg-black/50 md:overflow-hidden overflow-y-auto">
       <div className="min-h-screen flex items-start md:items-center justify-center px-4 py-4 md:py-10">
