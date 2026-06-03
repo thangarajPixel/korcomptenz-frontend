@@ -24,7 +24,6 @@ const IndustryFeaturedContent = ({
 
   const cards = firstCard ? [firstCard, ...otherCards] : data?.list || [];
 
-
   return (
     <section className="container-md ">
       {/* Heading */}
@@ -141,9 +140,8 @@ const IndustryFeaturedContent = ({
                           link={item?.buttonLink || "#"}
                           isTargetNew={item?.isTarget}
                           buttonProps={{
-                            arrow: true,
-                            className:
-                              "bg-transparent text-white border-none shadow-none hover:bg-transparent hover:text-white hover:border-none hover:shadow-none",
+                           
+                            className: `bg-transparent border-none -ml-4 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace("text-", "")} hover:border-none shadow-none hover:shadow-none`,
                           }}
                         >
                           {item?.buttonText || "Read More"}
