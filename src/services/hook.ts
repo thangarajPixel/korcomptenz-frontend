@@ -273,3 +273,10 @@ export const useCloudLeadHook = () => {
     mutationFn: PAGE.createCloudLead,
   });
 };
+
+export const useSapLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.SAP_LEAD],
+    mutationFn: PAGE.createSapLead,
+  });
+};

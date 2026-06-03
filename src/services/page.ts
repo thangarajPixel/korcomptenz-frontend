@@ -12,6 +12,7 @@ import type {
   FreeConsultationLeadSchema,
   IndustryFormSchema,
   NewsRoomFormSchema,
+  SapFormSchema,
   SubscriptionFormSchema,
   WebinarReserveFormSchema,
 } from "@/utils/validation.schema";
@@ -61,6 +62,7 @@ export const CLOUD_ROLE_LIST = "/cloud-roles";
 export const CLOUD_INFRASTRUCTURE_LIST = "/cloud-infrastructures";
 export const CLOUD_MIGRATION_LIST = "/cloud-migration-urgencies";
 export const CLOUD_LEAD = "/cloud-leads";
+export const SAP_LEAD = "/sap-leads";
 
 /*************  ✨ Windsurf Command ⭐  *************/
 /**
@@ -410,5 +412,13 @@ export const getCloudMigrationList =
 
 export const createCloudLead = async (formData: CloudFormSchema) => {
   const { data } = await http.post(CLOUD_LEAD, { data: formData });
+  return data;
+};
+
+
+export const createSapLead = async (
+  formData: SapFormSchema,
+) => {
+  const { data } = await http.post(SAP_LEAD, { data: formData });
   return data;
 };
