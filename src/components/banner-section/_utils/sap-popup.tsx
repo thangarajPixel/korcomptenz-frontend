@@ -110,7 +110,7 @@ export function SapBannerPopup({
   return (
     <div className="fixed inset-0 z-50 bg-black/50 md:overflow-hidden overflow-y-auto">
       <div className="min-h-screen flex items-start md:items-center justify-center px-4 py-4 md:py-10">
-        <div className="relative w-full max-w-6xl max-h-[95vh] overflow-y-auto rounded-2xl md:rounded-[32px] border border-[#7B3FF2] bg-[#313A45] px-4 py-6 md:px-12 md:py-10">
+        <div className="relative w-full max-w-6xl max-h-[95vh] overflow-y-auto rounded-2xl md:rounded-[32px] bg-[#313A45] px-4 py-6 md:px-12 md:py-10">
           {/* Close Button */}
           <Button
             variant="ghost"

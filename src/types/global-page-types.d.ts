@@ -223,13 +223,13 @@ type BannerSectionType = {
   formTitle?: string;
   formDescription?: string;
   formImage?: ImageType;
-  pageSlug:{
+  pageSlug: {
     id: string;
     documentId: string;
     isTemporary: boolean;
   }
-  form:{
-    forms:SapFormType[]
+  form: {
+    forms: SapFormType[]
   }
   list?: {
     id: number;
@@ -254,14 +254,14 @@ type BannerSectionType = {
     description: string;
   };
 };
-type SapFormType={
-    businessEmailLabel: string;
-      fullNameLabel: string;
-      messageLabel: string;
-      organizationLabel: string;
-      phoneNumberLabel: string;
-      buttonText: string;
-    }
+type SapFormType = {
+  businessEmailLabel: string;
+  fullNameLabel: string;
+  messageLabel: string;
+  organizationLabel: string;
+  phoneNumberLabel: string;
+  buttonText: string;
+}
 type SapSectionType = {
   heading: string;
   description: string;
@@ -1037,6 +1037,14 @@ type CombinedSectionType = {
 
 type VideoBannerItemType = {
   id: string;
+  formTitle?: string;
+  formDescription?: string;
+  formImage?: ImageType;
+  isForm: boolean;
+  sapForm: {
+    forms: SapFormType[]
+  }
+  formButtonText: string;
   isTarget: boolean;
   videoLink: string;
   buttonLink: string;
@@ -1240,7 +1248,8 @@ type FabconBannerType = {
   location: string;
   list: {
     title: string;
-    subList:{title : string
+    subList: {
+      title: string
       description: string
     }[]
   }
