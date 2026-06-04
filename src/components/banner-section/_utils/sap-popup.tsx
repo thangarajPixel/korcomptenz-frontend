@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
@@ -133,7 +133,7 @@ export function SapBannerPopup({
           {/* Heading */}
           <div className="text-center mt-12 md:mt-5">
             <DangerousHtml
-              html={formTitle||""}
+              html={formTitle || ""}
               as="h3"
               className="text-2xl md:text-[50px] font-bold text-white leading-tight"
             />
@@ -194,7 +194,7 @@ export function SapBannerPopup({
                 <Textarea
                   control={control}
                   name="message"
-                  required
+                  // required
                   placeholder={data?.messageLabel}
                   className="min-h-[120px] p-4 rounded-md bg-white placeholder:text-[#000000]"
                 />
@@ -210,7 +210,7 @@ export function SapBannerPopup({
                   type="submit"
                   className="w-full md:w-auto"
                 >
-                  {data?.buttonText||"Submit"}
+                  {data?.buttonText || "Submit"}
                 </Button>
               </div>
             </div>
