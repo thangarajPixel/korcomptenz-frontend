@@ -281,9 +281,9 @@ export const SapformSchema = z.object({
     .string()
     .min(1, "Mobile number is required")
     .regex(/^\d{1,10}$/, "Enter a valid mobile number")
-    ,
+  ,
   organization: z.string().min(1, "Organization is required"),
-  message: z.string().min(1, "Message is required"),
+  message: z.string().nullable(),
 });
 
 export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
