@@ -79,6 +79,22 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
             <p className="text-3xl md:text-5xl mb-6 leading-6 font-normal">
               {data?.heroSection?.description}
             </p>
+
+            {data?.isForm && (
+              <div className="flex items-start">
+                <button onClick={() => setIsPopupOpen(true)}>
+                  <ButtonLink
+                    link="#"
+                    buttonProps={{
+                      arrow: true,
+                      className: "mt-6 border border-white",
+                      size: "lg",
+                    }}
+                  >
+                    {data?.formButtonText || "Get in Touch"}
+                  </ButtonLink>
+                </button>
+              </div>)}
           </div>
         </>
       )}
