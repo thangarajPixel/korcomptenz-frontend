@@ -74,12 +74,12 @@ const IndustryServicePortfolio = ({
           )}
 
           {/* Tabs */}
-          <div className="flex flex-col gap-4 mt-5 md:mb-0 mb-10">
+          <div className="flex flex-col gap-4 mt-5 md:mb-0 mb-10 ">
             {tabs.map((item, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveIdx(idx)}
-                className={`relative flex items-center px-4 py-5 md:py-7.5 rounded-xl text-left w-full 
+                className={`relative flex items-center px-4 py-5 md:py-7.5 rounded-xl text-left w-full  cursor-pointer
         ${activeIdx === idx ? "bg-white " : "bg-[#EAF3FF] hover:bg-white/60 border border-black rounded-2xl"}`}
               >
                 {/* Short center green line */}
@@ -88,7 +88,7 @@ const IndustryServicePortfolio = ({
                 {item?.tabTitle && (
                   <DangerousHtml
                     className={cn(
-                      "text-base text-[24px] md:text-[28px] font-semibold text-foreground leading-7.5 -mb-2 md:px-4",
+                      "text-base text-[24px] md:text-[28px] font-semibold text-foreground leading-7.5 -mb-2 cursor-pointer md:px-4",
                       activeIdx === idx
                         ? "text-[#5648D8]"
                         : "text-muted-foreground",

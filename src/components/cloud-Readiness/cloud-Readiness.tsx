@@ -12,7 +12,7 @@ const CloudReadiness = ({ data }: { data: CloudReadinessType }) => {
         <div className="lg:px-5 md:mt-8">
           {data?.subHeading && (
             <DangerousHtml
-              className="text-[24px] leading-[28px] font-semibold font-foreground"
+              className="inline-flex items-center justify-center text-[16px] md:text-[18px] leading-7.5 font-normal text-[#151515] border-2 border-[#4C4C4C] rounded-full px-4 md:px-6 mb-4 bg-transparent md:pt-3 pt-2"
               html={data?.subHeading}
             />
           )}

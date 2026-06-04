@@ -57,7 +57,7 @@ const CloudBuildPeople = ({ data }: { data: CloudBuildPeopleType }) => {
                 </CarouselContent>
 
                 {/* Desktop arrows */}
-                {length > 0 && (
+                {length > 3 && (
                   <div className="hidden lg:flex">
                     <CarouselPrevious
                       fontSize="size-8"
@@ -73,7 +73,7 @@ const CloudBuildPeople = ({ data }: { data: CloudBuildPeopleType }) => {
             </div>
 
             {/* Mobile arrows */}
-            {length > 0 && (
+            {length > 3 && (
               <div className="flex lg:hidden w-full justify-center items-center gap-4 mt-8">
                 <CarouselPrevious
                   className="relative left-0 hover:bg-primary hover:text-white size-12"

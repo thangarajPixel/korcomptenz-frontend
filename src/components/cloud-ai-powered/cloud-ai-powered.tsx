@@ -45,8 +45,11 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
 
       {/* ── Tab bar: horizontal scroll on both mobile & desktop ── */}
       <div
-        className="flex gap-10 overflow-x-auto mb-3 mx-15  items-center justify-center"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        className="flex md:gap-10 gap-4 overflow-x-auto mb-3 md:mx-15 items-center md:justify-center justify-start px-4"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
       >
         {data?.list?.map((item, index) => {
           const isActive = index === activeIndex;
@@ -131,7 +134,7 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
                     className={`self-start mt-2 px-5 py-2 rounded-full border text-[18px] font-medium transition-colors duration-200
                       ${
                         hasColoredBg
-                          ? "border-white text-white hover:bg-white hover:text-[#2AAC94]"
+                          ? "border-white text-[#2AAC94] bg-white hover:bg-white hover:text-[#2AAC94]"
                           : "border-[#2AAC94] text-[#2AAC94] hover:bg-[#2AAC94] hover:text-white"
                       }`}
                   >
