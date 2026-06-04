@@ -585,14 +585,10 @@ type PricingPlanType = {
 type InsightBlog = InsightResponse;
 
 type InsightResponse = {
-  id: number;
-  title: string;
   formTitle?: string;
   formDescription?: string;
   formImage?: ImageType;
   isForm: boolean;
-  description: string;
-  image: ImageType;
   sapForm: {
     forms: SapFormType[]
   }
@@ -649,7 +645,14 @@ type InsightItem = {
   date: string;
   publishedAt: string;
   updatedAt: string;
-
+  formTitle?: string;
+  formDescription?: string;
+  formImage?: ImageType;
+  isForm: boolean;
+  sapForm: {
+    forms: SapFormType[]
+  }
+  formButtonText: string;
   asset: {
     slug: string;
     file: ImageType;

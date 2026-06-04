@@ -76,6 +76,7 @@ export function SapBannerPopup({
       try {
         const response = await mutateAsync(data);
         notify(response);
+        onClose();
         reset({ ...defaultValues });
       } catch (error: unknown) {
         const errorMessage =

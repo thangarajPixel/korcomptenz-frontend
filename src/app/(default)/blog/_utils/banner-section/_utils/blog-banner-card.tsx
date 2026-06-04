@@ -6,6 +6,9 @@ import { cn } from "@/lib/utils";
 
 import React, { useEffect, useState } from "react";
 import BreadcrumbFromUrl from "./breadcrumbs";
+import ButtonLink from "@/components/ui/button-link";
+import { SapBannerPopup } from "@/components/banner-section/_utils/sap-popup";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 
 const BlogBannerCard = ({
@@ -18,6 +21,7 @@ const BlogBannerCard = ({
   tableTitle: string;
 }) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     // Only run on client
@@ -67,6 +71,22 @@ const BlogBannerCard = ({
               <p className="text-3xl md:text-5xl leading-tight font-normal text-white ">
                 {tableTitle}
               </p>
+
+              {data?.isForm && (
+                <div className="flex items-start">
+                  <button onClick={() => setIsPopupOpen(true)}>
+                    <ButtonLink
+                      link="#"
+                      buttonProps={{
+                        arrow: true,
+                        className: "mt-6",
+                        size: "xl",
+                      }}
+                    >
+                      {data?.formButtonText || "Get in Touch"}
+                    </ButtonLink>
+                  </button>
+                </div>)}
             </div>
           </div>
         </div>
@@ -103,9 +123,34 @@ const BlogBannerCard = ({
             </ButtonLink>
           )}
         </div> */}
+            {data?.isForm && (
+              <div className="flex items-start">
+                <button onClick={() => setIsPopupOpen(true)}>
+                  <ButtonLink
+                    link="#"
+                    buttonProps={{
+                      arrow: true,
+                      className: "mt-6",
+                      size: "lg",
+                    }}
+                  >
+                    {data?.formButtonText || "Get in Touch"}
+                  </ButtonLink>
+                </button>
+              </div>)}
           </div>
         </>
       )}
+      <><RecaptchaProvider>
+        <SapBannerPopup
+          data={data?.sapForm?.forms?.[0]}
+          isOpen={isPopupOpen}
+          onClose={() => setIsPopupOpen(false)}
+          formTitle={data?.formTitle}
+          formDescription={data?.formDescription}
+          formImage={data?.formImage}
+
+        /></RecaptchaProvider></>
     </div>
   );
 };
