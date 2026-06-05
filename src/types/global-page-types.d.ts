@@ -203,6 +203,7 @@ type BannerSectionType = {
   bannerH1Tag: string;
   imageMobile: ImageType;
   isListPage: boolean;
+  isForm: boolean;
   isHasFooter: boolean;
   isTarget: boolean | null;
   image: ImageType;
@@ -220,6 +221,17 @@ type BannerSectionType = {
   secondButton: string;
   secondLink: string;
   noofcolumns?: string;
+  formTitle?: string;
+  formDescription?: string;
+  formImage?: ImageType;
+  pageSlug: {
+    id: string;
+    documentId: string;
+    isTemporary: boolean;
+  };
+  form: {
+    forms: SapFormType[];
+  };
   list?: {
     id: number;
     title: string;
@@ -243,7 +255,14 @@ type BannerSectionType = {
     description: string;
   };
 };
-
+type SapFormType = {
+  businessEmailLabel: string;
+  fullNameLabel: string;
+  messageLabel: string;
+  organizationLabel: string;
+  phoneNumberLabel: string;
+  buttonText: string;
+};
 type SapSectionType = {
   heading: string;
   description: string;
@@ -1000,6 +1019,14 @@ type CombinedSectionType = {
 
 type VideoBannerItemType = {
   id: string;
+  formTitle?: string;
+  formDescription?: string;
+  formImage?: ImageType;
+  isForm: boolean;
+  sapForm: {
+    forms: SapFormType[];
+  };
+  formButtonText: string;
   isTarget: boolean;
   videoLink: string;
   buttonLink: string;
@@ -1007,6 +1034,7 @@ type VideoBannerItemType = {
   title: string;
   imageMobile: ImageType;
   form?: GlobalFormItemType;
+  isForm: boolean;
   image: ImageType;
   isVideo: boolean;
   description: string;
@@ -1202,7 +1230,10 @@ type FabconBannerType = {
   location: string;
   list: {
     title: string;
-    subList: { title: string; description: string }[];
+    subList: {
+      title: string;
+      description: string;
+    }[];
   };
 };
 

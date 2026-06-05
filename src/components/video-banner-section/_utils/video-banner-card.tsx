@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 import { useEffect, useState } from "react";
+import { SapBannerPopup } from "@/components/banner-section/_utils/sap-popup";
 // import DownloadForm from "@/components/news-room/_utils/download-form";
 
 type VideoBannerCardProps = {
@@ -18,6 +19,7 @@ type VideoBannerCardProps = {
 const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   useEffect(() => {
     // Only run on client
     const checkDevice = () => {
@@ -68,17 +70,34 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
                   {" "}
                   {data?.description}
                 </p>
-                <ButtonLink
-                  link={data?.buttonLink || "#"}
-                  isTargetNew={data?.isTarget ? true : false}
-                  buttonProps={{
-                    arrow: true,
-                    className: "hover:bg-transparent ",
-                    size: "xl",
-                  }}
-                >
-                  {data?.buttonText}
-                </ButtonLink>
+                {data?.isForm ? (
+                  <div className="flex items-start">
+                    <button onClick={() => setIsPopupOpen(true)}>
+                      <ButtonLink
+                        link="#"
+                        buttonProps={{
+                          arrow: true,
+                          className: "mt-6",
+                          size: "xl",
+                        }}
+                      >
+                        {data?.formButtonText || "Get in Touch"}
+                      </ButtonLink>
+                    </button>
+                  </div>) : (
+                  <ButtonLink
+                    link={data?.buttonLink || "#"}
+                    isTargetNew={data?.isTarget ? true : false}
+                    buttonProps={{
+                      arrow: true,
+                      className: "hover:bg-transparent ",
+                      size: "xl",
+                    }}
+                  >
+                    {data?.buttonText}
+                  </ButtonLink>
+                )}
+
               </div>
 
               {/* ---------- RIGHT FORM ---------- */}
@@ -134,6 +153,16 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
           )}
         </div>
       )}
+      <><RecaptchaProvider>
+        <SapBannerPopup
+          data={data?.sapForm?.forms?.[0]}
+          isOpen={isPopupOpen}
+          onClose={() => setIsPopupOpen(false)}
+          formTitle={data?.formTitle}
+          formDescription={data?.formDescription}
+          formImage={data?.formImage}
+
+        /></RecaptchaProvider></>
     </div>
   );
 };

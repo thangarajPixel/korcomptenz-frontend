@@ -29,6 +29,12 @@ const CaseStudy = ({
               .map((industry) => industry.label)
               .join(", "),
             rightSection: data?.rightSection,
+            formTitle: data?.formTitle,
+            formDescription: data?.formDescription,
+            formImage: data?.formImage,
+            isForm: data?.isForm,
+
+            form: data?.form,
           }}
           essential={essential}
         />

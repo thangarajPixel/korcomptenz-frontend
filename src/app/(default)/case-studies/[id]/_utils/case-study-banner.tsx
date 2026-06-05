@@ -1,6 +1,10 @@
 "use client";
 
+import { SapBannerPopup } from "@/components/banner-section/_utils/sap-popup";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import ButtonLink from "@/components/ui/button-link";
+import { useState } from "react";
 
 export function CaseStudyBanner({
   data,
@@ -12,7 +16,7 @@ export function CaseStudyBanner({
   const title = data?.rightSection?.map((item) =>
     item?.preTitle?.title === "Industry" ? (item?.descripition ?? null) : null,
   );
-
+ const [isPopupOpen, setIsPopupOpen] = useState(false);
   return (
     <section
       className="container-md rounded-2xl overflow-hidden py-6 md:py-12 "
@@ -31,6 +35,21 @@ export function CaseStudyBanner({
           <p className="mt-4 text-3xl md:text-5xl leading-tight  font-normal text-foreground ">
             {data?.description}
           </p>
+           {data?.isForm && (
+                      <div className="flex items-start">
+                        <button onClick={() => setIsPopupOpen(true)}>
+                          <ButtonLink
+                            link="#"
+                            buttonProps={{
+                              arrow: true,
+                              className: "hover:bg-transparent mt-6",
+                              size: "xl",
+                            }}
+                          >
+                            {data?.buttonText||"Get in Touch"}
+                          </ButtonLink>
+                        </button>
+                      </div>)}
         </div>
         {/* Right Image */}
         <div className="relative flex-1    ">
@@ -41,7 +60,16 @@ export function CaseStudyBanner({
             className="object-cover size-full    md:rounded-none  rounded-b-4xl md:rounded-r-4xl  "
           />
         </div>
-      </div>
+      </div><><RecaptchaProvider>
+            <SapBannerPopup
+              data={data?.form?.forms?.[0]}
+              isOpen={isPopupOpen}
+              onClose={() => setIsPopupOpen(false)}
+              formTitle={data?.formTitle}
+              formDescription={data?.formDescription}
+              formImage={data?.formImage}
+              
+            /></RecaptchaProvider></>
     </section>
   );
 }

@@ -1,9 +1,13 @@
 "use client";
+import { SapBannerPopup } from "@/components/banner-section/_utils/sap-popup";
 import KorcomptenzImage from "@/components/korcomptenz-image";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import ButtonLink from "@/components/ui/button-link";
 import { useEffect, useState } from "react";
 
 const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
-   const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+  const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     // Only run on client
@@ -39,6 +43,21 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
                 <p className="text-3xl md:text-5xl mb-6 leading-relaxed font-normal whitespace-pre-wrap">
                   {data?.heroSection?.description}
                 </p>
+                {data?.isForm && (
+                  <div className="flex items-start">
+                    <button onClick={() => setIsPopupOpen(true)}>
+                      <ButtonLink
+                        link="#"
+                        buttonProps={{
+                          arrow: true,
+                          className: "mt-6 border border-white",
+                          size: "xl",
+                        }}
+                      >
+                        {data?.formButtonText || "Get in Touch"}
+                      </ButtonLink>
+                    </button>
+                  </div>)}
               </div>
             </div>
           </div>
@@ -60,9 +79,35 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
             <p className="text-3xl md:text-5xl mb-6 leading-6 font-normal">
               {data?.heroSection?.description}
             </p>
+
+            {data?.isForm && (
+              <div className="flex items-start">
+                <button onClick={() => setIsPopupOpen(true)}>
+                  <ButtonLink
+                    link="#"
+                    buttonProps={{
+                      arrow: true,
+                      className: "mt-6 border border-white",
+                      size: "lg",
+                    }}
+                  >
+                    {data?.formButtonText || "Get in Touch"}
+                  </ButtonLink>
+                </button>
+              </div>)}
           </div>
         </>
       )}
+      <><RecaptchaProvider>
+        <SapBannerPopup
+          data={data?.sapForm?.forms?.[0]}
+          isOpen={isPopupOpen}
+          onClose={() => setIsPopupOpen(false)}
+          formTitle={data?.formTitle}
+          formDescription={data?.formDescription}
+          formImage={data?.formImage}
+
+        /></RecaptchaProvider></>
     </section>
   );
 };
