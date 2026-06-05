@@ -210,7 +210,6 @@ const DemoBannerCard = ({
             formTitle={data?.formTitle}
             formDescription={data?.formDescription}
             formImage={data?.formImage}
-            item={data?.pageSlug}
           />
         </RecaptchaProvider>
       </>
