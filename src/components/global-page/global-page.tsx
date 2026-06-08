@@ -112,6 +112,8 @@ import CloudBuildPeople from "../cloud-build-people";
 import CloudKeyOfferings from "../cloud-key-offerings";
 import CloudReadiness from "../cloud-Readiness/cloud-Readiness";
 import CloudBanner from "../cloud-banner/cloud-banner";
+import StepGridSection from "../step-grid-section";
+import TabSection from "../tab-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1191,7 +1193,7 @@ const GlobalPage = (props: Props) => {
           </ScrollFadeIn>
         );
 
-        case "page-componets.cloud-key-offerings":
+      case "page-componets.cloud-key-offerings":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1201,17 +1203,17 @@ const GlobalPage = (props: Props) => {
           </ScrollFadeIn>
         );
 
-        case "page-componets.cloud-readiness-report":
+      case "page-componets.cloud-readiness-report":
         return (
           <ScrollFadeIn
-            __component={item?.__component} 
+            __component={item?.__component}
             key={`cloud-readiness-report-cloud-form-${item?.__component}-${item?.id}`}
           >
             <CloudReadiness data={item} />
           </ScrollFadeIn>
         );
 
-        case "page-componets.cloud-banner":
+      case "page-componets.cloud-banner":
         return (
           <ScrollFadeIn
             __component={item?.__component}
@@ -1219,9 +1221,26 @@ const GlobalPage = (props: Props) => {
           >
             <CloudBanner data={item} />
           </ScrollFadeIn>
-        )
+        );
+      case "page-componets.step-grid-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`step-grid-section-${item?.__component}-${item?.id}`}
+          >
+            <StepGridSection data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.tab-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`tab-section-${item?.__component}-${item?.id}`}
+          >
+            <TabSection data={item} />
+          </ScrollFadeIn>
+        );
 
-    
       default:
         return;
     }

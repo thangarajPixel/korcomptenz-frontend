@@ -1511,6 +1511,50 @@ type CloudFormType = {
   companyLabel: string;
   buttonText: string;
 };
+type RichTextBlock = {
+  type: string;
+  children: {
+    text: string;
+    type?: string;
+  }[];
+};
+
+type StepGridSectionType = {
+  highlighttext?: string;
+  title: string;
+  description?: RichTextBlock[];
+
+  gridlist: {
+    number: number;
+    steptitle: string;
+
+    griddetails: {
+      image: ImageType;
+      gridtitle: string;
+      griddescription: RichTextBlock[];
+
+      checklistitems: {
+        description: RichTextBlock[];
+      }[];
+
+      buttonText?: string;
+      buttonLink?: string;
+    }[];
+  }[];
+};
+
+type TabSectionType = {
+  title: string;
+  highlighttext?: string;
+  tablist: {
+    tabtitle: string;
+    tablistdetails: {
+      title: string;
+      description: string;
+      image: ImageType;
+    }[];
+  }[];
+};
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
@@ -1981,6 +2025,14 @@ type ComponentPropsMap = {
   CloudBanner: FabconBannerType & {
     id: string;
     __component: "page-componets.cloud-banner";
+  };
+  StepGridSection: StepGridSectionType & {
+    id: string;
+    __component: "page-componets.step-grid-section";
+  };
+  TabSection: TabSectionType & {
+    id: string;
+    __component: "page-componets.tab-section";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
