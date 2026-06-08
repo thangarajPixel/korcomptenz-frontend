@@ -3525,216 +3525,216 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
 
-  {
-    source: "/blog/crm-in-banking-urgent-impertive-for-financial-institutions",
-    destination: "/blog/crm-in-banking-industry-ai-powered-growth",
-    permanent: true,
-  },
+    {
+      source: "/blog/crm-in-banking-urgent-impertive-for-financial-institutions",
+      destination: "/blog/crm-in-banking-industry-ai-powered-growth",
+      permanent: true,
+    },
 
-  {
-    source: "/wp-content/uploads/2025/04/ISG-Provider-Lens-Quadrant-Report.pdf",
-    destination: "/asset/report/ISG-Provider-Lens-Quadrant-Report.pdf",
-    permanent: true,
-  },
+    {
+      source: "/wp-content/uploads/2025/04/ISG-Provider-Lens-Quadrant-Report.pdf",
+      destination: "/asset/report/ISG-Provider-Lens-Quadrant-Report.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/case-study/Transforming-CRM-Salesforce-Implementation-Financial-Organization.pdf",
-    destination: "/case-studies-asset/Transforming-CRM-Salesforce-Implementation-Financial-Organization.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/case-study/Transforming-CRM-Salesforce-Implementation-Financial-Organization.pdf",
+      destination: "/case-studies-asset/Transforming-CRM-Salesforce-Implementation-Financial-Organization.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/it-infrastructure/it-infrastructure-modernization",
-    destination: "/cloud/it-infrastructure-modernization",
-    permanent: true,
-  },
+    {
+      source: "/it-infrastructure/it-infrastructure-modernization",
+      destination: "/cloud/it-infrastructure-modernization",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/Top-priorities-for-nonprofits.pdf",
-    destination: "/brochure/Top-priorities-for-nonprofits.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/Top-priorities-for-nonprofits.pdf",
+      destination: "/brochure/Top-priorities-for-nonprofits.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/Fundraising-and-Engagement.pdf",
-    destination: "/brochure/Fundraising-and-Engagement.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/Fundraising-and-Engagement.pdf",
+      destination: "/brochure/Fundraising-and-Engagement.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/Journaling.pdf",
-    destination: "/brochure/Journaling.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/Journaling.pdf",
+      destination: "/brochure/Journaling.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/Travelogue.pdf",
-    destination: "/brochure/Travelogue.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/Travelogue.pdf",
+      destination: "/brochure/Travelogue.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/A-Passion-for-Passion.pdf",
-    destination: "/brochure/A-Passion-for-Passion.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/A-Passion-for-Passion.pdf",
+      destination: "/brochure/A-Passion-for-Passion.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/Customer-Experience-Kentico.pdf",
-    destination: "/brochure/Customer-Experience-Kentico.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/Customer-Experience-Kentico.pdf",
+      destination: "/brochure/Customer-Experience-Kentico.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/AWS-Cloud-Services.pdf",
-    destination: "/brochure/AWS-Cloud-Services.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/AWS-Cloud-Services.pdf",
+      destination: "/brochure/AWS-Cloud-Services.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/M365-Frontline-Workers.pdf",
-    destination: "/brochure/M365-Frontline-Workers.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/M365-Frontline-Workers.pdf",
+      destination: "/brochure/M365-Frontline-Workers.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/Connected-Retail-for-Fashion-and-Textile.pdf",
-    destination: "/brochure/Connected-Retail-for-Fashion-and-Textile.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/Connected-Retail-for-Fashion-and-Textile.pdf",
+      destination: "/brochure/Connected-Retail-for-Fashion-and-Textile.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/Korcomptenz-Solutions-for-Fashion-and-Textile.pdf",
-    destination: "/brochure/Korcomptenz-Solutions-for-Fashion-and-Textile.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/Korcomptenz-Solutions-for-Fashion-and-Textile.pdf",
+      destination: "/brochure/Korcomptenz-Solutions-for-Fashion-and-Textile.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/KOR-ArtificialIntelligence.pdf",
-    destination: "/brochure/KOR-ArtificialIntelligence.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/KOR-ArtificialIntelligence.pdf",
+      destination: "/brochure/KOR-ArtificialIntelligence.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/Corporate-Brochure-UAE-2023.pdf",
-    destination: "/brochure/Corporate-Brochure-UAE-2023.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/Corporate-Brochure-UAE-2023.pdf",
+      destination: "/brochure/Corporate-Brochure-UAE-2023.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/Dynamics-Support-Service-Packages.pdf",
-    destination: "/brochure/Dynamics-Support-Service-Packages.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/Dynamics-Support-Service-Packages.pdf",
+      destination: "/brochure/Dynamics-Support-Service-Packages.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/ISG-Provider-Lens-Microsoft-AI-and-Cloud-Ecosystem.pdf",
-    destination: "/brochure/ISG-Provider-Lens-Microsoft-AI-and-Cloud-Ecosystem.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/ISG-Provider-Lens-Microsoft-AI-and-Cloud-Ecosystem.pdf",
+      destination: "/brochure/ISG-Provider-Lens-Microsoft-AI-and-Cloud-Ecosystem.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/SAP-Public-Cloud-Edition.pdf",
-    destination: "/brochure/SAP-Public-Cloud-Edition.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/SAP-Public-Cloud-Edition.pdf",
+      destination: "/brochure/SAP-Public-Cloud-Edition.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/ESG-Reporting-Solution-with-Microsoft-Fabric.pdf",
-    destination: "/brochure/ESG-Reporting-Solution-with-Microsoft-Fabric.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/ESG-Reporting-Solution-with-Microsoft-Fabric.pdf",
+      destination: "/brochure/ESG-Reporting-Solution-with-Microsoft-Fabric.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/Personalize-Banking-Experiences-Dynamics-365.pdf",
-    destination: "/brochure/Personalize-Banking-Experiences-Dynamics-365.pdf",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/Personalize-Banking-Experiences-Dynamics-365.pdf",
+      destination: "/brochure/Personalize-Banking-Experiences-Dynamics-365.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/assets/brochure/SAP-Capability.pdf",
-    destination: "/brochure/SAP-Capability.pdf",
-    permanent: true,
-  },
-  
-  {
-    source: "/sap-grow-fast-implementation",
-    destination: "/sap/sap-grow-fast-implementation",
-    permanent: true,
-  },
+    {
+      source: "/assets/brochure/SAP-Capability.pdf",
+      destination: "/brochure/SAP-Capability.pdf",
+      permanent: true,
+    },
 
-  {
-    source: "/insights/whitepaper",
-    destination: "/insights/whitepapers",
-    permanent: true,
-  },
+    {
+      source: "/sap-grow-fast-implementation",
+      destination: "/sap/sap-grow-fast-implementation",
+      permanent: true,
+    },
 
-  {
-    source: "/insights/blog",
-    destination: "/insights/blogs",
-    permanent: true,
-  },
+    {
+      source: "/insights/whitepaper",
+      destination: "/insights/whitepapers",
+      permanent: true,
+    },
 
-  {
-    source: "/insights/ebook",
-    destination: "/insights/ebooks",
-    permanent: true,
-  },
+    {
+      source: "/insights/blog",
+      destination: "/insights/blogs",
+      permanent: true,
+    },
 
-  {
-    source: "/insights/infographic",
-    destination: "/insights/infographics",
-    permanent: true,
-  },
+    {
+      source: "/insights/ebook",
+      destination: "/insights/ebooks",
+      permanent: true,
+    },
 
-  {
-    source: "/insights/brochure",
-    destination: "/insights/brochures",
-    permanent: true,
-  },
+    {
+      source: "/insights/infographic",
+      destination: "/insights/infographics",
+      permanent: true,
+    },
 
-  {
-    source: "/insights/webinar",
-    destination: "/insights/webinars",
-    permanent: true,
-  },
+    {
+      source: "/insights/brochure",
+      destination: "/insights/brochures",
+      permanent: true,
+    },
 
-  {
-    source: "/insights/podcast",
-    destination: "/insights/podcasts",
-    permanent: true,
-  },
+    {
+      source: "/insights/webinar",
+      destination: "/insights/webinars",
+      permanent: true,
+    },
 
-  {
-    source: "/insights/playbook",
-    destination: "/insights/decision-guides",
-    permanent: true,
-  },
+    {
+      source: "/insights/podcast",
+      destination: "/insights/podcasts",
+      permanent: true,
+    },
 
-  {
-    source: "/insights/playbooks",
-    destination: "/insights/decision-guides",
-    permanent: true,
-  },
+    {
+      source: "/insights/playbook",
+      destination: "/insights/decision-guides",
+      permanent: true,
+    },
 
-  {
-    source: "/insights/web-stories",
-    destination: "/insights/webstories",
-    permanent: true,
-  },
+    {
+      source: "/insights/playbooks",
+      destination: "/insights/decision-guides",
+      permanent: true,
+    },
 
-  {
-    source: "/whitepaper/KOR-SmartForge-Microsoft-Fabric-AI-and-Cloud-for-Manufacturing.pdf",
-    destination: "/whitepaper/Altiaris-Microsoft-Fabric-AI-and-Cloud-for-Manufacturing.pdf",
-    permanent: true,
-  },
-  
-  {
-    source: "/microsoft-dynamics-365/microsoft-dynamics-365-managed-services",
-    destination: "/microsoft-dynamics-365/microsoft-dynamics-365-support-services",
-    permanent: true,
-  },
-  {
+    {
+      source: "/insights/web-stories",
+      destination: "/insights/webstories",
+      permanent: true,
+    },
+
+    {
+      source: "/whitepaper/KOR-SmartForge-Microsoft-Fabric-AI-and-Cloud-for-Manufacturing.pdf",
+      destination: "/whitepaper/Altiaris-Microsoft-Fabric-AI-and-Cloud-for-Manufacturing.pdf",
+      permanent: true,
+    },
+
+    {
+      source: "/microsoft-dynamics-365/microsoft-dynamics-365-managed-services",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-support-services",
+      permanent: true,
+    },
+    {
       source: "/sap-advisory-services",
       destination: "/sap/sap-consulting-services",
       permanent: true,
@@ -3887,6 +3887,77 @@ const nextConfig: NextConfig = {
       destination: "/sap/sap-consulting-services",
       permanent: true,
     },
+    {
+      source: "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-operations",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-supply-chain-management",
+      permanent: true,
+    },
+    {
+      source: "/events/news-letter",
+      destination: "/newsletter",
+      permanent: true,
+    },
+    {
+      source: "/events/october-newsletter",
+      destination: "/newsletter",
+      permanent: true,
+    },
+    {
+      source: "/events/september-newsletter",
+      destination: "/newsletter",
+      permanent: true,
+    },
+    {
+      source: "/events/the-transformation-stratosphere-november-2025",
+      destination: "/newsletter",
+      permanent: true,
+    },
+    {
+      source: "/Product-Configurator.pdf",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
+      permanent: true,
+    },
+    {
+      source: "/battlecards/:slug*",
+      destination: "/battlecard/:slug*",
+      permanent: true,
+    },
+    {
+      source: "/brochures/:slug*",
+      destination: "/brochure/:slug*",
+      permanent: true,
+    },
+    {
+      source: "/ebooks/:slug*",
+      destination: "/ebook/:slug*",
+      permanent: true,
+    },
+    {
+      source: "/infographics/:slug*",
+      destination: "/infographic/:slug*",
+      permanent: true,
+    },
+    {
+      source: "/whitepapers/:slug*",
+      destination: "/whitepaper/:slug*",
+      permanent: true,
+    },
+    {
+      source: "/book-a-demo",
+      destination: "/live-demo",
+      permanent: true,
+    },
+    {
+      source: "/:path*",
+      has: [
+        {
+          type: "host",
+          value: "korcomptenz.com",
+        },
+      ],
+      destination: "https://www.korcomptenz.com/:path*",
+      permanent: true,
+    }
   ],
 };
 

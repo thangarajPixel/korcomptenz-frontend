@@ -1523,6 +1523,50 @@ type CloudFormType = {
   companyLabel: string;
   buttonText: string;
 };
+type RichTextBlocks = {
+  type: string;
+  children: {
+    text: string;
+    type?: string;
+  }[];
+};
+
+type StepGridSectionType = {
+  highlighttext?: string;
+  title: string;
+  description?: RichTextBlocks[];
+
+  gridlist: {
+    number: number;
+    steptitle: string;
+
+    griddetails: {
+      image: ImageType;
+      gridtitle: string;
+      griddescription: RichTextBlocks[];
+
+      checklistitems: {
+        description: RichTextBlocks[];
+      }[];
+
+      buttonText?: string;
+      buttonLink?: string;
+    }[];
+  }[];
+};
+
+type TabSectionType = {
+  title: string;
+  highlighttext?: string;
+  tablist: {
+    tabtitle: string;
+    tablistdetails: {
+      title: string;
+      description: string;
+      image: ImageType;
+    }[];
+  }[];
+};
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
@@ -2035,6 +2079,15 @@ type ComponentPropsMap = {
   RequestConsultation: RequestConsultation & {
     id: string;
     __component: "page-componets.request-consultation";
+  };
+
+  StepGridSection: StepGridSectionType & {
+    id: string;
+    __component: "page-componets.step-grid-section";
+  };
+  TabSection: TabSectionType & {
+    id: string;
+    __component: "page-componets.tab-section";
   };
   /* Kordev */
 };

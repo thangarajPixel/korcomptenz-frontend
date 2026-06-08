@@ -120,6 +120,8 @@ import CloudBuildPeople from "../cloud-build-people";
 import CloudKeyOfferings from "../cloud-key-offerings";
 import CloudReadiness from "../cloud-Readiness/cloud-Readiness";
 import CloudBanner from "../cloud-banner/cloud-banner";
+import StepGridSection from "../step-grid-section";
+import TabSection from "../tab-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1292,6 +1294,25 @@ const GlobalPage = (props: Props) => {
             key={`sap-practice-areas-${item?.__component}-${item?.id}`}
           >
             <SAPPracticeAreas data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.step-grid-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`step-grid-section-${item?.__component}-${item?.id}`}
+          >
+            <StepGridSection data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.tab-section":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`tab-section-${item?.__component}-${item?.id}`}
+          >
+            <TabSection data={item} />
           </ScrollFadeIn>
         );
       /* KOR DEV Team End */
