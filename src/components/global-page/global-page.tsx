@@ -95,6 +95,24 @@ import SapImplementation from "../sap-implementation";
 import SliderServiceSection from "../slider-services-section/slider-services-section";
 import MicrosoftGoldCertified from "../microsoft-certified";
 
+import IndustryBannerSection from "../industry-banner";
+import IndustryAbout from "../industry-about";
+import IndustrySpotlight from "../industry-spotlight";
+import IndustryIntelligence from "../industry-intelligence";
+import IndustryFeaturedContent from "../industry-featured-content/industry-featured-content";
+import IndustryServicePortfolio from "../industry-service-portfolio";
+import CloudRecognitionSlider from "../cloud-recognition-slider/cloud-recognition-slider";
+import CloudWarning from "../cloud-warning";
+import CloudMigrationHandle from "../cloud-migration-handle/cloud-migration-handle";
+import CloudTechnology from "../cloud-technology";
+import CloudOnePlatform from "../cloud-one-platform";
+import CloudFirstCall from "../cloud-first-call";
+import CloudAiPowered from "../cloud-ai-powered";
+import CloudBuildPeople from "../cloud-build-people";
+import CloudKeyOfferings from "../cloud-key-offerings";
+import CloudReadiness from "../cloud-Readiness/cloud-Readiness";
+import CloudBanner from "../cloud-banner/cloud-banner";
+
 type Props = {
   data: ComponentPropsType[];
 };
@@ -176,12 +194,10 @@ const GlobalPage = (props: Props) => {
         );
       case "page-componets.banner-section-list":
         return (
-         
-            <BannerSection
-              key={`banner-${item?.__component}-${item?.id}`}
-              BannerSectionData={item?.list}
-            />
-          
+          <BannerSection
+            key={`banner-${item?.__component}-${item?.id}`}
+            BannerSectionData={item?.list}
+          />
         );
       case "demo-page.demo-banner-list":
         return (
@@ -1045,6 +1061,167 @@ const GlobalPage = (props: Props) => {
             <MicrosoftGoldCertified data={item} />
           </ScrollFadeIn>
         );
+      case "page-componets.banking-financial-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`banking-financial-banner-${item?.__component}-${item?.id}`}
+          >
+            <IndustryBannerSection BannerSectionData={[item]} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.industry-build-data":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-build-data-${item?.__component}-${item?.id}`}
+          >
+            <IndustryAbout data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.industry-solution-spotlight":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-solution-spotlight-${item?.__component}-${item?.id}`}
+          >
+            <IndustrySpotlight data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.industry-intelligent-experience":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-intelligent-experience-${item?.__component}-${item?.id}`}
+          >
+            <IndustryIntelligence data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.industry-featured-content":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-featured-content-${item?.__component}-${item?.id}`}
+          >
+            <IndustryFeaturedContent data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.industry-service-portfolio":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`industry-service-portfolio-${item?.__component}-${item?.id}`}
+          >
+            <IndustryServicePortfolio data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-recognition":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-recognition-${item?.__component}-${item?.id}`}
+          >
+            <CloudRecognitionSlider data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.cloud-warning-signs":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-warning-signs-${item?.__component}-${item?.id}`}
+          >
+            <CloudWarning data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.cloud-migration-handle":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-migration-handle-${item?.__component}-${item?.id}`}
+          >
+            <CloudMigrationHandle data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.cloud-technology":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-technology-${item?.__component}-${item?.id}`}
+          >
+            <CloudTechnology data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-one-platform":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`CloudOnePlatform-${item?.__component}-${item?.id}`}
+          >
+            <CloudOnePlatform data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-first-call":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-first-call-${item?.__component}-${item?.id}`}
+          >
+            <CloudFirstCall data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-ai-power":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-ai-power-${item?.__component}-${item?.id}`}
+          >
+            <CloudAiPowered data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cloud-built-people":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-built-people-${item?.__component}-${item?.id}`}
+          >
+            <CloudBuildPeople data={item} />
+          </ScrollFadeIn>
+        );
+
+        case "page-componets.cloud-key-offerings":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-key-offerings-${item?.__component}-${item?.id}`}
+          >
+            <CloudKeyOfferings data={item} />
+          </ScrollFadeIn>
+        );
+
+        case "page-componets.cloud-readiness-report":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component} 
+            key={`cloud-readiness-report-cloud-form-${item?.__component}-${item?.id}`}
+          >
+            <CloudReadiness data={item} />
+          </ScrollFadeIn>
+        );
+
+        case "page-componets.cloud-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`cloud-banner-${item?.__component}-${item?.id}`}
+          >
+            <CloudBanner data={item} />
+          </ScrollFadeIn>
+        )
+
+    
       default:
         return;
     }

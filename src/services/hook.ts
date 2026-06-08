@@ -231,3 +231,45 @@ export const useGlobalSearchHook = ({
     ...options,
   });
 };
+
+export const useIndustryServiceHook = () => {
+  return useQuery({
+    queryKey: [PAGE.INDUSTRY_SERVICE_LIST],
+    queryFn: () => PAGE.getIndustryServiceList(),
+  });
+};
+
+
+export const useIndustryLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.INDUSTRY_LEAD],
+    mutationFn: PAGE.createIndustryLead,
+  });
+};
+
+
+export const useRoleHook = () => {
+  return useQuery({
+    queryKey: [PAGE.CLOUD_ROLE_LIST],
+    queryFn: () => PAGE.getCloudRoleList(),
+  });
+};
+export const useInfrastructureHook = () => {
+  return useQuery({
+    queryKey: [PAGE.CLOUD_INFRASTRUCTURE_LIST],
+    queryFn: () => PAGE.getCloudInfrastructureList(),
+  });
+};
+export const useMigrationHook = () => {
+  return useQuery({
+    queryKey: [PAGE.CLOUD_MIGRATION_LIST],
+    queryFn: () => PAGE.getCloudMigrationList(),
+  });
+};
+
+export const useCloudLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.CLOUD_LEAD],
+    mutationFn: PAGE.createCloudLead,
+  });
+};

@@ -8,12 +8,6 @@ import Link from "next/link";
 
 import React, { useEffect, useState } from "react";
 
-/* import { cache } from "react";
-import { getPageService } from "@/services";
-
-const getPageServiceCache = cache(getPageService);
-const pageTitle = await getPageServiceCache(title);
- */
 const BannerCard = ({
   data,
   className,
@@ -37,7 +31,6 @@ const BannerCard = ({
 
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
-
   return (
     <div className={cn(className)}>
       {/* Desktop view */}

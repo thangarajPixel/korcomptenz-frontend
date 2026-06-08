@@ -204,19 +204,31 @@ type BannerSectionType = {
   imageMobile: ImageType;
   isListPage: boolean;
   isHasFooter: boolean;
-  isTarget: boolean;
+  isTarget: boolean | null;
   image: ImageType;
   alt: string;
   logo?: ImageType;
   logoMobile?: ImageType;
   altMobile: ImageType;
   title: string;
+  subtitle?: string;
   description: string;
   buttonText: string;
+  buttonLink?: string | null;
   bannerCaption: string;
   link: string | null;
   secondButton: string;
   secondLink: string;
+  noofcolumns?: string;
+  list?: {
+    id: number;
+    title: string;
+    isTarget: boolean;
+    description: string;
+    image?: ImageType;
+    buttonText?: string | null;
+    buttonLink?: string | null;
+  }[];
   customFooter: {
     backgroundImage: ImageType;
     image: ImageType;
@@ -719,6 +731,23 @@ type WebinarReserveFormType = {
 
   list: { id: string; description: string }[];
 };
+
+type IndustryFormType = {
+  __component: "form-fields.industry-form";
+  title: string;
+  description: string;
+  disclaimerDescription: string;
+  buttonText: string;
+  companyLabel: string;
+  emailLabel: string;
+  firstNameLabel: string;
+  lastNameLabel: string;
+  messageLabel: string;
+  phoneLabel: string;
+  serviceLabel: string;
+  id: string;
+};
+
 type KorCareImpactDescriptionType = {
   title: string;
   description: string;
@@ -735,6 +764,7 @@ type FormMap = {
   ContactUsFormType: ContactUsFormType;
   DemoRequestFormType: DemoRequestFormType;
   WebinarReserveFormType: WebinarReserveFormType;
+  IndustryFormType: IndustryFormType;
 };
 type DigitialInsightType = {
   title: string;
@@ -825,6 +855,10 @@ type AchievementsType = {
   isColumnFour: boolean;
   logo: AchievementscardType[];
   list: AchievementscardType[];
+};
+
+type AchievementSectionProps = {
+  data: AchievementsType;
 };
 type DemoListType = {
   id: string;
@@ -1067,13 +1101,18 @@ type ExpertMigrationType = {
 };
 type FabconAboutType = {
   title1: string;
+  subHeading: string;
+  title: string;
   title2: string;
   image: ImageType;
   backgroundImage: ImageType;
   description: string;
   buttonText: string;
   buttonLink: string;
+  mobileImage: ImageType;
   isTarget: boolean;
+  isVideoUrl: boolean;
+  videoUrl: string;
 };
 
 type FabconAiPoweredType = {
@@ -1162,6 +1201,15 @@ type FabconDecisionFabricType = {
 
 type FabconBannerType = {
   title1: string;
+  subHeading: string;
+  buttonTextOne: string;
+  buttonTextTwo: string;
+  buttonLinkOne: string;
+  buttonLinkTwo: string;
+  isTargetOne: boolean;
+  isTargetTwo: boolean;
+  image: ImageType;
+  title: string;
   title2: string;
   backgroundImage: ImageType;
   buttonText: string;
@@ -1171,6 +1219,10 @@ type FabconBannerType = {
   description: string;
   date: string;
   location: string;
+  list: {
+    title: string;
+    subList: { title: string; description: string }[];
+  };
 };
 
 type SapImplementationType = {
@@ -1182,15 +1234,17 @@ type SapImplementationType = {
   }[];
 };
 type SliderServiceSectionType = {
+  id: number;
   title: string;
   tablist: {
+    id: number;
     title: string;
 
     sublist: {
       title: string;
       description: string;
       image: ImageType;
-      id: string;
+      id: number;
     }[];
   }[];
 };
@@ -1217,6 +1271,245 @@ type MicrosoftGoldCertifiedType = {
     buttonIcon: ImageType;
     buttonLink: string;
   };
+};
+type IndustrySpotlightType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    id: string;
+    title: string;
+    bgColor: string;
+    description: string;
+    image: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+  }[];
+};
+
+type IndustryIntelligenceType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    id: string;
+    title: string;
+    description: string;
+    image: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+    linkType: string;
+  }[];
+};
+
+type IndustryFeaturedContentType = {
+  subHeading: string;
+  isSubHeadingButton: boolean;
+  title: string;
+  description: string;
+  list: {
+    id: string;
+    isBgImage: boolean;
+    bgColor: string;
+    title: string;
+    description: string;
+    buttonColor: string;
+    image: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+    linkType: string;
+    bgImage: ImageType;
+    isFirstCard: boolean;
+  }[];
+};
+type IndustryServicePortfolioType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  list: {
+    title: string;
+    description: string;
+    list: {
+      tabTitle: string;
+      image: ImageType;
+      subList: {
+        title: string;
+        descriptionList: {
+          description: string;
+          link: string;
+          isTarget: boolean;
+        }[];
+      };
+    }[];
+  };
+};
+
+type CloudWarningType = {
+  title: string;
+  subHeading: string;
+  isSubHeadingButton: boolean;
+  description: string;
+  list: {
+    title: string;
+    description: string;
+  }[];
+};
+
+type CloudMigrationStep = {
+  id: number;
+  title: string;
+  description: string;
+  duration: string;
+};
+
+type CloudMigrationType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  list: {
+    tabTitle: string;
+    title: string;
+    description: string;
+    disclaimer: string;
+    image: ImageType;
+    subList: {
+      description;
+    }[];
+  }[];
+  listOne: CloudMigrationStep;
+  listTwo: CloudMigrationStep;
+  listThree: CloudMigrationStep;
+  listFour: CloudMigrationStep;
+  listFive: CloudMigrationStep;
+};
+
+type CloudRecognitionSliderType = {
+  title: string;
+  description: string;
+  list: { image: ImageType; isTitleDescription: boolean }[];
+};
+
+type CloudTechnologyType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  list: {
+    isTitleDescription: boolean;
+    isTargetNew?: boolean;
+    link: string;
+    image: ImageType;
+  }[];
+};
+
+type CloudFirstCallType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  listOne: {
+    title: string;
+    id: number;
+    description: string;
+    duration: string;
+  };
+  listTwo: {
+    id: number;
+    title: string;
+    description: string;
+    duration: string;
+  };
+  listThree: {
+    id: number;
+    title: string;
+    description: string;
+    duration: string;
+  };
+  listFour: {
+    id: number;
+    title: string;
+    description: string;
+    duration: string;
+  };
+  listFive: {
+    id: number;
+    title: string;
+    description: string;
+    duration: string;
+  };
+};
+
+type CloudAiPoweredType = {
+  title: string;
+
+  description: string;
+  subHeading: string;
+  list: {
+    tabTitle: string;
+    image: ImageType;
+    title: string;
+    description: string;
+    bgColor: string;
+    bgImage: ImageType;
+    buttonText: string;
+    buttonLink: string;
+    isTarget: boolean;
+    subList: {
+      title: string;
+      description: string;
+    }[];
+  }[];
+};
+
+type CloudBuildPeopleType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  list: {
+    roleTitle: string;
+    roleSubtitle: string;
+    message: string;
+    description: string;
+  }[];
+};
+
+type CloudKeyOfferingsType = {
+  subHeading: string;
+  title: string;
+  description: string;
+  list: {
+    title: string;
+    subList: {
+      description: string;
+    }[];
+  }[];
+};
+
+type CloudReadinessType = {
+  title: string;
+  description: string;
+  subHeading: string;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  form: {
+    forms: CloudFormType[];
+  };
+};
+
+type CloudFormType = {
+  title: string;
+  roleLabel: string;
+  migrationUrgencyLabel: string;
+  lastNameLabel: string;
+  infrastructureLabel: string;
+  firstNameLabel: string;
+  companyLabel: string;
+  buttonText: string;
 };
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -1603,7 +1896,7 @@ type ComponentPropsMap = {
     __component: "page-componets.midmarket-enterprises";
   };
 
-  LogoSlider: AchievementSectionProps & {
+  LogoSlider: AchievementsType & {
     id: string;
     __component: "contact-us.logo-slider";
   };
@@ -1612,12 +1905,82 @@ type ComponentPropsMap = {
     __component: "page-componets.sap-implementation";
   };
   SliderServiceSection: SliderServiceSectionType & {
-    id: string;
+    id: number;
     __component: "page-componets.slider-service-section";
   };
   MicrosoftGoldCertified: MicrosoftGoldCertifiedType & {
     id: string;
     __component: "page-componets.microsoft-gold-certified";
+  };
+  IndustryBannerCard: BannerSectionType & {
+    id: string;
+    __component: "page-componets.banking-financial-banner";
+  };
+  IndustryAbout: FabconAboutType & {
+    id: string;
+    __component: "page-componets.industry-build-data";
+  };
+  IndustrySpotlight: IndustrySpotlightType & {
+    id: string;
+    __component: "page-componets.industry-solution-spotlight";
+  };
+  IndustryIntelligence: IndustryIntelligenceType & {
+    id: string;
+    __component: "page-componets.industry-intelligent-experience";
+  };
+
+  IndustryFeaturedContent: IndustryFeaturedContentType & {
+    id: string;
+    __component: "page-componets.industry-featured-content";
+  };
+  IndustryServicePortfolio: IndustryServicePortfolioType & {
+    id: string;
+    __component: "page-componets.industry-service-portfolio";
+  };
+  CloudRecognitionSlider: CloudRecognitionSliderType & {
+    id: string;
+    __component: "page-componets.cloud-recognition";
+  };
+  CloudWarning: CloudWarningType & {
+    id: string;
+    __component: "page-componets.cloud-warning-signs";
+  };
+  CloudMigrationHandle: CloudMigrationType & {
+    id: string;
+    __component: "page-componets.cloud-migration-handle";
+  };
+  CloudTechnology: CloudTechnologyType & {
+    id: string;
+    __component: "page-componets.cloud-technology";
+  };
+  CloudOnePlatform: FabconAboutType & {
+    id: string;
+    __component: "page-componets.cloud-one-platform";
+  };
+  CloudFirstCall: CloudFirstCallType & {
+    id: string;
+    __component: "page-componets.cloud-first-call";
+  };
+  CloudAiPowered: CloudAiPoweredType & {
+    id: string;
+    __component: "page-componets.cloud-ai-power";
+  };
+  CloudBuildPeople: CloudBuildPeopleType & {
+    id: string;
+    __component: "page-componets.cloud-built-people";
+  };
+
+  CloudKeyOfferings: CloudKeyOfferingsType & {
+    id: string;
+    __component: "page-componets.cloud-key-offerings";
+  };
+  CloudReadiness: CloudReadinessType & {
+    id: string;
+    __component: "page-componets.cloud-readiness-report";
+  };
+  CloudBanner: FabconBannerType & {
+    id: string;
+    __component: "page-componets.cloud-banner";
   };
 };
 type ComponentType = keyof ComponentPropsMap;
@@ -1669,10 +2032,10 @@ type CaseStudiesPageType = {
     image2: ImageType;
     image3: ImageType;
     slug: string;
-    seo:{
+    seo: {
       title: string;
       description: string;
-    }
+    };
   }[];
 };
 type CaseStudyPageType = {
