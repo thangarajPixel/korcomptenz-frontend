@@ -40,7 +40,7 @@ export default function SapWhyKorcomptenz({
           {/* RIGHT IMAGE (STATIC / OPTIONAL STRAPI) */}
           <div className="rounded-2xl overflow-hidden">
             <KorcomptenzImage
-              src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/Why_KOR_Intro_91e8f8f414.svg"
+              src={data?.introimage?.url}
               width={500}
               height={500}
               className="w-full h-auto object-cover rounded-4xl"
@@ -59,10 +59,11 @@ export default function SapWhyKorcomptenz({
               }}
               className="rounded-[26px] border border-[#B7AFFF] p-8 shadow-[0px_2px_10px_rgba(124,58,237,0.06)] transition-all duration-300 hover:shadow-lg"
             >
-              {/* ICON */}
-              <div className="w-12 h-12 flex items-center justify-center bg-indigo-500 rounded-lg p-2 mb-4 text-white">
-                <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/lp_icon_9c5aa6b591.svg" />
-              </div>
+              {item?.icon?.url && (
+                <div className="w-12 h-12 flex items-center justify-center bg-indigo-500 rounded-lg p-2 mb-4 text-white">
+                  <img src={item.icon.url} alt="" />
+                </div>
+              )}
 
               {/* TITLE */}
               <h3 className="text-lg font-semibold mb-2 text-black">

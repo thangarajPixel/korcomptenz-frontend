@@ -120,6 +120,8 @@ import CloudBuildPeople from "../cloud-build-people";
 import CloudKeyOfferings from "../cloud-key-offerings";
 import CloudReadiness from "../cloud-Readiness/cloud-Readiness";
 import CloudBanner from "../cloud-banner/cloud-banner";
+import MicrosoftWhyBusiness from "../microsoft-why-business";
+import MicrosoftRoadmap from "../microsoft-roadmap";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1247,6 +1249,25 @@ const GlobalPage = (props: Props) => {
             key={`sap-why-korcomptenz-section-${item?.__component}-${item?.id}`}
           >
             <SapWhyKorcomptenz data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.microsoft-why-business":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`microsoft-why-business-section-${item?.__component}-${item?.id}`}
+          >
+            <MicrosoftWhyBusiness data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.microsoft-roadmap":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`microsoft-roadmap-${item?.__component}-${item?.id}`}
+          >
+            <MicrosoftRoadmap data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.what-to-expect":

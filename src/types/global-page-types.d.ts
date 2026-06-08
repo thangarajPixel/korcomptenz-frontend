@@ -2011,6 +2011,14 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.sap-why-korcomptenz";
   };
+  MicrosoftWhyBusiness: MicrosoftWhyBusinessType & {
+    id: string;
+    __component: "page-componets.microsoft-why-business";
+  };
+  MicrosoftRoadmap: MicrosoftRoadmapType & {
+    id: string;
+    __component: "page-componets.microsoft-roadmap";
+  };
   PageGridView: PageGridViewType & {
     id: string;
     __component: "page-componets.page-grid-view";
@@ -2241,9 +2249,31 @@ type WhattoExpectTypeGrid = {
 type SapWhyKorcomptenzType = {
   subtext: string;
   title: string;
-  image: ImageType;
+  introimage: ImageType;
   description: string; // ✅ IMPORTANT (richtext = string)
   listbox: {
+    id: number;
+    title: string;
+    description: string;
+    icon?: ImageType;
+  }[];
+};
+type MicrosoftWhyBusinessType = {
+  title: string;
+  description: string; // ✅ IMPORTANT (richtext = string)
+  introimage: ImageType;
+  gridlist: {
+    id: number;
+    title: string;
+    description: string;
+    icon?: ImageType;
+  }[];
+};
+type MicrosoftRoadmapType = {
+  title: string;
+  description: string;
+  footertext: string; // ✅ IMPORTANT (richtext = string)
+  gridlist: {
     id: number;
     title: string;
     description: string;
