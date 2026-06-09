@@ -15,15 +15,19 @@ export function PricingCard({ plan }: { plan: PricingPlanType }) {
           {plan?.name}
         </h3>
       )}
-
-      <div className="text-center">
-        <div className="text-6xl font-bold text-primary mb-2">
-          ${plan?.price}
+      {plan?.price && (
+        <div className="text-center">
+          <div className="text-6xl font-bold text-primary mb-2">
+            ${plan?.price}
+          </div>
+          <p className="text-sm text-primary font-medium">{plan?.billing}</p>
         </div>
-        <p className="text-sm text-primary font-medium">{plan?.billing}</p>
-      </div>
-<DangerousHtml html={plan?.description} className="text-center text-slate-700 text-sm leading-relaxed max-w-xs"/>
-     
+      )}
+      <DangerousHtml
+        html={plan?.description}
+        className="text-center text-slate-700 text-sm leading-relaxed max-w-xs"
+      />
+
       <ButtonLink
         link={plan?.button?.link || "#"}
         buttonProps={{
