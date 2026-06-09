@@ -1563,11 +1563,34 @@ type TabSectionType = {
     tablistdetails: {
       title: string;
       description: string;
-      image: ImageType;
+      icon: ImageType;
     }[];
   }[];
 };
+type GridSystemType = {
+  image?: ImageType;
+  title: string;
+  footertext?: string;
+  description: RichTextBlocks[];
+  centericon?: string;
+  centertitle?: string;
+  centerdescription?: RichTextBlocks[];
+  griditemlist: {
+    icon: ImageType;
+    title: string;
+    griddescription: RichTextBlocks[];
+    listitems: {
+      image: ImageType;
+      title: string;
+      listdescription: RichTextBlocks[];
+    }[];
+  }[];
 
+  footergridlist?: {
+    icon: ImageType;
+    footerdescription: RichTextBlocks[];
+  }[];
+};
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
 type ComponentPropsMap = {
@@ -2088,6 +2111,10 @@ type ComponentPropsMap = {
   TabSection: TabSectionType & {
     id: string;
     __component: "page-componets.tab-section";
+  };
+  GridSystem: GridSystemType & {
+    id: string;
+    __component: "page-componets.grid-system";
   };
   /* Kordev */
 };

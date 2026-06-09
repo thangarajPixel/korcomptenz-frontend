@@ -43,9 +43,9 @@ const StepGridSection = ({ data }: { data: StepGridSectionType }) => {
         </div>
 
         {data?.gridlist?.length > 0 && (
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3 items-stretch">
             {data.gridlist.map((step, index) => (
-              <div key={index} className="space-y-4">
+              <div key={index} className="space-y-4 flex flex-col">
                 <div className="flex items-center justify-center gap-3">
                   {step.number > 0 && (
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#26a17c] text-sm font-semibold text-white">
@@ -61,9 +61,9 @@ const StepGridSection = ({ data }: { data: StepGridSectionType }) => {
                 {step.griddetails?.map((item, itemIndex) => (
                   <div
                     key={itemIndex}
-                    className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                    className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm h-full flex flex-col"
                   >
-                    <div className="space-y-4">
+                    <div className="flex flex-col h-full space-y-4">
                       <div className="flex items-center gap-4">
                         {item.image && (
                           <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-green-200 bg-gradient-to-br from-green-100 via-green-50 to-emerald-100">
@@ -113,26 +113,26 @@ const StepGridSection = ({ data }: { data: StepGridSectionType }) => {
                           ))}
                         </div>
                       )}
-
-                      {item.buttonText && (
-                        <a
-                          href={item.buttonLink}
-                          className="inline-flex items-center gap-2 font-semibold text-[#26a17c] transition-all hover:gap-3"
-                        >
-                          {item.buttonText}
-
-                          <svg
-                            className="h-4 w-4"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2.5"
-                            viewBox="0 0 24 24"
+                      <div className="mt-auto pt-4">
+                        {item.buttonText && (
+                          <a
+                            href={item.buttonLink}
+                            className="inline-flex items-center gap-2 font-semibold text-[#26a17c] transition-all hover:gap-3"
                           >
-                            <path d="M5 12h14" />
-                            <path d="M13 5l7 7-7 7" />
-                          </svg>
-                        </a>
-                      )}
+                            {item.buttonText}
+                            <svg
+                              className="h-4 w-4"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2.5"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M5 12h14" />
+                              <path d="M13 5l7 7-7 7" />
+                            </svg>
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}

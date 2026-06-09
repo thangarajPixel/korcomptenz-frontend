@@ -122,6 +122,7 @@ import CloudReadiness from "../cloud-Readiness/cloud-Readiness";
 import CloudBanner from "../cloud-banner/cloud-banner";
 import StepGridSection from "../step-grid-section";
 import TabSection from "../tab-section";
+import GridSystem from "../grid-system";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1313,6 +1314,15 @@ const GlobalPage = (props: Props) => {
             key={`tab-section-${item?.__component}-${item?.id}`}
           >
             <TabSection data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.grid-system":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`grid-system-${item?.__component}-${item?.id}`}
+          >
+            <GridSystem data={item} />
           </ScrollFadeIn>
         );
       /* KOR DEV Team End */

@@ -39,8 +39,8 @@ const TabSection = ({ data }: { data: TabSectionType }) => {
                   type="button"
                   onClick={() => setActiveTab(index)}
                   className={`rounded-xl px-6 py-3 text-xl font-medium transition-all duration-300 ${activeTab === index
-                      ? "bg-[#5648D8] text-white"
-                      : "border border-[#E5E7EB] bg-white text-[#475467] hover:border-[#5648D8] hover:text-[#5648D8]"
+                    ? "bg-[#5648D8] text-white"
+                    : "border border-[#E5E7EB] bg-white text-[#475467] hover:border-[#5648D8] hover:text-[#5648D8]"
                     }`}
                 >
                   {tab.tabtitle}
@@ -57,12 +57,12 @@ const TabSection = ({ data }: { data: TabSectionType }) => {
                   className="rounded-2xl border border-[#E4E7EC] bg-white p-6 shadow-sm"
                 >
                   <div className="flex gap-2">
-                    {item?.image && (
+                    {item?.icon && (
                       <KorcomptenzImage
                         className="w-18 h-18 object-contain"
                         width={48}
                         height={48}
-                        src={item.image}
+                        src={item.icon}
                       />
                     )}
                   </div>
