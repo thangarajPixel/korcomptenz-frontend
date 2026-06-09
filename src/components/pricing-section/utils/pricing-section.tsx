@@ -14,8 +14,9 @@ export function PricingSection({ data }: { data: PricingSectionType }) {
           <p className="text-slate-600 text-lg  mx-auto">{data?.subtitle}</p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-8 ">
+        <div
+          className={`grid gap-8 md:grid-cols-${Math.min(data.plans.length, 4)}`}
+        >
           {data.plans.map((plan) => (
             <PricingCard key={plan.id} plan={plan} />
           ))}
