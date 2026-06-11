@@ -72,8 +72,8 @@ const AiCard = ({
             <div className="flex justify-center w-full md:w-auto hidden md:block shrink-0">
               <KorcomptenzImage
                 src={card?.image}
-                width={180}
-                height={180}
+                width={120}
+                height={120}
                 className="object-contain"
               />
             </div>

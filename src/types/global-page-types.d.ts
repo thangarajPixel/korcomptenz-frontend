@@ -1511,7 +1511,74 @@ type CloudFormType = {
   companyLabel: string;
   buttonText: string;
 };
+type RichTextBlock = {
+  type: string;
+  children: {
+    text: string;
+    type?: string;
+  }[];
+};
 
+type StepGridSectionType = {
+  highlighttext?: string;
+  title: string;
+  description?: RichTextBlock[];
+
+  gridlist: {
+    number: number;
+    steptitle: string;
+
+    griddetails: {
+      image: ImageType;
+      gridtitle: string;
+      griddescription: RichTextBlock[];
+
+      checklistitems: {
+        description: RichTextBlock[];
+      }[];
+
+      buttonText?: string;
+      buttonLink?: string;
+    }[];
+  }[];
+};
+
+type TabSectionType = {
+  title: string;
+  highlighttext?: string;
+  tablist: {
+    tabtitle: string;
+    tablistdetails: {
+      title: string;
+      description: string;
+      icon: ImageType;
+    }[];
+  }[];
+};
+type GridSystemType = {
+  image?: ImageType;
+  title: string;
+  footertext?: string;
+  description: RichTextBlocks[];
+  centericon?: string;
+  centertitle?: string;
+  centerdescription?: RichTextBlocks[];
+  griditemlist: {
+    icon: ImageType;
+    title: string;
+    griddescription: RichTextBlocks[];
+    listitems: {
+      image: ImageType;
+      title: string;
+      listdescription: RichTextBlocks[];
+    }[];
+  }[];
+
+  footergridlist?: {
+    icon: ImageType;
+    footerdescription: RichTextBlocks[];
+  }[];
+};
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
 type ComponentPropsMap = {
@@ -1982,6 +2049,19 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-banner";
   };
+  StepGridSection: StepGridSectionType & {
+    id: string;
+    __component: "page-componets.step-grid-section";
+  };
+  TabSection: TabSectionType & {
+    id: string;
+    __component: "page-componets.tab-section";
+  };
+  GridSystem: GridSystemType & {
+    id: string;
+    __component: "page-componets.grid-system";
+  };
+  /* Kordev */
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
