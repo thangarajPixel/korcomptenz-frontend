@@ -267,6 +267,25 @@ export const cloudformSchema = z.object({
   infrastructure: z.any(),
 });
 
+export const SapformSchema = z.object({
+  fullName: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+  businessEmail: z
+    .string()
+    .min(1, "Email is required")
+    .email("Invalid email address"),
+
+  phoneNumber: z
+    .string()
+    .min(1, "Mobile number is required")
+    .regex(/^\d{1,10}$/, "Enter a valid mobile number")
+  ,
+  organization: z.string().min(1, "Organization is required"),
+  message: z.string().nullable(),
+});
+
 export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
 export type FreeConsultationLeadSchema = z.infer<
   typeof freeConsultationLeadSchema
@@ -284,3 +303,4 @@ export type SubscriptionFormSchema = z.infer<typeof subscriptionFormSchema>;
 
 export type IndustryFormSchema = z.infer<typeof industryformSchema>;
 export type CloudFormSchema = z.infer<typeof cloudformSchema>;
+export type SapFormSchema = z.infer<typeof SapformSchema>;

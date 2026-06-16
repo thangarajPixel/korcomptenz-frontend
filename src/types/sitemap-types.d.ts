@@ -1,5 +1,5 @@
 export interface SitemapChild {
-  title: string;
+  title: string | null;
   url: string;
   lastmod: string;
   children?: SitemapChild[];

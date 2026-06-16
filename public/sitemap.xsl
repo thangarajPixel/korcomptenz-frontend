@@ -5,9 +5,18 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
   <xsl:template match="/">
+    <!-- Read dynamic title from processing instruction -->
+    <xsl:variable name="sitemapTitle">
+      <xsl:choose>
+        <xsl:when test="processing-instruction('sitemap-title') != ''">
+          <xsl:value-of select="processing-instruction('sitemap-title')"/>
+        </xsl:when>
+        <xsl:otherwise>XML Sitemap</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <html xmlns="http://www.w3.org/1999/xhtml">
       <head>
-        <title>XML Sitemap</title>
+        <title><xsl:value-of select="$sitemapTitle"/></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <style type="text/css">
           body {
@@ -123,10 +132,21 @@
               arrow.textContent = '▶';
             }
           }
-          
+
+          /**
+           * Navigate to a loc URL.
+           * For items with children the loc is already a clean sitemap XML URL
+           * (e.g. https://www.korcomptenz.com/sitemap-industries.xml), so we
+           * just strip the origin and navigate to the path directly.
+           */
           function navigateToPath(url) {
-            var targetUrl = '/sitemap.xml?path=' + encodeURIComponent(url);
-            window.location.href = targetUrl;
+            try {
+              var parsed = new URL(url);
+              window.location.href = parsed.pathname;
+            } catch (e) {
+              // Fallback for relative URLs
+              window.location.href = url;
+            }
           }
           
           function navigateToRoot() {
@@ -139,10 +159,6 @@
         <div class="header">
           This XML file does not appear to have any style information associated with it. The document tree is shown below.
         </div>
-        
-        <xsl:variable name="currentPath" select="substring-after(substring-before(concat(/processing-instruction('xml-stylesheet'), '?'), '?'), 'path=')" />
-        
-     
         
         <div class="xml-line">
           <span class="arrow">▼</span>
@@ -172,6 +188,7 @@
               <span class="tag-bracket">&gt;</span>
               <xsl:choose>
                 <xsl:when test="$has-children">
+                  <!-- loc is already a clean sitemap URL; navigate directly to its path -->
                   <a class="url-link" href="javascript:navigateToPath('{sitemap:loc}')">
                     <xsl:value-of select="sitemap:loc"/>
                   </a>
@@ -192,8 +209,7 @@
                 <span class="tag-bracket">&lt;</span>
                 <span class="tag-name">lastmod</span>
                 <span class="tag-bracket">&gt;</span>
-                <span class="text-content"><xsl:value-of 
-                select="sitemap:lastmod"/></span>
+                <span class="text-content"><xsl:value-of select="sitemap:lastmod"/></span>
                 <span class="tag-bracket">&lt;/</span>
                 <span class="tag-name">lastmod</span>
                 <span class="tag-bracket">&gt;</span>
@@ -205,8 +221,7 @@
                 <span class="tag-bracket">&lt;</span>
                 <span class="tag-name">changefreq</span>
                 <span class="tag-bracket">&gt;</span>
-                <span class="text-content"><xsl:value-of
-                 select="sitemap:changefreq"/></span>
+                <span class="text-content"><xsl:value-of select="sitemap:changefreq"/></span>
                 <span class="tag-bracket">&lt;/</span>
                 <span class="tag-name">changefreq</span>
                 <span class="tag-bracket">&gt;</span>
@@ -218,8 +233,7 @@
                 <span class="tag-bracket">&lt;</span>
                 <span class="tag-name">priority</span>
                 <span class="tag-bracket">&gt;</span>
-                <span class="text-content"><xsl:value-of 
-                select="sitemap:priority"/></span>
+                <span class="text-content"><xsl:value-of select="sitemap:priority"/></span>
                 <span class="tag-bracket">&lt;/</span>
                 <span class="tag-name">priority</span>
                 <span class="tag-bracket">&gt;</span>

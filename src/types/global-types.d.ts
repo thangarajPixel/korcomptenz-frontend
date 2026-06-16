@@ -240,8 +240,15 @@ type CaseStudyDescription = {
 type CaseStudyHeroSection = {
   id: number;
   title: string;
+  formTitle?: string;
+  formDescription?: string;
+  formImage?: ImageType;
+  isForm: boolean;
   description: string;
   image: ImageType;
+  form: {
+    forms: SapFormType[]
+  }
   buttonText: string;
   study: string;
   rightSection: {
@@ -267,6 +274,14 @@ type CaseStudyTestimonial = {
 
 type CaseStudyData = {
   id: string;
+  buttonText?: string;
+  formTitle?: string;
+  formDescription?: string;
+  formImage?: ImageType;
+  isForm: boolean;
+  form: {
+    forms: SapFormType[]
+  }
   documentId: string;
   list: NotFoundType[];
   isLinkOnly: boolean;
@@ -570,6 +585,14 @@ type PricingPlanType = {
 type InsightBlog = InsightResponse;
 
 type InsightResponse = {
+  formTitle?: string;
+  formDescription?: string;
+  formImage?: ImageType;
+  isForm: boolean;
+  sapForm: {
+    forms: SapFormType[]
+  }
+  formButtonText: string;
   res: {
     url: string;
     name: string;
@@ -622,7 +645,14 @@ type InsightItem = {
   date: string;
   publishedAt: string;
   updatedAt: string;
-
+  formTitle?: string;
+  formDescription?: string;
+  formImage?: ImageType;
+  isForm: boolean;
+  sapForm: {
+    forms: SapFormType[]
+  }
+  formButtonText: string;
   asset: {
     slug: string;
     file: ImageType;
@@ -810,11 +840,10 @@ type ErrorType = {
   };
 };
 
-
-type IndustryServiceListType={
+type IndustryServiceListType = {
   data: {
     id: string;
     title: string;
     slug: string;
   }[];
-}
+};
