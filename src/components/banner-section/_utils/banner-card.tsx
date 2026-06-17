@@ -297,35 +297,35 @@ const BannerCard = ({
             <div className="grid gap-4 mb-3">
               {data?.buttonText && (
                 <>
-                    {data?.isForm ? (
-                      <>
-                        <button onClick={() => setIsPopupOpen(true)}>
-                          <ButtonLink
-                            link="#"
-                            buttonProps={{
-                              arrow: true,
-                              className: "hover:bg-transparent",
-                              size: "xl",
-                            }}
-                          >
-                            {data?.buttonText}aaaaaaaa
-                          </ButtonLink>
-                        </button>
-                      </>
-                    ) : (
-                      <ButtonLink
-                        link={data?.link || "#"}
-                        isTargetNew={data?.isTarget ? true : false}
-                        buttonProps={{
-                          arrow: true,
-                          className: "hover:bg-transparent",
-                          size: "xl",
-                        }}
-                      >
-                        {data?.buttonText}bbbbbbbbb
-                      </ButtonLink>
-                    )}
-                  </>
+                  {data?.isForm ? (
+                    <>
+                      <button onClick={() => setIsPopupOpen(true)}>
+                        <ButtonLink
+                          link="#"
+                          buttonProps={{
+                            arrow: true,
+                            className: "hover:bg-transparent",
+                            size: "xl",
+                          }}
+                        >
+                          {data?.buttonText}aaaaaaaa
+                        </ButtonLink>
+                      </button>
+                    </>
+                  ) : (
+                    <ButtonLink
+                      link={data?.link || "#"}
+                      isTargetNew={data?.isTarget ? true : false}
+                      buttonProps={{
+                        arrow: true,
+                        className: "hover:bg-transparent",
+                        size: "xl",
+                      }}
+                    >
+                      {data?.buttonText}
+                    </ButtonLink>
+                  )}
+                </>
               )}
               {data?.secondButton && (
                 <ButtonLink
@@ -347,16 +347,18 @@ const BannerCard = ({
           </div>
         </>
       )}
-      <><RecaptchaProvider>
-      <SapBannerPopup
-        data={data?.form?.forms?.[0]}
-        isOpen={isPopupOpen}
-        onClose={() => setIsPopupOpen(false)}
-        formTitle={data?.formTitle}
-        formDescription={data?.formDescription}
-        formImage={data?.formImage}
-        
-      /></RecaptchaProvider></>
+      <>
+        <RecaptchaProvider>
+          <SapBannerPopup
+            data={data?.form?.forms?.[0]}
+            isOpen={isPopupOpen}
+            onClose={() => setIsPopupOpen(false)}
+            formTitle={data?.formTitle}
+            formDescription={data?.formDescription}
+            formImage={data?.formImage}
+          />
+        </RecaptchaProvider>
+      </>
     </div>
   );
 };
