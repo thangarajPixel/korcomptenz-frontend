@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "../ui/button";
 import ButtonLink from "../ui/button-link";
 import { DangerousHtml } from "../ui/dangerous-html";
 
@@ -49,13 +48,17 @@ const CloudBanner = ({ data }: { data: FabconBannerType }) => {
                 {data?.buttonTextOne}
               </ButtonLink>
 
-              <Button
-                size="xl"
-                variant="outline"
-                className="w-full sm:w-auto border-white text-white bg-transparent hover:bg-white hover:text-[#07003B]"
+              <ButtonLink
+                link={data?.buttonLinkTwo}
+                buttonProps={{
+                  size: "xl",
+                  variant: "outline",
+                  className: "w-full sm:w-auto border-white text-white bg-transparent hover:bg-white hover:text-[#07003B]",
+                }}
+                isTargetNew={data?.isTargetTwo}
               >
                 {data?.buttonTextTwo}
-              </Button>
+              </ButtonLink>
             </div>
           </div>
 
@@ -68,11 +71,10 @@ const CloudBanner = ({ data }: { data: FabconBannerType }) => {
             {data?.list?.subList?.map((item, index) => (
               <div
                 key={index}
-                className={`pb-4 ${
-                  index !== data?.list?.subList?.length - 1
-                    ? "border-b border-white/20 mb-4"
-                    : ""
-                }`}
+                className={`pb-4 ${index !== data?.list?.subList?.length - 1
+                  ? "border-b border-white/20 mb-4"
+                  : ""
+                  }`}
               >
                 <DangerousHtml
                   html={item?.title}
