@@ -284,7 +284,6 @@ const BannerCard = ({
                 {data?.bannerH1Tag ? data.bannerH1Tag : pageTitle}
               </h1>
             )}
-
             <h2 className="!text-[40px] !leading-[50px] !font-semibold text-foreground mb-2 md:mb-4">
               {data?.title}
             </h2>
@@ -323,7 +322,7 @@ const BannerCard = ({
                         size: "xl",
                       }}
                     >
-                      {data?.buttonText}bbbbbbbbb
+                      {data?.buttonText}
                     </ButtonLink>
                   )}
                 </>
