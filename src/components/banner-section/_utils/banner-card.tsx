@@ -308,7 +308,7 @@ const BannerCard = ({
                             size: "xl",
                           }}
                         >
-                          {data?.buttonText}aaaaaaaa
+                          {data?.buttonText}
                         </ButtonLink>
                       </button>
                     </>
