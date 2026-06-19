@@ -1297,7 +1297,6 @@ const GlobalPage = (props: Props) => {
             <SAPPracticeAreas data={item} />
           </ScrollFadeIn>
         );
-
       case "page-componets.step-grid-section":
         return (
           <ScrollFadeIn
