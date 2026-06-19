@@ -40,7 +40,7 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   async headers() {
     return [
@@ -322,8 +322,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/sap/sap-merger-and-acquisition/",
-      destination:
-        "/sap/sap-merger-and-acquisition-consulting",
+      destination: "/sap/sap-merger-and-acquisition-consulting",
       permanent: true,
     },
     {
@@ -343,14 +342,12 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/grant-management/faqs/",
-      destination:
-        "/whitepaper/KORSmartGrants365.pdf",
+      destination: "/whitepaper/KORSmartGrants365.pdf",
       permanent: true,
     },
     {
       source: "/kor-bank-iq",
-      destination:
-        "/ai-assisted-retail-banking-microsoft-fabric",
+      destination: "/ai-assisted-retail-banking-microsoft-fabric",
       permanent: true,
     },
     {
@@ -360,8 +357,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/logistics/",
-      destination:
-        "/industries/logistics-and-transportation",
+      destination: "/industries/logistics-and-transportation",
       permanent: true,
     },
     {
@@ -371,14 +367,12 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/medical-devices/",
-      destination:
-        "/industries/manufacturing/medical-devices",
+      destination: "/industries/manufacturing/medical-devices",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Quickbooks-to-Business-Central-migration.pdf",
-      destination:
-        "/whitepaper/Quickbooks-to-Business-Central-migration.pdf",
+      destination: "/whitepaper/Quickbooks-to-Business-Central-migration.pdf",
       permanent: true,
     },
     {
@@ -391,14 +385,12 @@ const nextConfig: NextConfig = {
     {
       source:
         "/assets/whitepaper/Microsoft-Dynamics-365-Commerce-Comparison.pdf",
-      destination:
-        "/whitepaper/Microsoft-Dynamics-365-Commerce-Comparison.pdf",
+      destination: "/whitepaper/Microsoft-Dynamics-365-Commerce-Comparison.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Salesforce-Sales-Cloud.pdf",
-      destination:
-        "/whitepaper/Salesforce-Sales-Cloud.pdf",
+      destination: "/whitepaper/Salesforce-Sales-Cloud.pdf",
       permanent: true,
     },
     {
@@ -417,8 +409,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/whitepaper/Kentico-Xperience-Quickstart-Guide.pdf",
-      destination:
-        "/whitepaper/Kentico-Xperience-Quickstart-Guide.pdf",
+      destination: "/whitepaper/Kentico-Xperience-Quickstart-Guide.pdf",
       permanent: true,
     },
     {
@@ -430,14 +421,12 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/whitepaper/Envision-your-modern-workplace.pdf",
-      destination:
-        "/whitepaper/Envision-your-modern-workplace.pdf",
+      destination: "/whitepaper/Envision-your-modern-workplace.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/productive-remote-work-for-nonprofit.pdf",
-      destination:
-        "/whitepaper/productive-remote-work-for-nonprofit.pdf",
+      destination: "/whitepaper/productive-remote-work-for-nonprofit.pdf",
       permanent: true,
     },
     {
@@ -447,50 +436,42 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/whitepaper/Salesforce-Lightning-Apps.pdf",
-      destination:
-        "/whitepaper/Salesforce-Lightning-Apps.pdf",
+      destination: "/whitepaper/Salesforce-Lightning-Apps.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Connected-Retail.pdf",
-      destination:
-        "/whitepaper/Connected-Retail.pdf",
+      destination: "/whitepaper/Connected-Retail.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Analytics-and-AI.pdf",
-      destination:
-        "/whitepaper/Analytics-and-AI.pdf",
+      destination: "/whitepaper/Analytics-and-AI.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Design-Thinking-for-App-Modernization.pdf",
-      destination:
-        "/whitepaper/Design-Thinking-for-App-Modernization.pdf",
+      destination: "/whitepaper/Design-Thinking-for-App-Modernization.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Digital-Transformation-and-Maturity.pdf",
-      destination:
-        "/whitepaper/Digital-Transformation-and-Maturity.pdf",
+      destination: "/whitepaper/Digital-Transformation-and-Maturity.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/App-Rationalization-Modernization.pdf",
-      destination:
-        "/whitepaper/App-Rationalization-Modernization.pdf",
+      destination: "/whitepaper/App-Rationalization-Modernization.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Analytics-for-Medical-Devices.pdf",
-      destination:
-        "/whitepaper/Analytics-for-Medical-Devices.pdf",
+      destination: "/whitepaper/Analytics-for-Medical-Devices.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/SupplyChain-for-Medical-Devices.pdf",
-      destination:
-        "/whitepaper/SupplyChain-for-Medical-Devices.pdf",
+      destination: "/whitepaper/SupplyChain-for-Medical-Devices.pdf",
       permanent: true,
     },
     {
@@ -512,20 +493,17 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/whitepaper/Retail-with-MSD365.pdf",
-      destination:
-        "/whitepaper/Retail-with-MSD365.pdf",
+      destination: "/whitepaper/Retail-with-MSD365.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Traditional-vs-Cloud-ERP.pdf",
-      destination:
-        "/whitepaper/Traditional-vs-Cloud-ERP.pdf",
+      destination: "/whitepaper/Traditional-vs-Cloud-ERP.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/MES-ERP-Integration.pdf",
-      destination:
-        "/whitepaper/MES-ERP-Integration.pdf",
+      destination: "/whitepaper/MES-ERP-Integration.pdf",
       permanent: true,
     },
     {
@@ -551,14 +529,12 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/whitepaper/Kentico-Vs-AWM-Analysis.pdf",
-      destination:
-        "/whitepaper/Kentico-Vs-AWM-Analysis.pdf",
+      destination: "/whitepaper/Kentico-Vs-AWM-Analysis.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/AI-Readiness-Assessment.pdf",
-      destination:
-        "/whitepaper/AI-Readiness-Assessment.pdf",
+      destination: "/whitepaper/AI-Readiness-Assessment.pdf",
       permanent: true,
     },
     {
@@ -598,44 +574,37 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/whitepaper/Microsoft365-Copilot.pdf",
-      destination:
-        "/whitepaper/Microsoft365-Copilot.pdf",
+      destination: "/whitepaper/Microsoft365-Copilot.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/AI-Next-Gen-Tech-Transform-Business.pdf",
-      destination:
-        "/whitepaper/AI-Next-Gen-Tech-Transform-Business.pdf",
+      destination: "/whitepaper/AI-Next-Gen-Tech-Transform-Business.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Salesforce-Agentforce-Whitepaper.pdf",
-      destination:
-        "/whitepaper/Salesforce-Agentforce-Whitepaper.pdf",
+      destination: "/whitepaper/Salesforce-Agentforce-Whitepaper.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/SAP-Migration-Methodology.pdf",
-      destination:
-        "/whitepaper/SAP-Migration-Methodology.pdf",
+      destination: "/whitepaper/SAP-Migration-Methodology.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/SAP-Signavio-Process-Excellence.pdf",
-      destination:
-        "/whitepaper/SAP-Signavio-Process-Excellence.pdf",
+      destination: "/whitepaper/SAP-Signavio-Process-Excellence.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/SAP-Extended-Warehouse-Management.pdf",
-      destination:
-        "/whitepaper/SAP-Extended-Warehouse-Management.pdf",
+      destination: "/whitepaper/SAP-Extended-Warehouse-Management.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Healthcare-Cybersecurity.pdf",
-      destination:
-        "/whitepaper/Healthcare-Cybersecurity.pdf",
+      destination: "/whitepaper/Healthcare-Cybersecurity.pdf",
       permanent: true,
     },
     {
@@ -654,14 +623,12 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/whitepaper/Agentic-AI-Healthcare-Transformation.pdf",
-      destination:
-        "/whitepaper/Agentic-AI-Healthcare-Transformation.pdf",
+      destination: "/whitepaper/Agentic-AI-Healthcare-Transformation.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Customer-Experience-Cost-Optimization.pdf",
-      destination:
-        "/whitepaper/Customer-Experience-Cost-Optimization.pdf",
+      destination: "/whitepaper/Customer-Experience-Cost-Optimization.pdf",
       permanent: true,
     },
     {
@@ -673,26 +640,22 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/whitepaper/Agentic-AI-for-Smart-Warehousing.pdf",
-      destination:
-        "/whitepaper/Agentic-AI-for-Smart-Warehousing.pdf",
+      destination: "/whitepaper/Agentic-AI-for-Smart-Warehousing.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Microsoft-Dynamics-vs-Salesforce-CRM.pdf",
-      destination:
-        "/whitepaper/Microsoft-Dynamics-vs-Salesforce-CRM.pdf",
+      destination: "/whitepaper/Microsoft-Dynamics-vs-Salesforce-CRM.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/IT-Managed-Services.pdf",
-      destination:
-        "/whitepaper/IT-Managed-Services.pdf",
+      destination: "/whitepaper/IT-Managed-Services.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/AI-Powered-Application-Modernization.pdf",
-      destination:
-        "/whitepaper/AI-Powered-Application-Modernization.pdf",
+      destination: "/whitepaper/AI-Powered-Application-Modernization.pdf",
       permanent: true,
     },
     {
@@ -716,44 +679,37 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/brochure/Kor-Uncovering-Power-App-Opportunities.pdf",
-      destination:
-        "/brochure/Kor-Uncovering-Power-App-Opportunities.pdf",
+      destination: "/brochure/Kor-Uncovering-Power-App-Opportunities.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Microsoft-Managed-Services-and-Solutions.pdf",
-      destination:
-        "/brochure/Microsoft-Managed-Services-and-Solutions.pdf",
+      destination: "/brochure/Microsoft-Managed-Services-and-Solutions.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/complete-salesforce-ecosystem-support.pdf",
-      destination:
-        "/brochure/complete-salesforce-ecosystem-support.pdf",
+      destination: "/brochure/complete-salesforce-ecosystem-support.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/corporate-brochure.pdf",
-      destination:
-        "/brochure/corporate-brochure.pdf",
+      destination: "/brochure/corporate-brochure.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Product-configurator-addon.pdf",
-      destination:
-        "/brochure/Product-configurator-addon.pdf",
+      destination: "/brochure/Product-configurator-addon.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Quality-control-management-add-on.pdf",
-      destination:
-        "/brochure/Quality-control-management-add-on.pdf",
+      destination: "/brochure/Quality-control-management-add-on.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/fleet-management-solution.pdf",
-      destination:
-        "/brochure/fleet-management-solution.pdf",
+      destination: "/brochure/fleet-management-solution.pdf",
       permanent: true,
     },
     {
@@ -772,8 +728,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/brochure/Azure-Cloud-Managed-Solutions.pdf",
-      destination:
-        "/brochure/Azure-Cloud-Managed-Solutions.pdf",
+      destination: "/brochure/Azure-Cloud-Managed-Solutions.pdf",
       permanent: true,
     },
     {
@@ -790,44 +745,37 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/brochure/Education-Industry-Solution.pdf",
-      destination:
-        "/brochure/Education-Industry-Solution.pdf",
+      destination: "/brochure/Education-Industry-Solution.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Automative-Industry-Accelerator.pdf",
-      destination:
-        "/brochure/Automative-Industry-Accelerator.pdf",
+      destination: "/brochure/Automative-Industry-Accelerator.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Telecommunication-Industry-Accelerator.pdf",
-      destination:
-        "/brochure/Telecommunication-Industry-Accelerator.pdf",
+      destination: "/brochure/Telecommunication-Industry-Accelerator.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Full-Stack-Solutions.pdf",
-      destination:
-        "/brochure/Full-Stack-Solutions.pdf",
+      destination: "/brochure/Full-Stack-Solutions.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Complete-Cloud-Competence.pdf",
-      destination:
-        "/brochure/Complete-Cloud-Competence.pdf",
+      destination: "/brochure/Complete-Cloud-Competence.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Connected-Retail-Solutions.pdf",
-      destination:
-        "/brochure/Connected-Retail-Solutions.pdf",
+      destination: "/brochure/Connected-Retail-Solutions.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Supply-Chain-Optimization.pdf",
-      destination:
-        "/brochure/Supply-Chain-Optimization.pdf",
+      destination: "/brochure/Supply-Chain-Optimization.pdf",
       permanent: true,
     },
     {
@@ -837,8 +785,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/brochure/Data-and-Analytics.pdf",
-      destination:
-        "/brochure/Data-and-Analytics.pdf",
+      destination: "/brochure/Data-and-Analytics.pdf",
       permanent: true,
     },
     {
@@ -848,20 +795,17 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/brochure/Cloud-Migration-BFSI.pdf",
-      destination:
-        "/brochure/Cloud-Migration-BFSI.pdf",
+      destination: "/brochure/Cloud-Migration-BFSI.pdf",
       permanent: true,
     },
     {
       source: "/assets/whitepaper/Intelligent-Supply-Chain.pdf",
-      destination:
-        "/whitepaper/Intelligent-Supply-Chain.pdf",
+      destination: "/whitepaper/Intelligent-Supply-Chain.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Choosing-Between-CMS-and-DXP-Guide.pdf",
-      destination:
-        "/brochure/Choosing-Between-CMS-and-DXP-Guide.pdf",
+      destination: "/brochure/Choosing-Between-CMS-and-DXP-Guide.pdf",
       permanent: true,
     },
     {
@@ -871,8 +815,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/brochure/Supply-Chain-Management.pdf",
-      destination:
-        "/brochure/Supply-Chain-Management.pdf",
+      destination: "/brochure/Supply-Chain-Management.pdf",
       permanent: true,
     },
     {
@@ -884,26 +827,22 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/brochure/Digital-Transformation-with-SAP-Solutions.pdf",
-      destination:
-        "/brochure/Digital-Transformation-with-SAP-Solutions.pdf",
+      destination: "/brochure/Digital-Transformation-with-SAP-Solutions.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Cybersecurity-Advisory-Managed-Services.pdf",
-      destination:
-        "/brochure/Cybersecurity-Advisory-Managed-Services.pdf",
+      destination: "/brochure/Cybersecurity-Advisory-Managed-Services.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/SAP-Application-Managed-Services-AMS.pdf",
-      destination:
-        "/brochure/SAP-Application-Managed-Services-AMS.pdf",
+      destination: "/brochure/SAP-Application-Managed-Services-AMS.pdf",
       permanent: true,
     },
     {
       source: "/assets/brochure/Microsoft-Dynamics-365-Solutions.pdf",
-      destination:
-        "/brochure/Microsoft-Dynamics-365-Solutions.pdf",
+      destination: "/brochure/Microsoft-Dynamics-365-Solutions.pdf",
       permanent: true,
     },
     {
@@ -951,8 +890,7 @@ const nextConfig: NextConfig = {
     {
       source:
         "/assets/infographic/Leveraging-Microsoft-Teams-in-Healthcare.pdf",
-      destination:
-        "/infographic/Leveraging-Microsoft-Teams-in-Healthcare.pdf",
+      destination: "/infographic/Leveraging-Microsoft-Teams-in-Healthcare.pdf",
       permanent: true,
     },
     {
@@ -971,32 +909,27 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/infographic/Leveraging-Microsoft-Teams-in-Sales.pdf",
-      destination:
-        "/infographic/Leveraging-Microsoft-Teams-in-Sales.pdf",
+      destination: "/infographic/Leveraging-Microsoft-Teams-in-Sales.pdf",
       permanent: true,
     },
     {
       source: "/assets/infographic/Azure-Machine-Learning.pdf",
-      destination:
-        "/infographic/Azure-Machine-Learning.pdf",
+      destination: "/infographic/Azure-Machine-Learning.pdf",
       permanent: true,
     },
     {
       source: "/assets/infographic/Better-Value-With-Kentico.pdf",
-      destination:
-        "/infographic/Better-Value-With-Kentico.pdf",
+      destination: "/infographic/Better-Value-With-Kentico.pdf",
       permanent: true,
     },
     {
       source: "/assets/infographic/Order-Management-System-Benefits.pdf",
-      destination:
-        "/infographic/Order-Management-System-Benefits.pdf",
+      destination: "/infographic/Order-Management-System-Benefits.pdf",
       permanent: true,
     },
     {
       source: "/assets/ebook/The-benefits-of-aligning-sales-and-marketing.pdf",
-      destination:
-        "/ebook/The-benefits-of-aligning-sales-and-marketing.pdf",
+      destination: "/ebook/The-benefits-of-aligning-sales-and-marketing.pdf",
       permanent: true,
     },
     {
@@ -1008,14 +941,12 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/ebook/Four-Ways-Data-Helps-B2B-Personalize-at-Scale.pdf",
-      destination:
-        "/ebook/Four-Ways-Data-Helps-B2B-Personalize-at-Scale.pdf",
+      destination: "/ebook/Four-Ways-Data-Helps-B2B-Personalize-at-Scale.pdf",
       permanent: true,
     },
     {
       source: "/assets/ebook/How-microsoft-is-redefining-B2B-eCommerce.pdf",
-      destination:
-        "/ebook/How-microsoft-is-redefining-B2B-eCommerce.pdf",
+      destination: "/ebook/How-microsoft-is-redefining-B2B-eCommerce.pdf",
       permanent: true,
     },
     {
@@ -1027,8 +958,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/ebook/Top-Ways-Marketing-Can-Help-Sales-Succeed.pdf",
-      destination:
-        "/ebook/Top-Ways-Marketing-Can-Help-Sales-Succeed.pdf",
+      destination: "/ebook/Top-Ways-Marketing-Can-Help-Sales-Succeed.pdf",
       permanent: true,
     },
     {
@@ -1041,14 +971,12 @@ const nextConfig: NextConfig = {
     {
       source:
         "/assets/ebook/Modernize-Your-Field-Service-with-Mixed-Reality.pdf",
-      destination:
-        "/ebook/Modernize-Your-Field-Service-with-Mixed-Reality.pdf",
+      destination: "/ebook/Modernize-Your-Field-Service-with-Mixed-Reality.pdf",
       permanent: true,
     },
     {
       source: "/assets/ebook/The-Power-of-Relationship-Selling.pdf",
-      destination:
-        "/ebook/The-Power-of-Relationship-Selling.pdf",
+      destination: "/ebook/The-Power-of-Relationship-Selling.pdf",
       permanent: true,
     },
     {
@@ -1060,8 +988,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/ebook/Digital-Transformation-in-Sales.pdf",
-      destination:
-        "/ebook/Digital-Transformation-in-Sales.pdf",
+      destination: "/ebook/Digital-Transformation-in-Sales.pdf",
       permanent: true,
     },
     {
@@ -1071,38 +998,32 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/ebook/Guide-for-replacing-accounting-software.pdf",
-      destination:
-        "/ebook/Guide-for-replacing-accounting-software.pdf",
+      destination: "/ebook/Guide-for-replacing-accounting-software.pdf",
       permanent: true,
     },
     {
       source: "/assets/ebook/enable-corporate-agility-with-dynamics-365.pdf",
-      destination:
-        "/ebook/enable-corporate-agility-with-dynamics-365.pdf",
+      destination: "/ebook/enable-corporate-agility-with-dynamics-365.pdf",
       permanent: true,
     },
     {
       source: "/assets/ebook/Migrate-to-the-cloud-today.pdf",
-      destination:
-        "/ebook/Migrate-to-the-cloud-today.pdf",
+      destination: "/ebook/Migrate-to-the-cloud-today.pdf",
       permanent: true,
     },
     {
       source: "/assets/ebook/Five-Benefits-of-Moving-to-the-Cloud-Now.pdf",
-      destination:
-        "/ebook/Five-Benefits-of-Moving-to-the-Cloud-Now.pdf",
+      destination: "/ebook/Five-Benefits-of-Moving-to-the-Cloud-Now.pdf",
       permanent: true,
     },
     {
       source: "/assets/ebook/Understanding-cloud-migration-strategies.pdf",
-      destination:
-        "/ebook/Understanding-cloud-migration-strategies.pdf",
+      destination: "/ebook/Understanding-cloud-migration-strategies.pdf",
       permanent: true,
     },
     {
       source: "/assets/ebook/9-Myths-About-Moving-to-the-Cloud.pdf",
-      destination:
-        "/ebook/9-Myths-About-Moving-to-the-Cloud.pdf",
+      destination: "/ebook/9-Myths-About-Moving-to-the-Cloud.pdf",
       permanent: true,
     },
     {
@@ -1121,8 +1042,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/ebook/The-IoT-Guide-for-Business-Leaders.pdf",
-      destination:
-        "/ebook/The-IoT-Guide-for-Business-Leaders.pdf",
+      destination: "/ebook/The-IoT-Guide-for-Business-Leaders.pdf",
       permanent: true,
     },
     {
@@ -1132,14 +1052,12 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/ebook/Things-to-know-about-the-state-of-IoT.pdf",
-      destination:
-        "/ebook/Things-to-know-about-the-state-of-IoT.pdf",
+      destination: "/ebook/Things-to-know-about-the-state-of-IoT.pdf",
       permanent: true,
     },
     {
       source: "/assets/ebook/Delight-Your-Customer-in-Just-Three-Steps.pdf",
-      destination:
-        "/ebook/Delight-Your-Customer-in-Just-Three-Steps.pdf",
+      destination: "/ebook/Delight-Your-Customer-in-Just-Three-Steps.pdf",
       permanent: true,
     },
     {
@@ -1151,14 +1069,12 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/ebook/Turn-Event-Attendees-into-Loyal-Customers.pdf",
-      destination:
-        "/ebook/Turn-Event-Attendees-into-Loyal-Customers.pdf",
+      destination: "/ebook/Turn-Event-Attendees-into-Loyal-Customers.pdf",
       permanent: true,
     },
     {
       source: "/assets/ebook/Modernize-Your-Web-Apps-with-Microsoft-Azure.pdf",
-      destination:
-        "/ebook/Modernize-Your-Web-Apps-with-Microsoft-Azure.pdf",
+      destination: "/ebook/Modernize-Your-Web-Apps-with-Microsoft-Azure.pdf",
       permanent: true,
     },
     {
@@ -1184,8 +1100,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/assets/ebook/Azure-Security-Center.pdf",
-      destination:
-        "/ebook/Azure-Security-Center.pdf",
+      destination: "/ebook/Azure-Security-Center.pdf",
       permanent: true,
     },
     {
@@ -1202,8 +1117,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-studies/transforming-operations-trailer-chassis-leasing",
-      destination:
-        "/case-studies/mobile-application-case-studies",
+      destination: "/case-studies/mobile-application-case-studies",
       permanent: true,
     },
     {
@@ -1222,8 +1136,7 @@ const nextConfig: NextConfig = {
     {
       source:
         "/case-studies/leading-phonotics-manufacturer-acheived-seamless-reporting-with-ms-fabric",
-      destination:
-        "/case-studies/ai-analytics-reporting-photonics-case-study",
+      destination: "/case-studies/ai-analytics-reporting-photonics-case-study",
       permanent: true,
     },
     {
@@ -1255,21 +1168,18 @@ const nextConfig: NextConfig = {
     {
       source:
         "/case-studies/healthcare-app-that-tracks-wellness-and-fitness-activities",
-      destination:
-        "/case-studies/healthcare-wellness-app-case-study",
+      destination: "/case-studies/healthcare-wellness-app-case-study",
       permanent: true,
     },
     {
       source:
         "/case-studies/automating-manual-processes-with-a-dynamics-erp-implementation-to-boost-operational-performance",
-      destination:
-        "/case-studies/orthopedic-erp-implementation-case-study",
+      destination: "/case-studies/orthopedic-erp-implementation-case-study",
       permanent: true,
     },
     {
       source: "/case-studies/power-apps-for-human-resources-management",
-      destination:
-        "/case-studies/hr-power-apps-transformation-case-study",
+      destination: "/case-studies/hr-power-apps-transformation-case-study",
       permanent: true,
     },
     {
@@ -1280,8 +1190,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-studies/korcomptenz-power-apps-portal-case-study",
-      destination:
-        "/case-studies/cold-chain-case-management-portal-case-study",
+      destination: "/case-studies/cold-chain-case-management-portal-case-study",
       permanent: true,
     },
     {
@@ -1292,8 +1201,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-studies/quality-control-management",
-      destination:
-        "/case-studies/erp-quality-automation-logistics-case-study",
+      destination: "/case-studies/erp-quality-automation-logistics-case-study",
       permanent: true,
     },
     {
@@ -1839,8 +1747,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/sap/sap-merger-and-acquisition",
-      destination:
-        "/sap/sap-merger-and-acquisition-consulting",
+      destination: "/sap/sap-merger-and-acquisition-consulting",
       permanent: false,
     },
     {
@@ -1860,14 +1767,12 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/grant-management/faqs",
-      destination:
-        "/whitepaper/KORSmartGrants365.pdf",
+      destination: "/whitepaper/KORSmartGrants365.pdf",
       permanent: false,
     },
     {
       source: "/kor-bank-iq",
-      destination:
-        "/ai-assisted-retail-banking-microsoft-fabric",
+      destination: "/ai-assisted-retail-banking-microsoft-fabric",
       permanent: false,
     },
     {
@@ -1877,8 +1782,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/logistics",
-      destination:
-        "/industries/logistics-and-transportation",
+      destination: "/industries/logistics-and-transportation",
       permanent: false,
     },
     {
@@ -1888,8 +1792,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/medical-devices",
-      destination:
-        "/industries/manufacturing/medical-devices",
+      destination: "/industries/manufacturing/medical-devices",
       permanent: false,
     },
 
@@ -1897,8 +1800,7 @@ const nextConfig: NextConfig = {
 
     {
       source: "/cloud/ai-powered-cloud-managed-services",
-      destination:
-        "/cloud/ai-powered-infrastructure-managed-services",
+      destination: "/cloud/ai-powered-infrastructure-managed-services",
       permanent: true,
     },
     {
@@ -1941,20 +1843,17 @@ const nextConfig: NextConfig = {
     {
       source:
         "/microsoft-dynamics-365/microsoft-dynamics-365-erp-advisory-and-consulting",
-      destination:
-        "/erp/erp-advisory-and-consulting-services",
+      destination: "/erp/erp-advisory-and-consulting-services",
       permanent: true,
     },
     {
       source: "/cloud/cloud-managed-services",
-      destination:
-        "/cloud/ai-powered-infrastructure-managed-services",
+      destination: "/cloud/ai-powered-infrastructure-managed-services",
       permanent: true,
     },
     {
       source: "/cloud/cloud-migration-services",
-      destination:
-        "/cloud/ai-powered-cloud-migration-services",
+      destination: "/cloud/ai-powered-cloud-migration-services",
       permanent: true,
     },
     {
@@ -1966,14 +1865,12 @@ const nextConfig: NextConfig = {
 
     {
       source: "/salesforce-einstein-ai-and-analytics-services",
-      destination:
-        "/salesforce/salesforce-einstein-ai-and-analytics",
+      destination: "/salesforce/salesforce-einstein-ai-and-analytics",
       permanent: true,
     },
     {
       source: "/banking-and-financial-services",
-      destination:
-        "/industries/banking-and-financial-services",
+      destination: "/industries/banking-and-financial-services",
       permanent: true,
     },
     {
@@ -1995,20 +1892,17 @@ const nextConfig: NextConfig = {
           value: "dev01_korcomptenz.korcomptenz.com",
         },
       ],
-      destination:
-        "/ai-assisted-retail-banking-microsoft-fabric",
+      destination: "/ai-assisted-retail-banking-microsoft-fabric",
       permanent: true,
     },
     {
       source: "/logistics",
-      destination:
-        "/industries/logistics-and-transportation",
+      destination: "/industries/logistics-and-transportation",
       permanent: true,
     },
     {
       source: "/crm-consulting-services",
-      destination:
-        "/crm-advisory-and-consulting-services",
+      destination: "/crm-advisory-and-consulting-services",
       permanent: true,
     },
     {
@@ -2055,11 +1949,11 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
 
-
     //24.03.2026
     {
       source: "/product-configurator-for-dynamics-365-business-central",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
       permanent: true,
     },
 
@@ -2096,12 +1990,14 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-study/edi-upgrade-global-grill-manufacturer",
-      destination: "/case-studies/edi-transformation-for-manufacturer-case-study",
+      destination:
+        "/case-studies/edi-transformation-for-manufacturer-case-study",
       permanent: true,
     },
     {
       source: "/case-study/edi-transformation-for-manufacturer-case-study",
-      destination: "/case-studies/edi-transformation-for-manufacturer-case-study",
+      destination:
+        "/case-studies/edi-transformation-for-manufacturer-case-study",
       permanent: true,
     },
     {
@@ -2111,12 +2007,14 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-study/boosting-efficiency-savings-scalability",
-      destination: "/case-studies/azure-cost-optimization-engineering-case-study",
+      destination:
+        "/case-studies/azure-cost-optimization-engineering-case-study",
       permanent: true,
     },
     {
       source: "/case-study/azure-cost-optimization-engineering-case-study",
-      destination: "/case-studies/azure-cost-optimization-engineering-case-study",
+      destination:
+        "/case-studies/azure-cost-optimization-engineering-case-study",
       permanent: true,
     },
     {
@@ -2140,17 +2038,21 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/case-study/nav-to-d365-business-central-cloud-construction-giant",
-      destination: "/case-studies/erp-migration-construction-dynamics365-case-study",
+      source:
+        "/case-study/nav-to-d365-business-central-cloud-construction-giant",
+      destination:
+        "/case-studies/erp-migration-construction-dynamics365-case-study",
       permanent: true,
     },
     {
       source: "/case-study/erp-migration-construction-dynamics365-case-study",
-      destination: "/case-studies/erp-migration-construction-dynamics365-case-study",
+      destination:
+        "/case-studies/erp-migration-construction-dynamics365-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/leading-phonotics-manufacturer-acheived-seamless-reporting-with-ms-fabric",
+      source:
+        "/case-study/leading-phonotics-manufacturer-acheived-seamless-reporting-with-ms-fabric",
       destination: "/case-studies/ai-analytics-reporting-photonics-case-study",
       permanent: true,
     },
@@ -2160,47 +2062,58 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/case-study/streamline-field-service-customer-experience-salesforce-implementation",
-      destination: "/case-studies/salesforce-field-service-manufacturing-case-study",
+      source:
+        "/case-study/streamline-field-service-customer-experience-salesforce-implementation",
+      destination:
+        "/case-studies/salesforce-field-service-manufacturing-case-study",
       permanent: true,
     },
     {
       source: "/case-study/salesforce-field-service-manufacturing-case-study",
-      destination: "/case-studies/salesforce-field-service-manufacturing-case-study",
+      destination:
+        "/case-studies/salesforce-field-service-manufacturing-case-study",
       permanent: true,
     },
     {
       source: "/case-study/dynamics-365-fo-optical-equipment-manufacturer",
-      destination: "/case-studies/erp-implementation-optical-manufacturing-case-study",
+      destination:
+        "/case-studies/erp-implementation-optical-manufacturing-case-study",
       permanent: true,
     },
     {
       source: "/case-study/erp-implementation-optical-manufacturing-case-study",
-      destination: "/case-studies/erp-implementation-optical-manufacturing-case-study",
+      destination:
+        "/case-studies/erp-implementation-optical-manufacturing-case-study",
       permanent: true,
     },
     {
       source: "/case-study/rapid-erp-implementation-for-grill-manufacturer",
-      destination: "/case-studies/erp-turnaround-manufacturing-dynamics365-case-study",
+      destination:
+        "/case-studies/erp-turnaround-manufacturing-dynamics365-case-study",
       permanent: true,
     },
     {
       source: "/case-study/erp-turnaround-manufacturing-dynamics365-case-study",
-      destination: "/case-studies/erp-turnaround-manufacturing-dynamics365-case-study",
+      destination:
+        "/case-studies/erp-turnaround-manufacturing-dynamics365-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/erp-implementation-and-integration-for-foam-manufacturer",
-      destination: "/case-studies/erp-implementation-foam-manufacturing-case-study",
+      source:
+        "/case-study/erp-implementation-and-integration-for-foam-manufacturer",
+      destination:
+        "/case-studies/erp-implementation-foam-manufacturing-case-study",
       permanent: true,
     },
     {
       source: "/case-study/erp-implementation-foam-manufacturing-case-study",
-      destination: "/case-studies/erp-implementation-foam-manufacturing-case-study",
+      destination:
+        "/case-studies/erp-implementation-foam-manufacturing-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/streamlining-retail-and-fashion-workflows-with-microsoft-dynamics-365-fo",
+      source:
+        "/case-study/streamlining-retail-and-fashion-workflows-with-microsoft-dynamics-365-fo",
       destination: "/case-studies/erp-support-fashion-retail-case-study",
       permanent: true,
     },
@@ -2211,71 +2124,93 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-study/salesforce-transformation-business-units-automation",
-      destination: "/case-studies/salesforce-automation-construction-distribution-case-study",
+      destination:
+        "/case-studies/salesforce-automation-construction-distribution-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/salesforce-automation-construction-distribution-case-study",
-      destination: "/case-studies/salesforce-automation-construction-distribution-case-study",
+      source:
+        "/case-study/salesforce-automation-construction-distribution-case-study",
+      destination:
+        "/case-studies/salesforce-automation-construction-distribution-case-study",
       permanent: true,
     },
     {
       source: "/case-study/product-health-reporting",
-      destination: "/case-studies/data-infrastructure-modernization-carpet-manufacturing-case-study",
+      destination:
+        "/case-studies/data-infrastructure-modernization-carpet-manufacturing-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/data-infrastructure-modernization-carpet-manufacturing-case-study",
-      destination: "/case-studies/data-infrastructure-modernization-carpet-manufacturing-case-study",
+      source:
+        "/case-study/data-infrastructure-modernization-carpet-manufacturing-case-study",
+      destination:
+        "/case-studies/data-infrastructure-modernization-carpet-manufacturing-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/leveraging-kentico-xperience-13-to-replace-a-legacy-application",
-      destination: "/case-studies/kentico-website-implementation-travel-industry-case-study",
+      source:
+        "/case-study/leveraging-kentico-xperience-13-to-replace-a-legacy-application",
+      destination:
+        "/case-studies/kentico-website-implementation-travel-industry-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/kentico-website-implementation-travel-industry-case-study",
-      destination: "/case-studies/kentico-website-implementation-travel-industry-case-study",
+      source:
+        "/case-study/kentico-website-implementation-travel-industry-case-study",
+      destination:
+        "/case-studies/kentico-website-implementation-travel-industry-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/improving-customer-experience-effciency-aftermarket-suspensions-client",
-      destination: "/case-studies/improving-customer-experience-effciency-aftermarket-suspensions-client",
+      source:
+        "/case-study/improving-customer-experience-effciency-aftermarket-suspensions-client",
+      destination:
+        "/case-studies/improving-customer-experience-effciency-aftermarket-suspensions-client",
       permanent: true,
     },
     {
-      source: "/case-study/tranforming-user-experience-customer-portal-task-automation-for-utility-giant",
-      destination: "/case-studies/utility-customer-portal-modernization-case-study",
+      source:
+        "/case-study/tranforming-user-experience-customer-portal-task-automation-for-utility-giant",
+      destination:
+        "/case-studies/utility-customer-portal-modernization-case-study",
       permanent: true,
     },
     {
       source: "/case-study/utility-customer-portal-modernization-case-study",
-      destination: "/case-studies/utility-customer-portal-modernization-case-study",
+      destination:
+        "/case-studies/utility-customer-portal-modernization-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/comprehensive-support-services-for-automotive-leader",
-      destination: "/case-studies/automotive-erp-modernization-ax2009-case-study",
+      source:
+        "/case-study/comprehensive-support-services-for-automotive-leader",
+      destination:
+        "/case-studies/automotive-erp-modernization-ax2009-case-study",
       permanent: true,
     },
     {
       source: "/case-study/automotive-erp-modernization-ax2009-case-study",
-      destination: "/case-studies/automotive-erp-modernization-ax2009-case-study",
+      destination:
+        "/case-studies/automotive-erp-modernization-ax2009-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/robust-ecommerce-platform-for-dental-device-manufacturer",
-      destination: "/case-studies/dental-ecommerce-platform-integration-case-study",
+      source:
+        "/case-study/robust-ecommerce-platform-for-dental-device-manufacturer",
+      destination:
+        "/case-studies/dental-ecommerce-platform-integration-case-study",
       permanent: true,
     },
     {
       source: "/case-study/dental-ecommerce-platform-integration-case-study",
-      destination: "/case-studies/dental-ecommerce-platform-integration-case-study",
+      destination:
+        "/case-studies/dental-ecommerce-platform-integration-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/advanced-web-portal-development-for-enhanced-engagement",
+      source:
+        "/case-study/advanced-web-portal-development-for-enhanced-engagement",
       destination: "/case-studies/global-youth-film-festival-portal-case-study",
       permanent: true,
     },
@@ -2286,22 +2221,26 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-study/customer-experience-kentico",
-      destination: "/case-studies/kentico-flooring-digital-experience-case-study",
+      destination:
+        "/case-studies/kentico-flooring-digital-experience-case-study",
       permanent: true,
     },
     {
       source: "/case-study/kentico-flooring-digital-experience-case-study",
-      destination: "/case-studies/kentico-flooring-digital-experience-case-study",
+      destination:
+        "/case-studies/kentico-flooring-digital-experience-case-study",
       permanent: true,
     },
     {
       source: "/case-study/custom-application-construction-industry",
-      destination: "/case-studies/smart-contract-app-construction-d365-case-study",
+      destination:
+        "/case-studies/smart-contract-app-construction-d365-case-study",
       permanent: true,
     },
     {
       source: "/case-study/smart-contract-app-construction-d365-case-study",
-      destination: "/case-studies/smart-contract-app-construction-d365-case-study",
+      destination:
+        "/case-studies/smart-contract-app-construction-d365-case-study",
       permanent: true,
     },
     {
@@ -2315,37 +2254,47 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/case-study/design-thinking-to-reimagine-a-mission-critical-custom-application",
-      destination: "/case-studies/cloud-claims-management-manufacturing-case-study",
+      source:
+        "/case-study/design-thinking-to-reimagine-a-mission-critical-custom-application",
+      destination:
+        "/case-studies/cloud-claims-management-manufacturing-case-study",
       permanent: true,
     },
     {
       source: "/case-study/cloud-claims-management-manufacturing-case-study",
-      destination: "/case-studies/cloud-claims-management-manufacturing-case-study",
+      destination:
+        "/case-studies/cloud-claims-management-manufacturing-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/integration-of-two-salesforce-organizations-to-improve-operational-excellence-and-customer-service",
-      destination: "/case-studies/salesforce-healthcare-data-unification-case-study",
+      source:
+        "/case-study/integration-of-two-salesforce-organizations-to-improve-operational-excellence-and-customer-service",
+      destination:
+        "/case-studies/salesforce-healthcare-data-unification-case-study",
       permanent: true,
     },
     {
       source: "/case-study/salesforce-healthcare-data-unification-case-study",
-      destination: "/case-studies/salesforce-healthcare-data-unification-case-study",
+      destination:
+        "/case-studies/salesforce-healthcare-data-unification-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/greater-roi-with-lower-tco-by-migrating-to-microsoft-azure",
-      destination: "/case-studies/erp-cloud-migration-waste-management-case-study",
+      source:
+        "/case-study/greater-roi-with-lower-tco-by-migrating-to-microsoft-azure",
+      destination:
+        "/case-studies/erp-cloud-migration-waste-management-case-study",
       permanent: true,
     },
     {
       source: "/case-study/erp-cloud-migration-waste-management-case-study",
-      destination: "/case-studies/erp-cloud-migration-waste-management-case-study",
+      destination:
+        "/case-studies/erp-cloud-migration-waste-management-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/dynamics-365-finance-and-operations-in-fashion-retail",
+      source:
+        "/case-study/dynamics-365-finance-and-operations-in-fashion-retail",
       destination: "/case-studies/fashion-retail-erp-implementation-case-study",
       permanent: true,
     },
@@ -2355,7 +2304,8 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/case-study/healthcare-app-that-tracks-wellness-and-fitness-activities",
+      source:
+        "/case-study/healthcare-app-that-tracks-wellness-and-fitness-activities",
       destination: "/case-studies/healthcare-wellness-app-case-study",
       permanent: true,
     },
@@ -2366,16 +2316,19 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-study/dynamics-365-in-fashion-manufacturing",
-      destination: "/case-studies/luxury-textile-erp-crm-implementation-case-study",
+      destination:
+        "/case-studies/luxury-textile-erp-crm-implementation-case-study",
       permanent: true,
     },
     {
       source: "/case-study/luxury-textile-erp-crm-implementation-case-study",
-      destination: "/case-studies/luxury-textile-erp-crm-implementation-case-study",
+      destination:
+        "/case-studies/luxury-textile-erp-crm-implementation-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/automating-manual-processes-with-a-dynamics-ax-implementation-to-boost-operational-performance",
+      source:
+        "/case-study/automating-manual-processes-with-a-dynamics-ax-implementation-to-boost-operational-performance",
       destination: "/case-studies/orthopedic-erp-implementation-case-study",
       permanent: true,
     },
@@ -2396,12 +2349,15 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-study/improve-customer-experience-with-field-service",
-      destination: "/case-studies/water-services-dynamics-365-transformation-case-study",
+      destination:
+        "/case-studies/water-services-dynamics-365-transformation-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/water-services-dynamics-365-transformation-case-study",
-      destination: "/case-studies/water-services-dynamics-365-transformation-case-study",
+      source:
+        "/case-study/water-services-dynamics-365-transformation-case-study",
+      destination:
+        "/case-studies/water-services-dynamics-365-transformation-case-study",
       permanent: true,
     },
     {
@@ -2421,22 +2377,27 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-study/patient-survey-software",
-      destination: "/case-studies/healthcare-survey-app-modernization-case-study",
+      destination:
+        "/case-studies/healthcare-survey-app-modernization-case-study",
       permanent: true,
     },
     {
       source: "/case-study/healthcare-survey-app-modernization-case-study",
-      destination: "/case-studies/healthcare-survey-app-modernization-case-study",
+      destination:
+        "/case-studies/healthcare-survey-app-modernization-case-study",
       permanent: true,
     },
     {
       source: "/case-study/salesforce-solutions-case-study",
-      destination: "/case-studies/salesforce-optimization-disease-management-case-study",
+      destination:
+        "/case-studies/salesforce-optimization-disease-management-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/salesforce-optimization-disease-management-case-study",
-      destination: "/case-studies/salesforce-optimization-disease-management-case-study",
+      source:
+        "/case-study/salesforce-optimization-disease-management-case-study",
+      destination:
+        "/case-studies/salesforce-optimization-disease-management-case-study",
       permanent: true,
     },
     {
@@ -2451,66 +2412,83 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-study/salesforce-online-onboarding-case-study",
-      destination: "/case-studies/ira-onboarding-automation-salesforce-case-study",
+      destination:
+        "/case-studies/ira-onboarding-automation-salesforce-case-study",
       permanent: true,
     },
     {
       source: "/case-study/ira-onboarding-automation-salesforce-case-study",
-      destination: "/case-studies/ira-onboarding-automation-salesforce-case-study",
+      destination:
+        "/case-studies/ira-onboarding-automation-salesforce-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/budget-control-customization-to-effectively-monitor-expenditure-and-avoid-overpaying",
-      destination: "/case-studies/nonprofit-erp-modernization-business-central-case-study",
+      source:
+        "/case-study/budget-control-customization-to-effectively-monitor-expenditure-and-avoid-overpaying",
+      destination:
+        "/case-studies/nonprofit-erp-modernization-business-central-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/nonprofit-erp-modernization-business-central-case-study",
-      destination: "/case-studies/nonprofit-erp-modernization-business-central-case-study",
+      source:
+        "/case-study/nonprofit-erp-modernization-business-central-case-study",
+      destination:
+        "/case-studies/nonprofit-erp-modernization-business-central-case-study",
       permanent: true,
     },
     {
       source: "/case-study/microsoft-dynamics-ax-support",
-      destination: "/case-studies/global-retail-erp-support-dynamics-ax-case-study",
+      destination:
+        "/case-studies/global-retail-erp-support-dynamics-ax-case-study",
       permanent: true,
     },
     {
       source: "/case-study/global-retail-erp-support-dynamics-ax-case-study",
-      destination: "/case-studies/global-retail-erp-support-dynamics-ax-case-study",
+      destination:
+        "/case-studies/global-retail-erp-support-dynamics-ax-case-study",
       permanent: true,
     },
     {
       source: "/case-study/retail-digital-transformation-case-study",
-      destination: "/case-studies/retail-crm-erp-unification-dynamics-365-case-study",
+      destination:
+        "/case-studies/retail-crm-erp-unification-dynamics-365-case-study",
       permanent: true,
     },
     {
       source: "/case-study/retail-crm-erp-unification-dynamics-365-case-study",
-      destination: "/case-studies/retail-crm-erp-unification-dynamics-365-case-study",
+      destination:
+        "/case-studies/retail-crm-erp-unification-dynamics-365-case-study",
       permanent: true,
     },
     {
       source: "/case-study/sports-fitness-center-salesforce-case-study",
-      destination: "/case-studies/salesforce-crm-optimization-sports-wellness-case-study",
+      destination:
+        "/case-studies/salesforce-crm-optimization-sports-wellness-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/salesforce-crm-optimization-sports-wellness-case-study",
-      destination: "/case-studies/salesforce-crm-optimization-sports-wellness-case-study",
+      source:
+        "/case-study/salesforce-crm-optimization-sports-wellness-case-study",
+      destination:
+        "/case-studies/salesforce-crm-optimization-sports-wellness-case-study",
       permanent: true,
     },
     {
       source: "/case-study/product-configurator-for-microsoft-dynamics-nav",
-      destination: "/case-studies/nav-product-configurator-commercial-printing-case-study",
+      destination:
+        "/case-studies/nav-product-configurator-commercial-printing-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/nav-product-configurator-commercial-printing-case-study",
-      destination: "/case-studies/nav-product-configurator-commercial-printing-case-study",
+      source:
+        "/case-study/nav-product-configurator-commercial-printing-case-study",
+      destination:
+        "/case-studies/nav-product-configurator-commercial-printing-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/education-client-boosts-sales-and-marketing-with-microsoft-dynamics-365",
+      source:
+        "/case-study/education-client-boosts-sales-and-marketing-with-microsoft-dynamics-365",
       destination: "/case-studies/dynamics-365-event-donor-platform-case-study",
       permanent: true,
     },
@@ -2521,12 +2499,15 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-study/optimizing-ware-house",
-      destination: "/case-studies/dynamics-365-retail-warehouse-optimization-case-study",
+      destination:
+        "/case-studies/dynamics-365-retail-warehouse-optimization-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/dynamics-365-retail-warehouse-optimization-case-study",
-      destination: "/case-studies/dynamics-365-retail-warehouse-optimization-case-study",
+      source:
+        "/case-study/dynamics-365-retail-warehouse-optimization-case-study",
+      destination:
+        "/case-studies/dynamics-365-retail-warehouse-optimization-case-study",
       permanent: true,
     },
     {
@@ -2540,17 +2521,21 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/case-study/sales-commission-process-automation-boosted-revenue-sales-morale",
-      destination: "/case-studies/dynamics-365-sales-commission-automation-case-study",
+      source:
+        "/case-study/sales-commission-process-automation-boosted-revenue-sales-morale",
+      destination:
+        "/case-studies/dynamics-365-sales-commission-automation-case-study",
       permanent: true,
     },
     {
       source: "/case-study/dynamics-365-sales-commission-automation-case-study",
-      destination: "/case-studies/dynamics-365-sales-commission-automation-case-study",
+      destination:
+        "/case-studies/dynamics-365-sales-commission-automation-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/dynamics-crm-upgrade-and-marketing-features-implementation",
+      source:
+        "/case-study/dynamics-crm-upgrade-and-marketing-features-implementation",
       destination: "/case-studies/dynamics-365-crm-marketing-cloud-case-study",
       permanent: true,
     },
@@ -2560,7 +2545,8 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/case-study/generate-proactive-insights-with-azure-synapse-analytics-and-power-bi",
+      source:
+        "/case-study/generate-proactive-insights-with-azure-synapse-analytics-and-power-bi",
       destination: "/case-studies/azure-synapse-d365-analytics-case-study",
       permanent: true,
     },
@@ -2571,112 +2557,150 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/case-study/dynamics-365-business-central-customization",
-      destination: "/case-studies/d365-business-central-seafood-erp-automation-case-study",
+      destination:
+        "/case-studies/d365-business-central-seafood-erp-automation-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/d365-business-central-seafood-erp-automation-case-study",
-      destination: "/case-studies/d365-business-central-seafood-erp-automation-case-study",
+      source:
+        "/case-study/d365-business-central-seafood-erp-automation-case-study",
+      destination:
+        "/case-studies/d365-business-central-seafood-erp-automation-case-study",
       permanent: true,
     },
     {
       source: "/case-study/microsoft-cloud-solution-provider",
-      destination: "/case-studies/azure-migration-nonprofit-it-modernization-case-study",
+      destination:
+        "/case-studies/azure-migration-nonprofit-it-modernization-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/azure-migration-nonprofit-it-modernization-case-study",
-      destination: "/case-studies/azure-migration-nonprofit-it-modernization-case-study",
+      source:
+        "/case-study/azure-migration-nonprofit-it-modernization-case-study",
+      destination:
+        "/case-studies/azure-migration-nonprofit-it-modernization-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/enterprise-level-infra-managed-services-for-fashion-brand",
-      destination: "/case-studies/it-managed-services-ecommerce-infrastructure-case-study",
+      source:
+        "/case-study/enterprise-level-infra-managed-services-for-fashion-brand",
+      destination:
+        "/case-studies/it-managed-services-ecommerce-infrastructure-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/it-managed-services-ecommerce-infrastructure-case-study",
-      destination: "/case-studies/it-managed-services-ecommerce-infrastructure-case-study",
+      source:
+        "/case-study/it-managed-services-ecommerce-infrastructure-case-study",
+      destination:
+        "/case-studies/it-managed-services-ecommerce-infrastructure-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/extending-salesforce-capabilities-with-custom-lightning-apps",
-      destination: "/case-studies/salesforce-lightning-manufacturing-workflow-case-study",
+      source:
+        "/case-study/extending-salesforce-capabilities-with-custom-lightning-apps",
+      destination:
+        "/case-studies/salesforce-lightning-manufacturing-workflow-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/salesforce-lightning-manufacturing-workflow-case-study",
-      destination: "/case-studies/salesforce-lightning-manufacturing-workflow-case-study",
+      source:
+        "/case-study/salesforce-lightning-manufacturing-workflow-case-study",
+      destination:
+        "/case-studies/salesforce-lightning-manufacturing-workflow-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/an-always-on-dynamics-365-support-services-boosts-operational-efficiency",
-      destination: "/case-studies/dynamics-365-seafood-brand-transformation-case-study",
+      source:
+        "/case-study/an-always-on-dynamics-365-support-services-boosts-operational-efficiency",
+      destination:
+        "/case-studies/dynamics-365-seafood-brand-transformation-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/dynamics-365-seafood-brand-transformation-case-study",
-      destination: "/case-studies/dynamics-365-seafood-brand-transformation-case-study",
+      source:
+        "/case-study/dynamics-365-seafood-brand-transformation-case-study",
+      destination:
+        "/case-studies/dynamics-365-seafood-brand-transformation-case-study",
       permanent: true,
     },
     {
       source: "/case-study/dynamics-ax-ecommerce-integration",
-      destination: "/case-studies/dynamics-365-integration-for-manufacturer-case-study",
+      destination:
+        "/case-studies/dynamics-365-integration-for-manufacturer-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/dynamics-365-integration-for-manufacturer-case-study",
-      destination: "/case-studies/dynamics-365-integration-for-manufacturer-case-study",
+      source:
+        "/case-study/dynamics-365-integration-for-manufacturer-case-study",
+      destination:
+        "/case-studies/dynamics-365-integration-for-manufacturer-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/predictive-analytics-insights-for-better-vehicle-maintenance-and-customer-service",
-      destination: "/case-studies/predictive-analytics-cold-chain-logistics-case-study",
+      source:
+        "/case-study/predictive-analytics-insights-for-better-vehicle-maintenance-and-customer-service",
+      destination:
+        "/case-studies/predictive-analytics-cold-chain-logistics-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/predictive-analytics-cold-chain-logistics-case-study",
-      destination: "/case-studies/predictive-analytics-cold-chain-logistics-case-study",
+      source:
+        "/case-study/predictive-analytics-cold-chain-logistics-case-study",
+      destination:
+        "/case-studies/predictive-analytics-cold-chain-logistics-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/integrations-with-microsoft-dynamics-365-business-central",
-      destination: "/case-studies/staffing-workflow-automation-dynamics-365-case-study",
+      source:
+        "/case-study/integrations-with-microsoft-dynamics-365-business-central",
+      destination:
+        "/case-studies/staffing-workflow-automation-dynamics-365-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/staffing-workflow-automation-dynamics-365-case-study",
-      destination: "/case-studies/staffing-workflow-automation-dynamics-365-case-study",
+      source:
+        "/case-study/staffing-workflow-automation-dynamics-365-case-study",
+      destination:
+        "/case-studies/staffing-workflow-automation-dynamics-365-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/ensure-vital-control-over-inventory-traceability-operations-and-efficiency",
-      destination: "/case-studies/dynamics-365-inventory-optimization-case-study",
+      source:
+        "/case-study/ensure-vital-control-over-inventory-traceability-operations-and-efficiency",
+      destination:
+        "/case-studies/dynamics-365-inventory-optimization-case-study",
       permanent: true,
     },
     {
       source: "/case-study/dynamics-365-inventory-optimization-case-study",
-      destination: "/case-studies/dynamics-365-inventory-optimization-case-study",
+      destination:
+        "/case-studies/dynamics-365-inventory-optimization-case-study",
       permanent: true,
     },
     {
-      source: "/case-study/faster-month-end-closings-from-quickbooks-to-dynamics-365-erp-migration",
-      destination: "/case-studies/faster-month-end-closings-from-quickbooks-to-dynamics-365-erp-migration",
+      source:
+        "/case-study/faster-month-end-closings-from-quickbooks-to-dynamics-365-erp-migration",
+      destination:
+        "/case-studies/faster-month-end-closings-from-quickbooks-to-dynamics-365-erp-migration",
       permanent: true,
     },
     {
       source: "/case-study/d365-implementation-optical-equipment-manufacturer",
-      destination: "/case-studies/d365-implementation-optical-equipment-manufacturer",
+      destination:
+        "/case-studies/d365-implementation-optical-equipment-manufacturer",
       permanent: true,
     },
     {
-      source: "/case-study/reimagining-the-enterprise-for-purpose-and-performance",
-      destination: "/case-studies/reimagining-the-enterprise-for-purpose-and-performance",
+      source:
+        "/case-study/reimagining-the-enterprise-for-purpose-and-performance",
+      destination:
+        "/case-studies/reimagining-the-enterprise-for-purpose-and-performance",
       permanent: true,
     },
     {
       source: "/case-study/sage-to-dynamics-365-fo-migration-saudi-oil-gas",
-      destination: "/case-studies/sage-to-dynamics-365-fo-migration-saudi-oil-gas",
+      destination:
+        "/case-studies/sage-to-dynamics-365-fo-migration-saudi-oil-gas",
       permanent: true,
     },
     {
@@ -2750,7 +2774,8 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/au/playbook/supply-chain-optimization-solutions-for-intelligent-supply-chains",
+      source:
+        "/au/playbook/supply-chain-optimization-solutions-for-intelligent-supply-chains",
       destination: "/",
       permanent: true,
     },
@@ -2891,7 +2916,8 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/ae/case-studies/dynamics-365-inventory-optimization-case-study",
-      destination: "/case-studies/dynamics-365-inventory-optimization-case-study",
+      destination:
+        "/case-studies/dynamics-365-inventory-optimization-case-study",
       permanent: true,
     },
     {
@@ -2926,12 +2952,14 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/quick-service-restaurant",
-      destination: "/blog/how-analytics-and-digital-tecnologies-ensure-restaurant-growth",
+      destination:
+        "/blog/how-analytics-and-digital-tecnologies-ensure-restaurant-growth",
       permanent: true,
     },
     {
       source: "/quick-service-restaurants",
-      destination: "/blog/how-analytics-and-digital-tecnologies-ensure-restaurant-growth",
+      destination:
+        "/blog/how-analytics-and-digital-tecnologies-ensure-restaurant-growth",
       permanent: true,
     },
     {
@@ -2945,7 +2973,8 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/artificial-intelligence/robotic-process-automation-rpa-services",
+      source:
+        "/artificial-intelligence/robotic-process-automation-rpa-services",
       destination: "/blog/sap-robotic-process-automation-rpa",
       permanent: true,
     },
@@ -2956,17 +2985,21 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/dynamics-ax-upgrade",
-      destination: "https://dev01_korcomptenz.korcomptenz.com/microsoft-dynamics-365/upgrade-ax-to-dynamics-365/",
+      destination:
+        "https://dev01_korcomptenz.korcomptenz.com/microsoft-dynamics-365/upgrade-ax-to-dynamics-365/",
       permanent: true,
     },
     {
       source: "/upgrade-ax-to-d365",
-      destination: "https://dev01_korcomptenz.korcomptenz.com/microsoft-dynamics-365/upgrade-ax-to-dynamics-365/",
+      destination:
+        "https://dev01_korcomptenz.korcomptenz.com/microsoft-dynamics-365/upgrade-ax-to-dynamics-365/",
       permanent: true,
     },
     {
-      source: "/playbook/agentic-ai-solutions-for-banking-and-financial-services",
-      destination: "https://content.korcomptenz.com/story/transform-your-customer-experience-with-ai/page/1?draft=6b03102e-831e-4521-a6ac-61b869aef04e",
+      source:
+        "/playbook/agentic-ai-solutions-for-banking-and-financial-services",
+      destination:
+        "https://content.korcomptenz.com/story/transform-your-customer-experience-with-ai/page/1?draft=6b03102e-831e-4521-a6ac-61b869aef04e",
       permanent: true,
     },
     {
@@ -2981,17 +3014,21 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/au/case-study-old/retail-digital-transformation-case-study",
-      destination: "/case-studies/retail-crm-erp-unification-dynamics-365-case-study",
+      destination:
+        "/case-studies/retail-crm-erp-unification-dynamics-365-case-study",
       permanent: true,
     },
     {
-      source: "/ca/case-study-old/rapid-erp-implementation-for-grill-manufacturer",
-      destination: "/case-studies/erp-turnaround-manufacturing-dynamics365-case-study",
+      source:
+        "/ca/case-study-old/rapid-erp-implementation-for-grill-manufacturer",
+      destination:
+        "/case-studies/erp-turnaround-manufacturing-dynamics365-case-study",
       permanent: true,
     },
     {
       source: "/case-study-old/boosting-efficiency-savings-scalability",
-      destination: "/case-studies/azure-cost-optimization-engineering-case-study",
+      destination:
+        "/case-studies/azure-cost-optimization-engineering-case-study",
       permanent: true,
     },
     {
@@ -3000,18 +3037,21 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/en_CA/case-study/rigorous-testing-optical-manufacturer-quality-assurance",
+      source:
+        "/en_CA/case-study/rigorous-testing-optical-manufacturer-quality-assurance",
       destination: "/case-studies",
       permanent: true,
     },
     {
       source: "/ca/case-studies/edi-transformation-for-manufacturer-case-study",
-      destination: "/case-studies/edi-transformation-for-manufacturer-case-study",
+      destination:
+        "/case-studies/edi-transformation-for-manufacturer-case-study",
       permanent: true,
     },
     {
       source: "/case-studies/ai-cloud-migration",
-      destination: "/case-studies/erp-cloud-migration-waste-management-case-study",
+      destination:
+        "/case-studies/erp-cloud-migration-waste-management-case-study",
       permanent: true,
     },
     {
@@ -3055,7 +3095,8 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/case-study-old/leading-phonotics-manufacturer-acheived-seamless-reporting-with-ms-fabric",
+      source:
+        "/case-study-old/leading-phonotics-manufacturer-acheived-seamless-reporting-with-ms-fabric",
       destination: "/case-studies/ai-analytics-reporting-photonics-case-study",
       permanent: true,
     },
@@ -3120,7 +3161,8 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/ae/microsoft-dynamics-365/microsoft-dynamics-365-erp-advisory-and-consulting/feed",
+      source:
+        "/ae/microsoft-dynamics-365/microsoft-dynamics-365-erp-advisory-and-consulting/feed",
       destination: "/erp/erp-advisory-and-consulting-services",
       permanent: true,
     },
@@ -3180,7 +3222,8 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/banking-and-financial-services/digital-banking-financial-services",
+      source:
+        "/banking-and-financial-services/digital-banking-financial-services",
       destination: "https://campaigns.korcomptenz.com/digital-banking-suite",
       permanent: true,
     },
@@ -3236,7 +3279,8 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/ai-driven-insights-transform-business",
-      destination: "/artificial-intelligence/ai-readiness-assessments-strategies",
+      destination:
+        "/artificial-intelligence/ai-readiness-assessments-strategies",
       permanent: true,
     },
     {
@@ -3291,42 +3335,54 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/advanced-warehouse-management",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-advanced-warehouse-management",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-advanced-warehouse-management",
       permanent: true,
     },
     {
-      source: "/en/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
+      source:
+        "/en/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
       permanent: true,
     },
     {
-      source: "/erp/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
+      source:
+        "/erp/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
       permanent: true,
     },
     {
-      source: "/en/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
+      source:
+        "/en/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
       permanent: true,
     },
     {
-      source: "/quality-control-for-dynamics-365-business-central-trk=products_details_guest_primary_call_to_action",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central-quality-control",
+      source:
+        "/quality-control-for-dynamics-365-business-central-trk=products_details_guest_primary_call_to_action",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-business-central-quality-control",
       permanent: true,
     },
     {
       source: "/microsoft-dynamics-365-customer-engagement-ce-crm",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-customer-engagement",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-customer-engagement",
       permanent: true,
     },
     {
       source: "/microsoft-dynamics-365-customer-service",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-customer-service",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-customer-service",
       permanent: true,
     },
     {
       source: "/microsoft-dynamics-365-finance-and-operations",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-operations",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-operations",
       permanent: true,
     },
     {
@@ -3370,12 +3426,15 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/au/newsroom/korcomptenz-iso-9001-certification-quality-excellence",
-      destination: "/newsroom/korcomptenz-iso-9001-certification-quality-excellence",
+      source:
+        "/au/newsroom/korcomptenz-iso-9001-certification-quality-excellence",
+      destination:
+        "/newsroom/korcomptenz-iso-9001-certification-quality-excellence",
       permanent: true,
     },
     {
-      source: "/au/newsroom/korcomptenz-named-contender-in-isg-provider-lens-for-ai-services-and-data-fabric-2025-report",
+      source:
+        "/au/newsroom/korcomptenz-named-contender-in-isg-provider-lens-for-ai-services-and-data-fabric-2025-report",
       destination: "/newsroom/korcomptenz-iso-iec-27001-certification-security",
       permanent: true,
     },
@@ -3395,8 +3454,10 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/awards-and-recognitions/korcomptenz-named-contender-in-isg-provider-lens-for-ai-services-and-data-fabric-2025-report",
-      destination: "/newsroom/korcomptenz-named-contender-in-isg-provider-lens-for-ai-services-and-data-fabric-2025-report",
+      source:
+        "/awards-and-recognitions/korcomptenz-named-contender-in-isg-provider-lens-for-ai-services-and-data-fabric-2025-report",
+      destination:
+        "/newsroom/korcomptenz-named-contender-in-isg-provider-lens-for-ai-services-and-data-fabric-2025-report",
       permanent: true,
     },
     {
@@ -3485,22 +3546,28 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/prevailing-through-disruption-with-rapid-adoption-of-technologies",
-      destination: "/webinar/prevailing-through-disruption-with-rapid-adoption-of-technologies",
+      source:
+        "/prevailing-through-disruption-with-rapid-adoption-of-technologies",
+      destination:
+        "/webinar/prevailing-through-disruption-with-rapid-adoption-of-technologies",
       permanent: true,
     },
     {
-      source: "/web-stories/5-reasons-to-move-to-the-public-cloud-with-grow-with-sap",
-      destination: "/webstories/5-reasons-to-move-to-the-public-cloud-with-grow-with-sap",
+      source:
+        "/web-stories/5-reasons-to-move-to-the-public-cloud-with-grow-with-sap",
+      destination:
+        "/webstories/5-reasons-to-move-to-the-public-cloud-with-grow-with-sap",
       permanent: true,
     },
     {
-      source: "/web-stories/why-sap-erp-is-key-to-growing-your-business-smarter",
+      source:
+        "/web-stories/why-sap-erp-is-key-to-growing-your-business-smarter",
       destination: "/webstories/eight-ways-sap-erp-benefits-your-busines",
       permanent: true,
     },
     {
-      source: "/au/whitepaper/driving-innovation-how-ai-and-next-generation-technologies-can-transform-your-business",
+      source:
+        "/au/whitepaper/driving-innovation-how-ai-and-next-generation-technologies-can-transform-your-business",
       destination: "/whitepaper/AI-Next-Gen-Tech-Transform-Business.pdf",
       permanent: true,
     },
@@ -3520,26 +3587,32 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/ae/whitepaper/why-microsoft-dynamics-365-finance-and-operation-is-the-smarter-choice-over-sap-s4hana-for-sap-ecc-migrations",
-      destination: "/whitepaper/Why-Microsoft-Dynamics-365-Finance-and-Operation-is-the-Smarter-Choice-Over-SAP-S4HANA-for-SAP-ECC-Migrations.pdf",
+      source:
+        "/ae/whitepaper/why-microsoft-dynamics-365-finance-and-operation-is-the-smarter-choice-over-sap-s4hana-for-sap-ecc-migrations",
+      destination:
+        "/whitepaper/Why-Microsoft-Dynamics-365-Finance-and-Operation-is-the-Smarter-Choice-Over-SAP-S4HANA-for-SAP-ECC-Migrations.pdf",
       permanent: true,
     },
 
     {
-      source: "/blog/crm-in-banking-urgent-impertive-for-financial-institutions",
+      source:
+        "/blog/crm-in-banking-urgent-impertive-for-financial-institutions",
       destination: "/blog/crm-in-banking-industry-ai-powered-growth",
       permanent: true,
     },
 
     {
-      source: "/wp-content/uploads/2025/04/ISG-Provider-Lens-Quadrant-Report.pdf",
+      source:
+        "/wp-content/uploads/2025/04/ISG-Provider-Lens-Quadrant-Report.pdf",
       destination: "/asset/report/ISG-Provider-Lens-Quadrant-Report.pdf",
       permanent: true,
     },
 
     {
-      source: "/assets/case-study/Transforming-CRM-Salesforce-Implementation-Financial-Organization.pdf",
-      destination: "/case-studies-asset/Transforming-CRM-Salesforce-Implementation-Financial-Organization.pdf",
+      source:
+        "/assets/case-study/Transforming-CRM-Salesforce-Implementation-Financial-Organization.pdf",
+      destination:
+        "/case-studies-asset/Transforming-CRM-Salesforce-Implementation-Financial-Organization.pdf",
       permanent: true,
     },
 
@@ -3604,8 +3677,10 @@ const nextConfig: NextConfig = {
     },
 
     {
-      source: "/assets/brochure/Korcomptenz-Solutions-for-Fashion-and-Textile.pdf",
-      destination: "/brochure/Korcomptenz-Solutions-for-Fashion-and-Textile.pdf",
+      source:
+        "/assets/brochure/Korcomptenz-Solutions-for-Fashion-and-Textile.pdf",
+      destination:
+        "/brochure/Korcomptenz-Solutions-for-Fashion-and-Textile.pdf",
       permanent: true,
     },
 
@@ -3628,8 +3703,10 @@ const nextConfig: NextConfig = {
     },
 
     {
-      source: "/assets/brochure/ISG-Provider-Lens-Microsoft-AI-and-Cloud-Ecosystem.pdf",
-      destination: "/brochure/ISG-Provider-Lens-Microsoft-AI-and-Cloud-Ecosystem.pdf",
+      source:
+        "/assets/brochure/ISG-Provider-Lens-Microsoft-AI-and-Cloud-Ecosystem.pdf",
+      destination:
+        "/brochure/ISG-Provider-Lens-Microsoft-AI-and-Cloud-Ecosystem.pdf",
       permanent: true,
     },
 
@@ -3640,13 +3717,15 @@ const nextConfig: NextConfig = {
     },
 
     {
-      source: "/assets/brochure/ESG-Reporting-Solution-with-Microsoft-Fabric.pdf",
+      source:
+        "/assets/brochure/ESG-Reporting-Solution-with-Microsoft-Fabric.pdf",
       destination: "/brochure/ESG-Reporting-Solution-with-Microsoft-Fabric.pdf",
       permanent: true,
     },
 
     {
-      source: "/assets/brochure/Personalize-Banking-Experiences-Dynamics-365.pdf",
+      source:
+        "/assets/brochure/Personalize-Banking-Experiences-Dynamics-365.pdf",
       destination: "/brochure/Personalize-Banking-Experiences-Dynamics-365.pdf",
       permanent: true,
     },
@@ -3724,14 +3803,17 @@ const nextConfig: NextConfig = {
     },
 
     {
-      source: "/whitepaper/KOR-SmartForge-Microsoft-Fabric-AI-and-Cloud-for-Manufacturing.pdf",
-      destination: "/whitepaper/Altiaris-Microsoft-Fabric-AI-and-Cloud-for-Manufacturing.pdf",
+      source:
+        "/whitepaper/KOR-SmartForge-Microsoft-Fabric-AI-and-Cloud-for-Manufacturing.pdf",
+      destination:
+        "/whitepaper/Altiaris-Microsoft-Fabric-AI-and-Cloud-for-Manufacturing.pdf",
       permanent: true,
     },
 
     {
       source: "/microsoft-dynamics-365/microsoft-dynamics-365-managed-services",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-support-services",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-support-services",
       permanent: true,
     },
     {
@@ -3847,17 +3929,21 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/img/image-masking/svg-shapes",
+      source:
+        "/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/img/image-masking/svg-shapes",
       destination: "/",
       permanent: true,
     },
     {
-      source: "/wp-content/uploads/2022/01/Education-client-boost-sales-and-marketing-with-MSD365.pdf",
-      destination: "/case-studies-asset/Education-client-boost-sales-and-marketing-with-MSD365.pdf",
+      source:
+        "/wp-content/uploads/2022/01/Education-client-boost-sales-and-marketing-with-MSD365.pdf",
+      destination:
+        "/case-studies-asset/Education-client-boost-sales-and-marketing-with-MSD365.pdf",
       permanent: true,
     },
     {
-      source: "/wp-content/uploads/2024/06/EDI-Partner-Integration-Success-Case-Study.pdf",
+      source:
+        "/wp-content/uploads/2024/06/EDI-Partner-Integration-Success-Case-Study.pdf",
       destination: "/",
       permanent: true,
     },
@@ -3869,17 +3955,21 @@ const nextConfig: NextConfig = {
 
     {
       source: "/dynamics-365-business-central",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-business-central",
       permanent: true,
     },
     {
-      source: "/microsoft-dynamics-365/migrate-microsoft-dynamics-gp-to-dynamics-365-business-central",
-      destination: "/microsoft-dynamics-365/migrate-microsoft-dynamics-gp-to-dynamics-365-finance-supply-chain-management",
+      source:
+        "/microsoft-dynamics-365/migrate-microsoft-dynamics-gp-to-dynamics-365-business-central",
+      destination:
+        "/microsoft-dynamics-365/migrate-microsoft-dynamics-gp-to-dynamics-365-finance-supply-chain-management",
       permanent: true,
     },
     {
       source: "/microsoft-dynamics-crm-implementation-partners",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-implementation",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-implementation",
       permanent: true,
     },
     {
@@ -3888,8 +3978,10 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-operations",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-supply-chain-management",
+      source:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-operations",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-finance-and-supply-chain-management",
       permanent: true,
     },
     {
@@ -3914,7 +4006,8 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/Product-Configurator.pdf",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-business-central-product-configurator",
       permanent: true,
     },
     {
@@ -3957,7 +4050,12 @@ const nextConfig: NextConfig = {
       ],
       destination: "https://www.korcomptenz.com/:path*",
       permanent: true,
-    }
+    },
+    {
+      source: "/sap/sap-s4hana-implemenation-services",
+      destination: "/sap/sap-s4hana-implementation-services",
+      permanent: true,
+    },
   ],
 };
 
