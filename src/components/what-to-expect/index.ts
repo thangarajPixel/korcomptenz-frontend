@@ -1,3 +1,3 @@
-import WhyKorcomptenz from "./why-korcomptenz";
+import WhattoExpect from "./what-to-expect";
 
-export default WhyKorcomptenz;
+export default WhattoExpect;
