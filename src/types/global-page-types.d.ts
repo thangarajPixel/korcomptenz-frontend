@@ -497,31 +497,7 @@ type TechPartnerSectionType = {
     isTargetBlank: boolean;
   }[];
 };
-type ScheduleCallType = {
-  title: string;
-  buttonText: string;
-  link: string;
-  image: string;
-  description: string;
-  topDescription: string;
-};
 
-type WhyKorcomptenzType = {
-  title: string;
-  description: string;
-  colSpan: string;
-  isBackground: boolean;
-  topDescription: string;
-  topTitle: string;
-  backgroundImage: ImageType;
-  isPerRowFive: boolean;
-  subtitle: string;
-  isBgGray: boolean;
-  backgroundColor: string;
-  noOfColumn: string;
-  isBgGrey: boolean;
-  list: IndustryItem[];
-};
 type SocialPlatformType = {
   id: string;
   label: string;
@@ -553,6 +529,11 @@ type CompanyType = {
     icon: string;
   }[];
   companyDarkLogo: ImageType;
+};
+
+type InterlinkType = {
+  urlname: string;
+  urllink: string;
 };
 
 type StretchableSectionType = {
@@ -607,6 +588,18 @@ type CaseStudyFormType = {
   buttonText: string;
   downloadContent: string;
 };
+type RPAFormType = {
+  __component: "form-fields.case-study-form";
+  id: string;
+  title: string;
+  nameLabel: string;
+  organizationLabel: string;
+  emailLabel: string;
+  phoneLabel: string;
+  messageLabel: string;
+  buttonText: string;
+  downloadContent: string;
+};
 type FreeConsultationFormType = {
   __component: "form-fields.free-consultation-form";
   id: string;
@@ -641,6 +634,7 @@ type BookDemoFormType = {
   emailLabel: string;
   buttonText: string;
 };
+
 type OfficeCardProps = {
   title: string;
   list: OfficeLocation[];
@@ -784,6 +778,7 @@ type FormMap = {
   DemoRequestFormType: DemoRequestFormType;
   WebinarReserveFormType: WebinarReserveFormType;
   IndustryFormType: IndustryFormType;
+  RPAPageFormType: RPAPageFormType;
 };
 type DigitialInsightType = {
   title: string;
@@ -1148,6 +1143,14 @@ type FabconAiPoweredType = {
   title2: string;
   title3: string;
   list: AiCardType[];
+  pageSlug: {
+    id: string;
+    documentId: string;
+    isTemporary: boolean;
+  };
+  form: {
+    forms: RPAPageFormType[];
+  };
 };
 
 type FabconAnalyticsType = {
@@ -1542,7 +1545,7 @@ type CloudFormType = {
   companyLabel: string;
   buttonText: string;
 };
-type RichTextBlock = {
+type RichTextBlocks = {
   type: string;
   children: {
     text: string;
@@ -1553,7 +1556,7 @@ type RichTextBlock = {
 type StepGridSectionType = {
   highlighttext?: string;
   title: string;
-  description?: RichTextBlock[];
+  description?: RichTextBlocks[];
 
   gridlist: {
     number: number;
@@ -1562,10 +1565,10 @@ type StepGridSectionType = {
     griddetails: {
       image: ImageType;
       gridtitle: string;
-      griddescription: RichTextBlock[];
+      griddescription: RichTextBlocks[];
 
       checklistitems: {
-        description: RichTextBlock[];
+        description: RichTextBlocks[];
       }[];
 
       buttonText?: string;
@@ -1696,6 +1699,11 @@ type ComponentPropsMap = {
   TechpartnerSection: TechPartnerSectionType & {
     id: string;
     __component: "page-componets.tech-data";
+  };
+
+  OurOfferingsSection: OurOfferingsType & {
+    id: string;
+    __component: "page-componets.our-offerings-section";
   };
   ScheduleCall: ScheduleCallType & {
     id: string;
@@ -2010,6 +2018,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.microsoft-gold-certified";
   };
+
   IndustryBannerCard: BannerSectionType & {
     id: string;
     __component: "page-componets.banking-financial-banner";
@@ -2051,6 +2060,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-technology";
   };
+
   CloudOnePlatform: FabconAboutType & {
     id: string;
     __component: "page-componets.cloud-one-platform";
@@ -2080,6 +2090,42 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-banner";
   };
+
+  /* Kordev */
+  KeyMetricsSection: KeyMetricsSectionType & {
+    id: string;
+    __component: "page-componets.key-metrics-section";
+  };
+  SapWhyKorcomptenz: SapWhyKorcomptenzType & {
+    id: string;
+    __component: "page-componets.sap-why-korcomptenz";
+  };
+  PageGridView: PageGridViewType & {
+    id: string;
+    __component: "page-componets.page-grid-view";
+  };
+  SAPPracticeAreas: SAPPracticeAreasType & {
+    id: string;
+    __component: "page-componets.sap-practice-areas";
+  };
+  WhattoExpect: WhattoExpectType & {
+    id: string;
+    __component: "page-componets.what-to-expect";
+  };
+  ClientTestimonial: TestimonialItem & {
+    id: string;
+    __component: "page-componets.client-testimonial";
+  };
+
+  CertificationsSection: CertificationsSection & {
+    id: string;
+    __component: "page-componets.certifications-section";
+  };
+  RequestConsultation: RequestConsultation & {
+    id: string;
+    __component: "page-componets.request-consultation";
+  };
+
   StepGridSection: StepGridSectionType & {
     id: string;
     __component: "page-componets.step-grid-section";
@@ -2223,3 +2269,170 @@ type GlobalSearchResponse = {
     tabs: GlobalSearchTab[];
   };
 };
+
+/* kordev Team */
+
+type KeyMetricsSectionType = {
+  id: string;
+  title: string;
+
+  backgroundImage: ImageType;
+  listLeft: {
+    title: string;
+    description: string;
+  }[];
+};
+
+type SAPPracticeAreasType = {
+  title: string;
+  subtext: string;
+  buttontext: string;
+  buttonLink: string;
+  gridlisting: SAPPracticeAreasMobileCarouselType[];
+};
+type WhattoExpectType = {
+  title: string;
+  subtext: string;
+  description: string;
+  buttontext: string;
+  buttonLink: string;
+  gridlisting: WhattoExpectTypeGrid[];
+};
+
+type TestimonialItem = {
+  id: number;
+  title?: string;
+  subtext: string;
+  testimonials: {
+    id: number;
+    title: string;
+    clientname: string;
+    designation: string;
+    content: string;
+    star: number;
+  }[];
+};
+
+type CertificationsSection = {
+  id: number;
+  title: string;
+  subtext: string;
+  description: string;
+  backgroundimage: ImageType;
+  partnerlogos: {
+    id: number;
+    logoimage: ImageType;
+  }[];
+};
+type RequestConsultation = {
+  id: number;
+  title: string;
+  subtext: string;
+  description: string;
+  form: GlobalFormType;
+  item: GlobalFormItemType;
+};
+
+type WhattoExpectTypeGrid = {
+  buttontext: string;
+  description: string;
+  id: string | number;
+  buttonurl: string;
+  title: string;
+};
+type SapWhyKorcomptenzType = {
+  subtext: string;
+  title: string;
+  image: ImageType;
+  description: string; // ✅ IMPORTANT (richtext = string)
+  listbox: {
+    id: number;
+    title: string;
+    description: string;
+    icon?: ImageType;
+  }[];
+};
+type SAPPracticeAreasMobileCarouselType = {
+  buttontext: string;
+  description: string;
+  id: string | number;
+  image: ImageType;
+  buttonurl: string;
+  title: string;
+};
+
+type ColumnTitleType = {
+  divtitle: string;
+  interlinks: InterlinkType[];
+};
+
+type OurOfferingsType = {
+  subtitle: string;
+  title: string;
+  columntitle: ColumnTitleType[];
+};
+
+type RichTextChild = {
+  text: string;
+};
+
+type RichTextBlock = {
+  type: "paragraph"; // you can expand later
+  children: RichTextChild[];
+};
+
+type PageGridViewType = {
+  Title: string;
+  description: RichTextBlock[];
+  tag: string;
+  gridlist: {
+    id: number;
+    listtitle: string;
+    listdescription: RichTextBlock[];
+    buttontext: string;
+    buttonurl: string;
+  }[];
+};
+
+type ScheduleCallType = {
+  title: string;
+  buttonText: string;
+  link: string;
+  image: string;
+  description: string;
+  topDescription: string;
+};
+
+type WhyKorcomptenzType = {
+  title: string;
+  description: string;
+  colSpan: string;
+  isBackground: boolean;
+  topDescription: string;
+  topTitle: string;
+  backgroundImage: ImageType;
+  isPerRowFive: boolean;
+  subtitle: string;
+  isBgGray: boolean;
+  backgroundColor: string;
+  noOfColumn: string;
+  isBgGrey: boolean;
+  list: IndustryItem[];
+};
+
+type DemandHowKORSectionType = {
+  title: string;
+  howkorlist: {
+    id: number;
+    pointnumber: string;
+    title: string;
+    Description: string;
+  }[];
+};
+/* kordev Team */
+
+// type GlobalSearchItem = {
+//   id: number;
+//   title: string;
+//   description: string | null;
+// };

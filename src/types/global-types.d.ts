@@ -830,8 +830,39 @@ type AiCardType = {
   title: string;
   description: string;
   buttonText: string;
-  buttonLink: string;
-  isTarget: boolean;
+  buttonLink?: string;
+  isTarget?: boolean;
+  isForm?: boolean;
+  emailSubject?: string;
+  emailBody?: string;
+  formTitle?: string;
+  formDescription?: string;
+  downloadContent?: string;
+  form?: {
+    forms: RPAPageFormType[];
+  };
+};
+type RPAPageFormType = {
+  title?: string;
+  fullNameLabel?: string;
+  businessEmailLabel?: string;
+  phoneNumberLabel?: string;
+  organizationLabel?: string;
+  messageLabel?: string;
+  buttonLabel?: string;
+  downloadContent?: string;
+  pageSlug: string;
+};
+
+type RPAPopupProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  essential: RPAPageFormType;
+  formTitle?: string;
+  formDescription?: string;
+  emailSubject?: string;
+  emailBody?: string;
+  downloadContent?: string;
 };
 
 type ErrorType = {

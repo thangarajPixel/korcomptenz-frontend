@@ -15,6 +15,7 @@ import type {
   SapFormSchema,
   SubscriptionFormSchema,
   WebinarReserveFormSchema,
+  RPAPageFormData,
 } from "@/utils/validation.schema";
 
 const HOME = "/home";
@@ -63,6 +64,7 @@ export const CLOUD_INFRASTRUCTURE_LIST = "/cloud-infrastructures";
 export const CLOUD_MIGRATION_LIST = "/cloud-migration-urgencies";
 export const CLOUD_LEAD = "/cloud-leads";
 export const SAP_LEAD = "/sap-leads";
+export const RPA_Form = "/rpa-from";
 
 /*************  ✨ Windsurf Command ⭐  *************/
 /**
@@ -257,6 +259,15 @@ export const bookADemo = async (formData: BookADemoFormData) => {
   const { data } = await http.post(BOOK_DEMO, { data: formData });
   return data;
 };
+
+export const RPAPageForm = async (formData: RPAPageFormData) => {
+  const { data } = await http.post(RPA_Form, {
+    data: formData,
+  });
+
+  return data;
+};
+
 export const createContactUsLead = async (formData: ContactUsFormSchema) => {
   const { data } = await http.post(CONTACT_US_LEAD, { data: formData });
   return data;

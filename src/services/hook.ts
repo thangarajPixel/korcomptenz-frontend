@@ -99,6 +99,13 @@ export const useBookADemoHook = () => {
   });
 };
 
+export const useRPAPageFormHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.RPA_Form],
+    mutationFn: PAGE.RPAPageForm,
+  });
+};
+
 export const useCaseStudyEssentialHook = () => {
   return useQuery({
     queryKey: [PAGE.CASE_STUDY_ESSENTIAL_LIST],

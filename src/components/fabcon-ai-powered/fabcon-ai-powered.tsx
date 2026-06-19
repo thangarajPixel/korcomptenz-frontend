@@ -10,11 +10,13 @@ const FabconAiPowered = ({ data }: { data: FabconAiPoweredType }) => {
       {/* Title */}
       <div className="flex justify-center text-center flex-wrap gap-2 mb-4 md:mb-10">
         {data?.title1 && <h2 className="font-semibold">{data?.title1}</h2>}
+
         {data?.title2 && (
           <h2 className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text text-transparent font-semibold">
             {data?.title2}
           </h2>
         )}
+
         {data?.title3 && <h2 className="font-semibold">{data?.title3}</h2>}
       </div>
 
