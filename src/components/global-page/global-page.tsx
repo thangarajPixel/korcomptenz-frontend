@@ -1212,7 +1212,7 @@ const GlobalPage = (props: Props) => {
           </ScrollFadeIn>
         );
 
-        case "page-componets.cloud-readiness-report":
+      case "page-componets.cloud-readiness-report":
         return (
           <ScrollFadeIn
             __component={item?.__component}
