@@ -1515,7 +1515,8 @@ type CloudReadinessType = {
   buttonText: string;
   buttonLink: string;
   isTarget: boolean;
-  __component: "form-fields.free-consultation-form";
+  form?: FreeConsultationFormType; // ✅ add this
+  __component: "page-componets.cloud-readiness-report";
 };
 
 type CloudReadinessProps = {
