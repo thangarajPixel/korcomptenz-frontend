@@ -1212,13 +1212,13 @@ const GlobalPage = (props: Props) => {
           </ScrollFadeIn>
         );
 
-      case "page-componets.cloud-readiness-report":
+        case "page-componets.cloud-readiness-report":
         return (
           <ScrollFadeIn
             __component={item?.__component}
             key={`cloud-readiness-report-cloud-form-${item?.__component}-${item?.id}`}
           >
-            <CloudReadiness data={item} />
+            <CloudReadiness data={item} form={item.form} />
           </ScrollFadeIn>
         );
 
