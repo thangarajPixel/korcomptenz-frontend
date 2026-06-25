@@ -59,9 +59,7 @@ const NewsEventListSectionItem = ({
       </div>
 
       {item?.title && (
-        <h3 className="text-xl font-semibold text-gray-900 ">
-          {item?.title} fsdfs {date}
-        </h3>
+        <h3 className="text-xl font-semibold text-gray-900 ">{item?.title}</h3>
       )}
       <p className="text-sm text-gray-500 mb-2">
         {dayjs(date).format("MMM D, YYYY")}
@@ -69,8 +67,9 @@ const NewsEventListSectionItem = ({
       <p className="text-gray-600 text-sm mb-2 leading-relaxed">
         {item?.description}
       </p>
+
       <Link
-        href={item?.externalLink || "#"}
+        href={item?.externalLink || item?.slug}
         className="text-primary font-semibold text-sm hover:text-primary transition-colors"
       >
         {item?.buttonText}
