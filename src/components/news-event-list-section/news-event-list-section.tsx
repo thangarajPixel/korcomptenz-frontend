@@ -69,12 +69,15 @@ const NewsEventListSectionItem = ({
       <p className="text-gray-600 text-sm mb-2 leading-relaxed">
         {item?.description}
       </p>
-      <Link
-        href={item?.externalLink || "#"}
-        className="text-primary font-semibold text-sm hover:text-primary transition-colors"
-      >
-        {item?.buttonText}
-      </Link>
+
+      {(item?.externalLink || item?.slug) && (
+        <Link
+          href={item?.externalLink || item?.slug}
+          className="text-primary font-semibold text-sm hover:text-primary transition-colors"
+        >
+          {item?.buttonText}
+        </Link>
+      )}
     </div>
   );
 };
