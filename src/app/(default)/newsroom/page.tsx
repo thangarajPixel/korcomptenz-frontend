@@ -26,7 +26,7 @@ const Page = async () => {
       date: item?.publishedAt || "",
       createdAt: item?.publishedAt || "",
       externalLink: "/events/" + item?.slug,
-      Date: item?.publishedAt || "",
+      Date: item?.Date || "",
     })),
   });
 

@@ -333,7 +333,9 @@ type EventListType = {
   slug: string;
   publishedAt: string;
   date: string;
+  Date: string;
   buttonLink: string;
+  externalLink: string;
 };
 type NewsroomListType = {
   id: string;
@@ -342,6 +344,8 @@ type NewsroomListType = {
   image: ImageType;
   buttonText: string;
   slug: string;
+  Date: string;
+  externalLink: string;
   publishedAt: string;
 };
 // ✅ Banner section
