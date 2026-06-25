@@ -11,11 +11,16 @@ export default function DemoExperts({ data }: { data: ExpertsSectionType }) {
       )}
 
       <div
-        className={`grid gap-12 justify-items-center ${
-          data?.list?.length === 1
-            ? "grid-cols-1 justify-center mx-auto max-w-3xl"
-            : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-        }`}
+        className={`grid gap-12 justify-items-center 
+          ${
+            data?.list?.length === 1
+              ? "grid-cols-1 max-w-3xl mx-auto"
+              : data?.list?.length === 2
+                ? "grid-cols-1 sm:grid-cols-2"
+                : data?.list?.length === 3
+                  ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                  : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+          }`}
       >
         {data?.list?.map((partner, index) => (
           <div
