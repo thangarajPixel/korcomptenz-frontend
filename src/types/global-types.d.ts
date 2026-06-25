@@ -344,6 +344,7 @@ type NewsroomListType = {
   slug: string;
   publishedAt: string;
 };
+/* news-letter Changes */
 // ✅ Banner section
 type ClientSuccessBannerSectionType = {
   id: string;

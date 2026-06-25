@@ -871,6 +871,7 @@ type DemoListType = {
   id: string;
   list: DemoList[];
 };
+/* news-letter Changes */
 type NewsEventListSectionType = {
   externalLink: string | null;
   buttonLink: string | null;
