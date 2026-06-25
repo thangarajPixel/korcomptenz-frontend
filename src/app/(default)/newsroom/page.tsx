@@ -25,6 +25,8 @@ const Page = async () => {
       buttonLink: "/newsroom/" + item?.slug,
       date: item?.publishedAt || "",
       createdAt: item?.publishedAt || "",
+      externalLink: "/events/" + item?.slug,
+      Date: item?.publishedAt || "",
     })),
   });
 
