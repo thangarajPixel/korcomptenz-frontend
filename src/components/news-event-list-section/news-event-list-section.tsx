@@ -6,24 +6,32 @@ import Link from "next/link";
 import KorcomptenzImage from "../korcomptenz-image";
 
 export const groupByYear = (data: NewsEventListSectionType[]) => {
+  const sortedData = [...data].sort(
+    (a, b) => dayjs(b?.Date).valueOf() - dayjs(a?.Date).valueOf(),
+  );
+
   const groups: Record<
     string,
     { date: string; item: NewsEventListSectionType[] }
   > = {};
 
-  data.forEach((item) => {
-    const date = item?.date || item?.createdAt.split("T")[0];
+  sortedData.forEach((item) => {
+    const date = item?.Date;
+
+    if (!date) return; // ✅ safety check
+
     const year = dayjs(date).format("YYYY");
+
     if (!groups[year]) {
       groups[year] = {
         date: date,
         item: [],
       };
     }
+
     groups[year].item.push(item);
   });
 
-  // Convert object → array for UI mapping
   return Object.entries(groups).map(([year, value]) => ({
     id: year,
     date: value.date,
@@ -36,7 +44,7 @@ const NewsEventListSectionItem = ({
 }: {
   data: NewsEventListSectionType;
 }) => {
-  const date = item?.date || item?.createdAt.split("T")[0];
+  const date = item?.Date;
 
   return (
     <div key={`section-item-${item.id}`} className="bg-white ">
@@ -51,7 +59,9 @@ const NewsEventListSectionItem = ({
       </div>
 
       {item?.title && (
-        <h3 className="text-xl font-semibold text-gray-900 ">{item?.title}</h3>
+        <h3 className="text-xl font-semibold text-gray-900 ">
+          {item?.title} fsdfs {date}
+        </h3>
       )}
       <p className="text-sm text-gray-500 mb-2">
         {dayjs(date).format("MMM D, YYYY")}
@@ -60,7 +70,7 @@ const NewsEventListSectionItem = ({
         {item?.description}
       </p>
       <Link
-        href={item?.buttonLink || "#"}
+        href={item?.externalLink || "#"}
         className="text-primary font-semibold text-sm hover:text-primary transition-colors"
       >
         {item?.buttonText}

@@ -867,9 +867,9 @@ type DemoListType = {
   list: DemoList[];
 };
 type NewsEventListSectionType = {
-  buttonLink: string | null;
+  externalLink: string | null;
   buttonText: string;
-  date: string;
+  Date: string;
   description: string;
   id: string;
   title: string;
