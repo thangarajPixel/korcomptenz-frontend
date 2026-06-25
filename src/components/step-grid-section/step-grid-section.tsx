@@ -5,20 +5,18 @@ type RichTextChild = {
   text: string;
 };
 
-type RichTextBlock = {
+type RichTextBlocks = {
   type: string;
   children?: RichTextChild[];
 };
 
-const renderRichText = (content: RichTextBlock[] | undefined) => {
+const renderRichText = (content: RichTextBlocks[] | undefined) => {
   if (!Array.isArray(content)) return null;
 
   return content.map((block, index) => {
     if (block.type === "paragraph") {
       return (
-        <p key={index}>
-          {block.children?.map((child) => child.text).join("")}
-        </p>
+        <p key={index}>{block.children?.map((child) => child.text).join("")}</p>
       );
     }
 
@@ -37,11 +35,7 @@ const StepGridSection = ({ data }: { data: StepGridSectionType }) => {
             </p>
           )}
 
-          {data?.title && (
-            <h2 className="font-bold">
-              {data.title}
-            </h2>
-          )}
+          {data?.title && <h2 className="font-bold">{data.title}</h2>}
 
           <div className="text-lg text-slate-600">
             {renderRichText(data.description)}

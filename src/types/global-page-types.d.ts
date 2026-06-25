@@ -538,6 +538,11 @@ type CompanyType = {
   companyDarkLogo: ImageType;
 };
 
+type InterlinkType = {
+  urlname: string;
+  urllink: string;
+};
+
 type StretchableSectionType = {
   title: string;
   description: string;
@@ -1545,7 +1550,7 @@ type RichTextBlock = {
 type StepGridSectionType = {
   highlighttext?: string;
   title: string;
-  description?: RichTextBlock[];
+  description?: RichTextBlocks[];
 
   gridlist: {
     number: number;
@@ -1554,10 +1559,10 @@ type StepGridSectionType = {
     griddetails: {
       image: ImageType;
       gridtitle: string;
-      griddescription: RichTextBlock[];
+      griddescription: RichTextBlocks[];
 
       checklistitems: {
-        description: RichTextBlock[];
+        description: RichTextBlocks[];
       }[];
 
       buttonText?: string;
@@ -1806,6 +1811,11 @@ type ComponentPropsMap = {
   TechpartnerSection: TechPartnerSectionType & {
     id: string;
     __component: "page-componets.tech-data";
+  };
+
+  OurOfferingsSection: OurOfferingsType & {
+    id: string;
+    __component: "page-componets.our-offerings-section";
   };
   ScheduleCall: ScheduleCallType & {
     id: string;
@@ -2120,6 +2130,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.microsoft-gold-certified";
   };
+
   IndustryBannerCard: BannerSectionType & {
     id: string;
     __component: "page-componets.banking-financial-banner";
@@ -2161,6 +2172,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-technology";
   };
+
   CloudOnePlatform: FabconAboutType & {
     id: string;
     __component: "page-componets.cloud-one-platform";
@@ -2369,3 +2381,33 @@ type GlobalSearchResponse = {
     tabs: GlobalSearchTab[];
   };
 };
+
+type ColumnTitleType = {
+  divtitle: string;
+  interlinks: InterlinkType[];
+};
+
+type OurOfferingsType = {
+  subtitle: string;
+  title: string;
+  columntitle: ColumnTitleType[];
+};
+
+type RichTextChild = {
+  text: string;
+};
+type DemandHowKORSectionType = {
+  title: string;
+  howkorlist: {
+    id: number;
+    pointnumber: string;
+    title: string;
+    Description: string;
+  }[];
+};
+
+// type GlobalSearchItem = {
+//   id: number;
+//   title: string;
+//   description: string | null;
+// };
