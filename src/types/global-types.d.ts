@@ -335,6 +335,7 @@ type EventListType = {
   date: string;
   Date: string;
   buttonLink: string;
+  externalLink: string;
 };
 type NewsroomListType = {
   id: string;
