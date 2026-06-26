@@ -7,6 +7,7 @@ import Providers from "@/components/providers";
 // import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
 import { headers } from "next/headers";
 import TrackingLoader from "@/components/providers/TrackingLoader";
+import Script from "next/dist/client/script";
 
 const outfitSans = Outfit({
   variable: "--font-outfit-sans",
@@ -51,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "geo.region": "US-NJ",
       "geo.placename": "New Jersey, USA",
       "geo.position": "40.7128;-74.0060",
-      "ICBM": "40.7128, -74.0060",
+      ICBM: "40.7128, -74.0060",
     },
     openGraph: {
       type: "website",
@@ -102,8 +103,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://js.hs-scripts.com" />
         <link rel="dns-prefetch" href="https://s.adroll.com" />
         <link rel="dns-prefetch" href="https://mkmpages.korcomptenz.com" />
-        <link rel="preconnect" href="https://aue2kormlworkspacetest01.blob.core.windows.net" />
-
+        <link
+          rel="preconnect"
+          href="https://aue2kormlworkspacetest01.blob.core.windows.net"
+        />
         {/* JSON-LD Structured Data Schemas */}
         <script
           type="application/ld+json"
@@ -134,6 +137,31 @@ export default function RootLayout({
             }),
           }}
         />
+        {/* Mirabel Tracking Code Start*/}
+        <Script
+          id="mirabel-tracking"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function () {
+                var e, t;
+                e = document.createElement("script"),
+                e.type = "text/javascript",
+                e.async = true,
+                e.defer = true,
+                e.src = "https://mkmpages.korcomptenz.com/6666?isnew=1&pdn=mkmpages.korcomptenz.com&v=" +
+                  String((new Date).getMonth() + 1) +
+                  String((new Date).getFullYear()) +
+                  String(Math.round(parseInt((new Date).getDate() / 7), 0) + 1) +
+                  "&encsid=uztEfD4WCXU,&enccid=p8gDO8NUS7Y,&wsid=Njg4&dHJhY2tpbmdVcmw=2PtuCvDuCGT5LwTmxa5wjl35YCAFpwehX6VzxWewIgs,";
+
+                t = document.getElementsByTagName("head")[0];
+                t.appendChild(e, t);
+              }();
+            `,
+          }}
+        />
+        {/* Mirabel Tracking Code End*/}
       </head>
 
       <body className={`${outfitSans.variable} antialiased`}>
@@ -147,8 +175,18 @@ export default function RootLayout({
           />
         </noscript>
 
+        {/* Mirabel Tracking Code Start*/}
+        <noscript>
+          <p>
+            <img
+              src="https://mkmpages.korcomptenz.com/7777?idsite=688"
+              style={{ border: 0 }}
+              alt=""
+            />
+          </p>
+        </noscript>
+        {/* Mirabel Tracking Code End*/}
         <Providers>{children}</Providers>
-
         {/* 🔥 KEY: Load tracking after interaction */}
         <TrackingLoader />
       </body>

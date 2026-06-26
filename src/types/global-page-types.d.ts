@@ -200,6 +200,7 @@ type WeAreKorcomptenzSectionType = {
 
 type BannerSectionType = {
   id: number;
+  bannerH1Tag: string;
   imageMobile: ImageType;
   isListPage: boolean;
   isForm: boolean;
@@ -227,10 +228,10 @@ type BannerSectionType = {
     id: string;
     documentId: string;
     isTemporary: boolean;
-  }
+  };
   form: {
-    forms: SapFormType[]
-  }
+    forms: SapFormType[];
+  };
   list?: {
     id: number;
     title: string;
@@ -261,7 +262,7 @@ type SapFormType = {
   organizationLabel: string;
   phoneNumberLabel: string;
   buttonText: string;
-}
+};
 type SapSectionType = {
   heading: string;
   description: string;
@@ -503,23 +504,6 @@ type ScheduleCallType = {
   image: string;
   description: string;
   topDescription: string;
-};
-
-type WhyKorcomptenzType = {
-  title: string;
-  description: string;
-  colSpan: string;
-  isBackground: boolean;
-  topDescription: string;
-  topTitle: string;
-  backgroundImage: ImageType;
-  isPerRowFive: boolean;
-  subtitle: string;
-  isBgGray: boolean;
-  backgroundColor: string;
-  noOfColumn: string;
-  isBgGrey: boolean;
-  list: IndustryItem[];
 };
 type SocialPlatformType = {
   id: string;
@@ -1042,8 +1026,8 @@ type VideoBannerItemType = {
   formImage?: ImageType;
   isForm: boolean;
   sapForm: {
-    forms: SapFormType[]
-  }
+    forms: SapFormType[];
+  };
   formButtonText: string;
   isTarget: boolean;
   videoLink: string;
@@ -1249,10 +1233,10 @@ type FabconBannerType = {
   list: {
     title: string;
     subList: {
-      title: string
-      description: string
-    }[]
-  }
+      title: string;
+      description: string;
+    }[];
+  };
 };
 
 type SapImplementationType = {
@@ -1526,8 +1510,16 @@ type CloudReadinessType = {
   buttonText: string;
   buttonLink: string;
   isTarget: boolean;
-  form: {
-    forms: CloudFormType[];
+  form?: FreeConsultationFormType; // ✅ add this
+  __component: "page-componets.cloud-readiness-report";
+};
+
+type CloudReadinessProps = {
+  data: CloudReadinessType;
+  form?: FreeConsultationFormType;
+  essential?: {
+    id: string | number;
+    [key: string]: unknown;
   };
 };
 
@@ -1541,6 +1533,192 @@ type CloudFormType = {
   companyLabel: string;
   buttonText: string;
 };
+
+/* KOR Dev Team START */
+type RichTextBlock = {
+  type: string;
+  children: {
+    text: string;
+    type?: string;
+  }[];
+};
+type StepGridSectionType = {
+  highlighttext?: string;
+  title: string;
+  description?: RichTextBlock[];
+
+  gridlist: {
+    number: number;
+    steptitle: string;
+
+    griddetails: {
+      image: ImageType;
+      gridtitle: string;
+      griddescription: RichTextBlock[];
+
+      checklistitems: {
+        description: RichTextBlock[];
+      }[];
+
+      buttonText?: string;
+      buttonLink?: string;
+    }[];
+  }[];
+};
+
+type TabSectionType = {
+  title: string;
+  highlighttext?: string;
+  tablist: {
+    tabtitle: string;
+    tablistdetails: {
+      title: string;
+      description: string;
+      icon: ImageType;
+    }[];
+  }[];
+};
+type GridSystemType = {
+  image?: ImageType;
+  title: string;
+  footertext?: string;
+  description: RichTextBlocks[];
+  centericon?: string;
+  centertitle?: string;
+  centerdescription?: RichTextBlocks[];
+  griditemlist: {
+    icon: ImageType;
+    title: string;
+    griddescription: RichTextBlocks[];
+    listitems: {
+      image: ImageType;
+      title: string;
+      listdescription: RichTextBlocks[];
+    }[];
+  }[];
+
+  footergridlist?: {
+    icon: ImageType;
+    footerdescription: RichTextBlocks[];
+  }[];
+};
+type KeyMetricsSectionType = {
+  id: string;
+  title: string;
+
+  backgroundImage: ImageType;
+  listLeft: {
+    title: string;
+    description: string;
+  }[];
+};
+type PageGridViewType = {
+  Title: string;
+  description: RichTextBlock[];
+  tag: string;
+  gridlist: {
+    id: number;
+    listtitle: string;
+    listdescription: RichTextBlock[];
+    buttontext: string;
+    buttonurl: string;
+  }[];
+};
+
+type SAPPracticeAreasType = {
+  title: string;
+  subtext: string;
+  buttontext: string;
+  buttonLink: string;
+  gridlisting: SAPPracticeAreasMobileCarouselType[];
+};
+type WhyKorcomptenzType = {
+  title: string;
+  description: string;
+  colSpan: string;
+  isBackground: boolean;
+  topDescription: string;
+  topTitle: string;
+  backgroundImage: ImageType;
+  isPerRowFive: boolean;
+  subtitle: string;
+  isBgGray: boolean;
+  backgroundColor: string;
+  noOfColumn: string;
+  isBgGrey: boolean;
+  list: IndustryItem[];
+};
+type WhattoExpectType = {
+  title: string;
+  subtext: string;
+  description: string;
+  buttontext: string;
+  buttonLink: string;
+  gridlisting: WhattoExpectTypeGrid[];
+};
+
+type TestimonialItem = {
+  id: number;
+  title?: string;
+  subtext: string;
+  testimonials: {
+    id: number;
+    title: string;
+    clientname: string;
+    designation: string;
+    content: string;
+    star: number;
+  }[];
+};
+
+type CertificationsSection = {
+  id: number;
+  title: string;
+  subtext: string;
+  description: string;
+  backgroundimage: ImageType;
+  partnerlogos: {
+    id: number;
+    logoimage: ImageType;
+  }[];
+};
+type RequestConsultation = {
+  id: number;
+  title: string;
+  subtext: string;
+  description: string;
+  form: GlobalFormType;
+  item: GlobalFormItemType;
+};
+
+type WhattoExpectTypeGrid = {
+  buttontext: string;
+  description: string;
+  id: string | number;
+  buttonurl: string;
+  title: string;
+};
+type SAPPracticeAreasMobileCarouselType = {
+  buttontext: string;
+  description: string;
+  id: string | number;
+  image: ImageType;
+  buttonurl: string;
+  title: string;
+};
+type SapWhyKorcomptenzType = {
+  subtext: string;
+  title: string;
+  image: ImageType;
+  description: string; // ✅ IMPORTANT (richtext = string)
+  listbox: {
+    id: number;
+    title: string;
+    description: string;
+    icon?: ImageType;
+  }[];
+};
+/* KOR Dev Team END */
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
 
@@ -2012,6 +2190,55 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-banner";
   };
+
+  /* KOR Dev Team Start */
+  KeyMetricsSection: KeyMetricsSectionType & {
+    id: string;
+    __component: "page-componets.key-metrics-section";
+  };
+  SapWhyKorcomptenz: SapWhyKorcomptenzType & {
+    id: string;
+    __component: "page-componets.sap-why-korcomptenz";
+  };
+  PageGridView: PageGridViewType & {
+    id: string;
+    __component: "page-componets.page-grid-view";
+  };
+  SAPPracticeAreas: SAPPracticeAreasType & {
+    id: string;
+    __component: "page-componets.sap-practice-areas";
+  };
+  WhattoExpect: WhattoExpectType & {
+    id: string;
+    __component: "page-componets.what-to-expect";
+  };
+  ClientTestimonial: TestimonialItem & {
+    id: string;
+    __component: "page-componets.client-testimonial";
+  };
+
+  CertificationsSection: CertificationsSection & {
+    id: string;
+    __component: "page-componets.certifications-section";
+  };
+  RequestConsultation: RequestConsultation & {
+    id: string;
+    __component: "page-componets.request-consultation";
+  };
+  StepGridSection: StepGridSectionType & {
+    id: string;
+    __component: "page-componets.step-grid-section";
+  };
+  TabSection: TabSectionType & {
+    id: string;
+    __component: "page-componets.tab-section";
+  };
+  GridSystem: GridSystemType & {
+    id: string;
+    __component: "page-componets.grid-system";
+  };
+
+  /*  KOR Dev Team END */
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];

@@ -37,7 +37,7 @@ const SapImplementation = ({ data }: { data: SapImplementationType }) => {
                     className={cn(
                       "bg-gray-100 p-6 rounded-lg shadow-sm",
                       list?.sublist?.length === 1 &&
-                        "md:col-span-2 md:justify-self-center md:w-1/2",
+                      "md:col-span-2 md:justify-self-center md:w-1/2",
                     )}
                   >
                     {sub?.title && (

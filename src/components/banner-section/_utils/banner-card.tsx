@@ -18,12 +18,15 @@ const BannerCard = ({
   className?: string;
 }) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+  const [pageTitle, setPageTitle] = useState<string>("");
 
   useEffect(() => {
     // Only run on client
     const checkDevice = () => {
       setIsDesktop(window.innerWidth >= 1024);
     };
+
+    setPageTitle(document.title);
 
     checkDevice();
     window.addEventListener("resize", checkDevice);
@@ -58,9 +61,13 @@ const BannerCard = ({
                   className="w-20 md:w-[200px] h-auto object-contain"
                 />
               )}
-              <h1 className="text-9xl font-semibold leading-14 text-white">
-                {data?.title}
+
+              <h1 className="!text-[16px] !leading-[24px] text-primary">
+                {data?.bannerH1Tag ? data.bannerH1Tag : pageTitle}
               </h1>
+              <h2 className="!text-[50px] !leading-[60px] !font-semibold text-white">
+                {data?.title}
+              </h2>
               {data?.description && (
                 <DangerousHtml
                   className="text-3xl md:text-5xl leading-tight font-normal text-white"
@@ -273,10 +280,13 @@ const BannerCard = ({
                 className="w-[300px] h-auto object-contain mb-2 md:mb-4 opacity-65"
               />
             ) : (
-              <h1 className="font-bold text-foreground mb-2 md:mb-4">
-                {data?.title}
+              <h1 className="!text-[16px] !leading-[24px] text-primary mb-2 md:mb-4">
+                {data?.bannerH1Tag ? data.bannerH1Tag : pageTitle}
               </h1>
             )}
+            <h2 className="!text-[40px] !leading-[50px] !font-semibold text-foreground mb-2 md:mb-4">
+              {data?.title}
+            </h2>
             {data?.description && (
               <DangerousHtml
                 className="text-lg md:text-base [&>span]:!text-black mb-4 md:mb-8 lg:max-w-md w-full"
@@ -287,35 +297,35 @@ const BannerCard = ({
             <div className="grid gap-4 mb-3">
               {data?.buttonText && (
                 <>
-                    {data?.isForm ? (
-                      <>
-                        <button onClick={() => setIsPopupOpen(true)}>
-                          <ButtonLink
-                            link="#"
-                            buttonProps={{
-                              arrow: true,
-                              className: "hover:bg-transparent",
-                              size: "xl",
-                            }}
-                          >
-                            {data?.buttonText}aaaaaaaa
-                          </ButtonLink>
-                        </button>
-                      </>
-                    ) : (
-                      <ButtonLink
-                        link={data?.link || "#"}
-                        isTargetNew={data?.isTarget ? true : false}
-                        buttonProps={{
-                          arrow: true,
-                          className: "hover:bg-transparent",
-                          size: "xl",
-                        }}
-                      >
-                        {data?.buttonText}bbbbbbbbb
-                      </ButtonLink>
-                    )}
-                  </>
+                  {data?.isForm ? (
+                    <>
+                      <button onClick={() => setIsPopupOpen(true)}>
+                        <ButtonLink
+                          link="#"
+                          buttonProps={{
+                            arrow: true,
+                            className: "hover:bg-transparent",
+                            size: "xl",
+                          }}
+                        >
+                          {data?.buttonText}
+                        </ButtonLink>
+                      </button>
+                    </>
+                  ) : (
+                    <ButtonLink
+                      link={data?.link || "#"}
+                      isTargetNew={data?.isTarget ? true : false}
+                      buttonProps={{
+                        arrow: true,
+                        className: "hover:bg-transparent",
+                        size: "xl",
+                      }}
+                    >
+                      {data?.buttonText}
+                    </ButtonLink>
+                  )}
+                </>
               )}
               {data?.secondButton && (
                 <ButtonLink
@@ -337,16 +347,18 @@ const BannerCard = ({
           </div>
         </>
       )}
-      <><RecaptchaProvider>
-      <SapBannerPopup
-        data={data?.form?.forms?.[0]}
-        isOpen={isPopupOpen}
-        onClose={() => setIsPopupOpen(false)}
-        formTitle={data?.formTitle}
-        formDescription={data?.formDescription}
-        formImage={data?.formImage}
-        
-      /></RecaptchaProvider></>
+      <>
+        <RecaptchaProvider>
+          <SapBannerPopup
+            data={data?.form?.forms?.[0]}
+            isOpen={isPopupOpen}
+            onClose={() => setIsPopupOpen(false)}
+            formTitle={data?.formTitle}
+            formDescription={data?.formDescription}
+            formImage={data?.formImage}
+          />
+        </RecaptchaProvider>
+      </>
     </div>
   );
 };
