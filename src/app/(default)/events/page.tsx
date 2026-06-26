@@ -24,7 +24,9 @@ const Page = async () => {
       ...item,
       isEvent: true,
       buttonLink: item?.buttonLink,
-      date: item?.date || item?.publishedAt || "",
+      externalLink: item?.buttonLink || "",
+      date: item?.Date || item?.publishedAt || "",
+      Date: item?.date || item?.publishedAt || "",
       createdAt: item?.publishedAt || "",
     })),
   });
