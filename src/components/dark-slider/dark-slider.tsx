@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import SliderCard from "./_utils/slider-card";
+import ButtonLink from "../ui/button-link";
 import {
   Carousel,
   CarouselContent,
@@ -42,7 +43,13 @@ const DarkSlider = ({
           )}
 
           {manuelSliderData?.descripition && (
-            <p className="text-center text-md md:text-lg leading-7">
+            <p
+              className={cn(
+                !isSwap
+                  ? "text-left text-md md:text-lg leading-7"
+                  : "text-center text-md md:text-lg leading-7",
+              )}
+            >
               {manuelSliderData?.descripition}
             </p>
           )}
@@ -101,6 +108,22 @@ const DarkSlider = ({
           )}
         </div>
       </div>
+      {manuelSliderData?.buttonText && (
+        <div className="text-center pt-10">
+          <ButtonLink
+            link={manuelSliderData?.buttonLink || "#"}
+            buttonProps={{
+              arrow: true,
+              className:
+                "inline-flex items-center justify-center hover:bg-white hover:border hover:border-[var(--primary)] hover:text-[var(--primary)]",
+              size: "xl",
+            }}
+          >
+            {manuelSliderData?.buttonText}
+          </ButtonLink>
+        </div>
+      )}
+
       <div className="flex lg:hidden w-full justify-center items-center gap-4 mt-8">
         <CarouselPrevious
           className="relative left-0 hover:bg-primary hover:text-white size-12"
