@@ -1,8 +1,9 @@
 "use client";
 import { cn } from "@/lib/utils";
 import KorcomptenzImage from "../korcomptenz-image";
-import { Button } from "../ui/button";
+//import { Button } from "../ui/button";
 import { DangerousHtml } from "../ui/dangerous-html";
+import ButtonLink from "../ui/button-link";
 
 export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
   return (
@@ -51,26 +52,41 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
               />
             </div>
             {/* Title */}
-            {card?.title &&(
-<h3 className="text-2xl font-semibold text-black">{card?.title}</h3>
+            {card?.title && (
+              <h3 className="text-2xl font-semibold text-black">
+                {card?.title}
+              </h3>
             )}
-            
 
             {/* Description */}
             <DangerousHtml html={card?.description} />
 
             {card?.buttontext && (
-              <Button
-                variant="ghost"
-                arrow
+              <a
+                href={card?.buttonLink}
                 className="text-primary hover:text-primary justify-start text-md hover:bg-transparent p-0"
               >
                 {card?.buttontext}
-              </Button>
+              </a>
             )}
           </div>
         ))}
       </div>
+      {data?.buttontext && (
+        <div className="text-center pt-10">
+          <ButtonLink
+            link={data?.buttonLink || "#"}
+            buttonProps={{
+              arrow: true,
+              className:
+                "inline-flex items-center justify-center hover:bg-white hover:border hover:border-[var(--primary)] hover:text-[var(--primary)]",
+              size: "xl",
+            }}
+          >
+            {data?.buttontext}
+          </ButtonLink>
+        </div>
+      )}
     </section>
   );
 }

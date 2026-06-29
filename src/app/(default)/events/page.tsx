@@ -25,7 +25,7 @@ const Page = async () => {
       isEvent: true,
       buttonLink: item?.buttonLink,
       externalLink: item?.buttonLink || "",
-      date: item?.date || item?.publishedAt || "",
+      date: item?.Date || item?.publishedAt || "",
       Date: item?.date || item?.publishedAt || "",
       createdAt: item?.publishedAt || "",
     })),
