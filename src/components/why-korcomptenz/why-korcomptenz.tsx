@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import KorcomptenzImage from "../korcomptenz-image";
 //import { Button } from "../ui/button";
 import { DangerousHtml } from "../ui/dangerous-html";
+import ButtonLink from "../ui/button-link";
 
 export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
   return (
@@ -71,6 +72,21 @@ export default function WhyKorcomptenz({ data }: { data: WhyKorcomptenzType }) {
           </div>
         ))}
       </div>
+      {data?.buttontext && (
+        <div className="text-center pt-10">
+          <ButtonLink
+            link={data?.buttonLink || "#"}
+            buttonProps={{
+              arrow: true,
+              className:
+                "inline-flex items-center justify-center hover:bg-white hover:border hover:border-[var(--primary)] hover:text-[var(--primary)]",
+              size: "xl",
+            }}
+          >
+            {data?.buttontext}
+          </ButtonLink>
+        </div>
+      )}
     </section>
   );
 }

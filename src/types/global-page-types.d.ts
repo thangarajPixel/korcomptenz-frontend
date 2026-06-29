@@ -1648,6 +1648,8 @@ type WhyKorcomptenzType = {
   backgroundColor: string;
   noOfColumn: string;
   isBgGrey: boolean;
+  buttontext: string;
+  buttonLink: string;
   list: IndustryItem[];
 };
 type WhattoExpectType = {
