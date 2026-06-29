@@ -110,7 +110,7 @@ export function SapBannerPopup({
   return (
     <div className="fixed inset-0 z-50 bg-black/50 md:overflow-hidden overflow-y-auto">
       <div className="min-h-screen flex items-start md:items-center justify-center px-4 py-4 md:py-10">
-        <div className="relative w-full max-w-6xl max-h-[95vh] overflow-y-auto rounded-2xl md:rounded-[32px] bg-[#313A45] px-4 py-6 md:px-12 md:py-10">
+        <div className="relative w-full max-w-5xl max-h-[90vh] overflow-y-hidden rounded-2xl md:rounded-[32px] bg-[#313A45] px-4 py-6 md:px-10 md:py-6">
           {/* Close Button */}
           <Button
             variant="ghost"
@@ -132,16 +132,16 @@ export function SapBannerPopup({
           )}
 
           {/* Heading */}
-          <div className="text-center mt-12 md:mt-5">
+          <div className="text-center">
             <DangerousHtml
               html={formTitle || ""}
               as="h3"
-              className="text-2xl md:text-[50px] font-bold text-white leading-tight"
+              className="text-2xl md:text-[40px] font-bold text-white leading-tight"
             />
 
             <DangerousHtml
               html={formDescription || ""}
-              className="mt-3 max-w-lg mx-auto text-center text-white text-sm md:text-[18px] leading-6 md:leading-7.5"
+              className="max-w-lg mx-auto text-center text-white text-sm md:text-[18px] leading-6 md:leading-7.5"
             />
           </div>
 
@@ -159,7 +159,7 @@ export function SapBannerPopup({
                   required
                   name="fullName"
                   placeholder={data?.fullNameLabel}
-                  className="h-12 md:h-auto p-4 rounded-md bg-white placeholder:text-[#000000]"
+                  className="h-12 md:h-auto p-2 rounded-md bg-white placeholder:text-[#000000]"
                 />
 
                 <Input
@@ -167,7 +167,7 @@ export function SapBannerPopup({
                   name="businessEmail"
                   required
                   placeholder={data?.businessEmailLabel}
-                  className="h-12 md:h-auto p-4 rounded-md bg-white placeholder:text-[#000000]"
+                  className="h-12 md:h-auto p-2 rounded-md bg-white placeholder:text-[#000000]"
                 />
               </div>
 
@@ -178,7 +178,7 @@ export function SapBannerPopup({
                   name="phoneNumber"
                   required
                   placeholder={data?.phoneNumberLabel}
-                  className="h-12 md:h-auto p-4 rounded-md bg-white placeholder:text-[#000000]"
+                  className="h-12 md:h-auto p-2 rounded-md bg-white placeholder:text-[#000000]"
                 />
 
                 <Input
@@ -186,7 +186,7 @@ export function SapBannerPopup({
                   name="organization"
                   required
                   placeholder={data?.organizationLabel}
-                  className="h-12 md:h-auto p-4 rounded-md bg-white placeholder:text-[#000000]"
+                  className="h-12 md:h-auto p-2 rounded-md bg-white placeholder:text-[#000000]"
                 />
               </div>
 
@@ -197,12 +197,12 @@ export function SapBannerPopup({
                   name="message"
                   // required
                   placeholder={data?.messageLabel}
-                  className="min-h-[120px] p-4 rounded-md bg-white placeholder:text-[#000000]"
+                  className="min-h-[60px] p-2 rounded-md bg-white placeholder:text-[#000000]"
                 />
               </div>
 
               {/* Submit Button */}
-              <div className="pt-2 flex justify-center">
+              <div className="flex justify-center">
                 <Button
                   size="xl"
                   variant="default"
@@ -211,11 +211,32 @@ export function SapBannerPopup({
                   type="submit"
                   className="w-full md:w-auto"
                 >
-                  {data?.buttonText || "Submit"}
+                  {data?.formbuttonText || "Request SAP Consultation"}
                 </Button>
               </div>
             </div>
           </form>
+
+          <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-gray-300">
+            <div className="flex items-center gap-2">
+              <span className="text-[#26a17c] text-lg mr-1">✔</span>
+              <span>Response within 1 business day</span>
+            </div>
+
+            <div className="hidden md:block text-gray-500">|</div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-[#26a17c] text-lg mr-1">✔</span>
+              <span>Confidential discussion</span>
+            </div>
+
+            <div className="hidden md:block text-gray-500">|</div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-[#26a17c] text-lg mr-1">✔</span>
+              <span>SAP Certified Consultants</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
