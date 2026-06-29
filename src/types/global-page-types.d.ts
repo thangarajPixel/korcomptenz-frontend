@@ -262,6 +262,7 @@ type SapFormType = {
   organizationLabel: string;
   phoneNumberLabel: string;
   buttonText: string;
+  formbuttonText: string;
 };
 type SapSectionType = {
   heading: string;
