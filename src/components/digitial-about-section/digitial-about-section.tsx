@@ -131,7 +131,7 @@ export function DigitialAboutSection({
                     />
                   </div>
 
-                  <p className="text-[12px] lg:text-sm font-normal text-[#FFFFFF] text-center">
+                  <p className="text-[12px] lg:text-sm font-normal text-[#333] text-center">
                     {countries?.label}
                   </p>
                 </div>

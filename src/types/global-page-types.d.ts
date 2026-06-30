@@ -313,6 +313,7 @@ type DarkSliderType = {
   isPerRowThree: boolean;
   link: string;
   buttonText: string;
+  buttonLink: string;
   slides: [
     {
       id: number;
