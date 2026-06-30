@@ -392,6 +392,8 @@ type DemoPartnershipSectionType = {
   description: string;
   isTwoPerRow: boolean;
   list: PartnerType[];
+  buttonText: string;
+  buttonLink: string;
 };
 
 // ✅ Sponsor section
