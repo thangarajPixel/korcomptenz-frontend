@@ -15,17 +15,25 @@ export async function generateMetadata() {
     path: "/newsroom",
   });
 }
+
 const Page = async () => {
   const data = await getNewsroomPageCache();
+
+  const sortedList = [...(data?.listData || [])].sort(
+    (a, b) =>
+      new Date(b?.publishedAt || 0).getTime() -
+      new Date(a?.publishedAt || 0).getTime(),
+  );
+
   data?.list?.push({
     id: "banner",
     __component: "news-and-event.news-event-list",
-    list: data?.listData?.map((item) => ({
+    list: sortedList.map((item) => ({
       ...item,
       buttonLink: "/newsroom/" + item?.slug,
       date: item?.publishedAt || "",
       createdAt: item?.publishedAt || "",
-      externalLink: "/events/" + item?.slug,
+      externalLink: "/newsroom/" + item?.slug,
       Date: item?.publishedAt || "",
     })),
   });
