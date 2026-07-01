@@ -263,6 +263,21 @@ type SapFormType = {
   phoneNumberLabel: string;
   buttonText: string;
   formbuttonText: string;
+  submitbuttontext: string;
+  downloadpdf_url: string;
+  downloadpdf_name: string;
+};
+type IsgFormType = {
+  businessEmailLabel: string;
+  fullNameLabel: string;
+  messageLabel: string;
+  organizationLabel: string;
+  phoneNumberLabel: string;
+  buttonText: string;
+  formbuttonText: string;
+  submitbuttontext: string;
+  downloadpdf_url: string;
+  downloadpdf_name: string;
 };
 type SapSectionType = {
   heading: string;
