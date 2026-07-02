@@ -239,52 +239,6 @@ export function IsgBannerPopup({
               </div>
             </div>
           </form>
-
-          <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-gray-300">
-            <div className="flex items-center gap-2">
-              <div className="shrink-0 mt-1">
-                <KorcomptenzImage
-                  src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/check_mark_5291043_1_ea7bdbea4a.png"
-                  width={16}
-                  height={16}
-                  alt="check mark"
-                  className="object-contain"
-                />
-              </div>
-
-              <span>Response within 1 business day</span>
-            </div>
-
-            <div className="hidden md:block text-gray-500">|</div>
-
-            <div className="flex items-center gap-2">
-              <div className="shrink-0 mt-1">
-                <KorcomptenzImage
-                  src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/check_mark_5291043_1_ea7bdbea4a.png"
-                  width={16}
-                  height={16}
-                  alt="check mark"
-                  className="object-contain"
-                />
-              </div>
-              <span>Confidential discussion</span>
-            </div>
-
-            <div className="hidden md:block text-gray-500">|</div>
-
-            <div className="flex items-center gap-2">
-              <div className="shrink-0 mt-1">
-                <KorcomptenzImage
-                  src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/check_mark_5291043_1_ea7bdbea4a.png"
-                  width={16}
-                  height={16}
-                  alt="check mark"
-                  className="object-contain"
-                />
-              </div>
-              <span>ISG Certified Consultants</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
