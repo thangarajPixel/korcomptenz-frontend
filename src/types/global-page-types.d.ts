@@ -57,11 +57,8 @@ type InspireSectionType = {
     title: string;
     order: string;
     description: string;
-    isvideopopup: boolean;
-    targetblank: boolean;
     buttonText?: string;
     link: string;
-    VideoLink: string;
   }[];
 };
 
@@ -1058,6 +1055,9 @@ type DigitialAnalyticsType = {
     id: string;
     title: string;
     description: string;
+    buttonText: string;
+    buttonLink?: string;
+    isTarget?: boolean;
   }[];
   list2: {
     id: string;

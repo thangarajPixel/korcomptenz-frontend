@@ -16,19 +16,22 @@ export default function DemoOpportunities({
           {/* Left side - Image with geometric elements */}
           <div className="relative">
             {/* Blue geometric arrows */}
-            <div
-              className={cn("absolute top-8 z-10 transition-all duration-1000")}
-            >
-              <div className="flex space-x-1 w-72">
-                <KorcomptenzImage
-                  src={whyAttendData?.arrowImage}
-                  className="w-full h-auto rounded-lg"
-                  width={500}
-                  height={300}
-                />
+            {whyAttendData?.arrowImage && (
+              <div
+                className={cn(
+                  "absolute top-8 z-10 transition-all duration-1000",
+                )}
+              >
+                <div className="flex space-x-1 w-72">
+                  <KorcomptenzImage
+                    src={whyAttendData?.arrowImage}
+                    className="w-full h-auto rounded-lg"
+                    width={500}
+                    height={300}
+                  />
+                </div>
               </div>
-            </div>
-
+            )}
             {/* Main image */}
             <div className="relative z-10 ml-10">
               <KorcomptenzImage
