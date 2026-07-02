@@ -280,3 +280,9 @@ export const useSapLeadHook = () => {
     mutationFn: PAGE.createSapLead,
   });
 };
+export const useIsgLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.ISG_LEAD],
+    mutationFn: PAGE.createIsgLead,
+  });
+};

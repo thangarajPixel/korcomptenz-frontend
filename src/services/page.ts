@@ -11,6 +11,7 @@ import type {
   FabconDecisionLeadSchema,
   FreeConsultationLeadSchema,
   IndustryFormSchema,
+  IsgFormSchema,
   NewsRoomFormSchema,
   SapFormSchema,
   SubscriptionFormSchema,
@@ -63,6 +64,7 @@ export const CLOUD_INFRASTRUCTURE_LIST = "/cloud-infrastructures";
 export const CLOUD_MIGRATION_LIST = "/cloud-migration-urgencies";
 export const CLOUD_LEAD = "/cloud-leads";
 export const SAP_LEAD = "/sap-leads";
+export const ISG_LEAD = "/isg-leads";
 
 /*************  ✨ Windsurf Command ⭐  *************/
 /**
@@ -420,5 +422,12 @@ export const createSapLead = async (
   formData: SapFormSchema,
 ) => {
   const { data } = await http.post(SAP_LEAD, { data: formData });
+  return data;
+};
+
+export const createIsgLead = async (
+  formData: IsgFormSchema,
+) => {
+  const { data } = await http.post(ISG_LEAD, { data: formData });
   return data;
 };
