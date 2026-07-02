@@ -57,8 +57,11 @@ type InspireSectionType = {
     title: string;
     order: string;
     description: string;
+    isvideopopup: boolean;
+    targetblank: boolean;
     buttonText?: string;
     link: string;
+    VideoLink: string;
   }[];
 };
 
