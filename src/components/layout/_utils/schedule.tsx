@@ -48,7 +48,7 @@ const ScheduleCall = ({
                 size: "xl",
                 arrow: true,
                 className:
-                  "text-4xl hidden lg:inline-flex hover:bg-transparent mt-5",
+                  "text-4xl hidden lg:inline-flex hover:bg-transparent mt-5 max-w-xl",
               }}
             >
               {scheduleCall?.buttonText}
