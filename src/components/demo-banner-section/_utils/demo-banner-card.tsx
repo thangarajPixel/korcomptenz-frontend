@@ -58,6 +58,14 @@ const DemoBannerCard = ({
             {/* ✅ Centered + Responsive container */}
             <div className="relative z-10 py-12">
               <div className="container-md  flex flex-col gap-2 px-6 md:px-10 ">
+                {data?.logo && (
+                  <KorcomptenzImage
+                    src={data?.logo}
+                    width={300}
+                    height={200}
+                    className="w-20 md:w-[200px] h-auto object-contain"
+                  />
+                )}
                 <h1
                   className={cn(
                     "text-4xl md:text-7xl max-w-2xl font-semibold text-white leading-12 ",

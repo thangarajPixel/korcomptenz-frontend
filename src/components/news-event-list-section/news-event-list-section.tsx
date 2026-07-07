@@ -45,7 +45,7 @@ const NewsEventListSectionItem = ({
   data: NewsEventListSectionType;
 }) => {
   const date = item?.Date;
-
+  const href = item?.externalLink || item?.slug || item?.buttonLink;
   return (
     <div key={`section-item-${item.id}`} className="bg-white ">
       <div className="relative aspect-[4/3] w-full rounded-4xl mb-3">
@@ -67,10 +67,9 @@ const NewsEventListSectionItem = ({
       <p className="text-gray-600 text-sm mb-2 leading-relaxed">
         {item?.description}
       </p>
-
-      {(item?.externalLink || item?.slug) && (
+      {href && (
         <Link
-          href={item?.externalLink || item?.slug}
+          href={href}
           className="text-primary font-semibold text-sm hover:text-primary transition-colors"
         >
           {item?.buttonText}
