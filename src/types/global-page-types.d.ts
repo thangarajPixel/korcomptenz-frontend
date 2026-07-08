@@ -1754,6 +1754,17 @@ type SapWhyKorcomptenzType = {
     icon?: ImageType;
   }[];
 };
+
+type ChecklistSectionType = {
+  title: string;
+  description: string;
+  buttonText: sting;
+  image: ImageType;
+  altiarisgridlist: {
+    number: string;
+    description: string;
+  }[];
+};
 /* KOR Dev Team END */
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -2279,6 +2290,10 @@ type ComponentPropsMap = {
   GridSystem: GridSystemType & {
     id: string;
     __component: "page-componets.grid-system";
+  };
+  ChecklistSection: ChecklistSectionType & {
+    id: string;
+    __component: "page-componets.altiaris-checklist";
   };
 
   /*  KOR Dev Team END */

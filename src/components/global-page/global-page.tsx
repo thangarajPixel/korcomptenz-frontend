@@ -123,6 +123,7 @@ import CloudBanner from "../cloud-banner/cloud-banner";
 import StepGridSection from "../step-grid-section";
 import TabSection from "../tab-section";
 import GridSystem from "../grid-system";
+import ChecklistSection from "../altiaris-checklist";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1322,6 +1323,15 @@ const GlobalPage = (props: Props) => {
             key={`grid-system-${item?.__component}-${item?.id}`}
           >
             <GridSystem data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.altiaris-checklist":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`altiaris-checklist-${item?.__component}-${item?.id}`}
+          >
+            <ChecklistSection data={item} />
           </ScrollFadeIn>
         );
       /* KOR DEV Team End */
