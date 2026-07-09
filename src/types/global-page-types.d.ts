@@ -465,6 +465,7 @@ type BuildConnectSectionType = {
   descriptionButtonLink: string;
   rightSection: {
     content: string;
+    rightsideTitle: string;
     description: string;
     customDescription: {
       id: string;
@@ -560,6 +561,8 @@ type CompanyType = {
 
 type StretchableSectionType = {
   title: string;
+  title_description: string;
+  colSpan: string;
   description: string;
   image: ImageType;
   list: {
@@ -976,6 +979,7 @@ type DemoWhyAttendSectionType = {
 type DemoBannerDetailsType = {
   buttonText: string;
   buttonLink: string;
+  logo?: ImageType;
   data: string;
   id: string;
   title: string;
