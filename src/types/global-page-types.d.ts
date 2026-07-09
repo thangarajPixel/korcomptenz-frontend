@@ -1073,6 +1073,9 @@ type DigitialAnalyticsType = {
     id: string;
     title: string;
     description: string;
+    buttonText: string;
+    buttonLink?: string;
+    isTarget?: boolean;
   }[];
   list2: {
     id: string;
