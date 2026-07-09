@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "../ui/button";
+//import { Button } from "../ui/button";
 import ButtonLink from "../ui/button-link";
 import { DangerousHtml } from "../ui/dangerous-html";
 
@@ -48,14 +48,17 @@ const CloudBanner = ({ data }: { data: FabconBannerType }) => {
               >
                 {data?.buttonTextOne}
               </ButtonLink>
-
-              <Button
-                size="xl"
-                variant="outline"
-                className="w-full sm:w-auto border-white text-white bg-transparent hover:bg-white hover:text-[#07003B]"
+              <ButtonLink
+                link={data?.buttonLinkTwo}
+                buttonProps={{
+                  size: "xl",
+                  variant: "outline",
+                  className:
+                    "w-full sm:w-auto border-white text-white bg-transparent hover:bg-white hover:text-[#07003B]",
+                }}
               >
                 {data?.buttonTextTwo}
-              </Button>
+              </ButtonLink>
             </div>
           </div>
 
