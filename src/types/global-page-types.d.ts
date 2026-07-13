@@ -1062,6 +1062,7 @@ type VideoBannerItemType = {
   formButtonText: string;
   isTarget: boolean;
   videoLink: string;
+  mobileVideo: string;
   buttonLink: string;
   buttonText: string;
   title: string;
