@@ -123,7 +123,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
           {data?.isVideo && data?.videoLink ? (
             <video
               className="w-full h-65 object-cover"
-              src={data?.videoLink}
+              src={data?.mobileVideo}
               autoPlay
               loop
               muted

@@ -41,7 +41,7 @@ export default function SlidingSection({
                 loop
                 muted
                 playsInline
-                preload={isMobile ? "none" : "auto"}
+                preload={isMobile ? "auto" : "auto"}
               />
             )}
 
