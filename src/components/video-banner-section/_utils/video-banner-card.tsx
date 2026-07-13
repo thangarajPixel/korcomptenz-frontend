@@ -36,6 +36,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
       {isDesktop ? (
         <div className="relative hidden lg:block w-full h-120">
           {/* ===== Background: Video or Image ===== */}
+
           {data?.isVideo && data?.videoLink ? (
             <video
               className="absolute inset-0 w-full h-full object-cover"
@@ -141,6 +142,10 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
           {/* Mobile Content */}
           <div className="container-md flex flex-col gap-6 pt-2 px-4 md:px-0 md:p-6">
             <h1 className="font-bold text-foreground">{data?.title}</h1>
+            <p className="text-3xl md:text-5xl leading-tight font-normal  justify-center text-black mb-4">
+              {" "}
+              {data?.description}
+            </p>
           </div>
           {data?.form && (
             <div className="p-5 rounded-2xl shadow-2xl">
