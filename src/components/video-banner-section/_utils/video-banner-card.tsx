@@ -20,6 +20,36 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
+
+  useEffect(() => {
+    const handleClick = (e: Event) => {
+      const target = e.target as HTMLElement;
+
+      const popupTrigger = target.closest("#open-contact-popup");
+
+      if (popupTrigger) {
+        e.preventDefault();
+        setIsPopupOpen(true);
+      }
+    };
+
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
   useEffect(() => {
     // Only run on client
     const checkDevice = () => {
