@@ -138,6 +138,7 @@ export default function RootLayout({
           }}
         />
         {/* Mirabel Tracking Code Start*/}
+        
         <Script
           id="mirabel-tracking"
           strategy="afterInteractive"
