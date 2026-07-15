@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Loader from "../~loading";
+import Loader from "../loading";
 
 export default function RouteLoader() {
   const pathname = usePathname();
