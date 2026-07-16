@@ -52,7 +52,7 @@
     "@types/react-dom": "^19",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
-    "oxlint": "^1.8.0",
+    "oxlint": "^1.68.0",
     "tailwindcss": "^4.1.10",
     "typescript": "^5"
   },
