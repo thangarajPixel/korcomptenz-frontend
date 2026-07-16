@@ -20,6 +20,7 @@ type SapBannerPopupProps = {
   data: SapFormType;
   formTitle?: string;
   formDescription?: string;
+  formbuttonText?: string;
   formImage?: ImageType;
 };
 const defaultValues = {
@@ -36,6 +37,7 @@ export function SapBannerPopup({
   data,
   formTitle,
   formDescription,
+  formbuttonText,
   formImage,
 }: SapBannerPopupProps) {
   const {
@@ -53,7 +55,7 @@ export function SapBannerPopup({
     },
   });
   const { mutateAsync } = useSapLeadHook();
-
+  const informationList = data?.informationlist ?? [];
   const { getToken } = useCaptchaToken();
 
   const handleFormSubmit: SubmitHandler<SapFormSchema> = React.useCallback(
@@ -211,57 +213,34 @@ export function SapBannerPopup({
                   type="submit"
                   className="w-full md:w-auto"
                 >
-                  {data?.formbuttonText || "Request SAP Consultation"}
+                  {formbuttonText || "Submit"}
                 </Button>
               </div>
             </div>
           </form>
 
-          <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-gray-300">
-            <div className="flex items-center gap-2">
-              <div className="shrink-0 mt-1">
-                <KorcomptenzImage
-                  src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/check_mark_5291043_1_ea7bdbea4a.png"
-                  width={16}
-                  height={16}
-                  alt="check mark"
-                  className="object-contain"
-                />
-              </div>
+          {informationList.length > 0 && (
+            <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-gray-300">
+              {informationList.map((item, index) => (
+                <React.Fragment key={item.id}>
+                  <div className="flex items-center gap-2">
+                    <KorcomptenzImage
+                      src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/check_mark_5291043_1_ea7bdbea4a.png"
+                      width={16}
+                      height={16}
+                      alt="check mark"
+                      className="object-contain shrink-0"
+                    />{" "}
+                    <span>{item.description}</span>
+                  </div>
 
-              <span>Response within 1 business day</span>
+                  {index < informationList.length - 1 && (
+                    <div className="hidden md:block text-gray-500">|</div>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
-
-            <div className="hidden md:block text-gray-500">|</div>
-
-            <div className="flex items-center gap-2">
-              <div className="shrink-0 mt-1">
-                <KorcomptenzImage
-                  src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/check_mark_5291043_1_ea7bdbea4a.png"
-                  width={16}
-                  height={16}
-                  alt="check mark"
-                  className="object-contain"
-                />
-              </div>
-              <span>Confidential discussion</span>
-            </div>
-
-            <div className="hidden md:block text-gray-500">|</div>
-
-            <div className="flex items-center gap-2">
-              <div className="shrink-0 mt-1">
-                <KorcomptenzImage
-                  src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/check_mark_5291043_1_ea7bdbea4a.png"
-                  width={16}
-                  height={16}
-                  alt="check mark"
-                  className="object-contain"
-                />
-              </div>
-              <span>SAP Certified Consultants</span>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
