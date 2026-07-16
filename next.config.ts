@@ -4049,6 +4049,77 @@ const nextConfig: NextConfig = {
       destination: "/sap/sap-s4hana-implementation-services",
       permanent: true,
     },
+    {
+      source: "/artificial-intelligence/microsoft-365-copilot",
+      destination: "/microsoft-dynamics-365/microsoft-365-copilot",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-copilot-central",
+      destination: "/microsoft-dynamics-365/microsoft-365-copilot",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365/microsoft-dynamics-365-supply-chain-management",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-supply-chain-management-services",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365/microsoft-dynamics-crm-implementation-partners",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365-for-field-service",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-field-service",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365/microsoft-modern-workplace-solutions",
+      destination: "/microsoft-dynamics-365",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-crm-implementation-partners",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-solutions/book-a-consultation",
+      destination: "/live-demo",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-solutions/book-a-free-demo",
+      destination: "/live-demo",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-solutions/brochures",
+      destination: "/insights/brochures",
+      permanent: true,
+    },
+    {
+      source: "/sap-merger-and-acquisition-consulting",
+      destination: "/sap/sap-merger-and-acquisition-consulting",
+      permanent: true,
+    },
+    {
+      source: "/sap/sap-staffing",
+      destination: "/blog/sap-staffing-solutions-for-your-business-in-the-usa",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics365",
+      destination: "/microsoft-dynamics-365",
+      permanent: true,
+    },
+    {
+      source: "/sap/sap-staffing",
+      destination: "/blog/sap-staffing-solutions-for-your-business-in-the-usa",
+      permanent: true,
+    },
+
   ],
 };
 
