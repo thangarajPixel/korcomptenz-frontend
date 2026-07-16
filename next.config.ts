@@ -1701,11 +1701,6 @@ const nextConfig: NextConfig = {
       permanent: false,
     },
     {
-      source: "/blog/wordpress-vs-drupal",
-      destination: "/insights/blog",
-      permanent: false,
-    },
-    {
       source: "/appsource/privacy-policy",
       destination: "/privacy-policy",
       permanent: false,
@@ -1771,18 +1766,8 @@ const nextConfig: NextConfig = {
       permanent: false,
     },
     {
-      source: "/kor-bank-iq",
-      destination: "/ai-assisted-retail-banking-microsoft-fabric",
-      permanent: false,
-    },
-    {
       source: "/korcares",
       destination: "/kor-cares",
-      permanent: false,
-    },
-    {
-      source: "/logistics",
-      destination: "/industries/logistics-and-transportation",
       permanent: false,
     },
     {
@@ -1881,23 +1866,6 @@ const nextConfig: NextConfig = {
     {
       source: "/healthcare",
       destination: "/industries/healthcare",
-      permanent: true,
-    },
-
-    {
-      source: "/kor-bank-iq",
-      has: [
-        {
-          type: "host",
-          value: "dev01_korcomptenz.korcomptenz.com",
-        },
-      ],
-      destination: "/ai-assisted-retail-banking-microsoft-fabric",
-      permanent: true,
-    },
-    {
-      source: "/logistics",
-      destination: "/industries/logistics-and-transportation",
       permanent: true,
     },
     {
@@ -3217,11 +3185,6 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/banking-and-financial-services",
-      destination: "/industries/banking-and-financial-services",
-      permanent: true,
-    },
-    {
       source:
         "/banking-and-financial-services/digital-banking-financial-services",
       destination: "https://campaigns.korcomptenz.com/digital-banking-suite",
@@ -3403,11 +3366,6 @@ const nextConfig: NextConfig = {
     {
       source: "/microsoft-power-bi-integration-implementation-services",
       destination: "/microsoft-power-platform/microsoft-power-bi",
-      permanent: true,
-    },
-    {
-      source: "/cloud/enterprise-analytics-cloud-services",
-      destination: "/modern-cloud-data-services",
       permanent: true,
     },
     {
@@ -3889,11 +3847,6 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/2023/03/14",
-      destination: "/",
-      permanent: true,
-    },
-    {
       source: "/2024/03/27",
       destination: "/",
       permanent: true,
@@ -4112,11 +4065,6 @@ const nextConfig: NextConfig = {
     {
       source: "/microsoft-dynamics365",
       destination: "/microsoft-dynamics-365",
-      permanent: true,
-    },
-    {
-      source: "/sap/sap-staffing",
-      destination: "/blog/sap-staffing-solutions-for-your-business-in-the-usa",
       permanent: true,
     },
   ],
