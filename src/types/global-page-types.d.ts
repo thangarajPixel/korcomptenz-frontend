@@ -226,6 +226,7 @@ type BannerSectionType = {
   noofcolumns?: string;
   formTitle?: string;
   formDescription?: string;
+  formbuttonText?: string;
   formImage?: ImageType;
   pageSlug: {
     id: string;
@@ -267,6 +268,7 @@ type SapFormType = {
   buttonText: string;
   formbuttonText: string;
   submitbuttontext: string;
+  informationlist?: { id: number; description: string; }[];
   downloadpdf_url: string;
   downloadpdf_name: string;
 };
