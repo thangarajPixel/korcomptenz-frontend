@@ -1154,6 +1154,7 @@ type FabconAboutType = {
   buttonLink: string;
   mobileImage: ImageType;
   isTarget: boolean;
+  isBlueBg: boolean;
   isVideoUrl: boolean;
   videoUrl: string;
 };
