@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       "@radix-ui/react-popover",
       "@radix-ui/react-tabs",
     ],
-    webpackBuildWorker: true,
+    webpackBuildWorker: false,
   },
 
   images: {
