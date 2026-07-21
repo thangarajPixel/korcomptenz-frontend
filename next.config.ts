@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       "@radix-ui/react-popover",
       "@radix-ui/react-tabs",
     ],
-    webpackBuildWorker: false,
+    webpackBuildWorker: true,
   },
 
   images: {
@@ -346,7 +346,7 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/kor-bank-iq",
+      source: "/kor-bank-iq/",
       destination: "/ai-assisted-retail-banking-microsoft-fabric",
       permanent: true,
     },
@@ -1766,8 +1766,18 @@ const nextConfig: NextConfig = {
       permanent: false,
     },
     {
+      source: "/kor-bank-iq",
+      destination: "/ai-assisted-retail-banking-microsoft-fabric",
+      permanent: false,
+    },
+    {
       source: "/korcares",
       destination: "/kor-cares",
+      permanent: false,
+    },
+    {
+      source: "/logistics",
+      destination: "/industries/logistics-and-transportation",
       permanent: false,
     },
     {
@@ -3185,6 +3195,11 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
+      source: "/banking-and-financial-services",
+      destination: "/industries/banking-and-financial-services",
+      permanent: true,
+    },
+    {
       source:
         "/banking-and-financial-services/digital-banking-financial-services",
       destination: "https://campaigns.korcomptenz.com/digital-banking-suite",
@@ -3366,6 +3381,11 @@ const nextConfig: NextConfig = {
     {
       source: "/microsoft-power-bi-integration-implementation-services",
       destination: "/microsoft-power-platform/microsoft-power-bi",
+      permanent: true,
+    },
+    {
+      source: "/cloud/enterprise-analytics-cloud-services",
+      destination: "/modern-cloud-data-services",
       permanent: true,
     },
     {
@@ -3987,17 +4007,6 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/:path*",
-      has: [
-        {
-          type: "host",
-          value: "korcomptenz.com",
-        },
-      ],
-      destination: "https://www.korcomptenz.com/:path*",
-      permanent: true,
-    },
-    {
       source: "/sap/sap-s4hana-implemenation-services",
       destination: "/sap/sap-s4hana-implementation-services",
       permanent: true,
@@ -4071,6 +4080,11 @@ const nextConfig: NextConfig = {
     {
       source: "/microsoft-dynamics365",
       destination: "/microsoft-dynamics-365",
+      permanent: true,
+    },
+    {
+      source: "/sap/sap-staffing",
+      destination: "/blog/sap-staffing-solutions-for-your-business-in-the-usa",
       permanent: true,
     },
   ],

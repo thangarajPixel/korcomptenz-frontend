@@ -11,7 +11,7 @@ export function DigitialAboutSection({
   return (
     <div
       className={cn(
-        "relative conainer-nav overflow-hidden",
+        "relative conainer-nav overflow-hidden bg-custom-gray-6",
         data?.noPadding && "-mb-12 md:-mb-24",
       )}
     >
@@ -85,7 +85,7 @@ export function DigitialAboutSection({
         {/* Features Section */}
         <section className="relative py-5">
           <div className="">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-8 mx-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-8 ">
               {data?.features?.map((feature) => (
                 <div
                   key={feature?.id}
