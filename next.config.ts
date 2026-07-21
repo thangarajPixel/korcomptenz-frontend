@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       "@radix-ui/react-popover",
       "@radix-ui/react-tabs",
     ],
-    webpackBuildWorker: true,
+    webpackBuildWorker: false,
   },
 
   images: {
@@ -4013,18 +4013,23 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/microsoft-dynamics-365/microsoft-dynamics-365-supply-chain-management",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-supply-chain-management-services",
+      source:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-supply-chain-management",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-supply-chain-management-services",
       permanent: true,
     },
     {
-      source: "/microsoft-dynamics-365/microsoft-dynamics-crm-implementation-partners",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
+      source:
+        "/microsoft-dynamics-365/microsoft-dynamics-crm-implementation-partners",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
       permanent: true,
     },
     {
       source: "/microsoft-dynamics-365-for-field-service",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-field-service",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-field-service",
       permanent: true,
     },
     {
@@ -4034,7 +4039,8 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/microsoft-dynamics-crm-implementation-partners",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
       permanent: true,
     },
     {
