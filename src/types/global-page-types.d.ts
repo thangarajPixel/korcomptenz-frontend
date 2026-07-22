@@ -1276,7 +1276,34 @@ type FabconBannerType = {
     }[];
   };
 };
-
+type CommunityBannerType = {
+  title1: string;
+  subHeading: string;
+  buttonTextOne: string;
+  buttonTextTwo: string;
+  buttonLinkOne: string;
+  buttonLinkTwo: string;
+  isTargetOne: boolean;
+  isTargetTwo: boolean;
+  image: ImageType;
+  title: string;
+  title2: string;
+  backgroundImage: ImageType;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  form: CommunityDecisionLeadSchema;
+  description: string;
+  date: string;
+  location: string;
+  list: {
+    title: string;
+    subList: {
+      title: string;
+      description: string;
+    }[];
+  };
+};
 type SapImplementationType = {
   title: string;
   list: {
@@ -2154,7 +2181,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.fabcon-fabric-community-conference";
   };
-
+  CommunityBanner: CommunityBannerType & {
+    id: string;
+    __component: "page-componets.community-conference-banner";
+  };
   FabconMidMarket: WhyKorcomptenzType & {
     id: string;
     __component: "page-componets.midmarket-enterprises";
