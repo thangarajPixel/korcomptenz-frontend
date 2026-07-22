@@ -9,6 +9,7 @@ import type {
   ContactUsFormSchema,
   DemoRequestFormSchema,
   FabconDecisionLeadSchema,
+  CommunityDecisionLeadSchema,
   FreeConsultationLeadSchema,
   IndustryFormSchema,
   IsgFormSchema,
@@ -52,6 +53,7 @@ export const NEWSROOM_LEAD = "/news-room-leads";
 export const CASESTUDYPDF = "/case-studies/by-attachment";
 export const TIME_SLOT_LIST = "/fabcon-time-slots";
 export const FABCON_BANNER_LEAD = "/fabcon-book-meet-leads";
+export const COMMUNITY_BANNER_LEAD = "/community-book-meet-leads";
 export const FABCON_DECISION_LEAD = "/fabcon-reserve-leads";
 export const BLOG_FORM_LEAD = "/forrester-reports";
 export const ASSETPDF = "/assets/by-slug";
@@ -331,7 +333,12 @@ export const createFabconBannerLead = async (
   const { data } = await http.post(FABCON_BANNER_LEAD, { data: formData });
   return data;
 };
-
+export const createCommunityBannerLead = async (
+  formData: CommunityDecisionLeadSchema,
+) => {
+  const { data } = await http.post(COMMUNITY_BANNER_LEAD, { data: formData });
+  return data;
+};
 // export const blogFormDownloadLead = async (
 //   formData: WebinarReserveFormSchema,
 // ) => {

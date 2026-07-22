@@ -195,6 +195,13 @@ export const useFabconBannerLeadHook = () => {
   });
 };
 
+export const useCommunityBannerLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.COMMUNITY_BANNER_LEAD],
+    mutationFn: PAGE.createCommunityBannerLead,
+  });
+};
+
 export const useBlogFormHook = () => {
   return useMutation({
     mutationKey: [PAGE.BLOG_FORM_LEAD],
