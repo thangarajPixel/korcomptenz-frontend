@@ -3,13 +3,19 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
+import ConsultationForm from "./consultation-form";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 const ScheduleCall = ({
   scheduleCall,
   isLastIndex,
+  form,
+  essential,
 }: {
   scheduleCall: ScheduleCallType;
   isLastIndex: boolean;
+  form: FreeConsultationFormType;
+  essential?: { id: string | number; [key: string]: unknown };
 }) => {
   return (
     <section
@@ -54,7 +60,7 @@ const ScheduleCall = ({
               {scheduleCall?.buttonText}
             </ButtonLink>
           </div>
-          <div className="flex items-center justify-end space-x-2 lg:mt-10">
+          <div className="relative flex items-center justify-end lg:mt-10">
             <KorcomptenzImage
               src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/lets_drive_fdc0c33e0c.png"
               alt="drive"
@@ -62,6 +68,21 @@ const ScheduleCall = ({
               width={1112}
               height={607}
             />
+
+            {/* Form Overlay */}
+            <div
+              className="absolute right-8 top-1/2 -translate-y-1/2 z-20"
+              style={{
+                backgroundColor: "rgb(71 70 70 / 100%)",
+                padding: "40px 60px",
+                borderRadius: "20px",
+                maxWidth: "500px",
+              }}
+            >
+              <RecaptchaProvider>
+                <ConsultationForm form={form} essential={essential} />
+              </RecaptchaProvider>
+            </div>
           </div>
           <ButtonLink
             link={scheduleCall?.link || "#"}
