@@ -30,7 +30,15 @@ const ScheduleCall = ({
       <div className="container-md">
         <div className="lg:flex flex-row  lg:gap-8 justify-center h-full lg:min-h-150 py-10">
           {/* Left content */}
-          <div className="relative z-20 flex flex-col justify-around lg:ml-0">
+          <div className="relative z-20 flex flex-col justify-around lg:w-[50%] max-w-[450px]">
+            {/* Background Image */}
+            <KorcomptenzImage
+              src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/lets_drive_fdc0c33e0c.png"
+              alt="drive"
+              width={700}
+              height={607}
+              className="absolute left-0 top-1/2 -translate-y-1/2 w-full max-w-[550px] opacity-20 z-0"
+            />
             <div className="space-y-2">
               <p className="text-2xl font-semibold text-white max-w-xl">
                 {isLastIndex
@@ -60,23 +68,14 @@ const ScheduleCall = ({
               {scheduleCall?.buttonText}
             </ButtonLink>
           </div>
-          <div className="relative flex items-center justify-end lg:mt-10">
-            <KorcomptenzImage
-              src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/lets_drive_fdc0c33e0c.png"
-              alt="drive"
-              className="w-50 lg:w-137.5 h-auto rounded-2xl"
-              width={1112}
-              height={607}
-            />
-
-            {/* Form Overlay */}
+          <div className="relative flex items-center justify-end lg:mt-10 flex-1">
+            {/* Form Card */}
             <div
-              className="absolute right-8 top-1/2 -translate-y-1/2 z-20"
+              className="relative z-20 w-full max-w-[520px]"
               style={{
-                backgroundColor: "rgb(71 70 70 / 100%)",
-                padding: "40px 60px",
+                backgroundColor: "#313941",
+                padding: "30px",
                 borderRadius: "20px",
-                maxWidth: "500px",
               }}
             >
               <RecaptchaProvider>

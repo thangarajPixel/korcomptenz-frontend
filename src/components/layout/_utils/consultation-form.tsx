@@ -42,6 +42,8 @@ const ConsultationForm = ({
     resolver: zodResolver(freeConsultationLeadSchema),
     defaultValues: {
       ...defaultValues,
+      organization: "Default",
+      location: "Default",
       insight: essential?.id
         ? {
             connect: [
@@ -92,13 +94,16 @@ const ConsultationForm = ({
       onSubmit={handleSubmit(handleFormSubmit)}
       className="space-y-8"
     >
-      <div className="grid gap-y-8 mt-5">
+      <h3 className="text-5xl font-semibold text-center text-foreground text-white">
+        Request an Assessment
+      </h3>
+      <div className="grid gap-y-4 mt-5">
         <div className="grid grid-cols-1  gap-4">
           <Input
             control={control}
             name={"fullName"}
             placeholder={form?.nameLabel || "Full name"}
-            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
+            className=" p-2  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -106,27 +111,13 @@ const ConsultationForm = ({
             control={control}
             name="email"
             placeholder={form?.emailLabel || "Email"}
-            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
+            className=" p-2  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
           />
           <Input
             control={control}
             name="phone"
             placeholder={form?.phoneLabel || "Phone Number"}
-            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
-          />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Input
-            control={control}
-            name="organization"
-            placeholder={form?.organizationLabel || "Organization"}
-            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
-          />
-          <Input
-            control={control}
-            name="location"
-            placeholder={form?.locationLabel || "Location"}
-            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
+            className=" p-2  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
           />
         </div>
 
@@ -135,22 +126,25 @@ const ConsultationForm = ({
             control={control}
             name="message"
             placeholder={form?.messageLabel || "Your message"}
-            className=" p-3  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
+            className=" p-2  rounded-md text-black bg-custom-gray-8 placeholder:text-black border-none"
           />
         </div>
 
         {/* Submit button */}
-        <div className="pt-4">
+        <div className="">
           <Button
-            size="xl"
+            size="lg"
             variant="outline"
-            className="hover:bg-primary border-primary text-primary hover:text-white"
+            className="hover:bg-white bg-primary text-white border-primary hover:text-primary"
             arrow
             isLoading={isSubmitting}
             type="submit"
           >
             {form?.buttonText || "Submit"}
           </Button>
+          <Input control={control} name="organization" type="hidden" />
+
+          <Input control={control} name="location" type="hidden" />
         </div>
       </div>
     </form>
