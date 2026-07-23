@@ -1,27 +1,104 @@
 import React from "react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-type RichTextChild = {
-  text: string;
+type RichTextNode = {
+  type?: string;
+  text?: string;
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  url?: string;
+  href?: string;
+  target?: string;
+  level?: number;
+  format?: string;
+  children?: RichTextNode[];
 };
+const richTextToHtml = (content: unknown): string => {
+  if (!content) return "";
 
-type RichTextBlocks = {
-  type: string;
-  children?: RichTextChild[];
-};
+  if (typeof content === "string") {
+    return content;
+  }
 
-const renderRichText = (content: RichTextBlocks[] | undefined) => {
-  if (!Array.isArray(content)) return null;
+  if (!Array.isArray(content)) {
+    return String(content);
+  }
 
-  return content.map((block, index) => {
-    if (block.type === "paragraph") {
-      return (
-        <p key={index}>{block.children?.map((child) => child.text).join("")}</p>
-      );
-    }
+  const renderChildren = (children: RichTextNode[] = []): string => {
+    return children
+      .map((child) => {
+        if (child.text !== undefined) {
+          let text = child.text;
 
-    return null;
-  });
+          if (child.bold) text = `<strong>${text}</strong>`;
+          if (child.italic) text = `<em>${text}</em>`;
+          if (child.underline) text = `<u>${text}</u>`;
+
+          return text;
+        }
+
+        if (child.type === "link") {
+          const href = child.url || child.href || "#";
+          const target = child.target || "_self";
+
+          return `<a
+            href="${href}"
+            target="${target}"
+            ${target === "_blank"
+              ? 'rel="noopener noreferrer"'
+              : ""
+            }
+            style="color:#26a17c;text-decoration:underline;text-decoration-color:#26a17c;"
+          >
+            ${renderChildren(child.children)}
+          </a>`;
+        }
+
+        if (child.children) {
+          return renderChildren(child.children);
+        }
+
+        return "";
+      })
+      .join("");
+  };
+
+  return (content as RichTextNode[])
+    .map((block) => {
+      switch (block.type) {
+        case "paragraph":
+          return `<p>${renderChildren(block.children)}</p>`;
+
+        case "heading":
+          return `<h${block.level || 2}>${renderChildren(
+            block.children
+          )}</h${block.level || 2}>`;
+
+        case "list": {
+          const tag = block.format === "ordered" ? "ol" : "ul";
+
+          return `<${tag} style="padding-left:1.5rem;margin:0.75rem 0;list-style-type:${tag === "ol" ? "decimal" : "disc"
+            }">
+            ${(block.children ?? [])
+              .map(
+                (item) =>
+                  `<li style="margin-bottom:0.5rem;">${renderChildren(
+                    item.children
+                  )}</li>`
+              )
+              .join("")}
+          </${tag}>`;
+        }
+
+        case "list-item":
+          return `<li>${renderChildren(block.children)}</li>`;
+
+        default:
+          return renderChildren(block.children);
+      }
+    })
+    .join("");
 };
 
 const StepGridSection = ({ data }: { data: StepGridSectionType }) => {
@@ -37,9 +114,12 @@ const StepGridSection = ({ data }: { data: StepGridSectionType }) => {
 
           {data?.title && <h2 className="font-bold">{data.title}</h2>}
 
-          <div className="text-lg text-slate-600">
-            {renderRichText(data.description)}
-          </div>
+          <div
+            className="text-lg text-slate-600"
+            dangerouslySetInnerHTML={{
+              __html: richTextToHtml(data.description),
+            }}
+          />
         </div>
 
         {data?.gridlist?.length > 0 && (
@@ -83,18 +163,20 @@ const StepGridSection = ({ data }: { data: StepGridSectionType }) => {
                         )}
                       </div>
 
-                      <div className="space-y-4">
-                        {renderRichText(item.griddescription)}
-                      </div>
-
+                      <div
+                        className="text-lg text-slate-600"
+                        dangerouslySetInnerHTML={{
+                          __html: richTextToHtml(item.griddescription),
+                        }}
+                      />
                       {item.checklistitems?.length > 0 && (
-                        <div className="space-y-3">
+                        <ul className="space-y-3">
                           {item.checklistitems.map((check, checkIndex) => (
-                            <div
+                            <li
                               key={checkIndex}
-                              className="flex items-start gap-3 rounded-lg bg-slate-50 p-3"
+                              className="flex items-start gap-3 rounded-lg bg-slate-50 p-3 list-none"
                             >
-                              <div className="mt-1 flex h-5 w-5 items-center justify-center rounded-full border border-[#26a17c]">
+                              <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#26a17c]">
                                 <svg
                                   className="h-3 w-3 text-[#26a17c]"
                                   fill="none"
@@ -106,12 +188,15 @@ const StepGridSection = ({ data }: { data: StepGridSectionType }) => {
                                 </svg>
                               </div>
 
-                              <div className="text-sm">
-                                {renderRichText(check.description)}
-                              </div>
-                            </div>
+                              <div
+                                className="text-sm flex-1"
+                                dangerouslySetInnerHTML={{
+                                  __html: richTextToHtml(check.description),
+                                }}
+                              />
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       )}
                       <div className="mt-auto pt-4">
                         {item.buttonText && (
