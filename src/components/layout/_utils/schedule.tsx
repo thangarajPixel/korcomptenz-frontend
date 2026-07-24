@@ -78,8 +78,13 @@ const ScheduleCall = ({
             >
               <RecaptchaProvider>
                 <ConsultationForm
-                  data={scheduleCall?.form?.forms?.[0]}
-                  formTitle={scheduleCall?.formTitle}
+                  data={
+                    scheduleCall?.form?.forms?.[0] ?? {
+                      id: "default",
+                      title: "Free Consultation",
+                    }
+                  }
+                  formTitle={scheduleCall?.formTitle ?? "Get Free Consultation"}
                   formDescription={scheduleCall?.formDescription}
                   formbuttonText={scheduleCall?.formbuttonText}
                 />
