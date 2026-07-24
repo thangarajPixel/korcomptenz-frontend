@@ -304,6 +304,23 @@ export const IsgformSchema = z.object({
   organization: z.string().min(1, "Organization is required"),
   message: z.string().nullable(),
 });
+export const FooterformSchema = z.object({
+  Name: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+  Email: z
+    .string()
+    .min(1, "Email is required")
+    .email("Invalid email address"),
+
+  phoneNumber: z
+    .string()
+    .min(1, "Mobile number is required")
+    .regex(/^\d{1,10}$/, "Enter a valid mobile number")
+  ,
+  Message: z.string().nullable(),
+});
 
 export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
 export type FreeConsultationLeadSchema = z.infer<
@@ -324,3 +341,4 @@ export type IndustryFormSchema = z.infer<typeof industryformSchema>;
 export type CloudFormSchema = z.infer<typeof cloudformSchema>;
 export type SapFormSchema = z.infer<typeof SapformSchema>;
 export type IsgFormSchema = z.infer<typeof IsgformSchema>;
+export type FooterFormSchema = z.infer<typeof FooterformSchema>;

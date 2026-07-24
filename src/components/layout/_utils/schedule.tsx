@@ -77,7 +77,12 @@ const ScheduleCall = ({
               }}
             >
               <RecaptchaProvider>
-                <ConsultationForm />
+                <ConsultationForm
+                  data={scheduleCall?.form?.forms?.[0]}
+                  formTitle={scheduleCall?.formTitle}
+                  formDescription={scheduleCall?.formDescription}
+                  formbuttonText={scheduleCall?.formbuttonText}
+                />
               </RecaptchaProvider>
             </div>
           </div>
