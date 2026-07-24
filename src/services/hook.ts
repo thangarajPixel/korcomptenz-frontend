@@ -293,3 +293,9 @@ export const useIsgLeadHook = () => {
     mutationFn: PAGE.createIsgLead,
   });
 };
+export const usefooterLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.FOOTER_LEAD],
+    mutationFn: PAGE.createFooterLead,
+  });
+};

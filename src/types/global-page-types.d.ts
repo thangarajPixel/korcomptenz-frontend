@@ -527,6 +527,30 @@ type ScheduleCallType = {
   image: string;
   description: string;
   topDescription: string;
+  isForm: boolean;
+  pageSlug: {
+    id: string;
+    documentId: string;
+    isTemporary: boolean;
+  };
+  form: {
+    forms: FooterFormType[];
+  };
+  formTitle: string;
+  formDescription: string;
+  emailSubject: string;
+  emailBody: string;
+  adminEmailSubject: string;
+  adminEmailBody: string;
+  formbuttonText: string;
+};
+type FooterFormType = {
+  title: string;
+  nameLabel: string;
+  emailLabel: string;
+  phoneLabel: string;
+  messageLabel: string;
+  buttonText: string;
 };
 type SocialPlatformType = {
   id: string;
