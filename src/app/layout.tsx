@@ -39,7 +39,8 @@ export async function generateMetadata(): Promise<Metadata> {
       "CRM consulting",
       "data analytics services",
     ],
-    robots: "index, follow",
+    robots:
+      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: "/",
