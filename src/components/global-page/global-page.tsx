@@ -124,6 +124,9 @@ import StepGridSection from "../step-grid-section";
 import TabSection from "../tab-section";
 import GridSystem from "../grid-system";
 import ChecklistSection from "../altiaris-checklist";
+import NewsLetterBannner from "../newsletter-banner";
+import NewsLetterLeaderShip from "../newsletter-leadership-message";
+import NewsLetterDescription from "../newsletter-description";
 
 type Props = {
   data: ComponentPropsType[];
@@ -157,6 +160,36 @@ const GlobalPage = (props: Props) => {
             key={`sticky-cards-${item?.__component}-${item?.id}`}
           >
             <StickyCards stickyCards={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.newsletter-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`newsletter-banner-${item?.__component}-${item?.id}`}
+          >
+            <NewsLetterBannner data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.newsletter-leadership-message":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`newsletter-banner-${item?.__component}-${item?.id}`}
+          >
+            <NewsLetterLeaderShip data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.newsletter-description":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`newsletter-banner-${item?.__component}-${item?.id}`}
+          >
+            <NewsLetterDescription data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.insights-section":
