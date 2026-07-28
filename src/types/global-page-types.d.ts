@@ -175,6 +175,25 @@ type InsightsSectionType = {
   buttonLink: string;
   list: InsightsMobileCarouselType[];
 };
+type SubListItem = {
+  id?: number;
+  title: string;
+  description?: string;
+  sectionLink: string;
+};
+
+type NewsletterBannerProps = {
+  data: {
+    title?: string;
+    subtitle?: string;
+    eventDate?: string;
+    whatsIncludeContent?: {
+      title?: string;
+      sublist?: SubListItem[];
+
+    };
+  };
+};
 
 type OpportunitiesType = {
   description: string;
@@ -912,7 +931,22 @@ type AchievementsType = {
   logo: AchievementscardType[];
   list: AchievementscardType[];
 };
-
+type NewsLetterDescriptionType = {
+  id: string;
+  subtext: string;
+  Title: string;
+  description: string;
+  bgColor: string;
+  hrCode: boolean;
+  isgradiant: boolean;
+};
+type NewsLetterLeaderShipType = {
+  id: string;
+  LeadershipMessage: string;
+  Title: string;
+  description: string;
+  AuthorImage: ImageType;
+};
 type AchievementSectionProps = {
   data: AchievementsType;
 };
@@ -1846,6 +1880,18 @@ type ComponentPropsMap = {
   StickyCards: StickyCardsType & {
     id: string;
     __component: "page-componets.sticky-cards-list";
+  };
+  NewsletterBanner: NewsletterBannerType & {
+    id: string;
+    __component: "page-componets.newsletter-banner";
+  };
+  NewsLetterLeaderShip: NewsLetterLeaderShipType & {
+    id: string;
+    __component: "page-componets.newsletter-leadership-message";
+  };
+  NewsLetterDescriptionProps: NewsLetterDescriptionType & {
+    id: string;
+    __component: "page-componets.newsletter-description";
   };
   InsightsSection: InsightsSectionType & {
     id: string;
