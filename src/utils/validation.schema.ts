@@ -209,6 +209,22 @@ export const fabconDecisionLeadSchema = z.object({
   buttonText: z.string().optional(),
 });
 
+export const communityDecisionLeadSchema = z.object({
+  fullName: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+
+  email: businessEmail,
+
+  timeSlot: z.string().min(1, "Preferred time slot is required"),
+
+  company: z.string().min(1, "Company is required"),
+
+  message: z.string().min(1, "Message is required"),
+  buttonText: z.string().optional(),
+});
+
 export const blogFormSchema = z.object({
   name: z
     .string()
@@ -317,6 +333,7 @@ export type WebinarReserveFormSchema = z.infer<typeof webinarReserveFormSchema>;
 export type NewsRoomFormSchema = z.infer<typeof newsRoomFormSchema>;
 
 export type FabconDecisionLeadSchema = z.infer<typeof fabconDecisionLeadSchema>;
+export type CommunityDecisionLeadSchema = z.infer<typeof communityDecisionLeadSchema>;
 export type BlogFormSchema = z.infer<typeof blogFormSchema>;
 export type SubscriptionFormSchema = z.infer<typeof subscriptionFormSchema>;
 

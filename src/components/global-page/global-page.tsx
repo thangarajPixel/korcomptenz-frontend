@@ -89,6 +89,7 @@ import FabconLedTransform from "../fabcon-led-transform";
 import FabconComposableIntelligence from "../fabcon-composable-intelligence";
 import FabconDecisionFabric from "../fabcon-decision-fabric";
 import FabconBanner from "../fabcon-banner/fabcon-banner";
+import CommunityBanner from "../community-conference-banner/community-conference-banner";
 import FabconMidMarket from "../fabcon-midmarket";
 import LogoSlider from "../logo-slider";
 import SapImplementation from "../sap-implementation";
@@ -1024,6 +1025,15 @@ const GlobalPage = (props: Props) => {
             key={`fabcon-fabric-community-conference-${item?.__component}-${item?.id}`}
           >
             <FabconBanner data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.community-conference-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`community-conference-banner-${item?.__component}-${item?.id}`}
+          >
+            <CommunityBanner data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.midmarket-enterprises":
