@@ -58,7 +58,7 @@ export default function NewsletterBanner({ data }: NewsletterBannerProps) {
                   {item.description && (
                     <DangerousHtml
                       html={item.description}
-                      className="md:text-lg text-md mb-4"
+                      className="md:text-lg text-md"
                     />
                   )}
                 </button>

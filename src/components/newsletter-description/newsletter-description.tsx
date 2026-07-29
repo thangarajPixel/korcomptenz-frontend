@@ -1,5 +1,6 @@
 import React from "react";
 //import KorcomptenzImage from "../korcomptenz-image";
+import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 interface NewsLetterDescriptionProps {
   data: NewsLetterDescriptionType;
@@ -11,8 +12,8 @@ const NewsLetterDescription: React.FC<NewsLetterDescriptionProps> = ({
   if (!data) return null;
 
   return (
-    <section
-      className="container-md py-20"
+    <div
+      className="container-md"
       style={{
         background: data?.bgColor || "#ffffff",
       }}
@@ -26,14 +27,12 @@ const NewsLetterDescription: React.FC<NewsLetterDescriptionProps> = ({
             {data.Title}
           </h2>
         )}
-        <div
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{
-            __html: data?.description || "",
-          }}
+        <DangerousHtml
+          html={data.description}
+          className="md:text-lg text-md mb-4"
         />
       </div>
-    </section>
+    </div>
   );
 };
 
