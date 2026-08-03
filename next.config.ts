@@ -1935,12 +1935,12 @@ const nextConfig: NextConfig = {
 
     {
       source: "/microsoft-dynamics-solutions/book-a-consultation",
-      destination: "/book-consultation/",
+      destination: "/live-demo",
       permanent: true,
     },
     {
       source: "/microsoft-dynamics-solutions/book-a-free-demo",
-      destination: "/book-consultation",
+      destination: "/live-demo",
       permanent: true,
     },
     {
@@ -4112,6 +4112,16 @@ const nextConfig: NextConfig = {
     {
       source: "/sap/sap-staffing",
       destination: "/blog/sap-staffing-solutions-for-your-business-in-the-usa",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-crm-implementation-partners",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
+      permanent: true,
+    },
+    {
+      source: "/nonprofit-sectors",
+      destination: "/industries/nonprofit",
       permanent: true,
     },
   ],
