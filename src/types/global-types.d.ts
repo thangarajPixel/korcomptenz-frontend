@@ -348,6 +348,7 @@ type NewsroomListType = {
   externalLink: string;
   publishedAt: string;
 };
+/* news-letter Changes */
 // ✅ Banner section
 type ClientSuccessBannerSectionType = {
   id: string;

@@ -184,3 +184,4 @@ export default function NewsEventListSection({
     </div>
   );
 }
+/* news-letter Changes */
