@@ -2317,6 +2317,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.altiaris-checklist";
   };
+  CTASectionSection: CTABannerType & {
+    id: string;
+    __component: "page-componets.cta-banner";
+  };
 
   /*  KOR Dev Team END */
 };
@@ -2334,7 +2338,19 @@ type PagesListType = {
   list: ComponentPropsType[];
   data: ComponentPropsType[];
 };
-
+type CTABannerType = {
+  Title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  isBgImage?: boolean;
+  backroundImage?: ImageType;
+  bgColor?: string;
+  TitleColor?: string;
+  DescriptionColor?: string;
+  ButtonTextColor?: string;
+  buttonBgColor?: string;
+};
 type LayoutType = {
   // scheduleCall: ScheduleCallType;
   company: CompanyType;

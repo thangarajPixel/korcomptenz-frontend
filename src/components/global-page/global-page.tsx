@@ -125,6 +125,7 @@ import StepGridSection from "../step-grid-section";
 import TabSection from "../tab-section";
 import GridSystem from "../grid-system";
 import ChecklistSection from "../altiaris-checklist";
+import CTABanner from "../cta-banner/cta-banner";
 
 type Props = {
   data: ComponentPropsType[];
@@ -158,6 +159,15 @@ const GlobalPage = (props: Props) => {
             key={`sticky-cards-${item?.__component}-${item?.id}`}
           >
             <StickyCards stickyCards={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.cta-banner":
+        return (
+          <ScrollFadeIn
+            key={`cta-banner-${item.id}`}
+            __component={item.__component}
+          >
+            <CTABanner data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.insights-section":
