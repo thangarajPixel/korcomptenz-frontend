@@ -29,6 +29,21 @@ const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
             html={data?.description}
             className="text-lg md:text-3xl leading-relaxed text-white max-w-2xl"
           />
+          <div className=" grid md:flex gap-4">
+            <p
+              className="text-base md:text-lg leading-relaxed text-white 
+                border border-white rounded-full px-6 py-2"
+            >
+              {data?.date}
+            </p>
+
+            <p
+              className="text-base md:text-lg leading-relaxed text-white 
+                border border-white rounded-full px-6 py-2"
+            >
+              {data?.location}
+            </p>
+          </div>
 
           {/* <ButtonLink
             link={data?.buttonLink}
@@ -40,6 +55,13 @@ const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
           >
             {data?.buttonText}
           </ButtonLink> */}
+          <Button
+            arrow
+            size="xl"
+            className="cursor-default hover:bg-primary hover:text-white"
+          >
+            {data?.buttonText}
+          </Button>
         </div>
 
         <div
@@ -50,28 +72,6 @@ const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
             <CommunityBannerForm form={data?.form} />
           </RecaptchaProvider>
         </div>
-      </div>
-      <div className=" grid md:flex gap-4 pt-6">
-        <Button
-          arrow
-          size="xl"
-          className="cursor-default hover:bg-primary hover:text-white"
-        >
-          {data?.buttonText}
-        </Button>
-        <p
-          className="text-base md:text-lg leading-relaxed text-white 
-                border border-white rounded-full px-6 py-4"
-        >
-          {data?.date}
-        </p>
-
-        <p
-          className="text-base md:text-lg leading-relaxed text-white 
-                border border-white rounded-full px-6 py-4"
-        >
-          {data?.location}
-        </p>
       </div>
     </section>
   );
