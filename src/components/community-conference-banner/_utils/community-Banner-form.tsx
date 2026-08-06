@@ -184,11 +184,12 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
           className="
                min-h-[80px] md:min-h-[80px]
                rounded-xl
-               bg-white text-gray-900
-               placeholder:text-gray-500
-               p-1 md:p-2
-               resize-none
-               focus-visible:ring-0
+                bg-transparent
+                 border-0 border-b border-white/60
+                 rounded-none px-0
+                 h-12 md:h-14
+                 text-white placeholder:text-white
+                 focus-visible:ring-0 focus:border-white
              "
         />
       </div>
