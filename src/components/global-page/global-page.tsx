@@ -129,6 +129,8 @@ import NewsLetterBannner from "../newsletter-banner";
 import NewsLetterLeaderShip from "../newsletter-leadership-message";
 import NewsLetterDescription from "../newsletter-description";
 import CTABanner from "../cta-banner/cta-banner";
+import NewsLetterFooterSection from "../newsletter-footer";
+import type { ComponentPropsType } from "@/types/global-page-types";
 
 type Props = {
   data: ComponentPropsType[];
@@ -246,6 +248,15 @@ const GlobalPage = (props: Props) => {
             key={`we-are-korcomptenz-${item?.__component}-${item?.id}`}
           >
             <WeAreKorcomptenzSection weAreKorcomptenzData={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.newsletter-footer":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`newsletter-footer-${item?.__component}-${item?.id}`}
+          >
+            <NewsLetterFooterSection data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.banner-section-list":
