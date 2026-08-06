@@ -128,7 +128,6 @@ import ChecklistSection from "../altiaris-checklist";
 import NewsLetterBannner from "../newsletter-banner";
 import NewsLetterLeaderShip from "../newsletter-leadership-message";
 import NewsLetterDescription from "../newsletter-description";
-import CTABanner from "../cta-banner/cta-banner";
 
 type Props = {
   data: ComponentPropsType[];
@@ -192,15 +191,6 @@ const GlobalPage = (props: Props) => {
             key={`newsletter-banner-${item?.__component}-${item?.id}`}
           >
             <NewsLetterDescription data={item} />
-          </ScrollFadeIn>
-        );
-      case "page-componets.cta-banner":
-        return (
-          <ScrollFadeIn
-            key={`cta-banner-${item.id}`}
-            __component={item.__component}
-          >
-            <CTABanner data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.insights-section":
