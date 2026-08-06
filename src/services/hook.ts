@@ -195,6 +195,13 @@ export const useFabconBannerLeadHook = () => {
   });
 };
 
+export const useCommunityBannerLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.COMMUNITY_BANNER_LEAD],
+    mutationFn: PAGE.createCommunityBannerLead,
+  });
+};
+
 export const useBlogFormHook = () => {
   return useMutation({
     mutationKey: [PAGE.BLOG_FORM_LEAD],
@@ -278,5 +285,17 @@ export const useSapLeadHook = () => {
   return useMutation({
     mutationKey: [PAGE.SAP_LEAD],
     mutationFn: PAGE.createSapLead,
+  });
+};
+export const useIsgLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.ISG_LEAD],
+    mutationFn: PAGE.createIsgLead,
+  });
+};
+export const usefooterLeadHook = () => {
+  return useMutation({
+    mutationKey: [PAGE.FOOTER_LEAD],
+    mutationFn: PAGE.createFooterLead,
   });
 };

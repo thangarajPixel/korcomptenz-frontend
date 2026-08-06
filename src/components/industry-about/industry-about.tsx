@@ -7,7 +7,6 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
   return (
     <div className="container-md">
       <div className="grid grid-cols-1 lg:grid-cols-[52%_45%] md:gap-x-10 gap-y-10">
-
         {/* CONTENT SECTION */}
         <div className="md:mt-8">
           {data?.subHeading && (
@@ -54,16 +53,16 @@ const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
               paddingRight: "2rem",
             }}
           >
-            {/* Purple accent block — sized relative to the wrapper, always behind the image */}
-            <div
-              className="absolute bottom-0 right-0 z-0 rounded-2xl"
-              style={{
-                backgroundColor: "#5647D8",
-                // Use percentages so it scales with the column width on every breakpoint
-                width: "60%",
-                height: "75%",
-              }}
-            />
+            {data?.isBlueBg && (
+              <div
+                className="absolute bottom-0 right-0 z-0 rounded-2xl"
+                style={{
+                  backgroundColor: "#5647D8",
+                  width: "60%",
+                  height: "75%",
+                }}
+              />
+            )}
 
             {/* Foreground image — pushes the purple block to bottom-right naturally */}
             <KorcomptenzImage

@@ -57,8 +57,11 @@ type InspireSectionType = {
     title: string;
     order: string;
     description: string;
+    isvideopopup: boolean;
+    targetblank: boolean;
     buttonText?: string;
     link: string;
+    VideoLink: string;
   }[];
 };
 
@@ -172,6 +175,25 @@ type InsightsSectionType = {
   buttonLink: string;
   list: InsightsMobileCarouselType[];
 };
+type SubListItem = {
+  id?: number;
+  title: string;
+  description?: string;
+  sectionLink: string;
+};
+
+type NewsletterBannerProps = {
+  data: {
+    title?: string;
+    subtitle?: string;
+    eventDate?: string;
+    whatsIncludeContent?: {
+      title?: string;
+      sublist?: SubListItem[];
+
+    };
+  };
+};
 
 type OpportunitiesType = {
   description: string;
@@ -223,6 +245,7 @@ type BannerSectionType = {
   noofcolumns?: string;
   formTitle?: string;
   formDescription?: string;
+  formbuttonText?: string;
   formImage?: ImageType;
   pageSlug: {
     id: string;
@@ -263,6 +286,22 @@ type SapFormType = {
   phoneNumberLabel: string;
   buttonText: string;
   formbuttonText: string;
+  submitbuttontext: string;
+  informationlist?: { id: number; description: string; }[];
+  downloadpdf_url: string;
+  downloadpdf_name: string;
+};
+type IsgFormType = {
+  businessEmailLabel: string;
+  fullNameLabel: string;
+  messageLabel: string;
+  organizationLabel: string;
+  phoneNumberLabel: string;
+  buttonText: string;
+  formbuttonText: string;
+  submitbuttontext: string;
+  downloadpdf_url: string;
+  downloadpdf_name: string;
 };
 type SapSectionType = {
   heading: string;
@@ -447,6 +486,7 @@ type BuildConnectSectionType = {
   descriptionButtonLink: string;
   rightSection: {
     content: string;
+    rightsideTitle: string;
     description: string;
     customDescription: {
       id: string;
@@ -506,6 +546,30 @@ type ScheduleCallType = {
   image: string;
   description: string;
   topDescription: string;
+  isForm: boolean;
+  pageSlug: {
+    id: string;
+    documentId: string;
+    isTemporary: boolean;
+  };
+  form: {
+    forms: FooterFormType[];
+  };
+  formTitle: string;
+  formDescription: string;
+  emailSubject: string;
+  emailBody: string;
+  adminEmailSubject: string;
+  adminEmailBody: string;
+  formbuttonText: string;
+};
+type FooterFormType = {
+  title: string;
+  nameLabel: string;
+  emailLabel: string;
+  phoneLabel: string;
+  messageLabel: string;
+  buttonText: string;
 };
 type SocialPlatformType = {
   id: string;
@@ -547,6 +611,8 @@ type InterlinkType = {
 
 type StretchableSectionType = {
   title: string;
+  title_description: string;
+  colSpan: string;
   description: string;
   image: ImageType;
   list: {
@@ -865,7 +931,22 @@ type AchievementsType = {
   logo: AchievementscardType[];
   list: AchievementscardType[];
 };
-
+type NewsLetterDescriptionType = {
+  id: string;
+  subtext: string;
+  Title: string;
+  description: string;
+  bgColor: string;
+  hrCode: boolean;
+  isgradiant: boolean;
+};
+type NewsLetterLeaderShipType = {
+  id: string;
+  LeadershipMessage: string;
+  Title: string;
+  description: string;
+  AuthorImage: ImageType;
+};
 type AchievementSectionProps = {
   data: AchievementsType;
 };
@@ -964,6 +1045,7 @@ type DemoWhyAttendSectionType = {
 type DemoBannerDetailsType = {
   buttonText: string;
   buttonLink: string;
+  logo?: ImageType;
   data: string;
   id: string;
   title: string;
@@ -1041,6 +1123,7 @@ type VideoBannerItemType = {
   formButtonText: string;
   isTarget: boolean;
   videoLink: string;
+  mobileVideo: string;
   buttonLink: string;
   buttonText: string;
   title: string;
@@ -1061,6 +1144,9 @@ type DigitialAnalyticsType = {
     id: string;
     title: string;
     description: string;
+    buttonText: string;
+    buttonLink?: string;
+    isTarget?: boolean;
   }[];
   list2: {
     id: string;
@@ -1132,6 +1218,7 @@ type FabconAboutType = {
   buttonLink: string;
   mobileImage: ImageType;
   isTarget: boolean;
+  isBlueBg: boolean;
   isVideoUrl: boolean;
   videoUrl: string;
 };
@@ -1248,7 +1335,34 @@ type FabconBannerType = {
     }[];
   };
 };
-
+type CommunityBannerType = {
+  title1: string;
+  subHeading: string;
+  buttonTextOne: string;
+  buttonTextTwo: string;
+  buttonLinkOne: string;
+  buttonLinkTwo: string;
+  isTargetOne: boolean;
+  isTargetTwo: boolean;
+  image: ImageType;
+  title: string;
+  title2: string;
+  backgroundImage: ImageType;
+  buttonText: string;
+  buttonLink: string;
+  isTarget: boolean;
+  form: CommunityDecisionLeadSchema;
+  description: string;
+  date: string;
+  location: string;
+  list: {
+    title: string;
+    subList: {
+      title: string;
+      description: string;
+    }[];
+  };
+};
 type SapImplementationType = {
   title: string;
   list: {
@@ -1730,6 +1844,17 @@ type SapWhyKorcomptenzType = {
     icon?: ImageType;
   }[];
 };
+
+type ChecklistSectionType = {
+  title: string;
+  description: string;
+  buttonText: sting;
+  image: ImageType;
+  altiarisgridlist: {
+    number: string;
+    description: string;
+  }[];
+};
 /* KOR Dev Team END */
 
 type NewsRoomSliderType = { id: string; list: NewsRoomSliderCardType[] };
@@ -1756,6 +1881,18 @@ type ComponentPropsMap = {
   StickyCards: StickyCardsType & {
     id: string;
     __component: "page-componets.sticky-cards-list";
+  };
+  NewsletterBanner: NewsletterBannerType & {
+    id: string;
+    __component: "page-componets.newsletter-banner";
+  };
+  NewsLetterLeaderShip: NewsLetterLeaderShipType & {
+    id: string;
+    __component: "page-componets.newsletter-leadership-message";
+  };
+  NewsLetterDescriptionProps: NewsLetterDescriptionType & {
+    id: string;
+    __component: "page-componets.newsletter-description";
   };
   InsightsSection: InsightsSectionType & {
     id: string;
@@ -2115,7 +2252,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.fabcon-fabric-community-conference";
   };
-
+  CommunityBanner: CommunityBannerType & {
+    id: string;
+    __component: "page-componets.community-conference-banner";
+  };
   FabconMidMarket: WhyKorcomptenzType & {
     id: string;
     __component: "page-componets.midmarket-enterprises";
@@ -2255,6 +2395,10 @@ type ComponentPropsMap = {
   GridSystem: GridSystemType & {
     id: string;
     __component: "page-componets.grid-system";
+  };
+  ChecklistSection: ChecklistSectionType & {
+    id: string;
+    __component: "page-componets.altiaris-checklist";
   };
 
   /*  KOR Dev Team END */

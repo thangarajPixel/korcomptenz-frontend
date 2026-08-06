@@ -89,6 +89,7 @@ import FabconLedTransform from "../fabcon-led-transform";
 import FabconComposableIntelligence from "../fabcon-composable-intelligence";
 import FabconDecisionFabric from "../fabcon-decision-fabric";
 import FabconBanner from "../fabcon-banner/fabcon-banner";
+import CommunityBanner from "../community-conference-banner/community-conference-banner";
 import FabconMidMarket from "../fabcon-midmarket";
 import LogoSlider from "../logo-slider";
 import SapImplementation from "../sap-implementation";
@@ -123,6 +124,10 @@ import CloudBanner from "../cloud-banner/cloud-banner";
 import StepGridSection from "../step-grid-section";
 import TabSection from "../tab-section";
 import GridSystem from "../grid-system";
+import ChecklistSection from "../altiaris-checklist";
+import NewsLetterBannner from "../newsletter-banner";
+import NewsLetterLeaderShip from "../newsletter-leadership-message";
+import NewsLetterDescription from "../newsletter-description";
 
 type Props = {
   data: ComponentPropsType[];
@@ -156,6 +161,36 @@ const GlobalPage = (props: Props) => {
             key={`sticky-cards-${item?.__component}-${item?.id}`}
           >
             <StickyCards stickyCards={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.newsletter-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`newsletter-banner-${item?.__component}-${item?.id}`}
+          >
+            <NewsLetterBannner data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.newsletter-leadership-message":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`newsletter-banner-${item?.__component}-${item?.id}`}
+          >
+            <NewsLetterLeaderShip data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.newsletter-description":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`newsletter-banner-${item?.__component}-${item?.id}`}
+          >
+            <NewsLetterDescription data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.insights-section":
@@ -1025,6 +1060,15 @@ const GlobalPage = (props: Props) => {
             <FabconBanner data={item} />
           </ScrollFadeIn>
         );
+      case "page-componets.community-conference-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`community-conference-banner-${item?.__component}-${item?.id}`}
+          >
+            <CommunityBanner data={item} />
+          </ScrollFadeIn>
+        );
       case "page-componets.midmarket-enterprises":
         return (
           <ScrollFadeIn
@@ -1322,6 +1366,15 @@ const GlobalPage = (props: Props) => {
             key={`grid-system-${item?.__component}-${item?.id}`}
           >
             <GridSystem data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.altiaris-checklist":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`altiaris-checklist-${item?.__component}-${item?.id}`}
+          >
+            <ChecklistSection data={item} />
           </ScrollFadeIn>
         );
       /* KOR DEV Team End */

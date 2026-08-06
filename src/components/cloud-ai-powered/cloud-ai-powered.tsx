@@ -59,11 +59,12 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
               onClick={() => setActiveIndex(index)}
               className={`relative shrink-0 px-4 md:px-6 py-3 text-[14px] md:text-[16px] font-medium whitespace-nowrap transition-colors duration-200 border-b-2
               
-                ${
-                  isActive
-                    ? "border-b-[#2AAC94] text-[#242424]"
-                    : "border-b-transparent text-[#242424]"
-                }`}
+              
+${
+  isActive
+    ? "border-b-[#2AAC94] text-[#242424]"
+    : "border-b-transparent text-[#242424] hover:border-b-[#2AAC94] hover:text-[#2AAC94]"
+}`}
             >
               <DangerousHtml
                 html={item?.tabTitle}

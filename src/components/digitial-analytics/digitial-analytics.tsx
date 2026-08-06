@@ -8,9 +8,7 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
     <section className="container-md" id="analytics-cloud-track">
       {/* ---------- TOP CONTENT ---------- */}
       <div className="space-y-3">
-        {data?.title && (
-          <h2 className=" font-semibold  ">{data?.title}</h2>
-        )}
+        {data?.title && <h2 className=" font-semibold  ">{data?.title}</h2>}
         {data?.heading1 && (
           <h3 className="text-foreground text-2xl md:text-4xl font-semibold leading-tight text-primary">
             {data?.heading1}
@@ -47,6 +45,28 @@ const DigitialAnalytics = ({ data }: { data: DigitialAnalyticsType }) => {
                 html={item?.description}
                 className="text-base text-foreground  leading-7.5 font-normal pr-5"
               />
+              {item?.buttonText && (
+                // <Link
+                //   href={item?.buttonLink || "#"}
+                //   target={item?.isTarget ? "_blank" : "_self"}
+                //   className="text-primary font-normal text-md hover:text-primary transition-colors"
+                // >
+                //   {item?.buttonText}
+                // </Link>
+
+                <ButtonLink
+                  link={item?.buttonLink || "#"}
+                  isTargetNew={item?.isTarget ? true : false}
+                  buttonProps={{
+                    variant: "ghost",
+                    className:
+                      "text-primary hover:text-primary hover:bg-transparent p-0 text-md",
+                    arrow: true,
+                  }}
+                >
+                  {item?.buttonText}
+                </ButtonLink>
+              )}
             </div>
           ))}
         </div>

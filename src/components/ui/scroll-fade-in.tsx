@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, type ReactNode, useMemo } from "react";
+import { useRef, useMemo, useEffect, useState, type ReactNode } from "react";
 
 interface ScrollFadeInProps {
   children: ReactNode;
@@ -19,14 +19,28 @@ export function ScrollFadeIn({
   __component,
 }: ScrollFadeInProps) {
   const ref = useRef(null);
-  // Use a positive margin so elements animate in slightly before they enter the viewport,
-  // preventing content from appearing invisible on slow mobile devices
-  const isInView = useInView(ref, { once: true, margin: "0px" });
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "0px",
+  });
 
   const variants = useMemo(
     () => ({
-      hidden: { opacity: 0, y: 12 },
-      visible: { opacity: 1, y: 0 },
+      hidden: {
+        opacity: 0.95,
+        y: 12,
+      },
+      visible: {
+        opacity: 1,
+        y: 0,
+      },
     }),
     [],
   );
@@ -34,8 +48,8 @@ export function ScrollFadeIn({
   return (
     <motion.section
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      initial={false}
+      animate={mounted ? (isInView ? "visible" : "hidden") : undefined}
       variants={variants}
       transition={{
         duration,

@@ -23,7 +23,7 @@ const Page = async () => {
       ...item,
       isEvent: true,
       buttonLink: "/events/" + item?.slug,
-      externalLink: item?.externalLink + item?.slug,
+      externalLink: item?.externalLink || "",
       Date: item?.Date || item?.publishedAt || "",
       date: item?.date || item?.publishedAt || "",
       createdAt: item?.publishedAt || "",

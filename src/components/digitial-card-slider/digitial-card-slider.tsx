@@ -38,7 +38,12 @@ export function DigitialCardSlider({
             </h2>
           </div>
         )}
-
+        {content?.description && (
+          <DangerousHtml
+            html={content?.description}
+            className="text-md leading-7 font-light text-foreground"
+          />
+        )}
         {/* Top rounded segmented tabs */}
         <div className="relative">
           <Tabs

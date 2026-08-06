@@ -6,21 +6,31 @@ import { X } from "lucide-react";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import { Input } from "@/components/ui/input";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { SapformSchema, type SapFormSchema } from "@/utils/validation.schema";
+import { IsgformSchema, type IsgFormSchema } from "@/utils/validation.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCaptchaToken } from "@/lib/recaptcha";
-import { errorSet, notify } from "@/utils/helper";
-import { useSapLeadHook } from "@/services";
+import { notify } from "@/utils/helper";
+import { useIsgLeadHook } from "@/services";
 import { Textarea } from "@/components/ui/textarea";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 
-type SapBannerPopupProps = {
+export const downloadPdfService = (pdfUrl: string, fileName?: string) => {
+  const link = document.createElement("a");
+
+  link.href = pdfUrl;
+  link.download = fileName || "";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+type IsgBannerPopupProps = {
   isOpen: boolean;
   onClose: () => void;
-  data: SapFormType;
+  data: IsgFormType;
   formTitle?: string;
   formDescription?: string;
-  formbuttonText?: string;
   formImage?: ImageType;
 };
 const defaultValues = {
@@ -31,15 +41,14 @@ const defaultValues = {
   company: "",
   message: "",
 };
-export function SapBannerPopup({
+export function IsgBannerPopup({
   isOpen,
   onClose,
   data,
   formTitle,
   formDescription,
-  formbuttonText,
   formImage,
-}: SapBannerPopupProps) {
+}: IsgBannerPopupProps) {
   const {
     control,
     handleSubmit,
@@ -47,47 +56,59 @@ export function SapBannerPopup({
 
     reset,
     formState: { isSubmitting },
-  } = useForm<SapFormSchema>({
+  } = useForm<IsgFormSchema>({
     mode: "onSubmit",
-    resolver: zodResolver(SapformSchema),
+    resolver: zodResolver(IsgformSchema),
     defaultValues: {
       ...defaultValues,
     },
   });
-  const { mutateAsync } = useSapLeadHook();
-  const informationList = data?.informationlist ?? [];
+  const { mutateAsync } = useIsgLeadHook();
+
   const { getToken } = useCaptchaToken();
 
-  const handleFormSubmit: SubmitHandler<SapFormSchema> = React.useCallback(
+  const handleFormSubmit: SubmitHandler<IsgFormSchema> = React.useCallback(
     async (formdata) => {
       let captchaToken: string;
+
       try {
-        captchaToken = await getToken("saplead");
+        captchaToken = await getToken("isglead");
+        //console.log("Captcha Token:", captchaToken);
       } catch {
-        notify({ message: "Captcha verification failed. Please try again." });
+        notify({
+          message: "Captcha verification failed. Please try again.",
+        });
         return;
       }
+
       const currentUrl =
         typeof window !== "undefined" ? window.location.pathname : "";
-      const data = {
+
+      const payload = {
         ...formdata,
         pageSlug: currentUrl,
-
         recaptchaToken: captchaToken,
       };
+
       try {
-        const response = await mutateAsync(data);
+        const response = await mutateAsync(payload);
+
         notify(response);
+
+        if (data?.downloadpdf_url) {
+          downloadPdfService(data.downloadpdf_url, data.downloadpdf_name);
+        }
+
         onClose();
         reset({ ...defaultValues });
       } catch (error: unknown) {
         const errorMessage =
           (error as ErrorType)?.error?.message || "An error occurred";
+
         notify({ message: errorMessage });
-        errorSet(error, setError);
       }
     },
-    [mutateAsync, reset],
+    [mutateAsync, reset, getToken, onClose, setError, data],
   );
 
   useEffect(() => {
@@ -213,34 +234,11 @@ export function SapBannerPopup({
                   type="submit"
                   className="w-full md:w-auto"
                 >
-                  {formbuttonText || "Submit"}
+                  {data?.submitbuttontext || "Request ISG Consultation"}
                 </Button>
               </div>
             </div>
           </form>
-
-          {informationList.length > 0 && (
-            <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-gray-300">
-              {informationList.map((item, index) => (
-                <React.Fragment key={item.id}>
-                  <div className="flex items-center gap-2">
-                    <KorcomptenzImage
-                      src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/check_mark_5291043_1_ea7bdbea4a.png"
-                      width={16}
-                      height={16}
-                      alt="check mark"
-                      className="object-contain shrink-0"
-                    />{" "}
-                    <span>{item.description}</span>
-                  </div>
-
-                  {index < informationList.length - 1 && (
-                    <div className="hidden md:block text-gray-500">|</div>
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </div>

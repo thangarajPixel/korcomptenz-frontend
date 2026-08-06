@@ -74,10 +74,10 @@ const LightSlider = ({ data }: { data: LightSliderType }) => {
     >
       <div className=" mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-12">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-4">
           <div className="grid gap-3">
             {data?.title && (
-              <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight max-w-2xl">
+              <h2 className="text-6xl md:text-9xl font-semibold text-foreground leading-tight">
                 {data?.title}
               </h2>
             )}

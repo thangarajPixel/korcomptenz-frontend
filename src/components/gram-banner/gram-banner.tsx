@@ -39,37 +39,6 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
                 gramData?.isDescriptionLeft ? "text-left mb-10" : "text-center",
               )}
             />
-
-            {gramData?.buttonText && (
-              <div className="flex justify-center items-center">
-                {gramData?.theme === "dark" ? (
-                  <ButtonLink
-                    link={gramData?.buttonLink || "#"}
-                    isTargetNew={gramData?.isTargetBlank}
-                    buttonProps={{
-                      arrow: true,
-                      className:
-                        "flex items-center justify-center hover:bg-transparent hover:border hover:border-white hover:text-white",
-                      size: "xl",
-                    }}
-                  >
-                    {gramData?.buttonText}
-                  </ButtonLink>
-                ) : (
-                  <ButtonLink
-                    link={gramData?.buttonLink || "#"}
-                    isTargetNew={gramData?.isTargetBlank}
-                    buttonProps={{
-                      arrow: true,
-                      className: "flex items-center justify-center",
-                      size: "xl",
-                    }}
-                  >
-                    {gramData?.buttonText}
-                  </ButtonLink>
-                )}
-              </div>
-            )}
           </div>
 
           {gramData?.image &&
@@ -112,7 +81,36 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
                 </div>
               </>
             ))}
-
+          {gramData?.buttonText && (
+            <div className="flex justify-center items-center">
+              {gramData?.theme === "dark" ? (
+                <ButtonLink
+                  link={gramData?.buttonLink || "#"}
+                  isTargetNew={gramData?.isTargetBlank}
+                  buttonProps={{
+                    arrow: true,
+                    className:
+                      "flex items-center justify-center hover:bg-transparent hover:border hover:border-white hover:text-white",
+                    size: "xl",
+                  }}
+                >
+                  {gramData?.buttonText}
+                </ButtonLink>
+              ) : (
+                <ButtonLink
+                  link={gramData?.buttonLink || "#"}
+                  isTargetNew={gramData?.isTargetBlank}
+                  buttonProps={{
+                    arrow: true,
+                    className: "flex items-center justify-center",
+                    size: "xl",
+                  }}
+                >
+                  {gramData?.buttonText}
+                </ButtonLink>
+              )}
+            </div>
+          )}
           {gramData?.isFooter && (
             <div className="mt-10 rounded-2xl bg-custom-black py-10 -mb-10">
               {gramData?.footerHeading && (

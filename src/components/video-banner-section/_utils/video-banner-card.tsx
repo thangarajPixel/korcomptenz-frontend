@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 import { useEffect, useState } from "react";
-import { SapBannerPopup } from "@/components/banner-section/_utils/sap-popup";
+import { IsgBannerPopup } from "./isg-popup";
 // import DownloadForm from "@/components/news-room/_utils/download-form";
 
 type VideoBannerCardProps = {
@@ -20,6 +20,36 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
+
+  useEffect(() => {
+    const handleClick = (e: Event) => {
+      const target = e.target as HTMLElement;
+
+      const popupTrigger = target.closest("#open-contact-popup");
+
+      if (popupTrigger) {
+        e.preventDefault();
+        setIsPopupOpen(true);
+      }
+    };
+
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
   useEffect(() => {
     // Only run on client
     const checkDevice = () => {
@@ -36,6 +66,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
       {isDesktop ? (
         <div className="relative hidden lg:block w-full h-120">
           {/* ===== Background: Video or Image ===== */}
+
           {data?.isVideo && data?.videoLink ? (
             <video
               className="absolute inset-0 w-full h-full object-cover"
@@ -84,7 +115,8 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
                         {data?.formButtonText || "Get in Touch"}
                       </ButtonLink>
                     </button>
-                  </div>) : (
+                  </div>
+                ) : (
                   <ButtonLink
                     link={data?.buttonLink || "#"}
                     isTargetNew={data?.isTarget ? true : false}
@@ -97,7 +129,6 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
                     {data?.buttonText}
                   </ButtonLink>
                 )}
-
               </div>
 
               {/* ---------- RIGHT FORM ---------- */}
@@ -122,7 +153,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
           {data?.isVideo && data?.videoLink ? (
             <video
               className="w-full h-65 object-cover"
-              src={data?.videoLink}
+              src={data?.mobileVideo}
               autoPlay
               loop
               muted
@@ -140,9 +171,11 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
 
           {/* Mobile Content */}
           <div className="container-md flex flex-col gap-6 pt-2 px-4 md:px-0 md:p-6">
-            <h1 className="font-bold text-foreground">
-              {data?.title}
-            </h1>
+            <h1 className="font-bold text-foreground">{data?.title}</h1>
+            <p className="text-3xl md:text-5xl leading-tight font-normal  justify-center text-black mb-4">
+              {" "}
+              {data?.description}
+            </p>
           </div>
           {data?.form && (
             <div className="p-5 rounded-2xl shadow-2xl">
@@ -153,16 +186,18 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
           )}
         </div>
       )}
-      <><RecaptchaProvider>
-        <SapBannerPopup
-          data={data?.sapForm?.forms?.[0]}
-          isOpen={isPopupOpen}
-          onClose={() => setIsPopupOpen(false)}
-          formTitle={data?.formTitle}
-          formDescription={data?.formDescription}
-          formImage={data?.formImage}
-
-        /></RecaptchaProvider></>
+      <>
+        <RecaptchaProvider>
+          <IsgBannerPopup
+            data={data?.sapForm?.forms?.[0]}
+            isOpen={isPopupOpen}
+            onClose={() => setIsPopupOpen(false)}
+            formTitle={data?.formTitle}
+            formDescription={data?.formDescription}
+            formImage={data?.formImage}
+          />
+        </RecaptchaProvider>
+      </>
     </div>
   );
 };

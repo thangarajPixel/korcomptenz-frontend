@@ -209,6 +209,22 @@ export const fabconDecisionLeadSchema = z.object({
   buttonText: z.string().optional(),
 });
 
+export const communityDecisionLeadSchema = z.object({
+  fullName: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+
+  email: businessEmail,
+
+  timeSlot: z.string().min(1, "Preferred time slot is required"),
+
+  company: z.string().min(1, "Company is required"),
+
+  message: z.string().min(1, "Message is required"),
+  buttonText: z.string().optional(),
+});
+
 export const blogFormSchema = z.object({
   name: z
     .string()
@@ -286,6 +302,42 @@ export const SapformSchema = z.object({
   message: z.string().nullable(),
 });
 
+export const IsgformSchema = z.object({
+  fullName: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+  businessEmail: z
+    .string()
+    .min(1, "Email is required")
+    .email("Invalid email address"),
+
+  phoneNumber: z
+    .string()
+    .min(1, "Mobile number is required")
+    .regex(/^\d{1,10}$/, "Enter a valid mobile number")
+  ,
+  organization: z.string().min(1, "Organization is required"),
+  message: z.string().nullable(),
+});
+export const FooterformSchema = z.object({
+  Name: z
+    .string()
+    .min(1, "Name is required")
+    .regex(/^[A-Z\s]+$/i, "Name must contain only letters and spaces"),
+  Email: z
+    .string()
+    .min(1, "Email is required")
+    .email("Invalid email address"),
+
+  phoneNumber: z
+    .string()
+    .min(1, "Mobile number is required")
+    .regex(/^\d{1,10}$/, "Enter a valid mobile number")
+  ,
+  Message: z.string().nullable(),
+});
+
 export type ContactUsFormSchema = z.infer<typeof ContactUsFormSchema>;
 export type FreeConsultationLeadSchema = z.infer<
   typeof freeConsultationLeadSchema
@@ -298,9 +350,12 @@ export type WebinarReserveFormSchema = z.infer<typeof webinarReserveFormSchema>;
 export type NewsRoomFormSchema = z.infer<typeof newsRoomFormSchema>;
 
 export type FabconDecisionLeadSchema = z.infer<typeof fabconDecisionLeadSchema>;
+export type CommunityDecisionLeadSchema = z.infer<typeof communityDecisionLeadSchema>;
 export type BlogFormSchema = z.infer<typeof blogFormSchema>;
 export type SubscriptionFormSchema = z.infer<typeof subscriptionFormSchema>;
 
 export type IndustryFormSchema = z.infer<typeof industryformSchema>;
 export type CloudFormSchema = z.infer<typeof cloudformSchema>;
 export type SapFormSchema = z.infer<typeof SapformSchema>;
+export type IsgFormSchema = z.infer<typeof IsgformSchema>;
+export type FooterFormSchema = z.infer<typeof FooterformSchema>;

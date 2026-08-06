@@ -346,7 +346,7 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/kor-bank-iq",
+      source: "/kor-bank-iq/",
       destination: "/ai-assisted-retail-banking-microsoft-fabric",
       permanent: true,
     },
@@ -1701,11 +1701,6 @@ const nextConfig: NextConfig = {
       permanent: false,
     },
     {
-      source: "/blog/wordpress-vs-drupal",
-      destination: "/insights/blog",
-      permanent: false,
-    },
-    {
       source: "/appsource/privacy-policy",
       destination: "/privacy-policy",
       permanent: false,
@@ -1883,23 +1878,6 @@ const nextConfig: NextConfig = {
       destination: "/industries/healthcare",
       permanent: true,
     },
-
-    {
-      source: "/kor-bank-iq",
-      has: [
-        {
-          type: "host",
-          value: "dev01_korcomptenz.korcomptenz.com",
-        },
-      ],
-      destination: "/ai-assisted-retail-banking-microsoft-fabric",
-      permanent: true,
-    },
-    {
-      source: "/logistics",
-      destination: "/industries/logistics-and-transportation",
-      permanent: true,
-    },
     {
       source: "/crm-consulting-services",
       destination: "/crm-advisory-and-consulting-services",
@@ -1935,12 +1913,12 @@ const nextConfig: NextConfig = {
 
     {
       source: "/microsoft-dynamics-solutions/book-a-consultation",
-      destination: "/book-consultation/",
+      destination: "/live-demo",
       permanent: true,
     },
     {
       source: "/microsoft-dynamics-solutions/book-a-free-demo",
-      destination: "/book-consultation",
+      destination: "/live-demo",
       permanent: true,
     },
     {
@@ -3422,7 +3400,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/september-newsletter",
-      destination: "/newsletter",
+      destination: "/newsletter/september-2025",
       permanent: true,
     },
     {
@@ -3889,11 +3867,6 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/2023/03/14",
-      destination: "/",
-      permanent: true,
-    },
-    {
       source: "/2024/03/27",
       destination: "/",
       permanent: true,
@@ -3960,13 +3933,6 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source:
-        "/microsoft-dynamics-365/migrate-microsoft-dynamics-gp-to-dynamics-365-business-central",
-      destination:
-        "/microsoft-dynamics-365/migrate-microsoft-dynamics-gp-to-dynamics-365-finance-supply-chain-management",
-      permanent: true,
-    },
-    {
       source: "/microsoft-dynamics-crm-implementation-partners",
       destination:
         "/microsoft-dynamics-365/microsoft-dynamics-365-implementation",
@@ -3996,7 +3962,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/events/september-newsletter",
-      destination: "/newsletter",
+      destination: "/newsletter/september-2025",
       permanent: true,
     },
     {
@@ -4041,19 +4007,94 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/:path*",
-      has: [
-        {
-          type: "host",
-          value: "korcomptenz.com",
-        },
-      ],
-      destination: "https://www.korcomptenz.com/:path*",
+      source: "/sap/sap-s4hana-implemenation-services",
+      destination: "/sap/sap-s4hana-implementation-services",
       permanent: true,
     },
     {
-      source: "/sap/sap-s4hana-implemenation-services",
-      destination: "/sap/sap-s4hana-implementation-services",
+      source: "/artificial-intelligence/microsoft-365-copilot",
+      destination: "/microsoft-dynamics-365/microsoft-365-copilot",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-copilot-central",
+      destination: "/microsoft-dynamics-365/microsoft-365-copilot",
+      permanent: true,
+    },
+    {
+      source:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-supply-chain-management",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-supply-chain-management-services",
+      permanent: true,
+    },
+    {
+      source:
+        "/microsoft-dynamics-365/microsoft-dynamics-crm-implementation-partners",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365-for-field-service",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-field-service",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-365/microsoft-modern-workplace-solutions",
+      destination: "/microsoft-dynamics-365",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-crm-implementation-partners",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-solutions/book-a-consultation",
+      destination: "/live-demo",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-solutions/book-a-free-demo",
+      destination: "/live-demo",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-solutions/brochures",
+      destination: "/insights/brochures",
+      permanent: true,
+    },
+    {
+      source: "/sap-merger-and-acquisition-consulting",
+      destination: "/sap/sap-merger-and-acquisition-consulting",
+      permanent: true,
+    },
+    {
+      source: "/sap/sap-staffing",
+      destination: "/blog/sap-staffing-solutions-for-your-business-in-the-usa",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics365",
+      destination: "/microsoft-dynamics-365",
+      permanent: true,
+    },
+    {
+      source: "/sap/sap-staffing",
+      destination: "/blog/sap-staffing-solutions-for-your-business-in-the-usa",
+      permanent: true,
+    },
+    {
+      source: "/microsoft-dynamics-crm-implementation-partners",
+      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
+      permanent: true,
+    },
+    {
+      source: "/nonprofit-sectors",
+      destination: "/industries/nonprofit",
       permanent: true,
     },
   ],
