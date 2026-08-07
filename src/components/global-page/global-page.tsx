@@ -128,10 +128,8 @@ import ChecklistSection from "../altiaris-checklist";
 import NewsLetterBannner from "../newsletter-banner";
 import NewsLetterLeaderShip from "../newsletter-leadership-message";
 import NewsLetterDescription from "../newsletter-description";
-import CTABanner from "../cta-banner/cta-banner";
-import NewsLetterFooterSection from "../newsletter-footer";
-import type { ComponentPropsType } from "@/types/global-page-types";
 import FullWidthGramSection from "../full-width-gram-banner";
+import type { ComponentPropsType } from "@/types/global-page-types";
 
 type Props = {
   data: ComponentPropsType[];
@@ -197,15 +195,6 @@ const GlobalPage = (props: Props) => {
             <NewsLetterDescription data={item} />
           </ScrollFadeIn>
         );
-      case "page-componets.cta-banner":
-        return (
-          <ScrollFadeIn
-            key={`cta-banner-${item.id}`}
-            __component={item.__component}
-          >
-            <CTABanner data={item} />
-          </ScrollFadeIn>
-        );
       case "page-componets.insights-section":
         return (
           <ScrollFadeIn
@@ -249,15 +238,6 @@ const GlobalPage = (props: Props) => {
             key={`we-are-korcomptenz-${item?.__component}-${item?.id}`}
           >
             <WeAreKorcomptenzSection weAreKorcomptenzData={item} />
-          </ScrollFadeIn>
-        );
-      case "page-componets.newsletter-footer":
-        return (
-          <ScrollFadeIn
-            __component={item?.__component}
-            key={`newsletter-footer-${item?.__component}-${item?.id}`}
-          >
-            <NewsLetterFooterSection data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.banner-section-list":

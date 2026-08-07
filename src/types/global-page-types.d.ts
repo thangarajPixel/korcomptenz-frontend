@@ -175,25 +175,6 @@ type InsightsSectionType = {
   buttonLink: string;
   list: InsightsMobileCarouselType[];
 };
-type SubListItem = {
-  id?: number;
-  title: string;
-  description?: string;
-  sectionLink: string;
-};
-
-type NewsletterBannerProps = {
-  data: {
-    title?: string;
-    subtitle?: string;
-    eventDate?: string;
-    whatsIncludeContent?: {
-      title?: string;
-      sublist?: SubListItem[];
-
-    };
-  };
-};
 
 type OpportunitiesType = {
   description: string;
@@ -546,30 +527,6 @@ type ScheduleCallType = {
   image: string;
   description: string;
   topDescription: string;
-  isForm: boolean;
-  pageSlug: {
-    id: string;
-    documentId: string;
-    isTemporary: boolean;
-  };
-  form: {
-    forms: FooterFormType[];
-  };
-  formTitle: string;
-  formDescription: string;
-  emailSubject: string;
-  emailBody: string;
-  adminEmailSubject: string;
-  adminEmailBody: string;
-  formbuttonText: string;
-};
-type FooterFormType = {
-  title: string;
-  nameLabel: string;
-  emailLabel: string;
-  phoneLabel: string;
-  messageLabel: string;
-  buttonText: string;
 };
 type SocialPlatformType = {
   id: string;
@@ -602,11 +559,6 @@ type CompanyType = {
     icon: string;
   }[];
   companyDarkLogo: ImageType;
-};
-
-type InterlinkType = {
-  urlname: string;
-  urllink: string;
 };
 
 type StretchableSectionType = {
@@ -744,17 +696,7 @@ type MediaSliderSectionType = {
   id: string;
   list: MediaSliderCardType[];
 };
-export type NewsletterFooterProps = {
-  data: {
-    title?: string;
-    logo?: MediaType;
-    expertTitle?: string;
-    description?: string;
-    date?: string;
-    form: GlobalFormType;
-    item: GlobalFormItemType;
-  };
-};
+
 type NewsletterData = {
   title: string;
   description: string;
@@ -941,22 +883,7 @@ type AchievementsType = {
   logo: AchievementscardType[];
   list: AchievementscardType[];
 };
-type NewsLetterDescriptionType = {
-  id: string;
-  subtext: string;
-  Title: string;
-  description: string;
-  bgColor: string;
-  hrCode: boolean;
-  isgradiant: boolean;
-};
-type NewsLetterLeaderShipType = {
-  id: string;
-  LeadershipMessage: string;
-  Title: string;
-  description: string;
-  AuthorImage: ImageType;
-};
+
 type AchievementSectionProps = {
   data: AchievementsType;
 };
@@ -964,7 +891,6 @@ type DemoListType = {
   id: string;
   list: DemoList[];
 };
-/* news-letter Changes */
 type NewsEventListSectionType = {
   externalLink: string | null;
   buttonLink: string | null;
@@ -1679,7 +1605,7 @@ type RichTextBlock = {
 type StepGridSectionType = {
   highlighttext?: string;
   title: string;
-  description?: RichTextBlocks[];
+  description?: RichTextBlock[];
 
   gridlist: {
     number: number;
@@ -1688,10 +1614,10 @@ type StepGridSectionType = {
     griddetails: {
       image: ImageType;
       gridtitle: string;
-      griddescription: RichTextBlocks[];
+      griddescription: RichTextBlock[];
 
       checklistitems: {
-        description: RichTextBlocks[];
+        description: RichTextBlock[];
       }[];
 
       buttonText?: string;
@@ -1892,18 +1818,6 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.sticky-cards-list";
   };
-  NewsletterBanner: NewsletterBannerType & {
-    id: string;
-    __component: "page-componets.newsletter-banner";
-  };
-  NewsLetterLeaderShip: NewsLetterLeaderShipType & {
-    id: string;
-    __component: "page-componets.newsletter-leadership-message";
-  };
-  NewsLetterDescriptionProps: NewsLetterDescriptionType & {
-    id: string;
-    __component: "page-componets.newsletter-description";
-  };
   InsightsSection: InsightsSectionType & {
     id: string;
     __component: "page-componets.insights-section";
@@ -1965,11 +1879,6 @@ type ComponentPropsMap = {
   TechpartnerSection: TechPartnerSectionType & {
     id: string;
     __component: "page-componets.tech-data";
-  };
-
-  OurOfferingsSection: OurOfferingsType & {
-    id: string;
-    __component: "page-componets.our-offerings-section";
   };
   ScheduleCall: ScheduleCallType & {
     id: string;
@@ -2048,7 +1957,6 @@ type ComponentPropsMap = {
     id: string;
     __component: "contact-us.news-letter";
   };
-
   DemoListSection: DemoListType & {
     id: string;
     __component: "demo-page.demo-list";
@@ -2187,10 +2095,6 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.digital-about";
   };
-  NewsLetterFooterSection: NewsletterFooterProps & {
-    id: string;
-    __component: "page-componets.newsletter-footer";
-  };
   DigitalErpList: DigitalErpListType & {
     id: string;
     __component: "page-componets.digital-erp-list";
@@ -2292,7 +2196,6 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.microsoft-gold-certified";
   };
-
   IndustryBannerCard: BannerSectionType & {
     id: string;
     __component: "page-componets.banking-financial-banner";
@@ -2334,7 +2237,6 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-technology";
   };
-
   CloudOnePlatform: FabconAboutType & {
     id: string;
     __component: "page-componets.cloud-one-platform";
@@ -2415,11 +2317,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.altiaris-checklist";
   };
-  CTASectionSection: CTABannerType & {
+  FullWidthGramSection: CTABannerType & {
     id: string;
-    __component: "page-componets.cta-banner";
+    __component: "page-componets.full-width-gram-banner";
   };
-
   /*  KOR Dev Team END */
 };
 type ComponentType = keyof ComponentPropsMap;
@@ -2436,19 +2337,7 @@ type PagesListType = {
   list: ComponentPropsType[];
   data: ComponentPropsType[];
 };
-type CTABannerType = {
-  Title?: string;
-  description?: string;
-  buttonText?: string;
-  buttonLink?: string;
-  isBgImage?: boolean;
-  backroundImage?: ImageType;
-  bgColor?: string;
-  TitleColor?: string;
-  DescriptionColor?: string;
-  ButtonTextColor?: string;
-  buttonBgColor?: string;
-};
+
 type LayoutType = {
   // scheduleCall: ScheduleCallType;
   company: CompanyType;
@@ -2524,7 +2413,19 @@ type ServiceType = {
   label: string;
   slug: string;
 };
-
+type CTABannerType = {
+  Title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  isBgImage?: boolean;
+  backroundImage?: ImageType;
+  bgColor?: string;
+  TitleColor?: string;
+  DescriptionColor?: string;
+  ButtonTextColor?: string;
+  buttonBgColor?: string;
+};
 type GlobalSearchItem = {
   id: number;
   title: string;
@@ -2563,33 +2464,3 @@ type GlobalSearchResponse = {
     tabs: GlobalSearchTab[];
   };
 };
-
-type ColumnTitleType = {
-  divtitle: string;
-  interlinks: InterlinkType[];
-};
-
-type OurOfferingsType = {
-  subtitle: string;
-  title: string;
-  columntitle: ColumnTitleType[];
-};
-
-type RichTextChild = {
-  text: string;
-};
-type DemandHowKORSectionType = {
-  title: string;
-  howkorlist: {
-    id: number;
-    pointnumber: string;
-    title: string;
-    Description: string;
-  }[];
-};
-
-// type GlobalSearchItem = {
-//   id: number;
-//   title: string;
-//   description: string | null;
-// };
