@@ -2317,7 +2317,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.altiaris-checklist";
   };
-
+  FullWidthGramSection: CTABannerType & {
+    id: string;
+    __component: "page-componets.full-width-gram-banner";
+  };
   /*  KOR Dev Team END */
 };
 type ComponentType = keyof ComponentPropsMap;
@@ -2410,7 +2413,19 @@ type ServiceType = {
   label: string;
   slug: string;
 };
-
+type CTABannerType = {
+  Title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  isBgImage?: boolean;
+  backroundImage?: ImageType;
+  bgColor?: string;
+  TitleColor?: string;
+  DescriptionColor?: string;
+  ButtonTextColor?: string;
+  buttonBgColor?: string;
+};
 type GlobalSearchItem = {
   id: number;
   title: string;

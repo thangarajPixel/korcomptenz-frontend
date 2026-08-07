@@ -125,6 +125,7 @@ import StepGridSection from "../step-grid-section";
 import TabSection from "../tab-section";
 import GridSystem from "../grid-system";
 import ChecklistSection from "../altiaris-checklist";
+import FullWidthGramSection from "../full-width-gram-banner";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1342,6 +1343,15 @@ const GlobalPage = (props: Props) => {
             key={`altiaris-checklist-${item?.__component}-${item?.id}`}
           >
             <ChecklistSection data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.full-width-gram-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`full-width-gram-banner-${item?.__component}-${item?.id}`}
+          >
+            <FullWidthGramSection data={item} />
           </ScrollFadeIn>
         );
       /* KOR DEV Team End */
