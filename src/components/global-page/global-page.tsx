@@ -128,8 +128,8 @@ import ChecklistSection from "../altiaris-checklist";
 import NewsLetterBannner from "../newsletter-banner";
 import NewsLetterLeaderShip from "../newsletter-leadership-message";
 import NewsLetterDescription from "../newsletter-description";
+import NewsLetterFooterSection from "../newsletter-footer";
 import FullWidthGramSection from "../full-width-gram-banner";
-import type { ComponentPropsType } from "@/types/global-page-types";
 
 type Props = {
   data: ComponentPropsType[];
@@ -193,6 +193,15 @@ const GlobalPage = (props: Props) => {
             key={`newsletter-banner-${item?.__component}-${item?.id}`}
           >
             <NewsLetterDescription data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.newsletter-footer":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`newsletter-footer-${item?.__component}-${item?.id}`}
+          >
+            <NewsLetterFooterSection data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.insights-section":

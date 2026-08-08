@@ -2401,11 +2401,37 @@ type ComponentPropsMap = {
     __component: "page-componets.altiaris-checklist";
   };
 
+  FullWidthGramSection: CTABannerType & {
+    id: string;
+    __component: "page-componets.full-width-gram-banner";
+  };
+  NewsLetterFooterSection: NewsletterFooterProps & {
+    id: string;
+    __component: "page-componets.newsletter-footer";
+  };
+  CTASectionSection: CTABannerType & {
+    id: string;
+    __component: "page-componets.cta-banner";
+  };
   /*  KOR Dev Team END */
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
-
+type CTABannerType = {
+  id?: string;
+  __component?: string;
+  Title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  isBgImage?: boolean;
+  backroundImage?: ImageType;
+  bgColor?: string;
+  TitleColor?: string;
+  DescriptionColor?: string;
+  ButtonTextColor?: string;
+  buttonBgColor?: string;
+};
 type PagesListType = {
   id: string;
   locale?: string;
@@ -2417,7 +2443,17 @@ type PagesListType = {
   list: ComponentPropsType[];
   data: ComponentPropsType[];
 };
-
+type NewsletterFooterProps = {
+  data: {
+    title?: string;
+    logo?: MediaType;
+    expertTitle?: string;
+    description?: string;
+    date?: string;
+    form: GlobalFormType;
+    item: GlobalFormItemType;
+  };
+};
 type LayoutType = {
   // scheduleCall: ScheduleCallType;
   company: CompanyType;
