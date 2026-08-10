@@ -2400,6 +2400,10 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.altiaris-checklist";
   };
+  CustomScriptSection: CustomScriptSectionType & {
+    id: string;
+    __component: "page-componets.custom-script";
+  };
 
   FullWidthGramSection: CTABannerType & {
     id: string;
@@ -2432,6 +2436,13 @@ type CTABannerType = {
   ButtonTextColor?: string;
   buttonBgColor?: string;
 };
+
+type CustomScriptSectionType = {
+  id: string;
+  customcode?: string;
+};
+
+
 type PagesListType = {
   id: string;
   locale?: string;
