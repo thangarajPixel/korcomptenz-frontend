@@ -2317,11 +2317,20 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.altiaris-checklist";
   };
+  CustomScriptSection: CustomScriptSectionType & {
+    id: string;
+    __component: "page-componets.custom-script";
+  };
 
   /*  KOR Dev Team END */
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
+
+type CustomScriptSectionType = {
+  id: string;
+  customcode?: string;
+};
 
 type PagesListType = {
   id: string;

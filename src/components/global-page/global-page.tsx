@@ -125,7 +125,7 @@ import StepGridSection from "../step-grid-section";
 import TabSection from "../tab-section";
 import GridSystem from "../grid-system";
 import ChecklistSection from "../altiaris-checklist";
-
+import CustomScriptSection from "../custom-script";
 type Props = {
   data: ComponentPropsType[];
 };
@@ -226,6 +226,15 @@ const GlobalPage = (props: Props) => {
             key={`sap-section-${item?.__component}-${item?.id}`}
           >
             <SapSection sapSectionData={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.custom-script":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`custom-script-section-${item?.__component}-${item?.id}`}
+          >
+            <CustomScriptSection data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.light-slider-list":
