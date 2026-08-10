@@ -19,7 +19,7 @@ const FullWidthGramSection = ({ data }: { data: CTABannerType }) => {
             }
       }
     >
-      <div className="px-8 py-12 lg:px-16 flex flex-col h-full">
+      <div className="flex flex-col h-full">
         {data?.Title && (
           <h2
             className="text-3xl md:text-4xl lg:text-6xl font-semibold mb-6"
