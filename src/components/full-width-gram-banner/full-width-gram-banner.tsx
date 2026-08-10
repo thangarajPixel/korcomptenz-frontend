@@ -15,39 +15,38 @@ const FullWidthGramSection = ({ data }: { data: CTABannerType }) => {
               backgroundRepeat: "no-repeat",
             }
           : {
-              background: data?.bgColor || "#5548E5",
+              background: data?.bgColor || "#ffffff",
             }
       }
     >
-      <div className="grid lg:grid-cols-[1.8fr_1fr] items-center">
-        {/* Content */}
-        <div className="px-8 py-12 lg:px-16">
-          {data?.Title && (
-            <h2
-              className="text-3xl md:text-4xl lg:text-6xl font-semibold mb-6"
-              style={{
-                color: data?.TitleColor || "#ffffff",
-              }}
-            >
-              {data.Title}
-            </h2>
-          )}
+      <div className="px-8 py-12 lg:px-16 flex flex-col h-full">
+        {data?.Title && (
+          <h2
+            className="text-3xl md:text-4xl lg:text-6xl font-semibold mb-6"
+            style={{
+              color: data?.TitleColor || "#000",
+            }}
+          >
+            {data.Title}
+          </h2>
+        )}
 
-          {data?.description && (
-            <div
-              className="max-w-2xl text-base lg:text-xl mb-8"
-              style={{
-                color: data?.DescriptionColor || "#ffffff",
-              }}
-            >
-              <DangerousHtml
-                className="text-3xl md:text-5xl leading-tight font-normal text-white my-4  max-w-2xl"
-                html={data?.description}
-              />
-            </div>
-          )}
+        {data?.description && (
+          <div
+            className="flex-1"
+            style={{
+              color: data?.DescriptionColor || "#000",
+            }}
+          >
+            <DangerousHtml
+              className="text-black my-4"
+              html={data?.description}
+            />
+          </div>
+        )}
 
-          {data?.buttonText && (
+        {data?.buttonText && (
+          <div className="mt-6">
             <ButtonLink
               link={data?.buttonLink || "#"}
               buttonProps={{
@@ -62,8 +61,8 @@ const FullWidthGramSection = ({ data }: { data: CTABannerType }) => {
             >
               {data?.buttonText}
             </ButtonLink>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
