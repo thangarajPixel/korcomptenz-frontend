@@ -715,7 +715,17 @@ type MediaSliderSectionType = {
   id: string;
   list: MediaSliderCardType[];
 };
-
+export type NewsletterFooterProps = {
+  data: {
+    title?: string;
+    logo?: MediaType;
+    expertTitle?: string;
+    description?: string;
+    date?: string;
+    form: GlobalFormType;
+    item: GlobalFormItemType;
+  };
+};
 type NewsletterData = {
   title: string;
   description: string;
@@ -2003,6 +2013,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "contact-us.news-letter";
   };
+
   DemoListSection: DemoListType & {
     id: string;
     __component: "demo-page.demo-list";
@@ -2140,6 +2151,10 @@ type ComponentPropsMap = {
   DigitialAboutSection: DigitialAboutSectionType & {
     id: string;
     __component: "page-componets.digital-about";
+  };
+  NewsLetterFooterSection: NewsletterFooterProps & {
+    id: string;
+    __component: "page-componets.newsletter-footer";
   };
   DigitalErpList: DigitalErpListType & {
     id: string;
