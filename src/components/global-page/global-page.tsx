@@ -130,6 +130,7 @@ import NewsLetterLeaderShip from "../newsletter-leadership-message";
 import NewsLetterDescription from "../newsletter-description";
 import NewsLetterFooterSection from "../newsletter-footer";
 import FullWidthGramSection from "../full-width-gram-banner";
+import CustomScriptSection from "../custom-script";
 
 type Props = {
   data: ComponentPropsType[];
@@ -270,6 +271,15 @@ const GlobalPage = (props: Props) => {
             key={`sap-section-${item?.__component}-${item?.id}`}
           >
             <SapSection sapSectionData={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.custom-script":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`custom-script-section-${item?.__component}-${item?.id}`}
+          >
+            <CustomScriptSection data={item} />
           </ScrollFadeIn>
         );
       case "page-componets.light-slider-list":
