@@ -130,6 +130,7 @@ import NewsLetterLeaderShip from "../newsletter-leadership-message";
 import NewsLetterDescription from "../newsletter-description";
 import NewsLetterFooterSection from "../newsletter-footer";
 import type { ComponentPropsType } from "@/types/global-page-types";
+import FullWidthGramSection from "../full-width-gram-banner";
 
 type Props = {
   data: ComponentPropsType[];
@@ -1386,6 +1387,15 @@ const GlobalPage = (props: Props) => {
             key={`altiaris-checklist-${item?.__component}-${item?.id}`}
           >
             <ChecklistSection data={item} />
+          </ScrollFadeIn>
+        );
+      case "page-componets.full-width-gram-banner":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`full-width-gram-banner-${item?.__component}-${item?.id}`}
+          >
+            <FullWidthGramSection data={item} />
           </ScrollFadeIn>
         );
       /* KOR DEV Team End */
