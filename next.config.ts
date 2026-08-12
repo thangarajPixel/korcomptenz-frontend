@@ -3422,7 +3422,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/september-newsletter",
-      destination: "/newsletter",
+      destination: "/newsletter/september-2025",
       permanent: true,
     },
     {
@@ -3989,7 +3989,7 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/events/september-newsletter",
-      destination: "/newsletter",
+      destination: "/newsletter/september-2025",
       permanent: true,
     },
     {
