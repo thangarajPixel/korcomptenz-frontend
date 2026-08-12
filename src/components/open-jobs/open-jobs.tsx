@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-
+import { ShareButton } from "./share-button";
+import { useSearchParams } from "next/navigation";
 type Job = {
   job_id: string;
   job_title: string;
@@ -53,7 +54,8 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
     date_of_birth: "",
     phone: "",
   });
-
+  const searchParams = useSearchParams();
+  const sharedJobId = searchParams.get("jobId");
   const [resumeBase64, setResumeBase64] = useState("");
   const [filters, setFilters] = useState({
     location: "",
@@ -65,7 +67,19 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
   const [locations, setLocations] = useState<string[]>([]);
 
   // ✅ Fetch job list
+  useEffect(() => {
+    if (!sharedJobId || jobs.length === 0) return;
 
+    const selectedJob = jobs.find((job) => job.job_id === sharedJobId);
+
+    if (selectedJob) {
+      document
+        .getElementById("open-jobs")
+        ?.scrollIntoView({ behavior: "smooth" });
+
+      openJobDetail(sharedJobId);
+    }
+  }, [sharedJobId, jobs]);
   useEffect(() => {
     async function fetchJobs() {
       const res = await fetch(process.env.NEXT_PUBLIC_JOBS_API_URL as string);
@@ -403,6 +417,11 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
     );
   }
   function renderList(job: Job) {
+    const shareUrl =
+      typeof window !== "undefined"
+        ? `${window.location.origin}/career?jobId=${job.job_id}`
+        : "";
+    //  console.log(shareUrl);
     return (
       <div
         key={job.job_id}
@@ -490,7 +509,7 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
           >
             View Details
           </Button>
-
+          <ShareButton shareUrl={`${shareUrl}`} />
           {/* Social Icons */}
         </div>
       </div>
