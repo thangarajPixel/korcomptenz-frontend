@@ -161,7 +161,6 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
             <Input
               control={control}
               name="jobtitle"
-              required
               placeholder="Optional"
               className={boxFieldClass}
             />
@@ -212,7 +211,6 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
           <Input
             control={control}
             name="preferredTime"
-            required
             placeholder="Optional"
             className={boxFieldClass}
           />
@@ -243,21 +241,12 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
 
       {/* CTA */}
       <Button
-        size="lg"
+        size="xl"
+        variant="outline"
         arrow
         isLoading={isSubmitting}
         type="submit"
-        className="
-             w-full
-             rounded-full
-             px-8
-             py-6
-             bg-emerald-500
-             hover:bg-emerald-600
-             text-white
-             font-semibold
-             transition
-           "
+        className="hover:bg-white bg-primary border-primary text-white hover:text-primary"
       >
         {form?.forms?.[0]?.buttonText || "Reserve My Workflow Lab"}
       </Button>

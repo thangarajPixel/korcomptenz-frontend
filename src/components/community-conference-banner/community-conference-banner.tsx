@@ -43,7 +43,7 @@ const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
         >
           <div className="max-w-xl w-full mx-auto space-y-2">
             <div className="space-y-2">
-              <h3 className="text-[#1EBFA1] text-2xl md:text-4xl font-bold">
+              <h3 className="text-[#26a17c] text-2xl md:text-4xl font-bold">
                 <DangerousHtml
                   html={data?.formTitle}
                   className=" text-2xl  md:text-4xl text-[#1EBFA1]"
