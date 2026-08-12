@@ -14,7 +14,7 @@ const EcosystemMenu = ({
 }) => {
   const [activeSideBar, setActiveSideBar] = useState(data?.ecosystemMenu[0]);
   return (
-    <div className="grid grid-cols-24 h-[450px]">
+    <div className="grid grid-cols-24 max-h-[70vh]">
       {/* Sidebar */}
       <div className="col-span-24 md:col-span-6 lg:col-span-6">
         <div className="bg-white sticky top-8">
