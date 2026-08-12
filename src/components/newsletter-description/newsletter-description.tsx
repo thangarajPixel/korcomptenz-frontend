@@ -18,19 +18,27 @@ const NewsLetterDescription: React.FC<NewsLetterDescriptionProps> = ({
         background: data?.bgColor || "#ffffff",
       }}
     >
-      <div className="max-w-7xl mx-auto">
-        {data.subtext && (
-          <p className="text-lg font-medium mb-6">{data.subtext} </p>
-        )}
-        {data.Title && (
-          <h2 className="text-left text-foreground text-5xl font-semibold">
-            {data.Title}
-          </h2>
-        )}
-        <DangerousHtml
-          html={data.description}
-          className="md:text-lg text-md mb-4"
-        />
+      <div
+        className={`${
+          data?.bgColor && data.bgColor.toLowerCase() !== "#ffffff"
+            ? "p-10"
+            : ""
+        }`}
+      >
+        <div className="max-w-7xl mx-auto">
+          {data.subtext && (
+            <p className="text-lg font-medium mb-6">{data.subtext} </p>
+          )}
+          {data.Title && (
+            <h2 className="text-left text-foreground text-5xl font-semibold">
+              {data.Title}
+            </h2>
+          )}
+          <DangerousHtml
+            html={data.description}
+            className="md:text-lg text-md mb-4"
+          />
+        </div>
       </div>
     </div>
   );

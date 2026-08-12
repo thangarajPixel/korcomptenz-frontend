@@ -190,7 +190,6 @@ type NewsletterBannerProps = {
     whatsIncludeContent?: {
       title?: string;
       sublist?: SubListItem[];
-
     };
   };
 };
@@ -287,7 +286,7 @@ type SapFormType = {
   buttonText: string;
   formbuttonText: string;
   submitbuttontext: string;
-  informationlist?: { id: number; description: string; }[];
+  informationlist?: { id: number; description: string }[];
   downloadpdf_url: string;
   downloadpdf_name: string;
 };
@@ -546,6 +545,30 @@ type ScheduleCallType = {
   image: string;
   description: string;
   topDescription: string;
+  isForm: boolean;
+  pageSlug: {
+    id: string;
+    documentId: string;
+    isTemporary: boolean;
+  };
+  form: {
+    forms: FooterFormType[];
+  };
+  formTitle: string;
+  formDescription: string;
+  emailSubject: string;
+  emailBody: string;
+  adminEmailSubject: string;
+  adminEmailBody: string;
+  formbuttonText: string;
+};
+type FooterFormType = {
+  title: string;
+  nameLabel: string;
+  emailLabel: string;
+  phoneLabel: string;
+  messageLabel: string;
+  buttonText: string;
 };
 type SocialPlatformType = {
   id: string;
@@ -578,6 +601,11 @@ type CompanyType = {
     icon: string;
   }[];
   companyDarkLogo: ImageType;
+};
+
+type InterlinkType = {
+  urlname: string;
+  urllink: string;
 };
 
 type StretchableSectionType = {
@@ -715,17 +743,7 @@ type MediaSliderSectionType = {
   id: string;
   list: MediaSliderCardType[];
 };
-export type NewsletterFooterProps = {
-  data: {
-    title?: string;
-    logo?: MediaType;
-    expertTitle?: string;
-    description?: string;
-    date?: string;
-    form: GlobalFormType;
-    item: GlobalFormItemType;
-  };
-};
+
 type NewsletterData = {
   title: string;
   description: string;
@@ -935,6 +953,7 @@ type DemoListType = {
   id: string;
   list: DemoList[];
 };
+/* news-letter Changes */
 type NewsEventListSectionType = {
   externalLink: string | null;
   buttonLink: string | null;
@@ -1649,7 +1668,7 @@ type RichTextBlock = {
 type StepGridSectionType = {
   highlighttext?: string;
   title: string;
-  description?: RichTextBlock[];
+  description?: RichTextBlocks[];
 
   gridlist: {
     number: number;
@@ -1658,10 +1677,10 @@ type StepGridSectionType = {
     griddetails: {
       image: ImageType;
       gridtitle: string;
-      griddescription: RichTextBlock[];
+      griddescription: RichTextBlocks[];
 
       checklistitems: {
-        description: RichTextBlock[];
+        description: RichTextBlocks[];
       }[];
 
       buttonText?: string;
@@ -1936,6 +1955,11 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.tech-data";
   };
+
+  OurOfferingsSection: OurOfferingsType & {
+    id: string;
+    __component: "page-componets.our-offerings-section";
+  };
   ScheduleCall: ScheduleCallType & {
     id: string;
     __component: "home.schedule-call";
@@ -2013,7 +2037,6 @@ type ComponentPropsMap = {
     id: string;
     __component: "contact-us.news-letter";
   };
-
   DemoListSection: DemoListType & {
     id: string;
     __component: "demo-page.demo-list";
@@ -2152,10 +2175,6 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.digital-about";
   };
-  NewsLetterFooterSection: NewsletterFooterProps & {
-    id: string;
-    __component: "page-componets.newsletter-footer";
-  };
   DigitalErpList: DigitalErpListType & {
     id: string;
     __component: "page-componets.digital-erp-list";
@@ -2257,6 +2276,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.microsoft-gold-certified";
   };
+
   IndustryBannerCard: BannerSectionType & {
     id: string;
     __component: "page-componets.banking-financial-banner";
@@ -2298,6 +2318,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.cloud-technology";
   };
+
   CloudOnePlatform: FabconAboutType & {
     id: string;
     __component: "page-componets.cloud-one-platform";
@@ -2378,15 +2399,40 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.altiaris-checklist";
   };
+
   FullWidthGramSection: CTABannerType & {
     id: string;
     __component: "page-componets.full-width-gram-banner";
+  };
+
+  NewsLetterFooterSection: NewsletterFooterProps & {
+    id: string;
+    __component: "page-componets.newsletter-footer";
+  };
+  CTASectionSection: CTABannerType & {
+    id: string;
+    __component: "page-componets.cta-banner";
   };
   /*  KOR Dev Team END */
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
 
+type CTABannerType = {
+  id?: string;
+  __component?: string;
+  Title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  isBgImage?: boolean;
+  backroundImage?: ImageType;
+  bgColor?: string;
+  TitleColor?: string;
+  DescriptionColor?: string;
+  ButtonTextColor?: string;
+  buttonBgColor?: string;
+};
 type PagesListType = {
   id: string;
   locale?: string;
@@ -2399,6 +2445,17 @@ type PagesListType = {
   data: ComponentPropsType[];
 };
 
+type NewsletterFooterProps = {
+  data: {
+    title?: string;
+    logo?: MediaType;
+    expertTitle?: string;
+    description?: string;
+    date?: string;
+    form: GlobalFormType;
+    item: GlobalFormItemType;
+  };
+};
 type LayoutType = {
   // scheduleCall: ScheduleCallType;
   company: CompanyType;
@@ -2474,19 +2531,7 @@ type ServiceType = {
   label: string;
   slug: string;
 };
-type CTABannerType = {
-  Title?: string;
-  description?: string;
-  buttonText?: string;
-  buttonLink?: string;
-  isBgImage?: boolean;
-  backroundImage?: ImageType;
-  bgColor?: string;
-  TitleColor?: string;
-  DescriptionColor?: string;
-  ButtonTextColor?: string;
-  buttonBgColor?: string;
-};
+
 type GlobalSearchItem = {
   id: number;
   title: string;
@@ -2525,3 +2570,33 @@ type GlobalSearchResponse = {
     tabs: GlobalSearchTab[];
   };
 };
+
+type ColumnTitleType = {
+  divtitle: string;
+  interlinks: InterlinkType[];
+};
+
+type OurOfferingsType = {
+  subtitle: string;
+  title: string;
+  columntitle: ColumnTitleType[];
+};
+
+type RichTextChild = {
+  text: string;
+};
+type DemandHowKORSectionType = {
+  title: string;
+  howkorlist: {
+    id: number;
+    pointnumber: string;
+    title: string;
+    Description: string;
+  }[];
+};
+
+// type GlobalSearchItem = {
+//   id: number;
+//   title: string;
+//   description: string | null;
+// };

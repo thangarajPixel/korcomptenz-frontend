@@ -13,6 +13,7 @@ import type {
   FreeConsultationLeadSchema,
   IndustryFormSchema,
   IsgFormSchema,
+  FooterFormSchema,
   NewsRoomFormSchema,
   SapFormSchema,
   SubscriptionFormSchema,
@@ -67,6 +68,7 @@ export const CLOUD_MIGRATION_LIST = "/cloud-migration-urgencies";
 export const CLOUD_LEAD = "/cloud-leads";
 export const SAP_LEAD = "/sap-leads";
 export const ISG_LEAD = "/isg-leads";
+export const FOOTER_LEAD = "/footer-leads";
 
 /*************  ✨ Windsurf Command ⭐  *************/
 /**
@@ -436,5 +438,12 @@ export const createIsgLead = async (
   formData: IsgFormSchema,
 ) => {
   const { data } = await http.post(ISG_LEAD, { data: formData });
+  return data;
+};
+
+export const createFooterLead = async (
+  formData: FooterFormSchema,
+) => {
+  const { data } = await http.post(FOOTER_LEAD, { data: formData });
   return data;
 };

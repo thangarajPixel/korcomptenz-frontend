@@ -7,15 +7,18 @@ export function PricingSection({ data }: { data: PricingSectionType }) {
         {/* Header */}
         <div className="text-center mb-12">
           {data?.title && (
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+            <h2 className="text-5xl md:text-6xl font-semibold text-foreground mb-2 leading-8">
               {data?.title}
             </h2>
           )}
-          <p className="text-slate-600 text-lg  mx-auto">{data?.subtitle}</p>
+          <p className="text-slate-600 text-lg  mx-auto pt-4">
+            {data?.subtitle}
+          </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-8 ">
+        <div
+          className={`grid gap-8 md:grid-cols-${Math.min(data.plans.length, 4)}`}
+        >
           {data.plans.map((plan) => (
             <PricingCard key={plan.id} plan={plan} />
           ))}

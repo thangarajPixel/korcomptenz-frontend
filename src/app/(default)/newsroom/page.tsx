@@ -15,7 +15,7 @@ export async function generateMetadata() {
     path: "/newsroom",
   });
 }
-
+/* news-letter Changes */
 const Page = async () => {
   const data = await getNewsroomPageCache();
 

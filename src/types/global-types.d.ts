@@ -344,8 +344,11 @@ type NewsroomListType = {
   image: ImageType;
   buttonText: string;
   slug: string;
+  Date: string;
+  externalLink: string;
   publishedAt: string;
 };
+/* news-letter Changes */
 // ✅ Banner section
 type ClientSuccessBannerSectionType = {
   id: string;

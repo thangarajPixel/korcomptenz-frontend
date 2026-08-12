@@ -38,3 +38,4 @@ const Page = async () => {
 };
 
 export default Page;
+/* news-letter Changes */

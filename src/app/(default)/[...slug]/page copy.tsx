@@ -4,7 +4,6 @@ import GlobalPage from "@/components/global-page";
 import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/utils/app-config";
 import { generatePageMetadata } from "@/utils/metadata";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ slug: string[] }>;
@@ -31,14 +30,6 @@ const Page = async ({ params }: Props) => {
     return null;
   }
   const data = await getPageServiceCache({ slug });
-
-     const hasNotFoundBlock = data?.list?.some(
-    (item) => item.__component === "not-found.not-found"
-  );
-
-  if (hasNotFoundBlock) {
-    notFound();
-  }
 
   return (
     <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>

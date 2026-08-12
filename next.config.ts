@@ -346,7 +346,7 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
     {
-      source: "/kor-bank-iq",
+      source: "/kor-bank-iq/",
       destination: "/ai-assisted-retail-banking-microsoft-fabric",
       permanent: true,
     },
@@ -1701,11 +1701,6 @@ const nextConfig: NextConfig = {
       permanent: false,
     },
     {
-      source: "/blog/wordpress-vs-drupal",
-      destination: "/insights/blog",
-      permanent: false,
-    },
-    {
       source: "/appsource/privacy-policy",
       destination: "/privacy-policy",
       permanent: false,
@@ -1881,23 +1876,6 @@ const nextConfig: NextConfig = {
     {
       source: "/healthcare",
       destination: "/industries/healthcare",
-      permanent: true,
-    },
-
-    {
-      source: "/kor-bank-iq",
-      has: [
-        {
-          type: "host",
-          value: "dev01_korcomptenz.korcomptenz.com",
-        },
-      ],
-      destination: "/ai-assisted-retail-banking-microsoft-fabric",
-      permanent: true,
-    },
-    {
-      source: "/logistics",
-      destination: "/industries/logistics-and-transportation",
       permanent: true,
     },
     {
@@ -3880,11 +3858,6 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/15/8/145/147",
-      destination: "/",
-      permanent: true,
-    },
-    {
-      source: "/2023/03/14",
       destination: "/",
       permanent: true,
     },
