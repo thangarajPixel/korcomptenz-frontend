@@ -190,7 +190,6 @@ type NewsletterBannerProps = {
     whatsIncludeContent?: {
       title?: string;
       sublist?: SubListItem[];
-
     };
   };
 };
@@ -287,7 +286,7 @@ type SapFormType = {
   buttonText: string;
   formbuttonText: string;
   submitbuttontext: string;
-  informationlist?: { id: number; description: string; }[];
+  informationlist?: { id: number; description: string }[];
   downloadpdf_url: string;
   downloadpdf_name: string;
 };
@@ -1354,7 +1353,9 @@ type CommunityBannerType = {
   form: CommunityDecisionLeadSchema;
   description: string;
   date: string;
-  location: string;
+  formTitle: string;
+  formDescription: string;
+  formFooterText: string;
   list: {
     title: string;
     subList: {
@@ -2409,6 +2410,7 @@ type ComponentPropsMap = {
     id: string;
     __component: "page-componets.full-width-gram-banner";
   };
+
   NewsLetterFooterSection: NewsletterFooterProps & {
     id: string;
     __component: "page-componets.newsletter-footer";
@@ -2421,6 +2423,7 @@ type ComponentPropsMap = {
 };
 type ComponentType = keyof ComponentPropsMap;
 type ComponentPropsType = ComponentPropsMap[ComponentType];
+
 type CTABannerType = {
   id?: string;
   __component?: string;
@@ -2454,6 +2457,7 @@ type PagesListType = {
   list: ComponentPropsType[];
   data: ComponentPropsType[];
 };
+
 type NewsletterFooterProps = {
   data: {
     title?: string;
