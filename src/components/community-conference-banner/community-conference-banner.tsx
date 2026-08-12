@@ -1,6 +1,7 @@
 "use client";
 
-import { Button } from "../ui/button";
+//import { Button } from "../ui/button";
+//import { ChevronRight } from "lucide-react";
 
 import { DangerousHtml } from "../ui/dangerous-html";
 import CommunityBannerForm from "./_utils/community-Banner-form";
@@ -8,69 +9,62 @@ import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
   return (
-    <section className="relative overflow-hidden py-12">
-      {/* Background */}
-      <div
-        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat bg-[#07003B] scroll-mt-24"
-        style={{ backgroundImage: `url(${data?.backgroundImage?.url})` }}
-      />
-
-      <div className="container-md grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* ================= LEFT CONTENT ================= */}
-        <div className="space-y-6 text-white max-w-2xl mx-auto">
-          {/* Title */}
-          <span className="text-[32px] md:text-[40px]">{data?.title1}</span>
-          <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
-            <span className="bg-gradient-to-r from-[#1F849F] to-[#6AC494] bg-clip-text   text-transparent">
+    <section className="relative overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[820px]">
+        {/* ================= LEFT PANEL ================= */}
+        <div className="relative bg-black flex flex-col">
+          <div className="relative z-10 px-8 md:px-12 pt-16 pb-8 space-y-6 text-white">
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+              {data?.title1}{" "}
+            </h1>
+            <p className="text-2xl md:text-lg leading-relaxed text-white/80 max-w-xl">
               {data?.title2}
-            </span>
-          </h1>
-          <DangerousHtml
-            html={data?.description}
-            className="text-lg md:text-3xl leading-relaxed text-white max-w-2xl"
-          />
-          <div className=" grid md:flex gap-4">
-            <p
-              className="text-base md:text-lg leading-relaxed text-white 
-                border border-white rounded-full px-6 py-2"
-            >
-              {data?.date}
             </p>
-
-            <p
-              className="text-base md:text-lg leading-relaxed text-white 
-                border border-white rounded-full px-6 py-2"
-            >
-              {data?.location}
-            </p>
+            <DangerousHtml
+              html={data?.description}
+              className=" md:text-xl  text-white max-w-xl"
+            />
           </div>
 
-          {/* <ButtonLink
-            link={data?.buttonLink}
-            buttonProps={{
-              arrow: true,
-              size: "xl",
-            }}
-            isTargetNew={data?.isTarget}
+          {/* Background / bottom image */}
+          <div
+            className="relative flex-1 min-h-[360px] bg-cover bg-top bg-no-repeat"
+            style={{ backgroundImage: `url(${data?.backgroundImage?.url})` }}
           >
-            {data?.buttonText}
-          </ButtonLink> */}
-          <Button
-            arrow
-            size="xl"
-            className="cursor-default hover:bg-primary hover:text-white"
-          >
-            {data?.buttonText}
-          </Button>
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          </div>
         </div>
 
+        {/* ================= RIGHT PANEL (FORM) ================= */}
         <div
           id="Community-enquiry"
-          className=" flex justify-center lg:justify-start scroll-mt-32"
+          style={{ backgroundColor: "#0B1020" }}
+          className="bg-[#0B1020] px-8 md:px-14 py-16 flex flex-col justify-center scroll-mt-32"
         >
-          <RecaptchaProvider>
-            <CommunityBannerForm form={data?.form} />
-          </RecaptchaProvider>
+          <div className="max-w-xl w-full mx-auto space-y-2">
+            <div className="space-y-2">
+              <h3 className="text-[#1EBFA1] text-2xl md:text-4xl font-bold">
+                <DangerousHtml
+                  html={data?.formTitle}
+                  className=" text-2xl  md:text-4xl text-[#1EBFA1]"
+                />
+              </h3>
+
+              <p className="text-white/60 text-sm md:text-base">
+                <DangerousHtml
+                  html={data?.formDescription}
+                  className=" md:text-xl  text-white max-w-xl"
+                />
+              </p>
+            </div>
+
+            <RecaptchaProvider>
+              <CommunityBannerForm form={data?.form} />
+            </RecaptchaProvider>
+            <p className="text-white/60 text-sm md:text-base">
+              {data?.formFooterText}
+            </p>
+          </div>
         </div>
       </div>
     </section>

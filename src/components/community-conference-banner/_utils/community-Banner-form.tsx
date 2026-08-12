@@ -21,6 +21,9 @@ const defaultValues: CommunityDecisionLeadSchema = {
   email: "",
   company: "",
   timeSlot: "",
+  jobtitle: "",
+  bussinessAreas: "",
+  preferredTime: "",
   message: "",
 };
 
@@ -31,14 +34,28 @@ type fromDataType = {
     timeSlot: string;
     company: string;
     message: string;
+    jobtitleLabel: string;
+    businessAreaTitle: string;
+    preferredTime: string;
     buttonText?: string | undefined;
     title: string;
+    subtitle?: string;
+    bussinessAreasList: {
+      id: number;
+      Values: string;
+    }[];
     TimeslotList: {
       id: number;
       dates: string;
     }[];
   }[];
 };
+
+// Shared styles matching the reservation-form design
+const boxFieldClass =
+  "bg-transparent border border-white/25 rounded-lg px-4 h-12 md:h-14 text-white placeholder:text-white/40 focus-visible:ring-0 focus:border-[#1EBFA1] transition-colors";
+
+const labelClass = "block text-white text-sm md:text-base font-medium mb-2";
 
 const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
   const {
@@ -59,7 +76,8 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
   const handleFormSubmit: SubmitHandler<CommunityDecisionLeadSchema> =
     React.useCallback(
       async (formdata) => {
-        let captchaToken: string;
+        let captchaToken = await getToken("communitybookmeetlead");
+
         try {
           captchaToken = await getToken("communitybookmeetlead");
         } catch {
@@ -83,136 +101,166 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
       },
       [mutateAsync, reset, setError],
     );
-  // const { data } = useTimeSlotListHook();
 
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
       className="
-           relative
+           w-full max-w-xl
            rounded-2xl md:rounded-3xl
-           border border-[#1EBFA1]
-           bg-[#2a2558]
-           p-4 sm:p-6 md:px-10 md:pt-5
-           space-y-6 md:space-y-4
+           bg-[#0B1220]
+           p-2 md:p-3
+           space-y-6
          "
     >
-      {form?.forms?.[0]?.title && (
-        <h3 className="text-[#1EBFA1] text-xl md:text-4xl font-bold mb-4">
-          {form?.forms?.[0]?.title}
-        </h3>
-      )}
       {/* Inputs */}
-      <div className="space-y-6 md:space-y-4">
+      <div className="space-y-6">
         {/* Row 1 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          <Input
-            control={control}
-            name="fullName"
-            required
-            placeholder={form?.forms?.[0]?.fullName}
-            className="
-                 bg-transparent
-                 border-0 border-b border-white/60
-                 rounded-none px-0
-                 h-12 md:h-14
-                 text-white placeholder:text-white
-                 focus-visible:ring-0 focus:border-white
-               "
-          />
+          <div>
+            <label className={labelClass}>
+              {form?.forms?.[0]?.email || "name@company.com"}*
+            </label>
+            <Input
+              control={control}
+              name="email"
+              required
+              placeholder="name@company.com"
+              className={boxFieldClass}
+            />
+          </div>
 
-          <Input
-            control={control}
-            name="email"
-            required
-            placeholder={form?.forms?.[0]?.email}
-            className="
-                 bg-transparent
-                 border-0 border-b border-white/60
-                 rounded-none px-0
-                 h-12 md:h-14
-                 text-white placeholder:text-white
-                 focus-visible:ring-0 focus:border-white
-               "
-          />
+          <div>
+            <label className={labelClass}>{form?.forms?.[0]?.fullName}*</label>
+            <Input
+              control={control}
+              name="fullName"
+              required
+              placeholder="Enter your full name"
+              className={boxFieldClass}
+            />
+          </div>
         </div>
 
         {/* Row 2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div>
+            <label className={labelClass}>{form?.forms?.[0]?.company}*</label>
+            <Input
+              control={control}
+              name="company"
+              required
+              placeholder="Company name"
+              className={boxFieldClass}
+            />
+          </div>
+          <div>
+            <label className={labelClass}>
+              {form?.forms?.[0]?.jobtitleLabel}
+            </label>
+            <Input
+              control={control}
+              name="jobtitle"
+              required
+              placeholder="Optional"
+              className={boxFieldClass}
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div>
+            <label className={labelClass}>
+              {form?.forms?.[0]?.businessAreaTitle}
+            </label>
+            <ComboboxWhite
+              control={control}
+              name="bussinessAreas"
+              options={
+                form?.forms?.[0]?.bussinessAreasList?.map((item) => ({
+                  ...item,
+                  label: item.Values,
+                  value: item.id,
+                })) || []
+              }
+              placeholder="Selection Area"
+              className={boxFieldClass}
+            />
+          </div>
+          <div>
+            <label className={labelClass}>{form?.forms?.[0]?.timeSlot}</label>
+            <ComboboxWhite
+              control={control}
+              name="timeSlot"
+              options={
+                form?.forms?.[0]?.TimeslotList?.map((item) => ({
+                  ...item,
+                  label: item.dates,
+                  value: item.id,
+                })) || []
+              }
+              placeholder="Optional"
+              className={boxFieldClass}
+            />
+          </div>
+        </div>
+        {/* Message */}
+
+        <div>
+          <label className={labelClass}>
+            {form?.forms?.[0]?.preferredTime || "preferred Time"}
+          </label>
           <Input
             control={control}
-            name="company"
+            name="preferredTime"
             required
-            placeholder={form?.forms?.[0]?.company}
-            className="
-                 bg-transparent
-                 border-0 border-b border-white/60
-                 rounded-none px-0
-                 h-12 md:h-14
-                 text-white placeholder:text-white
-                 focus-visible:ring-0 focus:border-white
-               "
-          />
-
-          <ComboboxWhite
-            control={control}
-            name="timeSlot"
-            options={
-              form?.forms?.[0]?.TimeslotList?.map((item) => ({
-                ...item,
-                label: item.dates,
-                value: item.id,
-              })) || []
-            }
-            placeholder={form?.forms?.[0]?.timeSlot}
-            className="
-                 bg-transparent
-                 border-0 border-b border-white/60
-                 rounded-none px-0
-                 h-12 md:h-14
-                 text-white placeholder:text-white
-                 focus-visible:ring-0 focus:border-white
-               "
+            placeholder="Optional"
+            className={boxFieldClass}
           />
         </div>
 
-        {/* Message */}
-        <Textarea
-          control={control}
-          name="message"
-          placeholder={form?.forms?.[0]?.message}
-          className="
-               min-h-[80px] md:min-h-[80px]
-               rounded-xl
-               bg-white text-gray-900
-               placeholder:text-gray-500
-               p-1 md:p-2
-               resize-none
-               focus-visible:ring-0
-             "
-        />
+        <div>
+          <label className={labelClass}>
+            {form?.forms?.[0]?.message || "Message"}
+          </label>
+          <Textarea
+            control={control}
+            name="message"
+            placeholder="Optional"
+            className="
+                 min-h-[120px]
+                 rounded-lg
+                 bg-transparent
+                 border border-white/25
+                 text-white
+                 placeholder:text-white/40
+                 p-4
+                 resize-none
+                 focus-visible:ring-0 focus:border-[#1EBFA1]
+               "
+          />
+        </div>
       </div>
 
       {/* CTA */}
-      <div className="flex justify-end">
-        <Button
-          size="lg"
-          arrow
-          isLoading={isSubmitting}
-          type="submit"
-          className="
-               w-full md:w-auto
-               rounded-full
-               px-8 md:px-10
-               py-5 md:py-6
-               bg-emerald-500
-               text-white
-               transition
-             "
-        >
-          {form?.forms?.[0]?.buttonText || "Reserve My COMMUNITY 2026 Slot"}
-        </Button>
-      </div>
+      <Button
+        size="lg"
+        arrow
+        isLoading={isSubmitting}
+        type="submit"
+        className="
+             w-full
+             rounded-full
+             px-8
+             py-6
+             bg-emerald-500
+             hover:bg-emerald-600
+             text-white
+             font-semibold
+             transition
+           "
+      >
+        {form?.forms?.[0]?.buttonText || "Reserve My Workflow Lab"}
+      </Button>
     </form>
   );
 };
