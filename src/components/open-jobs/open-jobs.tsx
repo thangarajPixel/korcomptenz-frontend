@@ -755,7 +755,7 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                 {/* ✅ DARK HEADER */}
 
                 {/* HEADER */}
-                <div className="bg-[#2f3a42] text-white p-6 shrink-0 rounded-t-2xl">
+                <div className="bg-[#2f3a42] text-white p-6 pb-10 shrink-0 rounded-t-2xl">
                   <h2 className="text-2xl font-semibold mb-4">
                     {jobDetail.job_title}
                   </h2>
@@ -778,13 +778,22 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                       <strong>Created By :</strong>{" "}
                       {formatJobDate(jobDetail.job_created_timestamp)}
                     </p>
+                    <div className="text-right mb-4">
+                      <ShareButton
+                        shareUrl={
+                          typeof window !== "undefined"
+                            ? `${window.location.origin}/career?jobId=${jobDetail.job_id}`
+                            : ""
+                        }
+                      />
+                    </div>
                   </div>
                 </div>
 
                 {/* ✅ LIGHT CONTENT SECTION */}
                 <div className="bg-gray-100 p-6 relative">
-                  {/* Apply Button */}
-                  <div className="flex justify-end mb-4">
+                  {/* Apply + Share Buttons */}
+                  <div className="flex justify-end items-center gap-3 mb-4">
                     <Button
                       className="bg-[#26A17D] text-white px-6 py-2 rounded-full"
                       onClick={(e) => {
