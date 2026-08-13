@@ -47,7 +47,6 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
       <div
         className="flex md:gap-10 gap-4 overflow-x-auto mb-3 md:mx-15 items-center justify-start px-4"
         style={{
-          scrollbarWidth: "none",
           msOverflowStyle: "none",
         }}
       >
