@@ -131,6 +131,7 @@ import NewsLetterDescription from "../newsletter-description";
 import NewsLetterFooterSection from "../newsletter-footer";
 import FullWidthGramSection from "../full-width-gram-banner";
 import CustomScriptSection from "../custom-script";
+
 type Props = {
   data: ComponentPropsType[];
 };
