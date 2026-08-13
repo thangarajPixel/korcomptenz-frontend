@@ -97,7 +97,7 @@ export function ShareButton({ shareUrl }: ShareButtonProps) {
       {/* Social Menu */}
       {isOpen && (
         <>
-          <div className="absolute top-full mt-0 -left-[176px] p-3 z-50 min-w-max">
+          <div className="absolute top-full mt-1 -left-[100px] p-3 z-50 min-w-max">
             <div className="flex gap-3">
               {defaultSocialLinks.map((link) => (
                 <Link
@@ -106,7 +106,7 @@ export function ShareButton({ shareUrl }: ShareButtonProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={link.name}
-                  className="flex items-center justify-center w-10 h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
+                  className="flex items-center justify-center w-5 h-5 hover:bg-gray-100 rounded-full transition-colors duration-150"
                 >
                   <link.icon />
                 </Link>
@@ -115,7 +115,7 @@ export function ShareButton({ shareUrl }: ShareButtonProps) {
               {/* Copy Link Button */}
               <button
                 onClick={handleCopyLink}
-                className="flex items-center justify-center w-10 h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
+                className="flex items-center justify-center w-5 h-5 hover:bg-gray-100 rounded-full transition-colors duration-150"
                 title="Copy link"
                 aria-label="Copy link"
               >
