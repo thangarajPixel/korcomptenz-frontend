@@ -45,7 +45,7 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
 
       {/* ── Tab bar: horizontal scroll on both mobile & desktop ── */}
       <div
-        className="flex md:gap-10 gap-4 overflow-x-auto mb-3 md:mx-15 items-center md:justify-center justify-start px-4"
+        className="flex md:gap-10 gap-4 overflow-x-auto mb-3 md:mx-15 items-center justify-start px-4"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
