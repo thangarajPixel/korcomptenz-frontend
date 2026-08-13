@@ -106,7 +106,7 @@ export function ShareButton({ shareUrl }: ShareButtonProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={link.name}
-                  className="flex items-center justify-center w-10 h-10 hover:bg-gray-100 rounded-full transition-colors duration-150"
+                  className="flex items-center justify-center w-8 h-8 hover:bg-gray-100 rounded-full transition-colors duration-150"
                 >
                   <link.icon />
                 </Link>
