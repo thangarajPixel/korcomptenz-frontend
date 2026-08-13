@@ -30,9 +30,7 @@ const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
           <div
             className="relative flex-1 min-h-[360px] bg-cover bg-top bg-no-repeat"
             style={{ backgroundImage: `url(${data?.backgroundImage?.url})` }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-          </div>
+          ></div>
         </div>
 
         {/* ================= RIGHT PANEL (FORM) ================= */}
