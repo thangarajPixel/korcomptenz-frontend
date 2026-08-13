@@ -66,6 +66,31 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
   const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
   const [locations, setLocations] = useState<string[]>([]);
 
+  // ✅ Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const JOBS_PER_PAGE = viewType === "grid" ? 9 : 6;
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredJobs.length / JOBS_PER_PAGE),
+  );
+  const paginatedJobs = filteredJobs.slice(
+    (currentPage - 1) * JOBS_PER_PAGE,
+    currentPage * JOBS_PER_PAGE,
+  );
+
+  // ✅ Reset to page 1 whenever the view type changes so the current page
+  // number can't end up out of range for the new page size.
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [viewType]);
+
+  // ✅ Clamp currentPage if filteredJobs shrinks (e.g. after a filter change)
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [totalPages, currentPage]);
+
   // ✅ Fetch job list
   useEffect(() => {
     if (!sharedJobId || jobs.length === 0) return;
@@ -89,6 +114,7 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
 
       setJobs(jobList);
       setFilteredJobs(jobList);
+      setCurrentPage(1); // ✅ reset pagination on fresh fetch
       // filteredJobs.map((job) => renderList(job));
       // setViewType("grid");
       //  setLoading(false);
@@ -334,7 +360,7 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
     });
 
     setFilteredJobs(result);
-    //setVisibleCount(ITEMS_PER_BATCH); // ✅ reset infinite scroll
+    setCurrentPage(1); // ✅ reset pagination after filtering
   }
   function resetFilters() {
     setFilters({
@@ -344,7 +370,7 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
     });
 
     setFilteredJobs(jobs);
-    //setVisibleCount(ITEMS_PER_BATCH);
+    setCurrentPage(1); // ✅ reset pagination
   }
   function renderGrid(job: Job) {
     return (
@@ -556,6 +582,26 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
     );
   }
 
+  // ✅ Build a windowed list of page numbers, e.g. 1 2 3 ... 8 9
+  function getPageNumbers(): (number | "...")[] {
+    const pages: (number | "...")[] = [];
+    const delta = 1; // how many neighbours to show around current page
+
+    for (let i = 1; i <= totalPages; i++) {
+      if (
+        i === 1 ||
+        i === totalPages ||
+        (i >= currentPage - delta && i <= currentPage + delta)
+      ) {
+        pages.push(i);
+      } else if (pages[pages.length - 1] !== "...") {
+        pages.push("...");
+      }
+    }
+
+    return pages;
+  }
+
   return (
     <section
       id="open-jobs"
@@ -629,15 +675,60 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
         </button>
       </div>
 
-      {/* ✅ Job Grid */}
+      {/* ✅ Job Grid / List (paginated) */}
 
-      {viewType === "grid" ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 max-w-none h-[500px] overflow-y-auto">
-          {filteredJobs.map((job) => renderGrid(job))}
+      {filteredJobs.length === 0 ? (
+        <p className="text-center text-gray-500 mt-10">
+          No jobs match your filters.
+        </p>
+      ) : viewType === "grid" ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 max-w-none">
+          {paginatedJobs.map((job) => renderGrid(job))}
         </div>
       ) : (
-        <div className="flex flex-col gap-4 mt-10 max-w-none h-[500px] overflow-y-auto">
-          {filteredJobs.map((job) => renderList(job))}
+        <div className="flex flex-col gap-4 mt-10 max-w-none">
+          {paginatedJobs.map((job) => renderList(job))}
+        </div>
+      )}
+
+      {/* ✅ Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-2 mt-8 flex-wrap">
+          <button
+            onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            disabled={currentPage === 1}
+            className="px-3 py-2 rounded border disabled:opacity-40"
+          >
+            ‹ Prev
+          </button>
+
+          {getPageNumbers().map((page, idx) =>
+            page === "..." ? (
+              <span key={`ellipsis-${idx}`} className="px-2 text-gray-500">
+                …
+              </span>
+            ) : (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page as number)}
+                className={`px-4 py-2 rounded border ${
+                  currentPage === page
+                    ? "bg-[#26A17D] text-white border-[#26A17D]"
+                    : "bg-white text-gray-700 hover:bg-gray-100"
+                }`}
+              >
+                {page}
+              </button>
+            ),
+          )}
+
+          <button
+            onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            disabled={currentPage === totalPages}
+            className="px-3 py-2 rounded border disabled:opacity-40"
+          >
+            Next ›
+          </button>
         </div>
       )}
 
@@ -664,7 +755,7 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                 {/* ✅ DARK HEADER */}
 
                 {/* HEADER */}
-                <div className="bg-[#2f3a42] text-white p-6 shrink-0 rounded-t-2xl">
+                <div className="bg-[#2f3a42] text-white p-6 pb-10 shrink-0 rounded-t-2xl">
                   <h2 className="text-2xl font-semibold mb-4">
                     {jobDetail.job_title}
                   </h2>
@@ -687,13 +778,22 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                       <strong>Created By :</strong>{" "}
                       {formatJobDate(jobDetail.job_created_timestamp)}
                     </p>
+                    <div className="text-right mb-4">
+                      <ShareButton
+                        shareUrl={
+                          typeof window !== "undefined"
+                            ? `${window.location.origin}/career?jobId=${jobDetail.job_id}`
+                            : ""
+                        }
+                      />
+                    </div>
                   </div>
                 </div>
 
                 {/* ✅ LIGHT CONTENT SECTION */}
                 <div className="bg-gray-100 p-6 relative">
-                  {/* Apply Button */}
-                  <div className="flex justify-end mb-4">
+                  {/* Apply + Share Buttons */}
+                  <div className="flex justify-end items-center gap-3 mb-4">
                     <Button
                       className="bg-[#26A17D] text-white px-6 py-2 rounded-full"
                       onClick={(e) => {
@@ -741,8 +841,7 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
               Calling all talented individuals! We’re on the hunt for new team
               members to join our growing company. If you’re passionate,
               hardworking, and ready for a challenge, we want to hear from you.
-              Submit your resume now and let’s build something amazing
-              together! 
+              Submit your resume now and let’s build something amazing together!
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
