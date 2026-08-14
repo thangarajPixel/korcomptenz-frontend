@@ -106,7 +106,7 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
       className="
-           w-full max-w-xl
+           w-full max-w-5xl 
            rounded-2xl md:rounded-3xl
            bg-[#0B1220]
            p-2 md:p-3
@@ -116,7 +116,7 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
       {/* Inputs */}
       <div className="space-y-6">
         {/* Row 1 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           <div>
             <label className={labelClass}>
               {form?.forms?.[0]?.email || "name@company.com"}*
@@ -140,10 +140,6 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
               className={boxFieldClass}
             />
           </div>
-        </div>
-
-        {/* Row 2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <div>
             <label className={labelClass}>{form?.forms?.[0]?.company}*</label>
             <Input
@@ -154,6 +150,10 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
               className={boxFieldClass}
             />
           </div>
+        </div>
+
+        {/* Row 2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <div>
             <label className={labelClass}>
               {form?.forms?.[0]?.jobtitleLabel}
@@ -165,8 +165,6 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
               className={boxFieldClass}
             />
           </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <div>
             <label className={labelClass}>
               {form?.forms?.[0]?.businessAreaTitle}
@@ -201,30 +199,27 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
               className={boxFieldClass}
             />
           </div>
-        </div>
-        {/* Message */}
+          <div>
+            <label className={labelClass}>
+              {form?.forms?.[0]?.preferredTime || "preferred Time"}
+            </label>
+            <Input
+              control={control}
+              name="preferredTime"
+              placeholder="Optional"
+              className={boxFieldClass}
+            />
+          </div>
 
-        <div>
-          <label className={labelClass}>
-            {form?.forms?.[0]?.preferredTime || "preferred Time"}
-          </label>
-          <Input
-            control={control}
-            name="preferredTime"
-            placeholder="Optional"
-            className={boxFieldClass}
-          />
-        </div>
-
-        <div>
-          <label className={labelClass}>
-            {form?.forms?.[0]?.message || "Message"}
-          </label>
-          <Textarea
-            control={control}
-            name="message"
-            placeholder="Optional"
-            className="
+          <div>
+            <label className={labelClass}>
+              {form?.forms?.[0]?.message || "Message"}
+            </label>
+            <Textarea
+              control={control}
+              name="message"
+              placeholder="Optional"
+              className="
                  min-h-[120px]
                  rounded-lg
                  bg-transparent
@@ -235,8 +230,10 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
                  resize-none
                  focus-visible:ring-0 focus:border-[#1EBFA1]
                "
-          />
+            />
+          </div>
         </div>
+        {/* Message */}
       </div>
 
       {/* CTA */}
