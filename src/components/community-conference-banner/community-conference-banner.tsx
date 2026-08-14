@@ -12,7 +12,10 @@ const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
     <div className="relative overflow-hidden" id="community-form-section">
       <div className="flex flex-col md:flex-row">
         {/* ================= LEFT PANEL ================= */}
-        <div className="relative bg-black flex flex-col">
+        <div
+          className="relative bg-black flex flex-col"
+          id="community-form-content"
+        >
           <div className="relative z-10 px-8 md:px-12 pt-16 pb-8 space-y-6 text-white">
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
               {data?.title1}{" "}
