@@ -1353,7 +1353,9 @@ type CommunityBannerType = {
   form: CommunityDecisionLeadSchema;
   description: string;
   date: string;
-  location: string;
+  formTitle: string;
+  formDescription: string;
+  formFooterText: string;
   list: {
     title: string;
     subList: {

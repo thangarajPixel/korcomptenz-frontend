@@ -220,7 +220,9 @@ export const communityDecisionLeadSchema = z.object({
   timeSlot: z.string().min(1, "Preferred time slot is required"),
 
   company: z.string().min(1, "Company is required"),
-
+  jobtitle: z.string().optional(),
+  preferredTime: z.string().optional(),
+  bussinessAreas: z.string().min(1, "Business Areas is required"),
   message: z.string().min(1, "Message is required"),
   buttonText: z.string().optional(),
 });
