@@ -9,8 +9,8 @@ import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
   return (
-    <section className="relative overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[820px]">
+    <div className="relative overflow-hidden" id="community-form-section">
+      <div className="flex flex-col md:flex-row">
         {/* ================= LEFT PANEL ================= */}
         <div className="relative bg-black flex flex-col">
           <div className="relative z-10 px-8 md:px-12 pt-16 pb-8 space-y-6 text-white">
@@ -37,9 +37,9 @@ const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
         <div
           id="Community-enquiry"
           style={{ backgroundColor: "#0B1020" }}
-          className="bg-[#0B1020] px-8 md:px-14 py-16 flex flex-col justify-center scroll-mt-32"
+          className="bg-[#0B1020] w-full px-8 md:px-14 py-16 flex flex-col justify-center scroll-mt-32"
         >
-          <div className="max-w-xl w-full mx-auto space-y-2">
+          <div className="w-full flex flex-col mx-auto space-y-2 items-center justify-center">
             <div className="space-y-2">
               <h3 className="text-[#26a17c] text-2xl md:text-4xl font-bold">
                 <DangerousHtml
@@ -65,7 +65,7 @@ const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
