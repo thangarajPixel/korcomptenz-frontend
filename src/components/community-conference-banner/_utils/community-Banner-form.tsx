@@ -153,7 +153,7 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
         </div>
 
         {/* Row 2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
           <div>
             <label className={labelClass}>
               {form?.forms?.[0]?.jobtitleLabel}
@@ -210,16 +210,17 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
               className={boxFieldClass}
             />
           </div>
-
-          <div>
-            <label className={labelClass}>
-              {form?.forms?.[0]?.message || "Message"}
-            </label>
-            <Textarea
-              control={control}
-              name="message"
-              placeholder="Optional"
-              className="
+        </div>
+        {/* Message */}
+        <div>
+          <label className={labelClass}>
+            {form?.forms?.[0]?.message || "Message"}
+          </label>
+          <Textarea
+            control={control}
+            name="message"
+            placeholder="Optional"
+            className="
                  min-h-[120px]
                  rounded-lg
                  bg-transparent
@@ -230,10 +231,8 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
                  resize-none
                  focus-visible:ring-0 focus:border-[#1EBFA1]
                "
-            />
-          </div>
+          />
         </div>
-        {/* Message */}
       </div>
 
       {/* CTA */}
