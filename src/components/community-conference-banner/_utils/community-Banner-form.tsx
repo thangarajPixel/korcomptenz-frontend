@@ -206,7 +206,7 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
             <Input
               control={control}
               name="preferredTime"
-              placeholder="Choose Your Slot"
+              placeholder="Choose Your Slot *"
               className={boxFieldClass}
             />
           </div>
