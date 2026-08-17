@@ -32,8 +32,8 @@ const Page = async ({ params }: Props) => {
   }
   const data = await getPageServiceCache({ slug });
 
-     const hasNotFoundBlock = data?.list?.some(
-    (item) => item.__component === "not-found.not-found"
+  const hasNotFoundBlock = data?.list?.some(
+    (item) => item.__component === "not-found.not-found",
   );
 
   if (hasNotFoundBlock) {
@@ -41,7 +41,12 @@ const Page = async ({ params }: Props) => {
   }
 
   return (
-    <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
+    <div
+      className={cn(
+        "flex flex-col overflow-hidden pb-10 md:pb-24",
+        APP_CONFIG.OVERALL_GAP,
+      )}
+    >
       <GlobalPage data={data?.list} />
     </div>
   );
