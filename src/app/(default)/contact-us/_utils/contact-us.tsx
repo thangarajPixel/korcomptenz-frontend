@@ -16,7 +16,7 @@ export default async function ContactUsPage() {
   return (
     <div
       className={cn(
-        "flex flex-col overflow-hidden pb-10 md:pb-24",
+        "flex flex-col overflow-clip pb-10 md:pb-24",
         APP_CONFIG.OVERALL_GAP,
       )}
     >
