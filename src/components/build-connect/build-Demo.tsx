@@ -10,8 +10,8 @@ const BuildDemo = ({
   buildData: DemoBuildConnectSectionType;
 }) => {
   return (
-    <section data-debug="page-componets.build-data">
-      <div className="container-md">
+    <div data-debug="page-componets.build-data">
+      <div className="container-md px-6">
         {buildData?.isSwap && buildData?.title && (
           <h2 className=" text-6xl md:text-9xl font-bold text-foreground leading-10 lg:leading-15">
             {buildData?.title}
@@ -54,7 +54,7 @@ const BuildDemo = ({
           )}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

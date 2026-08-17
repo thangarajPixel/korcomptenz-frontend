@@ -66,8 +66,8 @@ const InspireSection = ({
   const centerSpan =
     left.length > 0 && right.length > 0 ? "lg:col-span-1" : "lg:col-span-2";
   return (
-    <section
-      className="container-md"
+    <div
+      className="container-md px-6"
       data-debug={"page-componets.inspire-section"}
     >
       <div className="grid lg:grid-cols-3 gap-6">
@@ -137,7 +137,7 @@ const InspireSection = ({
           </Link>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 

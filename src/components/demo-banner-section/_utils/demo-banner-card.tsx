@@ -123,11 +123,13 @@ const DemoBannerCard = ({
           </div>
           {item?.bannerInfo && (
             <div className="bg-muted hidden lg:block py-5">
-              <div className="flex container-md justify-evenly">
-                <h2 className="text-white font-semibold text-6xl">
-                  {" "}
-                  {item?.bannerInfo?.title}
-                </h2>
+              <div className="flex container-md justify-evenly gap-4">
+                {item?.bannerInfo?.title && (
+                  <h2 className="text-white font-semibold text-6xl">
+                    {" "}
+                    {item?.bannerInfo?.title}
+                  </h2>
+                )}
                 {item?.bannerInfo?.details.map((detail, index) => (
                   <div className="flex gap-2" key={index}>
                     <KorcomptenzImage

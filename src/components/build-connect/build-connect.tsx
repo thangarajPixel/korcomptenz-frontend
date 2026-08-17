@@ -25,10 +25,10 @@ const BuildConnect = ({
   });
 
   return (
-    <section
+    <div
       data-debug="page-componets.build-data"
       id="our-mission-and-vision"
-      className="container-md"
+      className="container-md px-6"
     >
       <div
         className={cn(
@@ -279,7 +279,7 @@ const BuildConnect = ({
           videoSrc={isVideoOpen.link || ""}
         />
       )}
-    </section>
+    </div>
   );
 };
 

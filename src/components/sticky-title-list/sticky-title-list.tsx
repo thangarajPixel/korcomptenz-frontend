@@ -7,8 +7,8 @@ const StickyTitleList = ({
   salesforceServices: StickyTitleListType;
 }) => {
   return (
-    <section
-      className="container-md "
+    <div
+      className="container-md px-6"
       data-debug={"page-componets.sticky-title-list"}
     >
       <div className="w-full px-0 ">
@@ -35,7 +35,7 @@ const StickyTitleList = ({
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
