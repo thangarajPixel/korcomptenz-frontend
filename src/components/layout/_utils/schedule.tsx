@@ -16,9 +16,9 @@ const ScheduleCall = ({
   essential?: { id: string | number; [key: string]: unknown };
 }) => {
   return (
-    <section
+    <div
       className={cn(
-        "bg-custom-black lg:min-h-150  flex items-center py-4 md:py-0",
+        "bg-custom-black lg:min-h-150  flex items-center py-4 md:py-0 px-6",
         {
           "-mb-10 md:-mb-24": isLastIndex,
         },
@@ -108,7 +108,7 @@ const ScheduleCall = ({
           </ButtonLink>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -18,7 +18,12 @@ export async function generateMetadata() {
 export default async function DemoPage() {
   const data = await getDemoCache();
   return (
-    <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
+    <div
+      className={cn(
+        "flex flex-col overflow-hidden pb-10 md:pb-24",
+        APP_CONFIG.OVERALL_GAP,
+      )}
+    >
       <GlobalPage data={data?.list} />
     </div>
   );

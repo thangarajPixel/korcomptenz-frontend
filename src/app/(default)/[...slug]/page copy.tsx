@@ -32,7 +32,12 @@ const Page = async ({ params }: Props) => {
   const data = await getPageServiceCache({ slug });
 
   return (
-    <div className={cn("flex flex-col pb-10 md:pb-24", APP_CONFIG.OVERALL_GAP)}>
+    <div
+      className={cn(
+        "flex flex-col overflow-hidden pb-10 md:pb-24",
+        APP_CONFIG.OVERALL_GAP,
+      )}
+    >
       <GlobalPage data={data?.list} />
     </div>
   );
