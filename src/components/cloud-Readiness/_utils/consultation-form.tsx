@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { useCaptchaToken } from "@/lib/recaptcha";
+import { useCaptchaToken } from "@/lib/turnstile";
 
 const defaultValues = {
   fullName: "",
@@ -70,7 +70,7 @@ const ConsultationForm = ({
         }
         const data = {
           ...formdata,
-          recaptchaToken: captchaToken,
+          turnstileToken: captchaToken,
         };
         try {
           const response = await mutateAsync(data);

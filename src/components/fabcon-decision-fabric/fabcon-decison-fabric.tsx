@@ -1,7 +1,7 @@
 "use client";
 
 import FabconDecisionForm from "./_utils/fabcon-decision-form";
-import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 
 const FabconDecisionFabric = ({ data }: { data: FabconDecisionFabricType }) => {
   return (
@@ -46,9 +46,9 @@ const FabconDecisionFabric = ({ data }: { data: FabconDecisionFabricType }) => {
 
         {/* ================= FORM ================= */}
         <div className="flex justify-center lg:justify-start">
-          <RecaptchaProvider>
+          <TurnstileProvider>
             <FabconDecisionForm form={data?.form} />
-          </RecaptchaProvider>
+          </TurnstileProvider>
         </div>
       </div>
     </section>

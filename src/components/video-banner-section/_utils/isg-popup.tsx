@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { IsgformSchema, type IsgFormSchema } from "@/utils/validation.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useCaptchaToken } from "@/lib/recaptcha";
+import { useCaptchaToken } from "@/lib/turnstile";
 import { notify } from "@/utils/helper";
 import { useIsgLeadHook } from "@/services";
 import { Textarea } from "@/components/ui/textarea";
@@ -87,7 +87,7 @@ export function IsgBannerPopup({
       const payload = {
         ...formdata,
         pageSlug: currentUrl,
-        recaptchaToken: captchaToken,
+        turnstileToken: captchaToken,
       };
 
       try {

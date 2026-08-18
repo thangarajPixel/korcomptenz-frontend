@@ -4,7 +4,7 @@ import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import ConsultationForm from "@/components/layout/_utils/consultation-form";
-import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 
 const ScheduleCall = ({
   scheduleCall,
@@ -76,7 +76,7 @@ const ScheduleCall = ({
                 borderRadius: "20px",
               }}
             >
-              <RecaptchaProvider>
+              <TurnstileProvider>
                 <ConsultationForm
                   data={
                     scheduleCall?.form?.forms?.[0] ?? {
@@ -88,7 +88,7 @@ const ScheduleCall = ({
                   formDescription={scheduleCall?.formDescription}
                   formbuttonText={scheduleCall?.formbuttonText}
                 />
-              </RecaptchaProvider>
+              </TurnstileProvider>
             </div>
           </div>
           <ButtonLink

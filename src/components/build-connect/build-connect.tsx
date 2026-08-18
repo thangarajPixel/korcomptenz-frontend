@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import ButtonLink from "../ui/button-link";
 import { VideoPopup } from "../video-popup";
 import Link from "next/link";
-import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 
 const BuildConnect = ({
   buildData,
@@ -260,13 +260,13 @@ const BuildConnect = ({
           )}
 
           {buildData?.rightSection?.content === "form" && (
-            <RecaptchaProvider>
+            <TurnstileProvider>
               <BookDemoSection
                 essential={
                   buildData?.rightSection?.form?.forms[0] as BookDemoFormType
                 }
               />
-            </RecaptchaProvider>
+            </TurnstileProvider>
           )}
         </div>
       </div>

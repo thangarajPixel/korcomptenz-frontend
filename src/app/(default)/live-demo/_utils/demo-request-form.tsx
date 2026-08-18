@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import { useReserveMySpotHook } from "@/services";
-import { useCaptchaToken } from "@/lib/recaptcha";
+import { useCaptchaToken } from "@/lib/turnstile";
 
 const defaultValues = {
   name: "",
@@ -68,7 +68,7 @@ const DemoRequestForm = ({
         const data = {
           ...formdata,
           demoFrom,
-          recaptchaToken: captchaToken,
+          turnstileToken: captchaToken,
         };
         try {
           const response = await mutateAsync(data);

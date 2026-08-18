@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import ConsultationForm from "./consultation-form";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 
 const BlogBuildDemo = ({
   form,
@@ -30,9 +30,9 @@ const BlogBuildDemo = ({
             />
           </div>
 
-          <RecaptchaProvider>
+          <TurnstileProvider>
             <ConsultationForm form={form} essential={essential} />
-          </RecaptchaProvider>
+          </TurnstileProvider>
         </div>
       </div>
     </section>

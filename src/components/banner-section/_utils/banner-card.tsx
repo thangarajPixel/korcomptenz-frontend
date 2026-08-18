@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import React, { useEffect, useState } from "react";
 import { SapBannerPopup } from "./sap-popup";
-import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 
 const BannerCard = ({
   data,
@@ -348,7 +348,7 @@ const BannerCard = ({
         </>
       )}
       <>
-        <RecaptchaProvider>
+        <TurnstileProvider>
           <SapBannerPopup
             data={data?.form?.forms?.[0]}
             isOpen={isPopupOpen}
@@ -357,7 +357,7 @@ const BannerCard = ({
             formDescription={data?.formDescription}
             formImage={data?.formImage}
           />
-        </RecaptchaProvider>
+        </TurnstileProvider>
       </>
     </div>
   );
