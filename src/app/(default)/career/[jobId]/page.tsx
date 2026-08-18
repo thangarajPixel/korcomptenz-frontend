@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { fetchDarwinboxJobDetail } from "@/lib/darwinbox";
 import { generatePageMetadata } from "@/utils/metadata";
-import { Button } from "@/components/ui/button";
 import { ShareButton } from "@/components/open-jobs/share-button";
+import { ApplyJobModal } from "@/components/open-jobs/apply-job-modal";
 
 type JobDetail = {
   job_id: string;
@@ -18,6 +19,11 @@ type JobDetail = {
   job_created_timestamp?: string;
   job_updated_timestamp?: string;
   job_decription?: string;
+};
+
+type JobListItem = {
+  job_id: string;
+  job_title: string;
 };
 
 const getJobDetail = cache(async (jobId: string) => {
@@ -36,6 +42,28 @@ const getJobDetail = cache(async (jobId: string) => {
     } as JobDetail;
   } catch {
     return null;
+  }
+});
+
+// ✅ Fetches the full job list (same source open-jobs.tsx uses on the
+// client) so we can work out which job comes before/after this one.
+// Wrapped in React's cache() so if it's ever called more than once during
+// the same request (e.g. also from generateMetadata later) it only fetches
+// once.
+const getJobsList = cache(async (): Promise<JobListItem[]> => {
+  try {
+    const res = await fetch(process.env.NEXT_PUBLIC_JOBS_API_URL as string, {
+      // Keep this reasonably fresh without hitting the API on every request
+      next: { revalidate: 300 },
+    });
+
+    if (!res.ok) return [];
+
+    const result = await res.json();
+
+    return (result?.data || []) as JobListItem[];
+  } catch {
+    return [];
   }
 });
 
@@ -166,7 +194,10 @@ export default async function JobDetailPage({
 }) {
   const { jobId } = await params;
 
-  const job = await getJobDetail(jobId);
+  const [job, jobsList] = await Promise.all([
+    getJobDetail(jobId),
+    getJobsList(),
+  ]);
 
   if (!job) {
     notFound();
@@ -174,8 +205,60 @@ export default async function JobDetailPage({
 
   const description = cleanWordHtml(job.job_decription);
 
+  // ✅ Work out prev/next jobs from the master list
+  const currentIndex = jobsList.findIndex((j) => j.job_id === job.job_id);
+  const prevJob = currentIndex > 0 ? jobsList[currentIndex - 1] : null;
+  const nextJob =
+    currentIndex >= 0 && currentIndex < jobsList.length - 1
+      ? jobsList[currentIndex + 1]
+      : null;
+
   return (
     <main className="container-md py-10 md:py-20">
+      {/* ✅ All Jobs / Previous / Next navigation */}
+      <div className="flex items-center justify-between gap-3 mb-6 flex-wrap">
+        <Link
+          href="/career"
+          className="text-sm font-medium text-[#26A17D] hover:underline flex items-center gap-1"
+        >
+          ← All Jobs
+        </Link>
+
+        <div className="flex items-center gap-2">
+          {currentIndex >= 0 && (
+            <span className="text-xs text-gray-500 mr-1">
+              Job {currentIndex + 1} of {jobsList.length}
+            </span>
+          )}
+
+          {prevJob ? (
+            <Link
+              href={`/career/${prevJob.job_id}`}
+              className="px-3 py-1.5 rounded border text-sm hover:bg-gray-50"
+            >
+              ‹ Previous
+            </Link>
+          ) : (
+            <span className="px-3 py-1.5 rounded border text-sm opacity-40 cursor-not-allowed">
+              ‹ Previous
+            </span>
+          )}
+
+          {nextJob ? (
+            <Link
+              href={`/career/${nextJob.job_id}`}
+              className="px-3 py-1.5 rounded border text-sm hover:bg-gray-50"
+            >
+              Next ›
+            </Link>
+          ) : (
+            <span className="px-3 py-1.5 rounded border text-sm opacity-40 cursor-not-allowed">
+              Next ›
+            </span>
+          )}
+        </div>
+      </div>
+
       {/* Header */}
       <div className="bg-[#2f3a42] text-white rounded-xl p-6 md:p-10">
         <div className="flex flex-col md:flex-row md:justify-between gap-6">
@@ -217,10 +300,13 @@ export default async function JobDetailPage({
             <strong>Notice Period:</strong> 0 - 30 days
           </p>
         </div>
+        <div className="flex justify-end">
+          <ApplyJobModal jobId={job.job_id} jobTitle={job.job_title} />
+        </div>
       </div>
 
       {/* Description */}
-      <section className="mt-8 bg-white rounded-xl border p-6 md:p-10">
+      <section className=" bg-white rounded-xl border p-6 md:p-10">
         <h2 className="text-2xl md:text-3xl font-semibold mb-6">
           Job Description
         </h2>
@@ -231,14 +317,9 @@ export default async function JobDetailPage({
             __html: description,
           }}
         />
+        {/* Apply — client component so it can hold form state and submit */}
+        <ApplyJobModal jobId={job.job_id} jobTitle={job.job_title} />
       </section>
-
-      {/* Apply */}
-      <div className="mt-8 flex justify-center">
-        <Button className="bg-[#26A17D] text-white px-8 py-3 rounded-full">
-          Apply Now →
-        </Button>
-      </div>
     </main>
   );
 }
