@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ShareButton } from "./share-button";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 type Job = {
   job_id: string;
   job_title: string;
@@ -450,15 +451,10 @@ const OpenJobs = ({
             {job.department}
           </p>
         </div>
-        <Button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            openJobDetail(job.job_id);
-          }}
-        >
-          View Details
-        </Button>
+
+        <Link href={`/career/${job.job_id}`}>
+          <Button type="button">View Details</Button>
+        </Link>
       </div>
     );
   }
@@ -546,15 +542,10 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
         {/* RIGHT SECTION */}
         <div className="flex items-center gap-4">
           {/* Button */}
-          <Button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              openJobDetail(job.job_id);
-            }}
-          >
-            View Details
-          </Button>
+          <Link href={`/career/${job.job_id}`}>
+            <Button type="button">View Details</Button>
+          </Link>
+
           <ShareButton shareUrl={`${shareUrl}`} />
           {/* Social Icons */}
         </div>
