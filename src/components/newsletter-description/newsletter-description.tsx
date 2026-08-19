@@ -17,13 +17,7 @@ const NewsLetterDescription: React.FC<NewsLetterDescriptionProps> = ({
         background: data?.bgColor || "#ffffff",
       }}
     >
-      <div
-        className={`${
-          data?.bgColor && data.bgColor.toLowerCase() !== "#ffffff"
-            ? "p-10"
-            : ""
-        }`}
-      >
+      <div className="p-10">
         <div className="max-w-7xl mx-auto">
           {data.subtext && (
             <p className="text-lg font-medium mb-2 text-primary">
