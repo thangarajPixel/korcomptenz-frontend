@@ -26,17 +26,18 @@ const NewsLetterDescription: React.FC<NewsLetterDescriptionProps> = ({
       >
         <div className="max-w-7xl mx-auto">
           {data.subtext && (
-            <p className="text-lg font-medium mb-6 text-primary">
+            <p className="text-lg font-medium mb-2 text-primary">
               {data.subtext}{" "}
             </p>
           )}
           {data.Title && (
-            <h2 className="text-8xl font-bold text-gray-800 leading-tight mb-6">
+            <h2 className="text-7xl font-bold text-foreground leading-tight mb-6">
               {data.Title}
             </h2>
           )}
-
-          <RawHtmlEmbed key={data?.id} html={data.description ?? ""} />
+          <div className="space-y-4">
+            <RawHtmlEmbed key={data?.id} html={data.description ?? ""} />
+          </div>
         </div>
       </div>
     </div>

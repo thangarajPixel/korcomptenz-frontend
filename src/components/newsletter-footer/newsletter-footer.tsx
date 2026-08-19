@@ -7,16 +7,20 @@ export default function NewsLetterFooterSection({
   data,
 }: NewsletterFooterProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#F5F3F8] via-[#D8C3EA] to-[#8151BA] py-20">
-      <div className="container-md">
+    <>
+      {data?.title && (
+        <div className="bg-foreground">
+          <div className="max-w-7xl mx-auto px-1 md:px-10 py-10 md:py-4">
+            <h2 className="text-white text-3xl md:text-5xl font-bold text-center">
+              {data.title}
+            </h2>
+          </div>
+        </div>
+      )}
+      <div className="relative overflow-hidden bg-gradient-to-b from-[#F5F3F8] via-[#D8C3EA] to-[#8151BA] py-20">
         {/* Title */}
 
         <div className="max-w-4xl mx-auto">
-          {data?.title && (
-            <h2 className="text-left text-6xl md:text-5xl font-semibold text-[#223354] mb-20">
-              {data.title}
-            </h2>
-          )}
           {/* Logo */}
           {data?.logo && (
             <div className="mb-10">
@@ -64,6 +68,6 @@ export default function NewsLetterFooterSection({
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 }

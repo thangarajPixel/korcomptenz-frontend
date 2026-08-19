@@ -23,5 +23,11 @@ export default function RawHtmlEmbed({ html }: { html: string }) {
     });
   }, [html]);
 
-  return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <div
+      className="rich-text text-lg leading-[28px] text-foreground"
+      ref={containerRef}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
 }
