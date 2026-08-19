@@ -1,7 +1,7 @@
 import BookDemoSection from "./newsletter-footer-form";
 import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 import KorcomptenzImage from "../korcomptenz-image";
-import { DangerousHtml } from "../ui/dangerous-html";
+import RawHtmlEmbed from "@/components/ui/raw-html-embed";
 
 export default function NewsLetterFooterSection({
   data,
@@ -18,15 +18,16 @@ export default function NewsLetterFooterSection({
             </h2>
           )}
           {/* Logo */}
-          <div className="mb-10">
-            <KorcomptenzImage
-              src={data?.logo}
-              width={300}
-              height={100}
-              className=""
-            />
-          </div>
-
+          {data?.logo && (
+            <div className="mb-10">
+              <KorcomptenzImage
+                src={data?.logo}
+                width={300}
+                height={100}
+                className=""
+              />
+            </div>
+          )}
           {/* Expert Title */}
           {data?.expertTitle && (
             <h3 className="text-[#223354] text-4xl md:text-5xl font-semibold leading-tight max-w-3xl mb-8">
@@ -35,23 +36,24 @@ export default function NewsLetterFooterSection({
           )}
 
           {data?.description && (
-            <DangerousHtml
-              html={data?.description}
-              className="text-md text-white md:text-5xl  leading-7.5 text-white  break-words mb-10"
+            <RawHtmlEmbed
+              key="custom-description"
+              html={data.description ?? ""}
             />
           )}
 
           {/* Form */}
-          <div className="mb-10">
-            <div className="bg-white rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.35)] p-8 md:p-10">
-              <TurnstileProvider>
-                <BookDemoSection
-                  essential={data?.form?.forms[0] as BookDemoFormType}
-                />
-              </TurnstileProvider>
+          {data?.form?.forms[0] && (
+            <div className="mb-10">
+              <div className="bg-white rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.35)] p-8 md:p-10">
+                <TurnstileProvider>
+                  <BookDemoSection
+                    essential={data?.form?.forms[0] as BookDemoFormType}
+                  />
+                </TurnstileProvider>
+              </div>
             </div>
-          </div>
-
+          )}
           {/* Date */}
           <div className="flex items-center gap-6">
             <span className="text-sm font-medium text-white whitespace-nowrap">

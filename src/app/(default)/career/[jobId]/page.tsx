@@ -300,13 +300,13 @@ export default async function JobDetailPage({
             <strong>Notice Period:</strong> 0 - 30 days
           </p>
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-end text-black">
           <ApplyJobModal jobId={job.job_id} jobTitle={job.job_title} />
         </div>
       </div>
 
       {/* Description */}
-      <section className=" bg-white rounded-xl border p-6 md:p-10">
+      <section className=" bg-white text-['#000'] rounded-xl border p-6 md:p-10">
         <h2 className="text-2xl md:text-3xl font-semibold mb-6">
           Job Description
         </h2>
