@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
-import { useCaptchaToken } from "@/lib/recaptcha";
+import { useCaptchaToken } from "@/lib/turnstile";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 
 const defaultValues = {
@@ -64,7 +64,7 @@ const cloudForm = ({ form }: { form: CloudFormType }) => {
         notify({ message: "Captcha verification failed. Please try again." });
         return;
       }
-      const data2 = { ...formdata, recaptchaToken: captchaToken };
+      const data2 = { ...formdata, turnstileToken: captchaToken };
       try {
         const response = await mutateAsync(data2);
         // notify(response);

@@ -12,7 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useRouter } from "next/navigation";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { useCaptchaToken } from "@/lib/recaptcha";
+import { useCaptchaToken } from "@/lib/turnstile";
 
 const defaultValues = {
   firstName: "",
@@ -56,7 +56,7 @@ const ContactusForm = ({ form }: { form: ContactUsFormType }) => {
           notify({ message: "Captcha verification failed. Please try again." });
           return;
         }
-        const data2 = { ...formdata, recaptchaToken: captchaToken };
+        const data2 = { ...formdata, turnstileToken: captchaToken };
         try {
           const response = await mutateAsync(data2);
           // notify(response);

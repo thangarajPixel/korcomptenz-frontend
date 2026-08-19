@@ -1,5 +1,5 @@
 import BookDemoSection from "./newsletter-footer-form";
-import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 import KorcomptenzImage from "../korcomptenz-image";
 import { DangerousHtml } from "../ui/dangerous-html";
 
@@ -44,11 +44,11 @@ export default function NewsLetterFooterSection({
           {/* Form */}
           <div className="mb-10">
             <div className="bg-white rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.35)] p-8 md:p-10">
-              <RecaptchaProvider>
+              <TurnstileProvider>
                 <BookDemoSection
                   essential={data?.form?.forms[0] as BookDemoFormType}
                 />
-              </RecaptchaProvider>
+              </TurnstileProvider>
             </div>
           </div>
 
