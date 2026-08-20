@@ -1,16 +1,30 @@
+"use client";
+import Script from "next/script";
 import React from "react";
 import CaseStudyBanner from "./case-study-banner";
 import CaseStudyContent from "./case-study-content";
-
-import { CaseStudyForm } from "./case-study-contact";
+//import { CaseStudyForm } from "./case-study-contact";
 import { CaseStudyCard } from "@/components/case-study-section";
 import { cn } from "@/lib/utils";
 import ButtonLink from "@/components/ui/button-link";
 import { ScrollFadeIn } from "@/components/ui/scroll-fade-in";
-import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+//import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 import CaseStudyVideo from "./case-study-video";
 import { ClientTestimonial } from "@/app/(default)/case-studies/_utils";
-
+declare global {
+  interface Window {
+    hbspt?: {
+      forms: {
+        create: (options: {
+          portalId: string;
+          formId: string;
+          region: string;
+          target: string;
+        }) => void;
+      };
+    };
+  }
+}
 const CaseStudy = ({
   data,
   essential,
@@ -86,10 +100,32 @@ const CaseStudy = ({
           </div>
         </ScrollFadeIn>
       )}
-      <ScrollFadeIn>
+      {/* <ScrollFadeIn>
         <RecaptchaProvider>
           <CaseStudyForm data={data} essential={essential} />
         </RecaptchaProvider>
+      </ScrollFadeIn> */}
+
+      <ScrollFadeIn>
+        <div className="container-md py-12 md:px-8">
+          <div className="max-w-3xl mx-auto">
+            <div id="hubspot-form" />
+          </div>
+        </div>
+        <Script
+          src="//js.hsforms.net/forms/embed/v2.js"
+          strategy="afterInteractive"
+          onLoad={() => {
+            if (window.hbspt) {
+              window.hbspt.forms.create({
+                portalId: "7991245",
+                formId: "89ae85c4-f137-4b8a-901d-fc3ab2e0f82e",
+                region: "na1",
+                target: "#hubspot-form",
+              });
+            }
+          }}
+        />
       </ScrollFadeIn>
     </React.Fragment>
   );
