@@ -478,7 +478,13 @@ h6.elementor-heading-title,
   overflow-wrap: break-word;
   word-break: break-word;
 }
-
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 10px 0;
+}
 /* All headings with minimal spacing */
 .blog-content h1,
 .blog-content h2,
@@ -744,10 +750,25 @@ ul.key_list li::before {
   h1 {
     @apply text-[50px] leading-[60px] font-semibold;
   }
-
   /* ---------- H2 ---------- */
   h2 {
     @apply text-[40px] leading-[50px] font-semibold;
+  }
+  /* ---------- H3 ---------- */
+  h3 {
+    @apply text-[30px] leading-[40px] font-semibold;
+  }
+  /* ---------- H4 ---------- */
+  h4 {
+    @apply text-[24px] leading-[34px] font-semibold;
+  }
+  /* ---------- H5 ---------- */
+  h5 {
+    @apply text-[22px] leading-[30px] font-semibold;
+  }
+  /* ---------- H6 ---------- */
+  h6 {
+    @apply text-[18px] leading-[26px] font-semibold;
   }
 
   /* ---------- Tablet (<=1024px) ---------- */
@@ -755,9 +776,20 @@ ul.key_list li::before {
     h1 {
       @apply text-[36px] leading-[42px];
     }
-
     h2 {
       @apply text-[32px] leading-[38px];
+    }
+    h3 {
+      @apply text-[26px] leading-[36px];
+    }
+    h4 {
+      @apply text-[22px] leading-[32px];
+    }
+    h5 {
+      @apply text-[20px] leading-[28px];
+    }
+    h6 {
+      @apply text-[17px] leading-[24px];
     }
   }
 
@@ -766,9 +798,20 @@ ul.key_list li::before {
     h1 {
       @apply text-[34px] leading-[44px];
     }
-
     h2 {
       @apply text-[30px] leading-[36px];
+    }
+    h3 {
+      @apply text-[24px] leading-[34px];
+    }
+    h4 {
+      @apply text-[20px] leading-[30px];
+    }
+    h5 {
+      @apply text-[19px] leading-[26px];
+    }
+    h6 {
+      @apply text-[17px] leading-[24px];
     }
   }
 }
@@ -796,18 +839,6 @@ ul.key_list li::before {
 .writing-mode-vertical {
   writing-mode: vertical-rl;
 }
-
-.grecaptcha-badge {
-  width: 70px !important;
-  overflow: hidden !important;
-  transition: all 0.3s ease !important;
-  left: 4px !important;
-}
-
-.grecaptcha-badge:hover {
-  width: 256px !important;
-}
-
 
 /* Korcomptenz Team Start */
 

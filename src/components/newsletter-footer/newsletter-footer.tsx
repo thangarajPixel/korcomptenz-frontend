@@ -1,32 +1,36 @@
 import BookDemoSection from "./newsletter-footer-form";
-import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 import KorcomptenzImage from "../korcomptenz-image";
-import { DangerousHtml } from "../ui/dangerous-html";
+import RawHtmlEmbed from "@/components/ui/raw-html-embed";
 
 export default function NewsLetterFooterSection({
   data,
 }: NewsletterFooterProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#F5F3F8] via-[#D8C3EA] to-[#8151BA] py-20">
-      <div className="container-md">
+    <>
+      {data?.title && (
+        <div className="bg-foreground">
+          <div className="max-w-7xl mx-auto px-1 md:px-10 py-10 md:py-4">
+            <h2 className="text-white text-3xl md:text-5xl font-bold text-center">
+              {data.title}
+            </h2>
+          </div>
+        </div>
+      )}
+      <div className="relative overflow-hidden bg-gradient-to-b from-[#F5F3F8] via-[#D8C3EA] to-[#8151BA] py-20">
         {/* Title */}
 
         <div className="max-w-4xl mx-auto">
-          {data?.title && (
-            <h2 className="text-left text-6xl md:text-5xl font-semibold text-[#223354] mb-20">
-              {data.title}
-            </h2>
-          )}
           {/* Logo */}
-          <div className="mb-10">
-            <KorcomptenzImage
-              src={data?.logo}
-              width={300}
-              height={100}
-              className=""
-            />
-          </div>
-
+          {data?.logo && (
+            <div className="mb-10">
+              <KorcomptenzImage
+                src={data?.logo}
+                width={300}
+                height={100}
+                className=""
+              />
+            </div>
+          )}
           {/* Expert Title */}
           {data?.expertTitle && (
             <h3 className="text-[#223354] text-4xl md:text-5xl font-semibold leading-tight max-w-3xl mb-8">
@@ -35,23 +39,22 @@ export default function NewsLetterFooterSection({
           )}
 
           {data?.description && (
-            <DangerousHtml
-              html={data?.description}
-              className="text-md text-white md:text-5xl  leading-7.5 text-white  break-words mb-10"
+            <RawHtmlEmbed
+              key="custom-description"
+              html={data.description ?? ""}
             />
           )}
 
           {/* Form */}
-          <div className="mb-10">
-            <div className="bg-white rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.35)] p-8 md:p-10">
-              <RecaptchaProvider>
+          {data?.form?.forms[0] && (
+            <div className="mb-10">
+              <div className="bg-white rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.35)] p-8 md:p-10">
                 <BookDemoSection
                   essential={data?.form?.forms[0] as BookDemoFormType}
                 />
-              </RecaptchaProvider>
+              </div>
             </div>
-          </div>
-
+          )}
           {/* Date */}
           <div className="flex items-center gap-6">
             <span className="text-sm font-medium text-white whitespace-nowrap">
@@ -62,6 +65,6 @@ export default function NewsLetterFooterSection({
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 }

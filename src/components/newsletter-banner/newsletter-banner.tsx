@@ -39,19 +39,19 @@ export default function NewsletterBanner({ data }: NewsletterBannerProps) {
 
         {/* What's Inside */}
         {data?.whatsIncludeContent?.sublist?.length ? (
-          <div className="mt-16">
-            <h2 className="text-[#FF6FB5] text-3xl md:text-4xl font-bold mb-8">
+          <div className="mt-6">
+            <h2 className="text-[#FF6FB5] text-3xl md:text-4xl font-bold mb-2">
               {data?.whatsIncludeContent?.title || "What's Inside"}
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
               {data.whatsIncludeContent.sublist.map((item) => (
-                <button
-                  key={item.sectionLink}
-                  onClick={() => handleScroll(item.title)}
+                <a
+                  href={item.sectionLink}
+                  onClick={() => handleScroll(item.sectionLink)}
                   className="bg-[#6D688F] rounded-2xl p-6 text-left transition-all hover:bg-[#7974A1]"
                 >
-                  <h3 className="text-[#56E2D0] text-xl font-bold mb-3">
+                  <h3 className="text-[#56E2D0] text-xl font-bold">
                     {item.title}
                   </h3>
 
@@ -61,7 +61,7 @@ export default function NewsletterBanner({ data }: NewsletterBannerProps) {
                       className="md:text-lg text-md"
                     />
                   )}
-                </button>
+                </a>
               ))}
             </div>
           </div>
