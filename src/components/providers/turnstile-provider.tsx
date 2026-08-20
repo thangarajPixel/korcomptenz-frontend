@@ -8,6 +8,11 @@ const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 type TurnstileWidgetContextValue = {
   widgetRef: { current: TurnstileInstance | undefined };
   containerId: string;
+  // Cloudflare's own internal widget id, returned via onWidgetLoad. This is
+  // what turnstile.execute()/getResponse() actually need to target this
+  // specific widget — Cloudflare's real API does not look widgets up by
+  // the container's DOM id, only by the id it itself generated on render.
+  widgetIdRef: { current: string | undefined };
 };
 
 export const TurnstileWidgetContext =
@@ -20,17 +25,18 @@ export const TurnstileWidgetContext =
  *
  * Multiple providers can be mounted on the same page (e.g. several form
  * sections), so each gets a unique container id via useId() — Turnstile's
- * default container id ("cf-turnstile") is not unique, and getToken()
- * targets a specific widget by id to set the per-submission action.
+ * default container id ("cf-turnstile") is not unique, and duplicate DOM
+ * ids are invalid HTML regardless of how the widget itself is targeted.
  */
 export function TurnstileProvider({ children }: { children: ReactNode }) {
   const widgetRef = useRef<TurnstileInstance | undefined>(undefined);
+  const widgetIdRef = useRef<string | undefined>(undefined);
   const containerId = `cf-turnstile-${useId()}`;
 
   if (!TURNSTILE_SITE_KEY) return <>{children}</>;
 
   return (
-    <TurnstileWidgetContext.Provider value={{ widgetRef, containerId }}>
+    <TurnstileWidgetContext.Provider value={{ widgetRef, containerId, widgetIdRef }}>
       {children}
       <Turnstile
         ref={widgetRef}
@@ -38,6 +44,9 @@ export function TurnstileProvider({ children }: { children: ReactNode }) {
         siteKey={TURNSTILE_SITE_KEY}
         options={{ size: "invisible", execution: "execute" }}
         scriptOptions={{ async: true, defer: true, appendTo: "body" }}
+        onWidgetLoad={(widgetId) => {
+          widgetIdRef.current = widgetId;
+        }}
       />
     </TurnstileWidgetContext.Provider>
   );
