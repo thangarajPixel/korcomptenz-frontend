@@ -193,7 +193,24 @@ type NewsletterBannerProps = {
     };
   };
 };
-
+type HomeSlidingSectionType = {
+  Title?: string;
+  BackroundColor?: string;
+  boxBorder?: boolean;
+  ArrowPosition?: "left" | "right" | "center";
+  SliderEntries?: SliderEntryType[];
+};
+type SliderEntryType = {
+  id?: number;
+  Title?: string;
+  Description?: string;
+  image?: string;
+  swap?: boolean;
+  buttonText?: string;
+  buttonLink?: string;
+  isTarget?: boolean;
+  isVideoLink?: boolean;
+};
 type OpportunitiesType = {
   description: string;
   button: ButtonType;
@@ -1903,6 +1920,11 @@ type ComponentPropsMap = {
     id: string;
     __component: "home.opportunity";
   };
+  HomeSlidingSection: HomeSlidingSectionType & {
+    id: string;
+    __component: "home.home-sliding-section";
+  };
+
   BannerSection: {
     id: string;
     __component: "page-componets.banner-section-list";
