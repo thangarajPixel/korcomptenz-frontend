@@ -131,6 +131,7 @@ import NewsLetterDescription from "../newsletter-description";
 import NewsLetterFooterSection from "../newsletter-footer";
 import FullWidthGramSection from "../full-width-gram-banner";
 import CustomScriptSection from "../custom-script";
+import HomeSlidingSection from "../home-sliding-section";
 
 type Props = {
   data: ComponentPropsType[];
@@ -156,6 +157,17 @@ const GlobalPage = (props: Props) => {
             key={`sliding-section-${item?.__component}-${item?.id}`}
             slides={item?.list}
           />
+        );
+
+      case "home.home-sliding-section":
+        // Hero is above the fold — skip fade-in to avoid LCP penalty
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`home-sliding-section-${item?.__component}-${item?.id}`}
+          >
+            <HomeSlidingSection data={item} />
+          </ScrollFadeIn>
         );
       case "page-componets.sticky-cards-list":
         return (
