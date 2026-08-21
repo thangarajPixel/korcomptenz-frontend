@@ -342,7 +342,7 @@ body {
   display: list-item;
 }
 .rich-text a {
-  @apply !text-primary;
+  @apply text-primary;
 }
 .rich-text span {
   @apply !font-sans !text-md md:!text-lg;

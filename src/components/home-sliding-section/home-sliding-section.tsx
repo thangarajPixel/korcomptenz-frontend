@@ -141,7 +141,7 @@ const HomeSlidingSection = ({ data }: { data: HomeSlidingSectionType }) => {
       )}
 
       <div
-        className={`relative w-full max-w-[1840px] overflow-hidden bg-black ${
+        className={`relative w-full max-w-[1840px] overflow-hidden ${
           data?.boxBorder
             ? "border border-[#292929]"
             : "border border-transparent"
@@ -160,7 +160,7 @@ const HomeSlidingSection = ({ data }: { data: HomeSlidingSectionType }) => {
           {entries.map((entry, index) => (
             <div
               key={entry.id ?? index}
-              className={`min-w-full w-full flex flex-col lg:items-center bg-black p-6 md:p-9 lg:p-11 ${
+              className={`min-w-full w-full flex flex-col lg:items-center p-6 md:p-9 lg:p-11 ${
                 entry.swap ? "lg:flex-row-reverse" : "lg:flex-row"
               }`}
             >
@@ -228,7 +228,7 @@ const HomeSlidingSection = ({ data }: { data: HomeSlidingSectionType }) => {
 
         {total > 1 && (
           <div
-            className={`flex items-center gap-3 md:gap-4 border-t border-[#1c1c1c] px-4 py-4 md:px-8 md:py-5 lg:px-11 lg:py-6 ${
+            className={`flex items-center gap-3 md:gap-4 px-4 py-4 md:px-8 md:py-5 lg:px-11 lg:py-6 ${
               arrowPositionClass[data?.ArrowPosition || "right"]
             }`}
           >
