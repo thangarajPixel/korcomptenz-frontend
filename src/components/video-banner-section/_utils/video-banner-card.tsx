@@ -17,7 +17,11 @@ type VideoBannerCardProps = {
 };
 
 const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
-  const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+  // Mobile-first default (matches useMobile() elsewhere in the codebase):
+  // both branches below autoplay their <video>, so defaulting to desktop
+  // meant real mobile visitors briefly rendered — and autoplay-fetched —
+  // the desktop video before this corrected on mount.
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -49,17 +53,6 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
     return () => {
       document.removeEventListener("click", handleClick);
     };
-  }, []);
-  useEffect(() => {
-    // Only run on client
-    const checkDevice = () => {
-      setIsDesktop(window.innerWidth >= 1024);
-    };
-
-    checkDevice();
-    window.addEventListener("resize", checkDevice);
-
-    return () => window.removeEventListener("resize", checkDevice);
   }, []);
   return (
     <div className={cn("relative w-full ", className)}>

@@ -42,6 +42,10 @@ const WeAreKorcomptenzSection = ({
           className="w-full h-[280px] md:h-[600px] object-cover  rounded-4xl"
           width={1112}
           height={500}
+          // This section's own wrapping `container-md` caps content width at
+          // 1376px (max-w-[90rem] minus px-8 padding) from the xl breakpoint
+          // up, so it never actually reaches 100vw on larger screens.
+          sizes="(min-width: 1280px) 1376px, 100vw"
         />
 
         <div className="absolute inset-0 bg-black/40 rounded-4xl" />

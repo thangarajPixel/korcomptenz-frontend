@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -84,6 +84,17 @@ export function AnimatedTabsHero({
               </TabsTrigger>
             ))}
           </TabsList>
+          {/* The actual panel content is rendered separately below (via
+              AnimatePresence) for the slide transition; these empty panels
+              only give each trigger's aria-controls a real element to point
+              to, so they must stay visually hidden. */}
+          {content?.map((t) => (
+            <TabsContent
+              key={`panel-${t?.label}`}
+              value={t?.label}
+              className="hidden"
+            />
+          ))}
         </Tabs>
         <div className="h-1 w-2/4 bg-secondary absolute top-1/2 right-0" />
       </div>

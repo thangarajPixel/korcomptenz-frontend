@@ -222,6 +222,7 @@ export default function SearchPage() {
             {query ? (
               <button
                 onClick={() => handleQueryChange("")}
+                aria-label="Clear search"
                 className="text-[#9ca3af] hover:text-foreground transition-colors shrink-0"
               >
                 <X className="h-[18px] w-[18px]" />

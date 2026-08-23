@@ -54,17 +54,25 @@ const ScheduleCall = ({
                 className="text-2xl font-semibold text-white max-w-xl"
               />
             </div>
-            <ButtonLink
-              link={scheduleCall?.link || "#"}
-              buttonProps={{
-                size: "xl",
-                arrow: true,
-                className:
-                  "text-4xl hidden lg:inline-flex hover:bg-transparent mt-5 max-w-xl",
-              }}
-            >
-              {scheduleCall?.buttonText}
-            </ButtonLink>
+            {scheduleCall?.buttonText?.trim() && (
+              // The button itself is only visible at lg+ (`hidden lg:inline-flex`);
+              // this wrapper must match so the <a> isn't left as an empty,
+              // focusable, zero-size element below that breakpoint. `contents`
+              // makes the wrapper a no-op for layout when visible.
+              <div className="hidden lg:contents">
+                <ButtonLink
+                  link={scheduleCall?.link || "#"}
+                  buttonProps={{
+                    size: "xl",
+                    arrow: true,
+                    className:
+                      "text-4xl inline-flex hover:bg-transparent mt-5 max-w-xl",
+                  }}
+                >
+                  {scheduleCall?.buttonText}
+                </ButtonLink>
+              </div>
+            )}
           </div>
           <div className="relative flex items-center justify-end lg:mt-10 flex-1">
             {/* Form Card */}
@@ -91,21 +99,27 @@ const ScheduleCall = ({
               </TurnstileProvider>
             </div>
           </div>
-          <ButtonLink
-            link={scheduleCall?.link || "#"}
-            buttonProps={{
-              size: "lg",
-              arrow: true,
-              className:
-                "text-sm hover:bg-transparent mt-5 lg:hidden " +
-                "w-full sm:w-1/2 " +
-                "flex items-center justify-center text-center py-6",
-            }}
-          >
-            <p className="w-full whitespace-normal break-words">
-              {scheduleCall?.buttonText}
-            </p>
-          </ButtonLink>
+          {scheduleCall?.buttonText?.trim() && (
+            // Same fix as above, mirrored: this button is only visible below
+            // lg (`lg:hidden`), so the wrapper hides together with it at lg+.
+            <div className="contents lg:hidden">
+              <ButtonLink
+                link={scheduleCall?.link || "#"}
+                buttonProps={{
+                  size: "lg",
+                  arrow: true,
+                  className:
+                    "text-sm hover:bg-transparent mt-5 " +
+                    "w-full sm:w-1/2 " +
+                    "flex items-center justify-center text-center py-6",
+                }}
+              >
+                <p className="w-full whitespace-normal break-words">
+                  {scheduleCall?.buttonText}
+                </p>
+              </ButtonLink>
+            </div>
+          )}
         </div>
       </div>
     </div>

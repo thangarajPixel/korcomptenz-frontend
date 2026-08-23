@@ -320,6 +320,7 @@ export function Navbar({ data }: { data: LayoutType | null }) {
                         <Link
                           key={`social-platform-${social.id}`}
                           href={social?.link || "/"}
+                          aria-label={social?.label || "Social media link"}
                           className="w-6 h-6 rounded-lg flex items-center justify-center"
                         >
                           <KorcomptenzImage

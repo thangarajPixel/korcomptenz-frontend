@@ -26,7 +26,10 @@ export default function SAPPracticeAreas({
         )}
         {/* Title */}
         {data?.title && (
-          <h2 className="text-5xl md:text-6xl font-semibold text-[#1e2939] leading-8">
+          <h2
+            id="insights-heading"
+            className="text-5xl md:text-6xl font-semibold text-[#1e2939] leading-8"
+          >
             {data.title}
           </h2>
         )}

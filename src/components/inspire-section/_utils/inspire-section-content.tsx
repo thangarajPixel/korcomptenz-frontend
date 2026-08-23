@@ -61,6 +61,9 @@ export const InspireSectionContent = ({
             <button onClick={() => setOpenVideo(true)}>
               <ButtonLink
                 link="#"
+                ariaLabel={
+                  card?.title ? `Watch ${card.title} video` : "Watch video"
+                }
                 buttonProps={{
                   arrow: true,
                   className: "mt-6",
@@ -104,6 +107,7 @@ export const InspireSectionContent = ({
             {isYouTube(card.VideoLink) || isVimeo(card.VideoLink) ? (
               <iframe
                 src={getVideoEmbed(card.VideoLink)}
+                title={card?.title ? `${card.title} video` : "Video player"}
                 className="w-full h-full"
                 allow="autoplay; fullscreen"
                 allowFullScreen

@@ -131,6 +131,7 @@ const MediaSlider = ({ data }: { data: MediaSliderSectionType }) => {
                         isVimeo(slide.videoLink) ? (
                           <iframe
                             src={getVideoEmbed(slide.videoLink)}
+                            title={slide?.description || "Video player"}
                             className="w-full h-full"
                             allow="autoplay; fullscreen"
                             allowFullScreen

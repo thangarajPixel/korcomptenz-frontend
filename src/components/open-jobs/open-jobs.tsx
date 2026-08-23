@@ -659,19 +659,21 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
         {/* Grid Icon */}
         <button
           onClick={() => setViewType("grid")}
+          aria-label="Grid view"
           className={`p-2 border rounded ${viewType === "grid" ? "" : ""}`}
         >
-          <img src="svg/card-view-icon.svg" />
+          <img src="svg/card-view-icon.svg" alt="" />
         </button>
 
         {/* List Icon */}
         <button
           onClick={() => setViewType("list")}
+          aria-label="List view"
           className={`p-2 border rounded ${
             viewType === "list" ? " text-white" : "bg-white"
           }`}
         >
-          <img src="svg/list-view-icon.svg" />
+          <img src="svg/list-view-icon.svg" alt="" />
         </button>
       </div>
 

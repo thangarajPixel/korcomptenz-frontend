@@ -36,13 +36,13 @@ export default function CaseStudyContent({ data }: { data: CaseStudyData }) {
             <article>
               {data?.descriptionSection?.map((item, index) => (
                 <section
-                  aria-labelledby="content-title"
+                  aria-labelledby={`content-title-${index}`}
                   className="space-y-4 py-5"
                   key={index}
                 >
                   {item.title && (
                     <h2
-                      id="content-title"
+                      id={`content-title-${index}`}
                       className="text-7xl text-primary  font-semibold tracking-tight"
                     >
                       {item?.title}

@@ -35,7 +35,11 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    // 1440 fills the gap between 1200 and 1920: several sections cap their
+    // content width around 1376px (container-md's max-w-[90rem] minus
+    // padding) via a `sizes` hint, but without a candidate in that range the
+    // srcset had to jump straight to the full 1920w image for those slots.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     dangerouslyAllowSVG: true,
@@ -44,31 +48,15 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
-      {
-        source: "/_next/static/(.*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        source: "/assets/(.*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=86400, stale-while-revalidate=604800",
-          },
-        ],
-      },
+      // NOTE: verified via curl against a real `next start` server that when
+      // a broad "/(.*)" rule and a more specific rule (e.g. /_next/static)
+      // both set the same header key, the broad rule's value wins on the
+      // specific path regardless of array order. So Cache-Control must only
+      // ever be declared in ONE matching rule per path — it is intentionally
+      // left out here; the /_next/static and /assets rules below own it.
       {
         source: "/(.*)",
         headers: [
-          {
-            key: "Cache-Control",
-            value: "public, s-maxage=3600, stale-while-revalidate=86400",
-          },
           {
             key: "X-Content-Type-Options",
             value: "nosniff",
@@ -88,6 +76,24 @@ const nextConfig: NextConfig = {
               "<https://aue2kormlworkspacetest01.blob.core.windows.net>; rel=preconnect",
               "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
             ].join(", "),
+          },
+        ],
+      },
+      {
+        source: "/_next/static/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/assets/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
           },
         ],
       },
