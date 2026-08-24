@@ -134,7 +134,6 @@ export function AnimatedTabsHero({
                   className="h-full w-full rounded-xl object-contain cursor-pointer"
                   width={1000}
                   height={1000}
-                  priority={true}
                   onClick={() =>
                     setIsVideoOpen({
                       link: activeContent.videoLink || "#",
@@ -146,9 +145,8 @@ export function AnimatedTabsHero({
                 <KorcomptenzImage
                   src={activeContent?.image}
                   className="h-full w-full rounded-xl object-contain"
-                  width={1000}
-                  height={1000}
-                  priority={true}
+                  width={601}
+                  height={390}
                 />
               )}
             </div>

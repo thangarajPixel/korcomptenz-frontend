@@ -77,6 +77,11 @@ export const InspireSectionContent = ({
             <ButtonLink
               link={card?.link || "#"}
               isTargetNew={card?.targetblank}
+              ariaLabel={
+                card?.title
+                  ? `${card.buttonText} about ${card.title}`
+                  : undefined
+              }
               buttonProps={{
                 size: "xl",
                 arrow: true,

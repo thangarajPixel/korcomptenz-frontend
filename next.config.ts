@@ -1,5 +1,145 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV !== "production";
+
+// Origin of the Strapi API (differs between .env / .env.production); the
+// frontend fetches CMS data directly from it client-side in places, so it
+// needs to be reachable under connect-src even though it isn't 'self'.
+const apiOrigin = (() => {
+  try {
+    return new URL(process.env.NEXT_PUBLIC_API_URL || "").origin;
+  } catch {
+    return "";
+  }
+})();
+
+// Built from the domains actually observed being requested by this app's
+// existing integrations (GTM, GA, HubSpot, Microsoft Clarity, Facebook
+// Pixel, Bing UET, Mirabel's Marketing Manager, AdRoll, Cloudflare Turnstile,
+// LinkedIn Insight, YouTube/Vimeo embeds, the Azure blob media CDN) rather
+// than guessed. AdRoll/HubSpot/Clarity fan out to dozens of ad-exchange
+// cookie-sync pixel hosts (Rubicon, PubMatic, OpenX, Taboola, etc.) that are
+// third parties' own infrastructure, not under this app's control, and can
+// change without a code change here — img-src allows https: generally
+// (still blocking non-TLS and non-image schemes) rather than hardcoding an
+// exhaustive, fragile list of those.
+const scriptSrc = [
+  "'self'",
+  "'unsafe-inline'", // required by the existing inline Mirabel bootstrap script and JSON-LD schema script
+  "https://www.googletagmanager.com",
+  "https://js.hs-scripts.com",
+  "https://js-na1.hs-scripts.com",
+  "https://js.hubspot.com",
+  "https://js.hs-analytics.net",
+  "https://js.hs-banner.com",
+  "https://js.hsadspixel.net",
+  "https://js.hscollectedforms.net",
+  "https://js.usemessages.com",
+  "https://static.hsappstatic.net",
+  "https://d1vg5xiq7qffdj.cloudfront.net",
+  "https://connect.facebook.net",
+  "https://bat.bing.com",
+  "https://www.clarity.ms",
+  "https://scripts.clarity.ms",
+  "https://s.adroll.com",
+  "https://d.adroll.com",
+  "https://ipv4.d.adroll.com",
+  "https://mkmpages.korcomptenz.com",
+  "https://ajax.googleapis.com",
+  "https://googleads.g.doubleclick.net",
+  "https://challenges.cloudflare.com",
+  "https://snap.licdn.com",
+].join(" ");
+
+const connectSrc = [
+  "'self'",
+  apiOrigin,
+  "https://www.google.com",
+  "https://analytics.google.com",
+  "https://ad.doubleclick.net",
+  "https://googleads.g.doubleclick.net",
+  "https://stats.g.doubleclick.net",
+  "https://cm.g.doubleclick.net",
+  "https://api.hubapi.com",
+  "https://api.hubspot.com",
+  "https://app.hubspot.com",
+  "https://cta-service-cms2.hubspot.com",
+  "https://exceptions.hubspot.com",
+  "https://forms.hscollectedforms.net",
+  "https://metrics-fe-na1.hubspot.com",
+  "https://track.hubspot.com",
+  "https://mkmpages.korcomptenz.com",
+  "https://px.ads.linkedin.com",
+  "https://y.clarity.ms",
+  "https://bat.bing.com",
+  "https://d.adroll.com",
+  "https://ipv4.d.adroll.com",
+  "https://s.adroll.com",
+  "https://challenges.cloudflare.com",
+  isDev ? "ws://localhost:*" : "",
+  isDev ? "http://localhost:*" : "",
+]
+  .filter(Boolean)
+  .join(" ");
+
+const frameSrc = [
+  "'self'",
+  "https://www.youtube.com",
+  "https://player.vimeo.com",
+  "https://www.googletagmanager.com",
+  "https://app.hubspot.com",
+  "https://challenges.cloudflare.com",
+  "https://aue2kormlworkspacetest01.blob.core.windows.net",
+  "https://mkmpages.korcomptenz.com", // Mirabel's Marketing Manager also frames content, not just script/xhr
+].join(" ");
+
+const mediaSrc = ["'self'", "https://aue2kormlworkspacetest01.blob.core.windows.net"].join(
+  " ",
+);
+
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  `script-src ${scriptSrc}`,
+  "style-src 'self' 'unsafe-inline'", // required by the app's own inline style={{}} usage throughout components
+  "img-src 'self' data: https:",
+  "font-src 'self' data:",
+  `connect-src ${connectSrc}`,
+  `frame-src ${frameSrc}`,
+  `media-src ${mediaSrc}`,
+  "object-src 'none'",
+  "base-uri 'self'",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  // A few third-party tags (observed: Facebook Pixel's fbevents.js, AdRoll's
+  // sendrolling.js) request their own sub-resources over plain http: even on
+  // an https: page. Rather than weakening the policy to allow insecure http:
+  // origins, upgrade those requests to https: (which the same hosts already
+  // serve). Skipped in dev since the local API origin is genuinely http:.
+  isDev ? "" : "upgrade-insecure-requests",
+]
+  .filter(Boolean)
+  .join("; ");
+
+// Only capabilities this app actually uses (verified in source) are allowed;
+// everything else is explicitly denied. autoplay/fullscreen/picture-in-picture
+// are scoped to 'self' plus the YouTube/Vimeo embed origins used by the
+// video popup (which already requests them via its iframe's allow attribute).
+// clipboard-write is used by the "copy link" share buttons.
+const permissionsPolicy = [
+  "camera=()",
+  "microphone=()",
+  "geolocation=()",
+  "payment=()",
+  "usb=()",
+  "accelerometer=()",
+  "gyroscope=()",
+  "display-capture=()",
+  "clipboard-write=(self)",
+  'fullscreen=(self "https://www.youtube.com" "https://player.vimeo.com")',
+  'autoplay=(self "https://www.youtube.com" "https://player.vimeo.com")',
+  'picture-in-picture=(self "https://www.youtube.com" "https://player.vimeo.com")',
+].join(", ");
+
 const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
@@ -68,6 +208,18 @@ const nextConfig: NextConfig = {
           {
             key: "X-DNS-Prefetch-Control",
             value: "on",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: contentSecurityPolicy,
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: permissionsPolicy,
           },
           {
             // Early hints: preconnect to image CDN and font origin

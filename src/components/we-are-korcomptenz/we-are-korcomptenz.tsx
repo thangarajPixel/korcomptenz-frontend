@@ -40,20 +40,25 @@ const WeAreKorcomptenzSection = ({
         <KorcomptenzImage
           src={weAreKorcomptenzData?.image}
           className="w-full h-[280px] md:h-[600px] object-cover  rounded-4xl"
-          width={1112}
-          height={500}
-          // This section's own wrapping `container-md` caps content width at
-          // 1376px (max-w-[90rem] minus px-8 padding) from the xl breakpoint
-          // up, so it never actually reaches 100vw on larger screens.
+          width={1920}
+          height={950}
           sizes="(min-width: 1280px) 1376px, 100vw"
         />
+
+           {/* <KorcomptenzImage
+          src={weAreKorcomptenzData?.image}
+          className="w-full h-auto object-cover  rounded-4xl"
+          width={1920}
+          height={950}
+          sizes="(min-width: 1280px) 1376px, 100vw"
+        /> */}
 
         <div className="absolute inset-0 bg-black/40 rounded-4xl" />
 
         <div className="absolute inset-0 flex items-center justify-center">
           <KorcomptenzImage
             src="/assets/play-button.png"
-            className="w-12 h-12"
+            className="w-10 h-auto"
             alt="play-icon"
             width={54}
             height={54}

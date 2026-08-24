@@ -81,7 +81,14 @@ export default function StickyCards({
                     </p>
                   </div>
                   {card?.buttonText && (
-                    <Link href={card?.link || "/"}>
+                    <Link
+                      href={card?.link || "/"}
+                      aria-label={
+                        card?.title
+                          ? `${card.buttonText} about ${card.title}`
+                          : undefined
+                      }
+                    >
                       <Button
                         size="xl"
                         className={cn(
@@ -108,8 +115,8 @@ export default function StickyCards({
                     <KorcomptenzImage
                       className="w-full h-full object-cover"
                       src={card?.image}
-                      width={1000}
-                      height={1000}
+                      width={658}
+                      height={512}
                     />
                   </div>
                 )}
