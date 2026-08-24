@@ -63,7 +63,23 @@ const getJobsList = cache(async (): Promise<JobListItem[]> => {
 
     return (result?.data || []) as JobListItem[];
   } catch {
-    return [];
+    const jobsApiUrl = process.env.NEXT_PUBLIC_JOBS_API_URL;
+
+    // console.log("Jobs API URL:", jobsApiUrl);
+
+    const res = await fetch(jobsApiUrl as string, {
+      next: { revalidate: 300 },
+    });
+    if (!res.ok) {
+      return [];
+    }
+    // console.log("Response Status:", res.status);
+
+    const result = await res.json();
+
+    // console.log("Response Data:", result);
+
+    return (result?.data || []) as JobListItem[];
   }
 });
 
@@ -212,7 +228,19 @@ export default async function JobDetailPage({
     currentIndex >= 0 && currentIndex < jobsList.length - 1
       ? jobsList[currentIndex + 1]
       : null;
+  //console.log("Job ID:", job.job_id);
+  //console.log("Jobs Count:", jobsList.length);
+  //console.log("Current Index:", currentIndex);
+  const jobsApiUrl = process.env.NEXT_PUBLIC_JOBS_API_URL;
 
+  //console.log("Jobs API URL:", jobsApiUrl);
+
+  const res = await fetch(jobsApiUrl as string, {
+    next: { revalidate: 300 },
+  });
+  if (!res.ok) {
+    return [];
+  }
   return (
     <main className="container-md py-10 md:py-20">
       {/* ✅ All Jobs / Previous / Next navigation */}
