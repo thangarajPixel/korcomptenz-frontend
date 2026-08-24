@@ -94,7 +94,7 @@ function cleanWordHtml(html: string = "") {
       // Remove Word-specific XML tags
       .replace(/<\/?(o|w|m|v):[^>]*>/gi, "")
 
-      // Remove conditional comments
+      // Remove conditional comments test
       .replace(/<!\[if[\s\S]*?<!\[endif\]>/gi, "")
 
       // Remove class attributes such as MsoNormal
