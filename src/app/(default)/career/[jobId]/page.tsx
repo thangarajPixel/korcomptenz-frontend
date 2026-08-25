@@ -244,30 +244,22 @@ export default async function JobDetailPage({
             </span>
           )}
 
-          {prevJob ? (
+          {prevJob && (
             <Link
               href={`/career/${prevJob.job_id}`}
               className="px-3 py-1.5 rounded border text-sm hover:bg-gray-50"
             >
               ‹ Previous
             </Link>
-          ) : (
-            <span className="px-3 py-1.5 rounded border text-sm opacity-40 cursor-not-allowed">
-              ‹ Previous
-            </span>
           )}
 
-          {nextJob ? (
+          {nextJob && (
             <Link
               href={`/career/${nextJob.job_id}`}
               className="px-3 py-1.5 rounded border text-sm hover:bg-gray-50"
             >
               Next ›
             </Link>
-          ) : (
-            <span className="px-3 py-1.5 rounded border text-sm opacity-40 cursor-not-allowed">
-              Next ›
-            </span>
           )}
         </div>
       </div>
