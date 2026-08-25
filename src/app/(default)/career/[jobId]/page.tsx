@@ -51,35 +51,33 @@ const getJobDetail = cache(async (jobId: string) => {
 // the same request (e.g. also from generateMetadata later) it only fetches
 // once.
 const getJobsList = cache(async (): Promise<JobListItem[]> => {
+  const jobsApiUrl = process.env.NEXT_PUBLIC_JOBS_API_URL;
+
+  if (!jobsApiUrl) {
+    // eslint-disable-next-line no-console -- surface missing config in server logs
+    console.error("NEXT_PUBLIC_JOBS_API_URL is missing");
+    return [];
+  }
+
   try {
-    const res = await fetch(process.env.NEXT_PUBLIC_JOBS_API_URL as string, {
+    const res = await fetch(jobsApiUrl, {
       // Keep this reasonably fresh without hitting the API on every request
       next: { revalidate: 300 },
     });
 
-    if (!res.ok) return [];
-
-    const result = await res.json();
-
-    return (result?.data || []) as JobListItem[];
-  } catch {
-    const jobsApiUrl = process.env.NEXT_PUBLIC_JOBS_API_URL;
-
-    // console.log("Jobs API URL:", jobsApiUrl);
-
-    const res = await fetch(jobsApiUrl as string, {
-      next: { revalidate: 300 },
-    });
     if (!res.ok) {
+      // eslint-disable-next-line no-console -- surface upstream failure status in server logs
+      console.error("Jobs list fetch failed:", res.status);
       return [];
     }
-    // console.log("Response Status:", res.status);
 
     const result = await res.json();
 
-    // console.log("Response Data:", result);
-
     return (result?.data || []) as JobListItem[];
+  } catch (err) {
+    // eslint-disable-next-line no-console -- surface unexpected fetch/parse errors in server logs
+    console.error("Jobs list fetch threw:", err);
+    return [];
   }
 });
 
@@ -228,19 +226,6 @@ export default async function JobDetailPage({
     currentIndex >= 0 && currentIndex < jobsList.length - 1
       ? jobsList[currentIndex + 1]
       : null;
-  //console.log("Job ID:", job.job_id);
-  //console.log("Jobs Count:", jobsList.length);
-  //console.log("Current Index:", currentIndex);
-  const jobsApiUrl = process.env.NEXT_PUBLIC_JOBS_API_URL;
-
-  //console.log("Jobs API URL:", jobsApiUrl);
-
-  const res = await fetch(jobsApiUrl as string, {
-    next: { revalidate: 300 },
-  });
-  if (!res.ok) {
-    return [];
-  }
   return (
     <main className="container-md py-10 md:py-20">
       {/* ✅ All Jobs / Previous / Next navigation */}
