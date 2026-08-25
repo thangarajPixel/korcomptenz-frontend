@@ -37,8 +37,8 @@ const getJobDetail = cache(async (jobId: string) => {
     }
 
     return {
-      job_id: jobId,
       ...job,
+      job_id: jobId,
     } as JobDetail;
   } catch {
     return null;
