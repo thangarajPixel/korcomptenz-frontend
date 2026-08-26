@@ -24,6 +24,19 @@ type JobDetail = Job & {
   job_decription?: string;
 };
 
+// ✅ Shared slug helpers — must match the logic in /career/[jobId]/page.tsx
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function buildJobSlug(title: string, jobId: string) {
+  return `${slugify(title)}-${jobId}`;
+}
+
 const OpenJobs = ({
   data,
   initialJobId,
@@ -452,18 +465,18 @@ const OpenJobs = ({
           </p>
         </div>
 
-        <Link href={`/career/${job.job_id}`}>
+        <Link href={`/career/${buildJobSlug(job.job_title, job.job_id)}`}>
           <Button type="button">View Details</Button>
         </Link>
       </div>
     );
   }
   function renderList(job: Job) {
+    const jobSlug = buildJobSlug(job.job_title, job.job_id);
     const shareUrl =
       typeof window !== "undefined"
-        ? `${window.location.origin}/career/${job.job_id}`
+        ? `${window.location.origin}/career/${jobSlug}`
         : "";
-    //  console.log(shareUrl);
     return (
       <div
         key={job.job_id}
@@ -542,7 +555,7 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
         {/* RIGHT SECTION */}
         <div className="flex items-center gap-4">
           {/* Button */}
-          <Link href={`/career/${job.job_id}`}>
+          <Link href={`/career/${jobSlug}`}>
             <Button type="button">View Details</Button>
           </Link>
 
@@ -793,8 +806,8 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                     <div className="text-right mb-4">
                       <ShareButton
                         shareUrl={
-                          typeof window !== "undefined"
-                            ? `${window.location.origin}/career/${jobDetail.job_id}`
+                          typeof window !== "undefined" && jobDetail
+                            ? `${window.location.origin}/career/${buildJobSlug(jobDetail.job_title, jobDetail.job_id)}`
                             : ""
                         }
                       />

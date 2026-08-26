@@ -26,6 +26,29 @@ type JobListItem = {
   job_title: string;
 };
 
+// ✅ URL structure: /career/<slugified-job-title>-<job_id>
+// e.g. /career/senior-software-engineer-123456
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function buildJobSlug(title: string, jobId: string) {
+  return `${slugify(title)}-${jobId}`;
+}
+
+// The job_id is always the final hyphen-delimited segment. This assumes
+// job_id itself never contains a hyphen (Darwinbox ids are numeric/alnum
+// with underscores, e.g. "123456" or "KCPL_004" — safe to split on "-").
+function extractJobIdFromSlug(jobSlug: string | undefined) {
+  if (!jobSlug) return "";
+  const lastDash = jobSlug.lastIndexOf("-");
+  return lastDash === -1 ? jobSlug : jobSlug.slice(lastDash + 1);
+}
+
 const getJobDetail = cache(async (jobId: string) => {
   try {
     const result = await fetchDarwinboxJobDetail(jobId);
@@ -144,6 +167,46 @@ function stripHtml(html: string = "") {
     .trim();
 }
 
+// ✅ Builds a concise, unique meta description per job rather than a raw
+// character-slice of the full job description (which can cut mid-word/
+// mid-sentence and reads as boilerplate). Falls back to a structured
+// summary built from the job's own fields when the description is short,
+// missing, or the first sentence alone doesn't reach a useful length.
+function buildJobMetaDescription(job: JobDetail) {
+  const plain = stripHtml(job.job_decription || "");
+  const location = job.location?.join(", ") || job.location_city;
+
+  const facts = [
+    job.employee_type,
+    job.department,
+    location && `in ${location}`,
+  ]
+    .filter(Boolean)
+    .join(", ");
+
+  const intro = `${job.job_title}${facts ? ` — ${facts}.` : "."}`;
+
+  if (!plain) {
+    return `${intro} Apply now at Korcomptenz.`.slice(0, 160);
+  }
+
+  // Take whole sentences up to ~155 chars so we never cut off mid-word.
+  const sentences = plain.match(/[^.!?]+[.!?]?/g) || [plain];
+  let summary = "";
+  for (const sentence of sentences) {
+    const next = `${summary}${sentence.trim()} `.trim();
+    if (next.length > 155) break;
+    summary = `${next} `;
+  }
+  summary = summary.trim();
+
+  if (!summary) {
+    summary = plain.slice(0, 155).replace(/\s+\S*$/, "");
+  }
+
+  return `${job.job_title}: ${summary}`.slice(0, 160);
+}
+
 function formatJobDate(dateStr?: string) {
   if (!dateStr) return "";
 
@@ -176,37 +239,54 @@ function formatJobDate(dateStr?: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ jobId: string }>;
+  params: Promise<{ jobSlug?: string; jobId?: string }>;
 }) {
-  const { jobId } = await params;
+  const p = await params;
+  const jobSlug = p.jobSlug ?? p.jobId ?? "";
+  const jobId = extractJobIdFromSlug(jobSlug);
 
   const job = await getJobDetail(jobId);
+  const path = `/career/${jobSlug}`;
 
   if (!job) {
-    return generatePageMetadata({
-      title: "Job Not Found | Careers",
-      description: "The requested job opening could not be found.",
-      path: `/career/${jobId}`,
-    });
+    return {
+      ...(await generatePageMetadata({
+        title: "Job Not Found | Korcomptenz",
+        description: "The requested job opening could not be found.",
+        path,
+      })),
+      alternates: { canonical: path },
+    };
   }
 
-  const description =
-    stripHtml(job.job_decription || "").slice(0, 160) ||
-    `Apply for ${job.job_title} at Korcomptenz.`;
+  // Always use the canonical slug derived from the current title + id,
+  // so even if someone lands on an old-title URL the canonical is correct.
+  const canonicalSlug = buildJobSlug(job.job_title, job.job_id);
+  const canonicalPath = `/career/${canonicalSlug}`;
 
-  return generatePageMetadata({
-    title: `${job.job_title} | Careers at Korcomptenz`,
-    description,
-    path: `/career/${job.job_id}`,
+  const metadata = await generatePageMetadata({
+    title: `${job.job_title} Jobs | Korcomptenz`,
+    description: buildJobMetaDescription(job),
+    path: canonicalPath,
   });
+
+  return {
+    ...metadata,
+    alternates: {
+      ...metadata?.alternates,
+      canonical: canonicalPath,
+    },
+  };
 }
 
 export default async function JobDetailPage({
   params,
 }: {
-  params: Promise<{ jobId: string }>;
+  params: Promise<{ jobSlug?: string; jobId?: string }>;
 }) {
-  const { jobId } = await params;
+  const p = await params;
+  const jobSlug = p.jobSlug ?? p.jobId ?? "";
+  const jobId = extractJobIdFromSlug(jobSlug);
 
   const [job, jobsList] = await Promise.all([
     getJobDetail(jobId),
@@ -217,18 +297,35 @@ export default async function JobDetailPage({
     notFound();
   }
 
+  // If the slug in the URL is stale (job title changed), redirect to the
+  // correct canonical slug so there's only ever one URL per job.
+  const canonicalSlug = buildJobSlug(job.job_title, job.job_id);
+  if (jobSlug !== canonicalSlug) {
+    const { redirect } = await import("next/navigation");
+    redirect(`/career/${canonicalSlug}`);
+  }
+
   const description = cleanWordHtml(job.job_decription);
 
-  // ✅ Work out prev/next jobs from the master list
+  // Work out prev/next from the master list
   const currentIndex = jobsList.findIndex((j) => j.job_id === job.job_id);
   const prevJob = currentIndex > 0 ? jobsList[currentIndex - 1] : null;
   const nextJob =
     currentIndex >= 0 && currentIndex < jobsList.length - 1
       ? jobsList[currentIndex + 1]
       : null;
+
+  // Build full slugs for prev/next links
+  const prevSlug = prevJob
+    ? buildJobSlug(prevJob.job_title, prevJob.job_id)
+    : null;
+  const nextSlug = nextJob
+    ? buildJobSlug(nextJob.job_title, nextJob.job_id)
+    : null;
+
   return (
     <main className="container-md py-10 md:py-20">
-      {/* ✅ All Jobs / Previous / Next navigation */}
+      {/* All Jobs / Previous / Next navigation */}
       <div className="flex items-center justify-between gap-3 mb-6 flex-wrap">
         <Link
           href="/career"
@@ -244,22 +341,30 @@ export default async function JobDetailPage({
             </span>
           )}
 
-          {prevJob && (
+          {prevSlug ? (
             <Link
-              href={`/career/${prevJob.job_id}`}
+              href={`/career/${prevSlug}`}
               className="px-3 py-1.5 rounded border text-sm hover:bg-gray-50"
             >
               ‹ Previous
             </Link>
+          ) : (
+            <span className="px-3 py-1.5 rounded border text-sm opacity-40 cursor-not-allowed">
+              ‹ Previous
+            </span>
           )}
 
-          {nextJob && (
+          {nextSlug ? (
             <Link
-              href={`/career/${nextJob.job_id}`}
+              href={`/career/${nextSlug}`}
               className="px-3 py-1.5 rounded border text-sm hover:bg-gray-50"
             >
               Next ›
             </Link>
+          ) : (
+            <span className="px-3 py-1.5 rounded border text-sm opacity-40 cursor-not-allowed">
+              Next ›
+            </span>
           )}
         </div>
       </div>
@@ -275,7 +380,7 @@ export default async function JobDetailPage({
             <p className="mt-3 text-white/80">{job.employee_type}</p>
           </div>
 
-          <ShareButton shareUrl={`/career/${job.job_id}`} />
+          <ShareButton shareUrl={`/career/${canonicalSlug}`} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 text-sm">
@@ -311,17 +416,16 @@ export default async function JobDetailPage({
       </div>
 
       {/* Description */}
-      <section className=" bg-white text-['#000'] rounded-xl border p-6 md:p-10">
+      <section className="bg-white text-['#000'] rounded-xl border p-6 md:p-10">
         <h2 className="text-2xl md:text-3xl font-semibold mb-6">
           Job Description
         </h2>
 
         <div
           className="prose prose-sm md:prose-base max-w-none"
-          dangerouslySetInnerHTML={{
-            __html: description,
-          }}
+          dangerouslySetInnerHTML={{ __html: description }}
         />
+
         {/* Apply — client component so it can hold form state and submit */}
         <ApplyJobModal jobId={job.job_id} jobTitle={job.job_title} />
       </section>
