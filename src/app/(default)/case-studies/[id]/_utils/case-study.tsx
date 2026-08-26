@@ -14,7 +14,7 @@ import CaseStudyVideo from "./case-study-video";
 import { ClientTestimonial } from "@/app/(default)/case-studies/_utils";
 declare global {
   interface Window {
-    hbspt?: {
+    hbsptCaseStudyForm?: {
       forms: {
         create: (options: {
           portalId: string;
@@ -123,8 +123,8 @@ const CaseStudy = ({
           src="//js.hsforms.net/forms/embed/v2.js"
           strategy="afterInteractive"
           onLoad={() => {
-            if (window.hbspt) {
-              window.hbspt.forms.create({
+            if (window.hbsptCaseStudyForm) {
+              window.hbsptCaseStudyForm.forms.create({
                 portalId: "7991245",
                 formId: "89ae85c4-f137-4b8a-901d-fc3ab2e0f82e",
                 region: "na1",
