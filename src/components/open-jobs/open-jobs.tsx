@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ShareButton } from "./share-button";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 type Job = {
   job_id: string;
   job_title: string;
@@ -23,7 +24,26 @@ type JobDetail = Job & {
   job_decription?: string;
 };
 
-const OpenJobs = ({ data }: { data: OpenJobsType }) => {
+// ✅ Shared slug helpers — must match the logic in /career/[jobId]/page.tsx
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function buildJobSlug(title: string, jobId: string) {
+  return `${slugify(title)}-${jobId}`;
+}
+
+const OpenJobs = ({
+  data,
+  initialJobId,
+}: {
+  data: OpenJobsType;
+  initialJobId?: string; // ✅ set when rendered from app/career/[jobId]/page.tsx
+}) => {
   const [jobs, setJobs] = useState<Job[]>([]);
   //const [loading, setLoading] = useState(true);
 
@@ -55,7 +75,7 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
     phone: "",
   });
   const searchParams = useSearchParams();
-  const sharedJobId = searchParams.get("jobId");
+  const sharedJobId = initialJobId || searchParams.get("jobId");
   const [resumeBase64, setResumeBase64] = useState("");
   const [filters, setFilters] = useState({
     location: "",
@@ -105,6 +125,20 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
       openJobDetail(sharedJobId);
     }
   }, [sharedJobId, jobs]);
+
+  // ✅ NOTE: This only updates the *browser tab title* for a nicer UX when a
+  // user is already on the page and opens/closes a job (client-side nav).
+  // It does NOT affect what social media crawlers (Facebook/LinkedIn/WhatsApp/X)
+  // see when a link is shared — those read the server-rendered <head>, which
+  // is controlled separately by `generateMetadata` in app/career/page.tsx.
+  useEffect(() => {
+    if (jobDetail?.job_title) {
+      document.title = `${jobDetail.job_title} | Careers at Korcomptenz`;
+    } else {
+      document.title = "Careers | Korcomptenz";
+    }
+  }, [jobDetail]);
+
   useEffect(() => {
     async function fetchJobs() {
       const res = await fetch(process.env.NEXT_PUBLIC_JOBS_API_URL as string);
@@ -430,24 +464,19 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
             {job.department}
           </p>
         </div>
-        <Button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            openJobDetail(job.job_id);
-          }}
-        >
-          View Details
-        </Button>
+
+        <Link href={`/career/${buildJobSlug(job.job_title, job.job_id)}`}>
+          <Button type="button">View Details</Button>
+        </Link>
       </div>
     );
   }
   function renderList(job: Job) {
+    const jobSlug = buildJobSlug(job.job_title, job.job_id);
     const shareUrl =
       typeof window !== "undefined"
-        ? `${window.location.origin}/career?jobId=${job.job_id}`
+        ? `${window.location.origin}/career/${jobSlug}`
         : "";
-    //  console.log(shareUrl);
     return (
       <div
         key={job.job_id}
@@ -526,15 +555,10 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
         {/* RIGHT SECTION */}
         <div className="flex items-center gap-4">
           {/* Button */}
-          <Button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              openJobDetail(job.job_id);
-            }}
-          >
-            View Details
-          </Button>
+          <Link href={`/career/${jobSlug}`}>
+            <Button type="button">View Details</Button>
+          </Link>
+
           <ShareButton shareUrl={`${shareUrl}`} />
           {/* Social Icons */}
         </div>
@@ -734,16 +758,17 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
 
       {isDetailOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 sm:p-6"
           onClick={() => setIsDetailOpen(false)}
         >
           <div
-            className="relative w-full max-w-6xl bg-white rounded-xl p-6"
+            className="relative w-full max-w-6xl max-h-[90vh] bg-white rounded-xl overflow-hidden flex flex-col shadow-2xl"
             onClick={(e) => e.stopPropagation()} // ✅ REQUIRED
           >
             <button
               onClick={() => setIsDetailOpen(false)}
-              className="absolute top-4 right-4"
+              aria-label="Close"
+              className="absolute top-4 right-4 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-[#26A17D] text-white hover:bg-[#1f8a68] transition-colors shadow-md"
             >
               ✕
             </button>
@@ -755,7 +780,7 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                 {/* ✅ DARK HEADER */}
 
                 {/* HEADER */}
-                <div className="bg-[#2f3a42] text-white p-6 pb-10 shrink-0 rounded-t-2xl">
+                <div className="bg-[#2f3a42] text-white p-6 pb-10 pr-16 shrink-0">
                   <h2 className="text-2xl font-semibold mb-4">
                     {jobDetail.job_title}
                   </h2>
@@ -781,8 +806,8 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                     <div className="text-right mb-4">
                       <ShareButton
                         shareUrl={
-                          typeof window !== "undefined"
-                            ? `${window.location.origin}/career?jobId=${jobDetail.job_id}`
+                          typeof window !== "undefined" && jobDetail
+                            ? `${window.location.origin}/career/${buildJobSlug(jobDetail.job_title, jobDetail.job_id)}`
                             : ""
                         }
                       />
@@ -790,8 +815,8 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                   </div>
                 </div>
 
-                {/* ✅ LIGHT CONTENT SECTION */}
-                <div className="bg-gray-100 p-6 relative">
+                {/* ✅ LIGHT CONTENT SECTION — fills remaining modal height */}
+                <div className="bg-gray-100 p-6 relative flex-1 overflow-y-auto min-h-0">
                   {/* Apply + Share Buttons */}
                   <div className="flex justify-end items-center gap-3 mb-4">
                     <Button
@@ -805,8 +830,10 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
                     </Button>
                   </div>
 
-                  {/* ✅ Scrollable Content */}
-                  <div className="prose prose-sm max-w-none text-gray-800 max-h-[200px] overflow-y-auto pr-2">
+                  {/* ✅ Description: fixed, responsive height with its own scroll
+                      (vh-based so it scales with device/viewport instead of a
+                      hardcoded pixel height) */}
+                  <div className="prose prose-sm max-w-none text-gray-800 max-h-[30vh] sm:max-h-[35vh] md:max-h-[40vh] overflow-y-auto pr-2 bg-white rounded-lg border border-gray-200 p-4">
                     <div
                       dangerouslySetInnerHTML={{
                         __html: cleanWordHtml(jobDetail.job_decription),
@@ -821,15 +848,16 @@ hover:bg-[#dae2e1] transition-all duration-300 cursor-pointer"
       )}
 
       {isApplyOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 sm:p-6">
           <div
-            className="relative w-full max-w-6xl bg-white rounded-xl p-6"
+            className="relative w-full max-w-6xl max-h-[90vh] bg-white rounded-xl p-6 overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
             <button
               onClick={() => setIsApplyOpen(false)}
-              className="absolute top-4 right-4 text-xl"
+              aria-label="Close"
+              className="absolute top-4 right-4 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-[#26A17D] text-white hover:bg-[#1f8a68] transition-colors shadow-md"
             >
               ✕
             </button>
