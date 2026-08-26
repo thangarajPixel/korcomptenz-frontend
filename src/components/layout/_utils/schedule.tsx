@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import ConsultationForm from "@/components/layout/_utils/consultation-form";
 import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+import { HubspotForm } from "./hubspot-form";
 
 const ScheduleCall = ({
   scheduleCall,
@@ -12,13 +13,12 @@ const ScheduleCall = ({
 }: {
   scheduleCall: ScheduleCallType;
   isLastIndex: boolean;
-
   essential?: { id: string | number; [key: string]: unknown };
 }) => {
   return (
     <div
       className={cn(
-        "bg-custom-black lg:min-h-150  flex items-center py-4 md:py-0 px-6",
+        "bg-custom-black lg:min-h-150 flex items-center py-4 md:py-0 px-6",
         {
           "-mb-10 md:-mb-24": isLastIndex,
         },
@@ -26,7 +26,7 @@ const ScheduleCall = ({
       data-debug={"home.schedule-call"}
     >
       <div className="container-md">
-        <div className="lg:flex flex-row  lg:gap-8 justify-center h-full lg:min-h-150 py-10">
+        <div className="lg:flex flex-row lg:gap-8 justify-center h-full lg:min-h-150 py-10">
           {/* Left content */}
           <div className="relative z-20 flex flex-col justify-around lg:w-[50%] max-w-[450px]">
             {/* Background Image */}
@@ -44,11 +44,10 @@ const ScheduleCall = ({
                   : scheduleCall?.topDescription}
               </p>
               {scheduleCall?.title && (
-                <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl  font-bold text-white leading-tight ">
+                <h2 className="text-6xl text-left sm:text-8xl lg:text-7xl font-bold text-white leading-tight">
                   {scheduleCall?.title}
                 </h2>
               )}
-
               <DangerousHtml
                 html={scheduleCall?.description}
                 className="text-2xl font-semibold text-white max-w-xl"
@@ -66,8 +65,9 @@ const ScheduleCall = ({
               {scheduleCall?.buttonText}
             </ButtonLink>
           </div>
+
+          {/* Form card */}
           <div className="relative flex items-center justify-end lg:mt-10 flex-1">
-            {/* Form Card */}
             <div
               className="relative z-20 w-full max-w-[520px]"
               style={{
@@ -89,8 +89,10 @@ const ScheduleCall = ({
                   formbuttonText={scheduleCall?.formbuttonText}
                 />
               </TurnstileProvider>
+              <HubspotForm />
             </div>
           </div>
+
           <ButtonLink
             link={scheduleCall?.link || "#"}
             buttonProps={{
