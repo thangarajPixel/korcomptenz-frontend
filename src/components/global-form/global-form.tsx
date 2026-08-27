@@ -31,7 +31,9 @@ const GlobalForm = ({
               />
             );
           case "form-fields.contact-us-form":
-            return <ContactusForm key={`contact-us-form-${form.id}`} form={form} />;
+            return (
+              <ContactusForm key={`contact-us-form-${form.id}`} form={form} />
+            );
           case "form-fields.reserve-spot-fields":
             return (
               <DemoRequestForm
@@ -44,7 +46,7 @@ const GlobalForm = ({
             return (
               <BlogBuildDemo
                 key={`free-consultation-form-${form.id}`}
-                essential={essential}
+                //essential={essential}
                 form={form}
               />
             );
@@ -57,7 +59,9 @@ const GlobalForm = ({
               />
             );
           case "form-fields.industry-form":
-            return <IndustryForm key={`industry-form-${form.id}`} form={form} />;
+            return (
+              <IndustryForm key={`industry-form-${form.id}`} form={form} />
+            );
           default:
             return "";
         }
