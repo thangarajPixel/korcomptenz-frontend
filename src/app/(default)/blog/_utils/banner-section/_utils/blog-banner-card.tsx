@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 import BreadcrumbFromUrl from "./breadcrumbs";
 import ButtonLink from "@/components/ui/button-link";
 import { SapBannerPopup } from "@/components/banner-section/_utils/sap-popup";
-import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 
 const BlogBannerCard = ({
@@ -141,7 +141,7 @@ const BlogBannerCard = ({
           </div>
         </>
       )}
-      <><TurnstileProvider>
+      <><RecaptchaProvider>
         <SapBannerPopup
           data={data?.sapForm?.forms?.[0]}
           isOpen={isPopupOpen}
@@ -150,7 +150,7 @@ const BlogBannerCard = ({
           formDescription={data?.formDescription}
           formImage={data?.formImage}
 
-        /></TurnstileProvider></>
+        /></RecaptchaProvider></>
     </div>
   );
 };

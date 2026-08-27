@@ -12,7 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useBlogFormHook } from "@/services";
 import { Input } from "@/components/ui/input";
 import { XIcon } from "lucide-react";
-import { useCaptchaToken } from "@/lib/turnstile";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   name: "",
@@ -59,7 +59,7 @@ export function BlogFormPopup({ data }: { data: InsightBlog }) {
       }
       const data2 = {
         ...formdata,
-        turnstileToken: captchaToken,
+        recaptchaToken: captchaToken,
       };
       try {
         const response = await mutateAsync(data2);

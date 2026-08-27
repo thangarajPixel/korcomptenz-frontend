@@ -5,7 +5,7 @@
 
 import { DangerousHtml } from "../ui/dangerous-html";
 import CommunityBannerForm from "./_utils/community-Banner-form";
-import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
   return (
@@ -59,9 +59,9 @@ const CommunityBanner = ({ data }: { data: CommunityBannerType }) => {
               </p>
             </div>
 
-            <TurnstileProvider>
+            <RecaptchaProvider>
               <CommunityBannerForm form={data?.form} />
-            </TurnstileProvider>
+            </RecaptchaProvider>
             <p className="text-white/60 text-sm md:text-base">
               {data?.formFooterText}
             </p>

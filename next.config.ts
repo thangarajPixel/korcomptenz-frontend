@@ -2,9 +2,7 @@ import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV !== "production";
 
-// Origin of the Strapi API (differs between .env / .env.production); the
-// frontend fetches CMS data directly from it client-side in places, so it
-// needs to be reachable under connect-src even though it isn't 'self'.
+
 const apiOrigin = (() => {
   try {
     return new URL(process.env.NEXT_PUBLIC_API_URL || "").origin;
@@ -13,19 +11,10 @@ const apiOrigin = (() => {
   }
 })();
 
-// Built from the domains actually observed being requested by this app's
-// existing integrations (GTM, GA, HubSpot, Microsoft Clarity, Facebook
-// Pixel, Bing UET, Mirabel's Marketing Manager, AdRoll, Cloudflare Turnstile,
-// LinkedIn Insight, YouTube/Vimeo embeds, the Azure blob media CDN) rather
-// than guessed. AdRoll/HubSpot/Clarity fan out to dozens of ad-exchange
-// cookie-sync pixel hosts (Rubicon, PubMatic, OpenX, Taboola, etc.) that are
-// third parties' own infrastructure, not under this app's control, and can
-// change without a code change here — img-src allows https: generally
-// (still blocking non-TLS and non-image schemes) rather than hardcoding an
-// exhaustive, fragile list of those.
+
 const scriptSrc = [
   "'self'",
-  "'unsafe-inline'", // required by the existing inline Mirabel bootstrap script and JSON-LD schema script
+  "'unsafe-inline'", 
   "https://www.googletagmanager.com",
   "https://js.hs-scripts.com",
   "https://js-na1.hs-scripts.com",
@@ -49,6 +38,8 @@ const scriptSrc = [
   "https://googleads.g.doubleclick.net",
   "https://challenges.cloudflare.com",
   "https://snap.licdn.com",
+  "https://www.google.com", // Google reCAPTCHA v3 (recaptcha/api.js)
+  "https://www.gstatic.com", // Google reCAPTCHA v3 (recaptcha internals loaded by api.js)
 ].join(" ");
 
 const connectSrc = [
@@ -90,7 +81,8 @@ const frameSrc = [
   "https://app.hubspot.com",
   "https://challenges.cloudflare.com",
   "https://aue2kormlworkspacetest01.blob.core.windows.net",
-  "https://mkmpages.korcomptenz.com", // Mirabel's Marketing Manager also frames content, not just script/xhr
+  "https://mkmpages.korcomptenz.com",
+  "https://www.google.com", // Google reCAPTCHA v3's invisible challenge iframe
 ].join(" ");
 
 const mediaSrc = ["'self'", "https://aue2kormlworkspacetest01.blob.core.windows.net"].join(
@@ -100,7 +92,7 @@ const mediaSrc = ["'self'", "https://aue2kormlworkspacetest01.blob.core.windows.
 const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src ${scriptSrc}`,
-  "style-src 'self' 'unsafe-inline'", // required by the app's own inline style={{}} usage throughout components
+  "style-src 'self' 'unsafe-inline'", 
   "img-src 'self' data: https:",
   "font-src 'self' data:",
   `connect-src ${connectSrc}`,
@@ -110,21 +102,12 @@ const contentSecurityPolicy = [
   "base-uri 'self'",
   "frame-ancestors 'self'",
   "form-action 'self'",
-  // A few third-party tags (observed: Facebook Pixel's fbevents.js, AdRoll's
-  // sendrolling.js) request their own sub-resources over plain http: even on
-  // an https: page. Rather than weakening the policy to allow insecure http:
-  // origins, upgrade those requests to https: (which the same hosts already
-  // serve). Skipped in dev since the local API origin is genuinely http:.
   isDev ? "" : "upgrade-insecure-requests",
 ]
   .filter(Boolean)
   .join("; ");
 
-// Only capabilities this app actually uses (verified in source) are allowed;
-// everything else is explicitly denied. autoplay/fullscreen/picture-in-picture
-// are scoped to 'self' plus the YouTube/Vimeo embed origins used by the
-// video popup (which already requests them via its iframe's allow attribute).
-// clipboard-write is used by the "copy link" share buttons.
+
 const permissionsPolicy = [
   "camera=()",
   "microphone=()",
@@ -146,7 +129,7 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   htmlLimitedBots: /.*/,
 
-  // Performance optimizations for mobile
+ 
   experimental: {
     optimizePackageImports: [
       "lucide-react",
@@ -175,10 +158,6 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ["image/avif", "image/webp"],
-    // 1440 fills the gap between 1200 and 1920: several sections cap their
-    // content width around 1376px (container-md's max-w-[90rem] minus
-    // padding) via a `sizes` hint, but without a candidate in that range the
-    // srcset had to jump straight to the full 1920w image for those slots.
     deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
@@ -188,12 +167,7 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
-      // NOTE: verified via curl against a real `next start` server that when
-      // a broad "/(.*)" rule and a more specific rule (e.g. /_next/static)
-      // both set the same header key, the broad rule's value wins on the
-      // specific path regardless of array order. So Cache-Control must only
-      // ever be declared in ONE matching rule per path — it is intentionally
-      // left out here; the /_next/static and /assets rules below own it.
+ 
       {
         source: "/(.*)",
         headers: [
@@ -222,7 +196,6 @@ const nextConfig: NextConfig = {
             value: permissionsPolicy,
           },
           {
-            // Early hints: preconnect to image CDN and font origin
             key: "Link",
             value: [
               "<https://aue2kormlworkspacetest01.blob.core.windows.net>; rel=preconnect",
