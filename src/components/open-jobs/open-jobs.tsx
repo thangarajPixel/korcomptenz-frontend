@@ -24,8 +24,9 @@ type JobDetail = Job & {
   job_decription?: string;
 };
 
-// ✅ Shared slug helpers — must match the logic in /career/[jobId]/page.tsx
-function slugify(text: string) {
+// ✅ Shared slug helpers — must match the logic in /career/[jobSlug]/page.tsx
+function slugify(text: string | undefined | null) {
+  if (!text) return "";
   return text
     .toLowerCase()
     .trim()
@@ -33,8 +34,9 @@ function slugify(text: string) {
     .replace(/^-+|-+$/g, "");
 }
 
-function buildJobSlug(title: string, jobId: string) {
-  return `${slugify(title)}-${jobId}`;
+function buildJobSlug(title: string | undefined | null, jobId: string) {
+  const titleSlug = slugify(title);
+  return titleSlug ? `${titleSlug}-${jobId}` : jobId;
 }
 
 const OpenJobs = ({
