@@ -1,10 +1,10 @@
-import React from "react";
 import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
-import ConsultationForm from "@/components/layout/_utils/consultation-form";
-import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+// import ConsultationForm from "@/components/layout/_utils/consultation-form";
+// import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+
 import { HubspotForm } from "./hubspot-form";
 
 const ScheduleCall = ({
@@ -76,7 +76,8 @@ const ScheduleCall = ({
                 borderRadius: "20px",
               }}
             >
-              <TurnstileProvider>
+              {/* <TurnstileProvider>
+
                 <ConsultationForm
                   data={
                     scheduleCall?.form?.forms?.[0] ?? {
@@ -88,7 +89,11 @@ const ScheduleCall = ({
                   formDescription={scheduleCall?.formDescription}
                   formbuttonText={scheduleCall?.formbuttonText}
                 />
+
               </TurnstileProvider>
+
+              </TurnstileProvider> */}
+
               <HubspotForm />
             </div>
           </div>
