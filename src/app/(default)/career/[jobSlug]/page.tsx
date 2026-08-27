@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { cache } from "react";
 import { fetchDarwinboxJobDetail } from "@/lib/darwinbox";
 import { generatePageMetadata } from "@/utils/metadata";
@@ -27,8 +27,10 @@ type JobListItem = {
 };
 
 // ✅ URL structure: /career/<slugified-job-title>-<job_id>
-// e.g. /career/senior-software-engineer-123456
-function slugify(text: string) {
+// e.g. /career/consultant-sap-basis-a689f2e0326e3b
+// Safe to split on lastIndexOf("-") because Darwinbox job IDs contain no hyphens.
+function slugify(text: string | undefined | null) {
+  if (!text) return "";
   return text
     .toLowerCase()
     .trim()
@@ -36,13 +38,13 @@ function slugify(text: string) {
     .replace(/^-+|-+$/g, "");
 }
 
-function buildJobSlug(title: string, jobId: string) {
-  return `${slugify(title)}-${jobId}`;
+function buildJobSlug(title: string | undefined | null, jobId: string) {
+  const titleSlug = slugify(title);
+  return titleSlug ? `${titleSlug}-${jobId}` : jobId;
 }
 
-// The job_id is always the final hyphen-delimited segment. This assumes
-// job_id itself never contains a hyphen (Darwinbox ids are numeric/alnum
-// with underscores, e.g. "123456" or "KCPL_004" — safe to split on "-").
+// Split on the last "-" — safe because job IDs are hex strings with no hyphens.
+// Falls back to the whole segment as the ID if no "-" found (bare ID URLs).
 function extractJobIdFromSlug(jobSlug: string | undefined) {
   if (!jobSlug) return "";
   const lastDash = jobSlug.lastIndexOf("-");
@@ -52,6 +54,13 @@ function extractJobIdFromSlug(jobSlug: string | undefined) {
 const getJobDetail = cache(async (jobId: string) => {
   try {
     const result = await fetchDarwinboxJobDetail(jobId);
+
+    // eslint-disable-next-line no-console -- temporary: debug API response shape
+    console.log(
+      "RAW JOB DETAIL RESULT for ID:",
+      jobId,
+      JSON.stringify(result, null, 2),
+    );
 
     const job = result?.data || result;
 
@@ -63,7 +72,9 @@ const getJobDetail = cache(async (jobId: string) => {
       ...job,
       job_id: jobId,
     } as JobDetail;
-  } catch {
+  } catch (err) {
+    // eslint-disable-next-line no-console -- temporary: debug fetch errors
+    console.error("getJobDetail error:", err);
     return null;
   }
 });
@@ -95,6 +106,16 @@ const getJobsList = cache(async (): Promise<JobListItem[]> => {
     }
 
     const result = await res.json();
+
+    // eslint-disable-next-line no-console -- temporary: debug full job object shape
+    console.log("FULL FIRST JOB:", JSON.stringify(result?.data?.[0], null, 2));
+    // eslint-disable-next-line no-console -- temporary: debug job_id format
+    console.log(
+      "SAMPLE JOB IDs:",
+      (result?.data || [])
+        .slice(0, 3)
+        .map((j: JobListItem) => ({ id: j.job_id, title: j.job_title })),
+    );
 
     return (result?.data || []) as JobListItem[];
   } catch (err) {
@@ -239,10 +260,10 @@ function formatJobDate(dateStr?: string) {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ jobSlug?: string; jobId?: string }>;
+  params: Promise<{ jobSlug: string }>;
 }) {
   const p = await params;
-  const jobSlug = p.jobSlug ?? p.jobId ?? "";
+  const jobSlug = p.jobSlug ?? "";
   const jobId = extractJobIdFromSlug(jobSlug);
 
   const job = await getJobDetail(jobId);
@@ -282,10 +303,17 @@ export async function generateMetadata({
 export default async function JobDetailPage({
   params,
 }: {
-  params: Promise<{ jobSlug?: string; jobId?: string }>;
+  params: Promise<{ jobSlug: string }>;
 }) {
   const p = await params;
-  const jobSlug = p.jobSlug ?? p.jobId ?? "";
+  const jobSlug = p.jobSlug ?? "";
+  // eslint-disable-next-line no-console -- temporary: debug raw param
+  console.log(
+    "RAW PARAM jobSlug:",
+    JSON.stringify(p.jobSlug),
+    "extracted:",
+    extractJobIdFromSlug(jobSlug),
+  );
   const jobId = extractJobIdFromSlug(jobSlug);
 
   const [job, jobsList] = await Promise.all([
@@ -301,7 +329,6 @@ export default async function JobDetailPage({
   // correct canonical slug so there's only ever one URL per job.
   const canonicalSlug = buildJobSlug(job.job_title, job.job_id);
   if (jobSlug !== canonicalSlug) {
-    const { redirect } = await import("next/navigation");
     redirect(`/career/${canonicalSlug}`);
   }
 
