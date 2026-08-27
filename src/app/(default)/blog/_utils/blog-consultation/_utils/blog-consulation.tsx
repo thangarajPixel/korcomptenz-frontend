@@ -1,15 +1,16 @@
 "use client";
 import { cn } from "@/lib/utils";
-import ConsultationForm from "./consultation-form";
+//import ConsultationForm from "./consultation-form";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { TurnstileProvider } from "@/components/providers/turnstile-provider";
-
+//import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+//import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import { HubspotForm } from "./hubspot-form";
 const BlogBuildDemo = ({
   form,
-  essential,
+  // essential,
 }: {
   form: FreeConsultationFormType;
-  essential?: { id: string | number;[key: string]: unknown };
+  //essential?: { id: string | number; [key: string]: unknown };
 }) => {
   return (
     <section data-debug="page-componets.build-data">
@@ -30,9 +31,15 @@ const BlogBuildDemo = ({
             />
           </div>
 
-          <TurnstileProvider>
+          {/* <TurnstileProvider>
             <ConsultationForm form={form} essential={essential} />
-          </TurnstileProvider>
+          </TurnstileProvider> */}
+
+          {/* <RecaptchaProvider>
+            <ConsultationForm form={form} essential={essential} />
+          </RecaptchaProvider> */}
+
+          <HubspotForm />
         </div>
       </div>
     </section>
