@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import { ScrollFadeIn } from "../ui/scroll-fade-in";
 
 
@@ -701,7 +702,11 @@ const GlobalPage = (props: Props) => {
             __component={item?.__component}
             key={`open-jobs-${item?.__component}-${item?.id}`}
           >
-            <OpenJobs data={item} />
+            {/* OpenJobs uses useSearchParams(), which requires a Suspense
+                boundary during static rendering/build. */}
+            <Suspense fallback={null}>
+              <OpenJobs data={item} />
+            </Suspense>
           </ScrollFadeIn>
         );
       case "contact-us.news-letter":

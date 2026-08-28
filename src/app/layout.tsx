@@ -1,11 +1,12 @@
-export const dynamic = "force-dynamic";
+// ISR: statically render and cache the shell for 1 hour so normal public
+// pages are served from cache instead of re-rendering on every request.
+export const revalidate = 3600;
 
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
 // import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
-import { headers } from "next/headers";
 import TrackingLoader from "@/components/providers/TrackingLoader";
 import Script from "next/dist/client/script";
 
@@ -19,10 +20,10 @@ const outfitSans = Outfit({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const headersList = await headers();
-  const host = headersList.get("host") || "www.korcomptenz.com";
-  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-  const baseUrl = `${protocol}://${host}`;
+  // Static base URL (no headers()/dynamic API) so this segment stays
+  // statically renderable and eligible for the 1-hour ISR cache above.
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.korcomptenz.com";
 
   return {
     title: {
