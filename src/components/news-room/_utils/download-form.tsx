@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 import { Input } from "@/components/ui/input";
-import { useCaptchaToken } from "@/lib/turnstile";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   name: "",
@@ -57,7 +57,7 @@ const DownloadForm = () => {
       const data = {
         ...formdata,
         newRoom,
-        turnstileToken: captchaToken,
+        recaptchaToken: captchaToken,
       };
       try {
         const response = await mutateAsync(data);

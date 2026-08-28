@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useRouter } from "next/navigation";
 
-import { useCaptchaToken } from "@/lib/turnstile";
+import { useCaptchaToken } from "@/lib/recaptcha";
 import { DangerousHtml } from "../ui/dangerous-html";
 
 const defaultValues = {
@@ -58,7 +58,7 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
         notify({ message: "Captcha verification failed. Please try again." });
         return;
       }
-      const data2 = { ...formdata, turnstileToken: captchaToken };
+      const data2 = { ...formdata, recaptchaToken: captchaToken };
       try {
         const response = await mutateAsync(data2);
         // notify(response);

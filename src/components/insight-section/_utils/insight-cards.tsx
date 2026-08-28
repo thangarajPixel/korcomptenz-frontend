@@ -52,8 +52,8 @@ export function InsightCard(props: InsightCardType) {
             <KorcomptenzImage
               src={image}
               // fill
-              height={1000}
-              width={1000}
+              height={500}
+              width={767}
               // sizes="(max-width:768px) 100vw, (max-width:1024px) 50vw, 33vw"
               className=" size-full rounded-4xl"
               priority={false}

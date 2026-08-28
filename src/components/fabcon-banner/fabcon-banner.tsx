@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 import { DangerousHtml } from "../ui/dangerous-html";
 import FabconBannerForm from "./_utils/fabcon-Banner-form";
-import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 const FabconBanner = ({ data }: { data: FabconBannerType }) => {
   return (
@@ -68,9 +68,9 @@ const FabconBanner = ({ data }: { data: FabconBannerType }) => {
           id="fabcon-enquiry"
           className=" flex justify-center lg:justify-start scroll-mt-32"
         >
-          <TurnstileProvider>
+          <RecaptchaProvider>
             <FabconBannerForm form={data?.form} />
-          </TurnstileProvider>
+          </RecaptchaProvider>
         </div>
       </div>
     </section>

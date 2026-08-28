@@ -128,6 +128,11 @@ const GramBanner = ({ gramData }: { gramData: GramBannerType }) => {
                 <ButtonLink
                   link={gramData?.footerButtonLink || "#"}
                   isTargetNew={gramData?.isTargetBlank}
+                  ariaLabel={
+                    gramData?.footerHeading
+                      ? `Know more about ${gramData.footerHeading}`
+                      : "Know more"
+                  }
                   buttonProps={{
                     className: "flex items-center justify-center",
                     size: "xl",

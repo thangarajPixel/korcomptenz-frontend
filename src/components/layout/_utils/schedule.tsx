@@ -2,10 +2,12 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
+
 // import ConsultationForm from "@/components/layout/_utils/consultation-form";
 // import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 
 import { HubspotForm } from "./hubspot-form";
+
 
 const ScheduleCall = ({
   scheduleCall,
@@ -13,7 +15,7 @@ const ScheduleCall = ({
 }: {
   scheduleCall: ScheduleCallType;
   isLastIndex: boolean;
-  essential?: { id: string | number; [key: string]: unknown };
+  essential?: { id: string | number;[key: string]: unknown };
 }) => {
   return (
     <div
@@ -53,17 +55,25 @@ const ScheduleCall = ({
                 className="text-2xl font-semibold text-white max-w-xl"
               />
             </div>
-            <ButtonLink
-              link={scheduleCall?.link || "#"}
-              buttonProps={{
-                size: "xl",
-                arrow: true,
-                className:
-                  "text-4xl hidden lg:inline-flex hover:bg-transparent mt-5 max-w-xl",
-              }}
-            >
-              {scheduleCall?.buttonText}
-            </ButtonLink>
+            {scheduleCall?.buttonText?.trim() && (
+              // The button itself is only visible at lg+ (`hidden lg:inline-flex`);
+              // this wrapper must match so the <a> isn't left as an empty,
+              // focusable, zero-size element below that breakpoint. `contents`
+              // makes the wrapper a no-op for layout when visible.
+              <div className="hidden lg:contents">
+                <ButtonLink
+                  link={scheduleCall?.link || "#"}
+                  buttonProps={{
+                    size: "xl",
+                    arrow: true,
+                    className:
+                      "text-4xl inline-flex hover:bg-transparent mt-5 max-w-xl",
+                  }}
+                >
+                  {scheduleCall?.buttonText}
+                </ButtonLink>
+              </div>
+            )}
           </div>
 
           {/* Form card */}
@@ -76,7 +86,9 @@ const ScheduleCall = ({
                 borderRadius: "20px",
               }}
             >
+
               {/* <TurnstileProvider>
+
 
                 <ConsultationForm
                   data={
@@ -113,6 +125,7 @@ const ScheduleCall = ({
               {scheduleCall?.buttonText}
             </p>
           </ButtonLink>
+
         </div>
       </div>
     </div>

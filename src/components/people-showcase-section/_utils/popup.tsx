@@ -69,7 +69,11 @@ export function DialogDemo({
         >
           {/* Close Button (floating, top-right) */}
           {data?.socialPlatform?.map((platform) => (
-            <Link href={platform?.link} target="blank">
+            <Link
+              href={platform?.link}
+              target="blank"
+              aria-label={platform?.icon?.alternativeText || "Social media profile"}
+            >
               <button className="absolute lg:top-4 lg:right-18  w-9 h-9 flex items-center cursor-pointer  justify-center ">
                 <KorcomptenzImage src={platform?.icon} width={32} height={32} />
               </button>

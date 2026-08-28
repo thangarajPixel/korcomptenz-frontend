@@ -28,15 +28,20 @@ export default function StickyCards({
           )}
 
           {stickyCards?.buttonText && (
-            <Link href={stickyCards?.link || "/"}>
-              <Button
-                className="hidden sm:inline-flex variant:default text-4xl"
-                size="xl"
-                arrow={true}
-              >
-                {stickyCards?.buttonText}
-              </Button>
-            </Link>
+            // The button is only visible at sm+ (`hidden sm:inline-flex`);
+            // wrap so the <a> hides with it below that breakpoint instead of
+            // being left as an empty, focusable, zero-size element.
+            <div className="hidden sm:contents">
+              <Link href={stickyCards?.link || "/"}>
+                <Button
+                  className="inline-flex variant:default text-4xl"
+                  size="xl"
+                  arrow={true}
+                >
+                  {stickyCards?.buttonText}
+                </Button>
+              </Link>
+            </div>
           )}
         </div>
         {cardData?.map((card, index) => (
@@ -76,7 +81,14 @@ export default function StickyCards({
                     </p>
                   </div>
                   {card?.buttonText && (
-                    <Link href={card?.link || "/"}>
+                    <Link
+                      href={card?.link || "/"}
+                      aria-label={
+                        card?.title
+                          ? `${card.buttonText} about ${card.title}`
+                          : undefined
+                      }
+                    >
                       <Button
                         size="xl"
                         className={cn(
@@ -103,8 +115,8 @@ export default function StickyCards({
                     <KorcomptenzImage
                       className="w-full h-full object-cover"
                       src={card?.image}
-                      width={1000}
-                      height={1000}
+                      width={658}
+                      height={512}
                     />
                   </div>
                 )}

@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
+import DOMPurify from "dompurify";
 import { cn } from "@/lib/utils";
+import { useIsomorphicLayoutEffect } from "@/utils/custom-hooks";
 
 type DangerousHtmlProps = {
   html: string;
@@ -13,22 +15,15 @@ export const DangerousHtml = React.memo(
   ({ html, className, as: Tag = "div" }: DangerousHtmlProps) => {
     const [cleanHtml, setCleanHtml] = React.useState("");
 
-    React.useEffect(() => {
-      let active = true;
-
-      const sanitize = async () => {
-        const DOMPurify = (await import("dompurify")).default;
-
-        if (typeof window !== "undefined" && active) {
-          setCleanHtml(DOMPurify.sanitize(html || ""));
-        }
-      };
-
-      sanitize();
-
-      return () => {
-        active = false;
-      };
+    // Sanitizing is client-only (DOMPurify needs a DOM, unavailable during
+    // SSR), so the server and first client render still both output "".
+    // useIsomorphicLayoutEffect runs synchronously before the browser paints
+    // (instead of useEffect's post-paint timing), so the sanitized content
+    // is already in place by the first visible frame — no separate "empty,
+    // then pop in" frame for the Layout Instability API to score as a shift.
+    useIsomorphicLayoutEffect(() => {
+      if (typeof window === "undefined") return;
+      setCleanHtml(DOMPurify.sanitize(html || ""));
     }, [html]);
 
     return (

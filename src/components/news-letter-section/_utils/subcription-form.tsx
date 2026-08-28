@@ -12,7 +12,7 @@ import {
   type SubscriptionFormSchema,
 } from "@/utils/validation.schema";
 
-import { useCaptchaToken } from "@/lib/turnstile";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   name: "",
@@ -51,7 +51,7 @@ const SubscriptionForm = () => {
           notify({ message: "Captcha verification failed. Please try again." });
           return;
         }
-        const data2 = { ...formdata, turnstileToken: captchaToken };
+        const data2 = { ...formdata, recaptchaToken: captchaToken };
         try {
           const response = await mutateAsync(data2);
           notify(response);

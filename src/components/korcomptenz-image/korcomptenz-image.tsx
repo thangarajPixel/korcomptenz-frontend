@@ -27,13 +27,13 @@ const KorcomptenzImage = (props: KorcomptenzImageProps) => {
     : props?.alt || "";
   const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
 
-  const isPriority = props.priority || true;
+  const isPriority = props.priority ?? false;
 
   return (
     <Image
       {...props}
       src={(src || "/assets/placeholder.png") as string}
-      alt={alt || "/assets/placeholder.png"}
+      alt={alt || ""}
       placeholder={isPriority ? "empty" : imagePlaceholder}
       loading={isPriority ? "eager" : undefined}
       fetchPriority={isPriority ? "high" : "auto"}

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useMemo, useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useIsomorphicLayoutEffect } from "@/utils/custom-hooks";
 
 interface ScrollFadeInProps {
   children: ReactNode;
@@ -18,48 +18,66 @@ export function ScrollFadeIn({
   className,
   __component,
 }: ScrollFadeInProps) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
 
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
+  // A section that's already (even partially) in the viewport on mount —
+  // e.g. one sitting right below a hero that's intentionally shorter than
+  // 100vh — would otherwise still mount in the "not yet revealed" state and
+  // get flipped to "revealed" a moment later by the IntersectionObserver
+  // below, animating a translateY it never needed since the user could
+  // already see it. That transform-driven movement is exactly what the
+  // Layout Instability API scores as a shift. Checking synchronously before
+  // paint lets already-visible sections skip straight to their settled
+  // state, while sections that are genuinely off-screen on mount keep the
+  // existing observer-driven reveal-on-scroll animation unchanged.
+  useIsomorphicLayoutEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const rect = node.getBoundingClientRect();
+    const viewportHeight =
+      window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < viewportHeight && rect.bottom > 0) {
+      setIsInView(true);
+    }
   }, []);
 
-  const isInView = useInView(ref, {
-    once: true,
-    margin: "0px",
-  });
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
 
-  const variants = useMemo(
-    () => ({
-      hidden: {
-        opacity: 0.95,
-        y: 12,
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
       },
-      visible: {
-        opacity: 1,
-        y: 0,
-      },
-    }),
-    [],
-  );
+      { rootMargin: "0px" },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const style: CSSProperties = {
+    opacity: isInView ? 1 : 0.95,
+    transform: isInView ? "translateY(0px)" : "translateY(12px)",
+    transitionProperty: "opacity, transform",
+    transitionDuration: `${duration}s`,
+    transitionDelay: `${delay}s`,
+    transitionTimingFunction: "ease-out",
+  };
 
   return (
-    <motion.section
+    <section
       ref={ref}
-      initial={false}
-      animate={mounted ? (isInView ? "visible" : "hidden") : undefined}
-      variants={variants}
-      transition={{
-        duration,
-        delay,
-        ease: "easeOut",
-      }}
+      style={style}
       className={className}
       data-component={__component}
     >
       {children}
-    </motion.section>
+    </section>
   );
 }

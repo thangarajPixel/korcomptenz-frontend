@@ -6,6 +6,8 @@ import ButtonLink from "../ui/button-link";
 import KorcomptenzImage from "../korcomptenz-image";
 import { VideoPopup } from "../video-popup";
 
+const stripHtml = (html?: string) => html?.replace(/<[^>]*>/g, "").trim();
+
 const IndustryFeaturedContent = ({
   data,
 }: {
@@ -139,8 +141,13 @@ const IndustryFeaturedContent = ({
                         <ButtonLink
                           link={item?.buttonLink || "#"}
                           isTargetNew={item?.isTarget}
+                          ariaLabel={
+                            stripHtml(item?.title)
+                              ? `Read more about ${stripHtml(item?.title)}`
+                              : "Read more"
+                          }
                           buttonProps={{
-                           
+
                             className: `bg-transparent border-none -ml-4 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace("text-", "")} hover:border-none shadow-none hover:shadow-none`,
                           }}
                         >
@@ -229,6 +236,11 @@ const IndustryFeaturedContent = ({
                         <ButtonLink
                           link={item?.buttonLink || "#"}
                           isTargetNew={item?.isTarget}
+                          ariaLabel={
+                            stripHtml(item?.title)
+                              ? `Read more about ${stripHtml(item?.title)}`
+                              : "Read more"
+                          }
                           buttonProps={{
                             className: `bg-transparent border-none -ml-3 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace("text-", "")} hover:border-none shadow-none hover:shadow-none`,
                           }}

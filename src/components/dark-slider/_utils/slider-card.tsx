@@ -57,6 +57,9 @@ const SliderCard: React.FC<Props> = ({ slide }) => {
             <div className={cn("flex  gap-2")}>
               <ButtonLink
                 link={slide?.link || "#"}
+                ariaLabel={
+                  slide?.title ? `Learn more about ${slide.title}` : "Learn more"
+                }
                 buttonProps={{
                   size: "xl",
                   arrow: true,

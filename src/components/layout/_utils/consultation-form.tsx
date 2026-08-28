@@ -10,7 +10,7 @@ import {
   type FooterFormSchema,
 } from "@/utils/validation.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useCaptchaToken } from "@/lib/turnstile";
+import { useCaptchaToken } from "@/lib/recaptcha";
 import { errorSet, notify } from "@/utils/helper";
 import { usefooterLeadHook } from "@/services";
 import { Textarea } from "@/components/ui/textarea";
@@ -67,7 +67,7 @@ export function ConsultationForm({
         ...formdata,
         pageSlug: currentUrl,
 
-        turnstileToken: captchaToken,
+        recaptchaToken: captchaToken,
       };
       try {
         const response = await mutateAsync(data);
