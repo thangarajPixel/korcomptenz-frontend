@@ -58,7 +58,15 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
+      // forceMount keeps the answer in the DOM (and therefore in the
+      // server-rendered HTML) even while collapsed, instead of Radix's
+      // default of not rendering it at all until opened. Without forceMount,
+      // Radix also applies the native `hidden` attribute for the closed
+      // state for us; with it, that no longer happens, so `data-[state=closed]:h-0`
+      // takes over collapsing it visually — same resting appearance, same
+      // open/close animation, just present in the initial HTML for crawlers.
+      forceMount
+      className="data-[state=closed]:h-0 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
       {...props}
     >
       <div className={cn("pt-0 pb-4", className)}>{children}</div>
