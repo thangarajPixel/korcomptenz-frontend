@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ShareButton } from "./share-button";
 import { useSearchParams } from "next/navigation";
-type Job = {
+export type Job = {
   job_id: string;
   job_title: string;
   location: string[];
@@ -23,8 +23,26 @@ type JobDetail = Job & {
   job_decription?: string;
 };
 
-const OpenJobs = ({ data }: { data: OpenJobsType }) => {
-  const [jobs, setJobs] = useState<Job[]>([]);
+function getUniqueLocations(jobList: Job[]): string[] {
+  return Array.from(
+    new Set(
+      jobList.flatMap((job) =>
+        Array.isArray(job.location)
+          ? job.location.filter((loc): loc is string => typeof loc === "string")
+          : [],
+      ),
+    ),
+  ).sort();
+}
+
+const OpenJobs = ({
+  data,
+  initialJobs = [],
+}: {
+  data: OpenJobsType;
+  initialJobs?: Job[];
+}) => {
+  const [jobs] = useState<Job[]>(initialJobs);
   //const [loading, setLoading] = useState(true);
 
   const [applyLoading, setApplyLoading] = useState(false);
@@ -63,8 +81,10 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
     jobType: "",
   });
 
-  const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
-  const [locations, setLocations] = useState<string[]>([]);
+  const [filteredJobs, setFilteredJobs] = useState<Job[]>(initialJobs);
+  const [locations] = useState<string[]>(() =>
+    getUniqueLocations(initialJobs),
+  );
 
   // ✅ Pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -105,38 +125,6 @@ const OpenJobs = ({ data }: { data: OpenJobsType }) => {
       openJobDetail(sharedJobId);
     }
   }, [sharedJobId, jobs]);
-  useEffect(() => {
-    async function fetchJobs() {
-      const res = await fetch(process.env.NEXT_PUBLIC_JOBS_API_URL as string);
-      const result = await res.json();
-      //const visibleCount=0;
-      const jobList: Job[] = result?.data || [];
-
-      setJobs(jobList);
-      setFilteredJobs(jobList);
-      setCurrentPage(1); // ✅ reset pagination on fresh fetch
-      // filteredJobs.map((job) => renderList(job));
-      // setViewType("grid");
-      //  setLoading(false);
-
-      // ✅ Extract unique locations safely
-      const uniqueLocations: string[] = Array.from(
-        new Set(
-          jobList.flatMap((job) =>
-            Array.isArray(job.location)
-              ? job.location.filter(
-                  (loc): loc is string => typeof loc === "string",
-                )
-              : [],
-          ),
-        ),
-      ).sort();
-
-      setLocations(uniqueLocations);
-    }
-
-    fetchJobs();
-  }, []);
 
   // useEffect(() => {
   //   if (!jobs.length) return;

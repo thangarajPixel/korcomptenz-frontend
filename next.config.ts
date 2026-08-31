@@ -195,13 +195,10 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: permissionsPolicy,
           },
-          {
-            key: "Link",
-            value: [
-              "<https://aue2kormlworkspacetest01.blob.core.windows.net>; rel=preconnect",
-              "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
-            ].join(", "),
-          },
+          // Azure Blob preconnect is already declared once via <link> in
+          // app/layout.tsx — this header duplicated it. fonts.gstatic.com
+          // was never actually requested: next/font/google self-hosts the
+          // Outfit font from /_next/static/media at build time.
         ],
       },
       {

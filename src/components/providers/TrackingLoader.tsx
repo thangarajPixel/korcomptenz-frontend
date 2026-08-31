@@ -3,6 +3,41 @@
 import { useEffect } from "react";
 
 export default function TrackingLoader() {
+  // The Mirabel marketing script (mkmpages.korcomptenz.com) injects a
+  // hidden tracking iframe (id="mrktFrame_...") itself — we don't control
+  // its markup, so patch in the missing a11y title after the fact instead
+  // of altering the 3rd-party script. Purely additive: src, position,
+  // size, and behavior are untouched.
+  useEffect(() => {
+    const addTitle = (iframe: HTMLIFrameElement) => {
+      if (!iframe.title) {
+        iframe.title = "Mirabel marketing tracking frame";
+      }
+    };
+
+    document
+      .querySelectorAll<HTMLIFrameElement>('iframe[id^="mrktFrame"]')
+      .forEach(addTitle);
+
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        mutation.addedNodes.forEach((node) => {
+          if (!(node instanceof HTMLElement)) return;
+          if (node instanceof HTMLIFrameElement && node.id?.startsWith("mrktFrame")) {
+            addTitle(node);
+          }
+          node
+            .querySelectorAll?.<HTMLIFrameElement>('iframe[id^="mrktFrame"]')
+            .forEach(addTitle);
+        });
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     let loaded = false;
     const isMobile = window.innerWidth < 768;

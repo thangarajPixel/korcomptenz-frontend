@@ -9,6 +9,38 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import { BlogFormPopup } from "./popup";
 import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/[^\w]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+// Pure string transform (no DOM/window dependency) so the table of contents
+// and heading anchor ids are computed identically during server rendering
+// and on the client — previously this only ran after mount via DOMParser,
+// leaving the TOC empty and h2 ids missing from the initial HTML.
+function injectHeadingIds(html: string) {
+  const h2Array: { text: string; id: string }[] = [];
+
+  const updatedHtml = html.replace(
+    /<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi,
+    (_match, attrs: string, inner: string) => {
+      const text = inner
+        .replace(/<[^>]+>/g, "")
+        .replace(/&nbsp;/gi, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+      const id = slugify(text);
+      h2Array.push({ text, id });
+
+      const cleanedAttrs = attrs.replace(/\sid="[^"]*"/i, "");
+      return `<h2${cleanedAttrs} id="${id}" style="scroll-margin-top:120px">${inner}</h2>`;
+    },
+  );
+
+  return { h2Array, updatedHtml };
+}
+
 export default function DocumentationLayout({
   data,
   essential,
@@ -18,10 +50,8 @@ export default function DocumentationLayout({
 }) {
   const [copied, setCopied] = useState(false);
   const [articleUrl, setArticleUrl] = useState("");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     setArticleUrl(window.location.href);
   }, []);
 
@@ -35,39 +65,10 @@ export default function DocumentationLayout({
 
   const encodedPrompt = encodeURIComponent(articleUrl);
 
-  const { h2Array, updatedHtml } = useMemo(() => {
-    if (!mounted || typeof window === "undefined") {
-      return { h2Array: [], updatedHtml: data?.insight?.blog?.content || "" };
-    }
-
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(
-      data?.insight?.blog?.content || "",
-      "text/html",
-    );
-
-    // helper to create URL-safe IDs
-    const slugify = (text: string) =>
-      text
-        .toLowerCase()
-        .replace(/[^\w]+/g, "-")
-        .replace(/^-+|-+$/g, "");
-
-    const h2Elements = Array.from(doc.querySelectorAll("h2"));
-
-    const h2Array = h2Elements.map((h2) => {
-      const text = h2.textContent?.trim() || "";
-      const id = slugify(text);
-      h2.setAttribute("id", id);
-      h2.style.scrollMarginTop = "120px";
-      return { text, id };
-    });
-
-    // final HTML with IDs injected
-    const updatedHtml = doc.body.innerHTML;
-
-    return { h2Array, updatedHtml };
-  }, [mounted, data?.insight?.blog?.content]);
+  const { h2Array, updatedHtml } = useMemo(
+    () => injectHeadingIds(data?.insight?.blog?.content || ""),
+    [data?.insight?.blog?.content],
+  );
 
   return (
     <section className="container-md">
