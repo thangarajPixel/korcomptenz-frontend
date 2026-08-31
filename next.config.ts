@@ -129,7 +129,13 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   htmlLimitedBots: /.*/,
 
- 
+  // jsdom (used by isomorphic-dompurify for server-side DOMPurify sanitization
+  // in DangerousHtml) does dynamic, non-bundlable requires (node:worker_threads,
+  // a CSS asset loaded via __dirname). Bundling it breaks both Turbopack's
+  // file tracing and Webpack's build; keeping it external makes it resolve
+  // via the real node_modules at runtime instead.
+  serverExternalPackages: ["isomorphic-dompurify", "jsdom"],
+
   experimental: {
     optimizePackageImports: [
       "lucide-react",
