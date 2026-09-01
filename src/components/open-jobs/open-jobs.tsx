@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ShareButton } from "./share-button";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-type Job = {
+
+export type Job = {
   job_id: string;
   job_title: string;
   location: string[];
@@ -39,6 +40,18 @@ function buildJobSlug(title: string | undefined | null, jobId: string) {
   return titleSlug ? `${titleSlug}-${jobId}` : jobId;
 }
 
+/* function getUniqueLocations(jobList: Job[]): string[] {
+  return Array.from(
+    new Set(
+      jobList.flatMap((job) =>
+        Array.isArray(job.location)
+          ? job.location.filter((loc): loc is string => typeof loc === "string")
+          : [],
+      ),
+    ),
+  ).sort();
+} */
+
 const OpenJobs = ({
   data,
   initialJobId,
@@ -47,6 +60,7 @@ const OpenJobs = ({
   initialJobId?: string; // ✅ set when rendered from app/career/[jobId]/page.tsx
 }) => {
   const [jobs, setJobs] = useState<Job[]>([]);
+
   //const [loading, setLoading] = useState(true);
 
   const [applyLoading, setApplyLoading] = useState(false);

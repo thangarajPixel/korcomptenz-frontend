@@ -100,9 +100,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preconnect to critical third-party origins */}
+        {/* Preconnect to critical third-party origins. js.hs-scripts.com
+            (HubSpot) preconnect was removed: it's only ever requested via
+            TrackingLoader's deferred (post-interaction) load, well after
+            any preconnected connection would have been used or closed. */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://js.hs-scripts.com" />
         <link rel="dns-prefetch" href="https://s.adroll.com" />
         <link rel="dns-prefetch" href="https://mkmpages.korcomptenz.com" />
         <link

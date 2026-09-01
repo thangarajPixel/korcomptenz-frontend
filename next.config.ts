@@ -129,7 +129,13 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   htmlLimitedBots: /.*/,
 
- 
+  // jsdom (used by isomorphic-dompurify for server-side DOMPurify sanitization
+  // in DangerousHtml) does dynamic, non-bundlable requires (node:worker_threads,
+  // a CSS asset loaded via __dirname). Bundling it breaks both Turbopack's
+  // file tracing and Webpack's build; keeping it external makes it resolve
+  // via the real node_modules at runtime instead.
+  serverExternalPackages: ["isomorphic-dompurify", "jsdom"],
+
   experimental: {
     optimizePackageImports: [
       "lucide-react",
@@ -195,13 +201,10 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: permissionsPolicy,
           },
-          {
-            key: "Link",
-            value: [
-              "<https://aue2kormlworkspacetest01.blob.core.windows.net>; rel=preconnect",
-              "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
-            ].join(", "),
-          },
+          // Azure Blob preconnect is already declared once via <link> in
+          // app/layout.tsx — this header duplicated it. fonts.gstatic.com
+          // was never actually requested: next/font/google self-hosts the
+          // Outfit font from /_next/static/media at build time.
         ],
       },
       {
