@@ -1,5 +1,4 @@
 "use client";
-import Script from "next/script";
 import React from "react";
 import CaseStudyBanner from "./case-study-banner";
 import CaseStudyContent from "./case-study-content";
@@ -13,6 +12,7 @@ import { ScrollFadeIn } from "@/components/ui/scroll-fade-in";
 
 import CaseStudyVideo from "./case-study-video";
 import { ClientTestimonial } from "@/app/(default)/case-studies/_utils";
+import { HubspotForm } from "./hubspot-form";
 declare global {
   interface Window {
     hbsptCaseStudyForm?: {
@@ -117,23 +117,9 @@ const CaseStudy = ({
       <ScrollFadeIn>
         <div className="container-md py-12 md:px-8">
           <div className="max-w-3xl mx-auto">
-            <div id="hubspot-form" />
+            <HubspotForm />
           </div>
         </div>
-        <Script
-          src="//js.hsforms.net/forms/embed/v2.js"
-          strategy="afterInteractive"
-          onLoad={() => {
-            if (window.hbsptCaseStudyForm) {
-              window.hbsptCaseStudyForm.forms.create({
-                portalId: "7991245",
-                formId: "89ae85c4-f137-4b8a-901d-fc3ab2e0f82e",
-                region: "na1",
-                target: "#hubspot-form",
-              });
-            }
-          }}
-        />
       </ScrollFadeIn>
     </React.Fragment>
   );
