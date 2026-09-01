@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "data analytics services",
     ],
     robots:
-      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "noindex, nofollow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: "/",
