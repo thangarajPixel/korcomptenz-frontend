@@ -1,11 +1,7 @@
-export const dynamic = "force-dynamic";
-
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
-// import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
-import { headers } from "next/headers";
 import TrackingLoader from "@/components/providers/TrackingLoader";
 import Script from "next/dist/client/script";
 
@@ -18,11 +14,10 @@ const outfitSans = Outfit({
   fallback: ["system-ui", "arial"],
 });
 
+const SITE_URL = "https://www.korcomptenz.com";
+
 export async function generateMetadata(): Promise<Metadata> {
-  const headersList = await headers();
-  const host = headersList.get("host") || "www.korcomptenz.com";
-  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-  const baseUrl = `${protocol}://${host}`;
+  const baseUrl = SITE_URL;
 
   return {
     title: {
