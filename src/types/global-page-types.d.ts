@@ -2461,6 +2461,7 @@ type CTABannerType = {
   ButtonTextColor?: string;
   buttonBgColor?: string;
 };
+
 type CustomScriptSectionType = {
   id: string;
   customcode?: string;

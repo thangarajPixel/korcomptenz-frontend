@@ -48,8 +48,8 @@ export default function SlidingSection({
             {slide?.design === "image" && (
               <KorcomptenzImage
                 src={isMobile ? slide?.mobile_image : slide?.image}
-                width={1000}
-                height={1000}
+                width={1920}
+                height={850}
                 className="w-full h-full object-cover"
                 priority={index === 0}
                 sizes={
@@ -64,8 +64,8 @@ export default function SlidingSection({
                 {/* Background Image */}
                 <KorcomptenzImage
                   src={slide?.backgroundImage}
-                  width={1000}
-                  height={1000}
+                  width={1920}
+                  height={850}
                   className="w-full h-full object-cover"
                   priority={index === 0}
                 />

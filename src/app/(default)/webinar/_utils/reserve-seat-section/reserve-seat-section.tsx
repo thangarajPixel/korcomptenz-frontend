@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useCaptchaToken } from "@/lib/recaptcha";
+import { useCaptchaToken } from "@/lib/turnstile";
 import { useWebinarReserveMySpotHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
 import {
@@ -65,7 +65,7 @@ const ReserveSeatSection = ({
         const data = {
           ...formdata,
           insight,
-          recaptchaToken: captchaToken,
+          turnstileToken: captchaToken,
         };
         try {
           const response = await mutateAsync(data);

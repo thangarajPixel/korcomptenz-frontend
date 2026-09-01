@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { ComboboxWhite } from "@/components/ui/comboboxWhite";
-import { useCaptchaToken } from "@/lib/recaptcha";
+import { useCaptchaToken } from "@/lib/turnstile";
 
 const defaultValues: FabconDecisionLeadSchema = {
   fullName: "",
@@ -66,7 +66,7 @@ const FabconDecisionForm = ({ form }: { form: fromDataType }) => {
         }
         const data = {
           ...formdata,
-          recaptchaToken: captchaToken,
+          turnstileToken: captchaToken,
         };
         try {
           const response = await mutateAsync(data);

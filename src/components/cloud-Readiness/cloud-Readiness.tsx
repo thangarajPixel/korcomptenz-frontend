@@ -2,7 +2,7 @@ import React from "react";
 import { DangerousHtml } from "../ui/dangerous-html";
 import ButtonLink from "../ui/button-link";
 import ConsultationForm from "./_utils/consultation-form";
-import { RecaptchaProvider } from "../providers/recaptcha-provider";
+import { TurnstileProvider } from "../providers/turnstile-provider";
 
 const CloudReadiness = ({ data, form }: CloudReadinessProps) => {
   return (
@@ -49,13 +49,13 @@ const CloudReadiness = ({ data, form }: CloudReadinessProps) => {
 
         {/* FORM SECTION */}
         <div>
-          <RecaptchaProvider>
+          <TurnstileProvider>
             {form && (
-              <RecaptchaProvider>
+              <TurnstileProvider>
                 <ConsultationForm form={form} />
-              </RecaptchaProvider>
+              </TurnstileProvider>
             )}
-          </RecaptchaProvider>
+          </TurnstileProvider>
         </div>
       </div>
     </div>

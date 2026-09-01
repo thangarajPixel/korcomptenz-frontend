@@ -1,4 +1,5 @@
 import BookDemoSection from "./newsletter-footer-form";
+import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 import KorcomptenzImage from "../korcomptenz-image";
 import RawHtmlEmbed from "@/components/ui/raw-html-embed";
 
@@ -49,9 +50,11 @@ export default function NewsLetterFooterSection({
           {data?.form?.forms[0] && (
             <div className="mb-10">
               <div className="bg-white rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.35)] p-8 md:p-10">
-                <BookDemoSection
-                  essential={data?.form?.forms[0] as BookDemoFormType}
-                />
+                <TurnstileProvider>
+                  <BookDemoSection
+                    essential={data?.form?.forms[0] as BookDemoFormType}
+                  />
+                </TurnstileProvider>
               </div>
             </div>
           )}

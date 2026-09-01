@@ -11,7 +11,7 @@ import {
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useBookADemoHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
-import { useCaptchaToken } from "@/lib/recaptcha";
+import { useCaptchaToken } from "@/lib/turnstile";
 const defaultValues = {
   name: "",
   email: "",
@@ -60,7 +60,7 @@ const BookDemoSection = ({
       const formdata = {
         ...data,
         demoFrom,
-        recaptchaToken: captchaToken,
+        turnstileToken: captchaToken,
       };
       try {
         const response = await mutateAsync(formdata);

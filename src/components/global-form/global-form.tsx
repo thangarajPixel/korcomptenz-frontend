@@ -3,7 +3,7 @@ import BookDemoSection from "../book-demo-section";
 import ContactusForm from "@/app/(default)/contact-us/_utils/contact-us-form";
 import DemoRequestForm from "@/app/(default)/live-demo/_utils/demo-request-form";
 import ReserveSeatSection from "@/app/(default)/webinar/_utils/reserve-seat-section";
-import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
+import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 import IndustryForm from "../industry-form";
 
 const GlobalForm = ({
@@ -19,7 +19,7 @@ const GlobalForm = ({
   };
 }) => {
   return (
-    <RecaptchaProvider>
+    <TurnstileProvider>
       {form?.forms?.map((form) => {
         switch (form?.__component) {
           case "form-fields.book-demo-form":
@@ -31,7 +31,9 @@ const GlobalForm = ({
               />
             );
           case "form-fields.contact-us-form":
-            return <ContactusForm key={`contact-us-form-${form.id}`} form={form} />;
+            return (
+              <ContactusForm key={`contact-us-form-${form.id}`} form={form} />
+            );
           case "form-fields.reserve-spot-fields":
             return (
               <DemoRequestForm
@@ -44,7 +46,7 @@ const GlobalForm = ({
             return (
               <BlogBuildDemo
                 key={`free-consultation-form-${form.id}`}
-                essential={essential}
+                //essential={essential}
                 form={form}
               />
             );
@@ -57,12 +59,14 @@ const GlobalForm = ({
               />
             );
           case "form-fields.industry-form":
-            return <IndustryForm key={`industry-form-${form.id}`} form={form} />;
+            return (
+              <IndustryForm key={`industry-form-${form.id}`} form={form} />
+            );
           default:
             return "";
         }
       })}
-    </RecaptchaProvider>
+    </TurnstileProvider>
   );
 };
 

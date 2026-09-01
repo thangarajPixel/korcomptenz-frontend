@@ -1,7 +1,7 @@
 "use client";
 
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { GlobalForm } from "@/components/global-form";
+//import { GlobalForm } from "@/components/global-form";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
 import {
   Carousel,
@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import { HubspotForm } from "./hubspot-form";
 
 export default function ContactUsForm({
   data,
@@ -65,7 +66,9 @@ export default function ContactUsForm({
               className="
                 w-full bg-transparent md:bg-white rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.25)] md:p-10"
             >
-              <GlobalForm form={data?.form} />
+              {/* <GlobalForm form={data?.form} /> */}
+
+              <HubspotForm />
             </div>
           </div>
         </div>

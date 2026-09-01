@@ -193,7 +193,7 @@ const GlobalPage = (props: Props) => {
         return (
           <ScrollFadeIn
             __component={item?.__component}
-            key={`newsletter-banner-${item?.__component}-${item?.id}`}
+            key={`newsletter-leadership-${item?.__component}-${item?.id}`}
           >
             <NewsLetterLeaderShip data={item} />
           </ScrollFadeIn>
@@ -203,7 +203,7 @@ const GlobalPage = (props: Props) => {
         return (
           <ScrollFadeIn
             __component={item?.__component}
-            key={`newsletter-banner-${item?.__component}-${item?.id}`}
+            key={`newsletter-description-${item?.__component}-${item?.id}`}
           >
             <NewsLetterDescription data={item} />
           </ScrollFadeIn>
