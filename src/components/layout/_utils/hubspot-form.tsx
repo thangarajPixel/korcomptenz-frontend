@@ -4,7 +4,7 @@ import Script from "next/script";
 export function HubspotForm() {
   return (
     <>
-      <div id="hubspot-form" />
+      <div id="hubspot-form-footer" />
       <Script
         src="https://js.hsforms.net/forms/embed/v2.js"
         strategy="afterInteractive"
@@ -14,7 +14,7 @@ export function HubspotForm() {
               portalId: "7991245",
               formId: "dcdc287c-b43a-4a82-ac25-b17fd0c17a08",
               region: "na1",
-              target: "#hubspot-form",
+              target: "#hubspot-form-footer",
             });
           }
         }}
