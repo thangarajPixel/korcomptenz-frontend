@@ -1,7 +1,7 @@
 "use client";
 import { SapBannerPopup } from "@/components/banner-section/_utils/sap-popup";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 import { Button } from "@/components/ui/button";
 import ButtonLink from "@/components/ui/button-link";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
@@ -212,7 +212,7 @@ const DemoBannerCard = ({
         </>
       )}
       <>
-        <TurnstileProvider>
+        <RecaptchaProvider>
           <SapBannerPopup
             data={data?.form?.forms?.[0]}
             isOpen={isPopupOpen}
@@ -222,7 +222,7 @@ const DemoBannerCard = ({
             formImage={data?.formImage}
             // item={data?.pageSlug}
           />
-        </TurnstileProvider>
+        </RecaptchaProvider>
       </>
     </div>
   );

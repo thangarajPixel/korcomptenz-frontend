@@ -3,7 +3,7 @@ import BookDemoSection from "../book-demo-section";
 import ContactusForm from "@/app/(default)/contact-us/_utils/contact-us-form";
 import DemoRequestForm from "@/app/(default)/live-demo/_utils/demo-request-form";
 import ReserveSeatSection from "@/app/(default)/webinar/_utils/reserve-seat-section";
-import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 import IndustryForm from "../industry-form";
 
 const GlobalForm = ({
@@ -19,7 +19,7 @@ const GlobalForm = ({
   };
 }) => {
   return (
-    <TurnstileProvider>
+    <RecaptchaProvider>
       {form?.forms?.map((form) => {
         switch (form?.__component) {
           case "form-fields.book-demo-form":
@@ -66,7 +66,7 @@ const GlobalForm = ({
             return "";
         }
       })}
-    </TurnstileProvider>
+    </RecaptchaProvider>
   );
 };
 

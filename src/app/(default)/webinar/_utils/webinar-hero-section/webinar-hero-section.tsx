@@ -1,7 +1,7 @@
 "use client";
 import { SapBannerPopup } from "@/components/banner-section/_utils/sap-popup";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 import ButtonLink from "@/components/ui/button-link";
 import { useEffect, useState } from "react";
 
@@ -98,7 +98,7 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
           </div>
         </>
       )}
-      <><TurnstileProvider>
+      <><RecaptchaProvider>
         <SapBannerPopup
           data={data?.sapForm?.forms?.[0]}
           isOpen={isPopupOpen}
@@ -107,7 +107,7 @@ const WebinarHeroSection = ({ data }: { data: InsightResponse }) => {
           formDescription={data?.formDescription}
           formImage={data?.formImage}
 
-        /></TurnstileProvider></>
+        /></RecaptchaProvider></>
     </section>
   );
 };

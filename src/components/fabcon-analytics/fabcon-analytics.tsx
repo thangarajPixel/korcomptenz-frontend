@@ -124,7 +124,11 @@ const FabconAnalytics = ({ data }: { data: FabconAnalyticsType }) => {
         >
           <div className="bg-white rounded-2xl md:rounded-full py-5 px-6 md:px-10 flex flex-wrap justify-center items-center gap-6 md:gap-10 max-w-4xl mx-auto shadow-lg">
             {data?.bottom?.map((logo) => (
-              <Link key={logo?.id} href={logo?.link || "#"}>
+              <Link
+                key={logo?.id}
+                href={logo?.link || "#"}
+                aria-label={logo?.image?.alternativeText || "Partner website"}
+              >
                 <KorcomptenzImage
                   src={logo?.image}
                   width={130}

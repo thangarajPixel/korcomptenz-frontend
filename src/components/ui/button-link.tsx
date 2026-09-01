@@ -8,8 +8,10 @@ const ButtonLink = ({
   buttonProps,
   isTargetNew = false,
   link = "#",
+  ariaLabel,
 }: Omit<ButtonType, "text"> & {
   children: React.ReactNode;
+  ariaLabel?: string;
   buttonProps?: React.ComponentProps<"button"> &
     VariantProps<typeof buttonVariants> & {
       asChild?: boolean;
@@ -25,6 +27,7 @@ const ButtonLink = ({
         className="w-fit inline-flex"
         href={link || "#"}
         target={isTargetNew ? "_blank" : undefined}
+        aria-label={ariaLabel}
       >
         <Button {...buttonProps}>{children}</Button>
       </Link>

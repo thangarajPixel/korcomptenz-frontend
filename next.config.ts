@@ -1,12 +1,132 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV !== "production";
+
+const apiOrigin = (() => {
+  try {
+    return new URL(process.env.NEXT_PUBLIC_API_URL || "").origin;
+  } catch {
+    return "";
+  }
+})();
+
+const scriptSrc = [
+  "'self'",
+  "'unsafe-inline'",
+  "https://www.googletagmanager.com",
+  "https://js.hs-scripts.com",
+  "https://js-na1.hs-scripts.com",
+  "https://js.hubspot.com",
+  "https://js.hs-analytics.net",
+  "https://js.hs-banner.com",
+  "https://js.hsadspixel.net",
+  "https://js.hscollectedforms.net",
+  "https://js.usemessages.com",
+  "https://static.hsappstatic.net",
+  "https://d1vg5xiq7qffdj.cloudfront.net",
+  "https://connect.facebook.net",
+  "https://bat.bing.com",
+  "https://www.clarity.ms",
+  "https://scripts.clarity.ms",
+  "https://s.adroll.com",
+  "https://d.adroll.com",
+  "https://ipv4.d.adroll.com",
+  "https://mkmpages.korcomptenz.com",
+  "https://ajax.googleapis.com",
+  "https://googleads.g.doubleclick.net",
+  "https://challenges.cloudflare.com",
+  "https://snap.licdn.com",
+  "https://www.google.com", // Google reCAPTCHA v3 (recaptcha/api.js)
+  "https://www.gstatic.com", // Google reCAPTCHA v3 (recaptcha internals loaded by api.js)
+].join(" ");
+
+const connectSrc = [
+  "'self'",
+  apiOrigin,
+  "https://www.google.com",
+  "https://analytics.google.com",
+  "https://ad.doubleclick.net",
+  "https://googleads.g.doubleclick.net",
+  "https://stats.g.doubleclick.net",
+  "https://cm.g.doubleclick.net",
+  "https://api.hubapi.com",
+  "https://api.hubspot.com",
+  "https://app.hubspot.com",
+  "https://cta-service-cms2.hubspot.com",
+  "https://exceptions.hubspot.com",
+  "https://forms.hscollectedforms.net",
+  "https://metrics-fe-na1.hubspot.com",
+  "https://track.hubspot.com",
+  "https://mkmpages.korcomptenz.com",
+  "https://px.ads.linkedin.com",
+  "https://y.clarity.ms",
+  "https://bat.bing.com",
+  "https://d.adroll.com",
+  "https://ipv4.d.adroll.com",
+  "https://s.adroll.com",
+  "https://challenges.cloudflare.com",
+  isDev ? "ws://localhost:*" : "",
+  isDev ? "http://localhost:*" : "",
+]
+  .filter(Boolean)
+  .join(" ");
+
+const frameSrc = [
+  "'self'",
+  "https://www.youtube.com",
+  "https://player.vimeo.com",
+  "https://www.googletagmanager.com",
+  "https://app.hubspot.com",
+  "https://challenges.cloudflare.com",
+  "https://aue2kormlworkspacetest01.blob.core.windows.net",
+  "https://mkmpages.korcomptenz.com",
+  "https://www.google.com", // Google reCAPTCHA v3's invisible challenge iframe
+].join(" ");
+
+const mediaSrc = [
+  "'self'",
+  "https://aue2kormlworkspacetest01.blob.core.windows.net",
+].join(" ");
+
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  `script-src ${scriptSrc}`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https:",
+  "font-src 'self' data:",
+  `connect-src ${connectSrc}`,
+  `frame-src ${frameSrc}`,
+  `media-src ${mediaSrc}`,
+  "object-src 'none'",
+  "base-uri 'self'",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  isDev ? "" : "upgrade-insecure-requests",
+]
+  .filter(Boolean)
+  .join("; ");
+
+const permissionsPolicy = [
+  "camera=()",
+  "microphone=()",
+  "geolocation=()",
+  "payment=()",
+  "usb=()",
+  "accelerometer=()",
+  "gyroscope=()",
+  "display-capture=()",
+  "clipboard-write=(self)",
+  'fullscreen=(self "https://www.youtube.com" "https://player.vimeo.com")',
+  'autoplay=(self "https://www.youtube.com" "https://player.vimeo.com")',
+  'picture-in-picture=(self "https://www.youtube.com" "https://player.vimeo.com")',
+].join(", ");
+
 const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
   htmlLimitedBots: /.*/,
 
-  // Performance optimizations for mobile
   experimental: {
     optimizePackageImports: [
       "lucide-react",
@@ -34,8 +154,8 @@ const nextConfig: NextConfig = {
         hostname: process.env.NEXT_PUBLIC_IMAGE_DOMAIN || "korcomptenz.com",
       },
     ],
-    formats: ["image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     dangerouslyAllowSVG: false,
@@ -44,6 +164,42 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "X-DNS-Prefetch-Control",
+            value: "on",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: contentSecurityPolicy,
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: permissionsPolicy,
+          },
+          {
+            key: "Link",
+            value: [
+              "<https://aue2kormlworkspacetest01.blob.core.windows.net>; rel=preconnect",
+              "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+            ].join(", "),
+          },
+        ],
+      },
       {
         source: "/_next/static/(.*)",
         headers: [
@@ -59,35 +215,6 @@ const nextConfig: NextConfig = {
           {
             key: "Cache-Control",
             value: "public, max-age=86400, stale-while-revalidate=604800",
-          },
-        ],
-      },
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, s-maxage=3600, stale-while-revalidate=86400",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
-          {
-            key: "X-DNS-Prefetch-Control",
-            value: "on",
-          },
-          {
-            // Early hints: preconnect to image CDN and font origin
-            key: "Link",
-            value: [
-              "<https://aue2kormlworkspacetest01.blob.core.windows.net>; rel=preconnect",
-              "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
-            ].join(", "),
           },
         ],
       },
@@ -4089,7 +4216,8 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/microsoft-dynamics-crm-implementation-partners",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
       permanent: true,
     },
     {

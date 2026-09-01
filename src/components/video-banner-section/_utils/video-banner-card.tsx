@@ -4,7 +4,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import DownloadForm from "@/components/news-room/_utils/download-form";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
-import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 import { useEffect, useState } from "react";
 import { IsgBannerPopup } from "./isg-popup";
@@ -17,7 +17,11 @@ type VideoBannerCardProps = {
 };
 
 const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
-  const [isDesktop, setIsDesktop] = useState<boolean>(true); // Default to desktop for SSR
+  // Mobile-first default (matches useMobile() elsewhere in the codebase):
+  // both branches below autoplay their <video>, so defaulting to desktop
+  // meant real mobile visitors briefly rendered — and autoplay-fetched —
+  // the desktop video before this corrected on mount.
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -49,17 +53,6 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
     return () => {
       document.removeEventListener("click", handleClick);
     };
-  }, []);
-  useEffect(() => {
-    // Only run on client
-    const checkDevice = () => {
-      setIsDesktop(window.innerWidth >= 1024);
-    };
-
-    checkDevice();
-    window.addEventListener("resize", checkDevice);
-
-    return () => window.removeEventListener("resize", checkDevice);
   }, []);
   return (
     <div className={cn("relative w-full ", className)}>
@@ -136,9 +129,9 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
               {data?.form && (
                 <div className="col-span-4 flex  justify-end">
                   <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
-                    <TurnstileProvider>
+                    <RecaptchaProvider>
                       <DownloadForm />
-                    </TurnstileProvider>
+                    </RecaptchaProvider>
                   </div>
                 </div>
               )}
@@ -179,15 +172,15 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
           </div>
           {data?.form && (
             <div className="p-5 rounded-2xl shadow-2xl">
-              <TurnstileProvider>
+              <RecaptchaProvider>
                 <DownloadForm />
-              </TurnstileProvider>
+              </RecaptchaProvider>
             </div>
           )}
         </div>
       )}
       <>
-        <TurnstileProvider>
+        <RecaptchaProvider>
           <IsgBannerPopup
             data={data?.sapForm?.forms?.[0]}
             isOpen={isPopupOpen}
@@ -196,7 +189,7 @@ const VideoBannerCard = ({ data, className }: VideoBannerCardProps) => {
             formDescription={data?.formDescription}
             formImage={data?.formImage}
           />
-        </TurnstileProvider>
+        </RecaptchaProvider>
       </>
     </div>
   );

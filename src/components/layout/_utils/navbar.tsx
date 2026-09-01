@@ -56,7 +56,7 @@ export function Navbar({ data }: { data: LayoutType | null }) {
           >
             {/* Logo with enhanced animation */}
             <div className="flex items-center group cursor-pointer">
-              <Link href={"/"} className="flex items-center space-x-2">
+              <Link href={"/"} className="flex items-center space-x-2" aria-label="Korcomptenz Logo">
                 <KorcomptenzImage
                   className="size-full"
                   src={data?.company?.companyFullLogo}
@@ -71,7 +71,7 @@ export function Navbar({ data }: { data: LayoutType | null }) {
               {data?.navItems
                 .filter((item) => !item?.isButton)
                 .map((item) => (
-                  <Link
+                  <Link aria-label={`${item?.label}`}
                     key={`nav-item-${item?.label}`}
                     href={item?.href || "#"}
                     onClick={() => setActiveSection("")}
@@ -320,6 +320,7 @@ export function Navbar({ data }: { data: LayoutType | null }) {
                         <Link
                           key={`social-platform-${social.id}`}
                           href={social?.link || "/"}
+                          aria-label={social?.label || "Social media link"}
                           className="w-6 h-6 rounded-lg flex items-center justify-center"
                         >
                           <KorcomptenzImage

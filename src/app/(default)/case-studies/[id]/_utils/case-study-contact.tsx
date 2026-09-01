@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormData } from "@/utils/validation.schema";
 import { useCaseStudyLeadHook } from "@/services";
 import { errorSet, notify } from "@/utils/helper";
-import { useCaptchaToken } from "@/lib/turnstile";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues = {
   fullName: "",
@@ -55,7 +55,7 @@ export function CaseStudyForm({
       }
       const data2 = {
         ...formdata,
-        turnstileToken: captchaToken,
+        recaptchaToken: captchaToken,
       };
 
       try {

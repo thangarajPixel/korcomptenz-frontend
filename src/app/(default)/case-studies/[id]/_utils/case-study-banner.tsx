@@ -2,7 +2,7 @@
 
 import { SapBannerPopup } from "@/components/banner-section/_utils/sap-popup";
 import KorcomptenzImage from "@/components/korcomptenz-image";
-import { TurnstileProvider } from "@/components/providers/turnstile-provider";
+import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 import ButtonLink from "@/components/ui/button-link";
 import { useState } from "react";
 
@@ -60,7 +60,7 @@ export function CaseStudyBanner({
             className="object-cover size-full    md:rounded-none  rounded-b-4xl md:rounded-r-4xl  "
           />
         </div>
-      </div><><TurnstileProvider>
+      </div><><RecaptchaProvider>
             <SapBannerPopup
               data={data?.form?.forms?.[0]}
               isOpen={isPopupOpen}
@@ -69,7 +69,7 @@ export function CaseStudyBanner({
               formDescription={data?.formDescription}
               formImage={data?.formImage}
               
-            /></TurnstileProvider></>
+            /></RecaptchaProvider></>
     </section>
   );
 }

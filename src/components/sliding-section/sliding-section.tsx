@@ -41,7 +41,11 @@ export default function SlidingSection({
                 loop
                 muted
                 playsInline
-                preload={isMobile ? "auto" : "auto"}
+                // Mobile never autoplays (autoPlay is always false here), so
+                // there is no reason to eagerly download the whole file —
+                // "metadata" still gives a first-frame poster without the
+                // full-body fetch that was competing with LCP for bandwidth.
+                preload={isMobile ? "metadata" : "auto"}
               />
             )}
 
@@ -114,7 +118,24 @@ export default function SlidingSection({
                     <KorcomptenzImage
                       src={slide?.logo}
                       width={350}
-                      height={350}
+                      // The declared width/height set the image's reserved
+                      // aspect ratio before it loads; the asset's own real
+                      // aspect ratio (from its CMS-stored dimensions) wins
+                      // once it loads, so a hardcoded square height here
+                      // caused a reflow for non-square logos. Deriving the
+                      // height from the actual asset ratio keeps the two in
+                      // sync from the first paint.
+                      height={
+                        slide.logo.width && slide.logo.height
+                          ? Math.round(
+                              (slide.logo.height / slide.logo.width) * 350,
+                            )
+                          : 350
+                      }
+                      // Fixed-size logo (no responsive className scaling it),
+                      // never wider than 350px — avoids requesting the same
+                      // oversized 100vw candidate as the full-bleed images.
+                      sizes="350px"
                       className=" object-contain rounded-xl mb-2"
                     />
                   )}

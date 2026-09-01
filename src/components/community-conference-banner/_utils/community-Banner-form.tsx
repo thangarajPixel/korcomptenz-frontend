@@ -14,7 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 
 import { ComboboxWhite } from "@/components/ui/comboboxWhite";
-import { useCaptchaToken } from "@/lib/turnstile";
+import { useCaptchaToken } from "@/lib/recaptcha";
 
 const defaultValues: CommunityDecisionLeadSchema = {
   fullName: "",
@@ -86,7 +86,7 @@ const CommunityBannerForm = ({ form }: { form: fromDataType }) => {
         }
         const data = {
           ...formdata,
-          turnstileToken: captchaToken,
+          recaptchaToken: captchaToken,
         };
         try {
           const response = await mutateAsync(data);

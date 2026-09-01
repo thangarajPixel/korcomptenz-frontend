@@ -39,6 +39,7 @@ const CardSwiperArrow = ({
         {/* arrows */}
         <button
           onClick={scrollPrev}
+          aria-label="Previous slide"
           className="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full text-white"
         >
           <ChevronLeft className="w-16 h-16 stroke-[1.5]" />
@@ -46,6 +47,7 @@ const CardSwiperArrow = ({
 
         <button
           onClick={scrollNext}
+          aria-label="Next slide"
           className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full text-white"
         >
           <ChevronRight className="w-16 h-16 stroke-[1.5]" />

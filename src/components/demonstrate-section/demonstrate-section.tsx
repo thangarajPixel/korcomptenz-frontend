@@ -31,18 +31,23 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
               </p>
             )}
           </div>
-          {data?.buttonText && (
-            <ButtonLink
-              link={data?.link || "#"}
-              buttonProps={{
-                size: "xl",
-                arrow: true,
-                className:
-                  "hidden lg:inline-flex variant:default px-8 py-2 text-4xl rounded-full ",
-              }}
-            >
-              {data?.buttonText}
-            </ButtonLink>
+          {data?.buttonText?.trim() && (
+            // Button only visible at lg+ (`hidden lg:inline-flex`); wrapper
+            // must hide with it below that breakpoint too, or the <a> is
+            // left as an empty, focusable, zero-size element.
+            <div className="hidden lg:contents">
+              <ButtonLink
+                link={data?.link || "#"}
+                buttonProps={{
+                  size: "xl",
+                  arrow: true,
+                  className:
+                    "inline-flex variant:default px-8 py-2 text-4xl rounded-full ",
+                }}
+              >
+                {data?.buttonText}
+              </ButtonLink>
+            </div>
           )}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:p-10 ">
@@ -84,18 +89,24 @@ const DemonstrateSection = ({ data }: { data: DemonstrationSectionType }) => {
             );
           })}
         </div>
-        <ButtonLink
-          link={data?.link || "#"}
-          isTargetNew={data?.isTargetBlank}
-          buttonProps={{
-            size: "xl",
-            arrow: true,
-            className:
-              " w-full lg:hidden variant:default px-8 py-2 text-4xl rounded-full mt-10",
-          }}
-        >
-          {data?.buttonText}
-        </ButtonLink>
+        {data?.buttonText?.trim() && (
+          // Mirror of the fix above: this button is only visible below lg
+          // (`lg:hidden`), so the wrapper hides together with it at lg+.
+          <div className="contents lg:hidden">
+            <ButtonLink
+              link={data?.link || "#"}
+              isTargetNew={data?.isTargetBlank}
+              buttonProps={{
+                size: "xl",
+                arrow: true,
+                className:
+                  "w-full variant:default px-8 py-2 text-4xl rounded-full mt-10",
+              }}
+            >
+              {data?.buttonText}
+            </ButtonLink>
+          </div>
+        )}
       </div>
     </section>
   );

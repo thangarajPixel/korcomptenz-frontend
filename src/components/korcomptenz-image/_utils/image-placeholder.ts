@@ -16,11 +16,38 @@ export function createShimmer(width: number, height: number): string {
     </svg>`;
 }
 
+// Environment-agnostic base64 encoder: `Buffer` isn't guaranteed to exist in
+// the client bundle and `btoa` isn't guaranteed server-side, and branching on
+// `typeof window` to pick between them means this module-level constant can
+// be computed differently between the server render and the client's first
+// (hydration) render — a classic source of hydration mismatches. This avoids
+// both globals so the output is byte-identical in every environment.
+const BASE64_CHARS =
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+
 export function toBase64(str: string): string {
-  return typeof window === 'undefined'
-    // eslint-disable-next-line node/prefer-global/buffer
-    ? Buffer.from(str).toString('base64')
-    : window.btoa(str);
+  let result = '';
+  for (let i = 0; i < str.length; i += 3) {
+    const byte1 = str.charCodeAt(i);
+    const byte2 = str.charCodeAt(i + 1);
+    const byte3 = str.charCodeAt(i + 2);
+    const hasByte2 = i + 1 < str.length;
+    const hasByte3 = i + 2 < str.length;
+
+    const enc1 = byte1 >> 2;
+    const enc2 = ((byte1 & 3) << 4) | (hasByte2 ? byte2 >> 4 : 0);
+    const enc3 = hasByte2
+      ? ((byte2 & 15) << 2) | (hasByte3 ? byte3 >> 6 : 0)
+      : 64;
+    const enc4 = hasByte3 ? byte3 & 63 : 64;
+
+    result +=
+      BASE64_CHARS.charAt(enc1) +
+      BASE64_CHARS.charAt(enc2) +
+      (enc3 === 64 ? '=' : BASE64_CHARS.charAt(enc3)) +
+      (enc4 === 64 ? '=' : BASE64_CHARS.charAt(enc4));
+  }
+  return result;
 }
 
 export function getImagePlaceholder(width = 700, height = 475): PlaceholderValue {

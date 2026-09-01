@@ -122,6 +122,7 @@ export function VideoPopup({
         {isYouTube || isVimeo ? (
           <iframe
             src={embedUrl}
+            title={title || "Video player"}
             className="w-full h-full"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen

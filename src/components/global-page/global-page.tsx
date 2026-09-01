@@ -1,137 +1,263 @@
-import { InsightsSection } from "../insight-section";
-import InspireSection from "../inspire-section";
-import Opportunities from "../opportunities";
-import ServicesSection from "../services-section";
-import SlidingSection from "../sliding-section";
-import { StickyCards, CaseStudyStickyCards } from "../sticky-cards";
-import WeAreKorcomptenzSection from "../we-are-korcomptenz";
-import BannerSection from "../banner-section";
-import SapSection from "../sap-section";
-import LightSlider from "../light-slider";
-import DarkSlider from "../dark-slider";
-import { DomainSection, CaseStudyDomainSection } from "../domain-section";
-import BenefitSection from "../benefit-section";
-import FaqSection from "../faq-section";
-import { StickyTitleList } from "../sticky-title-list";
-import DemonstrateSection from "../demonstrate-section";
-import BuildConnect from "../build-connect";
-import TechPartner from "../tech-partner-section";
-import ScheduleCall from "../layout/_utils/schedule";
-import StretchableSection from "../stretchable-section";
-import WhyKorcomptenz from "../why-korcomptenz/why-korcomptenz";
-import GramBanner from "../gram-banner/gram-banner";
-import { GlobalForm } from "../global-form";
-import {
-  ClientPartnership,
-  ClientTestimonial,
-} from "@/app/(default)/case-studies/_utils";
-import ContentShowcaseSection from "../content-showcase-section";
-import MapSection from "../map-section";
-import OurStory from "../our-story";
-import PeopleShowcaseSection from "../people-showcase-section";
-import StatsSection from "../stats-section";
-import MediaSliderSection from "../media-slider-section";
-import MasonryGallerySection from "../masonry-gallery-section/masonry-gallery-section";
-import AchievementSection from "../achievements-section";
-import NotFound from "../not-found";
-import PanchatattvaSection from "../panchatattva-section";
-import OpenJobs from "../open-jobs";
-import { ContactUsNewsletter } from "../news-letter-section";
-import {
-  ContactUsCorporate,
-  ContactUsInsight,
-  ContactUsOffice,
-} from "@/app/(default)/contact-us/_utils";
-import FixedFooter from "../fixed-footer";
-import ContactUsForm from "@/app/(default)/contact-us/_utils/contact-us-form-section";
-import DemoBannerSection from "../demo-banner-section";
-import LiveDemoList from "@/app/(default)/live-demo/_utils/live-demo-list";
-import DemoPartnership from "@/app/(default)/live-demo/_utils/demo-partnership";
-import DemoExperts from "@/app/(default)/live-demo/_utils/demo-experts";
-import DemoOpportunities from "@/app/(default)/live-demo/_utils/demo-opportunities";
-import DemoWhyAttend from "@/app/(default)/live-demo/_utils/demo-why-attend";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import { ScrollFadeIn } from "../ui/scroll-fade-in";
-import BuildDemo from "../build-connect/build-Demo";
-import PricingSection from "../pricing-section";
-import KorCareBuildData from "../kor-care-build-data";
-import KorCareImpactDescription from "../kor-care-impact-description";
-import KorCareAward from "../kor-care-award-section/kor-care-award";
-import KorCareSlider from "../kor-care-slider-section";
-import KorCareImpactHighlight from "../kor-care-impact-highlight";
-import NewsEventListSection from "../news-event-list-section";
-import { DescriptionOnly, TitleDescription } from "../description-section";
-import { CombinedSection, NewsRoomSlider, ServiceProvider } from "../news-room";
-import VideoBannerSection from "../video-banner-section";
-import NewsRoomBuild from "../news-room/_utils/news-room-build";
 
-import DigitialBenefits from "../digitial-benefits/digitial-benefits";
-import KpiPartner from "../kpi-partner";
-import DigitalServiceSection from "../digitial-services-section";
-import { DigitialCardSlider } from "../digitial-card-slider";
-import { DigitialAboutSection } from "../digitial-about-section";
-import { DigitalErpList } from "../digitial-erp-list";
-import DigitialAnalytics from "../digitial-analytics/digitial-analytics";
+// Every CMS section below is code-split via next/dynamic (ssr stays on, so
+// server-rendered HTML is unchanged) instead of being statically imported.
+// A typical page only renders a fraction of these ~140 component types, so
+// splitting avoids shipping the JS for every unused one to every route.
+const InsightsSection = dynamic(() =>
+  import("../insight-section").then((m) => m.InsightsSection),
+);
+const InspireSection = dynamic(() => import("../inspire-section"));
+const Opportunities = dynamic(() => import("../opportunities"));
+const ServicesSection = dynamic(() => import("../services-section"));
+const SlidingSection = dynamic(() => import("../sliding-section"));
+const StickyCards = dynamic(() =>
+  import("../sticky-cards").then((m) => m.StickyCards),
+);
+const CaseStudyStickyCards = dynamic(() =>
+  import("../sticky-cards").then((m) => m.CaseStudyStickyCards),
+);
+const WeAreKorcomptenzSection = dynamic(() => import("../we-are-korcomptenz"));
+const BannerSection = dynamic(() => import("../banner-section"));
+const SapSection = dynamic(() => import("../sap-section"));
+const LightSlider = dynamic(() => import("../light-slider"));
+const DarkSlider = dynamic(() => import("../dark-slider"));
+const DomainSection = dynamic(() =>
+  import("../domain-section").then((m) => m.DomainSection),
+);
+const CaseStudyDomainSection = dynamic(() =>
+  import("../domain-section").then((m) => m.CaseStudyDomainSection),
+);
+const BenefitSection = dynamic(() => import("../benefit-section"));
+const FaqSection = dynamic(() => import("../faq-section"));
+const StickyTitleList = dynamic(() =>
+  import("../sticky-title-list").then((m) => m.StickyTitleList),
+);
+const DemonstrateSection = dynamic(() => import("../demonstrate-section"));
+const BuildConnect = dynamic(() => import("../build-connect"));
+const TechPartner = dynamic(() => import("../tech-partner-section"));
+const ScheduleCall = dynamic(() => import("../layout/_utils/schedule"));
+const StretchableSection = dynamic(() => import("../stretchable-section"));
+const WhyKorcomptenz = dynamic(
+  () => import("../why-korcomptenz/why-korcomptenz"),
+);
+const GramBanner = dynamic(() => import("../gram-banner/gram-banner"));
+const GlobalForm = dynamic(() =>
+  import("../global-form").then((m) => m.GlobalForm),
+);
+const ClientPartnership = dynamic(() =>
+  import("@/app/(default)/case-studies/_utils").then(
+    (m) => m.ClientPartnership,
+  ),
+);
+const ClientTestimonial = dynamic(() =>
+  import("@/app/(default)/case-studies/_utils").then(
+    (m) => m.ClientTestimonial,
+  ),
+);
+const ContentShowcaseSection = dynamic(
+  () => import("../content-showcase-section"),
+);
+const MapSection = dynamic(() => import("../map-section"));
+const OurStory = dynamic(() => import("../our-story"));
+const PeopleShowcaseSection = dynamic(
+  () => import("../people-showcase-section"),
+);
+const StatsSection = dynamic(() => import("../stats-section"));
+const MediaSliderSection = dynamic(() => import("../media-slider-section"));
+const MasonryGallerySection = dynamic(
+  () => import("../masonry-gallery-section/masonry-gallery-section"),
+);
+const AchievementSection = dynamic(() => import("../achievements-section"));
+const NotFound = dynamic(() => import("../not-found"));
+const PanchatattvaSection = dynamic(() => import("../panchatattva-section"));
+const OpenJobs = dynamic(() => import("../open-jobs"));
+const ContactUsNewsletter = dynamic(() =>
+  import("../news-letter-section").then((m) => m.ContactUsNewsletter),
+);
+const ContactUsCorporate = dynamic(() =>
+  import("@/app/(default)/contact-us/_utils").then((m) => m.ContactUsCorporate),
+);
+const ContactUsInsight = dynamic(() =>
+  import("@/app/(default)/contact-us/_utils").then((m) => m.ContactUsInsight),
+);
+const ContactUsOffice = dynamic(() =>
+  import("@/app/(default)/contact-us/_utils").then((m) => m.ContactUsOffice),
+);
+const FixedFooter = dynamic(() => import("../fixed-footer"));
+const ContactUsForm = dynamic(
+  () => import("@/app/(default)/contact-us/_utils/contact-us-form-section"),
+);
+const DemoBannerSection = dynamic(() => import("../demo-banner-section"));
+const LiveDemoList = dynamic(
+  () => import("@/app/(default)/live-demo/_utils/live-demo-list"),
+);
+const DemoPartnership = dynamic(
+  () => import("@/app/(default)/live-demo/_utils/demo-partnership"),
+);
+const DemoExperts = dynamic(
+  () => import("@/app/(default)/live-demo/_utils/demo-experts"),
+);
+const DemoOpportunities = dynamic(
+  () => import("@/app/(default)/live-demo/_utils/demo-opportunities"),
+);
+const DemoWhyAttend = dynamic(
+  () => import("@/app/(default)/live-demo/_utils/demo-why-attend"),
+);
+const BuildDemo = dynamic(() => import("../build-connect/build-Demo"));
+const PricingSection = dynamic(() => import("../pricing-section"));
+const KorCareBuildData = dynamic(() => import("../kor-care-build-data"));
+const KorCareImpactDescription = dynamic(
+  () => import("../kor-care-impact-description"),
+);
+const KorCareAward = dynamic(
+  () => import("../kor-care-award-section/kor-care-award"),
+);
+const KorCareSlider = dynamic(() => import("../kor-care-slider-section"));
+const KorCareImpactHighlight = dynamic(
+  () => import("../kor-care-impact-highlight"),
+);
+const NewsEventListSection = dynamic(
+  () => import("../news-event-list-section"),
+);
+const DescriptionOnly = dynamic(() =>
+  import("../description-section").then((m) => m.DescriptionOnly),
+);
+const TitleDescription = dynamic(() =>
+  import("../description-section").then((m) => m.TitleDescription),
+);
+const CombinedSection = dynamic(() =>
+  import("../news-room").then((m) => m.CombinedSection),
+);
+const NewsRoomSlider = dynamic(() =>
+  import("../news-room").then((m) => m.NewsRoomSlider),
+);
+const ServiceProvider = dynamic(() =>
+  import("../news-room").then((m) => m.ServiceProvider),
+);
+const VideoBannerSection = dynamic(() => import("../video-banner-section"));
+const NewsRoomBuild = dynamic(
+  () => import("../news-room/_utils/news-room-build"),
+);
 
-import { DigitialLifeCycle } from "../digitial-life-cycle";
-import DigitialInsightSlider from "../dark-slider copy";
-import CombinedAboutCardSlider from "../digitial-combined/digitial-combined";
-import OperationalRoadblock from "../smartforge-operational-Roadblock";
-import SmartForgeEnterprises from "../smartforge-enterprises";
-import SmartForgeBuild from "../smartforge-build";
-import DigitialCard from "../digitial-card/digitial-card";
-import ExpertMigration from "../expert-migration/expert-migration";
-import FabconAiPowered from "../fabcon-ai-powered/fabcon-ai-powered";
-import FabconAbout from "../fabcon-about";
-import FabconAnalytics from "../fabcon-analytics";
-import FabconSmartForge from "../fabcon-smart-forge";
-import FabconExperts from "../fabcon-experts";
-import FabconLedTransform from "../fabcon-led-transform";
-import FabconComposableIntelligence from "../fabcon-composable-intelligence";
-import FabconDecisionFabric from "../fabcon-decision-fabric";
-import FabconBanner from "../fabcon-banner/fabcon-banner";
-import CommunityBanner from "../community-conference-banner/community-conference-banner";
-import FabconMidMarket from "../fabcon-midmarket";
-import LogoSlider from "../logo-slider";
-import SapImplementation from "../sap-implementation";
-import SliderServiceSection from "../slider-services-section/slider-services-section";
-import MicrosoftGoldCertified from "../microsoft-certified";
+const DigitialBenefits = dynamic(
+  () => import("../digitial-benefits/digitial-benefits"),
+);
+const KpiPartner = dynamic(() => import("../kpi-partner"));
+const DigitalServiceSection = dynamic(
+  () => import("../digitial-services-section"),
+);
+const DigitialCardSlider = dynamic(() =>
+  import("../digitial-card-slider").then((m) => m.DigitialCardSlider),
+);
+const DigitialAboutSection = dynamic(() =>
+  import("../digitial-about-section").then((m) => m.DigitialAboutSection),
+);
+const DigitalErpList = dynamic(() =>
+  import("../digitial-erp-list").then((m) => m.DigitalErpList),
+);
+const DigitialAnalytics = dynamic(
+  () => import("../digitial-analytics/digitial-analytics"),
+);
 
-import KeyMetricsSection from "../key-metrics-section";
-import SapWhyKorcomptenz from "../sap-why-korcomptenz";
-import WhattoExpect from "../what-to-expect";
-import { SAPPracticeAreas } from "../sap-practice-areas";
-import SAPClientTestimonial from "../client-testimonial";
-import CertificationsSection from "../certifications-section";
-import RequestConsultation from "../request-consultation";
+const DigitialLifeCycle = dynamic(() =>
+  import("../digitial-life-cycle").then((m) => m.DigitialLifeCycle),
+);
+const DigitialInsightSlider = dynamic(() => import("../dark-slider copy"));
+const CombinedAboutCardSlider = dynamic(
+  () => import("../digitial-combined/digitial-combined"),
+);
+const OperationalRoadblock = dynamic(
+  () => import("../smartforge-operational-Roadblock"),
+);
+const SmartForgeEnterprises = dynamic(
+  () => import("../smartforge-enterprises"),
+);
+const SmartForgeBuild = dynamic(() => import("../smartforge-build"));
+const DigitialCard = dynamic(() => import("../digitial-card/digitial-card"));
+const ExpertMigration = dynamic(
+  () => import("../expert-migration/expert-migration"),
+);
+const FabconAiPowered = dynamic(
+  () => import("../fabcon-ai-powered/fabcon-ai-powered"),
+);
+const FabconAbout = dynamic(() => import("../fabcon-about"));
+const FabconAnalytics = dynamic(() => import("../fabcon-analytics"));
+const FabconSmartForge = dynamic(() => import("../fabcon-smart-forge"));
+const FabconExperts = dynamic(() => import("../fabcon-experts"));
+const FabconLedTransform = dynamic(() => import("../fabcon-led-transform"));
+const FabconComposableIntelligence = dynamic(
+  () => import("../fabcon-composable-intelligence"),
+);
+const FabconDecisionFabric = dynamic(() => import("../fabcon-decision-fabric"));
+const FabconBanner = dynamic(() => import("../fabcon-banner/fabcon-banner"));
+const CommunityBanner = dynamic(
+  () => import("../community-conference-banner/community-conference-banner"),
+);
+const FabconMidMarket = dynamic(() => import("../fabcon-midmarket"));
+const LogoSlider = dynamic(() => import("../logo-slider"));
+const SapImplementation = dynamic(() => import("../sap-implementation"));
+const SliderServiceSection = dynamic(
+  () => import("../slider-services-section/slider-services-section"),
+);
+const MicrosoftGoldCertified = dynamic(() => import("../microsoft-certified"));
 
-import IndustryBannerSection from "../industry-banner";
-import IndustryAbout from "../industry-about";
-import IndustrySpotlight from "../industry-spotlight";
-import IndustryIntelligence from "../industry-intelligence";
-import IndustryFeaturedContent from "../industry-featured-content/industry-featured-content";
-import IndustryServicePortfolio from "../industry-service-portfolio";
-import CloudRecognitionSlider from "../cloud-recognition-slider/cloud-recognition-slider";
-import CloudWarning from "../cloud-warning";
-import CloudMigrationHandle from "../cloud-migration-handle/cloud-migration-handle";
-import CloudTechnology from "../cloud-technology";
-import CloudOnePlatform from "../cloud-one-platform";
-import CloudFirstCall from "../cloud-first-call";
-import CloudAiPowered from "../cloud-ai-powered";
-import CloudBuildPeople from "../cloud-build-people";
-import CloudKeyOfferings from "../cloud-key-offerings";
-import CloudReadiness from "../cloud-Readiness/cloud-Readiness";
-import CloudBanner from "../cloud-banner/cloud-banner";
-import StepGridSection from "../step-grid-section";
-import TabSection from "../tab-section";
-import GridSystem from "../grid-system";
-import ChecklistSection from "../altiaris-checklist";
-import NewsLetterBannner from "../newsletter-banner";
-import NewsLetterLeaderShip from "../newsletter-leadership-message";
-import NewsLetterDescription from "../newsletter-description";
-import NewsLetterFooterSection from "../newsletter-footer";
-import FullWidthGramSection from "../full-width-gram-banner";
-import CustomScriptSection from "../custom-script";
-import HomeSlidingSection from "../home-sliding-section";
+const KeyMetricsSection = dynamic(() => import("../key-metrics-section"));
+const SapWhyKorcomptenz = dynamic(() => import("../sap-why-korcomptenz"));
+const WhattoExpect = dynamic(() => import("../what-to-expect"));
+const SAPPracticeAreas = dynamic(() =>
+  import("../sap-practice-areas").then((m) => m.SAPPracticeAreas),
+);
+const SAPClientTestimonial = dynamic(() => import("../client-testimonial"));
+const CertificationsSection = dynamic(
+  () => import("../certifications-section"),
+);
+const RequestConsultation = dynamic(() => import("../request-consultation"));
+
+const IndustryBannerSection = dynamic(() => import("../industry-banner"));
+const IndustryAbout = dynamic(() => import("../industry-about"));
+const IndustrySpotlight = dynamic(() => import("../industry-spotlight"));
+const IndustryIntelligence = dynamic(() => import("../industry-intelligence"));
+const IndustryFeaturedContent = dynamic(
+  () => import("../industry-featured-content/industry-featured-content"),
+);
+const IndustryServicePortfolio = dynamic(
+  () => import("../industry-service-portfolio"),
+);
+const CloudRecognitionSlider = dynamic(
+  () => import("../cloud-recognition-slider/cloud-recognition-slider"),
+);
+const CloudWarning = dynamic(() => import("../cloud-warning"));
+const CloudMigrationHandle = dynamic(
+  () => import("../cloud-migration-handle/cloud-migration-handle"),
+);
+const CloudTechnology = dynamic(() => import("../cloud-technology"));
+const CloudOnePlatform = dynamic(() => import("../cloud-one-platform"));
+const CloudFirstCall = dynamic(() => import("../cloud-first-call"));
+const CloudAiPowered = dynamic(() => import("../cloud-ai-powered"));
+const CloudBuildPeople = dynamic(() => import("../cloud-build-people"));
+const CloudKeyOfferings = dynamic(() => import("../cloud-key-offerings"));
+const CloudReadiness = dynamic(
+  () => import("../cloud-Readiness/cloud-Readiness"),
+);
+const CloudBanner = dynamic(() => import("../cloud-banner/cloud-banner"));
+const StepGridSection = dynamic(() => import("../step-grid-section"));
+const TabSection = dynamic(() => import("../tab-section"));
+const GridSystem = dynamic(() => import("../grid-system"));
+const ChecklistSection = dynamic(() => import("../altiaris-checklist"));
+const NewsLetterBannner = dynamic(() => import("../newsletter-banner"));
+const NewsLetterLeaderShip = dynamic(
+  () => import("../newsletter-leadership-message"),
+);
+const NewsLetterDescription = dynamic(
+  () => import("../newsletter-description"),
+);
+const NewsLetterFooterSection = dynamic(() => import("../newsletter-footer"));
+const FullWidthGramSection = dynamic(() => import("../full-width-gram-banner"));
+const CustomScriptSection = dynamic(() => import("../custom-script"));
+const HomeSlidingSection = dynamic(() => import("../home-sliding-section"));
 
 type Props = {
   data: ComponentPropsType[];
@@ -568,7 +694,11 @@ const GlobalPage = (props: Props) => {
             __component={item?.__component}
             key={`open-jobs-${item?.__component}-${item?.id}`}
           >
-            <OpenJobs data={item} />
+            {/* OpenJobs uses useSearchParams(), which requires a Suspense
+                boundary during static rendering/build. */}
+            <Suspense fallback={null}>
+              <OpenJobs data={item} />
+            </Suspense>
           </ScrollFadeIn>
         );
       case "contact-us.news-letter":
