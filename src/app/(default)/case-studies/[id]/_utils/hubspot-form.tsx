@@ -4,7 +4,7 @@ import Script from "next/script";
 export function HubspotForm() {
   return (
     <>
-      <div id="hubspot-form-blog" />
+      <div id="hubspot-form-casestudy" />
       <Script
         src="https://js.hsforms.net/forms/embed/v2.js"
         strategy="afterInteractive"
@@ -12,9 +12,9 @@ export function HubspotForm() {
           if (window.hbspt) {
             window.hbspt.forms.create({
               portalId: "7991245",
-              formId: "ac9fb068-c0c9-435f-bd61-65f599391155",
+              formId: "89ae85c4-f137-4b8a-901d-fc3ab2e0f82e",
               region: "na1",
-              target: "#hubspot-form-blog",
+              target: "#hubspot-form-casestudy",
             });
           }
         }}
