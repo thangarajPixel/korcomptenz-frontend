@@ -2,12 +2,10 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 import ButtonLink from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 import { DangerousHtml } from "@/components/ui/dangerous-html";
-
 // import ConsultationForm from "@/components/layout/_utils/consultation-form";
 // import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 
 import { HubspotForm } from "./hubspot-form";
-
 
 const ScheduleCall = ({
   scheduleCall,
@@ -15,7 +13,7 @@ const ScheduleCall = ({
 }: {
   scheduleCall: ScheduleCallType;
   isLastIndex: boolean;
-  essential?: { id: string | number;[key: string]: unknown };
+  essential?: { id: string | number; [key: string]: unknown };
 }) => {
   return (
     <div
@@ -86,8 +84,9 @@ const ScheduleCall = ({
                 borderRadius: "20px",
               }}
             >
-
               {/* <TurnstileProvider>
+
+              <TurnstileProvider>
 
 
                 <ConsultationForm
@@ -102,30 +101,11 @@ const ScheduleCall = ({
                   formbuttonText={scheduleCall?.formbuttonText}
                 />
 
-              </TurnstileProvider>
-
               </TurnstileProvider> */}
 
               <HubspotForm />
             </div>
           </div>
-
-          <ButtonLink
-            link={scheduleCall?.link || "#"}
-            buttonProps={{
-              size: "lg",
-              arrow: true,
-              className:
-                "text-sm hover:bg-transparent mt-5 lg:hidden " +
-                "w-full sm:w-1/2 " +
-                "flex items-center justify-center text-center py-6",
-            }}
-          >
-            <p className="w-full whitespace-normal break-words">
-              {scheduleCall?.buttonText}
-            </p>
-          </ButtonLink>
-
         </div>
       </div>
     </div>
