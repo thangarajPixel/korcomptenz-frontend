@@ -4097,6 +4097,11 @@ const nextConfig: NextConfig = {
       destination: "/industries/nonprofit",
       permanent: true,
     },
+    {
+      source: "/rpa-for-pharma-industry",
+      destination: "/rpa/rpa-for-pharma-industry",
+      permanent: true,
+    },
   ],
 };
 
