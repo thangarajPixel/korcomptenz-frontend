@@ -4236,6 +4236,11 @@ const nextConfig: NextConfig = {
       destination: "/rpa/rpa-for-pharma-industry",
       permanent: true,
     },
+    {
+      source: "/sap-ecc-to-dynamics-365-fo-migration",
+      destination: "/sap/sap-ecc-to-dynamics-365-fo-migration",
+      permanent: true,
+    },
   ],
 };
 
