@@ -420,6 +420,18 @@ type DomainSectionType = {
     link: string;
   }[];
 };
+type MomentumSliderType = {
+  subtitle: string;
+  title: string;
+  description: string;
+
+  Cards: {
+    id: number;
+    title: string;
+    image: ImageType;
+    description: string;
+  }[];
+};
 type BenefitSectionType = {
   title: string;
   description: string;
@@ -1954,6 +1966,10 @@ type ComponentPropsMap = {
   DomainSection: DomainSectionType & {
     id: string;
     __component: "page-componets.domain-data";
+  };
+  MomentumSection: MomentumSliderType & {
+    id: string;
+    __component: "page-componets.momentum-slider";
   };
   BenefitSection: BenefitSectionType & {
     id: string;

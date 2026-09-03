@@ -21,6 +21,7 @@ import StretchableSection from "../stretchable-section";
 import WhyKorcomptenz from "../why-korcomptenz/why-korcomptenz";
 import GramBanner from "../gram-banner/gram-banner";
 import { GlobalForm } from "../global-form";
+import MomentumSection from "../momentum-slider";
 import {
   ClientPartnership,
   ClientTestimonial,
@@ -422,6 +423,17 @@ const GlobalPage = (props: Props) => {
             className="container-md"
           >
             <WhyKorcomptenz data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.momentum-slider":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`momentum-slider-${item?.__component}-${item?.id}`}
+            className="container-md"
+          >
+            <MomentumSection momentumData={item} />
           </ScrollFadeIn>
         );
       case "page-componets.gram-banner":
