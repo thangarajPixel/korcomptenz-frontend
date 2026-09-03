@@ -9,8 +9,6 @@ import { notFound } from "next/navigation";
 type Props = {
   params: Promise<{ slug: string[] }>;
 };
-export const revalidate = 3600;
-
 const SYSTEM_FILES = ["robots.txt", "sitemap.xml"];
 const getPageServiceCache = cache(getPageService);
 

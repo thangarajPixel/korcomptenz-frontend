@@ -6,7 +6,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_HTTP_URL;
 const TIMEOUT = 30000;
 
 const httpsAgent = new https.Agent({
-  rejectUnauthorized: true,
+  rejectUnauthorized: false,
 });
 
 const https_client = axios.create({

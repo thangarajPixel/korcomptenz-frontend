@@ -43,7 +43,6 @@ export default function NewsLetterFooterSection({
               html={data.description ?? ""}
             />
           )}
-
           {/* Date */}
           <div className="flex items-center gap-6">
             <span className="text-sm font-medium text-white whitespace-nowrap">
