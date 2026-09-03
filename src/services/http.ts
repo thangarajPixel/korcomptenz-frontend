@@ -7,7 +7,7 @@ const API_BASE_URL = APP_CONFIG?.API_URL;
 const TIMEOUT = 15000; // Reduced from 30s for better TBT
 
 const httpsAgent = new https.Agent({
-  rejectUnauthorized: false,
+  rejectUnauthorized: true,
   keepAlive: true,
   keepAliveMsecs: 1000,
   maxSockets: 50,

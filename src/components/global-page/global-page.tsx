@@ -79,9 +79,7 @@ const ContactUsNewsletter = dynamic(() =>
   import("../news-letter-section").then((m) => m.ContactUsNewsletter),
 );
 const ContactUsCorporate = dynamic(() =>
-  import("@/app/(default)/contact-us/_utils").then(
-    (m) => m.ContactUsCorporate,
-  ),
+  import("@/app/(default)/contact-us/_utils").then((m) => m.ContactUsCorporate),
 );
 const ContactUsInsight = dynamic(() =>
   import("@/app/(default)/contact-us/_utils").then((m) => m.ContactUsInsight),
@@ -194,13 +192,10 @@ const FabconLedTransform = dynamic(() => import("../fabcon-led-transform"));
 const FabconComposableIntelligence = dynamic(
   () => import("../fabcon-composable-intelligence"),
 );
-const FabconDecisionFabric = dynamic(
-  () => import("../fabcon-decision-fabric"),
-);
+const FabconDecisionFabric = dynamic(() => import("../fabcon-decision-fabric"));
 const FabconBanner = dynamic(() => import("../fabcon-banner/fabcon-banner"));
 const CommunityBanner = dynamic(
-  () =>
-    import("../community-conference-banner/community-conference-banner"),
+  () => import("../community-conference-banner/community-conference-banner"),
 );
 const FabconMidMarket = dynamic(() => import("../fabcon-midmarket"));
 const LogoSlider = dynamic(() => import("../logo-slider"));
@@ -261,9 +256,7 @@ const NewsLetterDescription = dynamic(
   () => import("../newsletter-description"),
 );
 const NewsLetterFooterSection = dynamic(() => import("../newsletter-footer"));
-const FullWidthGramSection = dynamic(
-  () => import("../full-width-gram-banner"),
-);
+const FullWidthGramSection = dynamic(() => import("../full-width-gram-banner"));
 const CustomScriptSection = dynamic(() => import("../custom-script"));
 const HomeSlidingSection = dynamic(() => import("../home-sliding-section"));
 

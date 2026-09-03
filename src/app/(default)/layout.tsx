@@ -1,6 +1,8 @@
 import Layout from "@/components/layout";
 import { getLayoutService } from "@/services";
 
+export const revalidate = 3600;
+
 export default async function DefaultLayout({
   children,
 }: {

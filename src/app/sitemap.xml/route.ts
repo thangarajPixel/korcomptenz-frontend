@@ -6,7 +6,7 @@ import type {
   SitemapSection,
 } from "@/types/sitemap-types";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 const BASE_URL = "https://www.korcomptenz.com";
 

@@ -5,6 +5,7 @@ import KorcomptenzImage from "@/components/korcomptenz-image";
 //import { TurnstileProvider } from "@/components/providers/turnstile-provider";
 //import { RecaptchaProvider } from "@/components/providers/recaptcha-provider";
 import { HubspotForm } from "./hubspot-form";
+
 const BlogBuildDemo = ({
   form,
   // essential,

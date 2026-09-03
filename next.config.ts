@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV !== "production";
 
-
 const apiOrigin = (() => {
   try {
     return new URL(process.env.NEXT_PUBLIC_API_URL || "").origin;
@@ -11,10 +10,9 @@ const apiOrigin = (() => {
   }
 })();
 
-
 const scriptSrc = [
   "'self'",
-  "'unsafe-inline'", 
+  "'unsafe-inline'",
   "https://www.googletagmanager.com",
   "https://js.hs-scripts.com",
   "https://js-na1.hs-scripts.com",
@@ -85,14 +83,15 @@ const frameSrc = [
   "https://www.google.com", // Google reCAPTCHA v3's invisible challenge iframe
 ].join(" ");
 
-const mediaSrc = ["'self'", "https://aue2kormlworkspacetest01.blob.core.windows.net"].join(
-  " ",
-);
+const mediaSrc = [
+  "'self'",
+  "https://aue2kormlworkspacetest01.blob.core.windows.net",
+].join(" ");
 
 const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src ${scriptSrc}`,
-  "style-src 'self' 'unsafe-inline'", 
+  "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "font-src 'self' data:",
   `connect-src ${connectSrc}`,
@@ -106,7 +105,6 @@ const contentSecurityPolicy = [
 ]
   .filter(Boolean)
   .join("; ");
-
 
 const permissionsPolicy = [
   "camera=()",
@@ -167,13 +165,12 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
-    dangerouslyAllowSVG: true,
+    dangerouslyAllowSVG: false,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   async headers() {
     return [
- 
       {
         source: "/(.*)",
         headers: [
@@ -4223,7 +4220,8 @@ const nextConfig: NextConfig = {
     },
     {
       source: "/microsoft-dynamics-crm-implementation-partners",
-      destination: "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
+      destination:
+        "/microsoft-dynamics-365/microsoft-dynamics-365-crm-implementation-services",
       permanent: true,
     },
     {

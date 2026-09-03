@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import { getDownloadService } from "./common";
 import http from "./http";
 import type {
@@ -91,8 +92,15 @@ export const getPageService = async ({
 }: {
   slug: string[];
 }): Promise<PagesListType> => {
-  const { data } = await http.get(GLOBAL_PAGE, { params: { slug } });
-  return data;
+  const slugKey = slug.join("/");
+  return unstable_cache(
+    async () => {
+      const { data } = await http.get(GLOBAL_PAGE, { params: { slug } });
+      return data;
+    },
+    ["page", slugKey],
+    { revalidate: 3600 },
+  )();
 };
 
 export const getCaseStudyService = async ({

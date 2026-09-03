@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
+
 // import { BreadcrumbSchema } from "@/components/providers/breadcrumb-schema";
 import TrackingLoader from "@/components/providers/TrackingLoader";
 import Script from "next/dist/client/script";
@@ -41,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "data analytics services",
     ],
     robots:
-      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "noindex, nofollow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: "/",
