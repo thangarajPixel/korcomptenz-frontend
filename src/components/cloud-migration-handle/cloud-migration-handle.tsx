@@ -8,7 +8,7 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeItem = data?.list?.[activeIndex];
   return (
-    <section className="container-md ">
+    <section className="container-md px-6 ">
       {/* Heading */}
       <div className="">
         {data?.subHeading && (
@@ -52,17 +52,15 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
                 onClick={() => setActiveIndex(index)}
                 className={`shrink-0 px-4 py-2 text-[18px] font-semibold rounded-[8px] whitespace-nowrap transition-colors
         duration-200
-        ${
-          isActive
-            ? "bg-[#2AAC94] "
-            : "bg-white text-[#4A4A4A] border border-[#E0E0E0]"
-        }`}
+        ${isActive
+                    ? "bg-[#2AAC94] "
+                    : "bg-white text-[#4A4A4A] border border-[#E0E0E0]"
+                  }`}
               >
                 <DangerousHtml
                   html={item?.tabTitle}
-                  className={`[&_p]:text-[18px] [&_p]:font-semibold [&_p]:whitespace-nowrap [&_p]:!pb-0 ${
-                    isActive ? "[&_p]:text-white" : "[&_p]:text-[#4A4A4A]"
-                  }`}
+                  className={`[&_p]:text-[18px] [&_p]:font-semibold [&_p]:whitespace-nowrap [&_p]:!pb-0 ${isActive ? "[&_p]:text-white" : "[&_p]:text-[#4A4A4A]"
+                    }`}
                 />
               </button>
             );
@@ -140,11 +138,10 @@ const CloudMigrationHandle = ({ data }: { data: CloudMigrationType }) => {
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`w-full text-left px-4 py-6 text-[24px] font-semibold rounded-[13px] transition-colors duration-200
-        ${
-          isActive
-            ? "bg-[#2AAC94] text-white"
-            : "text-[#4A4A4A] hover:bg-[#D5EDE8]"
-        }`}
+        ${isActive
+                    ? "bg-[#2AAC94] text-white"
+                    : "text-[#4A4A4A] hover:bg-[#D5EDE8]"
+                  }`}
               >
                 <DangerousHtml
                   html={item?.tabTitle}

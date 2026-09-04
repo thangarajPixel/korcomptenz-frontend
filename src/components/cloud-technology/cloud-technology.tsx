@@ -16,7 +16,7 @@ const CloudTechnology = ({ data }: { data: CloudTechnologyType }) => {
 
   return (
     <section className="bg-[#EDF6FF] py-8 md:py-12">
-      <div className="container-md">
+      <div className="container-md px-6">
         {/* Heading */}
         <div className="mb-8 md:mb-10">
           {data?.subHeading && (

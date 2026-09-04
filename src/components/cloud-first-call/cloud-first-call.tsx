@@ -30,7 +30,7 @@ const CloudFirstCall = ({ data }: { data: CloudFirstCallType }) => {
     return () => observer.disconnect();
   }, []);
   return (<section className="bg-[#EDF6FF] py-10 md:py-12">
-    <div className="container-md ">
+    <div className="container-md px-6">
       {/* Heading */}
       <div className="">
         {data?.subHeading && (
@@ -181,7 +181,7 @@ const CloudFirstCall = ({ data }: { data: CloudFirstCallType }) => {
           );
         })}
       </div></div>
-    </section>
+  </section>
   );
 };
 

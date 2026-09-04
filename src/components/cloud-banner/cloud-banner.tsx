@@ -6,7 +6,7 @@ import { DangerousHtml } from "../ui/dangerous-html";
 
 const CloudBanner = ({ data }: { data: FabconBannerType }) => {
   return (
-    <div className="container-md mt-2 lg:mt-10">
+    <div className="container-md px-6 mt-2 lg:mt-10">
       <section className="relative overflow-hidden rounded-[32px] bg-[#07003B]">
         {/* Background Image */}
         <div
@@ -71,11 +71,10 @@ const CloudBanner = ({ data }: { data: FabconBannerType }) => {
             {data?.list?.subList?.map((item, index) => (
               <div
                 key={index}
-                className={`pb-4 ${
-                  index !== data?.list?.subList?.length - 1
+                className={`pb-4 ${index !== data?.list?.subList?.length - 1
                     ? "border-b border-white/20 mb-4"
                     : ""
-                }`}
+                  }`}
               >
                 <DangerousHtml
                   html={item?.title}

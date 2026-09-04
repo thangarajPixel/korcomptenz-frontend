@@ -25,7 +25,7 @@ const IndustryFeaturedContent = ({
   const cards = firstCard ? [firstCard, ...otherCards] : data?.list || [];
 
   return (
-    <section className="container-md ">
+    <section className="container-md px-6 ">
       {/* Heading */}
 
       <div className="max-w-5xl ">
@@ -70,23 +70,22 @@ const IndustryFeaturedContent = ({
           const backgroundStyle = !isHero
             ? item?.isBgImage && item?.bgImage?.url
               ? {
-                  backgroundImage: `url(${item.bgImage.url})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }
+                backgroundImage: `url(${item.bgImage.url})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }
               : {
-                  backgroundColor: item?.bgColor || "#FFFFFF",
-                }
+                backgroundColor: item?.bgColor || "#FFFFFF",
+              }
             : {
-                backgroundColor: item?.bgColor || "#323941",
-              };
+              backgroundColor: item?.bgColor || "#323941",
+            };
 
           return (
             <div
               key={item?.id || index}
-              className={`relative overflow-hidden ${
-                isHero ? "lg:col-span-2 min-h-[360px]" : "min-h-[360px] p-6"
-              }`}
+              className={`relative overflow-hidden ${isHero ? "lg:col-span-2 min-h-[360px]" : "min-h-[360px] p-6"
+                }`}
               style={backgroundStyle}
             >
               {/* ================= HERO CARD ================= */}
@@ -140,7 +139,7 @@ const IndustryFeaturedContent = ({
                           link={item?.buttonLink || "#"}
                           isTargetNew={item?.isTarget}
                           buttonProps={{
-                           
+
                             className: `bg-transparent border-none -ml-4 cursor-pointer ${buttonTextColor} hover:bg-transparent hover:text-${buttonTextColor.replace("text-", "")} hover:border-none shadow-none hover:shadow-none`,
                           }}
                         >
@@ -161,9 +160,8 @@ const IndustryFeaturedContent = ({
                     {/* Title */}
                     <DangerousHtml
                       html={item?.title}
-                      className={`text-[22px]  font-semibold leading-[32px] ${
-                        item?.isBgImage ? "text-white" : "text-[#242424]"
-                      }`}
+                      className={`text-[22px]  font-semibold leading-[32px] ${item?.isBgImage ? "text-white" : "text-[#242424]"
+                        }`}
                     />
 
                     {/* Image */}
@@ -173,9 +171,9 @@ const IndustryFeaturedContent = ({
                         onClick={() =>
                           isVideo
                             ? setIsVideoOpen({
-                                link: item?.buttonLink || "#",
-                                open: true,
-                              })
+                              link: item?.buttonLink || "#",
+                              open: true,
+                            })
                             : undefined
                         }
                       >
@@ -205,9 +203,8 @@ const IndustryFeaturedContent = ({
                     {item?.description && (
                       <DangerousHtml
                         html={item.description}
-                        className={`mt-3 text-md md:text-lg leading-7.5 ${
-                          item?.isBgImage ? "text-white" : "text-[#242424]"
-                        }`}
+                        className={`mt-3 text-md md:text-lg leading-7.5 ${item?.isBgImage ? "text-white" : "text-[#242424]"
+                          }`}
                       />
                     )}
 

@@ -6,7 +6,7 @@ import { TurnstileProvider } from "../providers/turnstile-provider";
 
 const CloudReadiness = ({ data, form }: CloudReadinessProps) => {
   return (
-    <div className="container-md">
+    <div className="container-md px-6">
       <div className="grid grid-cols-1 lg:grid-cols-[55%_42%] md:gap-x-10 gap-y-10">
         {/* CONTENT SECTION */}
         <div className="lg:px-5 md:mt-8">

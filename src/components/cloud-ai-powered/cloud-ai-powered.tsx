@@ -19,7 +19,7 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
   const hasColoredBg = hasBgColor || hasBgImage;
 
   return (
-    <section className="container-md">
+    <section className="container-md px-6">
       {/* ── Section heading ── */}
       <div className="flex flex-col items-center text-center mb-6 md:mb-8">
         {data?.subHeading && (
@@ -59,11 +59,10 @@ const CloudAiPowered = ({ data }: { data: CloudAiPoweredType }) => {
               className={`relative shrink-0 px-4 md:px-6 py-3 text-[14px] md:text-[16px] font-medium whitespace-nowrap transition-colors duration-200 border-b-2
               
               
-${
-  isActive
-    ? "border-b-[#2AAC94] text-[#242424]"
-    : "border-b-transparent text-[#242424] hover:border-b-[#2AAC94] hover:text-[#2AAC94]"
-}`}
+${isActive
+                  ? "border-b-[#2AAC94] text-[#242424]"
+                  : "border-b-transparent text-[#242424] hover:border-b-[#2AAC94] hover:text-[#2AAC94]"
+                }`}
             >
               <DangerousHtml
                 html={item?.tabTitle}
@@ -132,10 +131,9 @@ ${
                     target={activeItem?.isTarget ? "_blank" : "_self"}
                     rel="noopener noreferrer"
                     className={`self-start mt-2 px-5 py-2 rounded-full border text-[18px] font-medium transition-colors duration-200
-                      ${
-                        hasColoredBg
-                          ? "border-white text-[#2AAC94] bg-white hover:bg-white hover:text-[#2AAC94]"
-                          : "border-[#2AAC94] text-[#2AAC94] hover:bg-[#2AAC94] hover:text-white"
+                      ${hasColoredBg
+                        ? "border-white text-[#2AAC94] bg-white hover:bg-white hover:text-[#2AAC94]"
+                        : "border-[#2AAC94] text-[#2AAC94] hover:bg-[#2AAC94] hover:text-white"
                       }`}
                   >
                     {activeItem.buttonText}

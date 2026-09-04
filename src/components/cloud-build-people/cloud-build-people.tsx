@@ -14,7 +14,7 @@ const CloudBuildPeople = ({ data }: { data: CloudBuildPeopleType }) => {
   const length = data?.list?.length ?? 0;
   return (
     <section className=" bg-[#EDF6FF] py-10 md:py-12">
-      <div className="container-md">
+      <div className="container-md px-6">
         {/* Heading */}
         <div className="">
           {data?.subHeading && (

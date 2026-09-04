@@ -6,7 +6,7 @@ const CloudWarning = ({ data }: { data: CloudWarningType }) => {
   return (
     <section className="bg-[#EDF6FF] py-10 md:py-12">
       {/* Heading */}
-      <div className="container-md">
+      <div className="container-md px-6">
         <div className="">
           {data?.subHeading && (
             <DangerousHtml

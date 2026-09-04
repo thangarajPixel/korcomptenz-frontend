@@ -30,7 +30,7 @@ const FaqSection = ({ faqData }: { faqData: FaqSectionType }) => {
     })),
   };
   return (
-    <section className="container-md" data-debug={"page-componets.faq-title"}>
+    <section className="container-md px-6" data-debug={"page-componets.faq-title"}>
       <Script
         id="faq-schema"
         type="application/ld+json"
