@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, X, Plus } from "lucide-react";
+import { ChevronLeft, Plus } from "lucide-react";
 import Link from "next/link";
 
 // ---------- Types ----------
@@ -18,9 +18,8 @@ interface DrawerState {
   menu: EcosystemMenuType | null;
 }
 
-// ---------- Data ----------
-
 // ---------- Drawer ----------
+
 const EcosystemDrawer = ({
   isOpen,
   onClose,
@@ -35,7 +34,7 @@ const EcosystemDrawer = ({
     <div className="fixed inset-0 z-50 lg:hidden">
       <div className="fixed inset-0 bg-[#f2f2f2]">
         {/* Header */}
-        <div className="flex items-center justify-between py-2  bg-[#f2f2f2] border-b border-primary">
+        <div className="flex items-center justify-between py-2 bg-[#f2f2f2] border-b border-primary">
           <div className="flex items-center">
             <button
               onClick={onClose}
@@ -43,48 +42,51 @@ const EcosystemDrawer = ({
             >
               <ChevronLeft className="w-5 h-5 text-primary" />
             </button>
+
             {menu?.menu && (
               <Link href={menu?.item?.link || "#"} onClick={closeMenu}>
-                <h4 className="font-medium text-lg text-primary">{menu?.menu}</h4>
+                <h4 className="font-medium text-lg leading-[26px] text-primary">
+                  {menu?.menu}
+                </h4>
               </Link>
             )}
           </div>
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full hover:bg-gray-50 transition-colors"
-          >
-            <X className="w-5 h-5 text-gray-400" />
-          </button>
         </div>
 
         {/* Content */}
-        <div className="h-full overflow-y-auto  bg-[#f2f2f2]">
+        <div className="h-full overflow-y-auto bg-[#f2f2f2] p-4">
           {item && (
-            <div className="p-4 ">
-              {item?.child?.map((child, i) => (
+            <div className="divide-y divide-gray-100">
+              {item?.child?.map((child, index) => (
                 <div
-                  key={`ecosystem-mobile-${i}`}
-                  className="px-2 py-1 border-b border-gray-100"
+                  key={`ecosystem-mobile-${index}`}
+                  className="border-b border-primary"
                 >
-                  <Link href={child?.href?.slug || "#"} onClick={closeMenu}>
-                    <p className="text-lg font-medium text-primary border-b border-primary">
+                  {/* Parent Link */}
+                  <Link
+                    href={child?.href?.slug ? child.href.slug : "#"}
+                    onClick={closeMenu}
+                    className="w-full block text-left"
+                  >
+                    <div className="text-lg font-normal text-primary py-2 leading-6.5">
                       {child?.title}
-                    </p>
+                    </div>
                   </Link>
+
+                  {/* Description / Child Links */}
                   {child?.description?.length > 0 && (
-                    <ul className="mt-1 text-md text-black">
-                      {child?.description?.map((desc, j) => (
+                    <div className="space-y-1 mt-2 pb-2">
+                      {child?.description?.map((desc, descIndex) => (
                         <Link
-                          href={desc?.href?.slug || "#"}
+                          key={`ecosystem-sub-${descIndex}`}
+                          href={desc?.href?.slug ? desc.href.slug : "#"}
                           onClick={closeMenu}
-                          key={j}
+                          className="block text-lg px-4 rounded transition-colors text-custom-gray-4 ps-7 hover:text-primary"
                         >
-                          <li key={`ecosystem-mobile-${j}`}>
-                            {desc?.description}
-                          </li>
+                          {desc?.description}
                         </Link>
                       ))}
-                    </ul>
+                    </div>
                   )}
                 </div>
               ))}
@@ -97,6 +99,7 @@ const EcosystemDrawer = ({
 };
 
 // ---------- Main Component ----------
+
 const EcosystemMobile = ({
   data,
   closeMenu,
@@ -110,32 +113,39 @@ const EcosystemMobile = ({
   });
 
   const handleMenuClick = (menu: EcosystemMenuType) => {
-    setDrawer({ isOpen: true, menu });
+    setDrawer({
+      isOpen: true,
+      menu,
+    });
   };
 
   const closeDrawer = () => {
-    setDrawer({ isOpen: false, menu: null });
+    setDrawer({
+      isOpen: false,
+      menu: null,
+    });
   };
 
   return (
     <>
-      {/* Sidebar list */}
+      {/* Main Ecosystem Menu */}
       <div className="px-0">
         {data?.ecosystemMenu?.map((ec) => (
           <button
             key={`ecosystem-mobile-${ec?.id}`}
             onClick={() => handleMenuClick(ec)}
-            className="w-full flex items-center justify-between p-2 text-left border-b border-[#E0E0E0]"
+            className="w-full flex items-center justify-between p-1 text-left"
           >
             <span className="text-lg text-foreground leading-6.5 font-normal">
               {ec?.menu}
             </span>
+
             <Plus className="w-4 h-4 text-primary" />
           </button>
         ))}
       </div>
 
-      {/* Drawer */}
+      {/* Ecosystem Drawer */}
       <EcosystemDrawer
         isOpen={drawer.isOpen}
         onClose={closeDrawer}
