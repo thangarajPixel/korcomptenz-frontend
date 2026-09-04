@@ -5,18 +5,18 @@ import ButtonLink from "@/components/ui/button-link";
 const FullWidthGramSection = ({ data }: { data: CTABannerType }) => {
   return (
     <div
-      className="overflow-hidden"
+      className="overflow-hidden px-6"
       style={
         data?.isBgImage && data?.backroundImage?.url
           ? {
-              backgroundImage: `url(${data.backroundImage.url})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }
+            backgroundImage: `url(${data.backroundImage.url})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }
           : {
-              background: data?.bgColor || "#ffffff",
-            }
+            background: data?.bgColor || "#ffffff",
+          }
       }
     >
       <div className="flex flex-col h-full">

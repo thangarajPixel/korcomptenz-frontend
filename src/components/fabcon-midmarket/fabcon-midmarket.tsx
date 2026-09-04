@@ -26,7 +26,7 @@ export default function FabconMidMarket({
         backgroundRepeat: data?.isBackground ? "no-repeat" : undefined,
       }}
     >
-      <div className="container-md">
+      <div className="container-md px-6">
         {/* Header */}
         <div className="text-start md:mb-6 grid gap-4">
           {data?.topTitle && (
