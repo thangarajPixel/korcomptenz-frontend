@@ -8,7 +8,7 @@ const BannerSection = ({
 }) => {
   return (
     <section
-      className="container-md mt-2 lg:mt-10"
+      className="container-md px-6 mt-2 lg:mt-10"
       data-debug={"page-componets.banner-section-list"}
     >
       {BannerSectionData?.length < 2 ? (
@@ -20,7 +20,7 @@ const BannerSection = ({
               key={`banner-card-${data?.id}`}
               data={data}
               className="embla__custom_slide"
-              
+
             />
           ))}
         </CardSwiperArrow>

@@ -5,7 +5,7 @@ import KorcomptenzImage from "../korcomptenz-image";
 
 const IndustryAbout = ({ data }: { data: FabconAboutType }) => {
   return (
-    <div className="container-md">
+    <div className="container-md px-6">
       <div className="grid grid-cols-1 lg:grid-cols-[52%_45%] md:gap-x-10 gap-y-10">
         {/* CONTENT SECTION */}
         <div className="md:mt-8">

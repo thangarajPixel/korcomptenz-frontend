@@ -77,7 +77,7 @@ const IndustryForm = ({ form }: { form: IndustryFormType }) => {
 
   return (
     <section className="bg-[#EDF6FF] py-10 md:py-12">
-      <div className="container-md ">
+      <div className="container-md px-6">
         <div className=" max-w-5xl">
           {/* Sub Heading */}
 

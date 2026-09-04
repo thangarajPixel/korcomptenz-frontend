@@ -13,7 +13,7 @@ const ScheduleCall = ({
 }: {
   scheduleCall: ScheduleCallType;
   isLastIndex: boolean;
-  essential?: { id: string | number; [key: string]: unknown };
+  essential?: { id: string | number;[key: string]: unknown };
 }) => {
   return (
     <div
@@ -25,7 +25,7 @@ const ScheduleCall = ({
       )}
       data-debug={"home.schedule-call"}
     >
-      <div className="container-md">
+      <div className="container-md px-6">
         <div className="lg:flex flex-row lg:gap-8 justify-center h-full lg:min-h-150 py-10">
           {/* Left content */}
           <div className="relative z-20 flex flex-col justify-around lg:w-[50%] max-w-[450px]">
