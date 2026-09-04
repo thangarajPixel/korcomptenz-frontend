@@ -17,7 +17,7 @@ const IndustryServicePortfolio = ({
   const activeItem = tabs[activeIdx];
 
   return (
-    <section className="container-md ">
+    <section className="container-md px-6 ">
       {/* ── Top header ── */}
       <div className="flex flex-col lg:flex-row justify-between items-start gap-6 mb-8">
         <div className=" max-w-4xl">
