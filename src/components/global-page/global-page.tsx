@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { ScrollFadeIn } from "../ui/scroll-fade-in";
 
-
 // Every CMS section below is code-split via next/dynamic (ssr stays on, so
 // server-rendered HTML is unchanged) instead of being statically imported.
 // A typical page only renders a fraction of these ~140 component types, so
@@ -79,9 +78,7 @@ const ContactUsNewsletter = dynamic(() =>
   import("../news-letter-section").then((m) => m.ContactUsNewsletter),
 );
 const ContactUsCorporate = dynamic(() =>
-  import("@/app/(default)/contact-us/_utils").then(
-    (m) => m.ContactUsCorporate,
-  ),
+  import("@/app/(default)/contact-us/_utils").then((m) => m.ContactUsCorporate),
 );
 const ContactUsInsight = dynamic(() =>
   import("@/app/(default)/contact-us/_utils").then((m) => m.ContactUsInsight),
@@ -194,13 +191,10 @@ const FabconLedTransform = dynamic(() => import("../fabcon-led-transform"));
 const FabconComposableIntelligence = dynamic(
   () => import("../fabcon-composable-intelligence"),
 );
-const FabconDecisionFabric = dynamic(
-  () => import("../fabcon-decision-fabric"),
-);
+const FabconDecisionFabric = dynamic(() => import("../fabcon-decision-fabric"));
 const FabconBanner = dynamic(() => import("../fabcon-banner/fabcon-banner"));
 const CommunityBanner = dynamic(
-  () =>
-    import("../community-conference-banner/community-conference-banner"),
+  () => import("../community-conference-banner/community-conference-banner"),
 );
 const FabconMidMarket = dynamic(() => import("../fabcon-midmarket"));
 const LogoSlider = dynamic(() => import("../logo-slider"));
@@ -261,11 +255,11 @@ const NewsLetterDescription = dynamic(
   () => import("../newsletter-description"),
 );
 const NewsLetterFooterSection = dynamic(() => import("../newsletter-footer"));
-const FullWidthGramSection = dynamic(
-  () => import("../full-width-gram-banner"),
-);
+const FullWidthGramSection = dynamic(() => import("../full-width-gram-banner"));
 const CustomScriptSection = dynamic(() => import("../custom-script"));
 const HomeSlidingSection = dynamic(() => import("../home-sliding-section"));
+
+const MomentumSection = dynamic(() => import("../momentum-slider"));
 
 type Props = {
   data: ComponentPropsType[];
@@ -556,6 +550,17 @@ const GlobalPage = (props: Props) => {
             className="container-md"
           >
             <WhyKorcomptenz data={item} />
+          </ScrollFadeIn>
+        );
+
+      case "page-componets.momentum-slider":
+        return (
+          <ScrollFadeIn
+            __component={item?.__component}
+            key={`momentum-slider-${item?.__component}-${item?.id}`}
+            className="container-md"
+          >
+            <MomentumSection momentumData={item} />
           </ScrollFadeIn>
         );
       case "page-componets.gram-banner":
